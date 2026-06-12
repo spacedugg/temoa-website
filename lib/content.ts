@@ -102,12 +102,12 @@ export const cases = {
     {
       brand: "Vitaworld",
       category: "Nahrungsergänzung",
-      metric: "ROAS von 2,1 auf 4,8",
-      metricFrom: "2,1",
-      metricTo: "4,8",
-      metricLabel: "ROAS",
-      text: "Ausgangslage: solide Umsätze, aber die Kampagnen liefen auf Listings, die Besucher nicht überzeugten. Wir haben zuerst Content und Keywords neu aufgesetzt, dann die Kampagnenstruktur umgebaut. Ergebnis: mehr als doppelt so effiziente Werbeausgaben — bei wachsendem Gesamtumsatz.",
-      note: "Kundenbeispiel, Zeitraum 12 Monate",
+      metric: "Umsatz +147 %, TACoS −44 %",
+      metricFrom: "",
+      metricTo: "+147 %",
+      metricLabel: "Umsatz",
+      text: "Ausgangslage: solider Account, aber Wachstum nur über proportional steigendes Werbebudget. Wir haben Hauptbilder, Titel und Kampagnen-Targets neu aufgesetzt: Der Adspend stieg um 39 %, der Umsatz um 147 % — der PPC-Anteil am Umsatz sank von 36 % auf 29 %, der TACoS von 10,4 % auf 5,8 %.",
+      note: "Kundenbeispiel, Q1 2025 vs. Q1 2026",
       image: "/assets/img/vitaworld.jpg",
     },
     {
@@ -124,23 +124,43 @@ export const cases = {
   ],
 };
 
+export type BrandShape = "square" | "circle" | "u" | "hexagon";
+
+export type ServiceItem = {
+  name?: string;
+  subBrand?: string;
+  shape?: BrandShape;
+  title: string;
+  text: string;
+  href: string;
+};
+
 export const services = {
   headline: "Ein Konto, eine Verantwortung: alles, was euer Amazon-Geschäft braucht",
   intro:
     "Wir übernehmen euer Amazon-Konto als Ganzes — nicht als Liste von Einzelaufgaben, sondern als System, in dem jeder Teil auf den anderen aufbaut:",
+  // shape/subBrand: Geometrie aus dem TEMOA-Logo-Icon (Subbrand-System
+  // aus dem Sales-Room: Strategy Suite, Content Studio, Advertising
+  // Engine, Management Hub).
   foundation: {
     name: "Das Fundament",
+    subBrand: "Strategy Suite",
+    shape: "square" as const,
     title: "Strategie & Pricing",
     text: "Sortiment, Positionierung, Margenlogik. Bevor irgendwo optimiert wird, ist klar, welche Produkte das Wachstum tragen und welcher Preis im Wettbewerb verteidigbar ist.",
     href: "/leistungen/strategie-pricing",
   },
   levers: [
     {
+      subBrand: "Content Studio",
+      shape: "circle" as const,
       title: "Content & Listing-SEO",
       text: "Produktbilder, A+ Content, Brand Store, Keyword-Architektur. Das Listing ist euer Verkäufer — es arbeitet 24/7, bezahlt wird es nicht pro Klick.",
       href: "/leistungen/content-listing-seo",
     },
     {
+      subBrand: "Advertising Engine",
+      shape: "u" as const,
       title: "PPC Advertising",
       text: "Sponsored Products, Brands und Display — auf Listings, die konvertieren. Gesteuert auf Profitabilität (TACoS), nicht auf Bruttoumsatz.",
       href: "/leistungen/ppc-advertising",
@@ -150,9 +170,11 @@ export const services = {
       text: "Expansion auf bis zu 5 Marktplätze: Übersetzung mit lokaler Keyword-Recherche, Pan-EU-Logistik, Compliance je Markt.",
       href: "/leistungen/internationalisierung",
     },
-  ],
+  ] satisfies ServiceItem[] as ServiceItem[],
   bracket: {
     name: "Die Klammer",
+    subBrand: "Management Hub",
+    shape: "hexagon" as const,
     title: "Account Management",
     text: "Bestandsplanung, Buy-Box-Monitoring, Compliance, Seller-Support-Cases und ein monatliches Reporting, das ihr in fünf Minuten versteht. Das Tagesgeschäft, das heute eure Woche frisst — bei uns ist es der Job.",
     href: "/leistungen/account-management",

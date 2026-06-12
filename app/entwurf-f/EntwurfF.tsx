@@ -17,6 +17,7 @@ import {
   faq,
   closing,
   midCta,
+  type BrandShape,
 } from "@/lib/content";
 
 
@@ -374,14 +375,52 @@ function Cases() {
 
 /* -------------------------------- Leistungen ------------------------------ */
 
+// Die vier Subbrand-Formen aus dem TEMOA-Logo-Icon (Pfade aus
+// public/assets/logos/logo_icon.svg).
+function BrandShapeIcon({ shape, className = "" }: { shape: BrandShape; className?: string }) {
+  if (shape === "square")
+    return (
+      <svg viewBox="0 0 108 108" className={className} aria-hidden>
+        <rect width="108" height="108" rx="6" fill="#ff9900" />
+      </svg>
+    );
+  if (shape === "circle")
+    return (
+      <svg viewBox="0 0 108 108" className={className} aria-hidden>
+        <circle cx="54" cy="54" r="54" fill="#ff3131" />
+      </svg>
+    );
+  if (shape === "u")
+    return (
+      <svg viewBox="0 121 110 134" className={className} aria-hidden>
+        <path
+          d="M2.25,121.7 L107.6,121.7 C108.8,121.7 109.8,122.7 109.8,123.9 L109.8,200.6 C109.5,223.9 94.6,243.7 74.1,251.2 C68.6,253.1 62.3,254.1 56,254.1 C49.7,254.1 43.8,253 38.3,251.2 C17.6,243.8 2.7,224 2.4,200.6 L2.4,123.9 C2.4,122.7 3.4,121.7 2.25,121.7 Z"
+          fill="#023047"
+        />
+      </svg>
+    );
+  return (
+    <svg viewBox="120 122 109 132" className={className} aria-hidden>
+      <path
+        d="M176.3,122.9 L226.2,153.6 C227.4,154.3 228.1,155.6 228.1,157 L228.1,218.7 C228.1,220.1 227.4,221.4 226.2,222.1 L176.3,252.9 C175.1,253.6 173.6,253.6 172.5,252.9 L122.6,222.1 C121.4,221.4 120.7,220.1 120.7,218.7 L120.7,157 C120.7,155.6 121.4,154.3 122.6,153.6 L172.5,122.9 C173.6,122.1 175.1,122.1 176.3,122.9 Z"
+        fill="#cde6f4"
+      />
+    </svg>
+  );
+}
+
 function ServiceTile({
   name,
+  subBrand,
+  shape,
   title,
   text,
   dark = false,
   className = "",
 }: {
   name?: string;
+  subBrand?: string;
+  shape?: BrandShape;
   title: string;
   text: string;
   dark?: boolean;
@@ -393,16 +432,26 @@ function ServiceTile({
         dark ? "bg-brand-navy text-white shadow-[0_30px_60px_-30px_rgba(2,48,71,0.7)]" : `bg-white ring-1 ring-line ${tileShadow}`
       } ${className}`}
     >
-      {name && (
-        <span
-          className={`mb-2 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
-            dark ? "bg-white/10 text-brand-orange" : "bg-brand-orange/10 text-brand-orange"
-          }`}
-        >
-          {name}
-        </span>
-      )}
-      <h3 className={`text-base font-bold ${dark ? "text-white" : "text-ink"}`}>{title}</h3>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          {name && (
+            <span
+              className={`mb-2 inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
+                dark ? "bg-white/10 text-brand-orange" : "bg-brand-orange/10 text-brand-orange"
+              }`}
+            >
+              {name}
+            </span>
+          )}
+          {subBrand && (
+            <p className={`text-[10px] font-bold uppercase tracking-[0.18em] ${dark ? "text-white/50" : "text-ink-soft/70"}`}>
+              {subBrand}
+            </p>
+          )}
+          <h3 className={`mt-1 text-base font-bold ${dark ? "text-white" : "text-ink"}`}>{title}</h3>
+        </div>
+        {shape && <BrandShapeIcon shape={shape} className="mt-1 h-6 w-6 shrink-0" />}
+      </div>
       <p className={`mt-2 text-[13px] leading-relaxed ${dark ? "text-white/75" : "text-ink-soft"}`}>{text}</p>
     </div>
   );
@@ -421,19 +470,15 @@ function Services() {
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-3">
         <Reveal className="md:col-span-2">
-          <ServiceTile name={services.foundation.name} title={services.foundation.title} text={services.foundation.text} />
+          <ServiceTile {...services.foundation} />
         </Reveal>
-        <Reveal delay={0.08}>
-          <ServiceTile title={services.levers[0].title} text={services.levers[0].text} />
-        </Reveal>
-        <Reveal delay={0.12}>
-          <ServiceTile title={services.levers[1].title} text={services.levers[1].text} />
-        </Reveal>
-        <Reveal delay={0.16}>
-          <ServiceTile title={services.levers[2].title} text={services.levers[2].text} />
-        </Reveal>
+        {services.levers.map((l, i) => (
+          <Reveal key={l.title} delay={0.08 + 0.04 * i}>
+            <ServiceTile {...l} />
+          </Reveal>
+        ))}
         <Reveal delay={0.2}>
-          <ServiceTile dark name={services.bracket.name} title={services.bracket.title} text={services.bracket.text} />
+          <ServiceTile dark {...services.bracket} />
         </Reveal>
       </div>
     </Viewport>
