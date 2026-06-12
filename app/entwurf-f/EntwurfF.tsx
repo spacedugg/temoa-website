@@ -1,7 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import {
   cta,
@@ -27,6 +37,149 @@ export type Assets3D = {
   stage: string | null;
   shapes: Partial<Record<BrandShape, string>>;
 };
+
+const EASE = [0.21, 0.6, 0.35, 1] as const;
+
+// Hydration-sicheres Reduced-Motion: erster Client-Render entspricht dem
+// Server (false), erst nach dem Mount greift die echte Nutzer-Präferenz.
+function useReducedMotionSafe() {
+  const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted ? !!reduce : false;
+}
+
+/* ------------------------------ Motion-Bausteine -------------------------- */
+
+// Zahl zählt hoch, sobald sie in den Viewport kommt ("60+", "21 Mio. €", "98 %").
+function CountUp({ value, className = "" }: { value: string; className?: string }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const m = value.match(/^([^0-9]*)([0-9]+(?:[.,][0-9]+)?)(.*)$/);
+  const target = m ? parseFloat(m[2].replace(",", ".")) : 0;
+  const decimals = m && m[2].includes(",") ? 1 : 0;
+  // Startwert muss server-/clientseitig identisch sein (Hydration);
+  // reduzierte Bewegung springt im Effekt direkt auf den Zielwert.
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!inView || !m) return;
+    if (reduce) {
+      setDisplay(m[2]);
+      return;
+    }
+    const controls = animate(0, target, {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) =>
+        setDisplay(decimals ? v.toFixed(decimals).replace(".", ",") : Math.round(v).toString()),
+    });
+    return () => controls.stop();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inView, reduce]);
+
+  if (!m) return <span className={className}>{value}</span>;
+  return (
+    <span ref={ref} className={className}>
+      {m[1]}
+      {display}
+      {m[3]}
+    </span>
+  );
+}
+
+// SVG-Pfad zeichnet sich beim Scrollen in den Viewport selbst.
+function DrawPath({
+  d,
+  stroke,
+  strokeWidth = 2.5,
+  delay = 0,
+}: {
+  d: string;
+  stroke: string;
+  strokeWidth?: number;
+  delay?: number;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.path
+      d={d}
+      fill="none"
+      stroke={stroke}
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      initial={{ pathLength: 0 }}
+      whileInView={{ pathLength: 1 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={reduce ? { duration: 0 } : { duration: 1.6, delay, ease: [0.3, 0.8, 0.3, 1] }}
+    />
+  );
+}
+
+// Karte kippt der Maus entgegen (echte Perspektive statt Hover-Schatten).
+function Tilt({
+  children,
+  max = 5,
+  className = "",
+}: {
+  children: ReactNode;
+  max?: number;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 180, damping: 22 });
+  const sry = useSpring(ry, { stiffness: 180, damping: 22 });
+
+  return (
+    <motion.div
+      className={className}
+      style={{ rotateX: srx, rotateY: sry, transformStyle: "preserve-3d" }}
+      onMouseMove={(e) => {
+        if (reduce) return;
+        const r = e.currentTarget.getBoundingClientRect();
+        ry.set(((e.clientX - r.left) / r.width - 0.5) * 2 * max);
+        rx.set(-((e.clientY - r.top) / r.height - 0.5) * 2 * max);
+      }}
+      onMouseLeave={() => {
+        rx.set(0);
+        ry.set(0);
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Einschweben mit Perspektive: Panels kippen aus der Tiefe nach vorn,
+// statt nur zu faden. Im Grid-Parent muss `perspective` gesetzt sein.
+function RiseIn({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 64, rotateX: 28 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={reduce ? { duration: 0 } : { duration: 0.9, delay, ease: EASE }}
+      style={{ transformStyle: "preserve-3d" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* --------------------------------- Gerüst --------------------------------- */
 
 function CtaButton({ label = cta.label, className = "" }: { label?: string; className?: string }) {
   return (
@@ -69,10 +222,7 @@ function Header() {
   );
 }
 
-// Eine Sektion = ein Viewport: Inhalte sind bewusst kompakt gehalten und
-// werden ab lg vertikal zentriert auf volle Höhe gesetzt. Helle Sektionen
-// bekommen ein Studio-Licht (radialer Lichtkegel + warmer Schimmer) statt
-// flacher Flächen.
+// Eine Sektion = ein Viewport. Helle Sektionen bekommen Studio-Licht.
 function Viewport({
   id,
   studio = false,
@@ -120,8 +270,7 @@ function H2({ children, dark = false, className = "" }: { children: ReactNode; d
   );
 }
 
-// Schwebendes Panel: leichte Material-Gradients, Glanzkante oben, gestaffelte
-// Schatten plus weicher Bodenschatten — statt flacher Karte.
+// Schwebendes Panel: Material-Gradient, Glanzkante, Bodenschatten.
 const floatSurface =
   "relative h-full rounded-2xl bg-gradient-to-b from-white to-[#f6f9fb] ring-1 ring-white shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_2px_5px_rgba(2,48,71,0.06),0_36px_70px_-34px_rgba(2,48,71,0.45)]";
 
@@ -147,8 +296,9 @@ function FloatTile({
 
 /* ---------------------------------- Hero --------------------------------- */
 
-// CSS-Bühne hinter dem Foto: heller Studio-Verlauf, Podium, Glas-Panels.
-// Sichtbar, solange das fotorealistische Asset noch nicht im Repo liegt.
+// CSS-Bühne hinter dem Foto: Studio-Verlauf, Podium, zentrales Glas-Panel
+// mit selbstzeichnender Kurve. Die äußeren KPI-Panels schweben als eigene
+// Parallax-Ebenen über dem Bühnenrahmen (siehe HeroStage).
 function StageFallback() {
   return (
     <div className="absolute inset-0 overflow-hidden bg-[#f3f6f8]" aria-hidden>
@@ -159,24 +309,15 @@ function StageFallback() {
             "radial-gradient(ellipse 70% 55% at 62% 38%, #ffffff 0%, rgba(255,255,255,0) 70%), radial-gradient(ellipse 45% 35% at 70% 78%, rgba(255,138,0,0.18) 0%, rgba(255,138,0,0) 70%), radial-gradient(ellipse 30% 25% at 40% 85%, rgba(255,49,49,0.08) 0%, rgba(255,49,49,0) 70%)",
         }}
       />
-      <div
-        className="absolute left-1/2 top-[68%] h-10 w-72 -translate-x-1/2 rounded-[100%] bg-[#023047]/15 blur-xl"
-        aria-hidden
-      />
-      <div className="absolute left-1/2 top-[40%] w-44 -translate-x-1/2 rounded-2xl border border-white/70 bg-white/55 p-3 shadow-[0_24px_50px_-20px_rgba(2,48,71,0.35)] backdrop-blur-md">
+      <div className="absolute left-1/2 top-[70%] h-10 w-72 -translate-x-1/2 rounded-[100%] bg-[#023047]/15 blur-xl" />
+      <div className="absolute left-1/2 top-[34%] w-48 -translate-x-1/2 rounded-2xl border border-white/70 bg-white/55 p-3.5 shadow-[0_24px_50px_-20px_rgba(2,48,71,0.35)] backdrop-blur-md">
         <p className="text-[9px] font-bold uppercase tracking-wide text-ink-soft">Organischer Anteil</p>
-        <p className="mt-0.5 text-xl font-extrabold text-brand-orange">80 %</p>
+        <p className="mt-0.5 text-xl font-extrabold text-brand-orange">
+          <CountUp value="80 %" />
+        </p>
         <svg viewBox="0 0 120 36" className="mt-1 w-full">
-          <path d="M2 30 C25 28 45 22 65 16 C85 10 100 8 118 4" fill="none" stroke="#ff8a00" strokeWidth="2.5" strokeLinecap="round" />
+          <DrawPath d="M2 30 C25 28 45 22 65 16 C85 10 100 8 118 4" stroke="#ff8a00" delay={0.4} />
         </svg>
-      </div>
-      <div className="absolute left-[16%] top-[22%] w-36 rotate-[-5deg] rounded-2xl border border-white/70 bg-white/45 p-3 backdrop-blur-md">
-        <p className="text-[9px] font-bold uppercase tracking-wide text-ink-soft">ROAS</p>
-        <p className="mt-0.5 text-lg font-extrabold text-ink">4,8</p>
-      </div>
-      <div className="absolute right-[12%] top-[58%] w-36 rotate-[4deg] rounded-2xl border border-white/70 bg-white/45 p-3 backdrop-blur-md">
-        <p className="text-[9px] font-bold uppercase tracking-wide text-ink-soft">TACoS</p>
-        <p className="mt-0.5 text-lg font-extrabold text-brand-red">−35 %</p>
       </div>
     </div>
   );
@@ -189,10 +330,7 @@ function LogoMarquee() {
     <div className="relative min-w-0 flex-1 overflow-hidden">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent" />
-      <div
-        className="flex w-max items-center"
-        style={{ animation: "marquee-left 45s linear infinite" }}
-      >
+      <div className="flex w-max items-center" style={{ animation: "marquee-left 45s linear infinite" }}>
         {row.map((l, i) => (
           <div key={`${l.name}-${i}`} className="group grid h-12 w-28 shrink-0 place-items-center px-3">
             <img
@@ -203,6 +341,60 @@ function LogoMarquee() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+// Die Bühne: Foto/Fallback in einer Tilt-Ebene, davor zwei Glas-Dashboards,
+// die per translateZ vor der Karte schweben und beim Scrollen parallax
+// gegenläufig wandern — die "umkreisenden Dashboards" der Produktbühne.
+function HeroStage({ image }: { image: string | null }) {
+  const reduce = useReducedMotionSafe();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const chipUp = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [44, -44]);
+  const chipDown = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-32, 32]);
+
+  return (
+    <div ref={ref} className="relative" style={{ perspective: "1300px" }}>
+      <Tilt max={4}>
+        <div className="relative aspect-[5/4] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-line shadow-[0_3px_6px_rgba(2,48,71,0.05),0_50px_90px_-40px_rgba(2,48,71,0.45)] sm:aspect-[16/10] lg:aspect-[5/4] lg:max-h-[62svh]">
+          <StageFallback />
+          {image && (
+            <img
+              src={image}
+              alt="Produktbühne: schwebendes Produkt mit Performance-Dashboards"
+              className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+            />
+          )}
+        </div>
+
+        {/* Schwebende Glas-Dashboards (eigene Tiefenebene, translateZ) */}
+        <motion.div
+          style={{ y: chipUp, z: 50 }}
+          className="absolute -left-4 top-8 w-40 rounded-2xl border border-white/70 bg-white/70 p-3 shadow-[0_28px_55px_-22px_rgba(2,48,71,0.5)] backdrop-blur-xl sm:-left-8"
+        >
+          <p className="text-[9px] font-bold uppercase tracking-wide text-ink-soft">ROAS</p>
+          <p className="mt-0.5 text-lg font-extrabold text-ink">
+            <CountUp value="4,8" />
+          </p>
+          <svg viewBox="0 0 130 30" className="mt-1 w-full">
+            <DrawPath d="M2 26 C30 24 55 18 80 12 C100 7 115 5 128 3" stroke="#023047" strokeWidth={2} delay={0.3} />
+          </svg>
+        </motion.div>
+        <motion.div
+          style={{ y: chipDown, z: 70 }}
+          className="absolute -bottom-5 -right-2 w-40 rounded-2xl border border-white/70 bg-white/70 p-3 shadow-[0_28px_55px_-22px_rgba(2,48,71,0.5)] backdrop-blur-xl sm:-right-6"
+        >
+          <p className="text-[9px] font-bold uppercase tracking-wide text-ink-soft">TACoS</p>
+          <p className="mt-0.5 text-lg font-extrabold text-brand-red">
+            <CountUp value="−35 %" />
+          </p>
+          <svg viewBox="0 0 130 30" className="mt-1 w-full">
+            <DrawPath d="M2 5 C30 7 55 13 80 19 C100 24 115 26 128 27" stroke="#ff3131" strokeWidth={2} delay={0.45} />
+          </svg>
+        </motion.div>
+      </Tilt>
     </div>
   );
 }
@@ -233,28 +425,13 @@ function Hero({ image }: { image: string | null }) {
                   <CtaButton />
                   <p className="mt-3 text-xs text-ink-soft">{cta.micro}</p>
                 </div>
-                <img
-                  src={partnerBadge.src}
-                  alt={partnerBadge.alt}
-                  className="h-16 w-auto rounded-xl ring-1 ring-line"
-                />
+                <img src={partnerBadge.src} alt={partnerBadge.alt} className="h-16 w-auto rounded-xl ring-1 ring-line" />
               </div>
             </Reveal>
           </div>
 
           <Reveal delay={0.1} y={36}>
-            <div
-              className="relative aspect-[5/4] w-full overflow-hidden rounded-[1.75rem] ring-1 ring-line shadow-[0_3px_6px_rgba(2,48,71,0.05),0_50px_90px_-40px_rgba(2,48,71,0.45)] sm:aspect-[16/10] lg:aspect-[5/4] lg:max-h-[62svh]"
-            >
-              <StageFallback />
-              {image && (
-                <img
-                  src={image}
-                  alt="Produktbühne: schwebendes Produkt mit Performance-Dashboards"
-                  className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-                />
-              )}
-            </div>
+            <HeroStage image={image} />
           </Reveal>
         </div>
 
@@ -263,7 +440,9 @@ function Hero({ image }: { image: string | null }) {
             <div className="grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-4">
               {stats.map((s) => (
                 <div key={s.label}>
-                  <p className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl">{s.value}</p>
+                  <p className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl">
+                    <CountUp value={s.value} />
+                  </p>
                   <p className="mt-0.5 text-[11px] leading-snug text-ink-soft">{s.label}</p>
                 </div>
               ))}
@@ -295,9 +474,9 @@ function Problem() {
           <p className="max-w-md text-sm leading-relaxed text-ink-soft">{problem.intro}</p>
         </Reveal>
       </div>
-      <div className="mt-10 grid gap-x-4 gap-y-6 md:grid-cols-3">
+      <div className="mt-10 grid gap-x-4 gap-y-6 md:grid-cols-3" style={{ perspective: "1300px" }}>
         {problem.pains.map((p, i) => (
-          <Reveal key={p.title} delay={0.08 * i} className="h-full">
+          <RiseIn key={p.title} delay={0.12 * i} className="h-full">
             <FloatTile className={i === 1 ? "md:-translate-y-3 md:hover:-translate-y-[18px]" : ""} inner="overflow-hidden p-5">
               <span
                 aria-hidden
@@ -309,7 +488,7 @@ function Problem() {
               <h3 className="mt-2 text-base font-bold leading-snug text-ink">{p.title}</h3>
               <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{p.text}</p>
             </FloatTile>
-          </Reveal>
+          </RiseIn>
         ))}
       </div>
       <Reveal delay={0.24}>
@@ -326,32 +505,65 @@ function Problem() {
 
 /* ------------------------------- Mechanismus ------------------------------ */
 
+// Radiale Zielbild-Anzeige: Ring füllt sich auf 80 %, Zahl zählt mit.
+function TargetGauge() {
+  const reduce = useReducedMotion();
+  return (
+    <div className="relative h-16 w-16 shrink-0">
+      <svg viewBox="0 0 64 64" className="h-full w-full -rotate-90">
+        <circle cx="32" cy="32" r="27" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="6" />
+        <motion.circle
+          cx="32"
+          cy="32"
+          r="27"
+          fill="none"
+          stroke="#ff8a00"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeDasharray="1"
+          initial={{ pathLength: 0 }}
+          whileInView={{ pathLength: 0.8 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={reduce ? { duration: 0 } : { duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        />
+      </svg>
+      <span className="absolute inset-0 grid place-items-center text-sm font-extrabold text-white">
+        <CountUp value="80 %" />
+      </span>
+    </div>
+  );
+}
+
 function Mechanism({ stage }: { stage: string | null }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotionSafe();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const glowY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [60, -60]);
+
   return (
     <Viewport className="bg-brand-navy">
-      {/* Bühne: 3D-Rendering (Glas-Plattformen), solange nicht vorhanden
-          warmes Bühnenlicht + spiegelnder Boden als CSS-Fallback */}
+      {/* Bühne: 3D-Rendering (Glas-Plattformen) bzw. Bühnenlicht mit
+          Parallax-Glow und spiegelndem Boden */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
-        {stage && (
-          <img
-            src={stage}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-45"
-          />
-        )}
+        {stage && <img src={stage} alt="" className="absolute inset-0 h-full w-full object-cover opacity-45" />}
+        <motion.div
+          style={{
+            y: glowY,
+            background:
+              "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(255,138,0,0.22) 0%, rgba(255,138,0,0) 70%), radial-gradient(ellipse 40% 30% at 85% 0%, rgba(255,49,49,0.1) 0%, rgba(255,49,49,0) 70%)",
+          }}
+          className="absolute -inset-y-16 inset-x-0"
+        />
         <div
           className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 45% at 50% 110%, rgba(255,138,0,0.22) 0%, rgba(255,138,0,0) 70%), radial-gradient(ellipse 40% 30% at 85% 0%, rgba(255,49,49,0.1) 0%, rgba(255,49,49,0) 70%), linear-gradient(to bottom, rgba(2,48,71,0.55) 0%, rgba(2,48,71,0) 35%)",
-          }}
+          style={{ background: "linear-gradient(to bottom, rgba(2,48,71,0.55) 0%, rgba(2,48,71,0) 35%)" }}
         />
         <div
           className="absolute inset-x-0 bottom-0 h-28"
           style={{ background: "linear-gradient(to top, rgba(255,255,255,0.06), transparent)" }}
         />
       </div>
-      <div className="relative">
+      <div className="relative" ref={ref}>
         <Reveal>
           <Eyebrow dark>{mechanism.eyebrow}</Eyebrow>
         </Reveal>
@@ -365,24 +577,25 @@ function Mechanism({ stage }: { stage: string | null }) {
             <p className="max-w-md text-[13px] leading-relaxed text-white/70">{mechanism.intro}</p>
           </Reveal>
         </div>
-        {/* Drei Glas-Plattformen, aufsteigend gestaffelt wie eine Treppe */}
-        <div className="mt-10 grid gap-x-4 gap-y-5 md:grid-cols-3">
+        {/* Drei Glas-Plattformen kippen nacheinander aus der Tiefe nach vorn */}
+        <div className="mt-10 grid gap-x-4 gap-y-5 md:grid-cols-3" style={{ perspective: "1300px" }}>
           {mechanism.steps.map((s, i) => (
-            <Reveal key={s.name} delay={0.08 * i} className="h-full">
+            <RiseIn key={s.name} delay={0.16 * i} className="h-full">
               <div
                 className={`relative h-full transition-transform duration-300 hover:-translate-y-1.5 ${
                   i === 0 ? "md:translate-y-6" : i === 1 ? "md:translate-y-3" : ""
                 }`}
               >
-                <div
-                  aria-hidden
-                  className="absolute -bottom-3 left-1/2 h-4 w-4/5 -translate-x-1/2 rounded-[100%] bg-black/40 blur-md"
-                />
+                <div aria-hidden className="absolute -bottom-3 left-1/2 h-4 w-4/5 -translate-x-1/2 rounded-[100%] bg-black/40 blur-md" />
                 <div className="relative h-full overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),0_30px_60px_-30px_rgba(0,0,0,0.7)] backdrop-blur-md">
-                  <div
+                  <motion.div
                     aria-hidden
-                    className="absolute inset-x-5 top-0 h-px"
+                    className="absolute inset-x-5 top-0 h-px origin-left"
                     style={{ background: "linear-gradient(to right, transparent, rgba(255,138,0,0.8), transparent)" }}
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 1, delay: 0.3 + 0.16 * i, ease: EASE }}
                   />
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-extrabold tracking-widest text-brand-orange">0{i + 1}</span>
@@ -394,12 +607,13 @@ function Mechanism({ stage }: { stage: string | null }) {
                   <p className="mt-2 text-[13px] leading-relaxed text-white/70">{s.text}</p>
                 </div>
               </div>
-            </Reveal>
+            </RiseIn>
           ))}
         </div>
         <Reveal delay={0.24}>
-          <div className="mt-9 rounded-2xl border border-brand-orange/30 bg-brand-orange/10 px-6 py-4 text-center shadow-[0_0_60px_-12px_rgba(255,138,0,0.35)] backdrop-blur-sm">
-            <p className="text-sm font-bold text-white sm:text-base">{mechanism.target}</p>
+          <div className="mt-9 flex items-center justify-center gap-5 rounded-2xl border border-brand-orange/30 bg-brand-orange/10 px-6 py-4 shadow-[0_0_60px_-12px_rgba(255,138,0,0.35)] backdrop-blur-sm">
+            <TargetGauge />
+            <p className="max-w-xl text-left text-sm font-bold text-white sm:text-base">{mechanism.target}</p>
           </div>
         </Reveal>
       </div>
@@ -418,41 +632,50 @@ function Cases() {
       <Reveal delay={0.06}>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-soft">{cases.subline}</p>
       </Reveal>
-      <div className="mt-9 grid gap-x-4 gap-y-6 lg:grid-cols-2">
+      <div className="mt-9 grid gap-x-4 gap-y-6 lg:grid-cols-2" style={{ perspective: "1300px" }}>
         {cases.items.map((c, i) => (
-          <Reveal key={c.brand} delay={0.08 * i} className="h-full">
-            <FloatTile inner="flex gap-5 p-5">
-              {/* Produktfoto als kleines Podium: warmer Lichtkegel + Bodenschatten */}
-              <div className="relative hidden w-28 shrink-0 sm:block">
-                <div
-                  aria-hidden
-                  className="absolute -inset-2 rounded-2xl"
-                  style={{
-                    background: "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,138,0,0.12), transparent 70%)",
-                  }}
-                />
-                <div className="relative h-28 w-28 overflow-hidden rounded-xl shadow-[0_18px_30px_-14px_rgba(2,48,71,0.5)] ring-1 ring-white">
-                  <Image src={c.image} alt={c.brand} fill sizes="112px" className="object-cover" />
+          <RiseIn key={c.brand} delay={0.12 * i} className="h-full">
+            <Tilt max={3} className="h-full">
+              <FloatTile inner="flex gap-5 p-5">
+                {/* Produktfoto als kleines Podium: Lichtkegel + Bodenschatten */}
+                <div className="relative hidden w-28 shrink-0 sm:block">
+                  <div
+                    aria-hidden
+                    className="absolute -inset-2 rounded-2xl"
+                    style={{
+                      background: "radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,138,0,0.12), transparent 70%)",
+                    }}
+                  />
+                  <div className="relative h-28 w-28 overflow-hidden rounded-xl shadow-[0_18px_30px_-14px_rgba(2,48,71,0.5)] ring-1 ring-white">
+                    <Image src={c.image} alt={c.brand} fill sizes="112px" className="object-cover" />
+                  </div>
+                  <div aria-hidden className="mx-auto mt-2 h-2.5 w-20 rounded-[100%] bg-brand-navy/15 blur-[3px]" />
                 </div>
-                <div
-                  aria-hidden
-                  className="mx-auto mt-2 h-2.5 w-20 rounded-[100%] bg-brand-navy/15 blur-[3px]"
-                />
-              </div>
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-wider text-ink-soft">
-                  {c.brand} · {c.category}
-                </p>
-                <p className="mt-1.5 text-2xl font-extrabold tracking-tight">
-                  <span className="bg-gradient-to-r from-brand-orange to-brand-red bg-clip-text text-transparent">
-                    {c.metric}
-                  </span>
-                </p>
-                <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{c.text}</p>
-                <p className="mt-2 text-[11px] text-ink-soft/80">{c.note}</p>
-              </div>
-            </FloatTile>
-          </Reveal>
+                <div className="min-w-0">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-ink-soft">
+                    {c.brand} · {c.category}
+                  </p>
+                  <div className="mt-1.5 flex items-end justify-between gap-3">
+                    <p className="text-2xl font-extrabold tracking-tight">
+                      <span className="bg-gradient-to-r from-brand-orange to-brand-red bg-clip-text text-transparent">
+                        {c.metric}
+                      </span>
+                    </p>
+                    <svg viewBox="0 0 72 26" className="mb-1 hidden h-6 w-[72px] shrink-0 sm:block" aria-hidden>
+                      <DrawPath
+                        d={i === 0 ? "M2 23 C18 21 32 16 46 10 C56 6 64 4 70 3" : "M2 4 C18 6 32 11 46 16 C56 20 64 22 70 23"}
+                        stroke={i === 0 ? "#ff8a00" : "#ff3131"}
+                        strokeWidth={2.5}
+                        delay={0.3}
+                      />
+                    </svg>
+                  </div>
+                  <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{c.text}</p>
+                  <p className="mt-2 text-[11px] text-ink-soft/80">{c.note}</p>
+                </div>
+              </FloatTile>
+            </Tilt>
+          </RiseIn>
         ))}
       </div>
       <Reveal delay={0.2}>
@@ -536,15 +759,23 @@ function BrandShapeIcon({ shape, className = "" }: { shape: BrandShape; classNam
   );
 }
 
-// Schwebendes 3D-Objekt mit Bodenschatten: Foto-Render, sonst SVG-Form.
+// Schwebendes Objekt mit Bodenschatten: Foto-Render, sonst SVG-Form —
+// sanft auf- und abschwebend (Float-Loop).
 function ShapeObject({ shape, photo, dark = false }: { shape: BrandShape; photo?: string; dark?: boolean }) {
+  const reduce = useReducedMotionSafe();
   return (
     <span className="relative mt-1 block shrink-0">
-      {photo ? (
-        <img src={photo} alt="" className="h-12 w-12 object-contain drop-shadow-[0_12px_14px_rgba(2,48,71,0.3)]" aria-hidden />
-      ) : (
-        <BrandShapeIcon shape={shape} className="h-9 w-9 drop-shadow-[0_10px_10px_rgba(2,48,71,0.3)]" />
-      )}
+      <motion.span
+        className="block"
+        animate={reduce ? undefined : { y: [0, -5, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        {photo ? (
+          <img src={photo} alt="" className="h-12 w-12 object-contain drop-shadow-[0_12px_14px_rgba(2,48,71,0.3)]" aria-hidden />
+        ) : (
+          <BrandShapeIcon shape={shape} className="h-9 w-9 drop-shadow-[0_10px_10px_rgba(2,48,71,0.3)]" />
+        )}
+      </motion.span>
       <span
         aria-hidden
         className={`absolute -bottom-2 left-1/2 h-1.5 w-8 -translate-x-1/2 rounded-[100%] blur-[2px] ${dark ? "bg-black/50" : "bg-brand-navy/20"}`}
@@ -625,18 +856,18 @@ function Services({ shapes }: { shapes: Assets3D["shapes"] }) {
           <p className="max-w-md text-sm leading-relaxed text-ink-soft">{services.intro}</p>
         </Reveal>
       </div>
-      <div className="mt-10 grid gap-x-4 gap-y-6 md:grid-cols-3">
-        <Reveal className="md:col-span-2">
+      <div className="mt-10 grid gap-x-4 gap-y-6 md:grid-cols-3" style={{ perspective: "1300px" }}>
+        <RiseIn className="md:col-span-2">
           <ServiceTile {...services.foundation} shapePhoto={services.foundation.shape && shapes[services.foundation.shape]} />
-        </Reveal>
+        </RiseIn>
         {services.levers.map((l, i) => (
-          <Reveal key={l.title} delay={0.08 + 0.04 * i}>
+          <RiseIn key={l.title} delay={0.1 + 0.08 * i}>
             <ServiceTile {...l} shapePhoto={l.shape && shapes[l.shape]} />
-          </Reveal>
+          </RiseIn>
         ))}
-        <Reveal delay={0.2}>
+        <RiseIn delay={0.34}>
           <ServiceTile dark {...services.bracket} shapePhoto={services.bracket.shape && shapes[services.bracket.shape]} />
-        </Reveal>
+        </RiseIn>
       </div>
     </Viewport>
   );
@@ -650,23 +881,35 @@ function Steps() {
       <Reveal>
         <H2 className="mx-auto max-w-xl text-center">{steps.headline}</H2>
       </Reveal>
-      <div className="mt-12 grid gap-x-4 gap-y-8 md:grid-cols-3">
-        {steps.items.map((s, i) => (
-          <Reveal key={s.title} delay={0.08 * i} className="h-full">
-            <FloatTile inner="p-5 pt-7">
-              <span className="absolute -top-4 left-5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-b from-brand-orange to-[#f57600] text-sm font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_10px_20px_-8px_rgba(255,138,0,0.8)]">
-                {i + 1}
-              </span>
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="text-base font-bold text-ink">{s.title}</h3>
-                <span className="shrink-0 rounded-full bg-surface-alt px-2.5 py-0.5 text-[10px] font-bold text-ink-soft">
-                  {s.duration}
+      {/* Verbindungslinie zeichnet sich, die Schritte kippen nacheinander rein */}
+      <div className="relative mt-12">
+        <svg
+          viewBox="0 0 1000 8"
+          className="absolute -top-6 left-0 hidden w-full md:block"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <DrawPath d="M10 4 H990" stroke="#e3e9ee" strokeWidth={2} />
+          <DrawPath d="M10 4 H990" stroke="#ff8a00" strokeWidth={2} delay={0.2} />
+        </svg>
+        <div className="grid gap-x-4 gap-y-8 md:grid-cols-3" style={{ perspective: "1300px" }}>
+          {steps.items.map((s, i) => (
+            <RiseIn key={s.title} delay={0.14 * i} className="h-full">
+              <FloatTile inner="p-5 pt-7">
+                <span className="absolute -top-4 left-5 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-b from-brand-orange to-[#f57600] text-sm font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_10px_20px_-8px_rgba(255,138,0,0.8)]">
+                  {i + 1}
                 </span>
-              </div>
-              <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{s.text}</p>
-            </FloatTile>
-          </Reveal>
-        ))}
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-base font-bold text-ink">{s.title}</h3>
+                  <span className="shrink-0 rounded-full bg-surface-alt px-2.5 py-0.5 text-[10px] font-bold text-ink-soft">
+                    {s.duration}
+                  </span>
+                </div>
+                <p className="mt-2 text-[13px] leading-relaxed text-ink-soft">{s.text}</p>
+              </FloatTile>
+            </RiseIn>
+          ))}
+        </div>
       </div>
       <Reveal delay={0.24}>
         <div className="mt-10 text-center">
