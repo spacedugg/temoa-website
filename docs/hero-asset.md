@@ -33,8 +33,8 @@ node scripts/fetch-asset.mjs <rawUrl> <slot>
 | stage-steps (Kandidat 2) | `52ad0566-74f3-45c3-838c-7b22bca46ac8` | https://d8j0ntlcm91z4.cloudfront.net/user_3DdOfLdos9u5TsU7z0EKzCBZQtV/hf_20260612_160231_52ad0566-74f3-45c3-838c-7b22bca46ac8.png |
 | shape-square | `4ffc388a-9d86-4c99-b9fb-d77c6b0c3bdc` | https://d8j0ntlcm91z4.cloudfront.net/user_3DdOfLdos9u5TsU7z0EKzCBZQtV/hf_20260612_160234_4ffc388a-9d86-4c99-b9fb-d77c6b0c3bdc.png |
 | shape-circle | `05b2e279-1d2f-4136-b0b7-5d9afee0a4d6` | https://d8j0ntlcm91z4.cloudfront.net/user_3DdOfLdos9u5TsU7z0EKzCBZQtV/hf_20260612_160236_05b2e279-1d2f-4136-b0b7-5d9afee0a4d6.png |
-| shape-u | `70f6e15a-d69a-4240-a723-93e4d52e3d2d` | *(rendert — rawUrl via `job_display` abrufen)* |
-| shape-hexagon | `245a2e17-f3f8-4825-ba20-0ba504b9fd35` | *(rendert — rawUrl via `job_display` abrufen)* |
+| shape-u | `70f6e15a-d69a-4240-a723-93e4d52e3d2d` | https://d8j0ntlcm91z4.cloudfront.net/user_3DdOfLdos9u5TsU7z0EKzCBZQtV/hf_20260612_160640_70f6e15a-d69a-4240-a723-93e4d52e3d2d.png |
+| shape-hexagon | `245a2e17-f3f8-4825-ba20-0ba504b9fd35` | https://d8j0ntlcm91z4.cloudfront.net/user_3DdOfLdos9u5TsU7z0EKzCBZQtV/hf_20260612_160642_245a2e17-f3f8-4825-ba20-0ba504b9fd35.png |
 
 Hero-Bild wird neu generiert, sobald echte TEMOA-Produktbilder als Referenz
 hochgeladen sind (Higgsfield-Upload-Widget). Zwei frühere dunkle
