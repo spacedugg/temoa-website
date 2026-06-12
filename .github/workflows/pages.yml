@@ -1,0 +1,49 @@
+name: Preview auf GitHub Pages
+
+# Statische Preview der gesamten Website (alle Entwürfe) unter
+# https://spacedugg.github.io/temoa-website/ — deployt bei jedem Push auf
+# den Arbeits-Branch.
+on:
+  push:
+    branches: [claude/pensive-fermi-wnta6u]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx next build
+        env:
+          NEXT_OUTPUT: export
+          NEXT_PUBLIC_BASE_PATH: /temoa-website
+      # Rohe <img src="/assets/..."> bekommen von Next kein basePath-Präfix —
+      # in der exportierten Ausgabe nachziehen (HTML, JS-Chunks, RSC-Payloads).
+      - run: |
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.txt' \) \
+            -exec sed -i 's|"/assets/|"/temoa-website/assets/|g; s|'"'"'/assets/|'"'"'/temoa-website/assets/|g' {} +
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+      - id: deployment
+        uses: actions/deploy-pages@v4
