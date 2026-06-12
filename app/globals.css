@@ -24,3 +24,12 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

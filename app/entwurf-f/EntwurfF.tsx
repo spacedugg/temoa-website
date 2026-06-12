@@ -7,7 +7,8 @@ import {
   cta,
   hero,
   stats,
-  logoBrands,
+  clientLogos,
+  partnerBadge,
   problem,
   mechanism,
   cases,
@@ -135,6 +136,32 @@ function StageFallback() {
   );
 }
 
+// Kundenlogos als Endlos-Marquee (Muster aus dem Sales-Room: Graustufen,
+// Farbe bei Hover, weiche Kanten). Liste verdoppelt für nahtlosen Loop.
+function LogoMarquee() {
+  const row = [...clientLogos, ...clientLogos];
+  return (
+    <div className="relative min-w-0 flex-1 overflow-hidden">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white to-transparent" />
+      <div
+        className="flex w-max items-center"
+        style={{ animation: "marquee-left 45s linear infinite" }}
+      >
+        {row.map((l, i) => (
+          <div key={`${l.name}-${i}`} className="group grid h-12 w-28 shrink-0 place-items-center px-3">
+            <img
+              src={l.src}
+              alt={l.name}
+              className="max-h-9 w-auto max-w-full object-contain opacity-60 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function Hero({ image }: { image: string | null }) {
   return (
     <section className="relative overflow-hidden bg-white">
@@ -156,9 +183,16 @@ function Hero({ image }: { image: string | null }) {
               <p className="mt-5 max-w-md text-sm leading-relaxed text-ink-soft sm:text-base">{hero.subline}</p>
             </Reveal>
             <Reveal delay={0.18}>
-              <div className="mt-7">
-                <CtaButton />
-                <p className="mt-3 text-xs text-ink-soft">{cta.micro}</p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <div>
+                  <CtaButton />
+                  <p className="mt-3 text-xs text-ink-soft">{cta.micro}</p>
+                </div>
+                <img
+                  src={partnerBadge.src}
+                  alt={partnerBadge.alt}
+                  className="h-16 w-auto rounded-xl ring-1 ring-line"
+                />
               </div>
             </Reveal>
           </div>
@@ -189,10 +223,12 @@ function Hero({ image }: { image: string | null }) {
                 </div>
               ))}
             </div>
-            <p className="mt-3 border-t border-line pt-3 text-[11px] text-ink-soft">
-              Marken, die uns ihr Amazon-Geschäft anvertrauen — u.&nbsp;a.{" "}
-              <span className="font-bold text-ink">{logoBrands.join(" · ")}</span>
-            </p>
+            <div className="mt-3 flex flex-col gap-1 border-t border-line pt-3 sm:flex-row sm:items-center sm:gap-5">
+              <p className="shrink-0 text-[11px] text-ink-soft sm:max-w-[12rem]">
+                Marken, die uns ihr Amazon-Geschäft anvertrauen
+              </p>
+              <LogoMarquee />
+            </div>
           </div>
         </Reveal>
       </div>

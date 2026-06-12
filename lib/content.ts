@@ -24,6 +24,29 @@ export const stats = [
 
 export const logoBrands = ["Vitaworld", "Bachgold"];
 
+// Freigegebene Kundenlogos (aus dem Sales-Room-Repo, public/clients).
+export const clientLogos = [
+  { name: "Kijimea", src: "/assets/clients/1.png" },
+  { name: "Nicotinell", src: "/assets/clients/2.png" },
+  { name: "Heldengrün", src: "/assets/clients/3.png" },
+  { name: "Bachgold", src: "/assets/clients/4.png" },
+  { name: "Juskys", src: "/assets/clients/5.png" },
+  { name: "Hecht", src: "/assets/clients/6.png" },
+  { name: "Naturtreu", src: "/assets/clients/7.png" },
+  { name: "Big Dean's", src: "/assets/clients/8.png" },
+  { name: "uandu", src: "/assets/clients/9.png" },
+  { name: "Vitaworld", src: "/assets/clients/10.png" },
+  { name: "mypuzzle.com", src: "/assets/clients/11.png" },
+  { name: "Shape Republic", src: "/assets/clients/12.png" },
+  { name: "zooprinz", src: "/assets/clients/13.png" },
+  { name: "FAIRMO", src: "/assets/clients/14.png" },
+];
+
+export const partnerBadge = {
+  src: "/assets/logos/amazon_spn.png",
+  alt: "Amazon SPN Verified Partner",
+};
+
 export const problem = {
   headline: "Das Konto läuft. Aber es trägt sich nicht von allein.",
   intro:
