@@ -1,7 +1,7 @@
-export function DashboardMock({ className = "" }: { className?: string }) {
+export function DashboardMock({ className = "", square = false }: { className?: string; square?: boolean }) {
   return (
     <div
-      className={`w-[320px] rounded-2xl bg-white p-5 ring-1 ring-[#e3e9ee] sm:w-[420px] ${className}`}
+      className={`w-[320px] bg-white p-5 ring-1 ring-[#e3e9ee] sm:w-[420px] ${square ? "" : "rounded-2xl"} ${className}`}
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export function DashboardMock({ className = "" }: { className?: string }) {
           { label: "ROAS", value: "4,8", accent: "#023047" },
           { label: "TACoS", value: "−35 %", accent: "#ff3131" },
         ].map((kpi) => (
-          <div key={kpi.label} className="rounded-xl bg-[#f5f7f9] p-2.5">
+          <div key={kpi.label} className={`bg-[#f5f7f9] p-2.5 ${square ? "" : "rounded-xl"}`}>
             <p className="text-[9px] font-bold uppercase tracking-wide text-[#41586a]">
               {kpi.label}
             </p>

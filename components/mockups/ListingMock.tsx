@@ -18,20 +18,22 @@ export function ListingMock({
   price,
   reviews,
   className = "",
+  square = false,
 }: {
   image: string;
   title: string;
   price: string;
   reviews: string;
   className?: string;
+  square?: boolean;
 }) {
   return (
     <div
-      className={`w-[260px] rounded-2xl bg-white p-4 ring-1 ring-[#e3e9ee] sm:w-[300px] ${className}`}
+      className={`w-[260px] bg-white p-4 ring-1 ring-[#e3e9ee] sm:w-[300px] ${square ? "" : "rounded-2xl"} ${className}`}
     >
-      <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#f5f7f9]">
+      <div className={`relative aspect-[4/5] overflow-hidden bg-[#f5f7f9] ${square ? "" : "rounded-xl"}`}>
         <Image src={image} alt={`Amazon-Listing ${title}`} fill sizes="300px" className="object-cover" />
-        <span className="absolute left-2 top-2 rounded-md bg-[#023047] px-2 py-0.5 text-[10px] font-bold text-white">
+        <span className={`absolute left-2 top-2 bg-[#023047] px-2 py-0.5 text-[10px] font-bold text-white ${square ? "" : "rounded-md"}`}>
           Bestseller
         </span>
       </div>
@@ -44,7 +46,7 @@ export function ListingMock({
         <span className="text-lg font-bold text-[#023047]">{price}</span>
         <span className="text-[11px] text-[#41586a]">inkl. MwSt.</span>
       </div>
-      <div className="mt-3 rounded-full bg-[#ff8a00] py-2 text-center text-[12px] font-bold text-white">
+      <div className={`mt-3 bg-[#ff8a00] py-2 text-center text-[12px] font-bold text-white ${square ? "" : "rounded-full"}`}>
         In den Einkaufswagen
       </div>
     </div>

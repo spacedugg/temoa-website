@@ -16,6 +16,16 @@ const drafts = [
     name: "Entwurf C — Signal",
     text: "Energetisch: Orange-Rot-Verläufe, große Zahlen, Marquee-Band, diagonale Sektionskanten, kräftige Statements.",
   },
+  {
+    href: "/entwurf-d",
+    name: "Entwurf D — Raster",
+    text: "Grafisch-schweizerisch: harte Kanten, sichtbares Liniengerüst, Versatz-Schatten wie Druckebenen, die Logo-Geometrie als System. Keine runden Karten, keine weichen Schatten.",
+  },
+  {
+    href: "/entwurf-e",
+    name: "Entwurf E — Licht",
+    text: "Cinematisch und kartenlos: Inhalte direkt auf Weiß, getrennt durch Glow-Auren statt Boxen, extreme Typo-Gewichtskontraste (Thin gegen ExtraBold), frei schwebende Kompositionen.",
+  },
 ];
 
 export default function Home() {
