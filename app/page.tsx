@@ -2,6 +2,11 @@ import Link from "next/link";
 
 const drafts = [
   {
+    href: "/entwurf-g",
+    name: "Entwurf G — Produktbühne & Ebenen (aktuell)",
+    text: "Das abgestimmte Konzept: fotorealistische 3D-Produktbühne mit schwebenden Glas-Dashboards im Hero, überlappende Ebenen mit Tiefenwirkung, asymmetrische Layouts, inhaltlich passende Effekte je Sektion — Glasmorphismus nur als Akzent, keine Bento-Raster.",
+  },
+  {
     href: "/entwurf-a",
     name: "Entwurf A — Editorial",
     text: "Ruhig und hochwertig: viel Weißraum, große Navy-Typografie, präzise Orange-Akzente, weich gestaffelte Karten mit Parallax im Hero.",
@@ -38,11 +43,11 @@ export default function Home() {
     <main className="mx-auto max-w-3xl px-5 py-20">
       <img src="/assets/logos/logo_full.svg" alt="TEMOA" className="h-10 w-auto" />
       <h1 className="mt-10 text-3xl font-extrabold tracking-tight text-ink">
-        Design-Auswahl: drei Richtungen für die Startseite
+        Design-Auswahl für die Startseite
       </h1>
       <p className="mt-3 text-ink-soft">
-        Alle drei Entwürfe setzen das freigegebene Messaging vollständig um — Funnel, Texte und CTAs sind
-        identisch, die Gestaltung unterscheidet sich deutlich.
+        Aktueller Arbeitsstand ist Entwurf G. Die Entwürfe A–F sind verworfen und bleiben nur als
+        Verlauf erreichbar — Funnel, Texte und CTAs sind überall identisch.
       </p>
       <div className="mt-10 space-y-5">
         {drafts.map((d) => (
