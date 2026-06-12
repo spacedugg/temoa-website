@@ -15,13 +15,15 @@ export function Reveal({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  // `initial` muss server-/clientseitig identisch sein (Hydration). Reduzierte
+  // Bewegung wird daher über eine Sofort-Transition statt `initial: false` gelöst.
   return (
     <motion.div
       className={className}
-      initial={reduce ? false : { opacity: 0, y }}
+      initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.21, 0.6, 0.35, 1] }}
+      transition={reduce ? { duration: 0 } : { duration: 0.7, delay, ease: [0.21, 0.6, 0.35, 1] }}
     >
       {children}
     </motion.div>

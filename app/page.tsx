@@ -26,6 +26,11 @@ const drafts = [
     name: "Entwurf E — Licht",
     text: "Cinematisch und kartenlos: Inhalte direkt auf Weiß, getrennt durch Glow-Auren statt Boxen, extreme Typo-Gewichtskontraste (Thin gegen ExtraBold), frei schwebende Kompositionen.",
   },
+  {
+    href: "/entwurf-f",
+    name: "Entwurf F — Produktbühne kompakt",
+    text: "Der abgestimmte Mix: fotorealistische 3D-Produktbühne im Hero, dezente kompakte Typografie, weiche Bento-Kacheln — und jede Sektion passt komplett in einen Viewport.",
+  },
 ];
 
 export default function Home() {
