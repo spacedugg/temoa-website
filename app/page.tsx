@@ -9,6 +9,7 @@ const styles = [
   { href: "/stil-5", name: "Stil 5 — Control Room", text: "Wirkt wie ein Analytics-Produkt: Monospace-Zahlen, feines Raster, Dashboard-Karten, Live-Anmutung, technisch." },
   { href: "/stil-6", name: "Stil 6 — Produkt-Bühne", text: "Cinematischer 3D-Hero: schwebendes Produkt auf glänzendem Podest, Orange/Rot-Lichtkanten, Glas-Dashboards umkreisen das Produkt. Darunter helle, premium-glatte Sektionen." },
   { href: "/stil-7", name: "Stil 7 — Studio (Agentur-Look)", text: "Nach deinem Referenz-Template: tiefer Navy-Canvas, weiße schwebende Panels, fließende Wellenlinien, kondensierte Großbuchstaben-Headlines, nummerierte Service-Karten, Häkchen-Listen." },
+  { href: "/stil-8", name: "Stil 8 — Landeros (Dark Premium)", text: "Nach landeros.framer.website in TEMOA-Farben: warmes Anthrazit, riesige enge Display-Typo, gerundete Karten mit Haarlinien-Rändern, rotierendes Rund-Badge, aufklappbare Service-Zeilen, große Work-Cards." },
 ];
 
 export default function Home() {
