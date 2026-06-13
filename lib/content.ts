@@ -211,3 +211,34 @@ export const navServices = [
   { title: "Internationalisierung", href: "/leistungen/internationalisierung" },
   { title: "Account Management", href: "/leistungen/account-management" },
 ];
+
+// Bild-getragene Zusatz-Sektionen (Stil 11).
+export const contentShowcase = {
+  eyebrow: "Content & Listing-SEO",
+  headline: "Euer bester Verkäufer schläft nie.",
+  text: "Das Listing arbeitet rund um die Uhr — wenn es gut ist. Gleiches Produkt, anderer Umsatz.",
+  beforeLabel: "Vorher",
+  afterLabel: "Nachher",
+  before: { image: "/assets/img/bachgold.jpg", title: "Bachgold Bachblüten Tropfen Nr. 39, 20 ml", price: "14,90 €", reviews: "312" },
+  after: { image: "/assets/img/bachgold.jpg", title: "Bachgold Original Bachblüten Tropfen Nr. 39 · alkoholfrei · vegan · 20 ml", price: "14,90 €", reviews: "1.872" },
+};
+
+export const reporting = {
+  eyebrow: "Account Management",
+  headline: "Zahlen, die ihr in fünf Minuten versteht.",
+  text: "Das Tagesgeschäft, das heute eure Woche frisst, ist bei uns der Job — und jede Woche seht ihr, was es gebracht hat.",
+  points: ["Bestandsplanung & Reorder-Punkte", "Buy-Box- und Hijacker-Monitoring", "Wöchentliches Reporting in Klartext"],
+};
+
+export const team = {
+  eyebrow: "Das Team",
+  headline: "Menschen statt Ticketsystem.",
+  text: "Eure Marke wird von Menschen geführt, die man kennt — nicht von einer Warteschlange. Drei Regeln, die wir uns selbst auferlegt haben:",
+  principles: ["Eine Handvoll Marken pro Consultant", "Antwort am selben Tag", "Review im Kalender, nicht im Postfach"],
+  photos: [
+    "/assets/team/Clemens.jpg", "/assets/team/Christoph.jpg", "/assets/team/Eddie.jpg",
+    "/assets/team/Marina.jpg", "/assets/team/Dias.jpg", "/assets/team/Jonas.jpg",
+    "/assets/team/Anzelika.jpg", "/assets/team/Marvin.jpg", "/assets/team/Ole.jpg",
+    "/assets/team/Vadim.jpg",
+  ],
+};
