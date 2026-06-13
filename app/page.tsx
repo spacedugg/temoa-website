@@ -7,6 +7,8 @@ const styles = [
   { href: "/stil-3", name: "Stil 3 — Cinematic Dark", text: "Durchgehend dunkel, Spotlight-Glows, Glas-Panels, glühende Orange/Rot-Kanten, große leuchtende Zahlen. Premium-Dark." },
   { href: "/stil-4", name: "Stil 4 — Aurora Soft", text: "Helle, freundliche Welt: weiche Gradient-Blobs im Hintergrund, stark gerundete Formen, sanfte Schatten, schwebend." },
   { href: "/stil-5", name: "Stil 5 — Control Room", text: "Wirkt wie ein Analytics-Produkt: Monospace-Zahlen, feines Raster, Dashboard-Karten, Live-Anmutung, technisch." },
+  { href: "/stil-6", name: "Stil 6 — Produkt-Bühne", text: "Cinematischer 3D-Hero: schwebendes Produkt auf glänzendem Podest, Orange/Rot-Lichtkanten, Glas-Dashboards umkreisen das Produkt. Darunter helle, premium-glatte Sektionen." },
+  { href: "/stil-7", name: "Stil 7 — Studio (Agentur-Look)", text: "Nach deinem Referenz-Template: tiefer Navy-Canvas, weiße schwebende Panels, fließende Wellenlinien, kondensierte Großbuchstaben-Headlines, nummerierte Service-Karten, Häkchen-Listen." },
 ];
 
 export default function Home() {
