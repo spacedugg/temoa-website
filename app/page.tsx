@@ -1,7 +1,36 @@
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
-// Aktueller Arbeitsstand ist Entwurf G — die verworfenen Entwürfe A–F
-// liegen nur noch in der Git-History.
+// Auswahl: fünf komplett verschiedene Stilrichtungen, identische Inhalte.
+const styles = [
+  { href: "/stil-1", name: "Stil 1 — Editorial", text: "Magazin-Ästhetik: riesige Typografie, viel Weißraum, dünne Linien, nummerierte Sektionen, eine Akzentfarbe. Ruhig und premium." },
+  { href: "/stil-2", name: "Stil 2 — Brutalist Grid", text: "Schweizer Plakat-Brutalismus: hartes sichtbares Raster, dicke Rahmen, solide Offset-Schatten, Monospace, kräftige Farbblöcke." },
+  { href: "/stil-3", name: "Stil 3 — Cinematic Dark", text: "Durchgehend dunkel, Spotlight-Glows, Glas-Panels, glühende Orange/Rot-Kanten, große leuchtende Zahlen. Premium-Dark." },
+  { href: "/stil-4", name: "Stil 4 — Aurora Soft", text: "Helle, freundliche Welt: weiche Gradient-Blobs im Hintergrund, stark gerundete Formen, sanfte Schatten, schwebend." },
+  { href: "/stil-5", name: "Stil 5 — Control Room", text: "Wirkt wie ein Analytics-Produkt: Monospace-Zahlen, feines Raster, Dashboard-Karten, Live-Anmutung, technisch." },
+];
+
 export default function Home() {
-  redirect("/entwurf-g");
+  return (
+    <main className="mx-auto max-w-3xl px-5 py-20">
+      <img src="/assets/logos/logo_full.svg" alt="TEMOA" className="h-10 w-auto" />
+      <h1 className="mt-10 text-3xl font-extrabold tracking-tight text-ink">Fünf Stilrichtungen — eine wählen</h1>
+      <p className="mt-3 text-ink-soft">
+        Alle fünf setzen dieselbe abgestimmte Copy um — Inhalte, Funnel und CTAs sind identisch, nur die
+        Gestaltung unterscheidet sich radikal. (Frühere Entwürfe unter <Link href="/entwurf-g" className="underline">/entwurf-g</Link>.)
+      </p>
+      <div className="mt-10 space-y-5">
+        {styles.map((s) => (
+          <Link
+            key={s.href}
+            href={s.href}
+            className="block rounded-2xl border border-line bg-white p-6 shadow-[0_20px_45px_-32px_rgba(2,48,71,0.4)] transition-transform hover:-translate-y-0.5"
+          >
+            <h2 className="text-xl font-bold text-ink">{s.name}</h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.text}</p>
+            <span className="mt-3 inline-block text-sm font-bold text-brand-orange">Ansehen →</span>
+          </Link>
+        ))}
+      </div>
+    </main>
+  );
 }
