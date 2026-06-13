@@ -10,6 +10,7 @@ const styles = [
   { href: "/stil-6", name: "Stil 6 — Produkt-Bühne", text: "Cinematischer 3D-Hero: schwebendes Produkt auf glänzendem Podest, Orange/Rot-Lichtkanten, Glas-Dashboards umkreisen das Produkt. Darunter helle, premium-glatte Sektionen." },
   { href: "/stil-7", name: "Stil 7 — Studio (Agentur-Look)", text: "Nach deinem Referenz-Template: tiefer Navy-Canvas, weiße schwebende Panels, fließende Wellenlinien, kondensierte Großbuchstaben-Headlines, nummerierte Service-Karten, Häkchen-Listen." },
   { href: "/stil-8", name: "Stil 8 — Landeros (Dark Premium)", text: "Nach landeros.framer.website in TEMOA-Farben: warmes Anthrazit, riesige enge Display-Typo, gerundete Karten mit Haarlinien-Rändern, rotierendes Rund-Badge, aufklappbare Service-Zeilen, große Work-Cards." },
+  { href: "/stil-9", name: "Stil 9 — Landeros Light / Glas", text: "Heller Modus mit echtem Glasmorphismus: weich verschwommene Farb-Blobs im Hintergrund, durchscheinende Frosted-Glass-Panels, gestaffelte Tiefen-Schatten, schwebende Glas-KPIs, rotierendes Badge, aufklappbare Service-Zeilen." },
 ];
 
 export default function Home() {
