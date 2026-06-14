@@ -7,6 +7,7 @@ import { WhyTemoa } from "@/components/sections/WhyTemoa";
 import { Results } from "@/components/sections/Results";
 import { OrganicFirst } from "@/components/sections/OrganicFirst";
 import { TwoLevers } from "@/components/sections/TwoLevers";
+import { ListingShowcase } from "@/components/sections/ListingShowcase";
 import { FullService } from "@/components/sections/FullService";
 import { ServicesDetail } from "@/components/sections/ServicesDetail";
 import { ContentStudio } from "@/components/sections/ContentStudio";
@@ -27,6 +28,7 @@ export default function Home() {
         <Results />
         <OrganicFirst />
         <TwoLevers />
+        <ListingShowcase />
         <FullService />
         <ServicesDetail />
         <ContentStudio />
