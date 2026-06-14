@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-gradient: linear-gradient(110deg, #6258F7 0%, #9747FF 45%, #22D3EE 100%);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FBFBFE;
+  color: #0B0D17;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(98, 88, 247, 0.18);
+  color: #0B0D17;
+}
+
+/* ---------- Layout helpers ---------- */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  }
+
+  /* Premium glass card */
+  .glass {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .card {
+    @apply rounded-3xl border border-black/[0.06] bg-white shadow-soft;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300;
+    background-image: var(--brand-gradient);
+    background-size: 200% 200%;
+    box-shadow: 0 10px 30px -8px rgba(98, 88, 247, 0.55);
+  }
+  .btn-primary:hover {
+    background-position: 100% 50%;
+    box-shadow: 0 16px 44px -10px rgba(98, 88, 247, 0.7);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white/60 px-6 py-3.5 text-sm font-semibold text-ink transition-all duration-300 hover:border-black/20 hover:bg-white;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background-image: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-emerald {
+    background-image: linear-gradient(110deg, #059669 0%, #10B981 50%, #34D399 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Subtle dotted/grid backdrop */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 13, 23, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 13, 23, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(rgba(11, 13, 23, 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+  .mask-radial {
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 40%, transparent 100%);
+  }
+
+  .perspective {
+    perspective: 1200px;
+  }
+
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
