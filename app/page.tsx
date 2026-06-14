@@ -2,7 +2,8 @@ import Link from "next/link";
 
 // Auswahl: fünf komplett verschiedene Stilrichtungen, identische Inhalte.
 const styles = [
-  { href: "/stil-11", name: "Stil 11 — Light · Floating · Bildreich (aktueller Stand)", text: "Heller Modus, keine Rasterlinien, kein Bento — frei fliegende, überlappende Elemente mit sanftem Float/Parallax. Viele Bilder & Grafiken stützen den Text (Produkt, Listing-/Dashboard-Mockups, echte Teamfotos, Produktfotos), mehr Sektionen, knappere Copy mit Serif-Akzenten." },
+  { href: "/stil-12", name: "Stil 12 — Award · Light · Technisch (aktueller Stand)", text: "Heller, technischer Award-Look: kontextuelle Amazon-Graphen (sinkender TACoS-Verlauf u.a.), mausdrehbare & ausklappbare 3D-Umkehrpyramide der Leistungen, frei schwebende Objekte mit Schlagschatten, Glasmorphismus + in den Raum geneigte Elemente, sparsame Glow-Ränder, Counter & sequentielle Diagramme, alle Sektionen des Erst-Entwurfs." },
+  { href: "/stil-11", name: "Stil 11 — Light · Floating · Bildreich", text: "Heller Modus, keine Rasterlinien, kein Bento — frei fliegende, überlappende Elemente mit sanftem Float/Parallax. Viele Bilder & Grafiken stützen den Text, mehr Sektionen, knappere Copy mit Serif-Akzenten." },
   { href: "/stil-1", name: "Stil 1 — Editorial", text: "Magazin-Ästhetik: riesige Typografie, viel Weißraum, dünne Linien, nummerierte Sektionen, eine Akzentfarbe. Ruhig und premium." },
   { href: "/stil-2", name: "Stil 2 — Brutalist Grid", text: "Schweizer Plakat-Brutalismus: hartes sichtbares Raster, dicke Rahmen, solide Offset-Schatten, Monospace, kräftige Farbblöcke." },
   { href: "/stil-3", name: "Stil 3 — Cinematic Dark", text: "Durchgehend dunkel, Spotlight-Glows, Glas-Panels, glühende Orange/Rot-Kanten, große leuchtende Zahlen. Premium-Dark." },
