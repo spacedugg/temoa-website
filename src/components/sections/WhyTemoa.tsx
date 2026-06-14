@@ -50,10 +50,10 @@ export function WhyTemoa() {
                     style={{
                       background:
                         c.accent === "emerald"
-                          ? "rgba(16,185,129,0.35)"
+                          ? "rgba(14,124,160,0.35)"
                           : c.accent === "violet"
-                          ? "rgba(151,71,255,0.35)"
-                          : "rgba(98,88,247,0.35)",
+                          ? "rgba(255,49,49,0.35)"
+                          : "rgba(255,153,0,0.35)",
                     }}
                   />
                   <div

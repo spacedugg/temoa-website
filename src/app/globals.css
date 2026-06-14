@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --brand-gradient: linear-gradient(110deg, #6258F7 0%, #9747FF 45%, #22D3EE 100%);
+  --brand-gradient: linear-gradient(110deg, #FF9900 0%, #FF6B1F 52%, #FF3131 100%);
 }
 
 * {
@@ -16,14 +16,14 @@ html {
 }
 
 body {
-  background-color: #FBFBFE;
-  color: #0B0D17;
+  background-color: #FCFBF9;
+  color: #0A1E2B;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(98, 88, 247, 0.18);
-  color: #0B0D17;
+  background: rgba(255, 153, 0, 0.22);
+  color: #0A1E2B;
 }
 
 /* ---------- Layout helpers ---------- */
@@ -52,11 +52,11 @@ body {
     @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300;
     background-image: var(--brand-gradient);
     background-size: 200% 200%;
-    box-shadow: 0 10px 30px -8px rgba(98, 88, 247, 0.55);
+    box-shadow: 0 10px 30px -8px rgba(255, 107, 31, 0.55);
   }
   .btn-primary:hover {
     background-position: 100% 50%;
-    box-shadow: 0 16px 44px -10px rgba(98, 88, 247, 0.7);
+    box-shadow: 0 16px 44px -10px rgba(255, 107, 31, 0.72);
     transform: translateY(-1px);
   }
 
@@ -74,7 +74,7 @@ body {
   }
 
   .text-gradient-emerald {
-    background-image: linear-gradient(110deg, #059669 0%, #10B981 50%, #34D399 100%);
+    background-image: linear-gradient(110deg, #023047 0%, #0E7CA0 55%, #34A7C9 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -83,13 +83,13 @@ body {
   /* Subtle dotted/grid backdrop */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(11, 13, 23, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(11, 13, 23, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(2, 48, 71, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(2, 48, 71, 0.05) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 
   .bg-dots {
-    background-image: radial-gradient(rgba(11, 13, 23, 0.07) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(2, 48, 71, 0.08) 1px, transparent 1px);
     background-size: 22px 22px;
   }
 

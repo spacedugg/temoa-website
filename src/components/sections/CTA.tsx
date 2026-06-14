@@ -17,13 +17,13 @@ export function CTA() {
           <div className="pointer-events-none absolute inset-0">
             <motion.div
               className="absolute left-1/4 top-0 h-[28rem] w-[28rem] rounded-full blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(98,88,247,0.45), transparent 60%)" }}
+              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.45), transparent 60%)" }}
               animate={{ x: [0, 60, 0], y: [0, 20, 0] }}
               transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
             />
             <motion.div
               className="absolute bottom-0 right-1/4 h-[26rem] w-[26rem] rounded-full blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(34,211,238,0.4), transparent 60%)" }}
+              style={{ background: "radial-gradient(circle, rgba(255,49,49,0.4), transparent 60%)" }}
               animate={{ x: [0, -50, 0], y: [0, -20, 0] }}
               transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
             />

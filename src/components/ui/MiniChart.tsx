@@ -6,8 +6,8 @@ import { useRef } from "react";
 /** Animated area + line chart (SVG), draws itself on view. */
 export function AreaChart({
   className,
-  stroke = "#6258F7",
-  fill = "rgba(98,88,247,0.16)",
+  stroke = "#FF9900",
+  fill = "rgba(255,153,0,0.16)",
   points = [38, 34, 40, 30, 44, 36, 50, 46, 58, 54, 70, 78],
   height = 120,
   width = 320,
@@ -84,8 +84,8 @@ export function BarChart({
   values = [40, 55, 48, 70, 62, 85, 78, 96],
   className,
   highlight = 5,
-  colorHighlight = "#10B981",
-  color = "rgba(98,88,247,0.35)",
+  colorHighlight = "#FF3131",
+  color = "rgba(255,153,0,0.35)",
 }: {
   values?: number[];
   className?: string;
@@ -117,7 +117,7 @@ export function Ring({
   value,
   size = 96,
   stroke = 9,
-  color = "#10B981",
+  color = "#FF9900",
   label,
 }: {
   value: number;
@@ -133,7 +133,7 @@ export function Ring({
   return (
     <div ref={ref} className="relative inline-flex items-center justify-center">
       <svg width={size} height={size} className="-rotate-90">
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(11,13,23,0.08)" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(2,48,71,0.10)" strokeWidth={stroke} />
         <motion.circle
           cx={size / 2}
           cy={size / 2}

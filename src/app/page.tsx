@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { MobileStats } from "@/components/sections/MobileStats";
+import { Clients } from "@/components/sections/Clients";
 import { WhyTemoa } from "@/components/sections/WhyTemoa";
 import { Results } from "@/components/sections/Results";
 import { OrganicFirst } from "@/components/sections/OrganicFirst";
@@ -21,6 +22,7 @@ export default function Home() {
       <main>
         <Hero />
         <MobileStats />
+        <Clients />
         <WhyTemoa />
         <Results />
         <OrganicFirst />

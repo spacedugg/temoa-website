@@ -14,8 +14,8 @@ const cases = [
     metricLabel: "organische Verkäufe im Peak",
     quote: "Zum ersten Mal wächst unser Amazon-Umsatz und die Marge gleichzeitig.",
     points: [30, 32, 38, 35, 44, 52, 60, 72],
-    color: "#10B981",
-    fill: "rgba(16,185,129,0.16)",
+    color: "#FF9900",
+    fill: "rgba(255,153,0,0.16)",
   },
   {
     brand: "HaA",
@@ -26,8 +26,8 @@ const cases = [
     metricLabel: "Conversion-Steigerung in 17 Wochen",
     quote: "Wir verkaufen heute überwiegend organisch – Werbung ist Kür, nicht Pflicht.",
     points: [20, 28, 25, 40, 55, 62, 80, 96],
-    color: "#6258F7",
-    fill: "rgba(98,88,247,0.16)",
+    color: "#FF3131",
+    fill: "rgba(255,49,49,0.16)",
   },
   {
     brand: "Gartenmarke",
@@ -37,8 +37,8 @@ const cases = [
     metricLabel: "TACoS – über vier Marktplätze",
     quote: "Ein System, vier Länder – endlich vergleichbare Zahlen und planbares Wachstum.",
     points: [80, 72, 68, 58, 50, 46, 40, 34],
-    color: "#9747FF",
-    fill: "rgba(151,71,255,0.16)",
+    color: "#0E7CA0",
+    fill: "rgba(14,124,160,0.16)",
   },
 ];
 

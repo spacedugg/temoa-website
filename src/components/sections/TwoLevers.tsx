@@ -55,8 +55,8 @@ export function TwoLevers() {
               </p>
               <AreaChart
                 className="mt-6 h-24 w-full"
-                stroke="#10B981"
-                fill="rgba(16,185,129,0.16)"
+                stroke="#0E7CA0"
+                fill="rgba(14,124,160,0.16)"
                 points={[24, 28, 30, 38, 46, 58, 72, 92]}
               />
             </div>

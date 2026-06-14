@@ -6,58 +6,53 @@ const config: Config = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#0B0D17",
-          soft: "#1A1D2E",
-          muted: "#5B6178",
-          faint: "#8A90A6",
+          DEFAULT: "#0A1E2B",
+          soft: "#13344A",
+          muted: "#56697A",
+          faint: "#8AA0AE",
         },
         canvas: {
-          DEFAULT: "#FBFBFE",
-          alt: "#F4F4FB",
+          DEFAULT: "#FCFBF9",
+          alt: "#F4F2EC",
           card: "#FFFFFF",
         },
+        // Primary = Amazon-orange brand scale
         brand: {
-          50: "#EEF0FF",
-          100: "#E0E3FF",
-          200: "#C4C9FF",
-          300: "#A0A6FF",
-          400: "#7C7DFF",
-          500: "#6258F7",
-          600: "#4F3FE6",
-          700: "#3F2FC4",
-          800: "#33289E",
-          900: "#2C277D",
+          50: "#FFF6E8",
+          100: "#FFEAC9",
+          200: "#FFD699",
+          300: "#FFC266",
+          400: "#FFB033",
+          500: "#FF9900",
+          600: "#F08400",
+          700: "#C96D00",
+          800: "#9E5600",
+          900: "#7A4400",
         },
-        violet: {
-          DEFAULT: "#9747FF",
-          soft: "#B57BFF",
-        },
-        cyan: {
-          DEFAULT: "#22D3EE",
-          soft: "#67E8F9",
-        },
-        emerald: {
-          DEFAULT: "#10B981",
-          soft: "#34D399",
-          deep: "#059669",
-        },
-        amber: {
-          DEFAULT: "#F59E0B",
-        },
+        // Red accent (kept under "violet" token so existing classNames recolor cleanly)
+        violet: { DEFAULT: "#FF3131", soft: "#FF6B5E" },
+        red: { DEFAULT: "#FF3131", soft: "#FF5C4D", deep: "#E11414" },
+        // Navy contrast
+        navy: { DEFAULT: "#023047", soft: "#0B4D6B", deep: "#021C2B" },
+        // Sky / light blue (kept under "cyan" token)
+        cyan: { DEFAULT: "#2A9BD8", soft: "#CDE6F4" },
+        // "Positive/result" accent — teal-blue derived from the brand blues
+        emerald: { DEFAULT: "#0E7CA0", soft: "#34A7C9", deep: "#023047" },
+        amber: { DEFAULT: "#FF9900" },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+        sans: ["var(--font-caros)", "system-ui", "sans-serif"],
+        mono: ["ui-monospace", "SFMono-Regular", "monospace"],
       },
       borderRadius: {
         "4xl": "2rem",
         "5xl": "2.5rem",
       },
       boxShadow: {
-        soft: "0 2px 8px -2px rgba(11,13,23,0.06), 0 12px 32px -8px rgba(11,13,23,0.08)",
-        lift: "0 8px 24px -6px rgba(11,13,23,0.10), 0 24px 64px -16px rgba(11,13,23,0.14)",
-        glow: "0 0 0 1px rgba(98,88,247,0.10), 0 20px 60px -20px rgba(98,88,247,0.45)",
-        "glow-emerald": "0 0 0 1px rgba(16,185,129,0.12), 0 20px 60px -20px rgba(16,185,129,0.45)",
+        soft: "0 2px 8px -2px rgba(2,48,71,0.06), 0 12px 32px -8px rgba(2,48,71,0.10)",
+        lift: "0 8px 24px -6px rgba(2,48,71,0.12), 0 24px 64px -16px rgba(2,48,71,0.18)",
+        glow: "0 0 0 1px rgba(255,153,0,0.12), 0 20px 60px -20px rgba(255,153,0,0.5)",
+        "glow-emerald": "0 0 0 1px rgba(14,124,160,0.12), 0 20px 60px -20px rgba(14,124,160,0.45)",
         inset: "inset 0 1px 0 0 rgba(255,255,255,0.7)",
       },
       keyframes: {

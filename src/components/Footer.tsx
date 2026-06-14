@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Logo } from "./Logo";
 
 const cols = [
@@ -24,10 +25,14 @@ export function Footer() {
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {["60+ Marken", "21 Mio € Umsatz p. a.", "5+ Länder", "98 % Bindung"].map((b) => (
-                <span key={b} className="rounded-full border border-black/[0.07] bg-white px-3 py-1 font-medium text-ink-muted">
+                <span key={b} className="rounded-full border border-navy/[0.10] bg-white px-3 py-1 font-medium text-ink-muted">
                   {b}
                 </span>
               ))}
+            </div>
+            <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-navy/[0.10] bg-white px-4 py-3 shadow-soft">
+              <Image src="/amazon-spn.png" alt="Amazon Service Provider Network" width={120} height={40} className="h-9 w-auto object-contain" />
+              <span className="text-xs font-medium text-ink-muted">Verifizierter<br />Amazon-Partner</span>
             </div>
           </div>
 
