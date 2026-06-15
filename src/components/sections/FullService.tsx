@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Reveal } from "../ui/Reveal";
 import { Ring, BarChart, AreaChart } from "../ui/MiniChart";
 import { Counter } from "../ui/Counter";
 
@@ -67,18 +66,18 @@ function PillarVisual({ type }: { type: string }) {
   switch (type) {
     case "share":
       return (
-        <div className="space-y-2.5">
+        <div className="space-y-3">
           {[
             { n: "TEMOA-Marke", v: 68, c: "#FF9900" },
             { n: "Wettbewerber A", v: 44, c: "rgba(2,48,71,0.18)" },
             { n: "Wettbewerber B", v: 31, c: "rgba(2,48,71,0.18)" },
           ].map((row, i) => (
             <div key={row.n}>
-              <div className="mb-1 flex justify-between text-xs">
+              <div className="mb-1.5 flex justify-between text-xs">
                 <span className="font-medium text-ink">{row.n}</span>
-                <span className="text-ink-faint">{row.v}%</span>
+                <span className="font-semibold text-ink-faint">{row.v}%</span>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-navy/[0.06]">
+              <div className="h-2.5 overflow-hidden rounded-full bg-navy/[0.06]">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${row.v}%` }}
@@ -94,7 +93,7 @@ function PillarVisual({ type }: { type: string }) {
       );
     case "conversion":
       return (
-        <div className="flex items-center justify-around">
+        <div className="flex items-center justify-around gap-4">
           <Ring value={12} label="CVR +" color="#FF3131" size={104} />
           <div className="space-y-2 text-sm">
             <div className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-brand-500" /> Hauptbild</div>
@@ -128,94 +127,146 @@ function PillarVisual({ type }: { type: string }) {
   }
 }
 
+/* Tab list + active panel — shared between pinned (desktop) and stacked (mobile) */
+function Panel({ active }: { active: number }) {
+  const p = pillars[active];
+  return (
+    <div className="relative">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -16, filter: "blur(8px)" }}
+          transition={{ duration: 0.4 }}
+          className="card noise relative flex h-full min-h-[20rem] flex-col justify-between overflow-hidden p-8"
+        >
+          <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full opacity-40 blur-3xl" style={{ background: p.color }} />
+          <div className="relative">
+            <div className="flex items-center gap-3">
+              <Image src={p.icon} alt="" width={28} height={28} className="h-7 w-7 object-contain" />
+              <span className="eyebrow !text-ink-muted">{p.product}</span>
+            </div>
+            <h3 className="mt-4 text-2xl font-bold text-ink">{p.title}</h3>
+            <p className="mt-1 text-sm font-semibold text-gradient">{p.metric}</p>
+            <p className="mt-4 max-w-md leading-relaxed text-ink-muted">{p.body}</p>
+          </div>
+          <div className="relative mt-8 rounded-2xl border border-navy/[0.06] bg-white/70 p-5">
+            <PillarVisual type={p.visual} />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function Tab({
+  p,
+  isActive,
+  onClick,
+}: {
+  p: (typeof pillars)[number];
+  isActive: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`group relative w-full overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 ${
+        isActive ? "border-transparent bg-white shadow-lift" : "border-navy/[0.07] bg-white/40 hover:bg-white/70"
+      }`}
+    >
+      {/* progress fill while active (pinned mode) */}
+      {isActive && (
+        <motion.span
+          layoutId="tab-active-bar"
+          className="absolute inset-y-0 left-0 w-1 rounded-full"
+          style={{ background: p.color }}
+        />
+      )}
+      <div className="flex items-center gap-4">
+        <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${p.tint}`}>
+          <Image src={p.icon} alt={p.product} width={32} height={32} className="h-8 w-8 object-contain" />
+        </div>
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-x-2">
+            <span className="font-bold text-ink">{p.label}</span>
+            <span className="text-xs font-medium text-brand-600">{p.product}</span>
+          </div>
+          <span className="text-xs text-ink-faint">{p.tag}</span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 export function FullService() {
+  const ref = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
+  const [desktop, setDesktop] = useState(false);
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
+
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 1024px)");
+    const f = () => setDesktop(m.matches);
+    f();
+    m.addEventListener("change", f);
+    return () => m.removeEventListener("change", f);
+  }, []);
+
+  useMotionValueEvent(scrollYProgress, "change", (p) => {
+    if (!desktop) return;
+    const i = Math.min(pillars.length - 1, Math.max(0, Math.floor(p * pillars.length)));
+    setActive(i);
+  });
+
+  // Click a tab → scroll the window so that tab's segment is in view (pinned mode)
+  const jumpTo = (i: number) => {
+    if (desktop && ref.current) {
+      const top = ref.current.offsetTop + (i + 0.5) * window.innerHeight - window.innerHeight / 2;
+      window.scrollTo({ top, behavior: "smooth" });
+    } else {
+      setActive(i);
+    }
+  };
 
   return (
-    <section id="full-service" className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 bg-canvas-alt" />
-      <div className="container-x relative">
-        <SectionHeading
-          eyebrow="Full Service 360°"
-          title={
-            <>
-              Vier Bereiche, <span className="text-gradient">ein System.</span>
-            </>
-          }
-          description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Content, Advertising und Betrieb ineinander – mehr als die Summe der Teile."
-        />
+    <section
+      id="full-service"
+      ref={ref}
+      className="relative bg-canvas-alt lg:[height:var(--pin-h)]"
+      style={{ ["--pin-h" as string]: `${pillars.length * 100}vh` }}
+    >
+      <div className="flex flex-col justify-center overflow-hidden py-20 md:py-28 lg:sticky lg:top-0 lg:min-h-screen lg:py-0">
+        <div className="container-x relative w-full">
+          <SectionHeading
+            eyebrow="Full Service 360°"
+            title={<>Vier Bereiche, <span className="text-gradient">ein System.</span></>}
+            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Content, Advertising und Betrieb ineinander – mehr als die Summe der Teile."
+          />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          {/* Tabs */}
-          <div className="flex flex-col gap-3">
-            {pillars.map((p, i) => (
-              <Reveal key={p.key} delay={i * 0.06}>
-                <button
-                  onClick={() => setActive(i)}
-                  className={`group w-full rounded-2xl border p-5 text-left transition-all duration-300 ${
-                    active === i
-                      ? "border-transparent bg-white shadow-lift"
-                      : "border-navy/[0.07] bg-white/40 hover:bg-white/70"
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${p.tint}`}>
-                      <Image src={p.icon} alt={p.product} width={32} height={32} className="h-8 w-8 object-contain" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-x-2">
-                        <span className="font-bold text-ink">{p.label}</span>
-                        <span className="text-xs font-medium text-brand-600">{p.product}</span>
-                      </div>
-                      <span className="text-xs text-ink-faint">{p.tag}</span>
-                      <AnimatePresence initial={false}>
-                        {active === i && (
-                          <motion.p
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden text-sm text-ink-muted"
-                          >
-                            <span className="mt-1.5 block">{p.body}</span>
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
-                </button>
-              </Reveal>
-            ))}
-          </div>
+          <div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+            {/* Tabs */}
+            <div className="flex flex-col gap-3">
+              {pillars.map((p, i) => (
+                <Tab key={p.key} p={p} isActive={active === i} onClick={() => jumpTo(i)} />
+              ))}
 
-          {/* Active panel */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -16, filter: "blur(8px)" }}
-                transition={{ duration: 0.4 }}
-                className="card noise relative flex h-full min-h-[20rem] flex-col justify-between overflow-hidden p-8"
-              >
-                <div
-                  className="absolute -right-12 -top-12 h-44 w-44 rounded-full opacity-50 blur-3xl"
-                  style={{ background: pillars[active].color }}
-                />
-                <div className="relative">
-                  <div className="flex items-center gap-3">
-                    <Image src={pillars[active].icon} alt="" width={28} height={28} className="h-7 w-7 object-contain" />
-                    <span className="eyebrow !text-ink-muted">{pillars[active].product}</span>
-                  </div>
-                  <h3 className="mt-4 text-2xl font-bold text-ink">{pillars[active].title}</h3>
-                  <p className="mt-1 text-sm font-semibold text-gradient">{pillars[active].metric}</p>
-                  <p className="mt-4 max-w-md leading-relaxed text-ink-muted">{pillars[active].body}</p>
-                </div>
-                <div className="relative mt-8 rounded-2xl border border-navy/[0.06] bg-white/60 p-5">
-                  <PillarVisual type={pillars[active].visual} />
-                </div>
-              </motion.div>
-            </AnimatePresence>
+              {/* scroll progress dots (pinned hint) */}
+              <div className="mt-2 hidden items-center gap-2 lg:flex">
+                {pillars.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${active === i ? "w-7 bg-brand-500" : "w-1.5 bg-navy/15"}`}
+                  />
+                ))}
+                <span className="ml-2 text-xs text-ink-faint">Scrollen blättert die Bereiche durch</span>
+              </div>
+            </div>
+
+            {/* Active panel */}
+            <Panel active={active} />
           </div>
         </div>
       </div>

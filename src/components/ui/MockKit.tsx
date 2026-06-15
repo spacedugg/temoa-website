@@ -101,8 +101,12 @@ export function KpiTile({
             className="inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-[11px] font-semibold"
             style={{ color: deltaUp ? "#0E7CA0" : "#E11414", background: deltaUp ? "rgba(14,124,160,0.1)" : "rgba(225,20,20,0.08)" }}
           >
-            <svg width="9" height="9" viewBox="0 0 12 12" fill="none" className={deltaUp ? "" : "rotate-90"}>
-              <path d="M3 9l4-4 2 2 0-3-3 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+              {deltaUp ? (
+                <path d="M2 8.5L5 5l2.2 2.2L10 3.5M10 3.5H7M10 3.5V6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              ) : (
+                <path d="M2 3.5L5 7l2.2-2.2L10 8.5M10 8.5H7M10 8.5V5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              )}
             </svg>
             {delta}
           </span>
@@ -201,36 +205,38 @@ export function BarsCard({
   const max = Math.max(...values);
   return (
     <div className={`rounded-2xl border border-navy/[0.07] bg-white p-5 shadow-soft ${className ?? ""}`}>
-      <div className="flex h-32 items-end gap-2">
-        {values.map((v, i) => {
-          const isHi = i === highlight;
-          return (
-            <div key={i} className="relative flex flex-1 flex-col items-center justify-end">
-              {isHi && peakLabel && (
-                <motion.span
-                  initial={{ opacity: 0, y: 6 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute -top-1 whitespace-nowrap rounded-md bg-ink px-1.5 py-0.5 text-[10px] font-semibold text-white shadow-soft"
-                >
-                  {peakLabel}
-                </motion.span>
-              )}
+      <div className="relative h-36 pt-7">
+        <div className="flex h-full items-end gap-2">
+          {values.map((v, i) => {
+            const isHi = i === highlight;
+            return (
               <motion.div
+                key={i}
                 initial={{ height: 0 }}
                 whileInView={{ height: `${(v / max) * 100}%` }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.06, ease }}
-                className="w-full rounded-md"
+                className="flex-1 rounded-md"
                 style={{
                   background: isHi ? "var(--brand-gradient)" : "#E8ECEA",
                   boxShadow: isHi ? "0 8px 18px -6px rgba(255,107,31,0.5)" : undefined,
                 }}
               />
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        {peakLabel && (
+          <motion.span
+            initial={{ opacity: 0, y: 6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+            className="absolute top-0 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink px-1.5 py-0.5 text-[10px] font-semibold text-white shadow-soft"
+            style={{ left: `${((highlight + 0.5) / values.length) * 100}%` }}
+          >
+            {peakLabel}
+          </motion.span>
+        )}
       </div>
       {labels && (
         <div className="mt-2 flex gap-2">
