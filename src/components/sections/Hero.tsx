@@ -1,10 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { Aurora } from "../ui/Aurora";
 import { Counter } from "../ui/Counter";
+import { BrowserFrame, KpiTile, BarsCard, FloatingProduct } from "../ui/MockKit";
+import { LISTING_SETS } from "@/lib/showcase";
+
+const heroProduct = LISTING_SETS[0]?.images?.[0];
 
 const stats = [
   { value: 30, prefix: "+", suffix: " %", label: "mehr Profitabilität", note: "⌀ über alle Marken" },
@@ -135,41 +138,59 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: interactive 3D mockup */}
+        {/* Right: interactive 3D dashboard mock */}
         <motion.div style={{ y: yCard, opacity }} className="perspective relative">
           {/* brand glow behind */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl"
-            style={{ background: "radial-gradient(circle, rgba(255,153,0,0.30), rgba(255,49,49,0.12) 45%, transparent 70%)" }}
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[30rem] w-[30rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(255,153,0,0.28), rgba(255,49,49,0.12) 45%, transparent 70%)" }}
           />
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 24 }}
+            initial={{ opacity: 0, scale: 0.92, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             style={{ rotateX: rotX, rotateY: rotY, transformStyle: "preserve-3d" }}
-            className="relative mx-auto w-full max-w-[30rem]"
+            className="relative mx-auto w-full max-w-[32rem]"
           >
             <motion.div
-              animate={{ y: [0, -14, 0] }}
+              animate={{ y: [0, -12, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* soft ground shadow that shifts with rotation */}
-              <motion.div
-                aria-hidden
-                style={{ x: shadowX }}
-                className="absolute inset-x-10 bottom-2 h-10 rounded-full bg-navy/30 blur-2xl"
-              />
-              <Image
-                src="/mockup.png"
-                alt="TEMOA Amazon-Listing Mock-up mit Umsatz-, Conversion- und TACoS-Kennzahlen"
-                width={1000}
-                height={1000}
-                priority
-                className="relative w-full select-none drop-shadow-2xl"
-                style={{ transform: "translateZ(40px)" }}
-                draggable={false}
-              />
+              <motion.div aria-hidden style={{ x: shadowX }} className="absolute inset-x-10 -bottom-4 h-10 rounded-full bg-navy/25 blur-2xl" />
+
+              <BrowserFrame className="relative" >
+                <div className="space-y-3 p-5" style={{ transform: "translateZ(40px)" }}>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-medium text-ink-faint">Account-Dashboard</div>
+                      <div className="text-sm font-bold text-ink">Wachstum &amp; Marge</div>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-deep">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald" /> live
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2.5">
+                    <KpiTile label="Umsatz" value="€1,8M" delta="+31%" deltaUp values={[10, 14, 13, 18, 22, 27, 33]} color="#FF9900" />
+                    <KpiTile label="TACoS" value="9,4%" delta="−4,1%" deltaUp values={[28, 24, 26, 20, 18, 14, 9]} color="#0E7CA0" />
+                    <KpiTile label="CVR" value="+12,5%" delta="+2,3%" deltaUp values={[8, 10, 9, 12, 14, 16, 19]} color="#FF3131" />
+                  </div>
+                  <BarsCard
+                    values={[9, 12, 15, 22, 13, 17, 11]}
+                    highlight={3}
+                    labels={["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]}
+                    peakLabel="€19.740"
+                  />
+                </div>
+              </BrowserFrame>
+
+              {/* freestanding product accent (Amazon-Akzent) */}
+              {heroProduct && (
+                <div className="pointer-events-none absolute -bottom-8 -left-10 w-32 sm:w-40" style={{ transform: "translateZ(80px)" }}>
+                  <FloatingProduct src={heroProduct} alt="Beispiel-Produkt" size={180} />
+                </div>
+              )}
             </motion.div>
           </motion.div>
 
@@ -177,7 +198,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4 }}
-            className="mt-2 text-center text-xs text-ink-faint"
+            className="mt-6 text-center text-xs text-ink-faint"
           >
             ↺ Mit der Maus bewegen
           </motion.p>
