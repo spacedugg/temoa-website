@@ -4,11 +4,23 @@ import { Logo } from "./Logo";
 const cols = [
   {
     title: "Leistungen",
-    links: ["Strategie", "Listing & SEO", "PPC Advertising", "Account Management", "Internationalisierung"],
+    links: [
+      { label: "Strategie", href: "/#leistungen" },
+      { label: "Listing & SEO", href: "/#leistungen" },
+      { label: "PPC Advertising", href: "/#leistungen" },
+      { label: "Account Management", href: "/#leistungen" },
+      { label: "Designbeispiele", href: "/design-beispiele" },
+    ],
   },
   {
     title: "Agentur",
-    links: ["Full Service", "Ergebnisse", "Team", "Content Studio", "Blog"],
+    links: [
+      { label: "Full Service", href: "/#full-service" },
+      { label: "Ergebnisse", href: "/#ergebnisse" },
+      { label: "Team", href: "/#team" },
+      { label: "Designbeispiele", href: "/design-beispiele" },
+      { label: "Kontakt", href: "/#kontakt" },
+    ],
   },
 ];
 
@@ -41,9 +53,9 @@ export function Footer() {
               <h4 className="text-sm font-semibold text-ink">{c.title}</h4>
               <ul className="mt-4 space-y-2.5">
                 {c.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-sm text-ink-muted transition-colors hover:text-brand-600">
-                      {l}
+                  <li key={l.label}>
+                    <a href={l.href} className="text-sm text-ink-muted transition-colors hover:text-brand-600">
+                      {l.label}
                     </a>
                   </li>
                 ))}

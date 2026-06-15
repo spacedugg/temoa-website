@@ -426,3 +426,104 @@ export function Bubble({ children, color = "#FF9900", className }: { children: R
     </div>
   );
 }
+
+/* ---------- GlassCard (frosted, Amazon-orange getönt) ---------- */
+export function GlassCard({
+  children,
+  className,
+  tint = "white",
+  style,
+}: {
+  children: ReactNode;
+  className?: string;
+  tint?: "white" | "orange";
+  style?: React.CSSProperties;
+}) {
+  return (
+    <div
+      className={`relative rounded-3xl border border-white/70 ${className ?? ""}`}
+      style={{
+        background: tint === "orange" ? "rgba(255,247,237,0.72)" : "rgba(255,255,255,0.62)",
+        backdropFilter: "blur(20px) saturate(150%)",
+        WebkitBackdropFilter: "blur(20px) saturate(150%)",
+        boxShadow: "0 14px 44px -14px rgba(2,48,71,0.22), inset 0 1px 0 0 rgba(255,255,255,0.7)",
+        ...style,
+      }}
+    >
+      <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-brand-300/40 blur-2xl" />
+      {children}
+    </div>
+  );
+}
+
+/* ---------- IconChip (kleine Akzent-Badge) ---------- */
+export function IconChip({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div
+      animate={{ y: [0, -6, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      className={`flex h-11 w-11 items-center justify-center rounded-2xl border border-white/80 bg-white/95 text-brand-600 shadow-lift backdrop-blur ${className ?? ""}`}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export const Chip = {
+  bolt: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" /></svg>
+  ),
+  crown: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A1E2B"><path d="M3 7l4 4 5-7 5 7 4-4-2 12H5L3 7z" /></svg>
+  ),
+  gear: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" /></svg>
+  ),
+  star: (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF9900"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" /></svg>
+  ),
+};
+
+/* ---------- MiniDonut (kompakter Ring mit Center-Wert) ---------- */
+export function MiniDonut({
+  value,
+  label,
+  color = "#FF9900",
+  track = "#FFE2BE",
+  className,
+}: {
+  value: number; // 0-100
+  label?: string;
+  color?: string;
+  track?: string;
+  className?: string;
+}) {
+  const r = 42;
+  const c = 2 * Math.PI * r;
+  const len = (value / 100) * c;
+  return (
+    <div className={`relative ${className ?? ""}`}>
+      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+        <circle cx="50" cy="50" r={r} fill="none" stroke={track} strokeWidth="12" />
+        <motion.circle
+          cx="50"
+          cy="50"
+          r={r}
+          fill="none"
+          stroke={color}
+          strokeWidth="12"
+          strokeLinecap="round"
+          strokeDasharray={`${len} ${c - len}`}
+          initial={{ strokeDashoffset: c }}
+          whileInView={{ strokeDashoffset: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease }}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+        <span className="text-xl font-extrabold leading-none text-ink">{value}%</span>
+        {label && <span className="mt-0.5 text-[10px] font-medium text-ink-faint">{label}</span>}
+      </div>
+    </div>
+  );
+}

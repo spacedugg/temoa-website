@@ -2,13 +2,63 @@
 
 import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
-import { Counter } from "../ui/Counter";
 
-const metrics = [
-  { value: 50, prefix: "+", suffix: " %", label: "Conversion" },
-  { value: 52, prefix: "+", suffix: " %", label: "Klickrate" },
-  { value: 80, suffix: " %", label: "organisch" },
+const stages = [
+  { n: "01", label: "Besseres Listing", angle: -90 },
+  { n: "02", label: "Höhere Conversion", angle: 0 },
+  { n: "03", label: "Besseres Ranking", angle: 90 },
+  { n: "04", label: "Mehr organische Sales", angle: 180 },
 ];
+
+function Flywheel() {
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-[26rem]">
+      {/* rotating dashed ring */}
+      <motion.div
+        className="absolute inset-[14%] rounded-full border border-dashed border-white/25"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
+      />
+      <motion.div
+        className="absolute inset-[14%] rounded-full"
+        style={{ background: "conic-gradient(from 0deg, rgba(255,153,0,0.35), rgba(255,49,49,0.12), transparent 55%, rgba(255,153,0,0.35))" }}
+        animate={{ rotate: -360 }}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      />
+
+      {/* center */}
+      <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-center backdrop-blur-sm">
+        <span className="bg-gradient-to-r from-brand-300 to-violet-soft bg-clip-text text-base font-extrabold text-transparent">
+          Organic
+        </span>
+        <span className="text-base font-extrabold text-white">First</span>
+      </div>
+
+      {/* stage nodes */}
+      {stages.map((s, i) => {
+        const rad = (s.angle * Math.PI) / 180;
+        const x = 50 + Math.cos(rad) * 43;
+        const y = 50 + Math.sin(rad) * 43;
+        return (
+          <motion.div
+            key={s.n}
+            className="absolute w-32 -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${x}%`, top: `${y}%` }}
+            initial={{ opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 * i + 0.2, type: "spring", stiffness: 220, damping: 18 }}
+          >
+            <div className="rounded-2xl border border-white/12 bg-white/[0.07] p-3 text-center backdrop-blur-sm">
+              <span className="text-xs font-bold text-brand-300">{s.n}</span>
+              <p className="mt-0.5 text-[13px] font-semibold leading-tight text-white">{s.label}</p>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
 
 export function OrganicFirst() {
   return (
@@ -69,30 +119,10 @@ export function OrganicFirst() {
               </Reveal>
             </div>
 
-            {/* Stacked foundation visual */}
-            <div className="space-y-4">
-              {metrics.map((m, i) => (
-                <Reveal key={m.label} delay={0.1 + i * 0.1} direction="left">
-                  <div className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-                    <div className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                      <Counter to={m.value} prefix={m.prefix} suffix={m.suffix} />
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-medium text-white/70">{m.label}</div>
-                      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${Math.min(m.value, 100)}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: 0.2 + i * 0.1, ease: "easeOut" }}
-                          className="h-full rounded-full bg-gradient-to-r from-brand-400 to-cyan"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            {/* Flywheel visual */}
+            <Reveal direction="left">
+              <Flywheel />
+            </Reveal>
           </div>
         </div>
       </div>
