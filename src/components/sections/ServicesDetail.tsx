@@ -35,7 +35,7 @@ export function ServicesDetail() {
               </>
             }
           />
-          <a href="#kontakt" className="btn-ghost shrink-0">Alle Leistungen</a>
+          <a href="/leistungen" className="btn-ghost shrink-0">Alle Leistungen</a>
         </div>
 
         <RevealGroup className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>

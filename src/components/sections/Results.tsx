@@ -122,7 +122,7 @@ export function Results() {
             }
             description="Kein Wachstum auf dem Papier, sondern messbare Resultate: mehr Umsatz, bessere Marge und ein gesundes Konto – ein System, Organic First."
           />
-          <a href="#kontakt" className="btn-ghost shrink-0">Alle Cases</a>
+          <a href="/ergebnisse" className="btn-ghost shrink-0">Alle Cases</a>
         </div>
 
         <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">

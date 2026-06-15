@@ -1,22 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Logo } from "./Logo";
 import clsx from "clsx";
 
 const links = [
-  { label: "Full Service", href: "/#full-service" },
-  { label: "Leistungen", href: "/#leistungen" },
+  { label: "Leistungen", href: "/leistungen" },
+  { label: "Ergebnisse", href: "/ergebnisse" },
   { label: "Designbeispiele", href: "/design-beispiele" },
-  { label: "Ergebnisse", href: "/#ergebnisse" },
-  { label: "Prozess", href: "/#prozess" },
-  { label: "Team", href: "/#team" },
+  { label: "Prozess", href: "/prozess" },
+  { label: "Über uns", href: "/ueber-uns" },
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 24));
@@ -45,19 +46,25 @@ export function Navbar() {
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-full px-3.5 py-2 text-sm font-medium text-ink-muted transition-colors hover:bg-black/[0.04] hover:text-ink"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) => {
+            const active = pathname === l.href;
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={clsx(
+                  "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                  active ? "bg-black/[0.05] text-ink" : "text-ink-muted hover:bg-black/[0.04] hover:text-ink"
+                )}
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-2">
-          <a href="/#kontakt" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
+          <a href="/kontakt" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
             Gespräch vereinbaren
           </a>
           <button
@@ -92,7 +99,7 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="/#kontakt" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+            <a href="/kontakt" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
               Gespräch vereinbaren
             </a>
           </motion.div>
