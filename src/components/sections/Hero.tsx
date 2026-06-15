@@ -128,13 +128,13 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <a href="#kontakt" className="btn-primary group">
+            <a href="/gespraech-vereinbaren" className="btn-primary group">
               Gespräch vereinbaren
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a href="#ergebnisse" className="btn-ghost">Ergebnisse ansehen</a>
+            <a href="/ergebnisse" className="btn-ghost">Ergebnisse ansehen</a>
           </motion.div>
         </div>
 

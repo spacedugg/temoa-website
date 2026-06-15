@@ -7,11 +7,9 @@ import { Logo } from "./Logo";
 import clsx from "clsx";
 
 const links = [
-  { label: "Leistungen", href: "/leistungen" },
+  { label: "Full Service", href: "/full-service" },
   { label: "Ergebnisse", href: "/ergebnisse" },
   { label: "Designbeispiele", href: "/design-beispiele" },
-  { label: "Prozess", href: "/prozess" },
-  { label: "Über uns", href: "/ueber-uns" },
 ];
 
 export function Navbar() {
@@ -64,7 +62,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <a href="/kontakt" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
+          <a href="/gespraech-vereinbaren" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
             Gespräch vereinbaren
           </a>
           <button
@@ -99,7 +97,7 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a href="/kontakt" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
+            <a href="/gespraech-vereinbaren" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
               Gespräch vereinbaren
             </a>
           </motion.div>

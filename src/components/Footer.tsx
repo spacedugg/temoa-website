@@ -5,10 +5,8 @@ const cols = [
   {
     title: "Leistungen",
     links: [
-      { label: "Alle Leistungen", href: "/leistungen" },
-      { label: "Strategie & KPIs", href: "/leistungen" },
-      { label: "Content & A+", href: "/leistungen" },
-      { label: "PPC Advertising", href: "/leistungen" },
+      { label: "Full Service", href: "/full-service" },
+      { label: "Ergebnisse", href: "/ergebnisse" },
       { label: "Designbeispiele", href: "/design-beispiele" },
     ],
   },
@@ -16,9 +14,7 @@ const cols = [
     title: "Agentur",
     links: [
       { label: "Über uns", href: "/ueber-uns" },
-      { label: "Ergebnisse", href: "/ergebnisse" },
-      { label: "Prozess", href: "/prozess" },
-      { label: "Kontakt", href: "/kontakt" },
+      { label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" },
     ],
   },
 ];
