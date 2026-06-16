@@ -218,29 +218,8 @@ function Markets() {
   );
 }
 
-/* Reviews / Social Proof */
-function Reviews() {
-  return (
-    <Frame>
-      <div className="space-y-3">
-        {[5, 5, 4].map((n, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="flex items-center gap-3 rounded-2xl border border-navy/[0.06] bg-white p-3">
-            <div className="h-11 w-11 shrink-0 rounded-xl bg-canvas-alt" />
-            <div className="min-w-0 flex-1">
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, s) => <svg key={s} width="11" height="11" viewBox="0 0 24 24" fill={s < n ? "#FF9900" : "#E3E7E5"}><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" /></svg>)}
-              </div>
-              <div className="mt-1.5 h-2 w-2/3 rounded-full bg-navy/[0.1]" />
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
 export type VisualName =
-  | "benchmark" | "serp" | "funnel" | "kpis" | "dashboard" | "donut" | "adformats" | "markets" | "reviews";
+  | "benchmark" | "serp" | "funnel" | "kpis" | "dashboard" | "donut" | "adformats" | "markets";
 
 export function RowVisual({ name }: { name: VisualName }) {
   switch (name) {
@@ -252,6 +231,5 @@ export function RowVisual({ name }: { name: VisualName }) {
     case "donut": return <DonutVisual />;
     case "adformats": return <AdFormats />;
     case "markets": return <Markets />;
-    case "reviews": return <Reviews />;
   }
 }

@@ -115,7 +115,7 @@ export function ListingShowcase() {
             <p className="text-sm text-ink-faint">
               Echte Listings aus unserem Content Studio · Marke: <span className="font-semibold text-ink-muted">{set.label}</span>
             </p>
-            <a href="#kontakt" className="btn-ghost">Eigenes Listing planen</a>
+            <a href="/gespraech-vereinbaren" className="btn-ghost">Eigenes Listing planen</a>
           </div>
         </Reveal>
       </div>
