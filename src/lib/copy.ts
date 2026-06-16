@@ -72,8 +72,9 @@ export const fullService = {
       items: [
         { kicker: "Strategie", title: "Eine klare Strategie, bevor wir loslegen.", body: "Wettbewerbs- und Keyword-Analyse, Margenkalkulation, Preisstrategie und KPI-Steuerung. Wir wissen, wer wofür rankt – und wo euer Hebel liegt.", icon: "strategy", visual: "benchmark", cta: { label: "Mehr zur Strategie", href: "/leistungen/strategie" } },
         { kicker: "Content", title: "Listings, die aus Klicks Käufer machen.", body: "Hauptbilder, Galerie, A+ und Premium A+, SEO-Texte und Backend-Keywords – optimiert für echte Käufer und für Rufus, COSMO und A10.", icon: "content", visual: "serp", cta: { label: "Mehr zur Listing-Optimierung", href: "/leistungen/listing-seo" } },
-        { kicker: "Advertising", title: "PPC, das profitabel skaliert.", body: "Komplette Kampagnenstruktur, Bid-Management, Budget-Allokation und Reporting – Sponsored Products, Brands, Display, Video und DSP. Streuverluste runter, Return on Ad Spend rauf.", icon: "ads", visual: "funnel", cta: { label: "Mehr zu unserem Advertising", href: "/leistungen/ppc-advertising" } },
-        { kicker: "Account Management", title: "Euer Konto läuft – ohne dass ihr ran müsst.", body: "Inventar-Forecasting und FBA-Planung, Buy-Box- und Pricing-Monitoring, Compliance, Case-Management und Reporting. Ein fester Ansprechpartner statt Ticketsystem.", icon: "account", visual: "dashboard", cta: { label: "Mehr zum Account Management", href: "/leistungen/account-management" } },
+        { kicker: "Advertising", title: "PPC, das profitabel skaliert.", body: "Komplette Kampagnenstruktur, Bid-Management, Budget-Allokation und Reporting – Sponsored Products, Brands, Display und Video. Streuverluste runter, Return on Ad Spend rauf.", icon: "ads", visual: "funnel", cta: { label: "Mehr zu unserem Advertising", href: "/leistungen/ppc-advertising" } },
+        { kicker: "Account Management", title: "Euer Konto läuft – ohne dass ihr ran müsst.", body: "Inventar-Forecasting und FBA-Planung, Buy-Box- und Pricing-Monitoring, Case-Management und Reporting. Ein fester Ansprechpartner statt Ticketsystem.", icon: "account", visual: "dashboard", cta: { label: "Mehr zum Account Management", href: "/leistungen/account-management" } },
+        { kicker: "Erweiterung", title: "Internationalisierung – fünf Marktplätze.", body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert. Als Erweiterung zu den vier Kernleistungen.", icon: "globe", visual: "markets", cta: { label: "Mehr zur Internationalisierung", href: "/leistungen/internationalisierung" } },
       ],
     },
     {
@@ -84,7 +85,7 @@ export const fullService = {
       groups: [
         { title: "Strategie", items: ["Wettbewerbs- & Keyword-Analyse", "Margenkalkulation", "Preisstrategie", "KPI-Steuerung & Zielmarken", "Wachstums-Roadmap"] },
         { title: "Content", items: ["Hauptbilder & Galeriebilder", "A+ / Premium A+", "Listing-Texte (Titel, Bullets, Beschreibung)", "SEO & Backend-Keywords", "Brand Store & Brand Story", "A/B-Tests"] },
-        { title: "Advertising", items: ["Sponsored Products & Brands", "Sponsored Display", "Sponsored Brand Video", "DSP-Kampagnen", "Keyword- & Wettbewerbsanalyse"] },
+        { title: "Advertising", items: ["Sponsored Products & Brands", "Sponsored Display", "Sponsored Brand Video", "Bid- & Budget-Management", "Keyword- & Wettbewerbsanalyse"] },
         { title: "Account Management", items: ["Inventar-Management & FBA-Forecasting", "Buy-Box-Monitoring", "Case-Management", "Compliance & Account-Health", "Performance-Reports"] },
       ],
     },
@@ -208,13 +209,13 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       lead: "PPC, das",
       accent: "profitabel skaliert.",
       sub: "Advertising ist meist der größte Posten im Budget. Wir senken Streuverluste und steigern den Return on Ad Spend – statt Budget zu verbrennen.",
-      chips: ["Sponsored Products", "Sponsored Brands", "Sponsored Display", "DSP"],
+      chips: ["Sponsored Products", "Sponsored Brands", "Sponsored Display", "Steuerung auf TACoS"],
     },
     blocks: [
       {
         kind: "rows",
         items: [
-          { kicker: "Architektur", title: "Eine Struktur, in der jeder Euro eine Aufgabe hat.", body: "Sponsored Products, Brands, Display und DSP – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert. Keine Black-Box, in der gut und schlecht laufende Begriffe denselben Topf teilen.", icon: "ads", visual: "adformats" },
+          { kicker: "Architektur", title: "Eine Struktur, in der jeder Euro eine Aufgabe hat.", body: "Sponsored Products, Brands und Display – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert. Keine Black-Box, in der gut und schlecht laufende Begriffe denselben Topf teilen.", icon: "ads", visual: "adformats" },
           { kicker: "Keyword-Harvesting", title: "Gewinner finden, Verlierer ausschließen.", body: "Auto-Kampagnen finden neue Suchbegriffe. Was konvertiert, wandert in eigene Performance-Kampagnen mit eigenem Gebot. Was nur Geld kostet, wird zum Negativ-Keyword. Dieser Kreislauf läuft wöchentlich – euer Konto wird mit jeder Woche effizienter.", icon: "target", visual: "serp" },
           { kicker: "Effizienz", title: "Weniger Streuverlust, mehr Rendite.", body: "Wir senken den ACoS, ohne Umsatz abzuwürgen: bessere Begriffe, bessere Gebote, bessere Landing-Listings. Das Ergebnis ist ein ROAS, der planbar nach oben geht.", icon: "chart", visual: "funnel", bullets: ["−30 % ACoS", "4,8× ROAS", "+62 % Werbeumsatz"] },
         ],
@@ -274,12 +275,13 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       lead: "Euer Erfolg in Deutschland –",
       accent: "nativ auf neue Märkte.",
       sub: "Wir übersetzen nicht, wir lokalisieren: Content, PPC und Account-Management nativ pro Marktplatz – lokal recherchiert, lokal formuliert, lokal optimiert. Und alles konsolidiert in einem Gesamtbild, damit ihr über alle Länder hinweg vergleichbare Zahlen habt.",
+      chips: ["5 Marktplätze", "Lokalisierte Listings", "Markt-Pricing", "PPC pro Land"],
     },
     blocks: [
       {
         kind: "rows",
         items: [
-          { kicker: "Roll-out", title: "Ein Setup, Markt für Markt ausgerollt.", body: "Wir nehmen euer erprobtes Setup aus Deutschland und übertragen es strukturiert auf weitere Marktplätze – mit Markt-Analyse, lokaler Logistik und Compliance je Land. Ihr seht jederzeit, welcher Markt live ist und wie weit der nächste Launch ist.", icon: "globe", visual: "markets" },
+          { kicker: "Roll-out", title: "Ein Setup, Markt für Markt ausgerollt.", body: "Wir nehmen euer erprobtes Setup aus Deutschland und übertragen es strukturiert auf weitere Marktplätze – mit Markt-Analyse und lokaler Logistik. Ihr seht jederzeit, welcher Markt live ist und wie weit der nächste Launch ist.", icon: "globe", visual: "markets" },
           { kicker: "Lokalisieren statt übersetzen", title: "Wort-für-Wort übersetzt verkauft nicht.", body: "Eine reine Übersetzung trifft weder die Suchbegriffe noch den Ton im Zielmarkt. Wir recherchieren lokal, formulieren nativ und bauen Content, der dort rankt und konvertiert – nicht nur verstanden wird.", icon: "content", visual: "serp", bullets: ["+110 % Klicks (IT)", "+21 % Conversion", "4 Marktplätze"] },
         ],
       },

@@ -23,7 +23,7 @@ export function ContentStudio() {
             }
             description="Hauptbilder, A+ Content, Brand Stores und Infografiken aus unserem Studio – gestaltet, damit sie ranken, Vertrauen aufbauen und die Conversion heben."
           />
-          <a href="#kontakt" className="btn-ghost shrink-0">Alle Designbeispiele</a>
+          <a href="/gespraech-vereinbaren" className="btn-ghost shrink-0">Alle Designbeispiele</a>
         </div>
 
         {/* real listing gallery */}
@@ -62,7 +62,7 @@ export function ContentStudio() {
                   Module, die Story, Vorteile und Vertrauen verbinden – CI-konform über alle ASINs,
                   gebaut für echte Käufer und für die KI-Suche von morgen.
                 </p>
-                <a href="#kontakt" className="btn-primary mt-6">A+ für eure Marke</a>
+                <a href="/gespraech-vereinbaren" className="btn-primary mt-6">A+ für eure Marke</a>
               </div>
             </Reveal>
             <Reveal direction="left">

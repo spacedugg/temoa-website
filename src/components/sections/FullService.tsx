@@ -39,7 +39,7 @@ const pillars = [
     icon: "/icons/advertising.png",
     product: "Advertising Engine",
     label: "Advertising",
-    tag: "PPC, DSP & Sponsored Video",
+    tag: "PPC, Sponsored Brands & Video",
     title: "PPC Performance",
     metric: "ROAS 4,8×",
     body: "Kampagnen, die profitabel skalieren – Streuverluste runter, Return on Ad Spend rauf.",

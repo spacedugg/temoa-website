@@ -30,7 +30,7 @@ export function Internationalisierung() {
             <SectionHeading
               eyebrow="Internationalisierung"
               title={<>Übersetzen kann jeder. <span className="text-gradient">Lokalisieren verkauft.</span></>}
-              description="Das in DE erprobte Setup, Markt für Markt ausgerollt: Listing, SEO, Ads und Compliance je Land. Fünf Marktplätze, zentral gesteuert, ein Reporting."
+              description="Das in DE erprobte Setup, Markt für Markt ausgerollt: Listing, SEO und Ads – lokalisiert je Land. Fünf Marktplätze, zentral gesteuert, ein Reporting."
             />
             <div className="mt-8 space-y-4">
               {[
