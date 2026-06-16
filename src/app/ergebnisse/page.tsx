@@ -3,14 +3,14 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { StatsBand } from "@/components/sections/StatsBand";
-import { Results } from "@/components/sections/Results";
+import { Cases, CasesClosing } from "@/components/sections/Cases";
 import { Clients } from "@/components/sections/Clients";
 import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
-  title: "Ergebnisse · TEMOA",
+  title: "Case Studies · TEMOA",
   description:
-    "Echte Zahlen, echte Marken: mehr organischer Umsatz, bessere Marge und ein gesundes Amazon-Konto – Resultate aus dem TEMOA-System.",
+    "Versprechen kann jeder. Hier sind Zahlen: Vitaworld +147 % Umsatz, FUTUM 8 von 10 Verkäufe ohne Klickkosten, Gartenmarke −35 % TACoS – Kundenbeispiele.",
 };
 
 export default function ErgebnissePage() {
@@ -24,8 +24,9 @@ export default function ErgebnissePage() {
           description="Beispiele aus laufenden Mandaten – Einzelergebnisse, kein Versprechen, aber ein ehrliches Bild unserer Arbeitsweise: Organic First, profitabel skaliert."
         />
         <StatsBand />
-        <Results />
+        <Cases />
         <Clients />
+        <CasesClosing />
         <CTA />
       </main>
       <Footer />

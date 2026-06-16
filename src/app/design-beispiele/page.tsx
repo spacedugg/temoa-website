@@ -4,6 +4,17 @@ import { Footer } from "@/components/Footer";
 import { ListingShowcase } from "@/components/sections/ListingShowcase";
 import { ContentStudio } from "@/components/sections/ContentStudio";
 import { BeforeAfterShowcase } from "@/components/sections/BeforeAfterShowcase";
+import { Blocks, type Block } from "@/components/sections/Blocks";
+import { CTA } from "@/components/sections/CTA";
+import { designPrinciples } from "@/lib/copy";
+
+const principleBlock: Block = {
+  kind: "grid",
+  eyebrow: "Wirkprinzipien",
+  title: "Was gutes Listing-Design leistet.",
+  cols: 3,
+  items: designPrinciples.map((p) => ({ title: p.title, body: p.body, icon: p.icon })),
+};
 
 export const metadata: Metadata = {
   title: "Designbeispiele · TEMOA",
@@ -37,6 +48,8 @@ export default function DesignBeispielePage() {
         <ListingShowcase />
         <BeforeAfterShowcase />
         <ContentStudio />
+        <Blocks blocks={[principleBlock]} />
+        <CTA />
       </main>
       <Footer />
     </>

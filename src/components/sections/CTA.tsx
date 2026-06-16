@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 
-const steps = [
-  { n: "1", title: "Kurzer Input von euch", body: "Ein paar Fragen zu Sortiment, Marktplätzen und Zielen." },
-  { n: "2", title: "Wir bereiten vor", body: "Erste Beobachtungen und konkrete Maßnahmen-Ideen für eure Marke." },
-  { n: "3", title: "Im Call", body: "Marktplatz-Potenzial und die nächsten konkreten Schritte." },
+const bullets = [
+  "Kostenlos und unverbindlich",
+  "Konkrete Hebel statt Verkaufsshow",
+  "Quartalsweise kündbar, keine Knebelverträge",
 ];
 
 export function CTA() {
@@ -38,17 +38,17 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-6 max-w-xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
-                  Lass uns über euer{" "}
+                  Lasst uns ausrechnen, was in{" "}
                   <span className="bg-gradient-to-r from-brand-300 via-violet-soft to-cyan bg-clip-text text-transparent">
-                    Marktplatz-Potenzial
+                    eurem Konto
                   </span>{" "}
-                  sprechen.
+                  steckt.
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
-                  30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und
-                  sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck.
+                  30 Minuten mit Clemens. Wir schauen auf euer Konto, eure Marge und eure größten
+                  Hebel – und sagen ehrlich, ob wir helfen können.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
@@ -57,26 +57,23 @@ export function CTA() {
                     href="mailto:tools@temoa.de"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
                   >
-                    Gespräch vereinbaren
+                    Potenzial-Gespräch buchen
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </a>
-                  <span className="text-sm text-white/50">Keine Kosten · keine Verpflichtung</span>
+                  <span className="text-sm text-white/50">Termin mit Clemens, Geschäftsführung</span>
                 </div>
               </Reveal>
             </div>
 
-            {/* steps */}
+            {/* bullets */}
             <div className="space-y-3">
-              {steps.map((s, i) => (
-                <Reveal key={s.n} delay={0.1 + i * 0.1} direction="left">
-                  <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-cyan text-sm font-bold text-white">
-                      {s.n}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-white">{s.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-white/60">{s.body}</p>
-                    </div>
+              {bullets.map((b, i) => (
+                <Reveal key={b} delay={0.1 + i * 0.1} direction="left">
+                  <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-400 to-cyan text-white">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    </span>
+                    <span className="font-medium text-white/85">{b}</span>
                   </div>
                 </Reveal>
               ))}

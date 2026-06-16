@@ -22,6 +22,8 @@ type IconName =
   | "layers"
   | "rocket";
 
+export type { IconName };
+
 const paths: Record<IconName, React.ReactNode> = {
   margin: <><path d="M3 21V10M9 21V4M15 21v-7M21 21V8" /><path d="M2 21h20" /></>,
   puzzle: <path d="M9 4a2 2 0 1 1 4 0v1h3a1 1 0 0 1 1 1v3h1a2 2 0 1 1 0 4h-1v3a1 1 0 0 1-1 1h-3v-1a2 2 0 1 0-4 0v1H6a1 1 0 0 1-1-1v-3H4a2 2 0 1 1 0-4h1V6a1 1 0 0 1 1-1h3V4Z" />,

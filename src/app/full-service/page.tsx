@@ -8,6 +8,15 @@ import { Internationalisierung } from "@/components/sections/Internationalisieru
 import { BeforeAfterShowcase } from "@/components/sections/BeforeAfterShowcase";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
+import { Blocks, type Block } from "@/components/sections/Blocks";
+import { servicesList } from "@/lib/copy";
+
+const servicesBridge: Block = {
+  kind: "bridge",
+  eyebrow: "Die Bausteine",
+  title: "Strategie, Content, Ads und Betrieb greifen ineinander.",
+  links: servicesList.filter((s) => s.href !== "/full-service"),
+};
 
 export const metadata: Metadata = {
   title: "Full Service · TEMOA",
@@ -28,7 +37,7 @@ export default function FullServicePage() {
         <Leistungsmodell />
         <FuerWen />
         <FullService />
-        <Internationalisierung />
+        <Blocks blocks={[servicesBridge]} />
         <BeforeAfterShowcase />
         <Kosteneinordnung />
         <FAQ />

@@ -1,20 +1,27 @@
 import Image from "next/image";
 import { Logo } from "./Logo";
+import { servicesList } from "@/lib/copy";
 
 const cols = [
   {
     title: "Leistungen",
+    links: servicesList,
+  },
+  {
+    title: "Unternehmen",
     links: [
-      { label: "Full Service", href: "/full-service" },
-      { label: "Ergebnisse", href: "/ergebnisse" },
+      { label: "Über uns", href: "/ueber-uns" },
+      { label: "Case Studies", href: "/ergebnisse" },
       { label: "Designbeispiele", href: "/design-beispiele" },
+      { label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" },
     ],
   },
   {
-    title: "Agentur",
+    title: "Rechtliches",
     links: [
-      { label: "Über uns", href: "/ueber-uns" },
-      { label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" },
+      { label: "Impressum", href: "#" },
+      { label: "Datenschutz", href: "#" },
+      { label: "AGB", href: "#" },
     ],
   },
 ];
@@ -23,12 +30,12 @@ export function Footer() {
   return (
     <footer className="relative border-t border-black/[0.06] bg-canvas pt-16">
       <div className="container-x">
-        <div className="grid gap-12 pb-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 pb-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
-              Full-Service Amazon-Agentur. Strategie, Content, Advertising und Betrieb –
-              Organic First, profitabel skaliert.
+              Full-Service Amazon-Agentur. Wir führen euren Account: Strategie, Content,
+              Advertising und Betrieb – profitabel und nachvollziehbar.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {["60+ Marken", "21 Mio € Umsatz p. a.", "5+ Länder", "98 % Bindung"].map((b) => (
