@@ -5,6 +5,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 import { GradientTile } from "../ui/MockKit";
+import { RowVisual, type VisualName } from "./Mocks";
 
 type Tint = "brand" | "emerald" | "warm" | "cool";
 
@@ -14,7 +15,7 @@ export type Block =
       eyebrow?: string;
       title?: ReactNode;
       description?: string;
-      items: { kicker?: string; title: string; body: string; bullets?: string[]; icon: IconName; tint?: Tint; cta?: { label: string; href: string } }[];
+      items: { kicker?: string; title: string; body: string; bullets?: string[]; icon: IconName; tint?: Tint; cta?: { label: string; href: string }; visual?: VisualName }[];
     }
   | {
       kind: "grid";
@@ -78,11 +79,15 @@ function Rows({ block }: { block: Extract<Block, { kind: "rows" }> }) {
                   </div>
                 </Reveal>
                 <Reveal direction={flip ? "right" : "left"} className={flip ? "lg:order-1" : ""}>
-                  <GradientTile variant={it.tint ?? tints[i % tints.length]} className="aspect-[4/3]">
-                    <div className="flex h-24 w-24 items-center justify-center rounded-3xl border border-white/70 bg-white/85 text-brand-600 shadow-lift backdrop-blur">
-                      <Icon name={it.icon} size={44} />
-                    </div>
-                  </GradientTile>
+                  {it.visual ? (
+                    <RowVisual name={it.visual} />
+                  ) : (
+                    <GradientTile variant={it.tint ?? tints[i % tints.length]} className="aspect-[4/3]">
+                      <div className="flex h-24 w-24 items-center justify-center rounded-3xl border border-white/70 bg-white/85 text-brand-600 shadow-lift backdrop-blur">
+                        <Icon name={it.icon} size={44} />
+                      </div>
+                    </GradientTile>
+                  )}
                 </Reveal>
               </div>
             );

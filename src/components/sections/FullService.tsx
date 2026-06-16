@@ -60,6 +60,19 @@ const pillars = [
     color: "#2A9BD8",
     visual: "buybox",
   },
+  {
+    key: "international",
+    icon: "/icons/management.png",
+    product: "Markets",
+    label: "International",
+    tag: "Lokalisierung & 5 Marktplätze",
+    title: "Internationalisierung",
+    metric: "5 Marktplätze",
+    body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert.",
+    tint: "bg-emerald/10",
+    color: "#0E7CA0",
+    visual: "markets",
+  },
 ];
 
 function PillarVisual({ type }: { type: string }) {
@@ -120,6 +133,26 @@ function PillarVisual({ type }: { type: string }) {
             <span className="font-bold text-emerald">100 %</span>
           </div>
           <AreaChart className="h-20 w-full" stroke="#2A9BD8" fill="rgba(42,155,216,0.18)" points={[88, 92, 95, 98, 97, 99, 100, 100]} />
+        </div>
+      );
+    case "markets":
+      return (
+        <div className="space-y-3">
+          <div className="flex flex-wrap gap-2">
+            {["DE", "FR", "IT", "ES", "NL"].map((c, i) => (
+              <motion.span
+                key={c}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className={`flex h-11 w-11 items-center justify-center rounded-xl border text-sm font-bold ${i === 0 ? "border-transparent bg-brand-500 text-white" : "border-navy/[0.08] bg-white text-ink"}`}
+              >
+                {c}
+              </motion.span>
+            ))}
+          </div>
+          <AreaChart className="h-12 w-full" stroke="#0E7CA0" fill="rgba(14,124,160,0.16)" points={[20, 34, 30, 48, 52, 68, 80]} />
         </div>
       );
     default:
@@ -242,8 +275,8 @@ export function FullService() {
         <div className="container-x relative w-full">
           <SectionHeading
             eyebrow="Full Service 360°"
-            title={<>Vier Bereiche, <span className="text-gradient">ein System.</span></>}
-            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Content, Advertising und Betrieb ineinander – mehr als die Summe der Teile."
+            title={<>Fünf Bereiche, <span className="text-gradient">ein System.</span></>}
+            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Content, Advertising, Betrieb und Internationalisierung ineinander – mehr als die Summe der Teile."
           />
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">

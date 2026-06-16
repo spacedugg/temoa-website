@@ -4,8 +4,9 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { StatsBand } from "@/components/sections/StatsBand";
 import { Blocks } from "@/components/sections/Blocks";
+import { PricingThreshold } from "@/components/sections/PricingThreshold";
 import { CTA } from "@/components/sections/CTA";
-import { fullService } from "@/lib/copy";
+import { fullService, pricing } from "@/lib/copy";
 
 export const metadata: Metadata = {
   title: "Full Service · TEMOA",
@@ -25,6 +26,7 @@ export default function FullServicePage() {
         />
         <StatsBand />
         <Blocks blocks={fullService.blocks} />
+        <PricingThreshold from={pricing["full-service"]} />
         <CTA />
       </main>
       <Footer />
