@@ -14,7 +14,7 @@ export type Block =
       eyebrow?: string;
       title?: ReactNode;
       description?: string;
-      items: { kicker?: string; title: string; body: string; bullets?: string[]; icon: IconName; tint?: Tint }[];
+      items: { kicker?: string; title: string; body: string; bullets?: string[]; icon: IconName; tint?: Tint; cta?: { label: string; href: string } }[];
     }
   | {
       kind: "grid";
@@ -26,7 +26,17 @@ export type Block =
     }
   | { kind: "callout"; eyebrow?: string; title: string; body: ReactNode }
   | { kind: "bridge"; eyebrow?: string; title: string; links: { label: string; href: string; body?: string }[] }
-  | { kind: "qa"; eyebrow?: string; title?: ReactNode; items: { q: string; a: string }[] };
+  | { kind: "qa"; eyebrow?: string; title?: ReactNode; items: { q: string; a: string }[] }
+  | { kind: "numbered"; eyebrow?: string; title?: ReactNode; description?: string; cols?: 2 | 4; items: { n: string; title: string; body: string }[] }
+  | {
+      kind: "compare";
+      eyebrow?: string;
+      title?: ReactNode;
+      description?: string;
+      left: { label: string; value: string; points?: string[] };
+      right: { label: string; value: string; points?: string[] };
+    }
+  | { kind: "checklist"; eyebrow?: string; title?: ReactNode; description?: string; groups: { title: string; items: string[] }[] };
 
 const tints: Tint[] = ["brand", "emerald", "warm", "cool"];
 
@@ -58,6 +68,12 @@ function Rows({ block }: { block: Extract<Block, { kind: "rows" }> }) {
                           </li>
                         ))}
                       </ul>
+                    )}
+                    {it.cta && (
+                      <a href={it.cta.href} className="btn-ghost mt-6">
+                        {it.cta.label}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                      </a>
                     )}
                   </div>
                 </Reveal>
@@ -164,6 +180,106 @@ function QA({ block }: { block: Extract<Block, { kind: "qa" }> }) {
   );
 }
 
+function Numbered({ block }: { block: Extract<Block, { kind: "numbered" }> }) {
+  const cols = block.cols ?? 4;
+  return (
+    <section className="relative overflow-hidden py-20 md:py-28">
+      <div className="absolute inset-0 bg-canvas-alt" />
+      <div className="container-x relative">
+        {(block.eyebrow || block.title) && (
+          <SectionHeading eyebrow={block.eyebrow} title={block.title ?? ""} description={block.description} align="center" />
+        )}
+        <RevealGroup className={`mt-12 grid gap-5 sm:grid-cols-2 ${cols === 4 ? "lg:grid-cols-4" : ""}`} stagger={0.05}>
+          {block.items.map((it) => (
+            <RevealItem key={it.n}>
+              <div className="card h-full p-6">
+                <span className="text-3xl font-extrabold text-gradient">{it.n}</span>
+                <h3 className="mt-3 text-base font-bold leading-snug text-ink">{it.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{it.body}</p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
+function Compare({ block }: { block: Extract<Block, { kind: "compare" }> }) {
+  return (
+    <section className="relative py-20 md:py-28">
+      <div className="container-x">
+        {(block.eyebrow || block.title) && (
+          <SectionHeading eyebrow={block.eyebrow} title={block.title ?? ""} description={block.description} />
+        )}
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          <Reveal direction="right">
+            <div className="h-full rounded-3xl border border-navy/[0.1] bg-canvas-alt p-8">
+              <span className="text-sm font-semibold text-ink-faint">{block.left.label}</span>
+              <div className="mt-2 text-3xl font-extrabold tracking-tight text-ink">{block.left.value}</div>
+              {block.left.points && (
+                <ul className="mt-5 space-y-2.5 text-sm text-ink-muted">
+                  {block.left.points.map((p) => (
+                    <li key={p} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red/10 text-red"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg></span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </Reveal>
+          <Reveal direction="left">
+            <div className="h-full rounded-3xl border border-brand-200 bg-brand-50/60 p-8 shadow-glow">
+              <span className="text-sm font-semibold text-brand-700">{block.right.label}</span>
+              <div className="mt-2 text-3xl font-extrabold tracking-tight text-ink">{block.right.value}</div>
+              {block.right.points && (
+                <ul className="mt-5 space-y-2.5 text-sm text-ink-muted">
+                  {block.right.points.map((p) => (
+                    <li key={p} className="flex items-center gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald/10 text-emerald-deep"><svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Checklist({ block }: { block: Extract<Block, { kind: "checklist" }> }) {
+  return (
+    <section className="relative py-20 md:py-28">
+      <div className="container-x">
+        {(block.eyebrow || block.title) && (
+          <SectionHeading eyebrow={block.eyebrow} title={block.title ?? ""} description={block.description} />
+        )}
+        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {block.groups.map((g) => (
+            <RevealItem key={g.title}>
+              <div className="card h-full p-6">
+                <h3 className="text-base font-bold text-ink">{g.title}</h3>
+                <ul className="mt-4 space-y-2.5">
+                  {g.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2.5 text-sm text-ink-muted">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald/10 text-emerald-deep"><svg width="11" height="11" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
 export function Blocks({ blocks }: { blocks: Block[] }) {
   return (
     <>
@@ -179,6 +295,12 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             return <Bridge key={i} block={b} />;
           case "qa":
             return <QA key={i} block={b} />;
+          case "numbered":
+            return <Numbered key={i} block={b} />;
+          case "compare":
+            return <Compare key={i} block={b} />;
+          case "checklist":
+            return <Checklist key={i} block={b} />;
         }
       })}
     </>

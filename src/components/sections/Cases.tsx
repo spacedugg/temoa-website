@@ -12,17 +12,20 @@ export function Cases() {
           {caseStudies.map((c) => (
             <RevealItem key={c.brand}>
               <div className="card flex h-full flex-col p-7">
-                <div className="flex items-center justify-between">
-                  <span className="text-lg font-bold text-ink">{c.brand}</span>
-                  <span className="rounded-full bg-canvas-alt px-2.5 py-1 text-[11px] font-medium text-ink-muted">{c.category}</span>
-                </div>
-                <div className="mt-6 flex items-baseline gap-3">
+                <span className="text-xs font-medium text-ink-faint">{c.sector}</span>
+                <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-5xl font-extrabold tracking-tight" style={{ color: c.color }}>{c.metric}</span>
-                  <span className="rounded-full px-2 py-0.5 text-xs font-semibold" style={{ background: `${c.color}1A`, color: c.color }}>{c.second}</span>
+                  <span className="text-base font-bold text-ink">{c.brand}</span>
                 </div>
                 <p className="mt-1 text-sm font-medium text-ink-muted">{c.metricLabel}</p>
-                <p className="mt-5 flex-1 text-[15px] leading-relaxed text-ink">{c.body}</p>
-                <p className="mt-5 text-xs text-ink-faint">{c.note}</p>
+
+                <div className="mt-5 rounded-2xl border border-navy/[0.06] bg-canvas-alt p-4">
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">Ausgangslage</span>
+                  <p className="mt-1 text-sm leading-relaxed text-ink-muted">{c.ausgangslage}</p>
+                </div>
+
+                <p className="mt-5 flex-1 text-[15px] italic leading-relaxed text-ink">„{c.quote}"</p>
+                <p className="mt-4 text-xs text-ink-faint">Kundenbeispiel</p>
               </div>
             </RevealItem>
           ))}
@@ -39,10 +42,11 @@ export function CasesClosing() {
         <SectionHeading
           eyebrow="Euer Konto"
           title={<>Wird eure Marke die <span className="text-gradient">nächste Case?</span></>}
+          description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und zeigen das größte Potenzial."
           align="center"
         />
         <div className="mt-8 flex justify-center">
-          <a href="/gespraech-vereinbaren" className="btn-primary">Potenzial-Gespräch buchen</a>
+          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch buchen</a>
         </div>
       </div>
     </section>

@@ -3,29 +3,25 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { CTA } from "@/components/sections/CTA";
-import { Steps } from "@/components/sections/Steps";
-import { FAQ } from "@/components/sections/FAQ";
 import { ContactForm } from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Gespräch vereinbaren · TEMOA",
+  title: "Gespräch buchen · TEMOA",
   description:
-    "30 Minuten, kostenfrei, direkt mit dem Founder: Wir analysieren euer Amazon-Konto vorab und zeigen ehrlich, wo das größte Potenzial liegt.",
+    "30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck.",
 };
 
-export default function GespraechVereinbarenPage() {
+export default function GespraechBuchenPage() {
   return (
     <>
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Gespräch vereinbaren"
-          title={<>Lasst uns über <span className="text-gradient">euer Konto sprechen.</span></>}
-          description="30 Minuten mit Clemens, Geschäftsführung von TEMOA. Ihr bekommt eine ehrliche Einschätzung, wo euer Konto steht und was drin ist – auch dann, wenn die Antwort lautet: Ihr braucht uns (noch) nicht."
+          eyebrow="Gespräch buchen"
+          title={<>Lass uns über euer <span className="text-gradient">Marktplatz-Potenzial</span> sprechen.</>}
+          description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck."
         />
         <CTA />
-        <Steps />
-        <FAQ />
         <ContactForm />
       </main>
       <Footer />

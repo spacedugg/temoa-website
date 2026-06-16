@@ -5,11 +5,13 @@ export function PageHero({
   eyebrow,
   title,
   description,
+  chips,
   children,
 }: {
   eyebrow: string;
   title: ReactNode;
   description?: ReactNode;
+  chips?: string[];
   children?: ReactNode;
 }) {
   return (
@@ -34,6 +36,17 @@ export function PageHero({
         {description && (
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">{description}</p>
+          </Reveal>
+        )}
+        {chips && chips.length > 0 && (
+          <Reveal delay={0.15}>
+            <div className="mt-7 flex flex-wrap justify-center gap-2">
+              {chips.map((c) => (
+                <span key={c} className="rounded-full border border-navy/[0.1] bg-white px-3.5 py-1.5 text-sm font-medium text-ink-muted shadow-soft">
+                  {c}
+                </span>
+              ))}
+            </div>
           </Reveal>
         )}
         {children && <div className="mt-12">{children}</div>}

@@ -1,16 +1,15 @@
 import Image from "next/image";
 import { Logo } from "./Logo";
-import { servicesList } from "@/lib/copy";
+import { services } from "@/lib/copy";
 
 const cols = [
   {
     title: "Leistungen",
-    links: servicesList,
+    links: [{ label: "Full Service", href: "/full-service" }, ...services.map((s) => ({ label: s.label, href: s.href }))],
   },
   {
     title: "Unternehmen",
     links: [
-      { label: "Über uns", href: "/ueber-uns" },
       { label: "Case Studies", href: "/ergebnisse" },
       { label: "Designbeispiele", href: "/design-beispiele" },
       { label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" },

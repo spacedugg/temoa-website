@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Logo } from "./Logo";
-import { servicesList } from "@/lib/copy";
+import { services } from "@/lib/copy";
 import clsx from "clsx";
 
 const links: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: "Full Service", href: "/full-service", children: servicesList.map((s) => ({ label: s.label, href: s.href })) },
+  {
+    label: "Full Service",
+    href: "/full-service",
+    children: [{ label: "Full Service 360°", href: "/full-service" }, ...services.map((s) => ({ label: s.label, href: s.href }))],
+  },
   { label: "Ergebnisse", href: "/ergebnisse" },
   { label: "Designbeispiele", href: "/design-beispiele" },
 ];
