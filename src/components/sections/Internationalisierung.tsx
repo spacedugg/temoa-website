@@ -29,14 +29,14 @@ export function Internationalisierung() {
           <div>
             <SectionHeading
               eyebrow="Internationalisierung"
-              title={<>Ein System, <span className="text-gradient">fünf Märkte.</span></>}
-              description="Neue Marktplätze rollen wir nativ aus – nicht nur übersetzt. Landesspezifische Keywords, Content und Advertising, zentral gesteuert und vergleichbar reportet."
+              title={<>Übersetzen kann jeder. <span className="text-gradient">Lokalisieren verkauft.</span></>}
+              description="Das in DE erprobte Setup, Markt für Markt ausgerollt: Listing, SEO, Ads und Compliance je Land. Fünf Marktplätze, zentral gesteuert, ein Reporting."
             />
             <div className="mt-8 space-y-4">
               {[
-                "Marktplatzgerechte Listings statt 1:1-Übersetzung",
-                "Lokales Keyword-Research je Land",
-                "Zentrales Reporting über alle Märkte hinweg",
+                "Native Lokalisierung statt Wort-für-Wort-Übersetzung",
+                "Lokale Keyword-Recherche je Markt",
+                "Pan-EU-Logistik & Compliance pro Land",
               ].map((t) => (
                 <Reveal key={t} direction="right">
                   <div className="flex items-center gap-3">

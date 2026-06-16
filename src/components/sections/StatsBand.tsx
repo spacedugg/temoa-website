@@ -5,9 +5,9 @@ import { Counter } from "../ui/Counter";
 
 const stats = [
   { value: 60, prefix: "", suffix: "+", label: "betreute Marken" },
-  { value: 21, prefix: "", suffix: " Mio €", label: "Umsatz p. a. über alle Konten" },
-  { value: 5, prefix: "", suffix: " Länder", label: "nativ ausgerollt" },
-  { value: 98, prefix: "", suffix: " %", label: "Kundenbindung" },
+  { value: 21, prefix: "", suffix: " Mio. €", label: "betreuter Jahresumsatz" },
+  { value: 98, prefix: "", suffix: " %", label: "Kundenbindung – ohne lange Laufzeiten" },
+  { value: 5, prefix: "", suffix: "", label: "Amazon-Marktplätze" },
 ];
 
 export function StatsBand() {

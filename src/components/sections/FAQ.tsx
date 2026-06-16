@@ -6,24 +6,24 @@ import { SectionHeading } from "../ui/SectionHeading";
 
 const faqs = [
   {
-    q: "Wir haben schon eine Agentur – was macht ihr anders?",
-    a: "Die meisten Agenturen lösen einen Ausschnitt: nur Ads, nur Content. Bei uns greifen Strategie, Content, Advertising und Betrieb in einem System ineinander – auf Marge gesteuert, mit einem festen Ansprechpartner. Organic First heißt: Wir bauen erst das Fundament, das Werbung profitabel macht.",
+    q: "Wie viel Aufwand ist die Übergabe für uns?",
+    a: "Wenige Stunden, verteilt über die ersten Wochen: Zugänge, ein Kickoff-Termin, offene Fragen zu Sortiment und Lieferkette. Wir arbeiten mit einer festen Onboarding-Checkliste – ihr müsst nichts vorbereiten, was wir nicht konkret anfragen.",
   },
   {
-    q: "Wie schnell sehen wir erste Ergebnisse?",
-    a: "Erste Quick-Wins aus Listing- und Kampagnen-Optimierung sind meist innerhalb weniger Wochen sichtbar. Nachhaltiges organisches Wachstum baut sich über die ersten Monate auf – wir zeigen den Fortschritt wöchentlich transparent in klaren KPIs.",
+    q: "Wem gehören Konto, Kampagnen und Daten?",
+    a: "Euch. Immer. Wir arbeiten als Benutzer in eurem Seller Central – keine Konten, Kampagnen oder Markenregistrierungen, die bei uns liegen. Wenn ihr geht, nehmt ihr alles mit, inklusive vollständiger Dokumentation.",
   },
   {
-    q: "Müssen wir uns selbst um etwas kümmern?",
-    a: "So wenig wie möglich. Nach einem kompakten Onboarding übernehmen wir Content, Advertising und den operativen Betrieb inklusive Buy-Box-, Inventar- und Case-Management. Ihr behaltet die volle Transparenz, ohne im Tagesgeschäft zu versinken.",
+    q: "Was, wenn es nicht funktioniert?",
+    a: "Unsere Verträge sind quartalsweise kündbar. Keine Jahresbindung, keine Ausstiegsgebühren. 98 % unserer Kunden bleiben – aber sie bleiben, weil es funktioniert, nicht weil ein Vertrag sie hält.",
   },
   {
-    q: "Auf welchen Marktplätzen und in welchen Ländern arbeitet ihr?",
-    a: "Schwerpunkt ist Amazon – nativ in bis zu fünf Ländern (DE, FR, IT, ES, plus weitere auf Anfrage). Internationalisierung rollen wir sauber und marktplatzgerecht aus, statt Listings nur zu übersetzen.",
+    q: "Für wen lohnt sich TEMOA nicht?",
+    a: "Unter etwa 50.000 € Monatsumsatz auf Amazon steht unser Honorar in keinem guten Verhältnis zum Hebel – dann sagen wir das im ersten Gespräch. Dasselbe gilt, wenn ihr nur eine Einzelleistung sucht, etwa reines Kampagnenmanagement: Unser Modell funktioniert, weil wir das ganze Konto verantworten.",
   },
   {
-    q: "Wie ist die Zusammenarbeit aufgebaut?",
-    a: "Ein fester Ansprechpartner, wöchentliche Reports und Quartals-Reviews gegen klar definierte Ziele. Kein Blindflug, keine Blackbox – ihr wisst jederzeit, woran wir arbeiten und warum.",
+    q: "Was kostet das? (zur Einordnung)",
+    a: "Das Honorar hängt vom Umfang des Kontos ab – dazu machen wir im Gespräch eine klare Aussage, vorher wäre jede Zahl unseriös. Zur Einordnung: Ein internes Team, das Strategie, Content, SEO, PPC und Account Management abdeckt, kostet mehrere Vollzeitstellen – plus Tools, Einarbeitung und das Risiko, dass Wissen mit Personen geht.",
   },
 ];
 
@@ -69,7 +69,7 @@ export function FAQ() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Häufige Fragen"
-          title={<>Was Marken vor dem <span className="text-gradient">Start fragen.</span></>}
+          title={<>Die Fragen, die ihr <span className="text-gradient">zu Recht stellt.</span></>}
           align="center"
         />
         <div className="mx-auto mt-12 max-w-3xl">

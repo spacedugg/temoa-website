@@ -19,9 +19,9 @@ export default function ErgebnissePage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Ergebnisse"
-          title={<>Wachstum, das man <span className="text-gradient">in den Zahlen sieht.</span></>}
-          description="Kein Wachstum auf dem Papier, sondern messbare Resultate über Branchen und Marktplätze hinweg – Organic First, profitabel skaliert."
+          eyebrow="Case Studies"
+          title={<>Versprechen kann jeder. <span className="text-gradient">Hier sind Zahlen.</span></>}
+          description="Beispiele aus laufenden Mandaten – Einzelergebnisse, kein Versprechen, aber ein ehrliches Bild unserer Arbeitsweise: Organic First, profitabel skaliert."
         />
         <StatsBand />
         <Results />

@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { CTA } from "@/components/sections/CTA";
+import { Steps } from "@/components/sections/Steps";
 import { FAQ } from "@/components/sections/FAQ";
 import { ContactForm } from "@/components/sections/ContactForm";
 
@@ -19,10 +20,11 @@ export default function GespraechVereinbarenPage() {
       <main>
         <PageHero
           eyebrow="Gespräch vereinbaren"
-          title={<>30 Minuten, die euer <span className="text-gradient">Marktplatz-Potenzial</span> zeigen.</>}
-          description="Kostenfrei, unverbindlich und ohne Verkaufsdruck. Wir schauen uns euer Konto vorab an und kommen mit konkreten Ideen ins Gespräch."
+          title={<>Lasst uns über <span className="text-gradient">euer Konto sprechen.</span></>}
+          description="30 Minuten mit Clemens, Geschäftsführung von TEMOA. Ihr bekommt eine ehrliche Einschätzung, wo euer Konto steht und was drin ist – auch dann, wenn die Antwort lautet: Ihr braucht uns (noch) nicht."
         />
         <CTA />
+        <Steps />
         <FAQ />
         <ContactForm />
       </main>

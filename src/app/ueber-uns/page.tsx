@@ -19,9 +19,9 @@ export default function UeberUnsPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Über uns"
-          title={<>Euer Account, <span className="text-gradient">wie unser eigenes Geschäft.</span></>}
-          description="Wir sind kein Dienstleister für Einzelteile, sondern ein Team, das Verantwortung für euer Wachstum übernimmt – auf Marge, mit System und voller Transparenz."
+          eyebrow="Team"
+          title={<>Menschen statt <span className="text-gradient">Ticketsystem.</span></>}
+          description="Gegründet von dreien, die Amazon nicht mehr loslässt – heute ein Team, das für jeden Hebel jemanden hat, der ihn beherrscht. Eine Handvoll Marken pro Consultant, Antwort am selben Tag."
         />
         <Team />
         <WhyTemoa />

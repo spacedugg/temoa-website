@@ -22,13 +22,13 @@ export default function DesignBeispielePage() {
           <div className="container-x relative text-center">
             <span className="eyebrow justify-center">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-              Content Studio
+              Design-Beispiele
             </span>
             <h1 className="mx-auto mt-5 max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-              Designbeispiele, die <span className="text-gradient">ranken und verkaufen.</span>
+              Design, das nicht nur gefällt. <span className="text-gradient">Sondern verkauft.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Eine Auswahl echter Listings, A+ Module und Vorher/Nachher aus unserer Arbeit –
+              Neun Formate, ein Ziel: Conversion. Hauptbilder, Galerie, A+, Premium A+, Brand Store –
               gestaltet für Käufer und für die KI-Suche von morgen.
             </p>
           </div>

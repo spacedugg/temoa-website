@@ -14,10 +14,10 @@ export function BeforeAfterShowcase() {
       <div className="absolute inset-0 bg-canvas-alt" />
       <div className="container-x relative">
         <SectionHeading
-          eyebrow="Vorher / Nachher"
+          eyebrow="Aus der Praxis"
           title={
             <>
-              Dasselbe Produkt – <span className="text-gradient">ein anderer Auftritt.</span>
+              Gleiches Produkt. <span className="text-gradient">Anderer Umsatz.</span>
             </>
           }
           description="Zieh den Regler: Links das alte Listing, rechts unser Content. Genau hier entsteht die Conversion."
