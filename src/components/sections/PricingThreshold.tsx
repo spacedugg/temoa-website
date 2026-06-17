@@ -43,7 +43,7 @@ export function PricingThreshold({ from }: { from?: string | null }) {
           <Reveal delay={0.1}>
             <p className="relative mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/65">
               Der finale Preis hängt von Sortiment, Marktplätzen und Zielen ab. Im Gespräch nennen wir
-              dir eine klare Zahl für euer Setup – vorher wäre jede Angabe unseriös.
+              euch eine klare Zahl für euer Setup – vorher wäre jede Angabe unseriös.
             </p>
           </Reveal>
           <Reveal delay={0.15}>

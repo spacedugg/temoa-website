@@ -34,7 +34,7 @@ function Chip({ label, dir }: { label: string; dir?: "up" | "down" }) {
   );
 }
 
-/* Benchmark — Deine Marke vs Kategorie, mit Schwellen-Linie */
+/* Benchmark — Eure Marke vs Kategorie, mit Schwellen-Linie */
 function Benchmark() {
   return (
     <Frame>
@@ -42,7 +42,7 @@ function Benchmark() {
         <div className="absolute left-2 right-2 top-[34%] z-10 border-t-2 border-dashed border-ink/30" />
         <div className="flex w-28 flex-col items-center">
           <motion.div initial={{ height: 0 }} whileInView={{ height: "90%" }} viewport={{ once: true }} transition={{ duration: 0.9, ease }} className="w-full rounded-t-2xl" style={{ background: "var(--brand-gradient)" }} />
-          <span className="mt-2 text-xs font-semibold text-ink">Deine Marke</span>
+          <span className="mt-2 text-xs font-semibold text-ink">Eure Marke</span>
         </div>
         <div className="flex w-28 flex-col items-center">
           <motion.div initial={{ height: 0 }} whileInView={{ height: "52%" }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.1, ease }} className="w-full rounded-t-2xl bg-gradient-to-t from-red/70 to-red" />
@@ -218,8 +218,92 @@ function Markets() {
   );
 }
 
+/* Status-Chip für das Keyword-Harvesting */
+function StatusChip({ s }: { s: "win" | "cut" | "boost" }) {
+  const map = {
+    win: { bg: "rgba(14,124,160,0.12)", fg: "#0E7CA0" },
+    cut: { bg: "rgba(225,20,20,0.10)", fg: "#E11414" },
+    boost: { bg: "rgba(255,153,0,0.16)", fg: "#F08400" },
+  } as const;
+  const { bg, fg } = map[s];
+  return (
+    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md" style={{ background: bg, color: fg }}>
+      {s === "win" && <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8.5l3 3 7-7" /></svg>}
+      {s === "cut" && <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 4l8 8M12 4l-8 8" /></svg>}
+      {s === "boost" && <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" /></svg>}
+    </span>
+  );
+}
+
+/* Keyword-Harvesting — Suchbegriffe behalten / streichen / skalieren */
+function Harvest() {
+  const rows = [
+    { s: "win", w: "w-3/4", label: "Gewinner" },
+    { s: "boost", w: "w-2/3", label: "Skalieren" },
+    { s: "cut", w: "w-1/2", label: "Negativ" },
+    { s: "win", w: "w-3/5", label: "Gewinner" },
+    { s: "boost", w: "w-2/5", label: "Testen" },
+  ] as const;
+  return (
+    <Frame>
+      <div className="rounded-2xl border border-navy/[0.07] bg-white p-4">
+        <div className="mb-3 flex items-center justify-between">
+          <span className="text-sm font-semibold text-ink">Suchbegriffe</span>
+          <span className="rounded-full bg-canvas-alt px-2 py-0.5 text-[11px] font-medium text-ink-faint">wöchentlich optimiert</span>
+        </div>
+        <div className="space-y-2">
+          {rows.map((r, i) => (
+            <motion.div key={i} initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, ease }} className="flex items-center gap-3">
+              <StatusChip s={r.s} />
+              <span className={`h-2.5 rounded-full bg-navy/[0.12] ${r.w}`} />
+              <span className="ml-auto shrink-0 text-[11px] font-semibold" style={{ color: r.s === "win" ? "#0E7CA0" : r.s === "cut" ? "#E11414" : "#F08400" }}>{r.label}</span>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </Frame>
+  );
+}
+
+/* Datenfelder — Das Offensichtliche / Verborgene / Strategische */
+function Fields() {
+  const layers = [
+    { label: "Das Offensichtliche", items: ["Titel", "Bullets", "Hauptbild"], bg: "bg-brand-50", ring: "ring-brand-200" },
+    { label: "Das Verborgene", items: ["Backend-Keywords", "Browse-Nodes", "Attribute"], bg: "bg-emerald/[0.08]", ring: "ring-emerald/20" },
+    { label: "Das Strategische", items: ["Kategorie", "Varianten", "Suchterm-Relationen"], bg: "bg-navy/[0.05]", ring: "ring-navy/15" },
+  ];
+  return (
+    <Frame>
+      <div className="flex items-center justify-between">
+        <div className="flex items-baseline gap-2">
+          <span className="text-3xl font-extrabold tracking-tight text-ink">750+</span>
+          <span className="text-sm font-medium text-ink-muted">Datenfelder</span>
+        </div>
+        <span className="rounded-full bg-red/10 px-2.5 py-1 text-[11px] font-semibold text-red">Ø &lt; 10 % genutzt</span>
+      </div>
+      <div className="mt-4 space-y-2.5">
+        {layers.map((l, i) => (
+          <motion.div key={l.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, ease }} className={`rounded-2xl ${l.bg} p-3 ring-1 ${l.ring}`}>
+            <div className="mb-2 text-xs font-bold text-ink">{l.label}</div>
+            <div className="flex flex-wrap gap-1.5">
+              {l.items.map((it) => (
+                <span key={it} className="rounded-full bg-white/80 px-2 py-0.5 text-[11px] font-medium text-ink-muted ring-1 ring-navy/[0.06]">{it}</span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-3 flex items-center gap-2 text-[11px] font-semibold text-emerald-deep">
+        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-emerald/[0.12]"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8.5l3 3 7-7" /></svg></span>
+        TEMOA: alle relevanten Felder belegt
+      </div>
+    </Frame>
+  );
+}
+
 export type VisualName =
-  | "benchmark" | "serp" | "funnel" | "kpis" | "dashboard" | "donut" | "adformats" | "markets";
+  | "benchmark" | "serp" | "funnel" | "kpis" | "dashboard" | "donut" | "adformats" | "markets"
+  | "harvest" | "fields";
 
 export function RowVisual({ name }: { name: VisualName }) {
   switch (name) {
@@ -231,5 +315,7 @@ export function RowVisual({ name }: { name: VisualName }) {
     case "donut": return <DonutVisual />;
     case "adformats": return <AdFormats />;
     case "markets": return <Markets />;
+    case "harvest": return <Harvest />;
+    case "fields": return <Fields />;
   }
 }

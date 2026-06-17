@@ -36,7 +36,7 @@ function SearchRank() {
       <div className="flex items-center justify-between border-b border-navy/[0.06] pb-3">
         <div className="flex items-center gap-2 text-sm text-ink-muted">
           <Icon name="search" size={16} />
-          <span className="font-medium text-ink">„kategorie · keyword"</span>
+          <span className="font-medium text-ink">„hauptkeyword eurer kategorie"</span>
         </div>
         <span className="inline-flex items-center gap-1 rounded-full bg-emerald/10 px-2 py-1 text-[11px] font-semibold text-emerald-deep">
           <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M3 9l4-4 2 2 0-3-3 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -90,10 +90,10 @@ export function TwoLevers() {
           eyebrow="Zwei Hebel"
           title={
             <>
-              Ranking und Conversion – <span className="text-gradient">wir drehen an beiden.</span>
+              Sichtbarkeit und Conversion – <span className="text-gradient">beide zugleich.</span>
             </>
           }
-          description="Sichtbarkeit ohne Conversion verbrennt Budget. Conversion ohne Sichtbarkeit bleibt unsichtbar. Wir bewegen beide Hebel gleichzeitig – das ist der Unterschied zwischen teurem Traffic und profitablem Wachstum."
+          description="Top-Platzierung ohne kaufstarkes Listing verbrennt Budget. Ein starkes Listing, das niemand sieht, bringt keinen Umsatz. Wir ziehen beide Hebel parallel – genau das trennt teuren Traffic von profitablem Wachstum."
         />
 
         <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -102,7 +102,7 @@ export function TwoLevers() {
             <div>
               <SearchRank />
               <p className="mt-3 text-center text-sm text-ink-faint">
-                Bessere Relevanz &amp; Conversion heben euch organisch an die Spitze der Suchergebnisse.
+                Mehr Relevanz und eine höhere Kaufquote schieben euch organisch nach oben – von Seite 2 an die Spitze.
               </p>
             </div>
           </Reveal>
@@ -118,9 +118,9 @@ export function TwoLevers() {
                   <span className="mt-5 block text-5xl font-extrabold tracking-tight text-gradient">
                     <Counter to={12.5} decimals={1} prefix="+" suffix=" %" />
                   </span>
-                  <h3 className="mt-2 text-lg font-bold text-ink">Conversion Rate</h3>
+                  <h3 className="mt-2 text-lg font-bold text-ink">höhere Kaufquote</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-                    Bilder, A+ und Listings, die aus Klicks Käufer machen.
+                    Hauptbild, Galerie und A+, die aus Besuchern zahlende Käufer machen.
                   </p>
                 </div>
                 <MiniDonut value={62} label="Add-to-Cart" color="#FF3131" track="#FFD7D2" className="hidden h-28 w-28 shrink-0 sm:block" />
@@ -134,11 +134,11 @@ export function TwoLevers() {
                     <Icon name="rocket" size={24} />
                   </div>
                   <span className="mt-5 block text-5xl font-extrabold tracking-tight text-gradient-emerald">
-                    <Counter to={147} prefix="+" suffix=" %" />
+                    <Counter to={80} suffix=" %" />
                   </span>
-                  <h3 className="mt-2 text-lg font-bold text-ink">Organisches Wachstum</h3>
+                  <h3 className="mt-2 text-lg font-bold text-ink">Umsatz ohne Adspend</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-                    Sichtbarkeit, die bleibt – ohne dauerhaft Budget nachzuschieben.
+                    Platzierungen, die halten – auch wenn das Werbebudget mal pausiert.
                   </p>
                 </div>
                 <KpiTile className="hidden w-36 shrink-0 sm:block" label="Organisch" value="80 %" delta="+31%" deltaUp values={[20, 28, 34, 42, 55, 68, 80]} color="#0E7CA0" />

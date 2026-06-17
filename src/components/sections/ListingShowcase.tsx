@@ -22,13 +22,13 @@ export function ListingShowcase() {
       <div className="pointer-events-none absolute -right-40 top-20 h-[34rem] w-[34rem] rounded-full bg-brand-100/50 blur-3xl" />
       <div className="container-x relative">
         <SectionHeading
-          eyebrow="Content, der verkauft"
+          eyebrow="Eine komplette Bilderstrecke"
           title={
             <>
-              Ein Listing aus <span className="text-gradient">sieben Bildern</span> – das überzeugt.
+              Sieben Bilder, die euer Produkt <span className="text-gradient">verkaufen.</span>
             </>
           }
-          description="Hauptbild plus sechs Infografiken: Jeder Slot beantwortet eine Kauffrage, baut Vertrauen auf und hebt die Conversion. So sieht retail-ready bei uns aus."
+          description="Das Hauptbild holt den Klick aus den Suchergebnissen, sechs Infografiken nehmen Maß, zeigen Anwendung und räumen die letzten Zweifel aus. Wählt eine Marke und seht, wie eine durchdachte Galerie aufgebaut ist."
         />
 
         {/* Set selector */}
@@ -113,9 +113,9 @@ export function ListingShowcase() {
         <Reveal>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
             <p className="text-sm text-ink-faint">
-              Echte Listings aus unserem Content Studio · Marke: <span className="font-semibold text-ink-muted">{set.label}</span>
+              Echte Arbeit aus unserem Content Studio · gerade zu sehen: <span className="font-semibold text-ink-muted">{set.label}</span>
             </p>
-            <a href="/gespraech-vereinbaren" className="btn-ghost">Eigenes Listing planen</a>
+            <a href="/gespraech-vereinbaren" className="btn-ghost">Gespräch vereinbaren</a>
           </div>
         </Reveal>
       </div>

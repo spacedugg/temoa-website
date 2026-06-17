@@ -18,9 +18,9 @@ const cols = [
   {
     title: "Rechtliches",
     links: [
-      { label: "Impressum", href: "#" },
-      { label: "Datenschutz", href: "#" },
-      { label: "AGB", href: "#" },
+      { label: "Impressum", href: "/impressum" },
+      { label: "Datenschutz", href: "/datenschutz" },
+      { label: "AGB", href: "/agb" },
     ],
   },
 ];
@@ -68,8 +68,8 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-black/[0.06] py-7 text-sm text-ink-faint md:flex-row">
           <span>© {new Date().getFullYear()} TEMOA. Alle Rechte vorbehalten.</span>
           <div className="flex gap-6">
-            <a href="#" className="transition-colors hover:text-ink">Impressum</a>
-            <a href="#" className="transition-colors hover:text-ink">Datenschutz</a>
+            <a href="/impressum" className="transition-colors hover:text-ink">Impressum</a>
+            <a href="/datenschutz" className="transition-colors hover:text-ink">Datenschutz</a>
             <a href="mailto:tools@temoa.de" className="transition-colors hover:text-ink">tools@temoa.de</a>
           </div>
         </div>

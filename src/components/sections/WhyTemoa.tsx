@@ -13,10 +13,10 @@ export function WhyTemoa() {
           eyebrow="Warum TEMOA"
           title={
             <>
-              Warum Marken mit uns arbeiten – <span className="text-gradient">und bleiben.</span>
+              Was uns von der nächsten Agentur <span className="text-gradient">unterscheidet.</span>
             </>
           }
-          description="Kein Dienstleister für Einzelteile, sondern ein Partner, der euren Account wie ein eigenes Geschäft führt – auf Marge, mit System und voller Transparenz."
+          description="Wir betreiben euer Amazon-Konto wie unser eigenes Geschäft: jede Entscheidung am Deckungsbeitrag gemessen, alle Gewerke unter einem Dach, jede Zahl offen auf dem Tisch."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -26,9 +26,9 @@ export function WhyTemoa() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald/10 text-emerald-deep">
                 <Icon name="margin" size={24} />
               </div>
-              <h3 className="mt-5 text-xl font-bold text-ink">Marge statt Vanity-Umsatz</h3>
+              <h3 className="mt-5 text-xl font-bold text-ink">Gewinn schlägt Umsatz</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Wir steuern auf Profitabilität und TACoS – nicht auf Umsatz, der die Marge auffrisst.
+                Wir steuern jede ASIN nach Deckungsbeitrag und TACoS – nicht nach Umsatz, der am Monatsende nichts übriglässt.
               </p>
               <Donut
                 className="mt-6"
@@ -37,22 +37,22 @@ export function WhyTemoa() {
                 segments={[
                   { label: "Deckungsbeitrag", value: 34, color: "#0E7CA0", delta: "+6,2 %", deltaUp: true },
                   { label: "Werbekosten", value: 18, color: "#FF9900", delta: "−4,1 %", deltaUp: true },
-                  { label: "COGS & Gebühren", value: 48, color: "#E8ECEA" },
+                  { label: "Ware & Gebühren", value: 48, color: "#E8ECEA" },
                 ]}
               />
             </div>
           </RevealItem>
 
-          {/* Card 2 — Ein Partner: NodeFlow */}
+          {/* Card 2 — Ein Team: NodeFlow */}
           <RevealItem>
             <div className="card group flex h-full flex-col p-7 transition-shadow duration-500 hover:shadow-lift">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
                 <Icon name="puzzle" size={24} />
               </div>
-              <h3 className="mt-5 text-xl font-bold text-ink">Ein Partner für alles</h3>
+              <h3 className="mt-5 text-xl font-bold text-ink">Alles aus einer Hand</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Strategie, Content, Advertising und Betrieb greifen ineinander – statt euch an drei
-                Dienstleistern aufzureiben.
+                Strategie, Listing & SEO, Advertising und Betrieb laufen bei uns zusammen – kein Abstimmen
+                zwischen drei Dienstleistern, sondern ein Ansprechpartner, der alles im Blick hat.
               </p>
               <NodeFlow
                 className="mt-6"
@@ -62,7 +62,7 @@ export function WhyTemoa() {
                   { label: "Advertising", icon: <Icon name="ads" size={18} />, color: "#FF3131" },
                   { label: "Betrieb", icon: <Icon name="account" size={18} />, color: "#0E7CA0" },
                 ]}
-                metric={{ value: "1 Team", label: "ein Ansprechpartner, ein System" }}
+                metric={{ value: "1 Team", label: "ein Kontakt, ein Plan, ein Konto" }}
               />
             </div>
           </RevealItem>
@@ -73,10 +73,10 @@ export function WhyTemoa() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet/10 text-violet">
                 <Icon name="chart" size={24} />
               </div>
-              <h3 className="mt-5 text-xl font-bold text-ink">Planbar &amp; transparent</h3>
+              <h3 className="mt-5 text-xl font-bold text-ink">Zahlen ohne Blackbox</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Klare KPIs, wöchentliche Reports und ein fester Ansprechpartner. Kein Blindflug,
-                keine Blackbox.
+                Feste KPIs, Reports in eurer Sprache und ein Ansprechpartner, der erklärt, warum sich
+                eine Zahl bewegt. Ihr seht jederzeit, woran wir arbeiten.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <KpiTile label="TACoS" value="9,4 %" delta="−4,1 %" deltaUp values={[28, 24, 26, 20, 18, 14, 9]} color="#0E7CA0" />

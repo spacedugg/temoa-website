@@ -5,14 +5,14 @@ import { RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon } from "../ui/Icon";
 
 const items = [
-  { cat: "Strategie", icon: "search" as const, title: "Wettbewerbs- & Keyword-Analyse", body: "Wer rankt wofür, zu welchem Preis – und wo genau euer Hebel liegt." },
-  { cat: "Strategie", icon: "margin" as const, title: "Margenkalkulation & KPIs", body: "Jede Maßnahme wird auf Deckungsbeitrag und TACoS durchgerechnet." },
-  { cat: "Content", icon: "content" as const, title: "Bilder, A+ & Premium A+", body: "Hauptbild, Galerie und A+, die in Sekunden den Klick gewinnen und Vertrauen schaffen." },
-  { cat: "Content", icon: "search" as const, title: "SEO & Backend-Keywords", body: "Relevante Keywords im Listing und Backend – für Rufus, COSMO & A10." },
-  { cat: "Advertising", icon: "ads" as const, title: "PPC Advertising & Reporting", body: "Profitable Kampagnen plus transparente, wöchentliche Reports mit klaren nächsten Schritten." },
-  { cat: "Account", icon: "layers" as const, title: "Inventar & FBA-Forecasting", body: "Forecasting und Nachschub, damit ihr nie out-of-stock geht." },
-  { cat: "Account", icon: "globe" as const, title: "Internationalisierung", body: "Neue Marktplätze sauber ausrollen – nativ in bis zu fünf Ländern." },
-  { cat: "Account", icon: "shield" as const, title: "Compliance & Troubleshooting", body: "Cases, Sperren, Buy-Box-Verlust – wir lösen es, bevor es weh tut." },
+  { cat: "Strategie", icon: "search" as const, title: "Markt- & Keyword-Analyse", body: "Wer rankt zu welchem Preis auf euren Keywords – und wo der schnellste Hebel liegt." },
+  { cat: "Strategie", icon: "margin" as const, title: "Margen- & Preisstrategie", body: "Jede Maßnahme vorab auf Deckungsbeitrag und TACoS gerechnet, bevor wir sie umsetzen." },
+  { cat: "Content", icon: "content" as const, title: "Hauptbild, Galerie & A+", body: "Visueller Auftritt, der in Sekunden den Klick holt und jede offene Kauffrage beantwortet." },
+  { cat: "Content", icon: "search" as const, title: "Listing-SEO & Backend", body: "Keywords in Titel, Bullets und Backend platziert – auffindbar für Rufus, COSMO und A10." },
+  { cat: "Advertising", icon: "ads" as const, title: "Sponsored Ads & Reporting", body: "Sponsored Products, Brands und Display auf Marge gesteuert – mit Reports, die ihr versteht." },
+  { cat: "Account", icon: "layers" as const, title: "FBA-Bestand & Forecast", body: "Nachschub und Mengen geplant, damit kein Topseller in den Out-of-Stock rutscht." },
+  { cat: "Account", icon: "globe" as const, title: "Neue Marktplätze", body: "Sauberer Roll-out ins Ausland – muttersprachlich aufgesetzt in bis zu fünf Ländern." },
+  { cat: "Account", icon: "shield" as const, title: "Account-Health & Cases", body: "Sperren, Buy-Box-Verlust, Seller-Support-Fälle – gelöst, bevor sie Umsatz kosten." },
 ];
 
 const catColor: Record<string, string> = {
@@ -31,7 +31,7 @@ export function ServicesDetail() {
             eyebrow="Im Detail"
             title={
               <>
-                Was in <span className="text-gradient">Full Service</span> steckt.
+                Alles, was euer Konto braucht – <span className="text-gradient">in einer Hand.</span>
               </>
             }
           />

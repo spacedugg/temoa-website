@@ -18,7 +18,7 @@ export default function GespraechBuchenPage() {
       <main>
         <PageHero
           eyebrow="Gespräch buchen"
-          title={<>Lass uns über euer <span className="text-gradient">Marktplatz-Potenzial</span> sprechen.</>}
+          title={<>Lasst uns über euer <span className="text-gradient">Marktplatz-Potenzial</span> sprechen.</>}
           description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck."
         />
         <CTA />

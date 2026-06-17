@@ -6,11 +6,11 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 
 const steps = [
-  { n: "1", title: "Audit & Daten-Analyse", body: "Search-Query-Reports, Wettbewerb, Margen und Account-Health – wir quantifizieren das Potenzial je ASIN." },
-  { n: "2", title: "Strategie & Forecast", body: "Zielbild, KPI-Korridore für TACoS, Marge und Buy-Box, plus eine priorisierte Roadmap mit Impact-Schätzung." },
-  { n: "3", title: "Retail-Readiness & Content", body: "Hauptbild, A+, SEO und Brand Store – jedes Listing wird zum konvertierenden Schaufenster, bevor Traffic drauf geht." },
-  { n: "4", title: "Advertising & Aussteuerung", body: "Kampagnen-Setup, Keyword-Harvesting, Gebote und Budgets mehrmals pro Woche justiert – profitabel skaliert." },
-  { n: "5", title: "Betrieb, Reporting & Review", body: "FBA-Forecasting, Buy-Box- und Case-Management, Monatsreports und Quartals-Reviews gegen die Ziele." },
+  { n: "1", title: "Bestandsaufnahme", body: "Suchdaten, Wettbewerb, Margen und Account-Health durchleuchtet – wir beziffern das Potenzial je ASIN in Euro." },
+  { n: "2", title: "Plan & Forecast", body: "Klares Zielbild, KPI-Korridore für TACoS, Marge und Buy-Box und eine nach Wirkung sortierte Roadmap." },
+  { n: "3", title: "Listing kaufstark machen", body: "Hauptbild, A+, SEO und Brand Store – jedes Listing wird zum verkaufenden Schaufenster, bevor ein Euro in Ads fließt." },
+  { n: "4", title: "Ads scharfstellen", body: "Sponsored Products, Brands und Display aufgesetzt, Suchbegriffe geerntet, Gebote und Budgets mehrmals pro Woche nachgezogen." },
+  { n: "5", title: "Betreuen & nachschärfen", body: "FBA-Forecast, Buy-Box und Cases im Griff, monatliche Reports und Quartals-Reviews gegen die vereinbarten Ziele." },
 ];
 
 export function Process() {
@@ -26,7 +26,7 @@ export function Process() {
           eyebrow="So arbeiten wir"
           title={
             <>
-              Von der ersten Analyse zum <span className="text-gradient">profitablen Konto.</span>
+              In fünf Schritten zum <span className="text-gradient">profitablen Konto.</span>
             </>
           }
           align="center"
@@ -59,7 +59,7 @@ export function Process() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <a href="/gespraech-vereinbaren" className="btn-primary">Assessment starten</a>
+          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch vereinbaren</a>
         </div>
       </div>
     </section>

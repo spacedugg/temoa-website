@@ -15,8 +15,8 @@ const meta = [
     sector: "Schädlingsbekämpfung · DE",
     metric: 80,
     suffix: " %",
-    metricLabel: "organische Verkäufe im Peak",
-    quote: "Zum ersten Mal wächst unser Amazon-Umsatz und die Marge gleichzeitig.",
+    metricLabel: "des Umsatzes läuft organisch",
+    quote: "Der Großteil läuft heute ganz ohne Werbung – Ads geben nur noch den Extra-Schub.",
     points: [30, 32, 38, 35, 44, 52, 60, 72],
     color: "#FF9900",
     fill: "rgba(255,153,0,0.16)",
@@ -26,8 +26,8 @@ const meta = [
     metric: 439,
     prefix: "+",
     suffix: " %",
-    metricLabel: "Conversion-Steigerung in 17 Wochen",
-    quote: "Wir verkaufen heute überwiegend organisch – Werbung ist Kür, nicht Pflicht.",
+    metricLabel: "mehr Verkäufe in 17 Wochen",
+    quote: "Endlich klettern Umsatz und Marge bei uns gleichzeitig – das gab es vorher nie.",
     points: [20, 28, 25, 40, 55, 62, 80, 96],
     color: "#FF3131",
     fill: "rgba(255,49,49,0.16)",
@@ -36,8 +36,8 @@ const meta = [
     sector: "Garten · DE/IT/FR/ES",
     metric: -35,
     suffix: " %",
-    metricLabel: "TACoS – über vier Marktplätze",
-    quote: "Ein System, vier Länder – endlich vergleichbare Zahlen und planbares Wachstum.",
+    metricLabel: "weniger TACoS, vier Märkte",
+    quote: "Ein Setup für vier Länder – endlich vergleichbare Zahlen und ein Wachstum, das wir planen können.",
     points: [80, 72, 68, 58, 50, 46, 40, 34],
     color: "#0E7CA0",
     fill: "rgba(14,124,160,0.16)",
@@ -117,10 +117,10 @@ export function Results() {
             eyebrow="Ergebnisse"
             title={
               <>
-                Echte Zahlen, <span className="text-gradient">echte Marken.</span>
+                Zahlen, die wir <span className="text-gradient">belegen können.</span>
               </>
             }
-            description="Kein Wachstum auf dem Papier, sondern messbare Resultate: mehr Umsatz, bessere Marge und ein gesundes Konto – ein System, Organic First."
+            description="Keine Wunschwerte, sondern Bewegungen, die im Konto messbar sind: mehr Umsatz, bessere Marge, ein gesundes Konto – Organic First, ein System. Einzelergebnisse aus laufenden Mandaten."
           />
           <a href="/ergebnisse" className="btn-ghost shrink-0">Alle Cases</a>
         </div>
