@@ -28,10 +28,10 @@ function weitere(slug: string): Block {
   return {
     kind: "bridge",
     eyebrow: "Weitere Leistungen",
-    title: "Alles greift ineinander.",
+    title: "Eine Leistung allein löst nur die halbe Gleichung.",
     links: [
       ...services.filter((s) => s.slug !== slug).map((s) => ({ label: s.label, href: s.href })),
-      { label: "Full Service 360°", href: "/full-service", body: "Alle Leistungen kombiniert" },
+      { label: "Full Service 360°", href: "/full-service", body: "Alle fünf Leistungen kombiniert" },
     ],
   };
 }
@@ -63,25 +63,25 @@ export const fullService = {
       description:
         "Amazon professionell zu führen heißt 20–40 Stunden pro Woche für Listings, Kampagnen, Forecasting und Support. Wer mitten im Tagesgeschäft steckt, kommt nicht zur Optimierung. Ein internes Team kostet schnell 15.000–30.000 €+ pro Monat. Oder weiter selbst machen – zeitintensiv, mit hohem Risiko teurer Fehler.",
       left: { label: "Internes Team aufbauen", value: "15–30k €", points: ["pro Monat an Gehältern", "20–40 Std./Woche Aufwand", "Hohes Risiko teurer Fehler"] },
-      right: { label: "Mit TEMOA", value: "Ein eingespieltes Team", points: ["Hat es hunderte Male gemacht", "Ein Vertrag statt mehrerer Dienstleister", "Auf Marge gesteuert, planbar skaliert"] },
+      right: { label: "Mit TEMOA", value: "Ein eingespieltes Team", points: ["Hat 60+ Marken skaliert", "Ein Vertrag statt mehrerer Dienstleister", "Auf Marge gesteuert, planbar skaliert"] },
     },
     {
       kind: "rows",
-      eyebrow: "Die vier Kernleistungen",
-      title: "Strategie, Content, Advertising und Betrieb – aus einer Hand.",
+      eyebrow: "Unsere fünf Leistungen",
+      title: "Alles für euren Account – aus einer Hand.",
       items: [
         { kicker: "Strategie", title: "Eine klare Strategie, bevor wir loslegen.", body: "Wettbewerbs- und Keyword-Analyse, Margenkalkulation, Preisstrategie und KPI-Steuerung. Wir wissen, wer wofür rankt – und wo euer Hebel liegt.", icon: "strategy", visual: "benchmark", cta: { label: "Mehr zur Strategie", href: "/leistungen/strategie" } },
         { kicker: "Content", title: "Listings, die aus Klicks Käufer machen.", body: "Hauptbilder, Galerie, A+ und Premium A+, SEO-Texte und Backend-Keywords – optimiert für echte Käufer und für Rufus, COSMO und A10.", icon: "content", visual: "serp", cta: { label: "Mehr zur Listing-Optimierung", href: "/leistungen/listing-seo" } },
         { kicker: "Advertising", title: "PPC, das profitabel skaliert.", body: "Komplette Kampagnenstruktur, Bid-Management, Budget-Allokation und Reporting – Sponsored Products, Brands, Display und Video. Streuverluste runter, Return on Ad Spend rauf.", icon: "ads", visual: "funnel", cta: { label: "Mehr zu unserem Advertising", href: "/leistungen/ppc-advertising" } },
         { kicker: "Account Management", title: "Euer Konto läuft – ohne dass ihr ran müsst.", body: "Inventar-Forecasting und FBA-Planung, Buy-Box- und Pricing-Monitoring, Case-Management und Reporting. Ein fester Ansprechpartner statt Ticketsystem.", icon: "account", visual: "dashboard", cta: { label: "Mehr zum Account Management", href: "/leistungen/account-management" } },
-        { kicker: "Erweiterung", title: "Internationalisierung – fünf Marktplätze.", body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert. Als Erweiterung zu den vier Kernleistungen.", icon: "globe", visual: "markets", cta: { label: "Mehr zur Internationalisierung", href: "/leistungen/internationalisierung" } },
+        { kicker: "Internationalisierung", title: "Eine Marke, bis zu fünf Marktplätze.", body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert und in einem Reporting konsolidiert.", icon: "globe", visual: "markets", cta: { label: "Mehr zur Internationalisierung", href: "/leistungen/internationalisierung" } },
       ],
     },
     {
       kind: "checklist",
       eyebrow: "Alle Leistungen im Überblick",
       title: "Was in Full Service enthalten ist.",
-      description: "Vier Bereiche, ein Team, ein Vertrag – jede Leistung aufgeschlüsselt, damit ihr genau seht, was abgedeckt ist.",
+      description: "Ein Team, ein Vertrag – jede Leistung aufgeschlüsselt, damit ihr genau seht, was abgedeckt ist.",
       groups: [
         { title: "Strategie", items: ["Wettbewerbs- & Keyword-Analyse", "Margenkalkulation", "Preisstrategie", "KPI-Steuerung & Zielmarken", "Wachstums-Roadmap"] },
         { title: "Content", items: ["Hauptbilder & Galeriebilder", "A+ / Premium A+", "Listing-Texte (Titel, Bullets, Beschreibung)", "SEO & Backend-Keywords", "Brand Store & Brand Story", "A/B-Tests"] },
@@ -102,7 +102,7 @@ export const fullService = {
       description: "Einzelne Dienstleister lösen immer nur die Hälfte. Wer Strategie, Content, Advertising und Betrieb verteilt, kämpft mit Lücken zwischen den Gewerken – und am Ende mit verbranntem Budget.",
       items: [
         { title: "Profitabilität vor Umsatz", body: "Wir steuern auf Marge und TACoS – nicht auf Umsatz, der die Marge auffrisst.", icon: "margin" },
-        { title: "Ein abgestimmtes System", body: "Strategie, Content, Ads und Betrieb greifen ineinander statt gegeneinander.", icon: "puzzle" },
+        { title: "Ein abgestimmtes System", body: "Eure PPC-Daten schärfen das Listing, das Listing senkt euren ACoS – ein Kreislauf statt vier Silos.", icon: "puzzle" },
         { title: "Organic First als Fundament", body: "Erst trägt das Listing, dann skalieren die Ads – planbares Wachstum.", icon: "layers" },
         { title: "Optimiert für Rufus & COSMO", body: "Content für die KI-Suche von morgen – nicht für den Algorithmus von gestern.", icon: "spark" },
       ],
@@ -131,10 +131,10 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       {
         kind: "rows",
         items: [
-          { kicker: "Analyse", title: "Wir sehen, wo eure echten Chancen liegen.", body: "Wer rankt wofür, zu welchem Preis – und auf welchen Begriffen ihr mit überschaubarem Aufwand nach oben kommt. Statt Bauchgefühl ein klares Bild eurer Position im Wettbewerb. Genau diese Keyword-Lücken werden später zur Roadmap für Content und Advertising.", icon: "search", visual: "serp" },
+          { kicker: "Analyse", title: "Wir sehen, wo eure echten Chancen liegen.", body: "Wer rankt wofür, zu welchem Preis – und auf welchen Begriffen ihr mit überschaubarem Aufwand nach oben kommt. Statt Bauchgefühl ein klares Bild eurer Position. Genau diese Keyword-Lücken werden später zur Roadmap für Content und Advertising.", icon: "search", visual: "serp" },
           { kicker: "Share of Voice", title: "Der Abstand ist euer Potenzial.", body: "Eure Sichtbarkeit gegen die fünf stärksten Wettbewerber – plus CTR- und CVR-Vergleich je ASIN.", icon: "chart", visual: "benchmark" },
-          { kicker: "Marge & Preis", title: "Wachstum ist erst dann gut, wenn es profitabel ist.", body: "Wir rechnen jede Maßnahme bis auf den Deckungsbeitrag durch: Amazon-Gebühren, FBA, Wareneinsatz und Werbekosten. Daraus entstehen Preis-Korridore, die Marge und Buy-Box gleichzeitig schützen. So skaliert ihr Umsatz, ohne dass die Profitabilität still und leise verschwindet.", icon: "margin", visual: "donut" },
-          { kicker: "KPI-Steuerung", title: "Klare Zielmarken – und ein Plan dorthin.", body: "Wir definieren Zielwerte für TACoS, ACoS und Profitabilität und steuern Monat für Monat dagegen. Daraus wird eine priorisierte Roadmap, in der jeder Schritt einen erwarteten Umsatz-Impact hat.", icon: "target", visual: "kpis", bullets: ["14 % TACoS-Ziel", "−38 % vs. Start", "Monatlicher Review-Takt"] },
+          { kicker: "Marge & Preis", title: "Wachstum ist erst dann gut, wenn es profitabel ist.", body: "Wir rechnen jede Maßnahme bis auf den Deckungsbeitrag durch – Amazon-Gebühren, FBA, Wareneinsatz, Werbekosten. Daraus entstehen Preis-Korridore, die Marge und Buy-Box gleichzeitig schützen. So skaliert ihr Umsatz, ohne dass die Profitabilität still und leise verschwindet.", icon: "margin", visual: "donut" },
+          { kicker: "KPI-Steuerung", title: "Klare Zielmarken – und ein Plan dorthin.", body: "Wir definieren Zielwerte für TACoS, ACoS und Profitabilität und steuern Monat für Monat dagegen. Daraus wird eine priorisierte Roadmap, in der jeder Schritt einen erwarteten Umsatz-Impact hat.", icon: "target", visual: "kpis", bullets: ["Ziel: 14 % TACoS", "−38 % TACoS (Mandatsbeispiel)", "Monatlicher Review-Takt"] },
         ],
       },
       {
@@ -155,7 +155,7 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
   "listing-seo": {
     nav: "Listing & SEO",
     hero: {
-      eyebrow: "Content",
+      eyebrow: "Listing & SEO",
       lead: "Listings, die aus Klicks",
       accent: "Käufer machen.",
       sub: "Eure Produktlistings sind euer digitales Schaufenster – gebaut für echte Käufer und für die KI-Suche von Rufus, COSMO und A10.",
@@ -165,7 +165,7 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       {
         kind: "grid",
         eyebrow: "Was wir machen",
-        title: "Vom ersten Klick bis zum Kauf.",
+        title: "Jedes Element zieht den Klick eine Stufe näher zum Kauf.",
         items: [
           { title: "Hauptbild & Galerie", body: "Bilder, die in Sekunden den Klick gewinnen – mit USP, Maßstab und Lifestyle.", icon: "content" },
           { title: "A+ & Premium A+", body: "Markenwelt und Module, die Vertrauen schaffen und den Warenkorb heben.", icon: "layers" },
@@ -215,9 +215,9 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       {
         kind: "rows",
         items: [
-          { kicker: "Architektur", title: "Eine Struktur, in der jeder Euro eine Aufgabe hat.", body: "Sponsored Products, Brands und Display – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert. Keine Black-Box, in der gut und schlecht laufende Begriffe denselben Topf teilen.", icon: "ads", visual: "adformats" },
+          { kicker: "Architektur", title: "Eine Struktur, in der jeder Euro eine Aufgabe hat.", body: "Sponsored Products, Brands und Display – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert. Keine Blackbox, in der gut und schlecht laufende Begriffe denselben Topf teilen.", icon: "ads", visual: "adformats" },
           { kicker: "Keyword-Harvesting", title: "Gewinner finden, Verlierer ausschließen.", body: "Auto-Kampagnen finden neue Suchbegriffe. Was konvertiert, wandert in eigene Performance-Kampagnen mit eigenem Gebot. Was nur Geld kostet, wird zum Negativ-Keyword. Dieser Kreislauf läuft wöchentlich – euer Konto wird mit jeder Woche effizienter.", icon: "target", visual: "serp" },
-          { kicker: "Effizienz", title: "Weniger Streuverlust, mehr Rendite.", body: "Wir senken den ACoS, ohne Umsatz abzuwürgen: bessere Begriffe, bessere Gebote, bessere Landing-Listings. Das Ergebnis ist ein ROAS, der planbar nach oben geht.", icon: "chart", visual: "funnel", bullets: ["−30 % ACoS", "4,8× ROAS", "+62 % Werbeumsatz"] },
+          { kicker: "Effizienz", title: "Weniger Streuverlust, mehr Rendite.", body: "Wir senken den ACoS, ohne Umsatz abzuwürgen: bessere Begriffe, bessere Gebote, bessere Ziel-Listings. Das Ergebnis ist ein ROAS, der planbar nach oben geht.", icon: "chart", visual: "funnel", bullets: ["−30 % ACoS", "4,8× ROAS", "+62 % Werbeumsatz"] },
         ],
       },
       {
@@ -250,7 +250,7 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
         items: [
           { kicker: "Inventar", title: "Nie ausverkauft, nie unnötig gebunden.", body: "Wir prognostizieren Nachfrage und setzen Reorder-Punkte, bevor der Bestand kritisch wird. Out-of-stock kostet Ranking – Überbestand bindet Kapital. Wir halten die Mitte. Ihr seht jederzeit, wann nachbestellt werden muss – ohne böse Überraschung.", icon: "layers", visual: "dashboard" },
           { kicker: "Buy-Box & Health", title: "Buy-Box halten, Konto gesund halten.", body: "Preis, Verfügbarkeit und Versand steuern wir so, dass ihr die Buy-Box haltet – und überwachen Account-Health und Policy-Themen, bevor daraus eine Sperre wird. Fällt etwas auf, lösen wir es – nicht ihr.", icon: "shield", visual: "kpis" },
-          { kicker: "Reporting", title: "Zahlen, die in Entscheidungen übersetzt sind.", body: "Monatliche Reports und Live-Dashboards – und ein fester Ansprechpartner, der sie mit euch durchgeht. Keine Rohdaten zum Selbstdeuten, sondern klare nächste Schritte.", icon: "chart", visual: "donut", bullets: ["1 fester Ansprechpartner", "Monatlich Report & Review", "100 % Transparenz"] },
+          { kicker: "Reporting", title: "Zahlen, die in Entscheidungen übersetzt sind.", body: "Monatliche Reports und Live-Dashboards – und ein fester Ansprechpartner, der sie mit euch durchgeht. Keine Rohdaten zum Selbstdeuten, sondern klare nächste Schritte.", icon: "chart", visual: "donut", bullets: ["1 fester Ansprechpartner", "Monatlich Report & Review", "Volle Konto-Transparenz"] },
         ],
       },
       {
@@ -275,7 +275,7 @@ export const serviceDetails: Record<string, { nav: string; hero: Hero; blocks: B
       lead: "Euer Erfolg in Deutschland –",
       accent: "nativ auf neue Märkte.",
       sub: "Wir übersetzen nicht, wir lokalisieren: Content, PPC und Account-Management nativ pro Marktplatz – lokal recherchiert, lokal formuliert, lokal optimiert. Und alles konsolidiert in einem Gesamtbild, damit ihr über alle Länder hinweg vergleichbare Zahlen habt.",
-      chips: ["5 Marktplätze", "Lokalisierte Listings", "Markt-Pricing", "PPC pro Land"],
+      chips: ["Bis zu 5 Marktplätze", "Lokalisierte Listings", "Markt-Pricing", "PPC pro Land"],
     },
     blocks: [
       {

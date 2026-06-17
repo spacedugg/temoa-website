@@ -35,6 +35,8 @@ export default async function LeistungPage({ params }: { params: Promise<{ slug:
           title={<>{page.hero.lead} <span className="text-gradient">{page.hero.accent}</span></>}
           description={page.hero.sub}
           chips={page.hero.chips}
+          cta={{ label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" }}
+          secondary={{ label: "Alle Leistungen", href: "/full-service" }}
         >
           {slug === "listing-seo" && <Listing3D />}
         </PageHero>

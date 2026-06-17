@@ -9,7 +9,7 @@ const steps = [
   { n: "3", title: "Im Call", body: "Marktplatz-Potenzial und die nächsten konkreten Schritte." },
 ];
 
-export function CTA() {
+export function CTA({ href = "/gespraech-vereinbaren" }: { href?: string }) {
   return (
     <section id="kontakt" className="relative py-12 md:py-20">
       <div className="container-x">
@@ -54,7 +54,7 @@ export function CTA() {
               <Reveal delay={0.15}>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
-                    href="mailto:tools@temoa.de"
+                    href={href}
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
                   >
                     Gespräch vereinbaren

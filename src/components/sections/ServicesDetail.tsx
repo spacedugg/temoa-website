@@ -11,7 +11,7 @@ const items = [
   { cat: "Content", icon: "search" as const, title: "SEO & Backend-Keywords", body: "Relevante Keywords im Listing und Backend – für Rufus, COSMO & A10." },
   { cat: "Advertising", icon: "ads" as const, title: "PPC Advertising & Reporting", body: "Profitable Kampagnen plus transparente, wöchentliche Reports mit klaren nächsten Schritten." },
   { cat: "Account", icon: "layers" as const, title: "Inventar & FBA-Forecasting", body: "Forecasting und Nachschub, damit ihr nie out-of-stock geht." },
-  { cat: "Account", icon: "globe" as const, title: "Internationalisierung", body: "Neue Marktplätze sauber ausrollen – nativ in bis zu fünf Ländern." },
+  { cat: "International", icon: "globe" as const, title: "Internationalisierung", body: "Neue Marktplätze sauber ausrollen – nativ in bis zu fünf Ländern." },
   { cat: "Account", icon: "shield" as const, title: "Compliance & Troubleshooting", body: "Cases, Sperren, Buy-Box-Verlust – wir lösen es, bevor es weh tut." },
 ];
 
@@ -20,6 +20,7 @@ const catColor: Record<string, string> = {
   Content: "text-violet bg-violet/10",
   Advertising: "text-emerald-deep bg-emerald/10",
   Account: "text-cyan bg-cyan/10",
+  International: "text-navy bg-navy/[0.08]",
 };
 
 export function ServicesDetail() {

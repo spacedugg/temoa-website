@@ -14,6 +14,7 @@ export function ContactForm() {
     const company = String(f.get("company") || "");
     const email = String(f.get("email") || "");
     const message = String(f.get("message") || "");
+    if (f.get("website")) return; // Honeypot: Bots füllen dieses Feld – echte Nutzer nicht.
     const subject = encodeURIComponent(`Anfrage von ${name}${company ? ` · ${company}` : ""}`);
     const body = encodeURIComponent(
       `Name: ${name}\nUnternehmen: ${company}\nE-Mail: ${email}\n\n${message}`
@@ -34,6 +35,8 @@ export function ContactForm() {
 
         <Reveal>
           <form onSubmit={onSubmit} className="mx-auto mt-10 max-w-2xl">
+            {/* Honeypot gegen Spam-Bots – für Menschen unsichtbar */}
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="mb-1.5 block text-sm font-medium text-ink">Name</span>
@@ -78,7 +81,7 @@ export function ContactForm() {
                 Nachricht senden
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </button>
-              {sent && <span className="text-sm text-emerald-deep">Dein E-Mail-Programm öffnet sich …</span>}
+              {sent && <span role="status" aria-live="polite" className="text-sm text-emerald-deep">Dein E-Mail-Programm öffnet sich …</span>}
               <span className="text-sm text-ink-faint">oder direkt: tools@temoa.de</span>
             </div>
           </form>

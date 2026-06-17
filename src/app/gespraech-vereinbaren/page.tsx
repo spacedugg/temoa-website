@@ -6,7 +6,7 @@ import { CTA } from "@/components/sections/CTA";
 import { ContactForm } from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Gespräch buchen · TEMOA",
+  title: "Gespräch vereinbaren · TEMOA",
   description:
     "30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck.",
 };
@@ -17,11 +17,11 @@ export default function GespraechBuchenPage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Gespräch buchen"
+          eyebrow="Gespräch vereinbaren"
           title={<>Lass uns über euer <span className="text-gradient">Marktplatz-Potenzial</span> sprechen.</>}
           description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck."
         />
-        <CTA />
+        <CTA href="mailto:tools@temoa.de" />
         <ContactForm />
       </main>
       <Footer />

@@ -52,6 +52,8 @@ export function Icon({
 }) {
   return (
     <motion.svg
+      aria-hidden="true"
+      focusable="false"
       width={size}
       height={size}
       viewBox="0 0 24 24"

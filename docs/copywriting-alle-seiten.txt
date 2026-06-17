@@ -92,7 +92,7 @@ Vier Bereiche, ein System.
 
 Alle Leistungen
 
-Strategie Analyse, Margen & KPI-Steuerung Content Bilder, A+, SEO & Brand Store Advertising PPC, DSP & Sponsored Video Account Inventar, Buy-Box & Reporting
+Strategie Analyse, Margen & KPI-Steuerung Content Bilder, A+, SEO & Brand Store Advertising PPC, Sponsored Brands & Video Account Inventar, Buy-Box & Reporting
 
 Wettbewerbs- & Keyword-Analyse Marktanteil
 
@@ -347,7 +347,7 @@ Advertising
 
 PPC, das profitabel skaliert.
 
-Komplette Kampagnenstruktur, Bid-Management, Budget-Allokation und Reporting – Sponsored Products, Brands, Display, Video und DSP. Streuverluste runter, Return on Ad Spend rauf.
+Komplette Kampagnenstruktur, Bid-Management, Budget-Allokation und Reporting – Sponsored Products, Brands, Display und Video. Streuverluste runter, Return on Ad Spend rauf.
 
 Mehr zu unserem Advertising
 
@@ -403,7 +403,7 @@ Sponsored Display
 
 Sponsored Brand Video
 
-DSP-Kampagnen
+Sponsored Display
 
 Keyword- & Wettbewerbsanalyse
 
@@ -627,7 +627,7 @@ PPC, das profitabel skaliert.
 
 Advertising ist meist der größte Posten im Budget. Wir senken Streuverluste und steigern den Return on Ad Spend – statt Budget zu verbrennen.
 
-Sponsored Products Sponsored Brands Sponsored Display DSP
+Sponsored Products Sponsored Brands Sponsored Display
 
 Account-Assessment → Ergebnisse
 
@@ -635,7 +635,7 @@ Architektur
 
 Eine Struktur, in der jeder Euro eine Aufgabe hat.
 
-Sponsored Products, Brands, Display und DSP – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert.
+Sponsored Products, Brands und Display – sauber getrennt nach Ziel und Match-Typ. So sehen wir auf einen Blick, welche Kampagne erobert, welche verteidigt und welche skaliert.
 
 Keine Black-Box, in der gut und schlecht laufende Begriffe denselben Topf teilen.
 

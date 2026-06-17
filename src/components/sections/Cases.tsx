@@ -46,7 +46,7 @@ export function CasesClosing() {
           align="center"
         />
         <div className="mt-8 flex justify-center">
-          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch buchen</a>
+          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch vereinbaren</a>
         </div>
       </div>
     </section>

@@ -74,7 +74,7 @@ export function Listing3D() {
           {chips.map((c, i) => (
             <motion.span
               key={c.label}
-              className={`absolute ${c.pos} inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-ink shadow-lift ring-1 ring-navy/[0.06]`}
+              className={`absolute ${c.pos} hidden items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-bold text-ink shadow-lift ring-1 ring-navy/[0.06] sm:inline-flex`}
               style={{ transform: "translateZ(120px)" }}
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut" }}
@@ -93,7 +93,7 @@ export function Listing3D() {
           >
             <span className="flex gap-0.5">
               {Array.from({ length: 5 }).map((_, s) => (
-                <svg key={s} width="11" height="11" viewBox="0 0 24 24" fill="#FF9900"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" /></svg>
+                <svg key={s} aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="#FF9900"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" /></svg>
               ))}
             </span>
             <span className="text-sm font-bold">4,7</span>
@@ -101,7 +101,7 @@ export function Listing3D() {
         </motion.div>
       </motion.div>
 
-      <p className="mt-6 text-center text-xs text-ink-faint">↺ Mit der Maus bewegen · 7 Bilder, ein konvertierendes Listing</p>
+      <p className="mt-6 text-center text-xs text-ink-faint">Ein komplettes Listing – 7 Bilder, die zusammen verkaufen.</p>
     </div>
   );
 }

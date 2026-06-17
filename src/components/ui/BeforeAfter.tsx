@@ -31,7 +31,17 @@ export function BeforeAfter({
   return (
     <div
       ref={ref}
-      className={`relative aspect-square w-full cursor-ew-resize select-none overflow-hidden rounded-3xl border border-navy/[0.07] bg-white shadow-lift ${className ?? ""}`}
+      role="slider"
+      tabIndex={0}
+      aria-label={`Vorher-Nachher-Vergleich: ${labelBefore} gegen ${labelAfter}`}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      aria-valuenow={Math.round(pos)}
+      onKeyDown={(e) => {
+        if (e.key === "ArrowLeft") setPos((p) => Math.max(0, p - 4));
+        if (e.key === "ArrowRight") setPos((p) => Math.min(100, p + 4));
+      }}
+      className={`relative aspect-square w-full cursor-ew-resize select-none overflow-hidden rounded-3xl border border-navy/[0.07] bg-white shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${className ?? ""}`}
       onMouseMove={(e) => dragging.current && setFromClientX(e.clientX)}
       onMouseDown={(e) => {
         dragging.current = true;

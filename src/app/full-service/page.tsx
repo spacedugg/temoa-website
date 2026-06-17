@@ -23,6 +23,8 @@ export default function FullServicePage() {
           eyebrow={fullService.hero.eyebrow}
           title={<>{fullService.hero.lead} <span className="text-gradient">{fullService.hero.accent}</span></>}
           description={fullService.hero.sub}
+          cta={{ label: "Gespräch vereinbaren", href: "/gespraech-vereinbaren" }}
+          secondary={{ label: "Ergebnisse ansehen", href: "/ergebnisse" }}
         />
         <StatsBand />
         <Blocks blocks={fullService.blocks} />

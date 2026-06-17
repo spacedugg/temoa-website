@@ -59,7 +59,7 @@ export function Process() {
         </div>
 
         <div className="mt-14 flex justify-center">
-          <a href="/gespraech-vereinbaren" className="btn-primary">Assessment starten</a>
+          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch vereinbaren</a>
         </div>
       </div>
     </section>

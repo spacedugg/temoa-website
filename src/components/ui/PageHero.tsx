@@ -6,12 +6,16 @@ export function PageHero({
   title,
   description,
   chips,
+  cta,
+  secondary,
   children,
 }: {
   eyebrow: string;
   title: ReactNode;
   description?: ReactNode;
   chips?: string[];
+  cta?: { label: string; href: string };
+  secondary?: { label: string; href: string };
   children?: ReactNode;
 }) {
   return (
@@ -36,6 +40,23 @@ export function PageHero({
         {description && (
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">{description}</p>
+          </Reveal>
+        )}
+        {(cta || secondary) && (
+          <Reveal delay={0.12}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              {cta && (
+                <a href={cta.href} className="btn-primary">
+                  {cta.label}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                </a>
+              )}
+              {secondary && (
+                <a href={secondary.href} className="btn-ghost">
+                  {secondary.label}
+                </a>
+              )}
+            </div>
           </Reveal>
         )}
         {chips && chips.length > 0 && (

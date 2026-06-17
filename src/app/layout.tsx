@@ -26,6 +26,15 @@ export const metadata: Metadata = {
       "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First. PPC Second.",
     type: "website",
     locale: "de_DE",
+    url: "https://temoa.de",
+    siteName: "TEMOA",
+    images: [{ url: "/mockup.png", width: 1000, height: 1000, alt: "TEMOA — Full-Service Amazon-Agentur" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TEMOA — Full-Service Amazon-Agentur",
+    description: "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First. PPC Second.",
+    images: ["/mockup.png"],
   },
 };
 
