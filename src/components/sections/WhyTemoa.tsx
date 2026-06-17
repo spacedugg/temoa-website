@@ -43,7 +43,7 @@ export function WhyTemoa() {
             </div>
           </RevealItem>
 
-          {/* Card 2 — Ein Partner: NodeFlow */}
+          {/* Card 2 — Ein Team: NodeFlow */}
           <RevealItem>
             <div className="card group flex h-full flex-col p-7 transition-shadow duration-500 hover:shadow-lift">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
@@ -75,7 +75,7 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Planbar &amp; transparent</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Klare KPIs, wöchentliche Reports und ein fester Ansprechpartner. Kein Blindflug,
+                Klare KPIs, regelmäßige Reports und ein fester Ansprechpartner. Kein Blindflug,
                 keine Blackbox.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-3">

@@ -28,7 +28,7 @@ export function ContactForm() {
         <SectionHeading
           eyebrow="Kein Call?"
           title={<>Lieber <span className="text-gradient">schreiben?</span></>}
-          description="Am liebsten sprechen wir im Call – wenn dir das aber nicht liegt, schreib uns hier. Wir melden uns zeitnah zurück."
+          description="Am liebsten sprechen wir im Call – wenn euch das aber nicht liegt, schreibt uns hier. Wir melden uns zeitnah zurück."
           align="center"
         />
 
@@ -78,7 +78,7 @@ export function ContactForm() {
                 Nachricht senden
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </button>
-              {sent && <span className="text-sm text-emerald-deep">Dein E-Mail-Programm öffnet sich …</span>}
+              {sent && <span className="text-sm text-emerald-deep">Euer E-Mail-Programm öffnet sich …</span>}
               <span className="text-sm text-ink-faint">oder direkt: tools@temoa.de</span>
             </div>
           </form>

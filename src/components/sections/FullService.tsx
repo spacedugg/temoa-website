@@ -9,7 +9,6 @@ import { Counter } from "../ui/Counter";
 const pillars = [
   {
     key: "strategie",
-    icon: "/icons/strategy.png",
     product: "Strategy Suite",
     label: "Strategie",
     tag: "Analyse, Margen & KPI-Steuerung",
@@ -22,7 +21,6 @@ const pillars = [
   },
   {
     key: "content",
-    icon: "/icons/content.png",
     product: "Content Studio",
     label: "Content",
     tag: "Bilder, A+, SEO & Brand Store",
@@ -35,10 +33,9 @@ const pillars = [
   },
   {
     key: "advertising",
-    icon: "/icons/advertising.png",
     product: "Advertising Engine",
     label: "Advertising",
-    tag: "PPC, Sponsored Brands & Video",
+    tag: "Sponsored Products, Brands & Display",
     title: "PPC Performance",
     metric: "ROAS 4,8×",
     body: "Kampagnen, die profitabel skalieren – Streuverluste runter, Return on Ad Spend rauf.",
@@ -48,7 +45,6 @@ const pillars = [
   },
   {
     key: "account",
-    icon: "/icons/management.png",
     product: "Management Hub",
     label: "Account",
     tag: "Inventar, Buy-Box & Reporting",
@@ -61,7 +57,6 @@ const pillars = [
   },
   {
     key: "international",
-    icon: "/icons/management.png",
     product: "Markets",
     label: "International",
     tag: "Lokalisierung & 5+ Marktplätze",

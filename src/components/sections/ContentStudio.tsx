@@ -23,7 +23,7 @@ export function ContentStudio() {
             }
             description="Hauptbilder, A+ Content, Brand Stores und Infografiken aus unserem Studio – gestaltet, damit sie ranken, Vertrauen aufbauen und die Conversion heben."
           />
-          <a href="/gespraech-vereinbaren" className="btn-ghost shrink-0">Alle Designbeispiele</a>
+          <a href="/gespraech-vereinbaren" className="btn-ghost shrink-0">Gespräch vereinbaren</a>
         </div>
 
         {/* real listing gallery */}
