@@ -34,7 +34,7 @@ function Chip({ label, dir }: { label: string; dir?: "up" | "down" }) {
   );
 }
 
-/* Benchmark — Deine Marke vs Kategorie, mit Schwellen-Linie */
+/* Benchmark — Eure Marke vs Kategorie, mit Schwellen-Linie */
 function Benchmark() {
   return (
     <Frame>
@@ -42,7 +42,7 @@ function Benchmark() {
         <div className="absolute left-2 right-2 top-[34%] z-10 border-t-2 border-dashed border-ink/30" />
         <div className="flex w-28 flex-col items-center">
           <motion.div initial={{ height: 0 }} whileInView={{ height: "90%" }} viewport={{ once: true }} transition={{ duration: 0.9, ease }} className="w-full rounded-t-2xl" style={{ background: "var(--brand-gradient)" }} />
-          <span className="mt-2 text-xs font-semibold text-ink">Deine Marke</span>
+          <span className="mt-2 text-xs font-semibold text-ink">Eure Marke</span>
         </div>
         <div className="flex w-28 flex-col items-center">
           <motion.div initial={{ height: 0 }} whileInView={{ height: "52%" }} viewport={{ once: true }} transition={{ duration: 0.9, delay: 0.1, ease }} className="w-full rounded-t-2xl bg-gradient-to-t from-red/70 to-red" />
