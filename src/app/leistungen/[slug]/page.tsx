@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { Blocks } from "@/components/sections/Blocks";
 import { BeforeAfterShowcase } from "@/components/sections/BeforeAfterShowcase";
-import { Listing3D } from "@/components/sections/Listing3D";
+import { ServiceHero } from "@/components/sections/ServiceVisuals";
 import { PricingThreshold } from "@/components/sections/PricingThreshold";
 import { CTA } from "@/components/sections/CTA";
 import { serviceDetails, pricing } from "@/lib/copy";
@@ -36,7 +36,7 @@ export default async function LeistungPage({ params }: { params: Promise<{ slug:
           description={page.hero.sub}
           chips={page.hero.chips}
         >
-          {slug === "listing-seo" && <Listing3D />}
+          <ServiceHero slug={slug} />
         </PageHero>
         {slug === "listing-seo" && <BeforeAfterShowcase />}
         <Blocks blocks={page.blocks} />
