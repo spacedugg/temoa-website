@@ -16,7 +16,7 @@ export function WhyTemoa() {
               Warum Marken mit uns arbeiten – <span className="text-gradient">und bleiben.</span>
             </>
           }
-          description="Kein Dienstleister für Einzelteile, sondern ein Partner, der euren Account wie ein eigenes Geschäft führt – auf Marge, mit System und voller Transparenz."
+          description="Kein Dienstleister für Einzelteile, sondern ein Team, das euren Account wie ein eigenes Geschäft führt – auf Marge, mit System und voller Transparenz."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -49,10 +49,10 @@ export function WhyTemoa() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
                 <Icon name="puzzle" size={24} />
               </div>
-              <h3 className="mt-5 text-xl font-bold text-ink">Ein Partner für alles</h3>
+              <h3 className="mt-5 text-xl font-bold text-ink">Ein Team für alles</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Strategie, Content, Advertising und Betrieb greifen ineinander – statt euch an drei
-                Dienstleistern aufzureiben.
+                Strategie, Listing & SEO, Advertising und Betrieb greifen ineinander – statt euch an
+                drei Dienstleistern aufzureiben. Ein Ansprechpartner, ein System.
               </p>
               <NodeFlow
                 className="mt-6"

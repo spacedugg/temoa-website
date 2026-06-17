@@ -9,7 +9,7 @@ const items = [
   { cat: "Strategie", icon: "margin" as const, title: "Margenkalkulation & KPIs", body: "Jede Maßnahme wird auf Deckungsbeitrag und TACoS durchgerechnet." },
   { cat: "Content", icon: "content" as const, title: "Bilder, A+ & Premium A+", body: "Hauptbild, Galerie und A+, die in Sekunden den Klick gewinnen und Vertrauen schaffen." },
   { cat: "Content", icon: "search" as const, title: "SEO & Backend-Keywords", body: "Relevante Keywords im Listing und Backend – für Rufus, COSMO & A10." },
-  { cat: "Advertising", icon: "ads" as const, title: "PPC Advertising & Reporting", body: "Profitable Kampagnen plus transparente, wöchentliche Reports mit klaren nächsten Schritten." },
+  { cat: "Advertising", icon: "ads" as const, title: "PPC Advertising & Reporting", body: "Profitable Kampagnen plus transparente, regelmäßige Reports mit klaren nächsten Schritten." },
   { cat: "Account", icon: "layers" as const, title: "Inventar & FBA-Forecasting", body: "Forecasting und Nachschub, damit ihr nie out-of-stock geht." },
   { cat: "Account", icon: "globe" as const, title: "Internationalisierung", body: "Neue Marktplätze sauber ausrollen – nativ in bis zu fünf Ländern." },
   { cat: "Account", icon: "shield" as const, title: "Compliance & Troubleshooting", body: "Cases, Sperren, Buy-Box-Verlust – wir lösen es, bevor es weh tut." },

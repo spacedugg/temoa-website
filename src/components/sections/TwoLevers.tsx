@@ -134,9 +134,9 @@ export function TwoLevers() {
                     <Icon name="rocket" size={24} />
                   </div>
                   <span className="mt-5 block text-5xl font-extrabold tracking-tight text-gradient-emerald">
-                    <Counter to={147} prefix="+" suffix=" %" />
+                    <Counter to={80} suffix=" %" />
                   </span>
-                  <h3 className="mt-2 text-lg font-bold text-ink">Organisches Wachstum</h3>
+                  <h3 className="mt-2 text-lg font-bold text-ink">Organischer Umsatzanteil</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
                     Sichtbarkeit, die bleibt – ohne dauerhaft Budget nachzuschieben.
                   </p>

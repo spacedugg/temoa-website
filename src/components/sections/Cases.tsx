@@ -8,7 +8,12 @@ export function Cases() {
   return (
     <section className="relative py-20 md:py-28">
       <div className="container-x">
-        <RevealGroup className="grid gap-6 lg:grid-cols-3">
+        <SectionHeading
+          eyebrow="Drei Wege, ein Prinzip"
+          title={<>Mehr organischer Umsatz, bessere Marge, <span className="text-gradient">ein Konto, das trägt.</span></>}
+          description="Unterschiedliche Branchen, dieselbe Statik: erst das Listing, dann die Ads. Jede Zahl ist ein Einzelbeispiel aus einem Kundenprojekt – kein Versprechen, sondern ein Beleg, wie wir arbeiten."
+        />
+        <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">
           {caseStudies.map((c) => (
             <RevealItem key={c.brand}>
               <div className="card flex h-full flex-col p-7">
@@ -42,11 +47,11 @@ export function CasesClosing() {
         <SectionHeading
           eyebrow="Euer Konto"
           title={<>Wird eure Marke die <span className="text-gradient">nächste Case?</span></>}
-          description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und zeigen das größte Potenzial."
+          description="Lasst uns ausrechnen, was in eurem Konto steckt – 30 Minuten, ehrlich, ohne Verkaufsdruck."
           align="center"
         />
         <div className="mt-8 flex justify-center">
-          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch buchen</a>
+          <a href="/gespraech-vereinbaren" className="btn-primary">Gespräch vereinbaren</a>
         </div>
       </div>
     </section>

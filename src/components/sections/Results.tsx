@@ -16,7 +16,7 @@ const meta = [
     metric: 80,
     suffix: " %",
     metricLabel: "organische Verkäufe im Peak",
-    quote: "Zum ersten Mal wächst unser Amazon-Umsatz und die Marge gleichzeitig.",
+    quote: "Wir verkaufen heute überwiegend organisch – Werbung ist Kür, nicht Pflicht.",
     points: [30, 32, 38, 35, 44, 52, 60, 72],
     color: "#FF9900",
     fill: "rgba(255,153,0,0.16)",
@@ -27,7 +27,7 @@ const meta = [
     prefix: "+",
     suffix: " %",
     metricLabel: "Conversion-Steigerung in 17 Wochen",
-    quote: "Wir verkaufen heute überwiegend organisch – Werbung ist Kür, nicht Pflicht.",
+    quote: "Zum ersten Mal wächst unser Amazon-Umsatz und die Marge gleichzeitig.",
     points: [20, 28, 25, 40, 55, 62, 80, 96],
     color: "#FF3131",
     fill: "rgba(255,49,49,0.16)",
@@ -120,7 +120,7 @@ export function Results() {
                 Echte Zahlen, <span className="text-gradient">echte Marken.</span>
               </>
             }
-            description="Kein Wachstum auf dem Papier, sondern messbare Resultate: mehr Umsatz, bessere Marge und ein gesundes Konto – ein System, Organic First."
+            description="Kein Wachstum auf dem Papier, sondern messbare Resultate: mehr Umsatz, bessere Marge und ein gesundes Konto – ein System, Organic First. Einzelergebnisse aus laufenden Mandaten."
           />
           <a href="/ergebnisse" className="btn-ghost shrink-0">Alle Cases</a>
         </div>

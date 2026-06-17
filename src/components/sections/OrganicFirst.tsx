@@ -114,7 +114,8 @@ export function OrganicFirst() {
               <Reveal delay={0.15}>
                 <p className="mt-4 max-w-md leading-relaxed text-white/55">
                   Erst wenn euer Listing nachweislich konvertiert, drehen wir den Traffic auf –
-                  jeder Klick trifft dann auf ein Listing, das verkauft.
+                  jeder Klick trifft dann auf ein Listing, das verkauft. Das Ziel: ein Großteil
+                  des Umsatzes läuft organisch, die Ads verstärken, statt zu tragen.
                 </p>
               </Reveal>
             </div>

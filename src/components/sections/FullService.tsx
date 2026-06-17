@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Ring, BarChart, AreaChart } from "../ui/MiniChart";
@@ -54,7 +53,7 @@ const pillars = [
     label: "Account",
     tag: "Inventar, Buy-Box & Reporting",
     title: "Inventar & Buy-Box",
-    metric: "Buy-Box 100 %",
+    metric: "Buy-Box-Anteil hoch halten",
     body: "Forecasting, Buy-Box und Reporting – euer Konto läuft, ohne dass ihr ran müsst.",
     tint: "bg-cyan/[0.10]",
     color: "#2A9BD8",
@@ -65,9 +64,9 @@ const pillars = [
     icon: "/icons/management.png",
     product: "Markets",
     label: "International",
-    tag: "Lokalisierung & 5 Marktplätze",
+    tag: "Lokalisierung & 5+ Marktplätze",
     title: "Internationalisierung",
-    metric: "5 Marktplätze",
+    metric: "5+ Marktplätze",
     body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert.",
     tint: "bg-emerald/10",
     color: "#0E7CA0",
@@ -177,7 +176,7 @@ function Panel({ active }: { active: number }) {
           <div className="absolute -right-12 -top-12 h-44 w-44 rounded-full opacity-40 blur-3xl" style={{ background: p.color }} />
           <div className="relative">
             <div className="flex items-center gap-3">
-              <Image src={p.icon} alt="" width={28} height={28} className="h-7 w-7 object-contain" />
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: p.color }} />
               <span className="eyebrow !text-ink-muted">{p.product}</span>
             </div>
             <h3 className="mt-4 text-2xl font-bold text-ink">{p.title}</h3>
@@ -195,10 +194,12 @@ function Panel({ active }: { active: number }) {
 
 function Tab({
   p,
+  index,
   isActive,
   onClick,
 }: {
   p: (typeof pillars)[number];
+  index: number;
   isActive: boolean;
   onClick: () => void;
 }) {
@@ -219,7 +220,9 @@ function Tab({
       )}
       <div className="flex items-center gap-4">
         <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${p.tint}`}>
-          <Image src={p.icon} alt={p.product} width={32} height={32} className="h-8 w-8 object-contain" />
+          <span className="text-lg font-extrabold tabular-nums" style={{ color: p.color }}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-x-2">
@@ -276,14 +279,14 @@ export function FullService() {
           <SectionHeading
             eyebrow="Full Service 360°"
             title={<>Fünf Bereiche, <span className="text-gradient">ein System.</span></>}
-            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Content, Advertising, Betrieb und Internationalisierung ineinander – mehr als die Summe der Teile."
+            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Listing & SEO, Advertising, Betrieb und Internationalisierung ineinander – mehr als die Summe der Teile."
           />
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             {/* Tabs */}
             <div className="flex flex-col gap-3">
               {pillars.map((p, i) => (
-                <Tab key={p.key} p={p} isActive={active === i} onClick={() => jumpTo(i)} />
+                <Tab key={p.key} p={p} index={i} isActive={active === i} onClick={() => jumpTo(i)} />
               ))}
 
               {/* scroll progress dots (pinned hint) */}

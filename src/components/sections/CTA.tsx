@@ -38,7 +38,7 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-6 max-w-xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
-                  Lass uns über euer{" "}
+                  Lasst uns über euer{" "}
                   <span className="bg-gradient-to-r from-brand-300 via-violet-soft to-cyan bg-clip-text text-transparent">
                     Marktplatz-Potenzial
                   </span>{" "}
@@ -47,20 +47,20 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
-                  30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und
-                  sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck.
+                  30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto, eure
+                  Marge und eure größten Hebel an – und sagen ehrlich, ob wir helfen können.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
                   <a
-                    href="mailto:tools@temoa.de"
+                    href="/gespraech-vereinbaren"
                     className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5"
                   >
                     Gespräch vereinbaren
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </a>
-                  <span className="text-sm text-white/50">Keine Kosten · keine Verpflichtung</span>
+                  <span className="text-sm text-white/50">Kostenlos & unverbindlich · quartalsweise kündbar, keine Knebelverträge</span>
                 </div>
               </Reveal>
             </div>

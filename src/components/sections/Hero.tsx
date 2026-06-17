@@ -116,8 +116,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted"
           >
-            Wir führen euren kompletten Amazon-Account – Strategie, Content, Advertising und
-            Betrieb. Mehr Umsatz und bessere Marge, weil zuerst das{" "}
+            Wir führen euren kompletten Amazon-Account – Strategie, Listing & SEO, Advertising und
+            Betrieb. Mehr Umsatz bei besserer Marge, weil zuerst das{" "}
             <span className="font-semibold text-ink">Listing trägt</span> und dann die{" "}
             <span className="font-semibold text-ink">Ads skalieren</span>.
           </motion.p>
@@ -136,6 +136,15 @@ export function Hero() {
             </a>
             <a href="/ergebnisse" className="btn-ghost">Ergebnisse ansehen</a>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-4 text-sm text-ink-faint"
+          >
+            30 Minuten mit der Geschäftsführung. Kein Pitch, keine Folien.
+          </motion.p>
         </div>
 
         {/* Right: interactive 3D dashboard mock */}
