@@ -14,13 +14,13 @@ export const pricing: Record<string, string | null> = {
   internationalisierung: null,
 };
 
-/* Vier Kernleistungen + Internationalisierung als Erweiterung. */
+/* Fünf gleichrangige Leistungen. */
 export const services = [
-  { slug: "strategie", label: "Strategie", href: "/leistungen/strategie", core: true },
-  { slug: "listing-seo", label: "Listing & SEO", href: "/leistungen/listing-seo", core: true },
-  { slug: "ppc-advertising", label: "PPC Advertising", href: "/leistungen/ppc-advertising", core: true },
-  { slug: "account-management", label: "Account Management", href: "/leistungen/account-management", core: true },
-  { slug: "internationalisierung", label: "Internationalisierung", href: "/leistungen/internationalisierung", core: false },
+  { slug: "strategie", label: "Strategie", href: "/leistungen/strategie" },
+  { slug: "listing-seo", label: "Listing & SEO", href: "/leistungen/listing-seo" },
+  { slug: "ppc-advertising", label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
+  { slug: "account-management", label: "Account Management", href: "/leistungen/account-management" },
+  { slug: "internationalisierung", label: "Internationalisierung", href: "/leistungen/internationalisierung" },
 ];
 
 /* "Weitere Leistungen" am Seitenende: die anderen Services + Full Service 360°. */
