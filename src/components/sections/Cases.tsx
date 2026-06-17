@@ -9,9 +9,9 @@ export function Cases() {
     <section className="relative py-20 md:py-28">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Drei Wege, ein Prinzip"
-          title={<>Mehr organischer Umsatz, bessere Marge, <span className="text-gradient">ein Konto, das trägt.</span></>}
-          description="Unterschiedliche Branchen, dieselbe Statik: erst das Listing, dann die Ads. Jede Zahl ist ein Einzelbeispiel aus einem Kundenprojekt – kein Versprechen, sondern ein Beleg, wie wir arbeiten."
+          eyebrow="Drei Konten, ein Vorgehen"
+          title={<>Was passiert, wenn das Fundament <span className="text-gradient">zuerst steht.</span></>}
+          description="Schädlingsbekämpfung, Haushalt, Garten – drei Branchen mit demselben Hebel: erst das Listing zum Verkäufer machen, dann die Ads aufdrehen. Jede Kennzahl unten ist ein Einzelfall aus einem konkreten Mandat, kein Durchschnitt und kein Versprechen."
         />
         <RevealGroup className="mt-14 grid gap-6 lg:grid-cols-3">
           {caseStudies.map((c) => (
@@ -45,9 +45,9 @@ export function CasesClosing() {
     <section className="relative py-16 md:py-20">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Euer Konto"
-          title={<>Wird eure Marke die <span className="text-gradient">nächste Case?</span></>}
-          description="Lasst uns ausrechnen, was in eurem Konto steckt – 30 Minuten, ehrlich, ohne Verkaufsdruck."
+          eyebrow="Euer Konto, eure Zahl"
+          title={<>Welche Kennzahl steckt <span className="text-gradient">in eurem Konto?</span></>}
+          description="In 30 Minuten schauen wir gemeinsam auf eure Marge, eure Listings und den Hebel, der bei euch am schnellsten zieht. Ehrlich eingeschätzt, ohne Verkaufsdruck."
           align="center"
         />
         <div className="mt-8 flex justify-center">

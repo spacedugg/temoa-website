@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 
 const steps = [
-  { n: "1", title: "Kurzer Input von euch", body: "Ein paar Fragen zu Sortiment, Marktplätzen und Zielen." },
-  { n: "2", title: "Wir bereiten vor", body: "Erste Beobachtungen und konkrete Maßnahmen-Ideen für eure Marke." },
-  { n: "3", title: "Im Call", body: "Marktplatz-Potenzial und die nächsten konkreten Schritte." },
+  { n: "1", title: "Ihr schildert kurz die Lage", body: "Ein paar Eckdaten zu Sortiment, Marktplätzen und euren Zielen." },
+  { n: "2", title: "Wir schauen vorab rein", body: "Erste Auffälligkeiten und konkrete Ansatzpunkte für euer Konto." },
+  { n: "3", title: "Im Gespräch", body: "Euer Potenzial in Zahlen und die nächsten machbaren Schritte." },
 ];
 
 export function CTA() {
@@ -38,17 +38,17 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.05}>
                 <h2 className="mt-6 max-w-xl text-3xl font-bold leading-[1.1] tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
-                  Lasst uns über euer{" "}
+                  Findet heraus, was in eurem{" "}
                   <span className="bg-gradient-to-r from-brand-300 via-violet-soft to-cyan bg-clip-text text-transparent">
-                    Marktplatz-Potenzial
+                    Amazon-Konto
                   </span>{" "}
-                  sprechen.
+                  steckt.
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
-                  30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto, eure
-                  Marge und eure größten Hebel an – und sagen ehrlich, ob wir helfen können.
+                  30 Minuten, kostenfrei, direkt mit Clemens. Wir sehen uns euer Konto, eure Marge
+                  und die größten Hebel an – und sagen offen, ob und wo wir den Unterschied machen.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>

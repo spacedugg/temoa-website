@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 
 const stages = [
-  { n: "01", label: "Besseres Listing", angle: -90 },
-  { n: "02", label: "Höhere Conversion", angle: 0 },
-  { n: "03", label: "Besseres Ranking", angle: 90 },
-  { n: "04", label: "Mehr organische Sales", angle: 180 },
+  { n: "01", label: "Listing, das überzeugt", angle: -90 },
+  { n: "02", label: "Mehr Klicks kaufen", angle: 0 },
+  { n: "03", label: "Amazon rankt euch hoch", angle: 90 },
+  { n: "04", label: "Verkäufe ohne Adspend", angle: 180 },
 ];
 
 function Flywheel() {
@@ -93,7 +93,7 @@ export function OrganicFirst() {
             <div>
               <Reveal>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/70">
-                  Unser Prinzip
+                  Unsere Reihenfolge
                 </span>
               </Reveal>
               <Reveal delay={0.05}>
@@ -107,15 +107,15 @@ export function OrganicFirst() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-6 max-w-md text-lg leading-relaxed text-white/65">
-                  Viele Marken starten mit Ads. Wir bauen zuerst das Fundament, das Werbung
-                  überhaupt profitabel macht.
+                  Die meisten drehen sofort am Ad-Budget. Wir bauen erst das Fundament, das jeden
+                  Werbe-Euro überhaupt rentabel macht.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
                 <p className="mt-4 max-w-md leading-relaxed text-white/55">
-                  Erst wenn euer Listing nachweislich konvertiert, drehen wir den Traffic auf –
-                  jeder Klick trifft dann auf ein Listing, das verkauft. Das Ziel: ein Großteil
-                  des Umsatzes läuft organisch, die Ads verstärken, statt zu tragen.
+                  Erst wenn das Listing messbar verkauft, öffnen wir den Traffic-Hahn – dann landet
+                  jeder Klick auf einer Seite, die konvertiert. So trägt der organische Umsatz das
+                  Geschäft, und Sponsored Ads beschleunigen, statt es am Leben zu halten.
                 </p>
               </Reveal>
             </div>

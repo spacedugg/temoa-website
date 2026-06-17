@@ -7,16 +7,16 @@ import { Counter } from "../ui/Counter";
 import { Icon } from "../ui/Icon";
 
 const points = [
-  { icon: "search" as const, title: "Wir hören zu, bevor wir optimieren", body: "Echte Suchbegriffe und Kundenfragen zeigen, wonach eure Käufer wirklich suchen." },
-  { icon: "spark" as const, title: "KI erkennt Muster, Menschen entscheiden", body: "Search-Query-Reports und KI-Signale werten wir aus – die Strategie machen Profis mit Marktplatz-Erfahrung." },
-  { icon: "target" as const, title: "Retail-ready für Rufus & COSMO", body: "Content, der für die neue KI-Suche gebaut ist – nicht für den Algorithmus von gestern." },
+  { icon: "search" as const, title: "Erst die Suchdaten, dann die Texte", body: "Echte Suchanfragen und Kundenfragen verraten, in welchen Worten eure Käufer wirklich suchen." },
+  { icon: "spark" as const, title: "KI findet Muster, wir treffen die Wahl", body: "Search-Query-Reports und KI-Signale liefern die Hinweise – über die Maßnahme entscheidet ein Mensch mit Marktplatz-Erfahrung." },
+  { icon: "target" as const, title: "Gebaut für Rufus & COSMO", body: "Listings, die die KI-Suche von Amazon versteht – nicht der Algorithmus von vorgestern." },
 ];
 
 const metrics = [
-  { value: 1240, label: "Begriffe ausgewertet", suffix: "" },
-  { value: 94, suffix: " %", label: "KI-ready Content" },
-  { value: -30, suffix: " %", label: "ACoS, profitabler" },
-  { value: 110, prefix: "+", suffix: " %", label: "Impressionen n. Suchintention" },
+  { value: 1240, label: "Suchbegriffe gescreent", suffix: "" },
+  { value: 94, suffix: " %", label: "Listings KI-lesbar" },
+  { value: -30, suffix: " %", label: "ACoS, mehr Marge" },
+  { value: 110, prefix: "+", suffix: " %", label: "passgenaue Impressionen" },
 ];
 
 export function DataAI() {
@@ -29,7 +29,7 @@ export function DataAI() {
               eyebrow="Daten & KI"
               title={
                 <>
-                  Euer Listing ist nur so gut wie <span className="text-gradient">eure Daten.</span>
+                  Kein Listing wird besser als <span className="text-gradient">seine Datenbasis.</span>
                 </>
               }
             />
@@ -56,8 +56,8 @@ export function DataAI() {
               <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-100/70 blur-3xl" />
               <div className="relative flex items-center justify-between">
                 <div>
-                  <div className="text-sm font-semibold text-ink">Search-Query-Signale</div>
-                  <div className="text-xs text-ink-faint">live ausgewertet</div>
+                  <div className="text-sm font-semibold text-ink">Suchanfragen-Auswertung</div>
+                  <div className="text-xs text-ink-faint">laufend aktualisiert</div>
                 </div>
                 <div className="flex items-center gap-1.5 rounded-full bg-emerald/10 px-2.5 py-1 text-xs font-semibold text-emerald-deep">
                   80 % organisch

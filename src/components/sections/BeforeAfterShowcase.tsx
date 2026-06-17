@@ -14,13 +14,13 @@ export function BeforeAfterShowcase() {
       <div className="absolute inset-0 bg-canvas-alt" />
       <div className="container-x relative">
         <SectionHeading
-          eyebrow="Aus der Praxis"
+          eyebrow="Vorher / Nachher"
           title={
             <>
-              Gleiches Produkt. <span className="text-gradient">Anderer Umsatz.</span>
+              Dasselbe Produkt, <span className="text-gradient">neu inszeniert.</span>
             </>
           }
-          description="Zieh den Regler: Links das alte Listing, rechts unser Content. Genau hier entsteht die Conversion."
+          description="Schiebt den Regler: links das Hauptbild, mit dem die Marke gestartet ist, rechts unsere Version. Genau dieser Unterschied entscheidet im Suchergebnis über den Klick."
         />
         <div className="mt-12 grid gap-8 md:grid-cols-2">
           {pairs.map((p, i) => (

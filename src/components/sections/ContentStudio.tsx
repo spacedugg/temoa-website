@@ -15,13 +15,13 @@ export function ContentStudio() {
       <div className="container-x relative">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            eyebrow="Content Studio"
+            eyebrow="Quer durch die Kategorien"
             title={
               <>
-                Content, der den <span className="text-gradient">Klick gewinnt.</span>
+                Ein Querschnitt aus <span className="text-gradient">unserem Studio.</span>
               </>
             }
-            description="Hauptbilder, A+ Content, Brand Stores und Infografiken aus unserem Studio – gestaltet, damit sie ranken, Vertrauen aufbauen und die Conversion heben."
+            description="Werkzeug, Supplements, Garten, Haushalt – Hauptbilder, die im Suchergebnis auffallen, und Infografiken, die in Sekunden die richtige Kaufentscheidung auslösen. Fahrt über ein Bild, um die Marke zu sehen."
           />
           <a href="/gespraech-vereinbaren" className="btn-ghost shrink-0">Gespräch vereinbaren</a>
         </div>
@@ -57,12 +57,13 @@ export function ContentStudio() {
             <Reveal>
               <div>
                 <span className="eyebrow"><span className="h-1.5 w-1.5 rounded-full bg-brand-500" />A+ / Premium A+</span>
-                <h3 className="mt-4 text-2xl font-bold text-ink">Markenwelt, die den Warenkorb hebt.</h3>
+                <h3 className="mt-4 text-2xl font-bold text-ink">A+ Content, der den Warenkorb füllt.</h3>
                 <p className="mt-3 leading-relaxed text-ink-muted">
-                  Module, die Story, Vorteile und Vertrauen verbinden – CI-konform über alle ASINs,
-                  gebaut für echte Käufer und für die KI-Suche von morgen.
+                  Unter den Bullets fängt die Markenwelt an: Module, die Vorteile belegen, Einwände
+                  vorwegnehmen und die Marke greifbar machen – konsistent über alle ASINs und so
+                  strukturiert, dass auch Rufus und COSMO die Antworten finden.
                 </p>
-                <a href="/gespraech-vereinbaren" className="btn-primary mt-6">A+ für eure Marke</a>
+                <a href="/gespraech-vereinbaren" className="btn-primary mt-6">Gespräch vereinbaren</a>
               </div>
             </Reveal>
             <Reveal direction="left">

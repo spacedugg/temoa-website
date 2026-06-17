@@ -9,7 +9,7 @@ import { CTA } from "@/components/sections/CTA";
 export const metadata: Metadata = {
   title: "Designbeispiele · TEMOA",
   description:
-    "Hauptbilder, A+ Content, Brand Stores und Infografiken aus unserem Content Studio – gestaltet, damit sie ranken, Vertrauen aufbauen und die Conversion heben.",
+    "Echte Listings aus unserem Content Studio: Hauptbilder, die den Klick holen, Infografiken, die Kauffragen beantworten, A+ Module, die den Warenkorb heben. Vorher-Nachher inklusive.",
 };
 
 export default function DesignBeispielePage() {
@@ -23,14 +23,15 @@ export default function DesignBeispielePage() {
           <div className="container-x relative text-center">
             <span className="eyebrow justify-center">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-              Content Studio
+              Designbeispiele
             </span>
             <h1 className="mx-auto mt-5 max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl">
-              Listings, <span className="text-gradient">die verkaufen.</span>
+              Seht, wie ein Listing <span className="text-gradient">kaufreif wird.</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
-              Hauptbilder, A+ Content, Brand Stores und Infografiken aus unserem Studio – gestaltet,
-              damit sie ranken, Vertrauen aufbauen und die Conversion heben.
+              Hauptbild, Infografiken, A+ und Brand Store – echte Arbeiten aus unserem Content
+              Studio. Klickt euch durch ganze Bilderstrecken, vergleicht Vorher und Nachher und seht,
+              an welcher Stelle aus einem Besucher ein Käufer wird.
             </p>
           </div>
         </section>

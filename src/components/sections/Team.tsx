@@ -9,21 +9,21 @@ const founders = [
   {
     name: "Clemens",
     role: "Founder & Sales",
-    body: "Erster Ansprechpartner für neue Marken – ehrlich, ohne Verkaufsdruck, mit klarem Blick aufs Potenzial.",
+    body: "Euer erstes Gespräch läuft über Clemens – ehrlich, ohne Verkaufsdruck und mit klarem Blick auf das, was sich für euch wirklich lohnt.",
     img: "/team/Clemens.jpg",
     accent: "from-brand-500/30 to-transparent",
   },
   {
     name: "Christoph",
     role: "Founder & Client Success",
-    body: "Sorgt dafür, dass aus Strategie messbare Ergebnisse werden – und Kunden langfristig bleiben.",
+    body: "Christoph übersetzt Strategie in Zahlen, die ihr im Konto seht – und sorgt dafür, dass die Ergebnisse Monat für Monat halten.",
     img: "/team/Christoph.jpg",
     accent: "from-red/30 to-transparent",
   },
   {
     name: "Eddie",
     role: "Founder & Operations",
-    body: "Hält Prozesse, Tools und Reporting im Griff, damit das Team schnell und sauber umsetzt.",
+    body: "Eddie hält Abläufe, Tools und Reporting zusammen, damit das Team schnell liefert und im Konto nichts liegen bleibt.",
     img: "/team/Eddie.jpg",
     accent: "from-cyan/30 to-transparent",
   },
@@ -49,10 +49,10 @@ export function Team() {
           eyebrow="Das Team"
           title={
             <>
-              Direkter Draht <span className="text-gradient">statt Ticketsystem.</span>
+              Ein fester Ansprechpartner <span className="text-gradient">statt Ticketsystem.</span>
             </>
           }
-          description="Drei Gründer und ein eingespieltes Team betreuen euren Account – persönlich, nicht über ein anonymes Support-Postfach. Ein fester Marketplace-Consultant betreut nur eine Handvoll Marken."
+          description="Drei Gründer und ein eingespieltes Team kümmern sich um euer Konto – persönlich erreichbar statt über ein anonymes Postfach. Euer Consultant betreut nur eine Handvoll Marken, damit eure nicht untergeht."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -85,10 +85,10 @@ export function Team() {
         <div className="mt-14 rounded-3xl border border-navy/10 bg-canvas-alt p-7 md:p-9">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="max-w-md">
-              <h3 className="text-xl font-bold text-ink">Spezialisten für jeden Hebel.</h3>
+              <h3 className="text-xl font-bold text-ink">Für jeden Hebel ein Profi.</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                Strategie, Content, Advertising und Account Management – abgedeckt von Menschen,
-                die ihr Handwerk beherrschen.
+                Strategie, Content, Advertising und Account Management – jeweils in den Händen von
+                Leuten, die genau das jeden Tag machen.
               </p>
             </div>
             <RevealGroup className="flex flex-wrap gap-3" stagger={0.05}>

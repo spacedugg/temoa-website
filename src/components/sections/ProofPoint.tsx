@@ -23,14 +23,14 @@ export function ProofPoint() {
               align="left"
               title={
                 <>
-                  Ein Listing, das die <span className="text-gradient">Kaufentscheidung trägt.</span>
+                  Ein Listing, das die <span className="text-gradient">Kauffrage entscheidet.</span>
                 </>
               }
-              description="Hauptbild plus Infografiken, die jede Kauffrage beantworten – Vertrauen, Vorteile, Anwendung. So machen wir aus Sichtbarkeit zahlende Käufer."
+              description="Hauptbild und Infografiken, die Vorteile, Anwendung und Vertrauen auf den Punkt bringen – und jeden Zweifel ausräumen, bevor der Daumen weiterscrollt. So wird aus einem Klick ein Kauf."
             />
             <Reveal>
               <a href="/design-beispiele" className="btn-ghost mt-8">
-                Alle Designbeispiele ansehen
+Mehr Listing-Beispiele ansehen
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </a>
             </Reveal>

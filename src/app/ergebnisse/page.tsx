@@ -8,9 +8,9 @@ import { Clients } from "@/components/sections/Clients";
 import { CTA } from "@/components/sections/CTA";
 
 export const metadata: Metadata = {
-  title: "Case Studies · TEMOA",
+  title: "Ergebnisse · TEMOA",
   description:
-    "Versprechen kann jeder. Hier sind Zahlen: FUTUM 80 % organische Verkäufe im Peak, HaA +439 % Conversion in 17 Wochen, Gartenmarke −35 % TACoS über vier Marktplätze – Kundenbeispiele.",
+    "Drei echte Konten, drei Ausgangslagen: FUTUM 80 % organischer Umsatz im Peak, HaA +439 % Conversion in 17 Wochen, eine Gartenmarke −35 % TACoS über vier Marktplätze. Einzelbeispiele aus laufenden Mandaten.",
 };
 
 export default function ErgebnissePage() {
@@ -19,9 +19,9 @@ export default function ErgebnissePage() {
       <Navbar />
       <main>
         <PageHero
-          eyebrow="Case Studies"
-          title={<>Versprechen kann jeder. <span className="text-gradient">Hier sind Zahlen.</span></>}
-          description="Beispiele aus laufenden Mandaten – Einzelergebnisse, kein Versprechen, aber ein ehrliches Bild unserer Arbeitsweise: Organic First, profitabel skaliert."
+          eyebrow="Ergebnisse aus echten Konten"
+          title={<>Zahlen, die wir <span className="text-gradient">offenlegen.</span></>}
+          description="Keine Renderings, keine Wunschwerte. Drei Marken, drei Ausgangslagen, drei Ergebnisse – jeweils so erreicht, wie wir jedes Konto angehen: erst das Listing tragfähig machen, dann die Ads aufdrehen."
         />
         <StatsBand />
         <Cases />

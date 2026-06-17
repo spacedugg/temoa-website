@@ -10,10 +10,10 @@ import { LISTING_SETS } from "@/lib/showcase";
 const heroProduct = LISTING_SETS[0]?.images?.[0];
 
 const stats = [
-  { value: 30, prefix: "+", suffix: " %", label: "mehr Profitabilität", note: "⌀ über alle Marken" },
-  { value: 60, suffix: "+", label: "betreute Marken", note: "in 5+ Ländern aktiv" },
-  { value: 21, suffix: " Mio €", label: "betreuter Umsatz p. a.", note: "verwaltetes Volumen" },
-  { value: 98, suffix: " %", label: "Kundenbindung", note: "Marken, die bleiben" },
+  { value: 30, prefix: "+", suffix: " %", label: "Gewinn pro Marke", note: "⌀ Profit-Plus im Mandat" },
+  { value: 60, suffix: "+", label: "Marken im Konto", note: "über 5+ Marktplätze" },
+  { value: 21, suffix: " Mio €", label: "Umsatz unter Steuerung", note: "p. a. über alle Konten" },
+  { value: 98, suffix: " %", label: "Marken, die bleiben", note: "Retention statt Fluktuation" },
 ];
 
 export function Hero() {
@@ -71,7 +71,7 @@ export function Hero() {
               </span>
               Full-Service
             </span>
-            Amazon-Agentur
+            Amazon aus einer Hand
           </motion.div>
 
           <motion.h1
@@ -80,9 +80,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl"
           >
-            Amazon-Wachstum ist keine Frage des{" "}
+            Wir steuern euer Amazon-Konto auf{" "}
             <span className="relative whitespace-nowrap">
-              <span className="text-gradient">Werbebudgets.</span>
+              <span className="text-gradient">Gewinn.</span>
               <motion.svg
                 viewBox="0 0 300 12"
                 className="absolute -bottom-2 left-0 w-full"
@@ -116,10 +116,10 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted"
           >
-            Wir führen euren kompletten Amazon-Account – Strategie, Listing & SEO, Advertising und
-            Betrieb. Mehr Umsatz bei besserer Marge, weil zuerst das{" "}
-            <span className="font-semibold text-ink">Listing trägt</span> und dann die{" "}
-            <span className="font-semibold text-ink">Ads skalieren</span>.
+            Ein Team übernimmt das Ganze – Strategie, Listing & SEO, Sponsored Ads und den
+            Tagesbetrieb. Erst bringen wir das{" "}
+            <span className="font-semibold text-ink">Listing zum Verkaufen</span>, dann skalieren die{" "}
+            <span className="font-semibold text-ink">Ads auf Marge</span>.
           </motion.p>
 
           <motion.div
@@ -143,7 +143,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-4 text-sm text-ink-faint"
           >
-            30 Minuten mit der Geschäftsführung. Kein Pitch, keine Folien.
+30 Minuten direkt mit einem Gründer. Klartext zu eurem Konto, kein Pitch.
           </motion.p>
         </div>
 
@@ -173,8 +173,8 @@ export function Hero() {
                 <div className="space-y-3 p-5" style={{ transform: "translateZ(40px)" }}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs font-medium text-ink-faint">Account-Dashboard</div>
-                      <div className="text-sm font-bold text-ink">Wachstum &amp; Marge</div>
+                      <div className="text-xs font-medium text-ink-faint">Konto-Cockpit</div>
+                      <div className="text-sm font-bold text-ink">Umsatz trifft Marge</div>
                     </div>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald/10 px-2.5 py-1 text-[11px] font-semibold text-emerald-deep">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald" /> live
