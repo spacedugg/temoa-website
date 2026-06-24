@@ -27,21 +27,32 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Keine erfundenen Awards, Dollar-Werte oder Fremdmarken.
 - Zahlen-Claims muessen belegbar sein. Profitabilitaet wird als Durchschnitt ausgewiesen: "Ø +30 %".
 
+## Copy-Handwerk
+
+- Wort "Agentur" im Website-Text vermeiden. NIE mit anderen Agenturen oder Anbietern vergleichen. temoa steht fuer sich (Wachstumspartner).
+- Verbotenes Wort: "traegt" / "traegt sich". Auf Amazon wird verkauft, konvertiert, es werden Verkaeufe generiert. Nichts "traegt sich".
+- Ueberschriften kurz, knackig, konkret. Keine generischen Floskeln, die nach etwas klingen, aber nichts sagen (Negativbeispiele: "Klarheit ueber Zahlen, Markt und Ziele", "Werbung, die Profitabilitaet bringt").
+- Satzbau variieren. Die Konstruktion "[Nomen], die/das [Relativsatz]" nur sparsam (nicht in Serie: "Listings, die verkaufen" + "ein Konto, das laeuft" + ...).
+- Richtige Kollokation: Symptome werden bekaempft, Ursachen werden behoben.
+- Homepage muss sofort catchen. Kein Fliesstext, wo schnelle Wirkung zaehlt. Inhalte veranschaulichen (Listen, Tabellen, Visuals) statt ausformulieren.
+- Nichts erklaeren, was die Zielgruppe ohnehin weiss (z. B. PPC = Sponsored Products/Brands/Display nicht ausbuchstabieren).
+
 ## Homepage-Struktur (aktueller Stand)
 
-Navigation: Logo · Full Service (Mega-Menue, klappt 5 Services aus, selbst klickbar zur Uebersichtsseite) · Case Studies · Designbeispiele · CTA "Gespraech buchen"
+Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, selbst klickbar zur Uebersichtsseite) · Case Studies · Designbeispiele · CTA "Potenzialanalyse buchen"
 
-1. Hero (grosses Versprechen + konkretes Angebot als CTA)
+1. Hero (Versprechen + Angebot als CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen")
 2. Credibility-Band (Kundenlogos + Zahlen: Ø +30 % Profitabilitaet, 21 Mio EUR betreuter Jahresumsatz, 60+ betreute Marken, 5+ Marktplaetze)
-3. Problem (kurz, Feind benennen)
-4. Mechanismus + Alt/Neu (zugleich "Warum wir")
-5. Full Service (5 Leistungen als Ergebnisse, Link zur Uebersicht)
-6. Case Studies (tiefer Beweis, Amazon-Kennzahlen)
-7. Designbeispiele (visueller Beweis)
-8. Kundenstimmen, daneben schmaler Persoenlichkeits-/Team-Block
-9. Finaler CTA (Angebot + Risk-Reversal)
-10. Blog-Streifen (schmal, Vorschau 3-4 Artikel)
-11. Footer
+3. Problem (kurz, knackig, visuell: "Das Noetigste reicht nicht" + Pain-Liste, fuehrt mit Zeitmangel; KEIN "nebenbei")
+4. Mechanismus Organic First, PPC Second + Alt/Neu-Tabelle (Spalten "Wie es jetzt laeuft" vs "Wie temoa arbeitet"; kein Wort "Agentur")
+5. Full Service (5 Leistungen, Link zur Uebersicht)
+6. Case Studies (4 Stueck nebeneinander auf Desktop, untereinander auf Mobile)
+7. Designbeispiele (ein komplettes Listing: 1 Hauptbild + 6 Listingbilder, daneben A+ Content schwebend in 3D mit weichen Schatten)
+8. Kundenstimmen (animierte, scrollbare Sektion, ca. 5 sichtbar)
+9. Finaler CTA (Angebot + Risk-Reversal: ohne lange Laufzeiten, 98 % Kundenbindung)
+10. Team-Block (NACH dem CTA, da CTA wichtiger; Teambilder + Ueberschrift + kurzer Nebensatz)
+11. Blog-Streifen (schmal, Platzhalter-Themen, Kunde liefert spaeter)
+12. Footer
 
 **Call-Buchen-Unterseite:** Prozessablauf, FAQ, Einbindung des Cal.com-Kalenders.
 
