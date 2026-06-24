@@ -5,8 +5,8 @@ import { Reveal } from "../ui/Reveal";
 
 const stages = [
   { n: "01", label: "Listing, das überzeugt", angle: -90 },
-  { n: "02", label: "Mehr Klicks kaufen", angle: 0 },
-  { n: "03", label: "Amazon rankt euch hoch", angle: 90 },
+  { n: "02", label: "Höhere Kaufquote", angle: 0 },
+  { n: "03", label: "Bessere Platzierung", angle: 90 },
   { n: "04", label: "Verkäufe ohne Adspend", angle: 180 },
 ];
 
@@ -107,15 +107,12 @@ export function OrganicFirst() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-6 max-w-md text-lg leading-relaxed text-white/65">
-                  Die meisten drehen sofort am Ad-Budget. Wir bauen erst das Fundament, das jeden
-                  Werbe-Euro rentabel macht.
+                  Zuerst das Fundament, das jeden Werbe-Euro rentabel macht. Dann die Ads.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
                 <p className="mt-4 max-w-md leading-relaxed text-white/55">
-                  Erst wenn das Listing messbar verkauft, öffnen wir den Traffic-Hahn – jeder Klick
-                  landet auf einer Seite, die konvertiert. So trägt der organische Umsatz das
-                  Geschäft, und Sponsored Ads beschleunigen, statt es am Leben zu halten.
+                  Wenn das Listing verkauft, trägt der organische Umsatz das Geschäft. Sponsored Ads beschleunigen es, statt es zu tragen.
                 </p>
               </Reveal>
             </div>

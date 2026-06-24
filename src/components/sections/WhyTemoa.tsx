@@ -13,10 +13,10 @@ export function WhyTemoa() {
           eyebrow="Warum TEMOA"
           title={
             <>
-              Was uns von der nächsten Agentur <span className="text-gradient">unterscheidet.</span>
+              Der <span className="text-gradient">Unterschied.</span>
             </>
           }
-          description="Wir betreiben euer Konto wie unser eigenes Geschäft: jede Entscheidung am Deckungsbeitrag gemessen, alle Gewerke unter einem Dach, jede Zahl offen auf dem Tisch."
+          description="Wir führen euer Konto wie unser eigenes: jede Entscheidung am Deckungsbeitrag, alle Gewerke unter einem Dach, jede Zahl offen."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -26,9 +26,9 @@ export function WhyTemoa() {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald/10 text-emerald-deep">
                 <Icon name="margin" size={24} />
               </div>
-              <h3 className="mt-5 text-xl font-bold text-ink">Gewinn schlägt Umsatz</h3>
+              <h3 className="mt-5 text-xl font-bold text-ink">Gewinn vor Umsatz</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Jede ASIN steuern wir nach Deckungsbeitrag und TACoS – nicht nach Umsatz, der am Monatsende nichts übriglässt.
+                Wir steuern jede ASIN nach Deckungsbeitrag und TACoS, nicht nach Umsatz.
               </p>
               <Donut
                 className="mt-6"
@@ -51,8 +51,7 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Alles aus einer Hand</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Strategie, Listing & SEO, Advertising und Betrieb laufen bei uns zusammen – ein
-                Ansprechpartner, der alles im Blick hat, statt drei Dienstleister.
+                Strategie, Listing, Advertising und Betrieb laufen bei uns zusammen, bei einem Ansprechpartner.
               </p>
               <NodeFlow
                 className="mt-6"
@@ -75,8 +74,7 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Zahlen ohne Blackbox</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Feste KPIs, Reports in eurer Sprache und jemand, der erklärt, warum sich eine Zahl
-                bewegt. Ihr seht jederzeit, woran wir arbeiten.
+                Feste KPIs, klare Reports und jemand, der erklärt, warum sich eine Zahl bewegt.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <KpiTile label="TACoS" value="9,4 %" delta="−4,1 %" deltaUp values={[28, 24, 26, 20, 18, 14, 9]} color="#0E7CA0" />

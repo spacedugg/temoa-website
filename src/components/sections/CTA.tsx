@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 
 const steps = [
-  { n: "1", title: "Ihr schildert kurz die Lage", body: "Ein paar Eckdaten zu Sortiment, Marktplätzen und Zielen." },
+  { n: "1", title: "Ihr schildert die Lage", body: "Ein paar Eckdaten zu Sortiment, Marktplätzen und Zielen." },
   { n: "2", title: "Wir schauen vorab rein", body: "Erste Auffälligkeiten und konkrete Ansatzpunkte für euer Konto." },
-  { n: "3", title: "Im Gespräch", body: "Euer Potenzial in Zahlen und die nächsten machbaren Schritte." },
+  { n: "3", title: "Im Gespräch", body: "Euer Potenzial in Zahlen und die nächsten Schritte." },
 ];
 
 export function CTA() {
@@ -47,8 +47,7 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
-                  30 Minuten, kostenfrei, direkt mit Clemens. Wir sehen uns Konto, Marge und die
-                  größten Hebel an – und sagen offen, ob und wo wir den Unterschied machen.
+                  30 Minuten, direkt mit Clemens. Wir sehen uns Konto, Marge und die größten Hebel an und sagen offen, wo wir den Unterschied machen.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
@@ -60,7 +59,7 @@ export function CTA() {
                     Gespräch vereinbaren
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </a>
-                  <span className="text-sm text-white/50">Kostenlos & unverbindlich · quartalsweise kündbar, keine Knebelverträge</span>
+                  <span className="text-sm text-white/50">Kostenlos und unverbindlich · quartalsweise kündbar</span>
                 </div>
               </Reveal>
             </div>

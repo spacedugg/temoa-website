@@ -14,7 +14,7 @@ const pillars = [
     tag: "Analyse, Margen & KPI-Steuerung",
     title: "Wettbewerbs- & Keyword-Analyse",
     metric: "Marktanteil",
-    body: "Wir wissen, wer wofür rankt – und zu welchem Preis. So liegt der nächste Hebel offen, statt im Bauchgefühl.",
+    body: "Wir wissen, wer wofür rankt und zu welchem Preis. Der nächste Hebel liegt offen.",
     tint: "bg-brand-50",
     color: "#FF9900",
     visual: "share",
@@ -26,7 +26,7 @@ const pillars = [
     tag: "Bilder, A+, SEO & Brand Store",
     title: "Listing & A+ Content",
     metric: "Retail-ready",
-    body: "Bilder, A+ und SEO, die aus Klicks zahlende Käufer machen – optimiert für Rufus, COSMO und A10.",
+    body: "Bilder, A+ und SEO, die aus Klicks Käufer machen, abgestimmt auf den Amazon-Algorithmus.",
     tint: "bg-red/[0.08]",
     color: "#FF3131",
     visual: "conversion",
@@ -38,7 +38,7 @@ const pillars = [
     tag: "Sponsored Products, Brands & Display",
     title: "PPC Performance",
     metric: "ROAS 4,8×",
-    body: "Kampagnen, die profitabel skalieren – Streuverluste runter, Return on Ad Spend rauf.",
+    body: "Kampagnen, die profitabel skalieren. Weniger Streuverluste, höherer Return on Ad Spend.",
     tint: "bg-navy/[0.07]",
     color: "#023047",
     visual: "roas",
@@ -49,8 +49,8 @@ const pillars = [
     label: "Account",
     tag: "Inventar, Buy-Box & Reporting",
     title: "Inventar & Buy-Box",
-    metric: "Buy-Box-Anteil hoch halten",
-    body: "Forecasting, Buy-Box und Reporting – euer Konto läuft, ohne dass ihr ran müsst.",
+    metric: "Stabile Buy-Box",
+    body: "Forecasting, Buy-Box und Reporting. Euer Konto läuft, ohne dass ihr ran müsst.",
     tint: "bg-cyan/[0.10]",
     color: "#2A9BD8",
     visual: "buybox",
@@ -62,7 +62,7 @@ const pillars = [
     tag: "Lokalisierung & 5+ Marktplätze",
     title: "Internationalisierung",
     metric: "5+ Marktplätze",
-    body: "Euer erprobtes Setup nativ auf neue Märkte ausgerollt – lokalisiert statt nur übersetzt, zentral gesteuert.",
+    body: "Euer erprobtes Setup auf neue Märkte ausgerollt, lokalisiert statt nur übersetzt.",
     tint: "bg-emerald/10",
     color: "#0E7CA0",
     visual: "markets",
@@ -274,7 +274,7 @@ export function FullService() {
           <SectionHeading
             eyebrow="Full Service 360°"
             title={<>Fünf Bereiche, <span className="text-gradient">ein System.</span></>}
-            description="Einzelne Dienstleister lösen immer nur die Hälfte. Bei uns greifen Strategie, Listing & SEO, Advertising, Betrieb und Internationalisierung ineinander – mehr als die Summe der Teile."
+            description="Strategie, Listing, Advertising, Betrieb und Internationalisierung greifen bei uns ineinander, statt sich auf Dienstleister zu verteilen."
           />
 
           <div className="mt-10 grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr]">

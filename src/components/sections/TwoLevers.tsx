@@ -90,10 +90,10 @@ export function TwoLevers() {
           eyebrow="Zwei Hebel"
           title={
             <>
-              Sichtbarkeit und Conversion – <span className="text-gradient">beide zugleich.</span>
+              Sichtbarkeit und <span className="text-gradient">Conversion.</span>
             </>
           }
-          description="Top-Platzierung ohne kaufstarkes Listing verbrennt Budget; ein starkes Listing, das niemand sieht, bringt keinen Umsatz. Wir ziehen beide Hebel parallel – das trennt teuren Traffic von profitablem Wachstum."
+          description="Sichtbarkeit ohne kaufstarkes Listing bleibt teuer; ein gutes Listing ohne Sichtbarkeit bleibt ungesehen. Wir ziehen beide Hebel parallel."
         />
 
         <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -102,7 +102,7 @@ export function TwoLevers() {
             <div>
               <SearchRank />
               <p className="mt-3 text-center text-sm text-ink-faint">
-                Mehr Relevanz und höhere Kaufquote schieben euch organisch nach oben – von Seite 2 an die Spitze.
+                Mehr Relevanz und eine höhere Kaufquote heben euch organisch nach oben.
               </p>
             </div>
           </Reveal>
@@ -120,7 +120,7 @@ export function TwoLevers() {
                   </span>
                   <h3 className="mt-2 text-lg font-bold text-ink">höhere Kaufquote</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-                    Hauptbild, Galerie und A+, die aus Besuchern zahlende Käufer machen.
+                    Hauptbild, Galerie und A+, die aus Besuchern Käufer machen.
                   </p>
                 </div>
                 <MiniDonut value={62} label="Add-to-Cart" color="#FF3131" track="#FFD7D2" className="hidden h-28 w-28 shrink-0 sm:block" />
@@ -138,7 +138,7 @@ export function TwoLevers() {
                   </span>
                   <h3 className="mt-2 text-lg font-bold text-ink">Umsatz ohne Adspend</h3>
                   <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-                    Platzierungen, die halten – auch wenn das Werbebudget mal pausiert.
+                    Platzierungen, die halten, auch wenn das Werbebudget pausiert.
                   </p>
                 </div>
                 <KpiTile className="hidden w-36 shrink-0 sm:block" label="Organisch" value="80 %" delta="+31%" deltaUp values={[20, 28, 34, 42, 55, 68, 80]} color="#0E7CA0" />

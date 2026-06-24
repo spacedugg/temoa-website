@@ -9,21 +9,21 @@ const founders = [
   {
     name: "Clemens",
     role: "Founder & Sales",
-    body: "Euer erstes Gespräch läuft über Clemens – ehrlich, ohne Verkaufsdruck, mit klarem Blick auf das, was sich für euch lohnt.",
+    body: "Euer erstes Gespräch läuft über Clemens. Ehrlich, ohne Verkaufsdruck, mit klarem Blick auf das, was sich lohnt.",
     img: "/team/Clemens.jpg",
     accent: "from-brand-500/30 to-transparent",
   },
   {
     name: "Christoph",
     role: "Founder & Client Success",
-    body: "Christoph übersetzt Strategie in Zahlen, die ihr im Konto seht – und hält die Ergebnisse Monat für Monat.",
+    body: "Christoph übersetzt Strategie in Zahlen, die ihr im Konto seht, und hält die Ergebnisse Monat für Monat.",
     img: "/team/Christoph.jpg",
     accent: "from-red/30 to-transparent",
   },
   {
     name: "Eddie",
     role: "Founder & Operations",
-    body: "Eddie hält Abläufe, Tools und Reporting zusammen – damit das Team schnell liefert und nichts liegen bleibt.",
+    body: "Eddie hält Abläufe, Tools und Reporting zusammen, damit das Team liefert und nichts liegen bleibt.",
     img: "/team/Eddie.jpg",
     accent: "from-cyan/30 to-transparent",
   },
@@ -49,10 +49,10 @@ export function Team() {
           eyebrow="Das Team"
           title={
             <>
-              Ein fester Ansprechpartner <span className="text-gradient">statt Ticketsystem.</span>
+              Ein fester <span className="text-gradient">Ansprechpartner.</span>
             </>
           }
-          description="Drei Gründer und ein eingespieltes Team – persönlich erreichbar statt anonymes Postfach. Euer Consultant betreut nur eine Handvoll Marken, damit eure nicht untergeht."
+          description="Drei Gründer und ein eingespieltes Team, persönlich erreichbar. Euer Consultant betreut nur eine Handvoll Marken."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -87,8 +87,7 @@ export function Team() {
             <div className="max-w-md">
               <h3 className="text-xl font-bold text-ink">Für jeden Hebel ein Profi.</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                Strategie, Content, Advertising und Account Management – jeweils bei Leuten, die
-                genau das jeden Tag machen.
+                Strategie, Content, Advertising und Account Management, jeweils bei Leuten, die genau das täglich machen.
               </p>
             </div>
             <RevealGroup className="flex flex-wrap gap-3" stagger={0.05}>

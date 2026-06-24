@@ -6,11 +6,11 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 
 const steps = [
-  { n: "1", title: "Bestandsaufnahme", body: "Suchdaten, Wettbewerb, Margen und Account-Health durchleuchtet – Potenzial je ASIN in Euro beziffert." },
-  { n: "2", title: "Plan & Forecast", body: "Klares Zielbild, KPI-Korridore für TACoS, Marge und Buy-Box, Roadmap nach Wirkung sortiert." },
-  { n: "3", title: "Listing kaufstark machen", body: "Hauptbild, A+, SEO und Brand Store – jedes Listing wird zum verkaufenden Schaufenster, bevor ein Euro in Ads fließt." },
-  { n: "4", title: "Ads scharfstellen", body: "Sponsored Products, Brands und Display aufgesetzt, Gebote und Budgets mehrmals pro Woche nachgezogen." },
-  { n: "5", title: "Betreuen & nachschärfen", body: "FBA-Forecast, Buy-Box und Cases im Griff, monatliche Reports und Quartals-Reviews gegen die Ziele." },
+  { n: "1", title: "Bestandsaufnahme", body: "Suchdaten, Wettbewerb, Margen und Account-Health. Das Potenzial je ASIN in Euro." },
+  { n: "2", title: "Plan & Forecast", body: "Ein klares Zielbild, KPI-Korridore für TACoS, Marge und Buy-Box, eine nach Wirkung sortierte Roadmap." },
+  { n: "3", title: "Listing kaufstark machen", body: "Hauptbild, A+, SEO und Brand Store. Das Listing verkauft, bevor ein Euro in Ads fließt." },
+  { n: "4", title: "Ads scharfstellen", body: "Sponsored Products, Brands und Display, mehrmals pro Woche an Geboten und Budgets nachjustiert." },
+  { n: "5", title: "Betreuen & nachschärfen", body: "Forecast, Buy-Box und Reporting im Griff, mit monatlichen Reports und Quartals-Reviews." },
 ];
 
 export function Process() {
@@ -26,7 +26,7 @@ export function Process() {
           eyebrow="So arbeiten wir"
           title={
             <>
-              In fünf Schritten zum <span className="text-gradient">profitablen Konto.</span>
+              Fünf Schritte zum <span className="text-gradient">profitablen Konto.</span>
             </>
           }
           align="center"

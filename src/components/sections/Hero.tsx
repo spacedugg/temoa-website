@@ -10,10 +10,10 @@ import { LISTING_SETS } from "@/lib/showcase";
 const heroProduct = LISTING_SETS[0]?.images?.[0];
 
 const stats = [
-  { value: 30, prefix: "+", suffix: " %", label: "Gewinn pro Marke", note: "⌀ Profit-Plus im Mandat" },
+  { value: 30, prefix: "+", suffix: " %", label: "Gewinn pro Marke", note: "⌀ im Mandat" },
   { value: 60, suffix: "+", label: "Marken im Konto", note: "über 5+ Marktplätze" },
-  { value: 21, suffix: " Mio €", label: "Umsatz unter Steuerung", note: "p. a. über alle Konten" },
-  { value: 98, suffix: " %", label: "Marken, die bleiben", note: "Retention statt Fluktuation" },
+  { value: 21, suffix: " Mio €", label: "Umsatz unter Steuerung", note: "p. a." },
+  { value: 98, suffix: " %", label: "Marken, die bleiben", note: "über die Jahre" },
 ];
 
 export function Hero() {
@@ -80,9 +80,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl"
           >
-            Wir steuern euer Amazon-Konto auf{" "}
+            Amazon,{" "}
             <span className="relative whitespace-nowrap">
-              <span className="text-gradient">Gewinn.</span>
+              <span className="text-gradient">professionell geführt.</span>
               <motion.svg
                 viewBox="0 0 300 12"
                 className="absolute -bottom-2 left-0 w-full"
@@ -116,9 +116,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted"
           >
-            Ein Team für alles – Strategie, Listing & SEO, Sponsored Ads, Betrieb. Erst bringen wir das{" "}
-            <span className="font-semibold text-ink">Listing zum Verkaufen</span>, dann skalieren die{" "}
-            <span className="font-semibold text-ink">Ads auf Marge</span>.
+            Ihr kümmert euch um die Marke. Wir um alles, was euer Konto{" "}
+            <span className="font-semibold text-ink">profitabel hält</span>.
           </motion.p>
 
           <motion.div
@@ -142,7 +141,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-4 text-sm text-ink-faint"
           >
-30 Minuten direkt mit einem Gründer. Klartext zu eurem Konto, kein Pitch.
+30 Minuten direkt mit einem Gründer. Eine ehrliche Einschätzung zu eurem Konto.
           </motion.p>
         </div>
 

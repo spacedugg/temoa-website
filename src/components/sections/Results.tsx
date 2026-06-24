@@ -16,7 +16,7 @@ const meta = [
     metric: 80,
     suffix: " %",
     metricLabel: "des Umsatzes läuft organisch",
-    quote: "Der Großteil läuft heute ganz ohne Werbung – Ads geben nur noch den Extra-Schub.",
+    quote: "Der Großteil läuft heute ohne Werbung. Ads geben nur noch den zusätzlichen Schub.",
     points: [30, 32, 38, 35, 44, 52, 60, 72],
     color: "#FF9900",
     fill: "rgba(255,153,0,0.16)",
@@ -27,7 +27,7 @@ const meta = [
     prefix: "+",
     suffix: " %",
     metricLabel: "mehr Verkäufe in 17 Wochen",
-    quote: "Endlich klettern Umsatz und Marge bei uns gleichzeitig – das gab es vorher nie.",
+    quote: "Umsatz und Marge wachsen jetzt gleichzeitig. Das war vorher nicht der Fall.",
     points: [20, 28, 25, 40, 55, 62, 80, 96],
     color: "#FF3131",
     fill: "rgba(255,49,49,0.16)",
@@ -37,7 +37,7 @@ const meta = [
     metric: -35,
     suffix: " %",
     metricLabel: "weniger TACoS, vier Märkte",
-    quote: "Ein Setup für vier Länder – endlich vergleichbare Zahlen und ein Wachstum, das wir planen können.",
+    quote: "Ein Setup für vier Länder. Vergleichbare Zahlen und ein Wachstum, das wir planen können.",
     points: [80, 72, 68, 58, 50, 46, 40, 34],
     color: "#0E7CA0",
     fill: "rgba(14,124,160,0.16)",
@@ -120,7 +120,7 @@ export function Results() {
                 Zahlen, die wir <span className="text-gradient">belegen können.</span>
               </>
             }
-            description="Keine Wunschwerte, sondern Bewegungen, die im Konto messbar sind: mehr Umsatz, bessere Marge, ein gesundes Konto. Einzelergebnisse aus laufenden Mandaten."
+            description="Messbare Bewegungen im Konto: mehr Umsatz, bessere Marge. Einzelergebnisse aus laufenden Mandaten."
           />
           <a href="/ergebnisse" className="btn-ghost shrink-0">Alle Cases</a>
         </div>
