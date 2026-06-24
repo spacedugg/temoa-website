@@ -16,7 +16,7 @@ export function WhyTemoa() {
               Was uns von der nächsten Agentur <span className="text-gradient">unterscheidet.</span>
             </>
           }
-          description="Wir betreiben euer Amazon-Konto wie unser eigenes Geschäft: jede Entscheidung am Deckungsbeitrag gemessen, alle Gewerke unter einem Dach, jede Zahl offen auf dem Tisch."
+          description="Wir betreiben euer Konto wie unser eigenes Geschäft: jede Entscheidung am Deckungsbeitrag gemessen, alle Gewerke unter einem Dach, jede Zahl offen auf dem Tisch."
         />
 
         <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
@@ -28,7 +28,7 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Gewinn schlägt Umsatz</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Wir steuern jede ASIN nach Deckungsbeitrag und TACoS – nicht nach Umsatz, der am Monatsende nichts übriglässt.
+                Jede ASIN steuern wir nach Deckungsbeitrag und TACoS – nicht nach Umsatz, der am Monatsende nichts übriglässt.
               </p>
               <Donut
                 className="mt-6"
@@ -51,8 +51,8 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Alles aus einer Hand</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Strategie, Listing & SEO, Advertising und Betrieb laufen bei uns zusammen – kein Abstimmen
-                zwischen drei Dienstleistern, sondern ein Ansprechpartner, der alles im Blick hat.
+                Strategie, Listing & SEO, Advertising und Betrieb laufen bei uns zusammen – ein
+                Ansprechpartner, der alles im Blick hat, statt drei Dienstleister.
               </p>
               <NodeFlow
                 className="mt-6"
@@ -75,8 +75,8 @@ export function WhyTemoa() {
               </div>
               <h3 className="mt-5 text-xl font-bold text-ink">Zahlen ohne Blackbox</h3>
               <p className="mt-2 flex-1 leading-relaxed text-ink-muted">
-                Feste KPIs, Reports in eurer Sprache und ein Ansprechpartner, der erklärt, warum sich
-                eine Zahl bewegt. Ihr seht jederzeit, woran wir arbeiten.
+                Feste KPIs, Reports in eurer Sprache und jemand, der erklärt, warum sich eine Zahl
+                bewegt. Ihr seht jederzeit, woran wir arbeiten.
               </p>
               <div className="mt-6 grid grid-cols-2 gap-3">
                 <KpiTile label="TACoS" value="9,4 %" delta="−4,1 %" deltaUp values={[28, 24, 26, 20, 18, 14, 9]} color="#0E7CA0" />

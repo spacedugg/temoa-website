@@ -116,8 +116,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink-muted"
           >
-            Ein Team übernimmt das Ganze – Strategie, Listing & SEO, Sponsored Ads und den
-            Tagesbetrieb. Erst bringen wir das{" "}
+            Ein Team für alles – Strategie, Listing & SEO, Sponsored Ads, Betrieb. Erst bringen wir das{" "}
             <span className="font-semibold text-ink">Listing zum Verkaufen</span>, dann skalieren die{" "}
             <span className="font-semibold text-ink">Ads auf Marge</span>.
           </motion.p>

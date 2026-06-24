@@ -93,7 +93,7 @@ export function TwoLevers() {
               Sichtbarkeit und Conversion – <span className="text-gradient">beide zugleich.</span>
             </>
           }
-          description="Top-Platzierung ohne kaufstarkes Listing verbrennt Budget. Ein starkes Listing, das niemand sieht, bringt keinen Umsatz. Wir ziehen beide Hebel parallel – genau das trennt teuren Traffic von profitablem Wachstum."
+          description="Top-Platzierung ohne kaufstarkes Listing verbrennt Budget; ein starkes Listing, das niemand sieht, bringt keinen Umsatz. Wir ziehen beide Hebel parallel – das trennt teuren Traffic von profitablem Wachstum."
         />
 
         <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-[1.05fr_0.95fr]">
@@ -102,7 +102,7 @@ export function TwoLevers() {
             <div>
               <SearchRank />
               <p className="mt-3 text-center text-sm text-ink-faint">
-                Mehr Relevanz und eine höhere Kaufquote schieben euch organisch nach oben – von Seite 2 an die Spitze.
+                Mehr Relevanz und höhere Kaufquote schieben euch organisch nach oben – von Seite 2 an die Spitze.
               </p>
             </div>
           </Reveal>

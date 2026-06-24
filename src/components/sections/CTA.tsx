@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
 
 const steps = [
-  { n: "1", title: "Ihr schildert kurz die Lage", body: "Ein paar Eckdaten zu Sortiment, Marktplätzen und euren Zielen." },
+  { n: "1", title: "Ihr schildert kurz die Lage", body: "Ein paar Eckdaten zu Sortiment, Marktplätzen und Zielen." },
   { n: "2", title: "Wir schauen vorab rein", body: "Erste Auffälligkeiten und konkrete Ansatzpunkte für euer Konto." },
   { n: "3", title: "Im Gespräch", body: "Euer Potenzial in Zahlen und die nächsten machbaren Schritte." },
 ];
@@ -47,8 +47,8 @@ export function CTA() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
-                  30 Minuten, kostenfrei, direkt mit Clemens. Wir sehen uns euer Konto, eure Marge
-                  und die größten Hebel an – und sagen offen, ob und wo wir den Unterschied machen.
+                  30 Minuten, kostenfrei, direkt mit Clemens. Wir sehen uns Konto, Marge und die
+                  größten Hebel an – und sagen offen, ob und wo wir den Unterschied machen.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>

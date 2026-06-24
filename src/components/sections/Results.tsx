@@ -120,7 +120,7 @@ export function Results() {
                 Zahlen, die wir <span className="text-gradient">belegen können.</span>
               </>
             }
-            description="Keine Wunschwerte, sondern Bewegungen, die im Konto messbar sind: mehr Umsatz, bessere Marge, ein gesundes Konto – Organic First, ein System. Einzelergebnisse aus laufenden Mandaten."
+            description="Keine Wunschwerte, sondern Bewegungen, die im Konto messbar sind: mehr Umsatz, bessere Marge, ein gesundes Konto. Einzelergebnisse aus laufenden Mandaten."
           />
           <a href="/ergebnisse" className="btn-ghost shrink-0">Alle Cases</a>
         </div>

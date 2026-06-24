@@ -108,13 +108,13 @@ export function OrganicFirst() {
               <Reveal delay={0.1}>
                 <p className="mt-6 max-w-md text-lg leading-relaxed text-white/65">
                   Die meisten drehen sofort am Ad-Budget. Wir bauen erst das Fundament, das jeden
-                  Werbe-Euro überhaupt rentabel macht.
+                  Werbe-Euro rentabel macht.
                 </p>
               </Reveal>
               <Reveal delay={0.15}>
                 <p className="mt-4 max-w-md leading-relaxed text-white/55">
-                  Erst wenn das Listing messbar verkauft, öffnen wir den Traffic-Hahn – dann landet
-                  jeder Klick auf einer Seite, die konvertiert. So trägt der organische Umsatz das
+                  Erst wenn das Listing messbar verkauft, öffnen wir den Traffic-Hahn – jeder Klick
+                  landet auf einer Seite, die konvertiert. So trägt der organische Umsatz das
                   Geschäft, und Sponsored Ads beschleunigen, statt es am Leben zu halten.
                 </p>
               </Reveal>
