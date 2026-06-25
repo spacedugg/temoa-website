@@ -2,7 +2,7 @@
 
 Quelle der Wahrheit für alle Seitentexte. Bilder und einige Daten sind Platzhalter. Schreib- und Stilregeln in CLAUDE.md beachten (keine Gedankenstriche, keine verbotenen Wörter, premium-souveräner Ton, Anrede „ihr/euch").
 
-Stand: Homepage und Leistungsseite freigegeben. Weitere Seiten (Potenzialanalyse buchen, Case Studies, Designbeispiele) folgen.
+Stand: Homepage und Leistungsseite freigegeben. Drei Service-Detailseiten (Strategie, Content, Advertising) ergänzt. Weitere Seiten (Potenzialanalyse buchen, Case Studies, Designbeispiele) folgen.
 
 ---
 ---
@@ -34,7 +34,7 @@ Mega-Menü Full Service: Strategie & Analyse | Content & Listings | Advertising 
 Headline: Das Nötigste reicht auf Amazon nicht.
 Cards (Icon + Titel + ein Satz):
 - Zeit-Engpass. Listing-Optimierung ist ein Vollzeitjob. Im Tagesgeschäft bleibt sie liegen.
-- Nicht auf CTR und CVR optimiert. Klickrate und Conversion sind die wichtigsten Signale für Amazons Ranking. Genau hier wird Umsatz verschenkt.
+- Nicht auf CTR und CVR optimiert. Klickrate und Conversion sind die wichtigsten Signale für Amazons Ranking. Wer sie ignoriert, verschenkt Umsatz.
 - Umsatz stagniert. Seit Quartalen seitwärts. Mehr Wachstum gibt es nur über mehr Ad-Spend.
 - PPC ohne Conversion. Klicks ja, Verkauf nein. Jeder Klick auf ein schwaches Listing ist verbranntes Budget.
 - KPIs als Black Box. Ohne TACoS-, ACoS- und Profitabilitätsziele passiert jede Entscheidung aus dem Bauch.
@@ -65,7 +65,7 @@ Bridge: Das bekämpft nur Symptome. Die Ursache bleibt: ein Listing, das organis
 - [Schichten-Grafik: Strategie > Content > PPC, darüber Account-Management + Internationalisierung]
 
 1 Strategie & Analyse: Erst die Daten, dann der Plan.
-Search Query Report, Wettbewerb, Keywords, Margen: Wir finden, wo eure Umsätze liegen, und setzen klare ACoS-, TACoS- und ROAS-Ziele.
+Search Query Report, Wettbewerb, Keywords, Margen: Wir finden, wo eure Umsätze liegen und setzen klare ACoS- und TACoS-Ziele.
 Wettbewerbsanalyse · Keyword-Recherche · Margenanalyse · KPI-Steuerung · Strategie-Fahrplan
 
 2 Content & Listings: Aus Klicks werden Käufe.
@@ -74,7 +74,7 @@ Hauptbild & Produktbilder · Amazon A+ und Premium A+ · Brand Store & Markenges
 
 3 Advertising / PPC: Profitabel skalieren.
 Sobald euer Listing organisch verkauft, bringt PPC zusätzlichen, planbaren Umsatz. Wir steuern Kampagnen, Gebote und Budgets über euren TACoS, damit der Umsatz wächst und die Marge stabil bleibt.
-Kampagnenstruktur · Bid- und Budget-Management · Profitabilitätssteuerung (ACoS, TACoS, ROAS)
+Kampagnenstruktur · Bid- und Budget-Management · Profitabilitätssteuerung (ACoS, TACoS)
 
 4 Account-Management: Bestand, Buy-Box, Cases. Im Griff.
 Wir managen Inventar und Forecasting, überwachen die Buy-Box, liefern Reporting und übernehmen das Case-Handling mit Amazon. Euer Amazon-Geschäft hängt nicht mehr an einer einzigen Person.
@@ -103,6 +103,7 @@ CTA: Alle Leistungen ansehen
 ## 8 · Kundenstimmen (animierte, scrollbare Sektion, ca. 5 sichtbar)
 Headline: Was unsere Kunden sagen.
 Reihenfolge: starke Zahlen zuerst, generisches Lob nach hinten.
+(Testimonials sind verbatim, echte Kundenzitate. Original-Wortlaut bleibt unverändert, auch wenn er von den Stilregeln abweicht.)
 1. 5 Sterne, Andrea Hoffmann, CMO Vita-World GmbH: „Wir sind von 5k auf über 16k Bestellungen in Q1 '26 gewachsen. +50 % Conversion Rate und gleichzeitig TACoS runter auf 5,8 %. Wir sind damit hochprofitabel. Danke an euch!"
 2. 5 Sterne, Roland Pladeck, GF Greenfood Natural Products BV: „Dank temoa konnten wir innerhalb von 6 Monaten unseren Umsatz verdoppeln!"
 3. 5 Sterne, Laurenz Elbers, GF Bachgold AG: „Zusammen mit euch dominieren wir die Nische ,Wasserfilter' auf Amazon. Bestseller Rang #1 dank perfektem Branding und optimalen Produktbildern. Außerdem launchen wir gerade ein Produkt in Amazon US mit euch, aber das wisst ihr ja ;)"
@@ -226,11 +227,168 @@ Intro: Eyebrow „Was wir übernehmen", Headline „Fünf Bereiche, jeder in vol
 ---
 ---
 
-# OFFENE DATEN / PLATZHALTER (beide Seiten)
-- Bilder: Hero-Bild, Designbeispiel-Bilder (1 Hauptbild + 6 Listingbilder + A+), Teambilder, je ein Bild pro Leistung auf der Leistungsseite (Kunde liefert)
+# SEITE 3: SERVICE-SEITE STRATEGIE (Individuelle Amazon-Strategie)
+
+## 1 · Header
+- Eyebrow: Individuelle Amazon-Strategie
+- Headline: Bevor ihr skaliert, wisst ihr, wohin.
+- Subline: Wir analysieren Markt, Wettbewerb und eure Zahlen bis auf SKU-Ebene und machen daraus einen Fahrplan, der jede Maßnahme steuert.
+- CTA: Potenzialanalyse buchen
+- [Visual-Platzhalter, Bild rechts]
+
+## 2 · Problem
+- Headline: Warum viele Marken ihr Potenzial liegen lassen.
+- Punkte (Karten oder Liste):
+  - Werbung wird hochgefahren, bevor das Listing überhaupt konvertiert.
+  - Profitabilität wird nie auf SKU-Ebene durchgerechnet.
+  - Es fehlt ein Plan mit klaren Zielen.
+- Ergebnis-Zeile: Kurzfristig mehr Umsatz, langfristig weniger Marge. Eine durchdachte Strategie dreht dieses Muster, bevor es Geld kostet.
+
+## 3 · Was in eurer Strategie steckt (zwei Karten)
+Karte 1 · Analyse
+- Subtitle: Daten treiben Entscheidungen
+- Search Query Performance bis auf den einzelnen Suchbegriff
+- Wettbewerbs- und Marktanteilsanalyse über die Zeit
+- Margen- und Deckungsbeitragsrechnung je Variante inklusive aller Fees
+
+Karte 2 · Strategie & Fahrplan
+- Subtitle: Aus Daten wird ein Plan
+- Maßgeschneiderte Amazon-Strategie für eure Marke
+- ACoS- und TACoS-Ziele als Messlatte
+- Priorisierter Maßnahmenplan
+
+## 4 · Abschluss-Sektion
+- Headline: Damit steht das Fundament.
+- Text: Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme.
+
+## 5 · Finaler CTA
+- Headline: Wisst ihr, wo euer größtes Potenzial liegt?
+- Sub: In der kostenlosen Potenzialanalyse skizzieren wir die ersten Schritte eurer Strategie.
+- CTA: Potenzialanalyse buchen
+
+---
+---
+
+# SEITE 4: SERVICE-SEITE CONTENT (Content & Listings)
+
+## 1 · Header
+- Eyebrow: Content & Listings
+- Headline: Content, der aus Klicks Käufer macht.
+- Subline: Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt.
+- CTA: Potenzialanalyse buchen
+- [Visual-Platzhalter, Bild rechts]
+
+## 2 · Unser Ansatz (Bild links, Text rechts)
+- Headline: Schöner Content allein verkauft nichts.
+- Text: Wir entwickeln jedes Listing datenbasiert: Was sucht euer Kunde, woran scheitert die Kaufentscheidung, wo schlägt euch der Wettbewerb. Daraus bauen wir Content, der konvertiert und organisch rankt.
+
+## 3 · Was wir liefern (zwei Kachel-Gruppen)
+Gruppe 1 · Builder-Content
+- Hauptbilder: entscheiden über die Klickrate im Suchergebnis
+- Produktbilder: machen Nutzen und Anwendung in Sekunden klar
+- A+ / Premium A+ Content: beantwortet die Fragen, die sonst zum Abbruch führen
+- Brand Store: eure Markenwelt mit Cross-Selling über das ganze Sortiment
+- Brand Story: macht aus einem Produkt eine Marke
+
+Gruppe 2 · Text & SEO
+- Titel: die wichtigsten Keywords vorn, lesbar statt vollgestopft
+- Bullet Points: Nutzen statt Features, an den Kaufeinwänden ausgerichtet, fürs Lesen am Handy gebaut
+- Produktbeschreibung: erklärt, räumt Zweifel aus und führt zum Kauf
+- Backend Keywords: fangen Suchbegriffe ab, die vorne keinen Platz haben
+- Kategorien & Browse Nodes: richtig einsortiert, damit Amazon euch den richtigen Käufern zeigt
+
+## 4 · Vorher / Nachher (zwei Karten, keine Tabelle)
+Karte 1 · Vor der Zusammenarbeit
+- Viel Traffic, der nicht zum Kauf führt
+- Listings, die in der Suche untergehen
+- Keywords ohne System, Rankings ohne Plan
+- Werbebudget auf Listings, die nicht konvertieren
+- Verstöße gegen Richtlinien, die das Konto gefährden
+
+Karte 2 · Mit temoa
+- Retail Ready: optimierter Content als Basis für profitable Werbung
+- Aus Besuchern werden Käufer in Sekunden
+- Keyword-Strategie für gezielt steigende Rankings
+- Storytelling, das eure Marke unverwechselbar macht
+- Richtlinienkonform ohne Risiko fürs Konto
+
+## 5 · Finaler CTA
+- Headline: Wie viel Umsatz verliert ihr an schwachem Content?
+- Sub: In der kostenlosen Potenzialanalyse zeigen wir euch, wo euer Content Käufer verliert.
+- CTA: Potenzialanalyse buchen
+
+---
+---
+
+# SEITE 5: SERVICE-SEITE ADVERTISING (Advertising / PPC)
+
+## 1 · Header
+- Eyebrow: Advertising / PPC
+- Headline: Skalieren, ohne die Marge zu verlieren.
+- Subline: Wir steuern eure Kampagnen nach dem Deckungsbeitrag jedes Produkts, auf Basis eurer realen Account-Daten statt auf Klick-Metriken. So wächst der Umsatz und die Marge wächst mit.
+- CTA: Potenzialanalyse buchen
+- [Visual-Platzhalter, Bild rechts]
+
+## 2 · Problem
+- Headline: Wo Amazon-Werbung Geld verbrennt.
+- Punkte (Karten oder Liste):
+  - Ein großer Teil des Budgets fließt in Keywords, die nie profitabel werden.
+  - Auto-, Phrase- und Exact-Kampagnen bieten gegeneinander.
+  - Sponsored Products und Sponsored Brands konkurrieren um dieselben Klicks.
+  - Niemand steuert auf Produktebene, also auf den tatsächlichen Gewinn.
+  - Einmal aufgesetzt, dann sich selbst überlassen.
+- Bridge: Professionelles PPC beginnt bei der Struktur, lange vor dem ersten Gebot.
+
+## 3 · Unser Ansatz (Bild links, Text rechts)
+- Headline: Mehr Budget ist keine Strategie.
+- Text: Wir rechnen jedes Produkt erst auf seine Marge durch. Nicht alles gehört in die Skalierung, sondern nur das, was nach allen Kosten Gewinn bringt. Darauf bauen wir eine saubere Kampagnenarchitektur und steuern sie laufend nach.
+
+## 4 · Was wir steuern (Karten)
+Karte 1 · Profit-First
+- Subtitle: Erst analysieren, dann skalieren
+- Marge und Deckungsbeitrag je Produkt
+- Welche Produkte überhaupt profitabel skalieren
+- Nur diese in die Skalierung, der Rest wird gehalten
+- Optimiert wird auf den Gewinn, nicht nur auf den ACoS
+
+Karte 2 · Kampagnenstruktur
+- Subtitle: Architektur vor Bid-Management
+- Saubere Keyword-Segmentierung, intent-basiertes Clustering
+- Sponsored Products für direkte Sales, Sponsored Brands für Sichtbarkeit, Sponsored Display fürs Retargeting
+- Brand Defense: eure Markenbegriffe gegen Wettbewerber geschützt
+
+Karte 3 · Keywordmanagement
+- Subtitle: Laufend neue, konvertierende Suchbegriffe
+- Strukturierte Research-Kampagnen
+- Konvertierende Suchbegriffe gezielt übernehmen
+- Laufende Optimierung statt einmal aufsetzen
+
+Karte 4 · Gebotssteuerung
+- Subtitle: Dynamisch, nicht statisch
+- Gebote angepasst an Performance, Wettbewerb und Saison
+- Platzierungen getrennt für Top-of-Search und den Rest
+- Tägliche Steuerung, nicht monatlich
+
+Karte 5 · Paid trifft Organic
+- Subtitle: TACoS als Maßstab
+- TACoS als Effizienzmaß für Paid und Organic zusammen
+- Werbung, die das organische Ranking mitzieht
+- Budget dorthin, wo es Umsatz und Sichtbarkeit zugleich bringt
+
+## 5 · Finaler CTA
+- Headline: Wo versickert euer Werbebudget?
+- Sub: In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn.
+- CTA: Potenzialanalyse buchen
+
+---
+---
+
+# OFFENE DATEN / PLATZHALTER (alle Seiten)
+- Bilder: Hero-Bild, Designbeispiel-Bilder (1 Hauptbild + 6 Listingbilder + A+), Teambilder, je ein Bild pro Leistung auf der Leistungsseite, je ein Header-Bild pro Service-Seite (Strategie, Content, Advertising), je ein Bild für die „Unser Ansatz"-Sektionen (Content, Advertising) (Kunde liefert)
 - Case-Study-Daten und Kundenfreigabe (4 Cases)
 - Kundenlogos (Credibility-Band)
 - Blog-Themen (Kunde liefert)
 - Cal.com-Link (Potenzialanalyse-Seite)
 - Hero-Subline final prüfen: „Erst dann kommt PPC dazu" auf Konsistenz mit dem Mechanismus
 - Offen: offizieller Amazon-Advertising-Partner ja/nein, monatlich kündbar bestätigen
+- Testimonials: verbatim, echte Kundenzitate, Wortlaut bleibt unverändert; vor Veröffentlichung Freigabe der genannten Personen einholen
