@@ -31,6 +31,10 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 
 - Wort "Agentur" im Website-Text vermeiden. NIE mit anderen Agenturen oder Anbietern vergleichen. temoa steht fuer sich (Wachstumspartner).
 - Verbotenes Wort: "traegt" / "traegt sich". Auf Amazon wird verkauft, konvertiert, es werden Verkaeufe generiert. Nichts "traegt sich".
+- Verbotenes Wort: "Bildwelt". Stattdessen: Produktbilder, Hauptbild, Amazon A+ / Premium A+ Content, Brand Store, Markengeschichte (Brand Story).
+- Verbotenes Wort: "Hebel" und jede Hebel-Analogie. Wir "hebeln" nichts; PPC wird nicht "zum Hebel".
+- KI-Suche mitdenken: Content KI-ready fuer Rufus, COSMO und A10 (nicht Keywords stapeln, sondern Relevanz zeigen).
+- Kern-Argument Organic First: Listing zuerst auf Klickrate (CTR) und Conversion (CVR) optimieren, das sind die wichtigsten Ranking-Signale. Sonst bleibt PPC-Abhaengigkeit, Klicks werden jaehrlich teurer, Margen enger (Negativspirale).
 - Ueberschriften kurz, knackig, konkret. Keine generischen Floskeln, die nach etwas klingen, aber nichts sagen (Negativbeispiele: "Klarheit ueber Zahlen, Markt und Ziele", "Werbung, die Profitabilitaet bringt").
 - Satzbau variieren. Die Konstruktion "[Nomen], die/das [Relativsatz]" nur sparsam (nicht in Serie: "Listings, die verkaufen" + "ein Konto, das laeuft" + ...).
 - Richtige Kollokation: Symptome werden bekaempft, Ursachen werden behoben.
