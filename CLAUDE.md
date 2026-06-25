@@ -50,6 +50,10 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Verbotene Schluss-Floskeln: "genau hier setzen wir an", "genau das machen wir anders", "genau so", "genau das". Schlussfolgerungen anders formulieren.
 - CTA-Sektionen je Seite/Thema unterschiedlich formulieren (Ueberschrift variieren), der Button-Text bleibt "Potenzialanalyse buchen".
 - Nur ACoS und TACoS nennen, nicht zusaetzlich ROAS (ROAS = Kehrwert der ACoS, in Amazon-Sprache redundant).
+- Niemals ein Komma vor "und".
+- Keine Wortwiederholungen, vor allem keine Spezialbegriffe doppelt (z. B. "Deckungsbeitrag je Produkt", "taeglich optimieren", "ueber den TACoS steuern"). Einen Begriff einmal verwenden, danach variieren.
+- Keine zwei Sektionen mit derselben Kernaussage (Beispiel-Fehler: "Profit-First" plus "Steuerung auf Profit"). Jede Sektion ein eigener Gedanke.
+- Keine leeren Formulierungen (Negativbeispiele: "echter Gewinn", "wenn jeder Werbe-Euro arbeitet"). Konkret werden.
 
 ## Homepage-Struktur (aktueller Stand)
 
