@@ -49,6 +49,7 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Verbotenes Wort: "ganzheitlich" (= "holistic", KI-Floskel). Konkret benennen, was abgedeckt ist.
 - Verbotene Schluss-Floskeln: "genau hier setzen wir an", "genau das machen wir anders", "genau so", "genau das". Schlussfolgerungen anders formulieren.
 - CTA-Sektionen je Seite/Thema unterschiedlich formulieren (Ueberschrift variieren), der Button-Text bleibt "Potenzialanalyse buchen".
+- Nur ACoS und TACoS nennen, nicht zusaetzlich ROAS (ROAS = Kehrwert der ACoS, in Amazon-Sprache redundant).
 
 ## Homepage-Struktur (aktueller Stand)
 
