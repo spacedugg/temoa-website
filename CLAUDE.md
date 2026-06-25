@@ -40,6 +40,12 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Richtige Kollokation: Symptome werden bekaempft, Ursachen werden behoben.
 - Homepage muss sofort catchen. Kein Fliesstext, wo schnelle Wirkung zaehlt. Inhalte veranschaulichen (Listen, Tabellen, Visuals) statt ausformulieren.
 - Nichts erklaeren, was die Zielgruppe ohnehin weiss (z. B. PPC = Sponsored Products/Brands/Display nicht ausbuchstabieren).
+- Zielgruppe sind etablierte Marken / Brands, NICHT "Seller" (klingt nach FBA-Seller). Wort "Seller" im Website-Text vermeiden.
+- Verbotenes Wort: "Niveau". Tiefe und Koennen durch konkrete Taetigkeiten zeigen, nicht behaupten.
+- Verbotene Formulierung: "das man sieht" / "etwas, das man sieht".
+- Verbotenes Wort: "haengenbleiben" / "haengen bleibt" (salopp, missverstaendlich).
+- Verbotenes Wort: "Ausschnitt" fuer einen Verantwortungsbereich. Stattdessen: Bereich, Abteilung, Themenbereich.
+- Struktur vor Text: Seiten scannbar und scroll-freundlich bauen (kurze Sektionen, Karten, Spalten, Visuals, Callouts). Kein Fliesstext, keine nackten Tabellen, wenn eine gestaltete Sektion besser passt.
 
 ## Homepage-Struktur (aktueller Stand)
 
