@@ -46,6 +46,9 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Verbotenes Wort: "haengenbleiben" / "haengen bleibt" (salopp, missverstaendlich).
 - Verbotenes Wort: "Ausschnitt" fuer einen Verantwortungsbereich. Stattdessen: Bereich, Abteilung, Themenbereich.
 - Struktur vor Text: Seiten scannbar und scroll-freundlich bauen (kurze Sektionen, Karten, Spalten, Visuals, Callouts). Kein Fliesstext, keine nackten Tabellen, wenn eine gestaltete Sektion besser passt.
+- Verbotenes Wort: "ganzheitlich" (= "holistic", KI-Floskel). Konkret benennen, was abgedeckt ist.
+- Verbotene Schluss-Floskeln: "genau hier setzen wir an", "genau das machen wir anders", "genau so", "genau das". Schlussfolgerungen anders formulieren.
+- CTA-Sektionen je Seite/Thema unterschiedlich formulieren (Ueberschrift variieren), der Button-Text bleibt "Potenzialanalyse buchen".
 
 ## Homepage-Struktur (aktueller Stand)
 
