@@ -54,6 +54,7 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Keine Wortwiederholungen, vor allem keine Spezialbegriffe doppelt (z. B. "Deckungsbeitrag je Produkt", "taeglich optimieren", "ueber den TACoS steuern"). Einen Begriff einmal verwenden, danach variieren.
 - Keine zwei Sektionen mit derselben Kernaussage (Beispiel-Fehler: "Profit-First" plus "Steuerung auf Profit"). Jede Sektion ein eigener Gedanke.
 - Keine leeren Formulierungen (Negativbeispiele: "echter Gewinn", "wenn jeder Werbe-Euro arbeitet"). Konkret werden.
+- Nicht "einen Account fuehren" oder "einen Account uebernehmen" (klingt nach Kontrolle abgeben). Stattdessen das operative Tun benennen: Tagesgeschaeft, Buy-Box, Bestand, Pricing, Konto-Gesundheit steuern.
 
 ## Homepage-Struktur (aktueller Stand)
 
