@@ -11,6 +11,7 @@ import {
   ServiceCTA,
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
+import { BudgetSplitDiagram } from "./Diagrams";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -276,6 +277,7 @@ export function AdvertisingBody() {
           "Einmal aufgesetzt, dann sich selbst überlassen.",
         ]}
         bridge="Professionelles PPC beginnt bei der Struktur, lange vor dem ersten Gebot."
+        aside={<BudgetSplitDiagram />}
       />
       <TextMedia
         tone="white"
