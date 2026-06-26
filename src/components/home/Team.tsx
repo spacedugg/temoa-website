@@ -12,7 +12,7 @@ const shots = [
 
 export function Team() {
   return (
-    <section id="team" className="relative bg-[#FFF6EE] py-20 md:py-24">
+    <section id="team" className="relative bg-[#EDF5FB] py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Team"

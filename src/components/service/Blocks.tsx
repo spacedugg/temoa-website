@@ -4,15 +4,15 @@ import type { ReactNode } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Ambient } from "../ui/Ambient";
 import { Reveal } from "../ui/Reveal";
+import { Icon, type IconName } from "../ui/Icon";
 
 /* ---------------- palette / tones ---------------- */
 
-type Tone = "white" | "grey" | "warm" | "blue";
+// Two section tones only: white and light blue. Nothing else.
+type Tone = "white" | "blue";
 
 const toneBg: Record<Tone, string> = {
   white: "bg-white",
-  grey: "bg-[#F4F6F9]",
-  warm: "bg-[#FFF6EE]",
   blue: "bg-[#EDF5FB]",
 };
 
@@ -49,11 +49,25 @@ function Media({ className = "", label = "Bild" }: { className?: string; label?:
   );
 }
 
-function GreenCheck() {
+/** Quiet lead marker for neutral feature/deliverable lists.
+ *  A thin accent chevron, no checkmark. `color` is a text-* class. */
+function Lead({ color = "text-brand-500" }: { color?: string }) {
+  return (
+    <span className={`mt-1 inline-flex shrink-0 ${color}`}>
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+/** Neutral tick for true positive/negative comparisons (on dark panels). */
+function Tick({ onDark = false }: { onDark?: boolean }) {
   return (
     <span
-      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
-      style={{ backgroundImage: "linear-gradient(135deg,#22C55E,#16A34A)" }}
+      className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+        onDark ? "bg-white/15 text-white" : "bg-navy/[0.07] text-navy"
+      }`}
     >
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
         <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -147,7 +161,7 @@ export function Cards({
   items,
   cols = 3,
   callout,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -180,7 +194,7 @@ export function Cards({
                   <ul className="mt-4 space-y-2.5">
                     {it.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <GreenCheck />
+                        <Lead color={a.text} />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -202,51 +216,82 @@ export function Cards({
 
 /* ---------------- problem points (two columns) + bridge ---------------- */
 
+const POINT_ICONS: IconName[] = ["margin", "ads", "search", "target", "chart", "spark"];
+
 export function Points({
   eyebrow,
   title,
   points,
   bridge,
   tone = "white",
+  aside,
 }: {
   eyebrow?: string;
   title: ReactNode;
   points: string[];
   bridge?: string;
   tone?: Tone;
+  /** Optional diagram/visual rendered beside the points. */
+  aside?: ReactNode;
 }) {
-  return (
-    <Shell tone={tone}>
-      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
-      <div className="mt-10 grid gap-4 sm:grid-cols-2">
-        {points.map((p, i) => (
-          <Reveal
-            key={p}
-            delay={i * 0.05}
-            className={points.length % 2 === 1 && i === points.length - 1 ? "sm:col-span-2" : ""}
-          >
-            <div className="surface flex h-full items-start gap-3.5 p-5">
-              <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red/10 text-red">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 8v5" />
-                  <circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none" />
-                  <path d="M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z" />
-                </svg>
+  const list = (
+    <div className={`grid gap-4 ${aside ? "mt-8" : "mt-10 sm:grid-cols-2"}`}>
+      {points.map((p, i) => {
+        const a = accent(i);
+        const orphan = !aside && points.length % 2 === 1 && i === points.length - 1;
+        return (
+          <Reveal key={p} delay={i * 0.05} className={orphan ? "sm:col-span-2" : ""}>
+            <div className="surface relative flex h-full items-start gap-3.5 overflow-hidden p-5 pl-6">
+              <span aria-hidden className={`absolute inset-y-0 left-0 w-1 ${a.bar}`} />
+              <span className={`mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${a.chip}`}>
+                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={18} />
               </span>
-              <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
+              <p className="relative z-10 text-sm leading-snug text-ink md:text-[0.95rem]">{p}</p>
+              <span aria-hidden className="pointer-events-none absolute -top-2 right-1 text-4xl font-extrabold text-navy/[0.05]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
             </div>
           </Reveal>
-        ))}
+        );
+      })}
+    </div>
+  );
+
+  const takeaway = bridge && (
+    <Reveal delay={0.1}>
+      <div
+        className={`flex items-center gap-4 rounded-2xl px-6 py-5 text-left shadow-lift ${aside ? "mt-8" : "mx-auto mt-10 max-w-2xl"}`}
+        style={{ background: "linear-gradient(135deg,#0A1E2B,#0B4D6B)" }}
+      >
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-white" style={{ backgroundImage: "var(--brand-gradient)" }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+          </svg>
+        </span>
+        <p className="text-base font-semibold leading-snug text-white md:text-lg">{bridge}</p>
       </div>
-      {bridge && (
-        <Reveal delay={0.1}>
-          <div
-            className="mx-auto mt-9 max-w-2xl rounded-2xl px-6 py-4 text-center text-sm font-semibold text-white shadow-lift md:text-base"
-            style={{ backgroundImage: "var(--brand-gradient)" }}
-          >
-            {bridge}
+    </Reveal>
+  );
+
+  return (
+    <Shell tone={tone}>
+      {aside ? (
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
+          <div>
+            <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+            {list}
+            {takeaway}
           </div>
-        </Reveal>
+          <Reveal direction="left" delay={0.08} className="lg:sticky lg:top-28">
+            {aside}
+          </Reveal>
+        </div>
+      ) : (
+        <>
+          <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+          {list}
+          {takeaway}
+        </>
       )}
     </Shell>
   );
@@ -285,7 +330,7 @@ export function Rows({
                   <ul className="mt-5 space-y-2.5">
                     {it.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <GreenCheck />
+                        <Lead color={a.text} />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -307,7 +352,7 @@ export function Compare({
   title,
   left,
   right,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -341,7 +386,7 @@ export function Compare({
             <ul className="mt-5 space-y-3">
               {right.points.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-sm font-medium leading-snug">
-                  <GreenCheck />
+                  <Tick onDark />
                   <span>{p}</span>
                 </li>
               ))}
@@ -416,7 +461,7 @@ export function AccentStrip({
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {items.map((it) => (
               <span key={it} className="inline-flex items-center gap-2 text-sm font-medium text-ink">
-                <GreenCheck />
+                <Lead color="text-cyan" />
                 {it}
               </span>
             ))}
@@ -433,7 +478,7 @@ export function BulletPanel({
   eyebrow,
   title,
   points,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -447,7 +492,7 @@ export function BulletPanel({
         <div className="surface mt-10 grid gap-x-8 gap-y-5 p-8 sm:grid-cols-2 md:p-10">
           {points.map((p) => (
             <div key={p} className="flex items-start gap-3">
-              <GreenCheck />
+              <Lead />
               <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
             </div>
           ))}
@@ -486,7 +531,7 @@ export function ResultBlock({
               <ul className="mt-6 space-y-3">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-base font-medium">
-                    <GreenCheck />
+                    <Tick onDark />
                     <span>{b}</span>
                   </li>
                 ))}

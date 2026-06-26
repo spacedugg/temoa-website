@@ -10,6 +10,8 @@ import {
   ResultBlock,
   ServiceCTA,
 } from "./Blocks";
+import { ContentShowcase } from "./ContentShowcase";
+import { BudgetSplitDiagram } from "./Diagrams";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -26,7 +28,7 @@ export function FullServiceBody() {
         sub="Done-for-you, kein Ratschlag zum Selbermachen. Wir übernehmen jeden Bereich und führen ihn mit einer Tiefe, die intern selten zusammenkommt."
       />
       <Cards
-        tone="grey"
+        tone="blue"
         eyebrow="Für wen"
         title="Passt das zu eurer Marke?"
         cols={4}
@@ -50,7 +52,7 @@ export function FullServiceBody() {
         ]}
       />
       <Rows
-        tone="warm"
+        tone="blue"
         eyebrow="Was wir übernehmen"
         title="Fünf Bereiche, jeder in voller Tiefe."
         items={[
@@ -114,7 +116,7 @@ export function FullServiceBody() {
         items={["Monatliche Performance-Reports", "Profit- und Verlust-Analyse", "Markttrends und Wettbewerbsbeobachtung"]}
       />
       <BulletPanel
-        tone="grey"
+        tone="white"
         eyebrow="Der Unterschied"
         title="Eine Strategie über alle Bereiche, statt isolierter Einzelmaßnahmen."
         points={[
@@ -147,7 +149,7 @@ export function StrategieBody() {
         sub="Wir analysieren Markt, Wettbewerb und eure Zahlen bis auf SKU-Ebene und machen daraus einen Fahrplan, der jede Maßnahme steuert."
       />
       <Points
-        tone="grey"
+        tone="blue"
         eyebrow="Das Problem"
         title="Warum viele Marken ihr Potenzial liegen lassen."
         points={[
@@ -184,7 +186,7 @@ export function StrategieBody() {
         ]}
       />
       <TextMedia
-        tone="warm"
+        tone="blue"
         title="Damit steht das Fundament."
         text="Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme."
         reverse
@@ -211,41 +213,14 @@ export function ContentBody() {
         sub="Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt."
       />
       <TextMedia
-        tone="grey"
+        tone="blue"
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing datenbasiert: Was sucht euer Kunde, woran scheitert die Kaufentscheidung, wo schlägt euch der Wettbewerb. Daraus bauen wir Content, der konvertiert und organisch rankt."
       />
-      <Cards
-        tone="white"
-        eyebrow="Was wir liefern"
-        title="Was wir liefern."
-        cols={2}
-        items={[
-          {
-            title: "Builder-Content",
-            bullets: [
-              "Hauptbilder: entscheiden über die Klickrate im Suchergebnis",
-              "Produktbilder: machen Nutzen und Anwendung in Sekunden klar",
-              "A+ und Premium A+ Content: beantwortet die Fragen, die sonst zum Abbruch führen",
-              "Brand Store: eure Markenwelt mit Cross-Selling über das ganze Sortiment",
-              "Brand Story: macht aus einem Produkt eine Marke",
-            ],
-          },
-          {
-            title: "Text & SEO",
-            bullets: [
-              "Titel: die wichtigsten Keywords vorn, lesbar statt vollgestopft",
-              "Bullet Points: Nutzen statt Features, an den Kaufeinwänden ausgerichtet, fürs Lesen am Handy gebaut",
-              "Produktbeschreibung: erklärt, räumt Zweifel aus und führt zum Kauf",
-              "Backend Keywords: fangen Suchbegriffe ab, die vorne keinen Platz haben",
-              "Kategorien und Browse Nodes: richtig einsortiert, damit Amazon euch den richtigen Käufern zeigt",
-            ],
-          },
-        ]}
-      />
+      <ContentShowcase />
       <Compare
-        tone="grey"
+        tone="blue"
         eyebrow="Vorher / Nachher"
         title="Vorher und nachher."
         left={{
@@ -291,7 +266,7 @@ export function AdvertisingBody() {
         sub="Wir steuern eure Kampagnen nach dem Deckungsbeitrag jedes Produkts, auf Basis eurer realen Account-Daten statt auf Klick-Metriken. So wächst der Umsatz und die Marge wächst mit."
       />
       <Points
-        tone="grey"
+        tone="blue"
         eyebrow="Das Problem"
         title="Wo Amazon-Werbung Geld verbrennt."
         points={[
@@ -302,6 +277,7 @@ export function AdvertisingBody() {
           "Einmal aufgesetzt, dann sich selbst überlassen.",
         ]}
         bridge="Professionelles PPC beginnt bei der Struktur, lange vor dem ersten Gebot."
+        aside={<BudgetSplitDiagram />}
       />
       <TextMedia
         tone="white"
@@ -311,7 +287,7 @@ export function AdvertisingBody() {
         reverse
       />
       <Cards
-        tone="warm"
+        tone="blue"
         eyebrow="Was wir steuern"
         title="Was wir steuern."
         cols={3}
@@ -387,7 +363,7 @@ export function AccountBody() {
         sub="Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment."
       />
       <Points
-        tone="grey"
+        tone="blue"
         eyebrow="Das Problem"
         title="Die meisten reagieren erst, wenn es brennt."
         points={[
@@ -410,7 +386,7 @@ export function AccountBody() {
         ]}
       />
       <Cards
-        tone="warm"
+        tone="blue"
         eyebrow="Was wir übernehmen"
         title="Was wir übernehmen."
         cols={3}

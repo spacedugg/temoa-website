@@ -24,7 +24,7 @@ const pains: { icon: IconName; title: string; body: string }[] = [
 
 export function Problem() {
   return (
-    <section className="relative bg-[#F4F6F9] py-20 md:py-24">
+    <section className="relative bg-[#EDF5FB] py-20 md:py-24">
       <div className="container-x">
         <div className="mx-auto max-w-xl text-center md:mx-0 md:text-left">
           <Reveal>

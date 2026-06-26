@@ -11,8 +11,10 @@ import { Testimonials } from "@/components/home/Testimonials";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { Team } from "@/components/home/Team";
 import { BlogStrip } from "@/components/home/BlogStrip";
+import { getFeaturedPosts } from "@/lib/blog";
 
 export default function Home() {
+  const featured = getFeaturedPosts(4);
   return (
     <>
       <Navbar />
@@ -27,7 +29,7 @@ export default function Home() {
         <Testimonials />
         <FinalCTA />
         <Team />
-        <BlogStrip />
+        <BlogStrip posts={featured} />
       </main>
       <Footer />
     </>
