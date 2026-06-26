@@ -6,14 +6,17 @@ export function SectionHeading({
   title,
   description,
   align = "left",
+  size = "default",
   className,
 }: {
   eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
   align?: "left" | "center";
+  size?: "default" | "compact";
   className?: string;
 }) {
+  const compact = size === "compact";
   return (
     <div
       className={clsx(
@@ -31,13 +34,27 @@ export function SectionHeading({
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h2 className="mt-4 text-3xl font-bold leading-[1.1] tracking-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+        <h2
+          className={clsx(
+            "font-bold tracking-tight text-ink",
+            compact
+              ? "mt-3 text-2xl leading-tight sm:text-3xl"
+              : "mt-4 text-3xl leading-[1.1] sm:text-4xl lg:text-[2.75rem]"
+          )}
+        >
           {title}
         </h2>
       </Reveal>
       {description && (
         <Reveal delay={0.1}>
-          <p className="mt-4 text-lg leading-relaxed text-ink-muted">{description}</p>
+          <p
+            className={clsx(
+              "text-ink-muted",
+              compact ? "mt-3 text-base leading-relaxed" : "mt-4 text-lg leading-relaxed"
+            )}
+          >
+            {description}
+          </p>
         </Reveal>
       )}
     </div>

@@ -2,28 +2,20 @@
 
 import Image from "next/image";
 import { Counter } from "../ui/Counter";
-import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
-import { Sparkline } from "../ui/MockKit";
+import { RevealGroup, RevealItem } from "../ui/Reveal";
 
 const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
 
-const stats: {
-  to: number;
-  prefix?: string;
-  suffix: string;
-  label: string;
-  spark: number[];
-  color: string;
-}[] = [
-  { to: 30, prefix: "Ø +", suffix: " %", label: "Profitabilitätssteigerung", spark: [10, 12, 11, 16, 15, 22, 30], color: "#FF9900" },
-  { to: 21, suffix: " Mio. €", label: "betreuter Amazon-Jahresumsatz", spark: [6, 9, 8, 12, 14, 18, 21], color: "#FF8A1F" },
-  { to: 60, suffix: "+", label: "betreute Marken", spark: [20, 28, 33, 41, 48, 54, 60], color: "#FF6B1F" },
-  { to: 5, suffix: "+", label: "internationale Marktplätze", spark: [1, 2, 2, 3, 4, 4, 5], color: "#FF3131" },
+const stats: { to: number; prefix?: string; suffix: string; label: string }[] = [
+  { to: 30, prefix: "Ø +", suffix: " %", label: "Profitabilitätssteigerung" },
+  { to: 21, suffix: " Mio. €", label: "betreuter Amazon-Jahresumsatz" },
+  { to: 60, suffix: "+", label: "betreute Marken" },
+  { to: 5, suffix: "+", label: "internationale Marktplätze" },
 ];
 
 export function Credibility() {
   return (
-    <section className="relative border-y border-black/[0.05] bg-white py-12 md:py-14">
+    <section className="relative border-y border-black/[0.05] bg-white py-12 md:py-16">
       <div className="container-x">
         {/* Logo marquee */}
         <div className="relative overflow-hidden">
@@ -41,17 +33,19 @@ export function Credibility() {
           </div>
         </div>
 
-        {/* Stats as glass KPI cards */}
-        <RevealGroup className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4" stagger={0.08}>
+        {/* Stats: clean numbers, no charts */}
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4" stagger={0.08}>
           {stats.map((s) => (
             <RevealItem key={s.label}>
-              <div className="group relative h-full overflow-hidden rounded-3xl border border-black/[0.06] bg-white/80 p-5 shadow-soft backdrop-blur transition-shadow duration-300 hover:shadow-lift">
-                <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-brand-200/30 blur-2xl" />
-                <div className="text-3xl font-extrabold tracking-tight text-ink md:text-[2.25rem]">
+              <div className="text-center md:text-left">
+                <div className="text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
                   <Counter to={s.to} prefix={s.prefix} suffix={s.suffix} />
                 </div>
-                <p className="mt-1.5 text-xs leading-snug text-ink-muted md:text-sm">{s.label}</p>
-                <Sparkline values={s.spark} color={s.color} className="mt-3 h-8 w-full" />
+                <div
+                  className="mx-auto mt-3 h-0.5 w-10 rounded-full md:mx-0"
+                  style={{ backgroundImage: "var(--brand-gradient)" }}
+                />
+                <p className="mt-3 text-sm leading-snug text-ink-muted">{s.label}</p>
               </div>
             </RevealItem>
           ))}
