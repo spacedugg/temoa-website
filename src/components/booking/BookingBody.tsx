@@ -53,9 +53,9 @@ export function BookingBody() {
           className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full opacity-60 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 50%, transparent 72%)" }}
         />
-        <div className="container-x relative grid items-start gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-          {/* left */}
-          <div className="text-center lg:text-left">
+        <div className="container-x relative grid items-stretch gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          {/* left: copy + Clemens photo filling the column */}
+          <div className="flex flex-col text-center lg:text-left">
             <Reveal>
               <span className="eyebrow lg:justify-start">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
@@ -68,12 +68,12 @@ export function BookingBody() {
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
+              <p className="mx-auto mt-5 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
                 Wir schauen in euren Amazon-Account und zeigen euch die größten Chancen, konkret an eurer Marke.
               </p>
             </Reveal>
             <Reveal delay={0.16}>
-              <ul className="mx-auto mt-8 flex max-w-md flex-col gap-3 text-left lg:mx-0">
+              <ul className="mx-auto mt-6 flex max-w-md flex-col gap-2.5 text-left lg:mx-0">
                 {trust.map((t) => (
                   <li key={t} className="flex items-start gap-3 text-base font-medium text-ink">
                     <Check /> {t}
@@ -81,44 +81,49 @@ export function BookingBody() {
                 ))}
               </ul>
             </Reveal>
-            <Reveal delay={0.22}>
-              <div className="mt-8 flex items-center justify-center gap-3 lg:justify-start">
-                <span className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="#FF9900">
-                      <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                    </svg>
-                  ))}
-                </span>
-                <span className="text-sm font-semibold text-ink-muted">4,9 / 5 von 60+ Marken</span>
+
+            {/* Clemens fills the remaining height, head anchored to the top */}
+            <Reveal delay={0.22} className="mt-7 flex-1">
+              <div className="relative h-full min-h-[16rem] overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/team/Clemens.jpg"
+                  alt="Clemens, euer Ansprechpartner bei temoa"
+                  className="absolute inset-0 h-full w-full object-cover [object-position:50%_28%] [filter:brightness(1.05)]"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent p-5 pt-16">
+                  <div className="flex items-center gap-1 text-white">
+                    <span className="flex gap-0.5">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FF9900">
+                          <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
+                        </svg>
+                      ))}
+                    </span>
+                  </div>
+                  <div className="ml-1">
+                    <div className="text-sm font-bold text-white">Dein Host: Clemens</div>
+                    <div className="text-xs text-white/80">Euer Ansprechpartner bei temoa</div>
+                  </div>
+                </div>
               </div>
             </Reveal>
           </div>
 
           {/* right: booking card */}
           <Reveal direction="left" delay={0.1}>
-            <div id="kalender" className="scroll-mt-24 rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
-              <div className="flex items-center justify-between">
+            <div id="kalender" className="flex h-full scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
+              <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-brand-700">
                   Kostenlos · ca. 30 Min.
                 </span>
-              </div>
-              <h2 className="mt-4 text-xl font-extrabold tracking-tight text-ink">Sichert euch euren Termin.</h2>
-
-              <div className="mt-5">
-                <CalEmbed />
-              </div>
-
-              <div className="mt-5 flex items-center gap-3 border-t border-black/[0.06] pt-4">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/team/Clemens.jpg" alt="Clemens" className="h-12 w-12 rounded-full object-cover ring-2 ring-white shadow-soft" />
-                <div>
-                  <div className="text-sm font-bold text-ink">Dein Host: Clemens</div>
-                  <div className="text-xs text-ink-muted">Euer Ansprechpartner bei temoa</div>
-                </div>
-                <span className="ml-auto inline-flex items-center gap-1.5 text-xs font-semibold text-ink-muted">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-muted">
                   <Check /> unverbindlich
                 </span>
+              </div>
+              <h2 className="mt-4 text-xl font-extrabold tracking-tight text-ink">Sichert euch euren Termin.</h2>
+              <div className="mt-5 flex-1">
+                <CalEmbed />
               </div>
             </div>
           </Reveal>
