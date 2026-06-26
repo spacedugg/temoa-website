@@ -2,14 +2,12 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
-import { Ambient } from "../ui/Ambient";
 import { Reveal } from "../ui/Reveal";
 import { TiltCard } from "../ui/TiltCard";
 
 export function DesignShowcase() {
   return (
-    <section className="relative isolate bg-white py-20 md:py-24">
-      <Ambient />
+    <section className="relative bg-[#F4F6F9] py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Designbeispiele"

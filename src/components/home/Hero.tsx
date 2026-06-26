@@ -68,8 +68,8 @@ export function Hero() {
             </span>
           </Reveal>
           <Reveal delay={0.06}>
-            <h1 className="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
-              Amazon-Wachstum ist keine Frage des{" "}
+            <h1 className="mt-6 text-balance pb-1 text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              Wachstum ist keine Frage des{" "}
               <span className="text-gradient">Werbebudgets.</span>
             </h1>
           </Reveal>

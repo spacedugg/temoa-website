@@ -1,7 +1,6 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
-import { Ambient } from "../ui/Ambient";
 import { RevealGroup, RevealItem } from "../ui/Reveal";
 
 /* Drei Lifestyle-Bilder statt Einzelporträts. Echte Bilder liefert der Kunde. */
@@ -13,8 +12,7 @@ const shots = [
 
 export function Team() {
   return (
-    <section id="team" className="relative isolate bg-white py-20 md:py-24">
-      <Ambient />
+    <section id="team" className="relative bg-[#FFF6EE] py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Team"

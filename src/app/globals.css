@@ -33,7 +33,7 @@ body {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+    @apply inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-ink-soft;
   }
 
   /* Premium glass card */
@@ -61,6 +61,17 @@ body {
 
   .card {
     @apply rounded-3xl border border-black/[0.06] bg-white shadow-soft;
+  }
+
+  /* Solid premium card. Pops on tinted/grey section tones, lifts on hover. */
+  .surface {
+    @apply rounded-3xl bg-white ring-1 ring-black/[0.06] shadow-lift transition-all duration-300;
+  }
+  .surface-hover:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 16px 30px -12px rgba(2, 48, 71, 0.18),
+      0 36px 70px -24px rgba(2, 48, 71, 0.28);
   }
 
   .btn-primary {
