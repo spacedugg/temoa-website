@@ -1,19 +1,16 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/sections/Hero";
-import { MobileStats } from "@/components/sections/MobileStats";
-import { Clients } from "@/components/sections/Clients";
-import { WhyTemoa } from "@/components/sections/WhyTemoa";
-import { OrganicFirst } from "@/components/sections/OrganicFirst";
-import { TwoLevers } from "@/components/sections/TwoLevers";
-import { FullService } from "@/components/sections/FullService";
-import { ServicesDetail } from "@/components/sections/ServicesDetail";
-import { Results } from "@/components/sections/Results";
-import { DataAI } from "@/components/sections/DataAI";
-import { ProofPoint } from "@/components/sections/ProofPoint";
-import { Process } from "@/components/sections/Process";
-import { Team } from "@/components/sections/Team";
-import { CTA } from "@/components/sections/CTA";
+import { Hero } from "@/components/home/Hero";
+import { Credibility } from "@/components/home/Credibility";
+import { Problem } from "@/components/home/Problem";
+import { Mechanism } from "@/components/home/Mechanism";
+import { FullService } from "@/components/home/FullService";
+import { CaseStudies } from "@/components/home/CaseStudies";
+import { DesignShowcase } from "@/components/home/DesignShowcase";
+import { Testimonials } from "@/components/home/Testimonials";
+import { FinalCTA } from "@/components/home/FinalCTA";
+import { Team } from "@/components/home/Team";
+import { BlogStrip } from "@/components/home/BlogStrip";
 
 export default function Home() {
   return (
@@ -21,19 +18,16 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <MobileStats />
-        <Clients />
-        <WhyTemoa />
-        <OrganicFirst />
-        <TwoLevers />
+        <Credibility />
+        <Problem />
+        <Mechanism />
         <FullService />
-        <ServicesDetail />
-        <Results />
-        <DataAI />
-        <ProofPoint />
-        <Process />
+        <CaseStudies />
+        <DesignShowcase />
+        <Testimonials />
+        <FinalCTA />
         <Team />
-        <CTA />
+        <BlogStrip />
       </main>
       <Footer />
     </>

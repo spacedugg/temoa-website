@@ -4,16 +4,24 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Logo } from "./Logo";
-import { services } from "@/lib/copy";
 import clsx from "clsx";
 
-const links: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  {
-    label: "Full Service",
-    href: "/full-service",
-    children: [{ label: "Full Service 360°", href: "/full-service" }, ...services.map((s) => ({ label: s.label, href: s.href }))],
-  },
-  { label: "Ergebnisse", href: "/ergebnisse" },
+/** Die fünf Leistungen aus dem Full-Service-Mega-Menü (Reihenfolge laut Copy). */
+const fullServiceItems = [
+  { label: "Strategie & Analyse", href: "/leistungen/strategie" },
+  { label: "Content & Listings", href: "/leistungen/listing-seo" },
+  { label: "Advertising / PPC", href: "/leistungen/ppc-advertising" },
+  { label: "Account-Management", href: "/leistungen/account-management" },
+  { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
+];
+
+const links: {
+  label: string;
+  href: string;
+  children?: { label: string; href: string }[];
+}[] = [
+  { label: "Full Service", href: "/full-service", children: fullServiceItems },
+  { label: "Case Studies", href: "/ergebnisse" },
   { label: "Designbeispiele", href: "/design-beispiele" },
 ];
 
@@ -48,7 +56,9 @@ export function Navbar() {
 
         <div className="hidden items-center gap-1 md:flex">
           {links.map((l) => {
-            const active = pathname === l.href || (l.children && pathname.startsWith("/leistungen"));
+            const active =
+              pathname === l.href ||
+              (l.children && l.children.some((c) => pathname === c.href));
             if (l.children) {
               return (
                 <div key={l.href} className="group relative">
@@ -60,23 +70,34 @@ export function Navbar() {
                     )}
                   >
                     {l.label}
-                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" className="mt-0.5 transition-transform group-hover:rotate-180"><path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <svg width="11" height="11" viewBox="0 0 16 16" fill="none" className="mt-0.5 transition-transform group-hover:rotate-180">
+                      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   </a>
-                  {/* dropdown */}
-                  <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                    <div className="glass w-72 rounded-2xl p-2 shadow-lift">
+                  {/* Mega-Menü */}
+                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="glass w-80 rounded-3xl p-2.5 shadow-lift">
                       {l.children.map((c) => (
                         <a
                           key={c.href}
                           href={c.href}
                           className={clsx(
-                            "block rounded-xl px-3.5 py-2.5 text-sm font-medium transition-colors",
+                            "block rounded-2xl px-4 py-2.5 text-sm font-medium transition-colors",
                             pathname === c.href ? "bg-brand-50 text-brand-700" : "text-ink-muted hover:bg-black/[0.04] hover:text-ink"
                           )}
                         >
                           {c.label}
                         </a>
                       ))}
+                      <a
+                        href={l.href}
+                        className="mt-1.5 flex items-center justify-between rounded-2xl border border-black/[0.06] bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brand-200"
+                      >
+                        Alle Leistungen ansehen
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -99,7 +120,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a href="/gespraech-vereinbaren" className="btn-primary hidden !px-5 !py-2.5 md:inline-flex">
-            Gespräch vereinbaren
+            Potenzialanalyse buchen
           </a>
           <button
             aria-label="Menü"
@@ -134,7 +155,7 @@ export function Navbar() {
                 </a>
                 {l.children && (
                   <div className="mb-1 ml-3 border-l border-black/[0.08] pl-3">
-                    {l.children.filter((c) => c.href !== l.href).map((c) => (
+                    {l.children.map((c) => (
                       <a
                         key={c.href}
                         href={c.href}
@@ -149,7 +170,7 @@ export function Navbar() {
               </div>
             ))}
             <a href="/gespraech-vereinbaren" onClick={() => setOpen(false)} className="btn-primary mt-2 w-full">
-              Gespräch vereinbaren
+              Potenzialanalyse buchen
             </a>
           </motion.div>
         )}

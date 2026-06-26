@@ -15,15 +15,15 @@ const caros = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "TEMOA — Full-Service Amazon-Agentur",
+  title: "temoa · Amazon Full Service Wachstumspartner",
   description:
-    "Wir führen euren kompletten Amazon-Account – Strategie, Content, Advertising und Betrieb. Mehr Umsatz und bessere Marge, weil zuerst das Listing trägt und dann die Ads skalieren.",
+    "Wir machen euer Listing organisch so stark, dass es auch ohne Werbung verkauft. Erst dann kommt PPC dazu und arbeitet vom ersten Euro an profitabel. Organic First, PPC Second.",
   metadataBase: new URL("https://temoa.de"),
   icons: { icon: "/logo/logo-icon.svg" },
   openGraph: {
-    title: "TEMOA — Full-Service Amazon-Agentur",
+    title: "temoa · Amazon Full Service Wachstumspartner",
     description:
-      "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First. PPC Second.",
+      "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First, PPC Second.",
     type: "website",
     locale: "de_DE",
   },
