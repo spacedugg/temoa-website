@@ -6,8 +6,6 @@ import { Testimonials } from "../home/Testimonials";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
 
-const trust = ["Kostenlos und unverbindlich", "In etwa 30 Minuten", "Ihr verlängert nach Performance"];
-
 const metrics = [
   { value: "+147 %", label: "Umsatz, Vitaworld", color: "#FF3131" },
   { value: "+439 %", label: "Conversion Rate, HaA", color: "#2A9BD8" },
@@ -25,9 +23,9 @@ const noFit = [
   "Ihr steht noch ganz am Anfang, ohne nennenswerten Umsatz.",
 ];
 
-function Check() {
+function CheckGreen() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-500/12 text-brand-600">
+    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#16A34A]/12 text-[#16A34A]">
       <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
         <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -72,18 +70,8 @@ export function BookingBody() {
                 Wir schauen in euren Amazon-Account und zeigen euch die größten Chancen, konkret an eurer Marke.
               </p>
             </Reveal>
-            <Reveal delay={0.16}>
-              <ul className="mx-auto mt-6 flex max-w-md flex-col gap-2.5 text-left lg:mx-0">
-                {trust.map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-base font-medium text-ink">
-                    <Check /> {t}
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-
             {/* Square portrait, face fully visible (no mid-face crop) */}
-            <Reveal delay={0.22} className="mt-7">
+            <Reveal delay={0.18} className="mt-8">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] sm:aspect-[3/2] lg:aspect-square">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -113,16 +101,7 @@ export function BookingBody() {
           {/* right: booking card */}
           <Reveal direction="left" delay={0.1} className="lg:self-center">
             <div id="kalender" className="flex scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
-              <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-brand-700">
-                  Kostenlos · ca. 30 Min.
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-ink-muted">
-                  <Check /> unverbindlich
-                </span>
-              </div>
-              <h2 className="mt-4 text-xl font-extrabold tracking-tight text-ink">Sichert euch euren Termin.</h2>
-              <div className="mt-5 flex-1">
+              <div className="flex-1">
                 <CalEmbed />
               </div>
             </div>
@@ -159,7 +138,7 @@ export function BookingBody() {
             <Reveal>
               <div className="surface flex h-full flex-col p-7">
                 <div className="flex items-center gap-2.5">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brand-500/12 text-brand-600">
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#16A34A]/12 text-[#16A34A]">
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
                   <span className="text-base font-bold text-ink">Passt, wenn</span>
@@ -167,7 +146,7 @@ export function BookingBody() {
                 <ul className="mt-5 space-y-3">
                   {fit.map((p) => (
                     <li key={p} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                      <Check /> <span>{p}</span>
+                      <CheckGreen /> <span>{p}</span>
                     </li>
                   ))}
                 </ul>

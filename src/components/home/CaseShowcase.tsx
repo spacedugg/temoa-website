@@ -36,9 +36,18 @@ function Panels() {
           className="group relative isolate flex min-w-0 flex-1 overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/5 transition-[flex] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] hover:flex-[2.6]"
           style={mesh(c.accent)}
         >
+          {/* real case background image + legibility overlay */}
+          {c.bgImage && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={c.bgImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          )}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ backgroundImage: `linear-gradient(155deg, ${c.accent}59 0%, rgba(10,30,43,0.30) 40%, rgba(2,28,43,0.92) 100%)` }}
+          />
           {/* texture + giant monogram */}
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.14]"
+            className="pointer-events-none absolute inset-0 opacity-[0.10]"
             style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
           />
           <span className="pointer-events-none absolute -right-6 -top-10 select-none text-[12rem] font-black leading-none text-white/[0.06]">
@@ -104,6 +113,14 @@ function MobileCards() {
           className="relative isolate flex h-52 flex-col overflow-hidden rounded-3xl p-5 shadow-lift ring-1 ring-black/5"
           style={mesh(c.accent)}
         >
+          {c.bgImage && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={c.bgImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          )}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ backgroundImage: `linear-gradient(155deg, ${c.accent}59 0%, rgba(10,30,43,0.30) 40%, rgba(2,28,43,0.92) 100%)` }}
+          />
           <span className="pointer-events-none absolute -right-4 -top-6 select-none text-[8rem] font-black leading-none text-white/[0.06]">
             {c.mono}
           </span>
