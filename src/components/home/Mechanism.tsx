@@ -27,12 +27,13 @@ const rows: { old: string; temoa: string }[] = [
 
 export function Mechanism() {
   return (
-    <section className="glow-warm section-fade relative py-24 md:py-32">
+    <section className="relative py-20 md:py-24">
       <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div>
             <SectionHeading
               eyebrow="Unser Ansatz"
+              size="compact"
               title={
                 <>
                   Organic First, <span className="text-gradient">PPC Second.</span>
@@ -40,31 +41,23 @@ export function Mechanism() {
               }
             />
             <Reveal delay={0.12}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
-                Zuerst bauen wir ein Listing, das verkauft: stark auf Klickrate und
-                Conversion, die wichtigsten Signale für Amazons Ranking. Retail Ready
-                heißt, aus Besuchern werden Käufer, auch ohne Werbung.
-              </p>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <p className="mt-4 max-w-xl text-lg leading-relaxed text-ink-muted">
-                Wer Wachstum nur über Werbung kauft, bleibt abhängig: Klicks werden
-                jedes Jahr teurer, die Margen enger. Wir drehen die Spirale um. Erst
-                das organische Fundament, dann profitabel skalieren, gesteuert über
-                euren TACoS. Profitabilität vor Umsatz.
+              <p className="mt-4 max-w-md text-base leading-relaxed text-ink-muted">
+                Zuerst ein Listing, das auf Klickrate und Conversion verkauft, die
+                wichtigsten Ranking-Signale. Erst dann skaliert PPC profitabel,
+                gesteuert über euren TACoS.
               </p>
             </Reveal>
 
-            {/* Flow visual */}
-            <Reveal delay={0.24}>
-              <div className="mt-9 flex flex-wrap items-center gap-3">
+            {/* Funnel flow */}
+            <Reveal delay={0.18}>
+              <div className="mt-6 flex flex-wrap items-center gap-2.5">
                 {flow.map((step, i) => (
-                  <div key={step} className="flex items-center gap-3">
+                  <div key={step} className="flex items-center gap-2.5">
                     <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft ring-1 ring-black/[0.05]">
                       {step}
                     </span>
                     {i < flow.length - 1 && (
-                      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" className="text-brand-500">
+                      <svg width="18" height="12" viewBox="0 0 20 14" fill="none" className="text-brand-500">
                         <path d="M2 7h14m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     )}
@@ -72,11 +65,27 @@ export function Mechanism() {
                 ))}
               </div>
             </Reveal>
+
+            {/* Spiral callout */}
+            <Reveal delay={0.24}>
+              <div className="mt-6 flex items-start gap-3 rounded-2xl border border-brand-100 bg-brand-50/50 px-4 py-3.5">
+                <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-red text-white">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+                    <path d="M21 4v4h-4" />
+                  </svg>
+                </span>
+                <p className="text-sm font-medium leading-snug text-ink">
+                  Wer Wachstum nur über Werbung kauft, bleibt abhängig: Klicks teurer,
+                  Margen enger. Wir drehen die Spirale um.
+                </p>
+              </div>
+            </Reveal>
           </div>
 
-          {/* Alt / Neu comparison */}
+          {/* Alt / Neu comparison — glass */}
           <Reveal direction="left" delay={0.1}>
-            <div className="overflow-hidden rounded-3xl border border-black/[0.06] bg-white shadow-lift">
+            <div className="overflow-hidden rounded-3xl border border-black/[0.06] bg-white/80 shadow-lift backdrop-blur">
               <div className="grid grid-cols-2 border-b border-black/[0.06]">
                 <div className="px-5 py-4">
                   <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">
@@ -94,11 +103,11 @@ export function Mechanism() {
                 {rows.map((r) => (
                   <RevealItem key={r.temoa}>
                     <div className="grid grid-cols-2">
-                      <div className="flex items-start gap-2.5 px-5 py-5">
+                      <div className="flex items-start gap-2.5 px-5 py-4">
                         <CrossIcon />
                         <p className="text-sm leading-snug text-ink-muted">{r.old}</p>
                       </div>
-                      <div className="flex items-start gap-2.5 border-l border-black/[0.06] bg-brand-50/40 px-5 py-5">
+                      <div className="flex items-start gap-2.5 border-l border-black/[0.06] bg-brand-50/40 px-5 py-4">
                         <CheckIcon />
                         <p className="text-sm font-medium leading-snug text-ink">{r.temoa}</p>
                       </div>
