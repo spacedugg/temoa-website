@@ -46,11 +46,11 @@ export function CalEmbed() {
   if (CAL_LINK) {
     return (
       <div>
-        <div className="relative min-h-[640px] overflow-hidden rounded-3xl ring-1 ring-black/[0.06]">
+        <div className="relative min-h-[540px] overflow-hidden rounded-3xl ring-1 ring-black/[0.06]">
           <div className="pointer-events-none absolute inset-0 grid place-items-center text-sm text-ink-faint">
             Kalender wird geladen …
           </div>
-          <div id="cal-inline" className="relative min-h-[640px] w-full" />
+          <div id="cal-inline" className="relative min-h-[540px] w-full" />
         </div>
         <p className="mt-4 text-center text-sm text-ink-faint">
           Kalender lädt nicht?{" "}
