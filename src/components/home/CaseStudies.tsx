@@ -61,7 +61,7 @@ const cases: Case[] = [
 
 export function CaseStudies() {
   return (
-    <section id="case-studies" className="relative scroll-mt-24 bg-[#EDF5FB] py-20 md:py-24">
+    <section id="case-studies" className="relative scroll-mt-24 bg-white py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Case Studies"

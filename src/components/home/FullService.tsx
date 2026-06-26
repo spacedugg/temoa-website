@@ -84,7 +84,7 @@ function GCheck() {
 
 export function FullService() {
   return (
-    <section className="relative bg-[#FFF6EE] py-20 md:py-24">
+    <section className="relative bg-[#EDF5FB] py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Full Service"

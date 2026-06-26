@@ -7,12 +7,11 @@ import { Reveal } from "../ui/Reveal";
 
 /* ---------------- palette / tones ---------------- */
 
-type Tone = "white" | "grey" | "warm" | "blue";
+// Two section tones only: white and light blue. Nothing else.
+type Tone = "white" | "blue";
 
 const toneBg: Record<Tone, string> = {
   white: "bg-white",
-  grey: "bg-[#F4F6F9]",
-  warm: "bg-[#FFF6EE]",
   blue: "bg-[#EDF5FB]",
 };
 
@@ -147,7 +146,7 @@ export function Cards({
   items,
   cols = 3,
   callout,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -307,7 +306,7 @@ export function Compare({
   title,
   left,
   right,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -433,7 +432,7 @@ export function BulletPanel({
   eyebrow,
   title,
   points,
-  tone = "grey",
+  tone = "white",
 }: {
   eyebrow?: string;
   title: ReactNode;
