@@ -5,7 +5,7 @@ import { Credibility } from "@/components/home/Credibility";
 import { Problem } from "@/components/home/Problem";
 import { Mechanism } from "@/components/home/Mechanism";
 import { FullService } from "@/components/home/FullService";
-import { CaseStudies } from "@/components/home/CaseStudies";
+import { CaseShowcase } from "@/components/home/CaseShowcase";
 import { DesignShowcase } from "@/components/home/DesignShowcase";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -24,7 +24,7 @@ export default function Home() {
         <Problem />
         <Mechanism />
         <FullService />
-        <CaseStudies />
+        <CaseShowcase />
         <DesignShowcase />
         <Testimonials />
         <FinalCTA />
