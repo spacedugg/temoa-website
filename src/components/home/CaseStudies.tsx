@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
+import { Ambient } from "../ui/Ambient";
 import { RevealGroup, RevealItem } from "../ui/Reveal";
 
 type Case = {
@@ -61,10 +62,12 @@ const cases: Case[] = [
 
 export function CaseStudies() {
   return (
-    <section className="glow-warm section-fade relative py-24 md:py-32">
+    <section id="case-studies" className="relative isolate scroll-mt-24 bg-white py-20 md:py-24">
+      <Ambient />
       <div className="container-x">
         <SectionHeading
           eyebrow="Case Studies"
+          size="compact"
           title={
             <>
               Ergebnisse statt <span className="text-gradient">Versprechen.</span>
@@ -73,10 +76,10 @@ export function CaseStudies() {
           description="Vier Marken, vier Ausgangslagen."
         />
 
-        <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
           {cases.map((c) => (
-            <RevealItem key={c.brand}>
-              <div className="card group flex h-full flex-col p-6 transition-shadow duration-300 hover:shadow-lift">
+            <RevealItem key={c.brand} className="h-full">
+              <div className="glass glass-hover group flex h-full flex-col rounded-3xl p-6">
                 <div className="flex items-center justify-between">
                   <span className="text-base font-bold text-ink">{c.brand}</span>
                   <span className="h-2.5 w-2.5 rounded-full" style={{ background: c.accent }} />
@@ -86,7 +89,7 @@ export function CaseStudies() {
                 </span>
 
                 <div
-                  className="mt-5 rounded-2xl px-4 py-4 text-center text-white"
+                  className="mt-5 rounded-2xl px-4 py-4 text-center text-white shadow-lift"
                   style={{ backgroundImage: "var(--brand-gradient)" }}
                 >
                   <div className="text-2xl font-extrabold tracking-tight">{c.metric}</div>

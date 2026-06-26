@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
+import { Ambient } from "../ui/Ambient";
 import { RevealGroup, RevealItem, Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
@@ -19,7 +20,7 @@ const services: {
     name: "Strategie & Analyse",
     result: "Erst die Daten, dann der Plan.",
     body: "Search Query Report, Wettbewerb, Keywords, Margen: Wir finden, wo eure Umsätze liegen und setzen klare ACoS- und TACoS-Ziele.",
-    deliverables: ["Wettbewerbsanalyse", "Keyword-Recherche", "Margenanalyse", "KPI-Steuerung", "Strategie-Fahrplan"],
+    deliverables: ["Wettbewerbsanalyse", "Keyword-Recherche", "Margenanalyse", "KPI-Steuerung"],
     href: "/leistungen/strategie",
   },
   {
@@ -27,8 +28,8 @@ const services: {
     icon: "content",
     name: "Content & Listings",
     result: "Aus Klicks werden Käufe.",
-    body: "Hauptbild und Produktbilder, Amazon A+ bis Premium A+ Content, Brand Store und Markengeschichte. Dazu SEO über Titel, Bullets und Backend. Alles datenbasiert und KI-ready für Rufus, COSMO und A10 gebaut, bis das Listing auch organisch verkauft.",
-    deliverables: ["Hauptbild & Produktbilder", "Amazon A+ und Premium A+", "Brand Store & Markengeschichte", "SEO (Titel, Bullets, Backend)", "Retail Readiness für Launches"],
+    body: "Hauptbild und Produktbilder, Amazon A+ bis Premium A+ Content, Brand Store und Markengeschichte. Dazu SEO über Titel, Bullets und Backend, KI-ready für Rufus, COSMO und A10.",
+    deliverables: ["Hauptbild & Produktbilder", "Amazon A+ und Premium A+", "Brand Store", "SEO (Titel, Bullets, Backend)"],
     href: "/leistungen/listing-seo",
   },
   {
@@ -36,8 +37,8 @@ const services: {
     icon: "ads",
     name: "Advertising / PPC",
     result: "Profitabel skalieren.",
-    body: "Sobald euer Listing organisch verkauft, bringt PPC zusätzlichen, planbaren Umsatz. Wir steuern Kampagnen, Gebote und Budgets über euren TACoS, damit der Umsatz wächst und die Marge stabil bleibt.",
-    deliverables: ["Kampagnenstruktur", "Bid- und Budget-Management", "Profitabilitätssteuerung (ACoS, TACoS)"],
+    body: "Sobald euer Listing organisch verkauft, bringt PPC planbaren Umsatz. Wir steuern Kampagnen, Gebote und Budgets über euren TACoS.",
+    deliverables: ["Kampagnenstruktur", "Bid- und Budget-Management", "Profitabilität (ACoS, TACoS)"],
     href: "/leistungen/ppc-advertising",
   },
   {
@@ -55,17 +56,19 @@ const services: {
     name: "Internationalisierung",
     result: "Lokalisieren statt übersetzen.",
     body: "Was in einem Markt verkauft, rollen wir auf weitere aus, EU und US. Listings und Kampagnen passen wir an jeden Marktplatz an.",
-    deliverables: ["Rollout EU & US", "Lokalisierung", "marktspezifische Listings & Kampagnen"],
+    deliverables: ["Rollout EU & US", "Lokalisierung", "Marktspezifische Kampagnen"],
     href: "/leistungen/internationalisierung",
   },
 ];
 
 export function FullService() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section className="relative isolate bg-white py-20 md:py-24">
+      <Ambient />
       <div className="container-x">
         <SectionHeading
           eyebrow="Full Service"
+          size="compact"
           title={
             <>
               Fünf Leistungen, in der <span className="text-gradient">richtigen Reihenfolge.</span>
@@ -73,32 +76,34 @@ export function FullService() {
           }
         />
 
-        <RevealGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.07}>
-          {services.map((s) => (
-            <RevealItem key={s.n}>
-              <a
-                href={s.href}
-                className="card group flex h-full flex-col p-7 transition-shadow duration-300 hover:shadow-lift"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-                    <Icon name={s.icon} size={22} />
-                  </span>
-                  <span className="text-sm font-bold text-ink-faint">{s.n}</span>
-                </div>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600">{s.name}</p>
-                <h3 className="mt-1.5 text-lg font-bold leading-snug text-ink">{s.result}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {s.deliverables.map((d) => (
-                    <li key={d} className="rounded-full border border-black/[0.07] bg-canvas-alt/60 px-3 py-1 text-xs font-medium text-ink-muted">
-                      {d}
-                    </li>
-                  ))}
-                </ul>
-              </a>
-            </RevealItem>
-          ))}
+        {/* 3 + 2 layout, both rows full width so nothing looks orphaned */}
+        <RevealGroup className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6" stagger={0.07}>
+          {services.map((s, i) => {
+            const span =
+              i < 3 ? "lg:col-span-2" : i === 4 ? "sm:col-span-2 lg:col-span-3" : "lg:col-span-3";
+            return (
+              <RevealItem key={s.n} className={`h-full ${span}`}>
+                <a href={s.href} className="glass glass-hover group flex h-full flex-col rounded-3xl p-6">
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft ring-1 ring-black/[0.04]">
+                      <Icon name={s.icon} size={22} />
+                    </span>
+                    <span className="text-sm font-extrabold text-gradient">{s.n}</span>
+                  </div>
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600">{s.name}</p>
+                  <h3 className="mt-1.5 text-lg font-bold leading-snug text-ink">{s.result}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{s.body}</p>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {s.deliverables.map((d) => (
+                      <li key={d} className="rounded-full border border-black/[0.07] bg-white/70 px-3 py-1 text-xs font-medium text-ink-muted">
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </a>
+              </RevealItem>
+            );
+          })}
         </RevealGroup>
 
         <Reveal delay={0.1}>

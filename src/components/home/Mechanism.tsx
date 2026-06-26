@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
+import { Ambient } from "../ui/Ambient";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 
 const flow = ["Sichtbarkeit", "Klickrate", "Conversion"];
@@ -27,10 +28,11 @@ const rows: { old: string; temoa: string }[] = [
 
 export function Mechanism() {
   return (
-    <section className="relative py-20 md:py-24">
+    <section className="relative isolate bg-white py-20 md:py-24">
+      <Ambient />
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div>
+          <div className="text-center md:text-left">
             <SectionHeading
               eyebrow="Unser Ansatz"
               size="compact"
@@ -41,7 +43,7 @@ export function Mechanism() {
               }
             />
             <Reveal delay={0.12}>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-ink-muted">
+              <p className="mx-auto mt-4 max-w-md text-balance text-base leading-relaxed text-ink-muted md:mx-0">
                 Zuerst ein Listing, das auf Klickrate und Conversion verkauft, die
                 wichtigsten Ranking-Signale. Erst dann skaliert PPC profitabel,
                 gesteuert über euren TACoS.
@@ -50,7 +52,7 @@ export function Mechanism() {
 
             {/* Funnel flow */}
             <Reveal delay={0.18}>
-              <div className="mt-6 flex flex-wrap items-center gap-2.5">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5 md:justify-start">
                 {flow.map((step, i) => (
                   <div key={step} className="flex items-center gap-2.5">
                     <span className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft ring-1 ring-black/[0.05]">
@@ -68,14 +70,14 @@ export function Mechanism() {
 
             {/* Spiral callout */}
             <Reveal delay={0.24}>
-              <div className="mt-6 flex items-start gap-3 rounded-2xl border border-brand-100 bg-brand-50/50 px-4 py-3.5">
+              <div className="mx-auto mt-6 flex max-w-md items-start gap-3 rounded-2xl border border-brand-100 bg-white/70 px-4 py-3.5 text-left shadow-soft backdrop-blur md:mx-0">
                 <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-red text-white">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 12a9 9 0 1 1-2.64-6.36" />
                     <path d="M21 4v4h-4" />
                   </svg>
                 </span>
-                <p className="text-sm font-medium leading-snug text-ink">
+                <p className="text-balance text-sm font-medium leading-snug text-ink">
                   Wer Wachstum nur über Werbung kauft, bleibt abhängig: Klicks teurer,
                   Margen enger. Wir drehen die Spirale um.
                 </p>
@@ -83,16 +85,16 @@ export function Mechanism() {
             </Reveal>
           </div>
 
-          {/* Alt / Neu comparison — glass */}
+          {/* Alt / Neu comparison, liquid glass */}
           <Reveal direction="left" delay={0.1}>
-            <div className="overflow-hidden rounded-3xl border border-black/[0.06] bg-white/80 shadow-lift backdrop-blur">
+            <div className="glass overflow-hidden rounded-3xl">
               <div className="grid grid-cols-2 border-b border-black/[0.06]">
                 <div className="px-5 py-4">
                   <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">
                     Wie es jetzt läuft
                   </span>
                 </div>
-                <div className="border-l border-black/[0.06] bg-brand-50/60 px-5 py-4">
+                <div className="border-l border-black/[0.06] bg-brand-50/50 px-5 py-4">
                   <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">
                     Wie temoa arbeitet
                   </span>
@@ -107,7 +109,7 @@ export function Mechanism() {
                         <CrossIcon />
                         <p className="text-sm leading-snug text-ink-muted">{r.old}</p>
                       </div>
-                      <div className="flex items-start gap-2.5 border-l border-black/[0.06] bg-brand-50/40 px-5 py-4">
+                      <div className="flex items-start gap-2.5 border-l border-black/[0.06] bg-brand-50/30 px-5 py-4">
                         <CheckIcon />
                         <p className="text-sm font-medium leading-snug text-ink">{r.temoa}</p>
                       </div>

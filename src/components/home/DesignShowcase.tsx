@@ -2,15 +2,18 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
+import { Ambient } from "../ui/Ambient";
 import { Reveal } from "../ui/Reveal";
 import { TiltCard } from "../ui/TiltCard";
 
 export function DesignShowcase() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section className="relative isolate bg-white py-20 md:py-24">
+      <Ambient />
       <div className="container-x">
         <SectionHeading
           eyebrow="Designbeispiele"
+          size="compact"
           title={
             <>
               So sieht <span className="text-gradient">Retail Ready</span> aus.
@@ -19,14 +22,14 @@ export function DesignShowcase() {
           description="Ein komplettes Listing, vom Hauptbild bis zum A+ Content."
         />
 
-        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
           {/* Listing-Set: 1 Hauptbild + 6 Listingbilder */}
           <Reveal>
-            <div className="rounded-3xl border border-black/[0.06] bg-white p-5 shadow-lift md:p-7">
+            <div className="glass rounded-3xl p-5 md:p-7">
               <PlaceholderTile className="aspect-square w-full" label="Hauptbild" />
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <PlaceholderTile key={i} className="aspect-square w-full" label={`Listingbild ${i + 1}`} small />
+                  <PlaceholderTile key={i} className="aspect-square w-full" label={`Bild ${i + 1}`} small />
                 ))}
               </div>
             </div>
@@ -37,7 +40,7 @@ export function DesignShowcase() {
             <div className="perspective relative py-6">
               <div
                 className="pointer-events-none absolute left-1/2 top-1/2 h-[24rem] w-[24rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl"
-                style={{ background: "radial-gradient(circle, rgba(255,153,0,0.24), rgba(255,49,49,0.12) 45%, transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, rgba(255,153,0,0.22), rgba(255,49,49,0.10) 45%, transparent 70%)" }}
               />
               <motion.div
                 animate={{ y: [0, -12, 0] }}
@@ -51,7 +54,7 @@ export function DesignShowcase() {
                       <PlaceholderTile className="aspect-[4/3] w-full shadow-lift" label="A+ Modul" small />
                       <PlaceholderTile className="aspect-[4/3] w-full shadow-lift" label="A+ Modul" small />
                     </div>
-                    <PlaceholderTile className="aspect-[16/7] w-full shadow-lift" label="A+ Vergleichstabelle" small />
+                    <PlaceholderTile className="aspect-[16/7] w-full shadow-lift" label="A+ Vergleich" small />
                   </div>
                 </TiltCard>
               </motion.div>
@@ -92,8 +95,12 @@ function PlaceholderTile({
   small?: boolean;
 }) {
   return (
-    <div className={`flex items-center justify-center overflow-hidden rounded-2xl border border-dashed border-navy/15 bg-canvas-alt/60 ${className ?? ""}`}>
-      <span className={`font-semibold uppercase tracking-[0.14em] text-ink-faint ${small ? "text-[10px]" : "text-xs"}`}>
+    <div
+      className={`relative flex items-center justify-center overflow-hidden rounded-2xl ring-1 ring-black/[0.05] ${className ?? ""}`}
+      style={{ background: "linear-gradient(135deg,#ffffff,#eaeef3)" }}
+    >
+      <div className="pointer-events-none absolute -right-5 -top-5 h-16 w-16 rounded-full bg-white/70 blur-2xl" />
+      <span className={`relative font-semibold uppercase tracking-[0.14em] text-ink-faint ${small ? "text-[10px]" : "text-xs"}`}>
         {label}
       </span>
     </div>
