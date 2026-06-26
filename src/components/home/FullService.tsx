@@ -1,9 +1,17 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
-import { Ambient } from "../ui/Ambient";
 import { RevealGroup, RevealItem, Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
+
+const CHIP = [
+  "bg-brand-500/10 text-brand-600",
+  "bg-cyan/10 text-cyan",
+  "bg-red/10 text-red",
+  "bg-emerald/10 text-emerald",
+  "bg-navy/10 text-navy",
+];
+const TEXT = ["text-brand-600", "text-cyan", "text-red", "text-emerald", "text-navy"];
 
 const services: {
   n: string;
@@ -61,10 +69,22 @@ const services: {
   },
 ];
 
+function GCheck() {
+  return (
+    <span
+      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
+      style={{ backgroundImage: "linear-gradient(135deg,#22C55E,#16A34A)" }}
+    >
+      <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
 export function FullService() {
   return (
-    <section className="relative isolate bg-white py-20 md:py-24">
-      <Ambient />
+    <section className="relative bg-[#FFF6EE] py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Full Service"
@@ -83,20 +103,21 @@ export function FullService() {
               i < 3 ? "lg:col-span-2" : i === 4 ? "sm:col-span-2 lg:col-span-3" : "lg:col-span-3";
             return (
               <RevealItem key={s.n} className={`h-full ${span}`}>
-                <a href={s.href} className="glass glass-hover group flex h-full flex-col rounded-3xl p-6">
+                <a href={s.href} className="surface surface-hover group flex h-full flex-col p-6">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-brand-600 shadow-soft ring-1 ring-black/[0.04]">
+                    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${CHIP[i % CHIP.length]}`}>
                       <Icon name={s.icon} size={22} />
                     </span>
-                    <span className="text-sm font-extrabold text-gradient">{s.n}</span>
+                    <span className={`text-sm font-extrabold ${TEXT[i % TEXT.length]}`}>{s.n}</span>
                   </div>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-600">{s.name}</p>
+                  <p className={`mt-5 text-xs font-bold uppercase tracking-[0.13em] ${TEXT[i % TEXT.length]}`}>{s.name}</p>
                   <h3 className="mt-1.5 text-lg font-bold leading-snug text-ink">{s.result}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
+                  <ul className="mt-5 space-y-2">
                     {s.deliverables.map((d) => (
-                      <li key={d} className="rounded-full border border-black/[0.07] bg-white/70 px-3 py-1 text-xs font-medium text-ink-muted">
-                        {d}
+                      <li key={d} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
+                        <GCheck />
+                        <span>{d}</span>
                       </li>
                     ))}
                   </ul>
