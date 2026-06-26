@@ -5,7 +5,7 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "left",
+  align = "center",
   size = "default",
   className,
 }: {

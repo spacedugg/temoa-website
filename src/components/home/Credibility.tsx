@@ -37,12 +37,12 @@ export function Credibility() {
         <RevealGroup className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4" stagger={0.08}>
           {stats.map((s) => (
             <RevealItem key={s.label}>
-              <div className="text-center md:text-left">
+              <div className="text-center">
                 <div className="text-4xl font-extrabold tracking-tight text-ink md:text-5xl">
                   <Counter to={s.to} prefix={s.prefix} suffix={s.suffix} />
                 </div>
                 <div
-                  className="mx-auto mt-3 h-0.5 w-10 rounded-full md:mx-0"
+                  className="mx-auto mt-3 h-0.5 w-10 rounded-full"
                   style={{ backgroundImage: "var(--brand-gradient)" }}
                 />
                 <p className="mt-3 text-sm leading-snug text-ink-muted">{s.label}</p>
