@@ -3,17 +3,42 @@ import { notFound } from "next/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ComingSoon } from "@/components/sections/ComingSoon";
+import {
+  StrategieBody,
+  ContentBody,
+  AdvertisingBody,
+  AccountBody,
+} from "@/components/service/bodies";
 
-const names: Record<string, string> = {
-  strategie: "Strategie & Analyse",
-  "listing-seo": "Content & Listings",
-  "ppc-advertising": "Advertising / PPC",
-  "account-management": "Account-Management",
-  internationalisierung: "Internationalisierung",
+const meta: Record<string, { name: string; description: string }> = {
+  strategie: {
+    name: "Strategie & Analyse",
+    description:
+      "Wir analysieren Markt, Wettbewerb und eure Zahlen bis auf SKU-Ebene und machen daraus einen Fahrplan, der jede Maßnahme steuert.",
+  },
+  "listing-seo": {
+    name: "Content & Listings",
+    description:
+      "Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt.",
+  },
+  "ppc-advertising": {
+    name: "Advertising / PPC",
+    description:
+      "Wir steuern eure Kampagnen nach dem Deckungsbeitrag jedes Produkts, statt auf Klick-Metriken. So wächst der Umsatz und die Marge wächst mit.",
+  },
+  "account-management": {
+    name: "Account-Management",
+    description:
+      "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+  },
+  internationalisierung: {
+    name: "Internationalisierung",
+    description: "Internationaler Marktplatz-Rollout. Diese Seite bauen wir gerade neu.",
+  },
 };
 
 export function generateStaticParams() {
-  return Object.keys(names).map((slug) => ({ slug }));
+  return Object.keys(meta).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -22,8 +47,29 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const name = names[slug];
-  return name ? { title: `${name} · temoa` } : {};
+  const m = meta[slug];
+  return m ? { title: `${m.name} · temoa`, description: m.description } : {};
+}
+
+function Body({ slug }: { slug: string }) {
+  switch (slug) {
+    case "strategie":
+      return <StrategieBody />;
+    case "listing-seo":
+      return <ContentBody />;
+    case "ppc-advertising":
+      return <AdvertisingBody />;
+    case "account-management":
+      return <AccountBody />;
+    default:
+      return (
+        <ComingSoon
+          eyebrow="Leistung"
+          title="Internationaler Marktplatz-Rollout"
+          sub="Diese Leistungsseite bauen wir gerade neu. Die Inhalte folgen in Kürze."
+        />
+      );
+  }
 }
 
 export default async function LeistungPage({
@@ -32,18 +78,12 @@ export default async function LeistungPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const name = names[slug];
-  if (!name) notFound();
-
+  if (!meta[slug]) notFound();
   return (
     <>
       <Navbar />
       <main>
-        <ComingSoon
-          eyebrow="Leistung"
-          title={name}
-          sub="Diese Leistungsseite bauen wir gerade neu, mit den finalen Texten. Die Inhalte folgen in Kürze."
-        />
+        <Body slug={slug} />
       </main>
       <Footer />
     </>

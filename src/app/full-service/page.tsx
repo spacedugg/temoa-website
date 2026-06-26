@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ComingSoon } from "@/components/sections/ComingSoon";
+import { FullServiceBody } from "@/components/service/bodies";
 
 export const metadata: Metadata = {
   title: "Full Service · temoa",
-  description: "Full-Service Amazon-Management. Diese Seite bauen wir gerade neu.",
+  description:
+    "Ein eingespieltes Team für euren kompletten Amazon-Account: Strategie, Content, Advertising, Account-Management und Internationalisierung aus einer Hand.",
 };
 
 export default function FullServicePage() {
@@ -13,11 +14,7 @@ export default function FullServicePage() {
     <>
       <Navbar />
       <main>
-        <ComingSoon
-          eyebrow="Full Service"
-          title="Full-Service Amazon-Management"
-          sub="Diese Seite bauen wir gerade neu, mit den finalen Texten. Die Inhalte folgen in Kürze."
-        />
+        <FullServiceBody />
       </main>
       <Footer />
     </>

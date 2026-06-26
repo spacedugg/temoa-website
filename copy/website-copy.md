@@ -2,7 +2,7 @@
 
 Quelle der Wahrheit für alle Seitentexte. Bilder und einige Daten sind Platzhalter. Schreib- und Stilregeln in CLAUDE.md beachten (keine Gedankenstriche, keine verbotenen Wörter, premium-souveräner Ton, Anrede „ihr/euch").
 
-Stand: Homepage und Leistungsseite freigegeben. Drei Service-Detailseiten (Strategie, Content, Advertising) ergänzt. Weitere Seiten (Potenzialanalyse buchen, Case Studies, Designbeispiele) folgen.
+Stand: Homepage und Leistungsseite freigegeben. Vier Service-Detailseiten (Strategie, Content, Advertising, Account-Management) ergänzt. Offen: Internationaler Marktplatz-Rollout, danach Editor-Durchlauf. Weitere Seiten (Potenzialanalyse buchen, Case Studies, Designbeispiele) folgen.
 
 ---
 ---
@@ -378,6 +378,51 @@ Karte 5 · Paid trifft Organic
 ## 5 · Finaler CTA
 - Headline: Wo versickert euer Werbebudget?
 - Sub: In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn.
+- CTA: Potenzialanalyse buchen
+
+---
+---
+
+# SEITE 6: SERVICE-SEITE ACCOUNT-MANAGEMENT
+
+Rhythmus: Hero, Problem, Wie wir arbeiten (3 Prinzipien), Was wir übernehmen (Kacheln), Ihr bekommt (Bild + Benefits), CTA.
+
+## 1 · Header
+- Eyebrow: Account-Management
+- Headline: Ihr baut die Marke. Das Tagesgeschäft liegt bei uns.
+- Subline: Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.
+- CTA: Potenzialanalyse buchen
+- [Visual-Platzhalter, Bild rechts]
+
+## 2 · Problem
+- Headline: Die meisten reagieren erst, wenn es brennt.
+- Punkte (Pfeil-Liste):
+  - Buy-Box verloren, oft tagelang unbemerkt.
+  - Bestände leer, Rankings brechen weg.
+  - Performance bricht ein, niemand sieht den Grund.
+  - Policy-Warnung im Postfach, das Konto in Gefahr.
+- Bridge: Wir greifen früher ein, bevor es Umsatz kostet.
+
+## 3 · Wie wir arbeiten (drei nummerierte Karten)
+- 01 Proaktives Monitoring: Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten.
+- 02 Ein vernetztes System: Bestand, Pricing, Content und Werbung greifen ineinander, gesteuert als Ganzes.
+- 03 Volle Transparenz: Klare Empfehlungen und priorisierte Maßnahmen, ohne euch durch 20 Tabs zu klicken.
+
+## 4 · Was wir übernehmen (Kachel-Liste, je Kachel Label plus konkrete Zeile)
+- Buy-Box-Monitoring: Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter
+- Forecasting & Inventar: Nachschub geplant, damit kein Bestseller leerläuft
+- Account Health & Cases: Konto-Gesundheit im Blick, Fälle mit dem Amazon-Support geklärt
+- Pricing & Profitability Protection: Preise gesteuert, Marge geschützt
+- Strategie- & Performance-Calls: regelmäßig, mit klaren nächsten Schritten
+
+## 5 · Ihr bekommt (Bild links, rechts Badge, Überschrift und Benefit-Liste, dunkle Akzentfläche)
+- Badge: Wir machen die Arbeit
+- Headline: Ihr bekommt die Ergebnisse.
+- Benefits: Planbare Performance · Transparente KPIs · Profitables Wachstum · Volle Entlastung
+
+## 6 · Finaler CTA
+- Headline: Gebt das Tagesgeschäft an uns ab.
+- Sub: In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können.
 - CTA: Potenzialanalyse buchen
 
 ---
