@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { ComingSoon } from "@/components/sections/ComingSoon";
+import { BookingBody } from "@/components/booking/BookingBody";
 
 export const metadata: Metadata = {
   title: "Potenzialanalyse buchen · temoa",
-  description: "Potenzialanalyse buchen. Diese Seite bauen wir gerade neu.",
+  description:
+    "Kostenlose, unverbindliche Potenzialanalyse: In etwa 30 Minuten zeigen wir euch konkret, wo in eurem Amazon-Account Umsatz und Marge liegen.",
 };
 
 export default function GespraechBuchenPage() {
@@ -13,11 +14,7 @@ export default function GespraechBuchenPage() {
     <>
       <Navbar />
       <main>
-        <ComingSoon
-          eyebrow="Gespräch buchen"
-          title="Potenzialanalyse buchen"
-          sub="Die Online-Buchung richten wir gerade ein. Der Prozessablauf und der Kalender folgen in Kürze."
-        />
+        <BookingBody />
       </main>
       <Footer />
     </>

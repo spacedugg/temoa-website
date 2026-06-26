@@ -6,6 +6,7 @@ import { Problem } from "@/components/home/Problem";
 import { Mechanism } from "@/components/home/Mechanism";
 import { FullService } from "@/components/home/FullService";
 import { CaseShowcase } from "@/components/home/CaseShowcase";
+import { Stats } from "@/components/home/Stats";
 import { DesignShowcase } from "@/components/home/DesignShowcase";
 import { Testimonials } from "@/components/home/Testimonials";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -25,8 +26,9 @@ export default function Home() {
         <Mechanism />
         <FullService />
         <CaseShowcase />
+        <Stats />
         <DesignShowcase />
-        <Testimonials />
+        <Testimonials tone="blue" />
         <FinalCTA />
         <Team />
         <BlogStrip posts={featured} />
