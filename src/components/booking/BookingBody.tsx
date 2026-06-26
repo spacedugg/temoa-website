@@ -53,8 +53,8 @@ export function BookingBody() {
           className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full opacity-60 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 50%, transparent 72%)" }}
         />
-        <div className="container-x relative grid items-stretch gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          {/* left: copy + Clemens photo filling the column */}
+        <div className="container-x relative grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+          {/* left: copy + Clemens photo */}
           <div className="flex flex-col text-center lg:text-left">
             <Reveal>
               <span className="eyebrow lg:justify-start">
@@ -82,14 +82,14 @@ export function BookingBody() {
               </ul>
             </Reveal>
 
-            {/* Clemens fills the remaining height, head anchored to the top */}
-            <Reveal delay={0.22} className="mt-7 flex-1">
-              <div className="relative h-full min-h-[16rem] overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06]">
+            {/* Square portrait, face fully visible (no mid-face crop) */}
+            <Reveal delay={0.22} className="mt-7">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] sm:aspect-[3/2] lg:aspect-square">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/team/Clemens.jpg"
                   alt="Clemens, euer Ansprechpartner bei temoa"
-                  className="absolute inset-0 h-full w-full object-cover [object-position:50%_28%] [filter:brightness(1.05)]"
+                  className="absolute inset-0 h-full w-full object-cover object-center [filter:brightness(1.05)]"
                 />
                 <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent p-5 pt-16">
                   <div className="flex items-center gap-1 text-white">
@@ -111,8 +111,8 @@ export function BookingBody() {
           </div>
 
           {/* right: booking card */}
-          <Reveal direction="left" delay={0.1}>
-            <div id="kalender" className="flex h-full scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
+          <Reveal direction="left" delay={0.1} className="lg:self-center">
+            <div id="kalender" className="flex scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
               <div className="flex items-center gap-2">
                 <span className="inline-flex items-center gap-2 rounded-full bg-brand-500/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.1em] text-brand-700">
                   Kostenlos · ca. 30 Min.
