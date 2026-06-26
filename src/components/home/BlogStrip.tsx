@@ -3,42 +3,37 @@
 import { SectionHeading } from "../ui/SectionHeading";
 import { Ambient } from "../ui/Ambient";
 import { RevealGroup, RevealItem } from "../ui/Reveal";
+import { PostCard } from "../blog/PostCard";
+import type { PostMeta } from "@/lib/blog";
 
-export function BlogStrip() {
+export function BlogStrip({ posts }: { posts: PostMeta[] }) {
   return (
     <section className="relative isolate border-t border-black/[0.05] bg-white py-20 md:py-24">
       <Ambient />
       <div className="container-x">
-        <SectionHeading
-          eyebrow="Blog"
-          size="compact"
-          title={
-            <>
-              Klartext zu <span className="text-gradient">Amazon.</span>
-            </>
-          }
-        />
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+          <SectionHeading
+            eyebrow="Blog"
+            size="compact"
+            className="md:mx-0"
+            title={
+              <>
+                Klartext zu <span className="text-gradient">Amazon.</span>
+              </>
+            }
+          />
+          <a href="/blog" className="btn-ghost shrink-0">
+            Alle Beiträge
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </div>
 
         <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.06}>
-          {Array.from({ length: 4 }).map((_, i) => (
-            <RevealItem key={i}>
-              <div className="glass glass-hover group flex h-full flex-col overflow-hidden rounded-3xl">
-                <div
-                  className="flex aspect-[16/10] items-center justify-center"
-                  style={{ background: "linear-gradient(135deg,#eef1f5,#e2e7ee)" }}
-                >
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-faint">
-                    Platzhalter
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <span className="text-xs font-semibold uppercase tracking-[0.12em] text-brand-600">Artikel</span>
-                  <h3 className="mt-2 text-base font-bold leading-snug text-ink">Thema folgt</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-muted">
-                    Inhalte liefert das temoa-Team in Kürze.
-                  </p>
-                </div>
-              </div>
+          {posts.map((p) => (
+            <RevealItem key={p.slug} className="h-full">
+              <PostCard post={p} />
             </RevealItem>
           ))}
         </RevealGroup>

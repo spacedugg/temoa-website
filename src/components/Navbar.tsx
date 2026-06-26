@@ -23,6 +23,7 @@ const links: {
   { label: "Full Service", href: "/full-service", children: fullServiceItems },
   { label: "Case Studies", href: "/ergebnisse" },
   { label: "Designbeispiele", href: "/design-beispiele" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function Navbar() {
