@@ -220,7 +220,11 @@ export function Points({
       <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {points.map((p, i) => (
-          <Reveal key={p} delay={i * 0.05}>
+          <Reveal
+            key={p}
+            delay={i * 0.05}
+            className={points.length % 2 === 1 && i === points.length - 1 ? "sm:col-span-2" : ""}
+          >
             <div className="surface flex h-full items-start gap-3.5 p-5">
               <span className="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red/10 text-red">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
