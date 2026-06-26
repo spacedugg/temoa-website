@@ -9,6 +9,7 @@ export function PostCard({ post }: { post: PostMeta }) {
         icon={post.categoryIcon}
         seed={post.slug}
         label={post.categoryShort}
+        image={post.image}
         className="aspect-[16/10] w-full"
       />
       <div className="flex flex-1 flex-col p-5">

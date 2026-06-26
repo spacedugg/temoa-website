@@ -10,6 +10,21 @@ import type { IconName } from "@/components/ui/Icon";
  * ============================================================ */
 
 const DIR = path.join(process.cwd(), "content/blog");
+const COVERS_DIR = path.join(process.cwd(), "public/blog/covers");
+
+/** If a generated cover image was dropped into /public/blog/covers/<slug>.<ext>,
+ *  use it. Otherwise the page falls back to the generated SVG cover. */
+function findCover(slug: string): string | undefined {
+  for (const ext of ["webp", "jpg", "jpeg", "png", "avif"]) {
+    const file = `${slug}.${ext}`;
+    try {
+      if (fs.existsSync(path.join(COVERS_DIR, file))) return `/blog/covers/${file}`;
+    } catch {
+      /* ignore */
+    }
+  }
+  return undefined;
+}
 
 export type Category = {
   key: string; // exact "kategorie" value in the frontmatter
@@ -112,6 +127,8 @@ export type PostMeta = {
   accent: string;
   readingMinutes: number;
   order: number;
+  /** Optional generated cover image; falls back to the SVG cover when absent. */
+  image?: string;
 };
 
 export type Post = PostMeta & { html: string };
@@ -174,6 +191,7 @@ function parseFile(filename: string): Post {
     accent: cat?.accent ?? "#0E7CA0",
     readingMinutes,
     order,
+    image: findCover(slug),
     html,
   };
 }

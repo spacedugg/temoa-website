@@ -26,14 +26,31 @@ export function BlogCover({
   seed,
   label,
   className,
+  image,
 }: {
   accent: string;
   icon: IconName;
   seed: string;
   label?: string;
   className?: string;
+  /** Optional generated cover; when set, it replaces the SVG motif. */
+  image?: string;
 }) {
   const h = hash(seed);
+
+  if (image) {
+    return (
+      <div className={`relative overflow-hidden bg-navy ${className ?? ""}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
+        {label && (
+          <span className="absolute left-5 top-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+            {label}
+          </span>
+        )}
+      </div>
+    );
+  }
   const arcRotation = h % 360;
   const dx = (h % 5) - 2; // -2..2
 

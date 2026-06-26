@@ -100,6 +100,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 accent={post.accent}
                 icon={post.categoryIcon}
                 seed={post.slug}
+                image={post.image}
                 className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
               />
             </Reveal>
