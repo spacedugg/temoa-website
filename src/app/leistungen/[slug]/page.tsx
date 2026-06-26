@@ -8,6 +8,7 @@ import {
   ContentBody,
   AdvertisingBody,
   AccountBody,
+  InternationalisierungBody,
 } from "@/components/service/bodies";
 
 const meta: Record<string, { name: string; description: string }> = {
@@ -33,7 +34,8 @@ const meta: Record<string, { name: string; description: string }> = {
   },
   internationalisierung: {
     name: "Internationalisierung",
-    description: "Internationaler Marktplatz-Rollout. Diese Seite bauen wir gerade neu.",
+    description:
+      "Euer erprobtes Amazon-Setup auf weitere Marktplätze in Europa und den USA ausrollen. Lokalisiert statt übersetzt: eigener Content, eigene Keywords und eigene Kampagnen je Markt.",
   },
 };
 
@@ -61,11 +63,13 @@ function Body({ slug }: { slug: string }) {
       return <AdvertisingBody />;
     case "account-management":
       return <AccountBody />;
+    case "internationalisierung":
+      return <InternationalisierungBody />;
     default:
       return (
         <ComingSoon
           eyebrow="Leistung"
-          title="Internationaler Marktplatz-Rollout"
+          title="Diese Leistung folgt in Kürze"
           sub="Diese Leistungsseite bauen wir gerade neu. Die Inhalte folgen in Kürze."
         />
       );

@@ -6,6 +6,53 @@ import { useRef } from "react";
 /* Schematic, claim-free diagrams that illustrate a mechanism.
    Relative widths only, no invented numbers. */
 
+/** Rollout visual: one proven home market expands to several marketplaces. */
+export function MarketRollout() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const targets = ["FR", "IT", "ES", "NL", "US", "UK"];
+  return (
+    <div ref={ref} className="surface p-6 md:p-7">
+      <div className="flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+        <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">Ein Setup, mehrere Marktplätze</span>
+      </div>
+
+      <div className="mt-6 flex items-center gap-4 rounded-2xl p-4 text-white shadow-lift" style={{ backgroundImage: "var(--brand-gradient)" }}>
+        <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/20 text-lg font-extrabold ring-1 ring-white/30">DE</span>
+        <div>
+          <div className="text-sm font-extrabold">Heimatmarkt</div>
+          <div className="text-xs text-white/85">Erprobtes Setup, das verkauft</div>
+        </div>
+      </div>
+
+      <div className="flex justify-center py-3 text-ink-faint">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 4v14m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2.5">
+        {targets.map((t, i) => (
+          <motion.div
+            key={t}
+            className="rounded-xl bg-navy/[0.04] py-3 text-center text-sm font-extrabold text-ink ring-1 ring-black/[0.05]"
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.45, delay: 0.2 + i * 0.08 }}
+          >
+            {t}
+          </motion.div>
+        ))}
+      </div>
+
+      <p className="mt-5 text-xs leading-relaxed text-ink-faint">
+        Erprobtes Setup als Basis, je Markt lokalisiert: eigene Keywords, eigener Content, eigene Kampagnen.
+      </p>
+    </div>
+  );
+}
+
 function Track({
   label,
   segments,

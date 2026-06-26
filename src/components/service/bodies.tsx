@@ -12,7 +12,7 @@ import {
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
-import { BudgetSplitDiagram } from "./Diagrams";
+import { BudgetSplitDiagram, MarketRollout } from "./Diagrams";
 import { Quotes } from "../sections/SocialProof";
 import { testimonials } from "@/lib/testimonials";
 
@@ -415,6 +415,102 @@ export function AccountBody() {
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
         sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
+      />
+    </>
+  );
+}
+
+/* ============ INTERNATIONALISIERUNG ============ */
+export function InternationalisierungBody() {
+  return (
+    <>
+      <ServiceHero
+        eyebrow="Internationalisierung"
+        title={
+          <>
+            Was in einem Markt verkauft, <span className="text-gradient">verkauft auch in den nächsten.</span>
+          </>
+        }
+        sub="Wir rollen euer erprobtes Setup auf weitere Marktplätze in Europa und den USA aus. Lokalisiert, nicht übersetzt."
+      />
+      <Points
+        tone="blue"
+        eyebrow="Das Problem"
+        title="Warum neue Marktplätze oft enttäuschen."
+        points={[
+          "Listings werden übersetzt, statt für den Markt geschrieben.",
+          "Jeder Marktplatz hat eigene Suchbegriffe und Kaufgewohnheiten.",
+          "Kampagnen aus dem Heimatmarkt werden eins zu eins kopiert.",
+          "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
+        ]}
+        bridge="Ein neuer Marktplatz ist ein neuer Markt, kein übersetzter alter."
+        aside={<MarketRollout />}
+      />
+      <Cards
+        tone="white"
+        eyebrow="Unser Vorgehen"
+        title="Wie wir euch international ausrollen."
+        cols={2}
+        items={[
+          {
+            title: "Setup-Transfer",
+            subtitle: "Das Erprobte als Basis",
+            body: "Wir übertragen die Struktur, die im Heimatmarkt funktioniert, statt jeden Markt bei null zu beginnen.",
+          },
+          {
+            title: "Lokalisierung",
+            subtitle: "Geschrieben für den Markt",
+            body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz lokalisiert, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
+          },
+          {
+            title: "Marktspezifische Keywords",
+            subtitle: "Jeder Markt sucht anders",
+            body: "Eigene Keyword-Recherche pro Marktplatz, statt übersetzter Begriffe aus dem Heimatmarkt.",
+          },
+          {
+            title: "Kampagnen je Marktplatz",
+            subtitle: "Lokal gesteuert",
+            body: "Sponsored Products, Brands und Display je Markt aufgesetzt und über den lokalen TACoS gesteuert.",
+          },
+        ]}
+      />
+      <AccentStrip
+        tone="blue"
+        eyebrow="Aus der Praxis"
+        title="Über vier Marktplätze parallel ausgerollt."
+        items={["DE, IT, FR, ES gleichzeitig vorbereitet", "TACoS im Hauptmarkt −35 %", "Italien: Klicks +110 % bei sinkendem ACoS"]}
+      />
+      <Compare
+        tone="white"
+        eyebrow="Vorher / Nachher"
+        title="Übersetzt oder lokalisiert."
+        left={{
+          label: "Nur übersetzt",
+          points: [
+            "Titel wörtlich übersetzt, an den Suchbegriffen vorbei",
+            "Gleiche Keywords wie im Heimatmarkt",
+            "Kampagnen kopiert, Budget ohne lokalen Bezug",
+            "Conversion bleibt hinter dem Heimatmarkt zurück",
+          ],
+        }}
+        right={{
+          label: "Mit temoa lokalisiert",
+          points: [
+            "Content je Markt neu geschrieben, auf Klickrate und Conversion",
+            "Eigene Keyword-Recherche pro Marktplatz",
+            "Kampagnen lokal aufgesetzt und über den TACoS gesteuert",
+            "Profitables Wachstum auf jedem neuen Marktplatz",
+          ],
+        }}
+      />
+      <Quotes
+        tone="blue"
+        title={<>Schon international <span className="text-gradient">unterwegs.</span></>}
+        items={[testimonials[2], testimonials[1], testimonials[0]]}
+      />
+      <ServiceCTA
+        title="Welcher Markt ist euer nächster?"
+        sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."
       />
     </>
   );
