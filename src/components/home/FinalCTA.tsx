@@ -37,7 +37,7 @@ export function FinalCTA() {
           <Reveal delay={0.2}>
             <div className="relative mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-white/90">
               <span className="inline-flex items-center gap-2">
-                <Check /> Ohne lange Vertragslaufzeiten
+                <Check /> Ihr verlängert nach Performance
               </span>
               <span className="inline-flex items-center gap-2">
                 <Check /> 98 % Kundenbindung
