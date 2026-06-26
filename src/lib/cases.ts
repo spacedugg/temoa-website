@@ -25,6 +25,7 @@ export type CaseBadge = { label: string; icon: "trophy" | "award" | "shield" };
 export type CaseStudy = {
   slug: string;
   displayName: string;
+  mono: string; // short brand monogram for the logo badge
   anonymized: boolean;
   industry: string;
   marketplaces: string[];
@@ -44,6 +45,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "vitaworld",
     displayName: "Vitaworld",
+    mono: "V",
     anonymized: false,
     industry: "Nahrungsergänzung",
     marketplaces: ["DE"],
@@ -99,6 +101,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "haa",
     displayName: "HaA",
+    mono: "H",
     anonymized: false,
     industry: "Küche und Haushalt",
     marketplaces: ["DE"],
@@ -140,6 +143,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "futum",
     displayName: "FUTUM",
+    mono: "F",
     anonymized: false,
     industry: "Schädlingsbekämpfung",
     marketplaces: ["DE"],
@@ -181,6 +185,7 @@ export const cases: CaseStudy[] = [
   {
     slug: "marke-gartenzubehoer",
     displayName: "Marke aus Gartenzubehör",
+    mono: "G",
     anonymized: true,
     industry: "Gartenzubehör",
     marketplaces: ["DE", "IT", "FR", "ES"],

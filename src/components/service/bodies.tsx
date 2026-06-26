@@ -11,7 +11,10 @@ import {
   ServiceCTA,
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
+import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram } from "./Diagrams";
+import { Quotes } from "../sections/SocialProof";
+import { testimonials } from "@/lib/testimonials";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -129,7 +132,7 @@ export function FullServiceBody() {
       <ServiceCTA
         title="Wir zeigen euch, wo in eurem Account das Wachstum liegt."
         sub="In einer kostenlosen Potenzialanalyse, konkret auf eure Marke bezogen."
-        chips={["Ohne lange Vertragslaufzeiten", "98 % Kundenbindung"]}
+        chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
       />
     </>
   );
@@ -212,6 +215,7 @@ export function ContentBody() {
         }
         sub="Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt."
       />
+      <ContentResultBand />
       <TextMedia
         tone="blue"
         eyebrow="Unser Ansatz"
@@ -243,6 +247,11 @@ export function ContentBody() {
             "Richtlinienkonform ohne Risiko fürs Konto",
           ],
         }}
+      />
+      <Quotes
+        tone="white"
+        title={<>Marken, die mit besserem Content <span className="text-gradient">mehr verkaufen.</span></>}
+        items={[testimonials[3], testimonials[2], testimonials[4]]}
       />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"

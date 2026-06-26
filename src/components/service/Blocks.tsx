@@ -420,7 +420,7 @@ export function TextMedia({
           <Media className="aspect-[4/3] w-full" />
         </Reveal>
         <div className={`text-center md:text-left ${reverse ? "lg:order-1" : ""}`}>
-          <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+          <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0" />
           <Reveal delay={0.1}>
             <p className="mx-auto mt-4 max-w-xl text-balance text-base leading-relaxed text-ink-muted md:mx-0 md:text-lg">
               {text}

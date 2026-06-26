@@ -11,73 +11,14 @@ const CHIP = [
   "bg-emerald/10 text-emerald",
   "bg-navy/10 text-navy",
 ];
-const TEXT = ["text-brand-600", "text-cyan", "text-red", "text-emerald", "text-navy"];
 
-const services: {
-  n: string;
-  icon: IconName;
-  name: string;
-  result: string;
-  body: string;
-  deliverables: string[];
-  href: string;
-}[] = [
-  {
-    n: "01",
-    icon: "strategy",
-    name: "Strategie & Analyse",
-    result: "Erst die Daten, dann der Plan.",
-    body: "Search Query Report, Wettbewerb, Keywords, Margen: Wir finden, wo eure Umsätze liegen und setzen klare ACoS- und TACoS-Ziele.",
-    deliverables: ["Wettbewerbsanalyse", "Keyword-Recherche", "Margenanalyse", "KPI-Steuerung"],
-    href: "/leistungen/strategie",
-  },
-  {
-    n: "02",
-    icon: "content",
-    name: "Content & Listings",
-    result: "Aus Klicks werden Käufe.",
-    body: "Hauptbild und Produktbilder, Amazon A+ bis Premium A+ Content, Brand Store und Markengeschichte. Dazu SEO über Titel, Bullets und Backend, KI-ready für Rufus, COSMO und A10.",
-    deliverables: ["Hauptbild & Produktbilder", "Amazon A+ und Premium A+", "Brand Store", "SEO (Titel, Bullets, Backend)"],
-    href: "/leistungen/listing-seo",
-  },
-  {
-    n: "03",
-    icon: "ads",
-    name: "Advertising / PPC",
-    result: "Profitabel skalieren.",
-    body: "Sobald euer Listing organisch verkauft, bringt PPC planbaren Umsatz. Wir steuern Kampagnen, Gebote und Budgets über euren TACoS.",
-    deliverables: ["Kampagnenstruktur", "Bid- und Budget-Management", "Profitabilität (ACoS, TACoS)"],
-    href: "/leistungen/ppc-advertising",
-  },
-  {
-    n: "04",
-    icon: "account",
-    name: "Account-Management",
-    result: "Bestand, Buy-Box, Cases. Im Griff.",
-    body: "Wir managen Inventar und Forecasting, überwachen die Buy-Box, liefern Reporting und übernehmen das Case-Handling mit Amazon. Euer Amazon-Geschäft hängt nicht mehr an einer einzigen Person.",
-    deliverables: ["Inventar & Forecasting", "Buy-Box-Überwachung", "Reporting", "Account-Health & Cases"],
-    href: "/leistungen/account-management",
-  },
-  {
-    n: "05",
-    icon: "globe",
-    name: "Internationalisierung",
-    result: "Lokalisieren statt übersetzen.",
-    body: "Was in einem Markt verkauft, rollen wir auf weitere aus, EU und US. Listings und Kampagnen passen wir an jeden Marktplatz an.",
-    deliverables: ["Rollout EU & US", "Lokalisierung", "Marktspezifische Kampagnen"],
-    href: "/leistungen/internationalisierung",
-  },
+const services: { n: string; icon: IconName; name: string; result: string; href: string }[] = [
+  { n: "01", icon: "strategy", name: "Strategie & Analyse", result: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
+  { n: "02", icon: "content", name: "Content & Listings", result: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
+  { n: "03", icon: "ads", name: "Advertising / PPC", result: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
+  { n: "04", icon: "account", name: "Account-Management", result: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
+  { n: "05", icon: "globe", name: "Internationalisierung", result: "Lokalisieren statt übersetzen.", href: "/leistungen/internationalisierung" },
 ];
-
-function Lead({ color }: { color: string }) {
-  return (
-    <span className={`mt-1 inline-flex shrink-0 ${color}`}>
-      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-        <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    </span>
-  );
-}
 
 export function FullService() {
   return (
@@ -93,35 +34,18 @@ export function FullService() {
           }
         />
 
-        {/* 3 + 2 layout, both rows full width so nothing looks orphaned */}
-        <RevealGroup className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6" stagger={0.07}>
-          {services.map((s, i) => {
-            const span =
-              i < 3 ? "lg:col-span-2" : i === 4 ? "sm:col-span-2 lg:col-span-3" : "lg:col-span-3";
-            return (
-              <RevealItem key={s.n} className={`h-full ${span}`}>
-                <a href={s.href} className="surface surface-hover group flex h-full flex-col p-6">
-                  <div className="flex items-center justify-between">
-                    <span className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${CHIP[i % CHIP.length]}`}>
-                      <Icon name={s.icon} size={22} />
-                    </span>
-                    <span className={`text-sm font-extrabold ${TEXT[i % TEXT.length]}`}>{s.n}</span>
-                  </div>
-                  <p className={`mt-5 text-xs font-bold uppercase tracking-[0.13em] ${TEXT[i % TEXT.length]}`}>{s.name}</p>
-                  <h3 className="mt-1.5 text-lg font-bold leading-snug text-ink">{s.result}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">{s.body}</p>
-                  <ul className="mt-5 space-y-2">
-                    {s.deliverables.map((d) => (
-                      <li key={d} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <Lead color={TEXT[i % TEXT.length]} />
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </a>
-              </RevealItem>
-            );
-          })}
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
+          {services.map((s, i) => (
+            <RevealItem key={s.n} className="h-full">
+              <a href={s.href} className="surface surface-hover group flex h-full flex-col items-center p-5 text-center">
+                <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${CHIP[i % CHIP.length]}`}>
+                  <Icon name={s.icon} size={24} />
+                </span>
+                <h3 className="mt-4 text-sm font-bold leading-snug text-ink">{s.name}</h3>
+                <p className="mt-1.5 text-sm leading-snug text-ink-muted">{s.result}</p>
+              </a>
+            </RevealItem>
+          ))}
         </RevealGroup>
 
         <Reveal delay={0.1}>
