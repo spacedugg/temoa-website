@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
+import { Ambient } from "../ui/Ambient";
 
 type Testimonial = { quote: string; name: string; role: string };
 
@@ -47,12 +48,24 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+function initials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+}
+
 export function Testimonials() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative isolate overflow-hidden bg-white py-20 md:py-24">
+      <Ambient />
       <div className="container-x">
         <SectionHeading
           eyebrow="Kundenstimmen"
+          size="compact"
           title={
             <>
               Was unsere <span className="text-gradient">Kunden sagen.</span>
@@ -61,9 +74,9 @@ export function Testimonials() {
         />
       </div>
 
-      <div className="group relative mt-14">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-transparent md:w-32" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-transparent md:w-32" />
+      <div className="group relative mt-12">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-28" />
         <div className="flex w-max animate-marquee gap-5 px-5 group-hover:[animation-play-state:paused]">
           {[...testimonials, ...testimonials].map((t, i) => (
             <Card key={`${t.name}-${i}`} t={t} />
@@ -76,7 +89,7 @@ export function Testimonials() {
 
 function Card({ t }: { t: Testimonial }) {
   return (
-    <figure className="card flex w-[20rem] shrink-0 flex-col p-6 md:w-[22rem]">
+    <figure className="glass flex w-[20rem] shrink-0 flex-col rounded-3xl p-6 md:w-[23rem]">
       <div className="flex gap-0.5">
         {Array.from({ length: 5 }).map((_, s) => (
           <svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="#FF9900">
@@ -87,9 +100,19 @@ function Card({ t }: { t: Testimonial }) {
       <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink">
         „{t.quote}"
       </blockquote>
-      <figcaption className="mt-5 border-t border-black/[0.06] pt-4">
-        <div className="text-sm font-bold text-ink">{t.name}</div>
-        <div className="text-xs text-ink-muted">{t.role}</div>
+      <figcaption className="mt-5 flex items-center justify-between gap-4 border-t border-black/[0.06] pt-4">
+        <div className="min-w-0">
+          <div className="truncate text-sm font-bold text-ink">{t.name}</div>
+          <div className="truncate text-xs text-ink-muted">{t.role}</div>
+        </div>
+        {/* Person photo (placeholder avatar until real photos are supplied) */}
+        <div
+          className="grid h-14 w-14 shrink-0 place-items-center rounded-full text-sm font-bold text-white shadow-lift ring-2 ring-white"
+          style={{ backgroundImage: "var(--brand-gradient)" }}
+          aria-hidden
+        >
+          {initials(t.name)}
+        </div>
       </figcaption>
     </figure>
   );

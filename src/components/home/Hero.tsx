@@ -58,28 +58,29 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-grid mask-radial opacity-[0.3]" />
 
       <div className="container-x relative grid items-center gap-14 lg:grid-cols-[0.92fr_1.08fr]">
-        {/* Left: copy */}
-        <div>
+        {/* Left: copy (centered on mobile, left from md) */}
+        <div className="text-center md:text-left">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-ink shadow-soft">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-black/[0.06] bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink shadow-soft sm:text-xs sm:tracking-[0.16em]">
               <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
-              Amazon Full Service Wachstumspartner
+              <span className="sm:hidden">Amazon Full Service</span>
+              <span className="hidden sm:inline">Amazon Full Service Wachstumspartner</span>
             </span>
           </Reveal>
           <Reveal delay={0.06}>
-            <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl">
               Amazon-Wachstum ist keine Frage des{" "}
               <span className="text-gradient">Werbebudgets.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-muted">
+            <p className="mx-auto mt-6 max-w-xl text-balance text-lg leading-relaxed text-ink-muted md:mx-0">
               Wir machen euer Listing organisch so stark, dass es auch ohne Werbung
               verkauft. Erst dann kommt PPC dazu und arbeitet vom ersten Euro an profitabel.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-9 flex flex-wrap items-center justify-center gap-3 md:justify-start">
               <a href="/gespraech-vereinbaren" className="btn-primary !px-7 !py-4 text-base">
                 Potenzialanalyse buchen
               </a>
