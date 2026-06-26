@@ -25,7 +25,7 @@ export function DesignShowcase() {
           <Reveal>
             <div className="glass rounded-3xl p-5 md:p-7">
               <PlaceholderTile className="aspect-square w-full" label="Hauptbild" />
-              <div className="mt-4 grid grid-cols-3 gap-3">
+              <div className="mt-3 grid grid-cols-2 gap-3">
                 {Array.from({ length: 6 }).map((_, i) => (
                   <PlaceholderTile key={i} className="aspect-square w-full" label={`Bild ${i + 1}`} small />
                 ))}

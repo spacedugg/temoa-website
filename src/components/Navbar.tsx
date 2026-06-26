@@ -77,7 +77,21 @@ export function Navbar() {
                   </a>
                   {/* Mega-Menü */}
                   <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                    <div className="glass w-80 rounded-3xl p-2.5 shadow-lift">
+                    <div className="w-80 rounded-3xl border border-black/[0.06] bg-white p-2.5 shadow-[0_24px_60px_-20px_rgba(2,48,71,0.35)]">
+                      {/* Full Service zuerst, als Einstieg in die Übersicht */}
+                      <a
+                        href={l.href}
+                        className={clsx(
+                          "flex items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-bold transition-colors",
+                          pathname === l.href ? "bg-brand-50 text-brand-700" : "text-ink hover:bg-black/[0.04]"
+                        )}
+                      >
+                        Full Service
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </a>
+                      <div className="my-1.5 h-px bg-black/[0.06]" />
                       {l.children.map((c) => (
                         <a
                           key={c.href}
@@ -90,15 +104,6 @@ export function Navbar() {
                           {c.label}
                         </a>
                       ))}
-                      <a
-                        href={l.href}
-                        className="mt-1.5 flex items-center justify-between rounded-2xl border border-black/[0.06] bg-white px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brand-200"
-                      >
-                        Alle Leistungen ansehen
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                          <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </a>
                     </div>
                   </div>
                 </div>

@@ -27,6 +27,7 @@ export type CaseStudy = {
   displayName: string;
   mono: string; // short brand monogram for the logo badge
   bgImage?: string; // case preview background image
+  logo?: string; // brand logo for the preview (omitted for anonymised brands)
   anonymized: boolean;
   industry: string;
   marketplaces: string[];
@@ -48,6 +49,7 @@ export const cases: CaseStudy[] = [
     displayName: "Vitaworld",
     mono: "V",
     bgImage: "/case_studies/vitaworld.jpg",
+    logo: "/case_studies/vitaworld-logo.png",
     anonymized: false,
     industry: "Nahrungsergänzung",
     marketplaces: ["DE"],
@@ -105,6 +107,7 @@ export const cases: CaseStudy[] = [
     displayName: "HaA",
     mono: "H",
     bgImage: "/case_studies/HaA.jpg",
+    logo: "/case_studies/haa-logo.png",
     anonymized: false,
     industry: "Küche und Haushalt",
     marketplaces: ["DE"],
@@ -148,6 +151,7 @@ export const cases: CaseStudy[] = [
     displayName: "FUTUM",
     mono: "F",
     bgImage: "/case_studies/futum.jpg",
+    logo: "/case_studies/futum-logo.png",
     anonymized: false,
     industry: "Schädlingsbekämpfung",
     marketplaces: ["DE"],

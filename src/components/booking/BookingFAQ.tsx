@@ -22,7 +22,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Mit wem sprechen wir?",
-    a: "Direkt mit jemandem aus dem Team, der euren Account einschätzen kann. Kein Vertrieb ohne Fachwissen.",
+    a: "Direkt mit Clemens, einem der drei Gründer von temoa. Kein Vertrieb ohne Fachwissen, sondern jemand, der euren Account wirklich einschätzen kann.",
   },
   {
     q: "Für wen lohnt sich das?",
