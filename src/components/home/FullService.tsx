@@ -69,14 +69,11 @@ const services: {
   },
 ];
 
-function GCheck() {
+function Lead({ color }: { color: string }) {
   return (
-    <span
-      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
-      style={{ backgroundImage: "linear-gradient(135deg,#22C55E,#16A34A)" }}
-    >
-      <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    <span className={`mt-1 inline-flex shrink-0 ${color}`}>
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );
@@ -116,7 +113,7 @@ export function FullService() {
                   <ul className="mt-5 space-y-2">
                     {s.deliverables.map((d) => (
                       <li key={d} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <GCheck />
+                        <Lead color={TEXT[i % TEXT.length]} />
                         <span>{d}</span>
                       </li>
                     ))}

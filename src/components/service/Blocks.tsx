@@ -48,11 +48,25 @@ function Media({ className = "", label = "Bild" }: { className?: string; label?:
   );
 }
 
-function GreenCheck() {
+/** Quiet lead marker for neutral feature/deliverable lists.
+ *  A thin accent chevron, no checkmark. `color` is a text-* class. */
+function Lead({ color = "text-brand-500" }: { color?: string }) {
+  return (
+    <span className={`mt-1 inline-flex shrink-0 ${color}`}>
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+        <path d="M5 3l5 5-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+/** Neutral tick for true positive/negative comparisons (on dark panels). */
+function Tick({ onDark = false }: { onDark?: boolean }) {
   return (
     <span
-      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
-      style={{ backgroundImage: "linear-gradient(135deg,#22C55E,#16A34A)" }}
+      className={`mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${
+        onDark ? "bg-white/15 text-white" : "bg-navy/[0.07] text-navy"
+      }`}
     >
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
         <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -179,7 +193,7 @@ export function Cards({
                   <ul className="mt-4 space-y-2.5">
                     {it.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <GreenCheck />
+                        <Lead color={a.text} />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -284,7 +298,7 @@ export function Rows({
                   <ul className="mt-5 space-y-2.5">
                     {it.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <GreenCheck />
+                        <Lead color={a.text} />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -340,7 +354,7 @@ export function Compare({
             <ul className="mt-5 space-y-3">
               {right.points.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-sm font-medium leading-snug">
-                  <GreenCheck />
+                  <Tick onDark />
                   <span>{p}</span>
                 </li>
               ))}
@@ -415,7 +429,7 @@ export function AccentStrip({
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {items.map((it) => (
               <span key={it} className="inline-flex items-center gap-2 text-sm font-medium text-ink">
-                <GreenCheck />
+                <Lead color="text-cyan" />
                 {it}
               </span>
             ))}
@@ -446,7 +460,7 @@ export function BulletPanel({
         <div className="surface mt-10 grid gap-x-8 gap-y-5 p-8 sm:grid-cols-2 md:p-10">
           {points.map((p) => (
             <div key={p} className="flex items-start gap-3">
-              <GreenCheck />
+              <Lead />
               <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
             </div>
           ))}
@@ -485,7 +499,7 @@ export function ResultBlock({
               <ul className="mt-6 space-y-3">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-start gap-3 text-base font-medium">
-                    <GreenCheck />
+                    <Tick onDark />
                     <span>{b}</span>
                   </li>
                 ))}
