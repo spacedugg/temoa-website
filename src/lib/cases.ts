@@ -57,7 +57,7 @@ export const cases: CaseStudy[] = [
     sections: [
       {
         heading: "Ausgangslage",
-        body: "Solider Account auf Amazon DE, aber stark abhängig vom PPC-Druck. Wachstum war nur mit proportional steigenden Werbekosten möglich. FR, IT, ES und NL noch nicht ausgerollt.",
+        body: "Solider Account auf Amazon DE, aber stark abhängig vom PPC-Druck. Wachstum war nur mit proportional steigenden Werbekosten möglich. FR, IT, ES und NL noch nicht gestartet.",
       },
       {
         heading: "Unser Vorgehen",
@@ -193,7 +193,7 @@ export const cases: CaseStudy[] = [
     accent: "#0E7CA0",
     headline: "Saisonale Nachfrage profitabel skaliert",
     subheadline:
-      "Frühzeitig vorbereitet, dann über vier europäische Marktplätze parallel ausgerollt.",
+      "Frühzeitig vorbereitet, dann über vier europäische Marktplätze parallel aufgebaut.",
     preview: { value: "−35 %", label: "TACoS im Hauptmarkt", trend: "down" },
     sections: [
       {

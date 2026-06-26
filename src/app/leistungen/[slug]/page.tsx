@@ -35,7 +35,7 @@ const meta: Record<string, { name: string; description: string }> = {
   internationalisierung: {
     name: "Internationalisierung",
     description:
-      "Euer erprobtes Amazon-Setup auf weitere Marktplätze in Europa und den USA ausrollen. Lokalisiert statt übersetzt: eigener Content, eigene Keywords und eigene Kampagnen je Markt.",
+      "Eure Marke auf weiteren Amazon-Marktplätzen aufbauen. Lokalisiert statt übersetzt: eigener Content, eigene Keywords und eigene Kampagnen je Markt.",
   },
 };
 

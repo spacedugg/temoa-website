@@ -6,48 +6,47 @@ import { useRef } from "react";
 /* Schematic, claim-free diagrams that illustrate a mechanism.
    Relative widths only, no invented numbers. */
 
-/** Rollout visual: one proven home market expands to several marketplaces. */
-export function MarketRollout() {
+/** Market-agnostic visual: every new marketplace gets the full work,
+ *  no country codes named. */
+export function MarketWorkStrip() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const targets = ["FR", "IT", "ES", "NL", "US", "UK"];
+  const chips = ["Keywords", "Content", "Kampagnen"];
   return (
     <div ref={ref} className="surface p-6 md:p-7">
       <div className="flex items-center gap-2">
         <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-        <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">Ein Setup, mehrere Marktplätze</span>
+        <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">Jeder Marktplatz, die komplette Arbeit</span>
       </div>
 
-      <div className="mt-6 flex items-center gap-4 rounded-2xl p-4 text-white shadow-lift" style={{ backgroundImage: "var(--brand-gradient)" }}>
-        <span className="grid h-12 w-12 place-items-center rounded-xl bg-white/20 text-lg font-extrabold ring-1 ring-white/30">DE</span>
-        <div>
-          <div className="text-sm font-extrabold">Heimatmarkt</div>
-          <div className="text-xs text-white/85">Erprobtes Setup, das verkauft</div>
-        </div>
-      </div>
-
-      <div className="flex justify-center py-3 text-ink-faint">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path d="M12 4v14m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </div>
-
-      <div className="grid grid-cols-3 gap-2.5">
-        {targets.map((t, i) => (
+      <div className="mt-6 space-y-3">
+        {[0, 1, 2].map((m) => (
           <motion.div
-            key={t}
-            className="rounded-xl bg-navy/[0.04] py-3 text-center text-sm font-extrabold text-ink ring-1 ring-black/[0.05]"
-            initial={{ opacity: 0, y: 10 }}
+            key={m}
+            className="flex items-center gap-3 rounded-2xl bg-navy/[0.03] p-3.5 ring-1 ring-black/[0.05]"
+            initial={{ opacity: 0, y: 12 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.45, delay: 0.2 + i * 0.08 }}
+            transition={{ duration: 0.5, delay: 0.15 + m * 0.12 }}
           >
-            {t}
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 7h16l-1 4a3 3 0 0 1-3 2.4H8A3 3 0 0 1 5 11L4 7Z" />
+                <path d="M6 7l1-3h10l1 3M6 20h12M9 20v-5h6v5" />
+              </svg>
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {chips.map((c) => (
+                <span key={c} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-ink-muted ring-1 ring-black/[0.05]">
+                  {c}
+                </span>
+              ))}
+            </div>
           </motion.div>
         ))}
       </div>
 
       <p className="mt-5 text-xs leading-relaxed text-ink-faint">
-        Erprobtes Setup als Basis, je Markt lokalisiert: eigene Keywords, eigener Content, eigene Kampagnen.
+        Was ein Marktplatz an Recherche, Content und Kampagnen bekommt, bekommt jeder weitere genauso. Ohne Abkürzung.
       </p>
     </div>
   );

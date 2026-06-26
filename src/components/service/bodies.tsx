@@ -12,9 +12,8 @@ import {
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
-import { BudgetSplitDiagram, MarketRollout } from "./Diagrams";
-import { Quotes } from "../sections/SocialProof";
-import { testimonials } from "@/lib/testimonials";
+import { BudgetSplitDiagram, MarketWorkStrip } from "./Diagrams";
+import { Testimonials } from "../home/Testimonials";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -102,11 +101,11 @@ export function FullServiceBody() {
           },
           {
             n: "05",
-            title: "Das erprobte Setup auf neue Marktplätze ausgerollt.",
-            line: "Der komplette, erprobte Service, effizient auf weitere Marktplätze übertragen.",
+            title: "Jeder neue Marktplatz von Grund auf aufgebaut.",
+            line: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
             bullets: [
-              "Rollout in EU und US auf Basis des bereits funktionierenden Setups",
-              "Marktspezifische Keyword-Recherche je Marktplatz",
+              "Eigene Keyword-Recherche je Marktplatz",
+              "Content und Kampagnen für jeden Markt neu aufgesetzt",
               "Lokalisieren statt übersetzen",
             ],
           },
@@ -129,6 +128,7 @@ export function FullServiceBody() {
           "Ihr habt den Kopf frei, wir führen das Tagesgeschäft.",
         ]}
       />
+      <Testimonials tone="blue" />
       <ServiceCTA
         title="Wir zeigen euch, wo in eurem Account das Wachstum liegt."
         sub="In einer kostenlosen Potenzialanalyse, konkret auf eure Marke bezogen."
@@ -194,6 +194,7 @@ export function StrategieBody() {
         text="Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme."
         reverse
       />
+      <Testimonials tone="white" />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
         sub="In der kostenlosen Potenzialanalyse skizzieren wir die ersten Schritte eurer Strategie."
@@ -248,11 +249,7 @@ export function ContentBody() {
           ],
         }}
       />
-      <Quotes
-        tone="white"
-        title={<>Marken, die mit besserem Content <span className="text-gradient">mehr verkaufen.</span></>}
-        items={[testimonials[3], testimonials[2], testimonials[4]]}
-      />
+      <Testimonials tone="white" />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
         sub="In der kostenlosen Potenzialanalyse zeigen wir euch, wo euer Content Käufer verliert."
@@ -306,8 +303,8 @@ export function AdvertisingBody() {
             subtitle: "Erst analysieren, dann skalieren",
             bullets: [
               "Marge und Deckungsbeitrag je Produkt",
-              "Welche Produkte überhaupt profitabel skalieren",
-              "Nur diese in die Skalierung, der Rest wird gehalten",
+              "Welche Produkte überhaupt profitabel wachsen können",
+              "Nur diese bekommen mehr Budget, der Rest wird gehalten",
               "Optimiert wird auf den Gewinn, nicht nur auf den ACoS",
             ],
           },
@@ -349,6 +346,7 @@ export function AdvertisingBody() {
           },
         ]}
       />
+      <Testimonials tone="white" />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
@@ -412,6 +410,7 @@ export function AccountBody() {
         title="Ihr bekommt die Ergebnisse."
         benefits={["Planbare Performance", "Transparente KPIs", "Profitables Wachstum", "Volle Entlastung"]}
       />
+      <Testimonials tone="blue" />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
         sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
@@ -428,10 +427,10 @@ export function InternationalisierungBody() {
         eyebrow="Internationalisierung"
         title={
           <>
-            Was in einem Markt verkauft, <span className="text-gradient">verkauft auch in den nächsten.</span>
+            Neue Länder testen, <span className="text-gradient">profitabel wachsen.</span>
           </>
         }
-        sub="Wir rollen euer erprobtes Setup auf weitere Marktplätze in Europa und den USA aus. Lokalisiert, nicht übersetzt."
+        sub="Wir entwickeln eure Internationalisierungsstrategie und realisieren den Markteintritt über Amazons internationale Marktplätze, effizient, risikoarm und datenbasiert."
       />
       <Points
         tone="blue"
@@ -440,45 +439,45 @@ export function InternationalisierungBody() {
         points={[
           "Listings werden übersetzt, statt für den Markt geschrieben.",
           "Jeder Marktplatz hat eigene Suchbegriffe und Kaufgewohnheiten.",
-          "Kampagnen aus dem Heimatmarkt werden eins zu eins kopiert.",
+          "Kampagnen aus dem Startmarkt werden eins zu eins übernommen.",
           "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
         ]}
-        bridge="Ein neuer Marktplatz ist ein neuer Markt, kein übersetzter alter."
-        aside={<MarketRollout />}
+        bridge="Jeder Marktplatz hat eigene Käufer, eigene Suche, eigenen Wettbewerb. Also fängt jeder bei uns von vorne an."
+        aside={<MarketWorkStrip />}
       />
       <Cards
         tone="white"
         eyebrow="Unser Vorgehen"
-        title="Wie wir euch international ausrollen."
+        title="Was wir für jeden Marktplatz neu machen."
         cols={2}
         items={[
           {
-            title: "Setup-Transfer",
-            subtitle: "Das Erprobte als Basis",
-            body: "Wir übertragen die Struktur, die im Heimatmarkt funktioniert, statt jeden Markt bei null zu beginnen.",
-          },
-          {
-            title: "Lokalisierung",
-            subtitle: "Geschrieben für den Markt",
-            body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz lokalisiert, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
-          },
-          {
-            title: "Marktspezifische Keywords",
+            title: "Eigene Keyword-Recherche",
             subtitle: "Jeder Markt sucht anders",
-            body: "Eigene Keyword-Recherche pro Marktplatz, statt übersetzter Begriffe aus dem Heimatmarkt.",
+            body: "Für jeden Marktplatz recherchieren wir die Suchbegriffe neu, statt sie aus dem Startmarkt zu übersetzen.",
           },
           {
-            title: "Kampagnen je Marktplatz",
+            title: "Lokalisierter Content",
+            subtitle: "Geschrieben für den Markt",
+            body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz neu erstellt, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
+          },
+          {
+            title: "Eigene Kampagnen",
             subtitle: "Lokal gesteuert",
-            body: "Sponsored Products, Brands und Display je Markt aufgesetzt und über den lokalen TACoS gesteuert.",
+            body: "Sponsored Products, Brands und Display je Marktplatz neu aufgesetzt und über den lokalen TACoS gesteuert.",
+          },
+          {
+            title: "Markt für Markt",
+            subtitle: "Der gleiche volle Aufwand",
+            body: "Die komplette Arbeit, die ein Marktplatz bekommt, bekommt auch der nächste. Ohne Abkürzung.",
           },
         ]}
       />
       <AccentStrip
         tone="blue"
         eyebrow="Aus der Praxis"
-        title="Über vier Marktplätze parallel ausgerollt."
-        items={["DE, IT, FR, ES gleichzeitig vorbereitet", "TACoS im Hauptmarkt −35 %", "Italien: Klicks +110 % bei sinkendem ACoS"]}
+        title="Vier Marktplätze parallel aufgebaut."
+        items={["Saisonstart auf allen Märkten vorbereitet", "TACoS im Hauptmarkt −35 %", "Zweitmarkt: Klicks +110 % bei sinkendem ACoS"]}
       />
       <Compare
         tone="white"
@@ -488,9 +487,9 @@ export function InternationalisierungBody() {
           label: "Nur übersetzt",
           points: [
             "Titel wörtlich übersetzt, an den Suchbegriffen vorbei",
-            "Gleiche Keywords wie im Heimatmarkt",
+            "Gleiche Keywords wie im Startmarkt",
             "Kampagnen kopiert, Budget ohne lokalen Bezug",
-            "Conversion bleibt hinter dem Heimatmarkt zurück",
+            "Conversion bleibt hinter dem Startmarkt zurück",
           ],
         }}
         right={{
@@ -503,11 +502,7 @@ export function InternationalisierungBody() {
           ],
         }}
       />
-      <Quotes
-        tone="blue"
-        title={<>Schon international <span className="text-gradient">unterwegs.</span></>}
-        items={[testimonials[2], testimonials[1], testimonials[0]]}
-      />
+      <Testimonials tone="blue" />
       <ServiceCTA
         title="Welcher Markt ist euer nächster?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."

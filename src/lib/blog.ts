@@ -102,8 +102,8 @@ export const categories: Category[] = [
   },
   {
     key: "Agentur & Zusammenarbeit",
+    label: "Partner & Zusammenarbeit",
     slug: "zusammenarbeit",
-    label: "Agentur & Zusammenarbeit",
     short: "Zusammenarbeit",
     accent: "#2E7D9A",
     icon: "target",

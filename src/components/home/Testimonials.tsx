@@ -4,10 +4,12 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { Ambient } from "../ui/Ambient";
 import { testimonials, initials, type Testimonial } from "@/lib/testimonials";
 
-export function Testimonials() {
+export function Testimonials({ tone = "white" }: { tone?: "white" | "blue" } = {}) {
+  const bg = tone === "blue" ? "bg-[#EDF5FB]" : "bg-white";
+  const edge = tone === "blue" ? "#EDF5FB" : "#ffffff";
   return (
-    <section className="relative isolate overflow-hidden bg-white py-20 md:py-24">
-      <Ambient />
+    <section className={`relative isolate overflow-hidden ${bg} py-20 md:py-24`}>
+      {tone === "white" && <Ambient />}
       <div className="container-x">
         <SectionHeading
           eyebrow="Kundenstimmen"
@@ -21,8 +23,8 @@ export function Testimonials() {
       </div>
 
       <div className="group relative mt-12">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r to-transparent md:w-28" style={{ ["--tw-gradient-from" as string]: edge, backgroundImage: `linear-gradient(to right, ${edge}, transparent)` }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l to-transparent md:w-28" style={{ backgroundImage: `linear-gradient(to left, ${edge}, transparent)` }} />
         <div className="flex w-max animate-marquee gap-5 px-5 group-hover:[animation-play-state:paused]">
           {[...testimonials, ...testimonials].map((t, i) => (
             <Card key={`${t.name}-${i}`} t={t} />
