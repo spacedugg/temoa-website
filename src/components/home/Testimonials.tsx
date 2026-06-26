@@ -53,13 +53,24 @@ function Card({ t }: { t: Testimonial }) {
           <div className="truncate text-sm font-bold text-ink">{t.name}</div>
           <div className="truncate text-xs text-ink-muted">{t.role}</div>
         </div>
-        {/* Person photo (placeholder avatar until real photos are supplied) */}
+        {/* Person photo, falls back to initials if the image is missing */}
         <div
-          className="grid h-14 w-14 shrink-0 place-items-center rounded-full text-sm font-bold text-white shadow-lift ring-2 ring-white"
+          className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full text-sm font-bold text-white shadow-lift ring-2 ring-white"
           style={{ backgroundImage: "var(--brand-gradient)" }}
-          aria-hidden
         >
-          {initials(t.name)}
+          <span aria-hidden>{initials(t.name)}</span>
+          {t.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={t.image}
+              alt={t.name}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          )}
         </div>
       </figcaption>
     </figure>

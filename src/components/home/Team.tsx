@@ -1,13 +1,15 @@
 "use client";
 
 import { SectionHeading } from "../ui/SectionHeading";
-import { RevealGroup, RevealItem } from "../ui/Reveal";
+import { Reveal } from "../ui/Reveal";
 
-/* Drei Lifestyle-Bilder statt Einzelporträts. Echte Bilder liefert der Kunde. */
+/* Asymmetric photo collage. "Main" is the lead shot and comes first. */
 const shots = [
-  { label: "Team beim Kickoff" },
-  { label: "Im Tagesgeschäft" },
-  { label: "Strategie-Session" },
+  { src: "/team/Main.jpg", area: "col-span-2 row-span-2 md:col-span-3 md:row-span-2", lead: true },
+  { src: "/team/DSCF2442.jpg", area: "col-span-2 md:col-span-3" },
+  { src: "/team/DSCF2526.jpg", area: "md:col-span-1" },
+  { src: "/team/DSCF2749.jpg", area: "md:col-span-1" },
+  { src: "/team/DSCF2497-2.jpg", area: "col-span-2 md:col-span-1" },
 ];
 
 export function Team() {
@@ -25,26 +27,29 @@ export function Team() {
           description="Amazon-Spezialisten, die eure Marke kennen wie die eigene."
         />
 
-        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
-          {shots.map((s) => (
-            <RevealItem key={s.label}>
-              <div className="group relative overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06]">
-                <div
-                  className="aspect-[4/3] w-full transition-transform duration-500 group-hover:scale-[1.04]"
-                  style={{ background: "linear-gradient(135deg,#eef1f5,#e2e7ee)" }}
+        <Reveal delay={0.08}>
+          <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-3 md:auto-rows-[15.5rem] md:grid-cols-6">
+            {shots.map((s) => (
+              <div
+                key={s.src}
+                className={`group relative overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] ${s.area}`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={s.src}
+                  alt=""
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">
-                    {s.label}
-                  </span>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep/55 to-transparent p-4 pt-12">
-                  <span className="text-sm font-semibold text-white">temoa</span>
-                </div>
+                {s.lead && (
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep/60 to-transparent p-5 pt-14">
+                    <span className="text-base font-bold text-white">temoa</span>
+                  </div>
+                )}
               </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );

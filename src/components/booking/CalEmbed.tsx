@@ -5,7 +5,7 @@ import { useEffect } from "react";
 /* Cal.com inline embed. Set the real booking link in CAL_LINK (e.g.
    "temoa/potenzialanalyse"); until then a styled scheduler placeholder
    is shown so the page is complete and on-brand. */
-const CAL_LINK = ""; // <- echten Cal.com-Link hier eintragen, z. B. "temoa/potenzialanalyse"
+const CAL_LINK = "temoa-clemens/temoa-strategiegesprach";
 
 export function CalEmbed() {
   useEffect(() => {
@@ -44,7 +44,27 @@ export function CalEmbed() {
   }, []);
 
   if (CAL_LINK) {
-    return <div id="cal-inline" className="min-h-[620px] w-full overflow-hidden rounded-3xl" />;
+    return (
+      <div>
+        <div className="relative min-h-[640px] overflow-hidden rounded-3xl ring-1 ring-black/[0.06]">
+          <div className="pointer-events-none absolute inset-0 grid place-items-center text-sm text-ink-faint">
+            Kalender wird geladen …
+          </div>
+          <div id="cal-inline" className="relative min-h-[640px] w-full" />
+        </div>
+        <p className="mt-4 text-center text-sm text-ink-faint">
+          Kalender lädt nicht?{" "}
+          <a
+            href={`https://cal.com/${CAL_LINK}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-brand-600 underline underline-offset-2"
+          >
+            Termin direkt bei Cal.com buchen
+          </a>
+        </p>
+      </div>
+    );
   }
 
   return <SchedulerPlaceholder />;
