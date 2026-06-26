@@ -10,6 +10,7 @@ import {
   ResultBlock,
   ServiceCTA,
 } from "./Blocks";
+import { ContentShowcase } from "./ContentShowcase";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -216,34 +217,7 @@ export function ContentBody() {
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing datenbasiert: Was sucht euer Kunde, woran scheitert die Kaufentscheidung, wo schlägt euch der Wettbewerb. Daraus bauen wir Content, der konvertiert und organisch rankt."
       />
-      <Cards
-        tone="white"
-        eyebrow="Was wir liefern"
-        title="Was wir liefern."
-        cols={2}
-        items={[
-          {
-            title: "Builder-Content",
-            bullets: [
-              "Hauptbilder: entscheiden über die Klickrate im Suchergebnis",
-              "Produktbilder: machen Nutzen und Anwendung in Sekunden klar",
-              "A+ und Premium A+ Content: beantwortet die Fragen, die sonst zum Abbruch führen",
-              "Brand Store: eure Markenwelt mit Cross-Selling über das ganze Sortiment",
-              "Brand Story: macht aus einem Produkt eine Marke",
-            ],
-          },
-          {
-            title: "Text & SEO",
-            bullets: [
-              "Titel: die wichtigsten Keywords vorn, lesbar statt vollgestopft",
-              "Bullet Points: Nutzen statt Features, an den Kaufeinwänden ausgerichtet, fürs Lesen am Handy gebaut",
-              "Produktbeschreibung: erklärt, räumt Zweifel aus und führt zum Kauf",
-              "Backend Keywords: fangen Suchbegriffe ab, die vorne keinen Platz haben",
-              "Kategorien und Browse Nodes: richtig einsortiert, damit Amazon euch den richtigen Käufern zeigt",
-            ],
-          },
-        ]}
-      />
+      <ContentShowcase />
       <Compare
         tone="blue"
         eyebrow="Vorher / Nachher"
