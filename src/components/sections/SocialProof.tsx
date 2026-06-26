@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
-import { testimonials, initials, type Testimonial } from "@/lib/testimonials";
 
 const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
 
@@ -48,64 +46,5 @@ function Stars() {
         </svg>
       ))}
     </span>
-  );
-}
-
-/** Static testimonial cards for subpages. */
-export function Quotes({
-  eyebrow = "Kundenstimmen",
-  title,
-  items,
-  tone = "blue",
-}: {
-  eyebrow?: string;
-  title?: React.ReactNode;
-  items?: Testimonial[];
-  tone?: "white" | "blue";
-}) {
-  const list = items ?? testimonials.slice(0, 3);
-  return (
-    <section className={`relative ${tone === "blue" ? "bg-[#EDF5FB]" : "bg-white"} py-16 md:py-20`}>
-      <div className="container-x">
-        <div className="mx-auto max-w-2xl text-center">
-          <Reveal>
-            <span className="eyebrow justify-center">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-              {eyebrow}
-            </span>
-          </Reveal>
-          {title && (
-            <Reveal delay={0.05}>
-              <h2 className="mt-3 text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">{title}</h2>
-            </Reveal>
-          )}
-        </div>
-        <RevealGroup className="mx-auto mt-10 grid max-w-5xl gap-5 md:grid-cols-3" stagger={0.07}>
-          {list.map((t) => (
-            <RevealItem key={t.name} className="h-full">
-              <figure className="surface flex h-full flex-col p-6">
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, s) => (
-                    <svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="#FF9900">
-                      <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink">„{t.quote}"</blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-black/[0.06] pt-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full text-sm font-bold text-white" style={{ backgroundImage: "var(--brand-gradient)" }} aria-hidden>
-                    {initials(t.name)}
-                  </span>
-                  <div className="min-w-0">
-                    <div className="truncate text-sm font-bold text-ink">{t.name}</div>
-                    <div className="truncate text-xs text-ink-muted">{t.role}</div>
-                  </div>
-                </figcaption>
-              </figure>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </div>
-    </section>
   );
 }

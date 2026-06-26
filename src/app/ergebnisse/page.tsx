@@ -4,7 +4,8 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { CaseStudiesFull } from "@/components/cases/CaseStudiesFull";
 import { ServiceCTA } from "@/components/service/Blocks";
-import { ProofStrip, Quotes } from "@/components/sections/SocialProof";
+import { ProofStrip } from "@/components/sections/SocialProof";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
   title: "Case Studies · temoa",
@@ -29,10 +30,7 @@ export default function ErgebnissePage() {
         />
         <ProofStrip tone="blue" />
         <CaseStudiesFull />
-        <Quotes
-          tone="white"
-          title={<>Was unsere <span className="text-gradient">Kunden sagen.</span></>}
-        />
+        <Testimonials tone="white" />
         <ServiceCTA
           title="Lasst uns über eure Marke sprechen."
           sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in euren Listings und Kampagnen das nächste Umsatzwachstum liegt."
