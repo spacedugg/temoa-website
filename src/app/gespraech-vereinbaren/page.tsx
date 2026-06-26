@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PageHero } from "@/components/ui/PageHero";
-import { CTA } from "@/components/sections/CTA";
-import { ContactForm } from "@/components/sections/ContactForm";
+import { ComingSoon } from "@/components/sections/ComingSoon";
 
 export const metadata: Metadata = {
-  title: "Gespräch buchen · TEMOA",
-  description:
-    "30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck.",
+  title: "Potenzialanalyse buchen · temoa",
+  description: "Potenzialanalyse buchen. Diese Seite bauen wir gerade neu.",
 };
 
 export default function GespraechBuchenPage() {
@@ -16,13 +13,11 @@ export default function GespraechBuchenPage() {
     <>
       <Navbar />
       <main>
-        <PageHero
+        <ComingSoon
           eyebrow="Gespräch buchen"
-          title={<>Lasst uns über euer <span className="text-gradient">Marktplatz-Potenzial</span> sprechen.</>}
-          description="30 Minuten, kostenfrei, direkt mit Clemens. Wir schauen uns euer Konto an und sagen ehrlich, wo das größte Potenzial liegt – ohne Verkaufsdruck."
+          title="Potenzialanalyse buchen"
+          sub="Die Online-Buchung richten wir gerade ein. Der Prozessablauf und der Kalender folgen in Kürze."
         />
-        <CTA />
-        <ContactForm />
       </main>
       <Footer />
     </>
