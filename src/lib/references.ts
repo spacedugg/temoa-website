@@ -1,14 +1,20 @@
 import { createClient, type Client } from "@libsql/client";
+import snapshot from "@/data/references.json";
 
-/* Liest die Referenz-Galerie (Design-Beispiele) aus der Sales-Room-
- * Datenbank (Turso / libsql). Quelle der Wahrheit ist NICHT der Blob,
- * sondern die Tabellen reference_listings + reference_images: dort legt das
- * Sales-Room-Admin Kategorie, Layout (mit/ohne Lücke), Reihenfolge
- * (Hintergrund = order 0), Bildmaße, Medientyp und Brand-Story-Karten-
- * Metadaten fest. Die Bild-URLs in der DB zeigen direkt auf den Blob.
+/* Design-Beispiele für die Website.
  *
- * Nötige Env-Variablen (read-only Token genügt):
- *   TURSO_DATABASE_URL, TURSO_AUTH_TOKEN
+ * Zwei Quellen, in dieser Reihenfolge:
+ *  1. Statischer Snapshot (src/data/references.json) — der eingefrorene
+ *     Stand aus dem Sales Room. Sobald er Listings enthält, ist er die
+ *     alleinige Quelle: keine DB, kein Live-Zugriff, voll entkoppelt.
+ *  2. Sales-Room-DB (Turso / libsql) — nur fürs einmalige Kopieren bzw.
+ *     in der Entwicklung. Quelle der Wahrheit dort sind reference_listings
+ *     + reference_images (Kategorie, Layout, Reihenfolge mit Hintergrund =
+ *     order 0, Bildmaße, Medientyp, Brand-Story-Karten-Metadaten).
+ *
+ * Einmaliges Kopieren: bei gesetztem TURSO_DATABASE_URL + TURSO_AUTH_TOKEN
+ * liefert /api/references-snapshot den Stand als references.json. Datei ins
+ * Repo legen, danach können die Turso-Variablen wieder entfernt werden.
  */
 
 export type RefCategory = "main_images" | "a_plus" | "brand_store" | "brand_story";
@@ -45,7 +51,7 @@ export type RefListing = {
 export type RefData = Record<RefCategory, RefListing[]>;
 
 export type RefDiag = {
-  source: "db" | "none";
+  source: "static" | "db" | "none";
   note?: string;
   listingCount: number;
   imageCount: number;
@@ -90,8 +96,30 @@ const num = (v: unknown): number | null =>
 
 let _cache: { data: RefData; diag: RefDiag } | null = null;
 
+function countListings(d: RefData): number {
+  return CATS.reduce((n, c) => n + d[c].length, 0);
+}
+
 export async function getReferencesRaw(): Promise<{ data: RefData; diag: RefDiag }> {
   if (_cache) return _cache;
+
+  // 1. Static snapshot wins as soon as it has content.
+  const snap = snapshot as unknown as RefData;
+  if (snap && countListings(snap) > 0) {
+    const diag: RefDiag = {
+      source: "static",
+      listingCount: countListings(snap),
+      imageCount: 0,
+      counts: { main_images: 0, a_plus: 0, brand_store: 0, brand_story: 0 },
+      envKeys: envKeysSeen(),
+    };
+    for (const c of CATS) diag.counts[c] = snap[c].reduce((n, l) => n + l.images.length, 0);
+    diag.imageCount = CATS.reduce((n, c) => n + diag.counts[c], 0);
+    _cache = { data: snap, diag };
+    return _cache;
+  }
+
+  // 2. Otherwise read the Sales-Room DB (copy step / development).
   const data = empty();
   const diag: RefDiag = {
     source: "none",
