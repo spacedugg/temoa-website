@@ -3,16 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "../ui/Reveal";
 import { ExpandedShell } from "./ExpandedShell";
-import type { RefData, RefCategory, RefListing, RefImage } from "@/lib/references";
+import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from "@/lib/references";
 
 /* ============================================================================
  * Design-Beispiele Galerie
  * Baut die Sales-Room-Content-Showcases (Listings, EBC/A+, Brand Stores,
- * Brand Stories) nach der Design- & Verhaltens-Spezifikation nach. Maße,
- * Seitenverhältnisse und Slide-/Zoom-Verhalten folgen der Guideline; die
- * Quelle sind die References-Blobs (kein Vorher/Nachher, keine Geschenk-
- * Badge, da hier ausschließlich freie Referenz-Beispiele gezeigt werden).
- * Seitenverhältnisse werden clientseitig aus den echten Bildmaßen abgeleitet.
+ * Brand Stories) nach der Design- & Verhaltens-Spezifikation nach. Kategorie,
+ * Layout (mit/ohne Lücke), Reihenfolge (Hintergrund = order 0), Bildmaße,
+ * Medientyp und Brand-Story-Karten kommen aus der Sales-Room-DB.
+ * Vorher/Nachher und Geschenk-Badge entfallen: hier zeigen wir ausschließlich
+ * freie Referenz-Beispiele, nicht den Kunden-Vergleich aus dem Sales Room.
  * ========================================================================== */
 
 const TABS: { key: RefCategory; label: string; blurb: string }[] = [
@@ -22,29 +22,8 @@ const TABS: { key: RefCategory; label: string; blurb: string }[] = [
   { key: "brand_story", label: "Brand Stories", blurb: "Aus einem Produkt wird eine Marke, die im Kopf bleibt." },
 ];
 
-const isVideo = (url: string) => /\.(mp4|webm|mov|m4v)(\?|$)/i.test(url);
-
-/* ---- shared: read natural aspect (w/h) for a set of urls, client-side ---- */
-function useAspects(urls: string[]) {
-  const [map, setMap] = useState<Record<string, number>>({});
-  useEffect(() => {
-    let alive = true;
-    urls.forEach((url) => {
-      if (!url || isVideo(url)) return;
-      const img = new Image();
-      img.onload = () => {
-        if (!alive || !img.naturalWidth || !img.naturalHeight) return;
-        setMap((m) => (m[url] ? m : { ...m, [url]: img.naturalWidth / img.naturalHeight }));
-      };
-      img.src = url;
-    });
-    return () => {
-      alive = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [urls.join("|")]);
-  return map;
-}
+const aspect = (im?: RefImage | null, fb = 1) =>
+  im && im.width && im.height ? im.width / im.height : fb;
 
 const guard = (e: React.MouseEvent) => {
   const t = e.target as HTMLElement;
@@ -52,7 +31,7 @@ const guard = (e: React.MouseEvent) => {
 };
 
 const MaximizeBadge = () => (
-  <span className="pointer-events-none absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink shadow-lift backdrop-blur transition group-hover:scale-105">
+  <span className="pointer-events-none absolute right-3 top-3 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink shadow-lift backdrop-blur transition group-hover:scale-105">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
     </svg>
@@ -63,25 +42,34 @@ const ScrollFade = () => (
   <div className="pointer-events-none sticky bottom-0 -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
 );
 
+/* hook: paging-Index zwischen den Listings einer Kategorie */
+function usePager(count: number) {
+  const [idx, setIdx] = useState<number | null>(null);
+  const open = (i: number) => setIdx(i);
+  const close = () => setIdx(null);
+  const prev = () => setIdx((v) => (v! > 0 ? v! - 1 : v));
+  const next = () => setIdx((v) => (v! < count - 1 ? v! + 1 : v));
+  return { idx, open, close, prev, next, hasPrev: idx != null && idx > 0, hasNext: idx != null && idx < count - 1 };
+}
+
 /* ============================================================================
  * 1. Produktbilder / Listings — Hero + 3×2-Grid, ganzes Listing vergrößert
  * ========================================================================== */
 function ListingCard({ listing, onOpen, interactive = true }: { listing: RefListing; onOpen?: () => void; interactive?: boolean }) {
-  const [hero, ...rest] = listing.images;
-  const [heroAspect, setHeroAspect] = useState(1);
-  const details = rest.slice(0, 6);
+  const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
+  const details = listing.images.filter((i) => i !== hero).slice(0, 6);
+  const [heroAspect, setHeroAspect] = useState(() => aspect(hero, 1));
 
   return (
     <div
-      className={`group relative w-full rounded-3xl p-3 shadow-lift ring-1 ring-black/[0.06] md:p-5 ${
-        interactive ? "cursor-zoom-in bg-white transition hover:ring-black/[0.12]" : "bg-white"
+      className={`group relative w-full rounded-3xl bg-white p-3 shadow-lift ring-1 ring-black/[0.06] md:p-5 ${
+        interactive ? "cursor-zoom-in transition hover:ring-black/[0.12]" : ""
       }`}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
     >
       {interactive && <MaximizeBadge />}
       <div className="grid gap-2 md:gap-3" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
-        {/* Hero */}
         <div className="overflow-hidden rounded-2xl bg-canvas-alt ring-1 ring-black/[0.04]" style={{ aspectRatio: heroAspect }}>
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
@@ -91,13 +79,13 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
               loading="lazy"
               onLoad={(e) => {
                 const t = e.currentTarget;
-                if (t.naturalWidth && t.naturalHeight) setHeroAspect(t.naturalWidth / t.naturalHeight);
+                if (!(hero.width && hero.height) && t.naturalWidth && t.naturalHeight)
+                  setHeroAspect(t.naturalWidth / t.naturalHeight);
               }}
               className="h-full w-full object-contain"
             />
           )}
         </div>
-        {/* 3×2 detail grid */}
         <div className="grid grid-cols-3 grid-rows-2 gap-2 md:gap-3" style={{ aspectRatio: "3 / 2" }}>
           {Array.from({ length: 6 }).map((_, i) => {
             const im = details[i];
@@ -117,28 +105,21 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
 }
 
 function ListingGallery({ listings }: { listings: RefListing[] }) {
-  const [idx, setIdx] = useState<number | null>(null);
+  const p = usePager(listings.length);
   return (
     <>
       <div className="relative mx-auto max-w-[1100px]">
         <div className="space-y-6 overflow-y-auto pr-1" style={{ maxHeight: "min(78vh, 760px)" }}>
           {listings.map((l, i) => (
-            <ListingCard key={l.id} listing={l} onOpen={() => setIdx(i)} />
+            <ListingCard key={l.id} listing={l} onOpen={() => p.open(i)} />
           ))}
         </div>
         <ScrollFade />
       </div>
-
-      {idx != null && (
-        <ExpandedShell
-          onClose={() => setIdx(null)}
-          hasPrev={idx > 0}
-          hasNext={idx < listings.length - 1}
-          onPrev={() => setIdx((v) => (v! > 0 ? v! - 1 : v))}
-          onNext={() => setIdx((v) => (v! < listings.length - 1 ? v! + 1 : v))}
-        >
+      {p.idx != null && (
+        <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
           <div className="overflow-y-auto rounded-3xl bg-white p-3 md:p-5" style={{ width: "min(94vw, 1040px)", maxHeight: "92vh" }}>
-            <ListingCard listing={listings[idx]} interactive={false} />
+            <ListingCard listing={listings[p.idx]} interactive={false} />
           </div>
         </ExpandedShell>
       )}
@@ -149,67 +130,61 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
 /* ============================================================================
  * 2./3. EBC Content — 3-spaltiges Masonry, ganzer Stack fit-to-viewport
  * ========================================================================== */
-function EbcStack({ images, expanded = false }: { images: RefImage[]; expanded?: boolean }) {
-  const aspects = useAspects(images.map((i) => i.url));
+function EbcStack({ listing, expanded = false }: { listing: RefListing; expanded?: boolean }) {
+  const gap = listing.layout !== "ebc_seamless";
+  const fit = gap ? "object-contain" : "object-cover";
+  const imgs = listing.images;
   if (expanded) {
-    // stackAspect = 1 / Σ(h_i / w_i)
-    const inv = images.reduce((s, im) => s + 1 / (aspects[im.url] || 970 / 600), 0);
+    const inv = imgs.reduce((s, im) => s + 1 / aspect(im, 970 / 600), 0);
     const stackAspect = inv > 0 ? 1 / inv : 0.6;
     return (
       <div
         className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lift"
-        style={{ aspectRatio: stackAspect, maxWidth: "min(88vw, 560px)", maxHeight: "84vh", gap: "6px" }}
+        style={{ aspectRatio: stackAspect, maxWidth: "min(88vw, 560px)", maxHeight: "84vh", gap: gap ? "6px" : 0 }}
       >
-        {images.map((im) => (
+        {imgs.map((im) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={im.slot} src={im.url} alt="" className="w-full object-contain" style={{ flex: `${1 / (aspects[im.url] || 970 / 600)} 1 0` }} />
+          <img key={im.order} src={im.url} alt="" className={`w-full ${fit}`} style={{ flex: `${1 / aspect(im, 970 / 600)} 1 0` }} />
         ))}
       </div>
     );
   }
   return (
-    <div className="flex flex-col gap-[6px] overflow-hidden rounded-2xl bg-white">
-      {images.map((im) => (
+    <div className={`flex flex-col overflow-hidden rounded-2xl ${gap ? "gap-[6px] bg-white" : "gap-0"}`}>
+      {imgs.map((im) => (
         // eslint-disable-next-line @next/next/no-img-element
-        <img key={im.slot} src={im.url} alt="" loading="lazy" className="w-full object-contain" />
+        <img key={im.order} src={im.url} alt="" loading="lazy" className={`w-full ${fit}`} />
       ))}
     </div>
   );
 }
 
 function EbcGallery({ listings }: { listings: RefListing[] }) {
-  const [idx, setIdx] = useState<number | null>(null);
+  const p = usePager(listings.length);
   return (
     <>
       <div className="relative mx-auto max-w-[1100px]">
         <div className="overflow-y-auto" style={{ maxHeight: "min(82vh, 760px)" }}>
-          <div className="gap-4 [column-fill:_balance] columns-1 sm:columns-2 lg:columns-3">
+          <div className="columns-1 gap-4 [column-fill:_balance] sm:columns-2 lg:columns-3">
             {listings.map((l, i) => (
               <button
                 key={l.id}
                 type="button"
-                onClick={() => setIdx(i)}
+                onClick={() => p.open(i)}
                 onContextMenu={guard}
                 className="group relative mb-4 block w-full break-inside-avoid cursor-zoom-in rounded-2xl shadow-lift ring-1 ring-black/[0.06] transition hover:ring-black/[0.12]"
               >
                 <MaximizeBadge />
-                <EbcStack images={l.images} />
+                <EbcStack listing={l} />
               </button>
             ))}
           </div>
         </div>
         <ScrollFade />
       </div>
-
-      {idx != null && (
-        <ExpandedShell
-          onClose={() => setIdx(null)}
-          hasPrev={idx > 0}
-          hasNext={idx < listings.length - 1}
-          onPrev={() => setIdx((v) => (v! > 0 ? v! - 1 : v))}
-          onNext={() => setIdx((v) => (v! < listings.length - 1 ? v! + 1 : v))}
-        >
-          <EbcStack images={listings[idx].images} expanded />
+      {p.idx != null && (
+        <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
+          <EbcStack listing={listings[p.idx]} expanded />
         </ExpandedShell>
       )}
     </>
@@ -219,10 +194,8 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
 /* ============================================================================
  * 4. Brand Stores — 2:3-Teaser, Play -> groß zentriert (Auto-Scroll / MP4)
  * ========================================================================== */
-function StoreThumb({ listing, onOpen }: { listing: RefListing; onOpen: () => void }) {
-  const media = listing.images[0];
-  if (!media) return null;
-  const video = isVideo(media.url);
+function StoreThumb({ media, onOpen }: { media: RefImage; onOpen: () => void }) {
+  const video = media.mediaType === "video";
   return (
     <button
       type="button"
@@ -248,8 +221,9 @@ function StoreThumb({ listing, onOpen }: { listing: RefListing; onOpen: () => vo
 }
 
 function StoreExpanded({ media }: { media: RefImage }) {
-  const video = isVideo(media.url);
+  const video = media.mediaType === "video";
   const imgRef = useRef<HTMLImageElement>(null);
+  const ratio = aspect(media, 9 / 16);
 
   useEffect(() => {
     if (video) return;
@@ -297,7 +271,7 @@ function StoreExpanded({ media }: { media: RefImage }) {
         controls
         controlsList="nodownload"
         className="rounded-2xl object-contain shadow-2xl"
-        style={{ aspectRatio: "9 / 16", width: "min(92vw, calc(88vh * 9 / 16))", maxHeight: "88vh" }}
+        style={{ aspectRatio: ratio, width: `min(92vw, calc(88vh * ${ratio}))`, maxHeight: "88vh" }}
       />
     );
   }
@@ -310,27 +284,20 @@ function StoreExpanded({ media }: { media: RefImage }) {
 }
 
 function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
-  const [idx, setIdx] = useState<number | null>(null);
+  const p = usePager(listings.length);
   return (
     <>
       <div className="relative mx-auto max-w-[760px]">
         <div className="grid grid-cols-1 gap-6 overflow-y-auto pr-1 md:grid-cols-2" style={{ maxHeight: "min(78vh, 760px)" }}>
           {listings.map((l, i) => (
-            <StoreThumb key={l.id} listing={l} onOpen={() => setIdx(i)} />
+            <StoreThumb key={l.id} media={l.images[0]} onOpen={() => p.open(i)} />
           ))}
         </div>
         <ScrollFade />
       </div>
-
-      {idx != null && (
-        <ExpandedShell
-          onClose={() => setIdx(null)}
-          hasPrev={idx > 0}
-          hasNext={idx < listings.length - 1}
-          onPrev={() => setIdx((v) => (v! > 0 ? v! - 1 : v))}
-          onNext={() => setIdx((v) => (v! < listings.length - 1 ? v! + 1 : v))}
-        >
-          <StoreExpanded key={listings[idx].id} media={listings[idx].images[0]} />
+      {p.idx != null && (
+        <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
+          <StoreExpanded key={listings[p.idx].id} media={listings[p.idx].images[0]} />
         </ExpandedShell>
       )}
     </>
@@ -340,28 +307,7 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
 /* ============================================================================
  * 5. Brand Stories — fixes 1464×625-Frame, 3-Card-Step mit Peek-Continuity
  * ========================================================================== */
-const BS = {
-  CARD_W: 24.73,
-  CARD_H: 72.48,
-  STRIDE: 26.78,
-  LEFT: 4.88,
-  TOP: 23.84,
-};
-
-/** background = widest landscape image; rest (by slot) = cards. */
-function splitStory(images: RefImage[], aspects: Record<string, number>) {
-  let bg: RefImage | null = null;
-  let bgAspect = 0;
-  for (const im of images) {
-    const a = aspects[im.url];
-    if (a && a > 1.5 && a > bgAspect) {
-      bg = im;
-      bgAspect = a;
-    }
-  }
-  const cards = images.filter((im) => im !== bg);
-  return { bg, cards };
-}
+const BS = { CARD_W: 24.73, CARD_H: 72.48, STRIDE: 26.78, LEFT: 4.88, TOP: 23.84 };
 
 function viewOffsets(count: number): number[] {
   const offsets = [BS.LEFT + BS.STRIDE];
@@ -369,24 +315,49 @@ function viewOffsets(count: number): number[] {
   return offsets;
 }
 
-function StoryFrame({
-  bg,
-  cards,
-  interactive,
-  onOpen,
-}: {
-  bg: RefImage | null;
-  cards: RefImage[];
-  interactive: boolean;
-  onOpen?: () => void;
-}) {
+function StoryCardInner({ card }: { card: RefImage }) {
+  const meta = card.metadata as RefCardMetadata | null;
+  if (meta?.cardType === "asin_grid") {
+    const grid = (meta.asinImages ?? [null, null, null, null]).slice(0, 4);
+    while (grid.length < 4) grid.push(null);
+    return (
+      <div className="flex h-full w-full flex-col gap-[3%] bg-white p-[4%]">
+        <div className="grid grid-cols-2 gap-[3%]">
+          {grid.map((sub, i) => (
+            <div key={i} className="relative overflow-hidden bg-canvas-alt" style={{ aspectRatio: "1328 / 1456" }}>
+              {sub?.url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={sub.url} alt="" draggable={false} className="block h-full w-full object-cover" />
+              ) : (
+                <div className="grid h-full w-full place-items-center text-[8px] text-ink-faint">ASIN</div>
+              )}
+            </div>
+          ))}
+        </div>
+        {(meta.headline || meta.linkLabel) && (
+          <div className="mt-auto">
+            {meta.headline && <p className="truncate text-[11px] font-semibold leading-tight text-ink md:text-sm">{meta.headline}</p>}
+            {meta.linkLabel && (
+              <p className="truncate text-[10px] leading-tight text-[#1a6db2] underline decoration-[#1a6db2] underline-offset-2 md:text-xs">
+                {meta.linkLabel}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src={card.url} alt="" loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
+}
+
+function StoryFrame({ background, cards, interactive, onOpen }: { background: RefImage | null; cards: RefImage[]; interactive: boolean; onOpen?: () => void }) {
   const [view, setView] = useState(1);
   const offsets = viewOffsets(cards.length);
   const totalViews = offsets.length;
   const touchX = useRef<number | null>(null);
 
-  useEffect(() => setView(1), [bg?.url, cards.length]);
-
+  useEffect(() => setView(1), [background?.url, cards.length]);
   const go = (v: number) => setView(Math.min(totalViews, Math.max(1, v)));
 
   return (
@@ -405,27 +376,22 @@ function StoryFrame({
           touchX.current = null;
         }}
       >
-        {bg ? (
+        {background ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={bg.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={background.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
         ) : (
           <div className="absolute inset-0 bg-canvas-alt" />
         )}
 
-        {/* Track */}
         <div className="absolute inset-0 z-10" style={{ clipPath: `inset(0 0 0 ${BS.LEFT}%)` }}>
-          <div
-            className="relative h-full w-full transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(${offsets[view - 1]}%)` }}
-          >
+          <div className="relative h-full w-full transition-transform duration-500 ease-out" style={{ transform: `translateX(${offsets[view - 1]}%)` }}>
             {cards.map((c, i) => (
               <div
-                key={c.slot}
+                key={c.order}
                 className="absolute overflow-hidden"
                 style={{ left: `${i * BS.STRIDE}%`, top: `${BS.TOP}%`, width: `${BS.CARD_W}%`, height: `${BS.CARD_H}%` }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={c.url} alt="" loading="lazy" className="h-full w-full object-cover" />
+                <StoryCardInner card={c} />
               </div>
             ))}
           </div>
@@ -434,22 +400,12 @@ function StoryFrame({
         {!interactive && <MaximizeBadge />}
 
         {interactive && view > 1 && (
-          <button
-            type="button"
-            aria-label="Vorherige Karten"
-            onClick={() => go(view - 1)}
-            className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11"
-          >
+          <button type="button" aria-label="Vorherige Karten" onClick={() => go(view - 1)} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
           </button>
         )}
         {interactive && view < totalViews && (
-          <button
-            type="button"
-            aria-label="Weitere Karten"
-            onClick={() => go(view + 1)}
-            className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11"
-          >
+          <button type="button" aria-label="Weitere Karten" onClick={() => go(view + 1)} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
           </button>
         )}
@@ -466,51 +422,45 @@ function StoryFrame({
   );
 }
 
-/** Fallback ohne Hintergrund: horizontaler Snap-Scroller. */
 function StorySnap({ cards }: { cards: RefImage[] }) {
   return (
     <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-3xl bg-canvas-alt p-4">
       {cards.map((c) => (
-        <div key={c.slot} className="w-[min(60vw,280px)] shrink-0 snap-start overflow-hidden" style={{ aspectRatio: "814 / 1019" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={c.url} alt="" loading="lazy" className="h-full w-full object-cover" />
+        <div key={c.order} className="w-[min(60vw,280px)] shrink-0 snap-start overflow-hidden" style={{ aspectRatio: "814 / 1019" }}>
+          <StoryCardInner card={c} />
         </div>
       ))}
     </div>
   );
 }
 
-function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
-  const allUrls = listings.flatMap((l) => l.images.map((i) => i.url));
-  const aspects = useAspects(allUrls);
-  const [idx, setIdx] = useState<number | null>(null);
+function splitStory(l: RefListing) {
+  const background = l.images.find((i) => i.order === 0) ?? null;
+  const cards = background ? l.images.filter((i) => i.order >= 1) : l.images;
+  return { background, cards };
+}
 
+function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
+  const p = usePager(listings.length);
   return (
     <>
       <div className="relative mx-auto max-w-[1180px]">
         <div className="space-y-8 overflow-y-auto pr-1" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => {
-            const { bg, cards } = splitStory(l.images, aspects);
-            if (!bg && cards.length) return <StorySnap key={l.id} cards={cards} />;
-            return <StoryFrame key={l.id} bg={bg} cards={cards} interactive={false} onOpen={() => setIdx(i)} />;
+            const { background, cards } = splitStory(l);
+            if (!background) return <StorySnap key={l.id} cards={cards} />;
+            return <StoryFrame key={l.id} background={background} cards={cards} interactive={false} onOpen={() => p.open(i)} />;
           })}
         </div>
         <ScrollFade />
       </div>
-
-      {idx != null &&
+      {p.idx != null &&
         (() => {
-          const { bg, cards } = splitStory(listings[idx].images, aspects);
+          const { background, cards } = splitStory(listings[p.idx]);
           return (
-            <ExpandedShell
-              onClose={() => setIdx(null)}
-              hasPrev={idx > 0}
-              hasNext={idx < listings.length - 1}
-              onPrev={() => setIdx((v) => (v! > 0 ? v! - 1 : v))}
-              onNext={() => setIdx((v) => (v! < listings.length - 1 ? v! + 1 : v))}
-            >
+            <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
               <div style={{ width: "min(96vw, 1180px)" }}>
-                {bg ? <StoryFrame bg={bg} cards={cards} interactive /> : <StorySnap cards={cards} />}
+                {background ? <StoryFrame background={background} cards={cards} interactive /> : <StorySnap cards={cards} />}
               </div>
             </ExpandedShell>
           );
