@@ -7,6 +7,10 @@ import { getReferences } from "@/lib/references";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ServiceCTA } from "@/components/service/Blocks";
 
+// Read the blob references at request time so the token is picked up
+// from the runtime env even if it was added after the last build.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Designbeispiele · temoa",
   description:
