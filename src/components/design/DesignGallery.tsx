@@ -23,9 +23,11 @@ const PLACEHOLDER_ASPECTS: Record<RefCategory, string[]> = {
 function Tile({ aspect }: { aspect: string }) {
   return (
     <div
-      className="mb-3 w-full break-inside-avoid rounded-xl ring-1 ring-black/[0.05]"
-      style={{ aspectRatio: aspect, background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
-    />
+      className="mb-3 w-full break-inside-avoid overflow-hidden rounded-xl bg-navy/[0.05] ring-1 ring-black/[0.06]"
+      style={{ aspectRatio: aspect }}
+    >
+      <div className="h-full w-full animate-pulse bg-gradient-to-br from-navy/[0.03] via-navy/[0.07] to-navy/[0.03]" />
+    </div>
   );
 }
 
@@ -80,8 +82,8 @@ export function DesignGallery({ data }: { data: RefData }) {
         </Reveal>
 
         {images.length === 0 && (
-          <p className="mt-8 text-center text-xs text-ink-faint">
-            Beispiele folgen, sobald die Referenzbilder verbunden sind.
+          <p className="mx-auto mt-8 max-w-xl text-center text-sm text-ink-faint">
+            Die Beispiele werden aus unserer Referenz-Bibliothek geladen und erscheinen hier, sobald sie verbunden ist.
           </p>
         )}
       </div>
