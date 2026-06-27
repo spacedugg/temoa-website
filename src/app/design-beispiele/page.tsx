@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
-import { DesignExamples } from "@/components/design/DesignExamples";
+import { DesignGallery } from "@/components/design/DesignGallery";
+import { getReferences } from "@/lib/references";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ServiceCTA } from "@/components/service/Blocks";
 
@@ -12,7 +13,8 @@ export const metadata: Metadata = {
     "So bauen wir Amazon-Content: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
 };
 
-export default function DesignBeispielePage() {
+export default async function DesignBeispielePage() {
+  const references = await getReferences();
   return (
     <>
       <Navbar />
@@ -26,7 +28,7 @@ export default function DesignBeispielePage() {
           }
           description="Vom Hauptbild bis zur Brand Story: jedes Format so aufgebaut, wie es auf Amazon konvertiert."
         />
-        <DesignExamples />
+        <DesignGallery data={references} />
         <Testimonials tone="blue" />
         <ServiceCTA
           title="Wie viel Umsatz verliert ihr an schwachem Content?"
