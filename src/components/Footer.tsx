@@ -30,18 +30,21 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-black/[0.06] bg-white pt-16">
+    <footer
+      className="relative pt-16 text-white"
+      style={{ backgroundImage: "linear-gradient(165deg, #023047 0%, #021A28 100%)" }}
+    >
       <div className="container-x">
         <div className="grid gap-12 pb-12 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div>
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-muted">
+            <Logo variant="white" />
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/65">
               Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch
               verkauft, dann PPC, das vom ersten Euro an profitabel arbeitet.
             </p>
             <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {["Ø +30 % Profitabilität", "21 Mio. € Jahresumsatz", "60+ Marken", "5+ Marktplätze"].map((b) => (
-                <span key={b} className="rounded-full border border-navy/[0.10] bg-white px-3 py-1 font-medium text-ink-muted">
+                <span key={b} className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-medium text-white/80">
                   {b}
                 </span>
               ))}
@@ -50,11 +53,11 @@ export function Footer() {
 
           {cols.map((c) => (
             <div key={c.title}>
-              <h4 className="text-sm font-semibold text-ink">{c.title}</h4>
+              <h4 className="text-sm font-semibold text-white">{c.title}</h4>
               <ul className="mt-4 space-y-2.5">
                 {c.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="text-sm text-ink-muted transition-colors hover:text-brand-600">
+                    <a href={l.href} className="text-sm text-white/60 transition-colors hover:text-white">
                       {l.label}
                     </a>
                   </li>
@@ -64,12 +67,12 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-black/[0.06] py-7 text-sm text-ink-faint md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-sm text-white/50 md:flex-row">
           <span>© {new Date().getFullYear()} temoa</span>
           <div className="flex gap-6">
-            <a href="/impressum" className="transition-colors hover:text-ink">Impressum</a>
-            <a href="/datenschutz" className="transition-colors hover:text-ink">Datenschutz</a>
-            <a href="mailto:kontakt@temoa.de" className="transition-colors hover:text-ink">kontakt@temoa.de</a>
+            <a href="/impressum" className="transition-colors hover:text-white">Impressum</a>
+            <a href="/datenschutz" className="transition-colors hover:text-white">Datenschutz</a>
+            <a href="mailto:kontakt@temoa.de" className="transition-colors hover:text-white">kontakt@temoa.de</a>
           </div>
         </div>
       </div>

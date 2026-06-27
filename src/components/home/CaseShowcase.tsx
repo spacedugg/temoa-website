@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { cases, type CaseStudy } from "@/lib/cases";
 import { Reveal } from "../ui/Reveal";
 
@@ -10,18 +11,28 @@ function mesh(accent: string) {
   } as React.CSSProperties;
 }
 
-function LogoBadge({ c, size = "md" }: { c: CaseStudy; size?: "sm" | "md" }) {
-  const dim = size === "sm" ? "h-9 w-9 text-base" : "h-11 w-11 text-lg";
+/** Brand logo in a white chip. Renders nothing for anonymised brands,
+ *  and hides itself if the logo file is not present yet. */
+function LogoChip({ c, size = "md" }: { c: CaseStudy; size?: "sm" | "md" }) {
+  const [ok, setOk] = useState(false);
+  if (!c.logo) return null;
+  const h = size === "sm" ? "h-5" : "h-6";
+  // The chip stays hidden until the logo file actually loads, so a missing
+  // logo never shows a broken image (the file can be dropped in later).
   return (
-    <div className="flex items-center gap-2.5">
-      <span
-        className={`grid ${dim} shrink-0 place-items-center rounded-xl font-extrabold text-white ring-1 ring-white/25`}
-        style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(6px)" }}
-      >
-        {c.mono}
-      </span>
-      <span className="truncate text-sm font-bold text-white">{c.displayName}</span>
-    </div>
+    <span
+      className="inline-flex items-center rounded-lg bg-white/95 px-2.5 py-1.5 shadow-soft ring-1 ring-black/[0.04] backdrop-blur"
+      style={{ display: ok ? undefined : "none" }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={c.logo}
+        alt={c.displayName}
+        className={`${h} w-auto object-contain`}
+        onLoad={() => setOk(true)}
+        onError={() => setOk(false)}
+      />
+    </span>
   );
 }
 
@@ -36,30 +47,19 @@ function Panels() {
           className="group relative isolate flex min-w-0 flex-1 overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/5 transition-[flex] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] hover:flex-[2.6]"
           style={mesh(c.accent)}
         >
-          {/* real case background image + legibility overlay */}
+          {/* real case background image, shown in full colour */}
           {c.bgImage && (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={c.bgImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
           )}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ backgroundImage: `linear-gradient(155deg, ${c.accent}59 0%, rgba(10,30,43,0.30) 40%, rgba(2,28,43,0.92) 100%)` }}
-          />
-          {/* texture + giant monogram */}
-          <div
-            className="pointer-events-none absolute inset-0 opacity-[0.10]"
-            style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)", backgroundSize: "18px 18px" }}
-          />
-          <span className="pointer-events-none absolute -right-6 -top-10 select-none text-[12rem] font-black leading-none text-white/[0.06]">
-            {c.mono}
-          </span>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/55 to-transparent" />
+          {/* bottom-only fade so the text stays legible, top stays clear */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
 
           {/* content */}
           <div className="relative z-10 flex w-full flex-col p-6">
             <div className="flex items-start justify-between gap-2">
-              <LogoBadge c={c} />
-              <span className="rounded-full bg-white/15 px-2.5 py-1 text-[11px] font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+              <LogoChip c={c} />
+              <span className="ml-auto rounded-full bg-black/30 px-2.5 py-1 text-[11px] font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                 {c.marketplaces.join(" · ")}
               </span>
             </div>
@@ -117,16 +117,9 @@ function MobileCards() {
             // eslint-disable-next-line @next/next/no-img-element
             <img src={c.bgImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
           )}
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{ backgroundImage: `linear-gradient(155deg, ${c.accent}59 0%, rgba(10,30,43,0.30) 40%, rgba(2,28,43,0.92) 100%)` }}
-          />
-          <span className="pointer-events-none absolute -right-4 -top-6 select-none text-[8rem] font-black leading-none text-white/[0.06]">
-            {c.mono}
-          </span>
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/55 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
           <div className="relative z-10 flex h-full flex-col">
-            <LogoBadge c={c} size="sm" />
+            <LogoChip c={c} size="sm" />
             <div className="mt-auto">
               <div className="text-4xl font-extrabold leading-none tracking-tight text-white">{c.preview.value}</div>
               <div className="mt-1 text-xs font-semibold uppercase tracking-[0.12em] text-white/70">{c.preview.label}</div>
