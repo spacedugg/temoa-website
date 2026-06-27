@@ -1,8 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import { cases, type CaseStudy, type CaseStat, type CaseBadge } from "@/lib/cases";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { CaseChart } from "./CaseChart";
+
+/** Brand logo in a white chip, overlaid on the case thumbnail. Renders
+ *  nothing for anonymised brands and hides itself until the logo loads,
+ *  so a missing file never shows a broken image. */
+function LogoChip({ c }: { c: CaseStudy }) {
+  const [ok, setOk] = useState(false);
+  if (!c.logo) return null;
+  return (
+    <span
+      className="inline-flex items-center rounded-lg bg-white/95 px-3 py-2 shadow-soft ring-1 ring-black/[0.06] backdrop-blur"
+      style={{ display: ok ? undefined : "none" }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={c.logo} alt={c.displayName} className="h-6 w-auto object-contain" onLoad={() => setOk(true)} onError={() => setOk(false)} />
+    </span>
+  );
+}
 
 function mesh(accent: string) {
   return {
@@ -67,36 +85,27 @@ function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
         {/* Premium branded hero panel */}
         <Reveal>
           <div className="relative isolate overflow-hidden rounded-[2rem] p-7 shadow-[0_40px_90px_-45px_rgba(2,48,71,0.6)] md:p-12" style={mesh(c.accent)}>
-            <span className="pointer-events-none absolute -right-10 -top-16 select-none text-[16rem] font-black leading-none text-white/[0.05]">
-              {c.mono}
-            </span>
-            <div
-              className="pointer-events-none absolute inset-0 opacity-[0.12]"
-              style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px)", backgroundSize: "20px 20px" }}
-            />
-
             <div className="relative">
-              {/* brand + meta */}
+              {/* case thumbnail (same image as the homepage) with logo overlay */}
+              {c.bgImage && (
+                <div className="relative mb-7 overflow-hidden rounded-2xl ring-1 ring-white/10">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={c.bgImage} alt="" className="h-48 w-full object-cover md:h-60" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                  <div className="absolute left-4 top-4">
+                    <LogoChip c={c} />
+                  </div>
+                </div>
+              )}
+
+              {/* meta: industry + marketplaces (no brand name, no timeframe) */}
               <div className="flex flex-wrap items-center justify-center gap-3 text-center">
-                <span
-                  className="grid h-12 w-12 place-items-center rounded-xl text-xl font-extrabold text-white ring-1 ring-white/25"
-                  style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(6px)" }}
-                >
-                  {c.mono}
-                </span>
-                <span className="text-lg font-bold text-white">{c.displayName}</span>
-                <span className="hidden h-4 w-px bg-white/20 sm:block" />
                 <span className="text-sm text-white/65">{c.industry}</span>
                 <span className="text-sm text-white/40">·</span>
                 <span className="text-sm text-white/65">{c.marketplaces.join(", ")}</span>
-                <span className="text-sm text-white/40">·</span>
-                <span className="text-sm text-white/65">{c.timeframe}</span>
-                {c.anonymized && (
-                  <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/70">anonymisiert</span>
-                )}
               </div>
 
-              <h2 className="mx-auto mt-7 max-w-3xl text-balance text-center text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
+              <h2 className="mx-auto mt-5 max-w-3xl text-balance text-center text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
                 {c.headline}
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-base leading-relaxed text-white/75 md:text-lg">

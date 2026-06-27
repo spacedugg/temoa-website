@@ -14,11 +14,11 @@ import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from
  * der Seite; nur das Vergrößern legt ein Overlay darüber.
  * ========================================================================== */
 
-const TABS: { key: RefCategory; label: string; blurb: string }[] = [
-  { key: "main_images", label: "Produktbilder", blurb: "Ein Hauptbild plus Listingbilder, die in Sekunden überzeugen." },
-  { key: "a_plus", label: "EBC Content", blurb: "A+ und Premium A+: Module, die auf der Detailseite Fragen beantworten." },
-  { key: "brand_store", label: "Brand Stores", blurb: "Eure Markenwelt mit Cross-Selling über das ganze Sortiment." },
-  { key: "brand_story", label: "Brand Stories", blurb: "Aus einem Produkt wird eine Marke, die im Kopf bleibt." },
+const TABS: { key: RefCategory; label: string }[] = [
+  { key: "main_images", label: "Produktbilder" },
+  { key: "a_plus", label: "EBC Content" },
+  { key: "brand_store", label: "Brand Stores" },
+  { key: "brand_story", label: "Brand Stories" },
 ];
 
 const aspect = (im?: RefImage | null, fb = 1) =>
@@ -69,13 +69,13 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
 
   return (
     <div
-      className={`group relative w-full ${interactive ? "cursor-zoom-in" : ""}`}
+      className={`group relative w-full overflow-hidden rounded-md bg-white p-2.5 shadow-soft ring-1 ring-black/[0.04] ${interactive ? "cursor-zoom-in" : ""}`}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
     >
       {interactive && <MaximizeBadge />}
       <div className="grid gap-2" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
-        <div className="overflow-hidden rounded-xl" style={{ aspectRatio: heroAspect }}>
+        <div className="overflow-hidden rounded-sm" style={{ aspectRatio: heroAspect }}>
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -95,7 +95,7 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
           {Array.from({ length: 6 }).map((_, i) => {
             const im = details[i];
             return (
-              <div key={i} className="overflow-hidden rounded-lg">
+              <div key={i} className="overflow-hidden rounded-sm">
                 {im && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={im.url} alt="" loading="lazy" className="h-full w-full object-cover" />
@@ -177,7 +177,7 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
                 type="button"
                 onClick={() => p.open(i)}
                 onContextMenu={guard}
-                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-lg transition hover:opacity-95"
+                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-md shadow-soft ring-1 ring-black/[0.04] transition hover:opacity-95"
               >
                 <MaximizeBadge />
                 <EbcStack listing={l} />
@@ -206,8 +206,8 @@ function StoreThumb({ media, onOpen }: { media: RefImage; onOpen: () => void }) 
       type="button"
       onClick={onOpen}
       onContextMenu={guard}
-      className="group relative block w-full overflow-hidden rounded-lg bg-black"
-      style={video ? undefined : { aspectRatio: "9 / 9.24" }}
+      className="group relative block w-full overflow-hidden rounded-md bg-black shadow-soft"
+      style={video ? undefined : { aspectRatio: "9 / 13.86" }}
     >
       {video ? (
         <video src={media.url} muted playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
@@ -292,8 +292,8 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 gap-5 overflow-y-auto pr-1 md:grid-cols-2 lg:grid-cols-4" style={{ maxHeight: "min(80vh, 820px)" }}>
+      <div className="relative mx-auto max-w-5xl">
+        <div className="grid grid-cols-1 gap-5 overflow-y-auto pr-1 md:grid-cols-2 lg:grid-cols-3" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => (
             <StoreThumb key={l.id} media={l.images[0]} onOpen={() => p.open(i)} />
           ))}
@@ -368,7 +368,7 @@ function StoryFrame({ background, cards, onExpand }: { background: RefImage | nu
   return (
     <div className="relative">
       <div
-        className="group relative overflow-hidden rounded-2xl"
+        className="group relative overflow-hidden rounded-md shadow-soft ring-1 ring-black/[0.04]"
         style={{ aspectRatio: "1464 / 625" }}
         onContextMenu={guard}
         onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
@@ -486,7 +486,6 @@ function EmptyNote() {
 
 export function DesignGallery({ data }: { data: RefData }) {
   const [active, setActive] = useState<RefCategory>("main_images");
-  const tab = TABS.find((t) => t.key === active)!;
   const listings = data[active];
 
   const render = useCallback(() => {
@@ -521,7 +520,9 @@ export function DesignGallery({ data }: { data: RefData }) {
             ))}
           </div>
         </div>
-        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-ink-muted">{tab.blurb}</p>
+        <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-ink-muted">
+          Echte Beispiele aus unserer Arbeit. Klickt euch rein und vergrößert jedes Detail.
+        </p>
 
         <Reveal key={active} delay={0.05}>
           <div className="mt-10">{render()}</div>
