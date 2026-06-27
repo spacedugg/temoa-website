@@ -18,6 +18,7 @@ export type RefDiag = {
   matchedCount: number;
   sample: string[];
   counts: Record<RefCategory, number>;
+  envKeys: string[]; // names only (no secrets) of blob-related env vars
 };
 
 const CATS: RefCategory[] = ["main_images", "a_plus", "brand_store", "brand_story"];
@@ -26,14 +27,23 @@ function empty(): RefData {
   return { main_images: [], a_plus: [], brand_store: [], brand_story: [] };
 }
 
-/** Every env var whose name ends in BLOB_READ_WRITE_TOKEN (handles the
- *  optional store prefix Vercel adds when connecting a second store). */
+/** Find blob read-write tokens by VALUE (vercel_blob_rw_…) and by name
+ *  suffix, so it works regardless of the env-var name a connected store
+ *  was given. */
 function blobTokens(): string[] {
   const out: string[] = [];
   for (const [k, v] of Object.entries(process.env)) {
-    if (v && /BLOB_READ_WRITE_TOKEN$/.test(k)) out.push(v);
+    if (!v) continue;
+    if (/^vercel_blob_rw_/i.test(v) || /BLOB_READ_WRITE_TOKEN$/.test(k)) out.push(v);
   }
   return [...new Set(out)];
+}
+
+/** Names (no values) of env vars that look blob-related, for diagnostics. */
+function blobEnvKeys(): string[] {
+  return Object.keys(process.env)
+    .filter((k) => /blob/i.test(k))
+    .sort();
 }
 
 let _cache: { data: RefData; diag: RefDiag } | null = null;
@@ -47,6 +57,7 @@ export async function getReferencesRaw(): Promise<{ data: RefData; diag: RefDiag
     matchedCount: 0,
     sample: [],
     counts: { main_images: 0, a_plus: 0, brand_store: 0, brand_story: 0 },
+    envKeys: blobEnvKeys(),
   };
 
   const tokens = blobTokens();
