@@ -7,12 +7,11 @@ import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from
 
 /* ============================================================================
  * Design-Beispiele Galerie
- * Baut die Sales-Room-Content-Showcases (Listings, EBC/A+, Brand Stores,
- * Brand Stories) nach der Design- & Verhaltens-Spezifikation nach. Kategorie,
- * Layout (mit/ohne Lücke), Reihenfolge (Hintergrund = order 0), Bildmaße,
- * Medientyp und Brand-Story-Karten kommen aus der Sales-Room-DB.
- * Vorher/Nachher und Geschenk-Badge entfallen: hier zeigen wir ausschließlich
- * freie Referenz-Beispiele, nicht den Kunden-Vergleich aus dem Sales Room.
+ * Replikt die Sales-Room-Content-Showcases (Listings, EBC/A+, Brand Stores,
+ * Brand Stories). Kategorie, Layout (mit/ohne Lücke), Reihenfolge
+ * (Hintergrund = order 0), Bildmaße, Medientyp und Brand-Story-Karten kommen
+ * aus den Daten. Die Inhalte stehen ohne eigene Schatten-Container direkt auf
+ * der Seite; nur das Vergrößern legt ein Overlay darüber.
  * ========================================================================== */
 
 const TABS: { key: RefCategory; label: string; blurb: string }[] = [
@@ -30,30 +29,38 @@ const guard = (e: React.MouseEvent) => {
   if (t.tagName === "IMG" || t.tagName === "VIDEO") e.preventDefault();
 };
 
-const MaximizeBadge = () => (
-  <span className="pointer-events-none absolute right-3 top-3 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink shadow-lift backdrop-blur transition group-hover:scale-105">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-    </svg>
-  </span>
-);
+function MaximizeBadge({ onClick }: { onClick?: (e: React.MouseEvent) => void }) {
+  return (
+    <span
+      onClick={onClick}
+      className={`absolute right-2 top-2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink opacity-0 shadow-soft backdrop-blur transition group-hover:opacity-100 ${onClick ? "cursor-zoom-in hover:scale-105" : "pointer-events-none"}`}
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+      </svg>
+    </span>
+  );
+}
 
 const ScrollFade = () => (
   <div className="pointer-events-none sticky bottom-0 -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
 );
 
-/* hook: paging-Index zwischen den Listings einer Kategorie */
 function usePager(count: number) {
   const [idx, setIdx] = useState<number | null>(null);
-  const open = (i: number) => setIdx(i);
-  const close = () => setIdx(null);
-  const prev = () => setIdx((v) => (v! > 0 ? v! - 1 : v));
-  const next = () => setIdx((v) => (v! < count - 1 ? v! + 1 : v));
-  return { idx, open, close, prev, next, hasPrev: idx != null && idx > 0, hasNext: idx != null && idx < count - 1 };
+  return {
+    idx,
+    open: (i: number) => setIdx(i),
+    close: () => setIdx(null),
+    prev: () => setIdx((v) => (v! > 0 ? v! - 1 : v)),
+    next: () => setIdx((v) => (v! < count - 1 ? v! + 1 : v)),
+    hasPrev: idx != null && idx > 0,
+    hasNext: idx != null && idx < count - 1,
+  };
 }
 
 /* ============================================================================
- * 1. Produktbilder / Listings — Hero + 3×2-Grid, ganzes Listing vergrößert
+ * 1. Produktbilder / Listings — Hero + 3×2-Grid; 2 nebeneinander (Desktop)
  * ========================================================================== */
 function ListingCard({ listing, onOpen, interactive = true }: { listing: RefListing; onOpen?: () => void; interactive?: boolean }) {
   const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
@@ -62,15 +69,13 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
 
   return (
     <div
-      className={`group relative w-full rounded-3xl bg-white p-3 shadow-lift ring-1 ring-black/[0.06] md:p-5 ${
-        interactive ? "cursor-zoom-in transition hover:ring-black/[0.12]" : ""
-      }`}
+      className={`group relative w-full ${interactive ? "cursor-zoom-in" : ""}`}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
     >
       {interactive && <MaximizeBadge />}
-      <div className="grid gap-2 md:gap-3" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
-        <div className="overflow-hidden rounded-2xl bg-canvas-alt ring-1 ring-black/[0.04]" style={{ aspectRatio: heroAspect }}>
+      <div className="grid gap-2" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
+        <div className="overflow-hidden rounded-xl" style={{ aspectRatio: heroAspect }}>
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -86,11 +91,11 @@ function ListingCard({ listing, onOpen, interactive = true }: { listing: RefList
             />
           )}
         </div>
-        <div className="grid grid-cols-3 grid-rows-2 gap-2 md:gap-3" style={{ aspectRatio: "3 / 2" }}>
+        <div className="grid grid-cols-3 grid-rows-2 gap-2" style={{ aspectRatio: "3 / 2" }}>
           {Array.from({ length: 6 }).map((_, i) => {
             const im = details[i];
             return (
-              <div key={i} className="overflow-hidden rounded-xl bg-canvas-alt ring-1 ring-black/[0.04]">
+              <div key={i} className="overflow-hidden rounded-lg">
                 {im && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={im.url} alt="" loading="lazy" className="h-full w-full object-cover" />
@@ -108,8 +113,8 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[1100px]">
-        <div className="space-y-6 overflow-y-auto pr-1" style={{ maxHeight: "min(78vh, 760px)" }}>
+      <div className="relative mx-auto max-w-[1180px]">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 overflow-y-auto pr-1 lg:grid-cols-2" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => (
             <ListingCard key={l.id} listing={l} onOpen={() => p.open(i)} />
           ))}
@@ -118,7 +123,7 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
       </div>
       {p.idx != null && (
         <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
-          <div className="overflow-y-auto rounded-3xl bg-white p-3 md:p-5" style={{ width: "min(94vw, 1040px)", maxHeight: "92vh" }}>
+          <div className="overflow-y-auto rounded-2xl bg-white p-3 md:p-5" style={{ width: "min(94vw, 1040px)", maxHeight: "92vh" }}>
             <ListingCard listing={listings[p.idx]} interactive={false} />
           </div>
         </ExpandedShell>
@@ -128,7 +133,7 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
 }
 
 /* ============================================================================
- * 2./3. EBC Content — 3-spaltiges Masonry, ganzer Stack fit-to-viewport
+ * 2./3. EBC Content — viele kleine nebeneinander, Klick = ganzer Stack groß
  * ========================================================================== */
 function EbcStack({ listing, expanded = false }: { listing: RefListing; expanded?: boolean }) {
   const gap = listing.layout !== "ebc_seamless";
@@ -150,7 +155,7 @@ function EbcStack({ listing, expanded = false }: { listing: RefListing; expanded
     );
   }
   return (
-    <div className={`flex flex-col overflow-hidden rounded-2xl ${gap ? "gap-[6px] bg-white" : "gap-0"}`}>
+    <div className={`flex flex-col overflow-hidden rounded-lg ${gap ? "gap-[4px] bg-white" : "gap-0"}`}>
       {imgs.map((im) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img key={im.order} src={im.url} alt="" loading="lazy" className={`w-full ${fit}`} />
@@ -163,16 +168,16 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[1100px]">
-        <div className="overflow-y-auto" style={{ maxHeight: "min(82vh, 760px)" }}>
-          <div className="columns-1 gap-4 [column-fill:_balance] sm:columns-2 lg:columns-3">
+      <div className="relative mx-auto max-w-7xl">
+        <div className="overflow-y-auto" style={{ maxHeight: "min(82vh, 820px)" }}>
+          <div className="columns-2 gap-3 [column-fill:_balance] sm:columns-3 md:columns-4 lg:columns-6 xl:columns-8">
             {listings.map((l, i) => (
               <button
                 key={l.id}
                 type="button"
                 onClick={() => p.open(i)}
                 onContextMenu={guard}
-                className="group relative mb-4 block w-full break-inside-avoid cursor-zoom-in rounded-2xl shadow-lift ring-1 ring-black/[0.06] transition hover:ring-black/[0.12]"
+                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-lg transition hover:opacity-95"
               >
                 <MaximizeBadge />
                 <EbcStack listing={l} />
@@ -201,7 +206,7 @@ function StoreThumb({ media, onOpen }: { media: RefImage; onOpen: () => void }) 
       type="button"
       onClick={onOpen}
       onContextMenu={guard}
-      className="group relative block w-full overflow-hidden rounded-lg bg-black shadow-lift"
+      className="group relative block w-full overflow-hidden rounded-lg bg-black"
       style={video ? undefined : { aspectRatio: "9 / 9.24" }}
     >
       {video ? (
@@ -212,8 +217,8 @@ function StoreThumb({ media, onOpen }: { media: RefImage; onOpen: () => void }) 
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
       <div className="pointer-events-none absolute inset-0 grid place-items-center">
-        <span className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-105">
-          <svg className="ml-1 h-7 w-7 text-ink" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+        <span className="grid h-14 w-14 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-105">
+          <svg className="ml-1 h-6 w-6 text-ink" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
         </span>
       </div>
     </button>
@@ -287,8 +292,8 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[760px]">
-        <div className="grid grid-cols-1 gap-6 overflow-y-auto pr-1 md:grid-cols-2" style={{ maxHeight: "min(78vh, 760px)" }}>
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 gap-5 overflow-y-auto pr-1 md:grid-cols-2 lg:grid-cols-4" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => (
             <StoreThumb key={l.id} media={l.images[0]} onOpen={() => p.open(i)} />
           ))}
@@ -305,7 +310,7 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
 }
 
 /* ============================================================================
- * 5. Brand Stories — fixes 1464×625-Frame, 3-Card-Step mit Peek-Continuity
+ * 5. Brand Stories — fixes 1464×625-Frame, inline slidebar (3-Card-Step)
  * ========================================================================== */
 const BS = { CARD_W: 24.73, CARD_H: 72.48, STRIDE: 26.78, LEFT: 4.88, TOP: 23.84 };
 
@@ -336,9 +341,9 @@ function StoryCardInner({ card }: { card: RefImage }) {
         </div>
         {(meta.headline || meta.linkLabel) && (
           <div className="mt-auto">
-            {meta.headline && <p className="truncate text-[11px] font-semibold leading-tight text-ink md:text-sm">{meta.headline}</p>}
+            {meta.headline && <p className="truncate text-[10px] font-semibold leading-tight text-ink md:text-sm">{meta.headline}</p>}
             {meta.linkLabel && (
-              <p className="truncate text-[10px] leading-tight text-[#1a6db2] underline decoration-[#1a6db2] underline-offset-2 md:text-xs">
+              <p className="truncate text-[9px] leading-tight text-[#1a6db2] underline decoration-[#1a6db2] underline-offset-2 md:text-xs">
                 {meta.linkLabel}
               </p>
             )}
@@ -351,7 +356,7 @@ function StoryCardInner({ card }: { card: RefImage }) {
   return <img src={card.url} alt="" loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
 }
 
-function StoryFrame({ background, cards, interactive, onOpen }: { background: RefImage | null; cards: RefImage[]; interactive: boolean; onOpen?: () => void }) {
+function StoryFrame({ background, cards, onExpand }: { background: RefImage | null; cards: RefImage[]; onExpand?: () => void }) {
   const [view, setView] = useState(1);
   const offsets = viewOffsets(cards.length);
   const totalViews = offsets.length;
@@ -363,13 +368,12 @@ function StoryFrame({ background, cards, interactive, onOpen }: { background: Re
   return (
     <div className="relative">
       <div
-        className={`relative overflow-hidden rounded-3xl border border-black/[0.06] ${interactive ? "" : "group cursor-zoom-in"}`}
-        style={{ aspectRatio: "1464 / 625", boxShadow: "0 18px 45px -12px rgba(0,0,0,0.35)" }}
-        onClick={interactive ? undefined : onOpen}
+        className="group relative overflow-hidden rounded-2xl"
+        style={{ aspectRatio: "1464 / 625" }}
         onContextMenu={guard}
         onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
         onTouchEnd={(e) => {
-          if (!interactive || touchX.current == null) return;
+          if (touchX.current == null) return;
           const dx = e.changedTouches[0].clientX - touchX.current;
           if (dx < -30) go(view + 1);
           else if (dx > 30) go(view - 1);
@@ -397,22 +401,22 @@ function StoryFrame({ background, cards, interactive, onOpen }: { background: Re
           </div>
         </div>
 
-        {!interactive && <MaximizeBadge />}
+        {onExpand && <MaximizeBadge onClick={onExpand} />}
 
-        {interactive && view > 1 && (
+        {view > 1 && (
           <button type="button" aria-label="Vorherige Karten" onClick={() => go(view - 1)} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
           </button>
         )}
-        {interactive && view < totalViews && (
+        {view < totalViews && (
           <button type="button" aria-label="Weitere Karten" onClick={() => go(view + 1)} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
           </button>
         )}
       </div>
 
-      {interactive && totalViews > 1 && (
-        <div className="mt-4 flex justify-center gap-1.5">
+      {totalViews > 1 && (
+        <div className="mt-3 flex justify-center gap-1.5">
           {offsets.map((_, i) => (
             <span key={i} className={`h-1.5 rounded-full transition-all ${i + 1 === view ? "w-6 bg-ink" : "w-1.5 bg-ink-faint/40"}`} />
           ))}
@@ -424,7 +428,7 @@ function StoryFrame({ background, cards, interactive, onOpen }: { background: Re
 
 function StorySnap({ cards }: { cards: RefImage[] }) {
   return (
-    <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-3xl bg-canvas-alt p-4">
+    <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-2xl">
       {cards.map((c) => (
         <div key={c.order} className="w-[min(60vw,280px)] shrink-0 snap-start overflow-hidden" style={{ aspectRatio: "814 / 1019" }}>
           <StoryCardInner card={c} />
@@ -444,12 +448,12 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[1180px]">
-        <div className="space-y-8 overflow-y-auto pr-1" style={{ maxHeight: "min(80vh, 820px)" }}>
+      <div className="relative mx-auto max-w-[1280px]">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 overflow-y-auto pr-1 lg:grid-cols-2" style={{ maxHeight: "min(82vh, 860px)" }}>
           {listings.map((l, i) => {
             const { background, cards } = splitStory(l);
             if (!background) return <StorySnap key={l.id} cards={cards} />;
-            return <StoryFrame key={l.id} background={background} cards={cards} interactive={false} onOpen={() => p.open(i)} />;
+            return <StoryFrame key={l.id} background={background} cards={cards} onExpand={() => p.open(i)} />;
           })}
         </div>
         <ScrollFade />
@@ -460,7 +464,7 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
           return (
             <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
               <div style={{ width: "min(96vw, 1180px)" }}>
-                {background ? <StoryFrame background={background} cards={cards} interactive /> : <StorySnap cards={cards} />}
+                {background ? <StoryFrame background={background} cards={cards} /> : <StorySnap cards={cards} />}
               </div>
             </ExpandedShell>
           );

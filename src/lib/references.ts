@@ -158,7 +158,9 @@ export async function getReferencesRaw(): Promise<{ data: RefData; diag: RefDiag
         mediaType: r.media_type === "video" ? "video" : "image",
         metadata: parseMeta(r.metadata),
       };
-      if (!img.url) continue;
+      // ASIN-Grid-Karten haben keine eigene url (Bilder liegen in
+      // metadata.asinImages) — die dürfen NICHT verworfen werden.
+      if (!img.url && img.metadata?.cardType !== "asin_grid") continue;
       if (!imagesByListing.has(listingId)) imagesByListing.set(listingId, []);
       imagesByListing.get(listingId)!.push(img);
     }
