@@ -10,9 +10,9 @@ const stats: { to: number; prefix?: string; suffix: string; label: string }[] = 
   { to: 5, suffix: "+", label: "internationale Marktplätze" },
 ];
 
-export function Stats() {
+export function Stats({ tone = "blue" }: { tone?: "blue" | "white" }) {
   return (
-    <section className="relative bg-[#EDF5FB] py-16 md:py-20">
+    <section className={`relative py-16 md:py-20 ${tone === "blue" ? "bg-[#EDF5FB]" : "bg-white"}`}>
       <div className="container-x">
         <RevealGroup className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4" stagger={0.08}>
           {stats.map((s) => (

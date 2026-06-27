@@ -4,15 +4,19 @@ import Image from "next/image";
 
 const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
 
-/** Client-logo marquee + a compact trust line. Drop onto any subpage. */
-export function ProofStrip({ tone = "white" }: { tone?: "white" | "blue" }) {
+/** Client-logo marquee + a compact trust line. Drop onto any subpage.
+ *  `bare` zeigt nur die Logos (ohne Überschrift und Trust-Zeile) — sinnvoll,
+ *  wenn die Zahlen schon in einer eigenen Sektion auf der Seite stehen. */
+export function ProofStrip({ tone = "white", bare = false }: { tone?: "white" | "blue"; bare?: boolean }) {
   return (
     <section className={`relative ${tone === "blue" ? "bg-[#EDF5FB]" : "bg-white"} py-12 md:py-14`}>
       <div className="container-x">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-ink-faint">
-          60+ Marken vertrauen auf temoa
-        </p>
-        <div className="relative mt-7 overflow-hidden">
+        {!bare && (
+          <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-ink-faint">
+            60+ Marken vertrauen auf temoa
+          </p>
+        )}
+        <div className={`relative overflow-hidden ${bare ? "" : "mt-7"}`}>
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--edge)] to-transparent" style={{ ["--edge" as string]: tone === "blue" ? "#EDF5FB" : "#ffffff" }} />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[var(--edge)] to-transparent" style={{ ["--edge" as string]: tone === "blue" ? "#EDF5FB" : "#ffffff" }} />
           <div className="flex w-max animate-marquee gap-12">
@@ -23,15 +27,17 @@ export function ProofStrip({ tone = "white" }: { tone?: "white" | "blue" }) {
             ))}
           </div>
         </div>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-ink-muted">
-          <span className="inline-flex items-center gap-2">
-            <Stars /> 4,9 / 5 Kundenbewertung
-          </span>
-          <span className="hidden h-4 w-px bg-black/10 sm:block" />
-          <span>21 Mio € betreuter Jahresumsatz</span>
-          <span className="hidden h-4 w-px bg-black/10 sm:block" />
-          <span>98 % Kundenbindung</span>
-        </div>
+        {!bare && (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-semibold text-ink-muted">
+            <span className="inline-flex items-center gap-2">
+              <Stars /> 4,9 / 5 Kundenbewertung
+            </span>
+            <span className="hidden h-4 w-px bg-black/10 sm:block" />
+            <span>21 Mio € betreuter Jahresumsatz</span>
+            <span className="hidden h-4 w-px bg-black/10 sm:block" />
+            <span>98 % Kundenbindung</span>
+          </div>
+        )}
       </div>
     </section>
   );
