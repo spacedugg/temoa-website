@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
 import { DesignGallery } from "@/components/design/DesignGallery";
-import { getReferences } from "@/lib/references";
+import { getReferencesRaw } from "@/lib/references";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ServiceCTA } from "@/components/service/Blocks";
 
@@ -17,8 +17,13 @@ export const metadata: Metadata = {
     "So bauen wir Amazon-Content: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
 };
 
-export default async function DesignBeispielePage() {
-  const references = await getReferences();
+export default async function DesignBeispielePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ debug?: string }>;
+}) {
+  const { data: references, diag } = await getReferencesRaw();
+  const showDebug = (await searchParams)?.debug != null;
   return (
     <>
       <Navbar />
@@ -32,6 +37,13 @@ export default async function DesignBeispielePage() {
           }
           description="Vom Hauptbild bis zur Brand Story: jedes Format so aufgebaut, wie es auf Amazon konvertiert."
         />
+        {showDebug && (
+          <div className="container-x">
+            <pre className="overflow-x-auto rounded-2xl bg-navy p-5 text-xs leading-relaxed text-white">
+              {JSON.stringify(diag, null, 2)}
+            </pre>
+          </div>
+        )}
         <DesignGallery data={references} />
         <Testimonials tone="blue" />
         <ServiceCTA
