@@ -2,136 +2,40 @@
 
 import { useState } from "react";
 import { Reveal } from "../ui/Reveal";
-import type { RefData, RefCategory, RefListing } from "@/lib/references";
+import type { RefData, RefCategory } from "@/lib/references";
 
 const TABS: { key: RefCategory; label: string; blurb: string }[] = [
-  { key: "main_images", label: "Produktbilder", blurb: "Ein Hauptbild plus sechs Listingbilder, die in Sekunden überzeugen." },
+  { key: "main_images", label: "Produktbilder", blurb: "Hauptbilder und Listingbilder, die in Sekunden überzeugen." },
   { key: "a_plus", label: "EBC Content", blurb: "A+ und Premium A+: Module, die auf der Detailseite Fragen beantworten." },
   { key: "brand_store", label: "Brand Stores", blurb: "Eure Markenwelt mit Cross-Selling über das ganze Sortiment." },
   { key: "brand_story", label: "Brand Stories", blurb: "Aus einem Produkt wird eine Marke, die im Kopf bleibt." },
 ];
 
-/* ---------------- placeholder tiles ---------------- */
-function Tile({ className, label, small, tone = "neutral" }: { className?: string; label?: string; small?: boolean; tone?: "neutral" | "brand" | "navy" | "blue" }) {
-  const bg =
-    tone === "brand" ? "linear-gradient(135deg,#FFE7CC,#FFD0E4)"
-      : tone === "navy" ? "linear-gradient(135deg,#0A1E2B,#0B4D6B)"
-        : tone === "blue" ? "linear-gradient(135deg,#CDE6F4,#EAF3FB)"
-          : "linear-gradient(135deg,#ffffff,#e7ecf2)";
-  return (
-    <div className={`relative flex items-center justify-center overflow-hidden rounded-2xl ring-1 ring-black/[0.05] ${className ?? ""}`} style={{ background: bg }}>
-      {label && <span className={`relative font-semibold uppercase tracking-[0.14em] ${tone === "navy" ? "text-white/70" : "text-ink-faint"} ${small ? "text-[10px]" : "text-xs"}`}>{label}</span>}
-    </div>
-  );
-}
+/* Placeholder tiles with varied aspect ratios, so the masonry looks
+   right even before the real blob assets are available. */
+const PLACEHOLDER_ASPECTS: Record<RefCategory, string[]> = {
+  main_images: ["1/1", "1/1", "1/1", "1/1", "1/1", "1/1", "1/1", "1/1", "1/1", "1/1"],
+  a_plus: ["3/4", "16/10", "3/5", "1/1", "3/4", "16/9", "2/3", "4/5", "3/4", "16/10"],
+  brand_store: ["3/4", "16/10", "1/1", "3/5", "16/9", "3/4", "1/1", "4/5"],
+  brand_story: ["3/4", "3/4", "3/4", "3/4", "16/9", "3/4", "3/4", "1/1"],
+};
 
-/* ---------------- real renderers (from blob) ---------------- */
-function RealListing({ listing }: { listing: RefListing }) {
-  const [main, ...rest] = listing.images;
+function Tile({ aspect }: { aspect: string }) {
   return (
-    <div className="surface mx-auto max-w-md p-5 md:p-6">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      {main && <img src={main.url} alt="" className="w-full rounded-2xl ring-1 ring-black/[0.05]" />}
-      {rest.length > 0 && (
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          {rest.slice(0, 6).map((im) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img key={im.slot} src={im.url} alt="" className="aspect-square w-full rounded-2xl object-cover ring-1 ring-black/[0.05]" />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function RealStack({ listing, max = "760px" }: { listing: RefListing; max?: string }) {
-  return (
-    <div className="surface mx-auto overflow-hidden p-3 md:p-4" style={{ maxWidth: max }}>
-      <div className="space-y-2.5">
-        {listing.images.map((im) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={im.slot} src={im.url} alt="" className="w-full rounded-xl ring-1 ring-black/[0.04]" />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function RealCategory({ category, listings }: { category: RefCategory; listings: RefListing[] }) {
-  return (
-    <div className="space-y-10">
-      {listings.map((l) =>
-        category === "main_images" ? (
-          <RealListing key={l.id} listing={l} />
-        ) : (
-          <RealStack key={l.id} listing={l} max={category === "brand_store" || category === "brand_story" ? "1000px" : "760px"} />
-        )
-      )}
-    </div>
-  );
-}
-
-/* ---------------- placeholder per category ---------------- */
-function Placeholder({ category }: { category: RefCategory }) {
-  if (category === "main_images") {
-    return (
-      <div className="surface mx-auto max-w-md p-5 md:p-6">
-        <Tile className="aspect-square w-full" label="Hauptbild" tone="brand" />
-        <div className="mt-3 grid grid-cols-2 gap-3">
-          {Array.from({ length: 6 }).map((_, i) => <Tile key={i} className="aspect-square w-full" label={`Bild ${i + 1}`} small />)}
-        </div>
-      </div>
-    );
-  }
-  if (category === "a_plus") {
-    return (
-      <div className="surface mx-auto max-w-[760px] overflow-hidden p-3 md:p-4">
-        <div className="space-y-2.5">
-          <Tile className="aspect-[16/6] w-full" label="A+ Hero-Modul" />
-          <div className="grid grid-cols-2 gap-2.5">
-            <Tile className="aspect-[4/3] w-full" small label="Bild" />
-            <div className="flex flex-col justify-center gap-2 rounded-2xl bg-navy/[0.03] p-5 ring-1 ring-black/[0.05]">
-              {[2 / 3, 1, 5 / 6, 3 / 4].map((w, i) => <span key={i} className="h-2 rounded-full bg-navy/12" style={{ width: `${w * 100}%` }} />)}
-            </div>
-          </div>
-          <div className="relative">
-            <Tile className="aspect-[16/7] w-full" label="Premium A+ Karussell" tone="navy" />
-            <span className="absolute right-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-[9px] font-bold text-red">Premium A+</span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (category === "brand_store") {
-    return (
-      <div className="surface mx-auto max-w-4xl overflow-hidden p-0">
-        <div className="flex items-center gap-1.5 border-b border-black/[0.06] bg-navy/[0.03] px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-red/40" /><span className="h-2.5 w-2.5 rounded-full bg-brand-400/60" /><span className="h-2.5 w-2.5 rounded-full bg-emerald/40" />
-        </div>
-        <div className="space-y-4 p-5">
-          <Tile className="aspect-[16/5] w-full" label="Store Hero" tone="blue" />
-          <div className="grid grid-cols-3 gap-4">
-            {Array.from({ length: 3 }).map((_, i) => <Tile key={i} className="aspect-square w-full" small />)}
-          </div>
-        </div>
-      </div>
-    );
-  }
-  return (
-    <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl p-5 shadow-lift ring-1 ring-black/[0.06] md:p-7" style={{ background: "linear-gradient(135deg,#0A1E2B,#0B4D6B)" }}>
-      <div className="flex gap-4">
-        {(["brand", "blue", "neutral"] as const).map((t, i) => (
-          <div key={i} className="w-1/3 rounded-2xl bg-white p-2.5 shadow-lift"><Tile className="aspect-[3/4] w-full" tone={t} /></div>
-        ))}
-      </div>
-    </div>
+    <div
+      className="mb-3 w-full break-inside-avoid rounded-xl ring-1 ring-black/[0.05]"
+      style={{ aspectRatio: aspect, background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+    />
   );
 }
 
 export function DesignGallery({ data }: { data: RefData }) {
   const [active, setActive] = useState<RefCategory>("main_images");
+  const [lightbox, setLightbox] = useState<string | null>(null);
   const tab = TABS.find((t) => t.key === active)!;
-  const listings = data[active];
+
+  // Flatten all reference images of the active category into one stream.
+  const images = data[active].flatMap((l) => l.images.map((im) => im.url));
 
   return (
     <section className="relative bg-white py-12 md:py-16">
@@ -158,11 +62,53 @@ export function DesignGallery({ data }: { data: RefData }) {
         <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-ink-muted">{tab.blurb}</p>
 
         <Reveal key={active} delay={0.05}>
-          <div className="mt-10">
-            {listings.length > 0 ? <RealCategory category={active} listings={listings} /> : <Placeholder category={active} />}
+          <div className="mt-10 gap-3 [column-fill:_balance] columns-2 sm:columns-3 lg:columns-4 xl:columns-5">
+            {images.length > 0
+              ? images.map((url, i) => (
+                  <button
+                    key={`${url}-${i}`}
+                    type="button"
+                    onClick={() => setLightbox(url)}
+                    className="mb-3 block w-full break-inside-avoid overflow-hidden rounded-xl ring-1 ring-black/[0.05] transition-transform duration-300 hover:scale-[1.02]"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={url} alt="" loading="lazy" className="w-full" />
+                  </button>
+                ))
+              : PLACEHOLDER_ASPECTS[active].map((a, i) => <Tile key={i} aspect={a} />)}
           </div>
         </Reveal>
+
+        {images.length === 0 && (
+          <p className="mt-8 text-center text-xs text-ink-faint">
+            Beispiele folgen, sobald die Referenzbilder verbunden sind.
+          </p>
+        )}
       </div>
+
+      {/* lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            type="button"
+            aria-label="Schließen"
+            className="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full bg-white/15 text-white"
+            onClick={() => setLightbox(null)}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={lightbox}
+            alt=""
+            className="max-h-[90vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
