@@ -78,7 +78,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-md bg-white ${interactive ? "cursor-zoom-in" : ""}`}
+      className={`group relative w-full overflow-hidden rounded-xl bg-white ${interactive ? "cursor-zoom-in p-3 md:p-4" : ""}`}
       style={interactive ? { boxShadow: accentShadow(accent) } : undefined}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
@@ -489,7 +489,9 @@ export function DesignGallery({ data }: { data: RefData }) {
   const [visible, setVisible] = useState(10);
   useEffect(() => setVisible(10), [active]);
   const listings = data[active];
-  const shown = listings.slice(0, visible);
+  // EBC zeigt direkt die Gesamtmenge (kein „Mehr laden"), der Rest paginiert.
+  const paginated = active !== "a_plus";
+  const shown = paginated ? listings.slice(0, visible) : listings;
 
   const render = () => {
     if (!listings.length) return <EmptyNote />;
@@ -527,7 +529,7 @@ export function DesignGallery({ data }: { data: RefData }) {
           <div className="mt-10">{render()}</div>
         </Reveal>
 
-        {visible < listings.length && (
+        {paginated && visible < listings.length && (
           <div className="mt-12 flex justify-center">
             <button type="button" className="btn-primary" onClick={() => setVisible((v) => v + 10)}>
               Mehr laden
