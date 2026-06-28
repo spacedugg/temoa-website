@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../ui/Reveal";
 import { ExpandedShell } from "./ExpandedShell";
 import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from "@/lib/references";
@@ -36,11 +36,13 @@ const guard = (e: React.MouseEvent) => {
   if (t.tagName === "IMG" || t.tagName === "VIDEO") e.preventDefault();
 };
 
-function MaximizeBadge({ onClick }: { onClick?: (e: React.MouseEvent) => void }) {
+function MaximizeBadge({ onClick, visible = false }: { onClick?: (e: React.MouseEvent) => void; visible?: boolean }) {
   return (
     <span
       onClick={onClick}
-      className={`absolute right-2 top-2 z-20 grid h-9 w-9 place-items-center rounded-full bg-white/90 text-ink opacity-0 shadow-soft backdrop-blur transition group-hover:opacity-100 ${onClick ? "cursor-zoom-in hover:scale-105" : "pointer-events-none"}`}
+      className={`absolute right-2 top-2 z-30 grid h-9 w-9 place-items-center rounded-full bg-white/95 text-ink shadow-lift backdrop-blur transition ${
+        visible ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+      } ${onClick ? "cursor-zoom-in hover:scale-105" : "pointer-events-none"}`}
     >
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -48,10 +50,6 @@ function MaximizeBadge({ onClick }: { onClick?: (e: React.MouseEvent) => void })
     </span>
   );
 }
-
-const ScrollFade = () => (
-  <div className="pointer-events-none sticky bottom-0 -mt-12 h-12 bg-gradient-to-t from-white to-transparent" />
-);
 
 function usePager(count: number) {
   const [idx, setIdx] = useState<number | null>(null);
@@ -121,13 +119,10 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[1180px]">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 overflow-y-auto pr-1 lg:grid-cols-2" style={{ maxHeight: "min(80vh, 820px)" }}>
-          {listings.map((l, i) => (
-            <ListingCard key={l.id} listing={l} accent={i} onOpen={() => p.open(i)} />
-          ))}
-        </div>
-        <ScrollFade />
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
+        {listings.map((l, i) => (
+          <ListingCard key={l.id} listing={l} accent={i} onOpen={() => p.open(i)} />
+        ))}
       </div>
       {p.idx != null && (
         <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
@@ -176,25 +171,22 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-7xl">
-        <div className="overflow-y-auto" style={{ maxHeight: "min(82vh, 820px)" }}>
-          <div className="columns-2 gap-3 [column-fill:_balance] sm:columns-3 md:columns-4 lg:columns-6 xl:columns-8">
-            {listings.map((l, i) => (
-              <button
-                key={l.id}
-                type="button"
-                onClick={() => p.open(i)}
-                onContextMenu={guard}
-                style={{ boxShadow: accentShadow(i) }}
-                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-md transition hover:opacity-95"
-              >
-                <MaximizeBadge />
-                <EbcStack listing={l} />
-              </button>
-            ))}
-          </div>
+      <div className="mx-auto max-w-7xl">
+        <div className="columns-2 gap-6 [column-fill:_balance] sm:columns-3 md:columns-4 xl:columns-6">
+          {listings.map((l, i) => (
+            <button
+              key={l.id}
+              type="button"
+              onClick={() => p.open(i)}
+              onContextMenu={guard}
+              style={{ boxShadow: accentShadow(i) }}
+              className="group relative mb-6 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-md transition hover:opacity-95"
+            >
+              <MaximizeBadge />
+              <EbcStack listing={l} />
+            </button>
+          ))}
         </div>
-        <ScrollFade />
       </div>
       {p.idx != null && (
         <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
@@ -301,13 +293,10 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-5xl">
-        <div className="grid grid-cols-1 gap-5 overflow-y-auto pr-1 md:grid-cols-2 lg:grid-cols-3" style={{ maxHeight: "min(80vh, 820px)" }}>
-          {listings.map((l, i) => (
-            <StoreThumb key={l.id} media={l.images[0]} accent={i} onOpen={() => p.open(i)} />
-          ))}
-        </div>
-        <ScrollFade />
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {listings.map((l, i) => (
+          <StoreThumb key={l.id} media={l.images[0]} accent={i} onOpen={() => p.open(i)} />
+        ))}
       </div>
       {p.idx != null && (
         <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
@@ -377,8 +366,9 @@ function StoryFrame({ background, cards, onExpand, accent = 0 }: { background: R
   return (
     <div className="relative">
       <div
-        className="group relative overflow-hidden rounded-md"
+        className={`group relative overflow-hidden rounded-md ${onExpand ? "cursor-zoom-in" : ""}`}
         style={{ aspectRatio: "1464 / 625", boxShadow: onExpand ? accentShadow(accent) : undefined }}
+        onClick={onExpand}
         onContextMenu={guard}
         onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
         onTouchEnd={(e) => {
@@ -410,15 +400,15 @@ function StoryFrame({ background, cards, onExpand, accent = 0 }: { background: R
           </div>
         </div>
 
-        {onExpand && <MaximizeBadge onClick={onExpand} />}
+        {onExpand && <MaximizeBadge onClick={(e) => { e.stopPropagation(); onExpand(); }} visible />}
 
         {view > 1 && (
-          <button type="button" aria-label="Vorherige Karten" onClick={() => go(view - 1)} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
+          <button type="button" aria-label="Vorherige Karten" onClick={(e) => { e.stopPropagation(); go(view - 1); }} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
           </button>
         )}
         {view < totalViews && (
-          <button type="button" aria-label="Weitere Karten" onClick={() => go(view + 1)} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
+          <button type="button" aria-label="Weitere Karten" onClick={(e) => { e.stopPropagation(); go(view + 1); }} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
           </button>
         )}
@@ -457,15 +447,12 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="relative mx-auto max-w-[1280px]">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 overflow-y-auto pr-1 lg:grid-cols-2" style={{ maxHeight: "min(82vh, 860px)" }}>
-          {listings.map((l, i) => {
-            const { background, cards } = splitStory(l);
-            if (!background) return <StorySnap key={l.id} cards={cards} />;
-            return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} />;
-          })}
-        </div>
-        <ScrollFade />
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
+        {listings.map((l, i) => {
+          const { background, cards } = splitStory(l);
+          if (!background) return <StorySnap key={l.id} cards={cards} />;
+          return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} />;
+        })}
       </div>
       {p.idx != null &&
         (() => {
@@ -495,21 +482,24 @@ function EmptyNote() {
 
 export function DesignGallery({ data }: { data: RefData }) {
   const [active, setActive] = useState<RefCategory>("main_images");
+  const [visible, setVisible] = useState(10);
+  useEffect(() => setVisible(10), [active]);
   const listings = data[active];
+  const shown = listings.slice(0, visible);
 
-  const render = useCallback(() => {
+  const render = () => {
     if (!listings.length) return <EmptyNote />;
     switch (active) {
       case "main_images":
-        return <ListingGallery listings={listings} />;
+        return <ListingGallery listings={shown} />;
       case "a_plus":
-        return <EbcGallery listings={listings} />;
+        return <EbcGallery listings={shown} />;
       case "brand_store":
-        return <BrandStoreGallery listings={listings} />;
+        return <BrandStoreGallery listings={shown} />;
       case "brand_story":
-        return <BrandStoryGallery listings={listings} />;
+        return <BrandStoryGallery listings={shown} />;
     }
-  }, [active, listings]);
+  };
 
   return (
     <section className="relative bg-white py-12 md:py-16">
@@ -529,13 +519,17 @@ export function DesignGallery({ data }: { data: RefData }) {
             ))}
           </div>
         </div>
-        <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-ink-muted">
-          Echte Beispiele aus unserer Arbeit. Klickt euch rein und vergrößert jedes Detail.
-        </p>
-
         <Reveal key={active} delay={0.05}>
           <div className="mt-10">{render()}</div>
         </Reveal>
+
+        {visible < listings.length && (
+          <div className="mt-12 flex justify-center">
+            <button type="button" className="btn-primary" onClick={() => setVisible((v) => v + 10)}>
+              Mehr laden
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
