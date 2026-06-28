@@ -239,7 +239,7 @@ export function ContentBody() {
           ],
         }}
         right={{
-          label: "Mit temoa",
+          label: "So arbeiten wir",
           points: [
             "Retail Ready: optimierter Content als Basis für profitable Werbung",
             "Aus Besuchern werden Käufer in Sekunden",
@@ -493,7 +493,7 @@ export function InternationalisierungBody() {
           ],
         }}
         right={{
-          label: "Mit temoa lokalisiert",
+          label: "Lokalisiert",
           points: [
             "Content je Markt neu geschrieben, auf Klickrate und Conversion",
             "Eigene Keyword-Recherche pro Marktplatz",
