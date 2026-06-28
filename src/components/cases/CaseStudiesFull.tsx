@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { cases, type CaseStudy, type CaseStat, type CaseBadge } from "@/lib/cases";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
+import { Icon, type IconName } from "../ui/Icon";
 import { CaseChart } from "./CaseChart";
+
+/* Icon je Story-Schritt: Ausgangslage -> Vorgehen -> Ergebnis. */
+const STEP_ICONS: IconName[] = ["search", "strategy", "rocket"];
 
 /** Brand logo in a white chip, overlaid on the case thumbnail. Renders
  *  nothing for anonymised brands and hides itself until the logo loads,
@@ -137,8 +141,13 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
           {c.sections.map((s, i) => (
             <RevealItem key={s.heading} className="h-full">
               <div className="relative flex h-full flex-col rounded-3xl bg-white p-6 shadow-soft ring-1 ring-black/[0.05]">
-                <span className="text-sm font-extrabold" style={{ color: c.accent }}>{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-1 text-base font-bold text-ink">{s.heading}</h3>
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: `${c.accent}14`, color: c.accent }}>
+                    <Icon name={STEP_ICONS[i % STEP_ICONS.length]} size={20} />
+                  </span>
+                  <span className="text-sm font-extrabold" style={{ color: c.accent }}>{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <h3 className="mt-3 text-base font-bold text-ink">{s.heading}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
               </div>
             </RevealItem>
