@@ -15,16 +15,29 @@ const PANE = { background: "linear-gradient(150deg,#ffffff,#eef3f8)" };
 
 /* --- mini visuals ---------------------------------------------------- */
 
+/* Hauptbild: a single product centred on a pure-white field, the way Amazon
+   requires the main image. Index badge "1", a hint at the CTR job. */
 function MainImageViz() {
   return (
-    <div className={`${FRAME} aspect-[4/3] flex items-center justify-center`} style={PANE}>
-      <span className="absolute left-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-xs font-extrabold text-brand-600 shadow-soft ring-1 ring-black/[0.05]">
+    <div className={`${FRAME} aspect-[4/3] flex items-center justify-center bg-white`}>
+      <span className="absolute left-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-ink text-xs font-extrabold text-white shadow-soft">
         1
       </span>
-      {/* stylised product */}
-      <div className="flex h-[58%] w-[26%] flex-col overflow-hidden rounded-xl shadow-lift">
-        <div className="h-1/3" style={{ backgroundImage: "var(--brand-gradient)" }} />
-        <div className="flex-1 bg-white" />
+      {/* stylised packaging: a jar/bottle with a label band and a soft shadow */}
+      <div className="relative flex h-[64%] items-end gap-1.5">
+        <div className="flex h-[78%] w-12 flex-col overflow-hidden rounded-t-2xl rounded-b-md shadow-lift ring-1 ring-black/[0.05]">
+          <div className="h-[22%]" style={{ background: "linear-gradient(180deg,#0A1E2B,#0B4D6B)" }} />
+          <div className="flex flex-1 flex-col items-center justify-center gap-1 bg-white px-1.5">
+            <span className="h-1 w-7 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
+            <span className="h-0.5 w-5 rounded-full bg-navy/15" />
+          </div>
+        </div>
+        <div className="h-full w-9 overflow-hidden rounded-xl shadow-lift ring-1 ring-black/[0.05]">
+          <div className="h-1/4" style={{ backgroundImage: "var(--brand-gradient)" }} />
+          <div className="h-full bg-white" />
+        </div>
+        {/* contact shadow */}
+        <div className="absolute -bottom-2 left-1/2 h-2 w-24 -translate-x-1/2 rounded-full bg-navy/10 blur-[3px]" />
       </div>
       <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold text-brand-600 shadow-soft ring-1 ring-black/[0.05]">
         <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
@@ -36,15 +49,30 @@ function MainImageViz() {
   );
 }
 
+/* Bilderstrecke: one large hero shot plus a filmstrip of thumbnails, the way a
+   listing gallery is actually laid out. */
 function GalleryViz() {
+  const thumbs = [
+    "linear-gradient(135deg,#FFE7CC,#FFD0E4)",
+    "linear-gradient(135deg,#CDE6F4,#EAF3FB)",
+    "linear-gradient(135deg,#0A1E2B,#0B4D6B)",
+    "linear-gradient(135deg,#FFF1D6,#FFE0B3)",
+    "linear-gradient(135deg,#E6EDF3,#ffffff)",
+  ];
   return (
-    <div className={`${FRAME} aspect-[4/3] p-3`} style={PANE}>
-      <div className="grid h-full grid-cols-3 grid-rows-2 gap-2">
-        {Array.from({ length: 6 }).map((_, i) => (
+    <div className={`${FRAME} aspect-[4/3] flex flex-col gap-2 p-3`} style={PANE}>
+      {/* hero shot */}
+      <div className="relative flex-1 overflow-hidden rounded-lg bg-white shadow-soft ring-1 ring-black/[0.04]">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg,#FFE7CC,#FFD0E4)" }} />
+        <div className="absolute bottom-2 left-2 h-8 w-8 rounded-md bg-white/90 shadow-soft" />
+      </div>
+      {/* thumbnail strip */}
+      <div className="grid grid-cols-5 gap-1.5">
+        {thumbs.map((bg, i) => (
           <div
             key={i}
-            className="rounded-lg bg-white shadow-soft ring-1 ring-black/[0.04]"
-            style={i === 0 ? { backgroundImage: "linear-gradient(135deg,#FFE7CC,#FFD0E4)" } : undefined}
+            className={`aspect-square rounded-md shadow-soft ring-1 ${i === 0 ? "ring-2 ring-brand-500" : "ring-black/[0.05]"}`}
+            style={{ background: bg }}
           />
         ))}
       </div>
