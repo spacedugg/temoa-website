@@ -78,7 +78,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-md bg-white ${interactive ? "cursor-zoom-in" : ""}`}
+      className={`group relative w-full overflow-hidden rounded-xl bg-white ${interactive ? "cursor-zoom-in p-3 md:p-4" : ""}`}
       style={interactive ? { boxShadow: accentShadow(accent) } : undefined}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
