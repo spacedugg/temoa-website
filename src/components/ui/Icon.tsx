@@ -2,10 +2,6 @@
 
 import { motion } from "framer-motion";
 
-const draw = {
-  rest: { pathLength: 1, opacity: 1 },
-};
-
 type IconName =
   | "margin"
   | "puzzle"
@@ -61,11 +57,13 @@ export function Icon({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
-      initial="rest"
-      whileHover={{ scale: 1.08, rotate: 2 }}
-      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+      initial={{ opacity: 0, scale: 0.6 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-15% 0px" }}
+      whileHover={{ scale: 1.1, rotate: 2 }}
+      transition={{ type: "spring", stiffness: 300, damping: 18 }}
     >
-      <motion.g variants={draw}>{paths[name]}</motion.g>
+      <g>{paths[name]}</g>
     </motion.svg>
   );
 }

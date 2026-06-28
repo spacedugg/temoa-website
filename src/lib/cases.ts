@@ -27,6 +27,7 @@ export type CaseStudy = {
   displayName: string;
   mono: string; // short brand monogram for the logo badge
   bgImage?: string; // case preview background image
+  images?: string[]; // optional extra images shown on the case detail page
   logo?: string; // brand logo for the preview (omitted for anonymised brands)
   anonymized: boolean;
   industry: string;

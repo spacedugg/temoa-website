@@ -43,7 +43,7 @@ function Panels() {
       {cases.map((c) => (
         <a
           key={c.slug}
-          href={`/ergebnisse#${c.slug}`}
+          href={`/ergebnisse/${c.slug}`}
           className="group relative isolate flex min-w-0 flex-1 overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/5 transition-[flex] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] hover:flex-[2.6]"
           style={mesh(c.accent)}
         >
@@ -109,7 +109,7 @@ function MobileCards() {
       {cases.map((c) => (
         <a
           key={c.slug}
-          href={`/ergebnisse#${c.slug}`}
+          href={`/ergebnisse/${c.slug}`}
           className="relative isolate flex h-52 flex-col overflow-hidden rounded-3xl p-5 shadow-lift ring-1 ring-black/5"
           style={mesh(c.accent)}
         >

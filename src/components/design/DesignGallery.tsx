@@ -24,6 +24,13 @@ const TABS: { key: RefCategory; label: string }[] = [
 const aspect = (im?: RefImage | null, fb = 1) =>
   im && im.width && im.height ? im.width / im.height : fb;
 
+/* Vier Logo-Farben, die hinter den Beispielen rotieren — so hebt sich jedes
+ * einzelne Beispiel mit einem farbigen Schatten vom weißen Hintergrund ab,
+ * ohne dass ein sichtbarer Container nötig ist. */
+const ACCENTS = ["#FF9900", "#FF3131", "#023047", "#2A9BD8"];
+const accentShadow = (i: number) =>
+  `0 2px 6px -2px rgba(2,48,71,0.10), 0 18px 40px -18px ${ACCENTS[i % ACCENTS.length]}90`;
+
 const guard = (e: React.MouseEvent) => {
   const t = e.target as HTMLElement;
   if (t.tagName === "IMG" || t.tagName === "VIDEO") e.preventDefault();
@@ -62,14 +69,15 @@ function usePager(count: number) {
 /* ============================================================================
  * 1. Produktbilder / Listings — Hero + 3×2-Grid; 2 nebeneinander (Desktop)
  * ========================================================================== */
-function ListingCard({ listing, onOpen, interactive = true }: { listing: RefListing; onOpen?: () => void; interactive?: boolean }) {
+function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { listing: RefListing; onOpen?: () => void; interactive?: boolean; accent?: number }) {
   const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
   const details = listing.images.filter((i) => i !== hero).slice(0, 6);
   const [heroAspect, setHeroAspect] = useState(() => aspect(hero, 1));
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-md bg-white p-2.5 shadow-soft ring-1 ring-black/[0.04] ${interactive ? "cursor-zoom-in" : ""}`}
+      className={`group relative w-full overflow-hidden rounded-md ${interactive ? "cursor-zoom-in bg-white" : ""}`}
+      style={interactive ? { boxShadow: accentShadow(accent) } : undefined}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
     >
@@ -116,7 +124,7 @@ function ListingGallery({ listings }: { listings: RefListing[] }) {
       <div className="relative mx-auto max-w-[1180px]">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 overflow-y-auto pr-1 lg:grid-cols-2" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => (
-            <ListingCard key={l.id} listing={l} onOpen={() => p.open(i)} />
+            <ListingCard key={l.id} listing={l} accent={i} onOpen={() => p.open(i)} />
           ))}
         </div>
         <ScrollFade />
@@ -177,7 +185,8 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
                 type="button"
                 onClick={() => p.open(i)}
                 onContextMenu={guard}
-                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-md shadow-soft ring-1 ring-black/[0.04] transition hover:opacity-95"
+                style={{ boxShadow: accentShadow(i) }}
+                className="group relative mb-3 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-md transition hover:opacity-95"
               >
                 <MaximizeBadge />
                 <EbcStack listing={l} />
@@ -199,15 +208,15 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
 /* ============================================================================
  * 4. Brand Stores — 2:3-Teaser, Play -> groß zentriert (Auto-Scroll / MP4)
  * ========================================================================== */
-function StoreThumb({ media, onOpen }: { media: RefImage; onOpen: () => void }) {
+function StoreThumb({ media, onOpen, accent = 0 }: { media: RefImage; onOpen: () => void; accent?: number }) {
   const video = media.mediaType === "video";
   return (
     <button
       type="button"
       onClick={onOpen}
       onContextMenu={guard}
-      className="group relative block w-full overflow-hidden rounded-md bg-black shadow-soft"
-      style={video ? undefined : { aspectRatio: "9 / 13.86" }}
+      className="group relative block w-full overflow-hidden rounded-md bg-black"
+      style={{ aspectRatio: video ? undefined : "9 / 13.86", boxShadow: accentShadow(accent) }}
     >
       {video ? (
         <video src={media.url} muted playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
@@ -295,7 +304,7 @@ function BrandStoreGallery({ listings }: { listings: RefListing[] }) {
       <div className="relative mx-auto max-w-5xl">
         <div className="grid grid-cols-1 gap-5 overflow-y-auto pr-1 md:grid-cols-2 lg:grid-cols-3" style={{ maxHeight: "min(80vh, 820px)" }}>
           {listings.map((l, i) => (
-            <StoreThumb key={l.id} media={l.images[0]} onOpen={() => p.open(i)} />
+            <StoreThumb key={l.id} media={l.images[0]} accent={i} onOpen={() => p.open(i)} />
           ))}
         </div>
         <ScrollFade />
@@ -356,7 +365,7 @@ function StoryCardInner({ card }: { card: RefImage }) {
   return <img src={card.url} alt="" loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
 }
 
-function StoryFrame({ background, cards, onExpand }: { background: RefImage | null; cards: RefImage[]; onExpand?: () => void }) {
+function StoryFrame({ background, cards, onExpand, accent = 0 }: { background: RefImage | null; cards: RefImage[]; onExpand?: () => void; accent?: number }) {
   const [view, setView] = useState(1);
   const offsets = viewOffsets(cards.length);
   const totalViews = offsets.length;
@@ -368,8 +377,8 @@ function StoryFrame({ background, cards, onExpand }: { background: RefImage | nu
   return (
     <div className="relative">
       <div
-        className="group relative overflow-hidden rounded-md shadow-soft ring-1 ring-black/[0.04]"
-        style={{ aspectRatio: "1464 / 625" }}
+        className="group relative overflow-hidden rounded-md"
+        style={{ aspectRatio: "1464 / 625", boxShadow: onExpand ? accentShadow(accent) : undefined }}
         onContextMenu={guard}
         onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
         onTouchEnd={(e) => {
@@ -453,7 +462,7 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
           {listings.map((l, i) => {
             const { background, cards } = splitStory(l);
             if (!background) return <StorySnap key={l.id} cards={cards} />;
-            return <StoryFrame key={l.id} background={background} cards={cards} onExpand={() => p.open(i)} />;
+            return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} />;
           })}
         </div>
         <ScrollFade />
