@@ -175,7 +175,7 @@ const tiles: Tile[] = [
   },
   {
     viz: SeoViz,
-    kicker: "Text und SEO",
+    kicker: "SEO",
     title: "Titel, Bullets, Backend",
     desc: "Lesbar geschrieben und KI-ready für Rufus, COSMO und A10, statt Keywords zu stapeln.",
     accent: "text-brand-600",
@@ -191,7 +191,7 @@ export function ContentShowcase() {
           size="compact"
           title={
             <>
-              Produktbilder und <span className="text-gradient">Text und SEO.</span>
+              Produktbilder und <span className="text-gradient">SEO.</span>
             </>
           }
           description="Jedes Element eurer Detailseite, gebaut auf Klickrate und Conversion. Hier als Vorschau."

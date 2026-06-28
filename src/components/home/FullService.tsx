@@ -4,13 +4,7 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { RevealGroup, RevealItem, Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
-const CHIP = [
-  "bg-brand-500/10 text-brand-600",
-  "bg-cyan/10 text-cyan",
-  "bg-red/10 text-red",
-  "bg-emerald/10 text-emerald",
-  "bg-navy/10 text-navy",
-];
+const ICOLOR = ["text-brand-600", "text-cyan", "text-red", "text-emerald", "text-navy"];
 
 const services: { n: string; icon: IconName; name: string; result: string; href: string }[] = [
   { n: "01", icon: "strategy", name: "Strategie & Analyse", result: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
@@ -38,8 +32,8 @@ export function FullService() {
           {services.map((s, i) => (
             <RevealItem key={s.n} className="h-full">
               <a href={s.href} className="surface surface-hover group flex h-full flex-col items-center p-5 text-center">
-                <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl ${CHIP[i % CHIP.length]}`}>
-                  <Icon name={s.icon} size={24} />
+                <span className={ICOLOR[i % ICOLOR.length]}>
+                  <Icon name={s.icon} size={32} />
                 </span>
                 <h3 className="mt-4 text-sm font-bold leading-snug text-ink">{s.name}</h3>
                 <p className="mt-1.5 text-sm leading-snug text-ink-muted">{s.result}</p>

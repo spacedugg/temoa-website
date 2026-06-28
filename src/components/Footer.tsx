@@ -42,13 +42,6 @@ export function Footer() {
               Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch
               verkauft, dann PPC, das vom ersten Euro an profitabel arbeitet.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2 text-xs">
-              {["Ø +30 % Profitabilität", "21 Mio. € Jahresumsatz", "60+ Marken", "5+ Marktplätze"].map((b) => (
-                <span key={b} className="rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 font-medium text-white/80">
-                  {b}
-                </span>
-              ))}
-            </div>
           </div>
 
           {cols.map((c) => (
