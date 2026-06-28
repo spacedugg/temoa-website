@@ -3,12 +3,7 @@
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
-const CHIP = [
-  "bg-brand-500/10 text-brand-600",
-  "bg-cyan/10 text-cyan",
-  "bg-red/10 text-red",
-  "bg-navy/10 text-navy",
-];
+const ICOLOR = ["text-brand-600", "text-cyan", "text-red", "text-navy"];
 
 const pains: { icon: IconName; title: string; body: string }[] = [
   { icon: "target", title: "Zeit-Engpass", body: "Listing-Optimierung ist ein Vollzeitjob. Im Tagesgeschäft bleibt sie liegen." },
@@ -39,8 +34,8 @@ export function Problem() {
           {pains.map((p, i) => (
             <RevealItem key={p.title} className="h-full">
               <div className="surface surface-hover flex h-full flex-col items-center p-5 text-center">
-                <span className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl ${CHIP[i % CHIP.length]}`}>
-                  <Icon name={p.icon} size={22} />
+                <span className={ICOLOR[i % ICOLOR.length]}>
+                  <Icon name={p.icon} size={30} />
                 </span>
                 <h3 className="mt-4 text-balance text-base font-bold leading-snug text-ink">{p.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{p.body}</p>
