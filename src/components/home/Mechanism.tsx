@@ -88,8 +88,8 @@ export function Mechanism() {
                         Ranking-Signal
                       </span>
                     )}
-                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white">
-                      <Icon name={s.icon} size={20} />
+                    <span className="text-white">
+                      <Icon name={s.icon} size={28} />
                     </span>
                     <div className="mt-3 text-base font-bold text-white">{s.name}</div>
                     <div className="mt-1 text-sm leading-snug text-white/65">{s.meaning}</div>
