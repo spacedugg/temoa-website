@@ -43,7 +43,10 @@ export function Team() {
         <Reveal delay={0.08}>
           <div className="mx-auto mt-12 max-w-5xl columns-2 gap-4 [column-fill:_balance] md:columns-3 [&>*]:mb-4">
             {/* Text-Kachel füllt den Whitespace und balanciert die Collage */}
-            <div className="flex break-inside-avoid flex-col justify-center rounded-3xl bg-navy p-6 text-white shadow-lift">
+            <div
+              className="flex break-inside-avoid flex-col justify-center rounded-3xl p-6 text-white shadow-lift"
+              style={{ background: "linear-gradient(150deg,#FF3131,#C81E1E)" }}
+            >
               <span className="text-2xl font-extrabold leading-tight">Menschen, kein Tool.</span>
               <p className="mt-2 text-sm leading-relaxed text-white/75">
                 Ein eingespieltes Team für Strategie, Content, PPC und Account-Management, an einem Tisch.
