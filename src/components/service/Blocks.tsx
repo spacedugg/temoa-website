@@ -241,15 +241,11 @@ export function Points({
         const orphan = !aside && points.length % 2 === 1 && i === points.length - 1;
         return (
           <Reveal key={p} delay={i * 0.05} className={orphan ? "sm:col-span-2" : ""}>
-            <div className="surface relative flex h-full items-start gap-3.5 overflow-hidden p-5 pl-6">
-              <span aria-hidden className={`absolute inset-y-0 left-0 w-1 ${a.bar}`} />
-              <span className={`mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${a.chip}`}>
-                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={18} />
+            <div className="surface relative flex h-full items-start gap-3.5 p-5">
+              <span className={`mt-0.5 shrink-0 ${a.text}`}>
+                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={24} />
               </span>
-              <p className="relative z-10 text-sm leading-snug text-ink md:text-[0.95rem]">{p}</p>
-              <span aria-hidden className="pointer-events-none absolute -top-2 right-1 text-4xl font-extrabold text-navy/[0.05]">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              <p className="text-sm leading-snug text-ink md:text-[0.95rem]">{p}</p>
             </div>
           </Reveal>
         );
