@@ -28,8 +28,12 @@ const aspect = (im?: RefImage | null, fb = 1) =>
  * einzelne Beispiel mit einem farbigen Schatten vom weißen Hintergrund ab,
  * ohne dass ein sichtbarer Container nötig ist. */
 const ACCENTS = ["#FF9900", "#FF3131", "#023047", "#2A9BD8"];
-const accentShadow = (i: number) =>
-  `0 2px 6px -2px rgba(2,48,71,0.10), 0 18px 40px -18px ${ACCENTS[i % ACCENTS.length]}90`;
+/* Kräftiger, rundum laufender Farb-Glow (oben, unten, seitlich) plus feiner
+ * farbiger Rahmen, damit sich jedes Beispiel klar abhebt. */
+const accentShadow = (i: number) => {
+  const c = ACCENTS[i % ACCENTS.length];
+  return `0 0 0 1px ${c}33, 0 14px 38px -10px ${c}99, 0 -10px 30px -14px ${c}73, 0 0 28px -2px ${c}59`;
+};
 
 const guard = (e: React.MouseEvent) => {
   const t = e.target as HTMLElement;
@@ -74,14 +78,14 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
 
   return (
     <div
-      className={`group relative w-full overflow-hidden rounded-md ${interactive ? "cursor-zoom-in bg-white" : ""}`}
+      className={`group relative w-full overflow-hidden rounded-md bg-white ${interactive ? "cursor-zoom-in" : ""}`}
       style={interactive ? { boxShadow: accentShadow(accent) } : undefined}
       onClick={interactive ? onOpen : undefined}
       onContextMenu={guard}
     >
       {interactive && <MaximizeBadge />}
       <div className="grid gap-2" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
-        <div className="overflow-hidden rounded-sm" style={{ aspectRatio: heroAspect }}>
+        <div className="overflow-hidden rounded-sm">
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
