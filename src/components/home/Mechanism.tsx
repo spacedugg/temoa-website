@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Ambient } from "../ui/Ambient";
+import { Logo } from "../Logo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
@@ -127,8 +128,9 @@ export function Mechanism() {
               <div className="px-5 py-4">
                 <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Wie es jetzt läuft</span>
               </div>
-              <div className="border-l border-black/[0.06] bg-brand-50/50 px-5 py-4">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">Wie temoa arbeitet</span>
+              <div className="flex items-center gap-2 border-l border-black/[0.06] bg-brand-50/50 px-5 py-4">
+                <Logo className="h-4 w-auto" />
+                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">arbeitet</span>
               </div>
             </div>
             <RevealGroup className="divide-y divide-black/[0.05]" stagger={0.07}>
@@ -172,11 +174,11 @@ function RevealItemless({ children, delay }: { children: React.ReactNode; delay:
 function CheckIcon() {
   return (
     <span
-      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
-      style={{ backgroundImage: "var(--brand-gradient)" }}
+      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+      style={{ background: "#16A34A1A", color: "#16A34A", boxShadow: "0 0 10px -1px #16A34A66" }}
     >
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );
@@ -184,9 +186,12 @@ function CheckIcon() {
 
 function CrossIcon() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy/[0.06] text-ink-faint">
+    <span
+      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+      style={{ background: "#FF31311A", color: "#E11414", boxShadow: "0 0 10px -1px #FF313155" }}
+    >
       <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );
