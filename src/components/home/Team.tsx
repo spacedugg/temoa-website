@@ -3,15 +3,16 @@
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 
-/* Collage that respects each photo's orientation (no forced crop):
-   a masonry layout where portrait shots stay tall and landscape stays
-   wide. "Main" is the lead shot and comes first. Slightly brightened. */
-const shots: { src: string; lead?: boolean }[] = [
-  { src: "/team/Main.jpg", lead: true }, // landscape
-  { src: "/team/DSCF2442.jpg" }, // portrait
-  { src: "/team/DSCF2526.jpg" }, // landscape
-  { src: "/team/DSCF2497-2.jpg" }, // portrait
-  { src: "/team/DSCF2749.jpg" }, // landscape
+/* Collage aus den vorhandenen Quer- und Hochformaten, die ineinander
+   greifen (kein „erst quer, dann hoch"-Block). Main ist das Leadbild,
+   groß oben links; die zwei Hochformate werden hoch dargestellt, die
+   Querformate breit, sodass das Raster ohne Whitespace aufgeht. */
+const shots: { src: string; className: string }[] = [
+  { src: "/team/Main.jpg", className: "col-span-2 md:row-span-2" }, // Querformat, Leadbild groß
+  { src: "/team/DSCF2442.jpg", className: "md:row-span-2" }, // Hochformat, hoch
+  { src: "/team/DSCF2526.jpg", className: "" }, // Querformat
+  { src: "/team/DSCF2497-2.jpg", className: "" }, // Hochformat
+  { src: "/team/DSCF2749.jpg", className: "" }, // Querformat
 ];
 
 export function Team() {
@@ -30,24 +31,19 @@ export function Team() {
         />
 
         <Reveal delay={0.08}>
-          <div className="mt-12 gap-4 [column-fill:balance] columns-2 lg:columns-3 [&>*]:mb-4">
+          <div className="mx-auto mt-12 grid max-w-5xl auto-rows-[8.5rem] grid-cols-2 gap-3 md:auto-rows-[10.5rem] md:grid-cols-3">
             {shots.map((s) => (
               <div
                 key={s.src}
-                className="group relative block break-inside-avoid overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06]"
+                className={`group relative overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] ${s.className}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={s.src}
                   alt=""
                   loading="lazy"
-                  className="w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] [filter:brightness(1.08)_saturate(1.03)]"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04] [filter:brightness(1.07)_saturate(1.03)]"
                 />
-                {s.lead && (
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-deep/55 to-transparent p-5 pt-14">
-                    <span className="text-base font-bold text-white">temoa</span>
-                  </div>
-                )}
               </div>
             ))}
           </div>
