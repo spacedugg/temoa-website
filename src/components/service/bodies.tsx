@@ -165,7 +165,7 @@ export function StrategieBody() {
       <Cards
         tone="white"
         eyebrow="Was drinsteckt"
-        title="Was in eurer Strategie steckt."
+        title="Von der Analyse zum priorisierten Fahrplan."
         cols={2}
         items={[
           {
@@ -227,7 +227,7 @@ export function ContentBody() {
       <Compare
         tone="blue"
         eyebrow="Vorher / Nachher"
-        title="Vorher und nachher."
+        title="Was sich mit starkem Content ändert."
         left={{
           label: "Vor der Zusammenarbeit",
           points: [
@@ -239,7 +239,7 @@ export function ContentBody() {
           ],
         }}
         right={{
-          label: "Mit temoa",
+          label: "So arbeiten wir",
           points: [
             "Retail Ready: optimierter Content als Basis für profitable Werbung",
             "Aus Besuchern werden Käufer in Sekunden",
@@ -295,7 +295,7 @@ export function AdvertisingBody() {
       <Cards
         tone="blue"
         eyebrow="Was wir steuern"
-        title="Was wir steuern."
+        title="Fünf Bereiche, die über eure Marge entscheiden."
         cols={3}
         items={[
           {
@@ -384,7 +384,7 @@ export function AccountBody() {
       <Cards
         tone="white"
         eyebrow="Wie wir arbeiten"
-        title="Wie wir arbeiten."
+        title="So bleibt euer Account stabil."
         cols={3}
         items={[
           { n: "01", title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
@@ -395,7 +395,7 @@ export function AccountBody() {
       <Cards
         tone="blue"
         eyebrow="Was wir übernehmen"
-        title="Was wir übernehmen."
+        title="Das Tagesgeschäft in unserer Hand."
         cols={3}
         items={[
           { title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
@@ -493,7 +493,7 @@ export function InternationalisierungBody() {
           ],
         }}
         right={{
-          label: "Mit temoa lokalisiert",
+          label: "Lokalisiert",
           points: [
             "Content je Markt neu geschrieben, auf Klickrate und Conversion",
             "Eigene Keyword-Recherche pro Marktplatz",

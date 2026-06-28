@@ -3,8 +3,9 @@
 import type { ReactNode } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Ambient } from "../ui/Ambient";
-import { Reveal } from "../ui/Reveal";
+import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
+import { Logo } from "../Logo";
 
 /* ---------------- palette / tones ---------------- */
 
@@ -76,11 +77,29 @@ function Tick({ onDark = false }: { onDark?: boolean }) {
   );
 }
 
-function Cross() {
+/** Comparison ticks with a soft coloured glow: green for the temoa column,
+ *  red for the status-quo column. */
+function CheckGlow() {
   return (
-    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy/[0.06] text-ink-faint">
+    <span
+      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+      style={{ background: "#16A34A1A", color: "#16A34A", boxShadow: "0 0 10px -1px #16A34A66" }}
+    >
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
+}
+
+function CrossGlow() {
+  return (
+    <span
+      className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+      style={{ background: "#FF31311A", color: "#E11414", boxShadow: "0 0 10px -1px #FF313155" }}
+    >
       <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
-        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </span>
   );
@@ -360,33 +379,44 @@ export function Compare({
     <Shell tone={tone}>
       <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
       <div className="mt-12 grid gap-5 md:grid-cols-2">
+        {/* status quo: red glow crosses */}
         <Reveal>
           <div className="surface flex h-full flex-col p-7">
             <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-faint">{left.label}</span>
-            <ul className="mt-5 space-y-3">
+            <RevealGroup className="mt-5 space-y-3" stagger={0.06}>
               {left.points.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                  <Cross />
-                  <span>{p}</span>
-                </li>
+                <RevealItem key={p}>
+                  <div className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
+                    <CrossGlow />
+                    <span>{p}</span>
+                  </div>
+                </RevealItem>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
         </Reveal>
+        {/* temoa: logo on our side, green glow checks */}
         <Reveal delay={0.08}>
           <div
-            className="flex h-full flex-col rounded-3xl p-7 text-white shadow-lift"
-            style={{ background: "linear-gradient(135deg,#0A1E2B,#053048)" }}
+            className="flex h-full flex-col rounded-3xl p-7 shadow-lift ring-1 ring-brand-200"
+            style={{ background: "linear-gradient(160deg,#FFF8EE,#ffffff 62%)" }}
           >
-            <span className="text-xs font-bold uppercase tracking-[0.13em] text-white/70">{right.label}</span>
-            <ul className="mt-5 space-y-3">
+            <div className="flex items-center gap-2">
+              <Logo className="h-5 w-auto" />
+              {right.label && (
+                <span className="text-xs font-bold uppercase tracking-[0.13em] text-brand-700">{right.label}</span>
+              )}
+            </div>
+            <RevealGroup className="mt-5 space-y-3" stagger={0.06}>
               {right.points.map((p) => (
-                <li key={p} className="flex items-start gap-2.5 text-sm font-medium leading-snug">
-                  <Tick onDark />
-                  <span>{p}</span>
-                </li>
+                <RevealItem key={p}>
+                  <div className="flex items-start gap-2.5 text-sm font-medium leading-snug text-ink">
+                    <CheckGlow />
+                    <span>{p}</span>
+                  </div>
+                </RevealItem>
               ))}
-            </ul>
+            </RevealGroup>
           </div>
         </Reveal>
       </div>
