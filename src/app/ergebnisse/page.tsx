@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/ui/PageHero";
-import { CaseStudiesFull } from "@/components/cases/CaseStudiesFull";
+import { CaseGrid } from "@/components/cases/CaseGrid";
 import { ServiceCTA } from "@/components/service/Blocks";
 import { ProofStrip } from "@/components/sections/SocialProof";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -48,7 +48,7 @@ export default function ErgebnissePage() {
         />
         <Stats tone="white" />
         <ProofStrip tone="blue" bare />
-        <CaseStudiesFull />
+        <CaseGrid />
         <RetentionBand />
         <Testimonials tone="white" />
         <ServiceCTA
