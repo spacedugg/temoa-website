@@ -116,6 +116,7 @@ export function FullServiceBody() {
         eyebrow="Immer enthalten"
         title="Reporting, das ihr in fünf Minuten versteht."
         items={["Monatliche Performance-Reports", "Profit- und Verlust-Analyse", "Markttrends und Wettbewerbsbeobachtung"]}
+        icons={["chart", "margin", "search"]}
       />
       <BulletPanel
         tone="white"
@@ -478,6 +479,7 @@ export function InternationalisierungBody() {
         eyebrow="Aus der Praxis"
         title="Vier Marktplätze parallel aufgebaut."
         items={["Saisonstart auf allen Märkten vorbereitet", "TACoS im Hauptmarkt −35 %", "Zweitmarkt: Klicks +110 % bei sinkendem ACoS"]}
+        icons={["rocket", "margin", "target"]}
       />
       <Compare
         tone="white"

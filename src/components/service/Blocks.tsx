@@ -464,11 +464,14 @@ export function AccentStrip({
   eyebrow,
   title,
   items,
+  icons,
   tone = "blue",
 }: {
   eyebrow?: string;
   title: ReactNode;
   items: string[];
+  /** Optional animated icon per item, replacing the plain chevron marker. */
+  icons?: IconName[];
   tone?: Tone;
 }) {
   return (
@@ -484,14 +487,32 @@ export function AccentStrip({
           <h2 className="mx-auto mt-3 max-w-2xl text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
             {title}
           </h2>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {items.map((it) => (
-              <span key={it} className="inline-flex items-center gap-2 text-sm font-medium text-ink">
-                <Lead color="text-cyan" />
-                {it}
-              </span>
-            ))}
-          </div>
+          {icons ? (
+            <div className="mt-8 grid gap-7 sm:grid-cols-3">
+              {items.map((it, i) => {
+                const a = accent(i);
+                return (
+                  <Reveal key={it} delay={i * 0.08}>
+                    <div className="flex flex-col items-center gap-3">
+                      <span className={a.text}>
+                        <Icon name={icons[i % icons.length]} size={32} />
+                      </span>
+                      <span className="max-w-[16rem] text-sm font-medium leading-snug text-ink">{it}</span>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              {items.map((it) => (
+                <span key={it} className="inline-flex items-center gap-2 text-sm font-medium text-ink">
+                  <Lead color="text-cyan" />
+                  {it}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </Reveal>
     </Shell>
