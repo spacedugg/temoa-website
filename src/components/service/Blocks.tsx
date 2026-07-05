@@ -117,10 +117,15 @@ export function ServiceHero({
   eyebrow,
   title,
   sub,
+  image,
+  imageAlt = "",
 }: {
   eyebrow: string;
   title: ReactNode;
   sub: string;
+  /** Optional hero image; falls back to a neutral placeholder. */
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-white pt-32 pb-16 md:pt-40 md:pb-20">
@@ -155,7 +160,16 @@ export function ServiceHero({
           </Reveal>
         </div>
         <Reveal direction="left" delay={0.1}>
-          <Media className="aspect-[4/3] w-full" />
+          {image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={image}
+              alt={imageAlt}
+              className="w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
+            />
+          ) : (
+            <Media className="aspect-[4/3] w-full" />
+          )}
         </Reveal>
       </div>
     </section>
@@ -223,6 +237,73 @@ export function Cards({
             </Reveal>
           );
         })}
+      </div>
+      {callout && (
+        <Reveal delay={0.1}>
+          <p className="mx-auto mt-9 max-w-2xl text-balance text-center text-base font-semibold text-ink">{callout}</p>
+        </Reveal>
+      )}
+    </Shell>
+  );
+}
+
+/* ---------------- split: stacked cards beside a square image ---------------- */
+
+export function SplitCards({
+  eyebrow,
+  title,
+  description,
+  items,
+  image,
+  imageAlt = "",
+  callout,
+  tone = "white",
+  reverse = false,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  description?: string;
+  items: Card[];
+  image?: string;
+  imageAlt?: string;
+  callout?: string;
+  tone?: Tone;
+  reverse?: boolean;
+}) {
+  return (
+    <Shell tone={tone}>
+      <SectionHeading eyebrow={eyebrow} size="compact" title={title} description={description} />
+      <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
+        {/* stacked, compact cards */}
+        <Reveal className={reverse ? "lg:order-2" : ""}>
+          <div className="flex h-full flex-col gap-4">
+            {items.map((it, i) => {
+              const a = accent(i);
+              return (
+                <div key={i} className="surface flex items-start gap-3.5 p-5">
+                  <span className={`mt-1 block h-8 w-1 shrink-0 rounded-full ${a.bar}`} />
+                  <div>
+                    {it.title && <h3 className="text-balance text-base font-bold leading-snug text-ink">{it.title}</h3>}
+                    {it.body && <p className="mt-1 text-sm leading-relaxed text-ink-muted">{it.body}</p>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+        {/* square image, matches the stack height */}
+        <Reveal direction="left" delay={0.08} className={reverse ? "lg:order-1" : ""}>
+          {image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-full min-h-[16rem] w-full rounded-3xl object-cover shadow-lift ring-1 ring-black/[0.05]"
+            />
+          ) : (
+            <Media className="h-full min-h-[16rem] w-full" />
+          )}
+        </Reveal>
       </div>
       {callout && (
         <Reveal delay={0.1}>
@@ -314,7 +395,7 @@ export function Points({
 
 /* ---------------- alternating media / text rows ---------------- */
 
-export type Row = { n?: string; title: string; line: string; bullets: string[] };
+export type Row = { n?: string; title: string; line: string; bullets: string[]; image?: string };
 
 export function Rows({
   eyebrow,
@@ -337,7 +418,16 @@ export function Rows({
           return (
             <Reveal key={it.title}>
               <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-                <Media className={`aspect-[4/3] w-full ${reverse ? "lg:order-2" : ""}`} />
+                {it.image ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={it.image}
+                    alt=""
+                    className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${reverse ? "lg:order-2" : ""}`}
+                  />
+                ) : (
+                  <Media className={`aspect-[4/3] w-full ${reverse ? "lg:order-2" : ""}`} />
+                )}
                 <div className={reverse ? "lg:order-1" : ""}>
                   {it.n && <span className={`text-lg font-extrabold ${a.text}`}>{it.n}</span>}
                   <h3 className="mt-2 text-balance text-xl font-bold leading-snug text-ink sm:text-2xl">{it.title}</h3>
