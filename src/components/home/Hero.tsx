@@ -34,10 +34,6 @@ export function Hero() {
   const cardY = useTransform(sy, [-0.5, 0.5], [12, -12]);
   const cardRX = useTransform(sy, [-0.5, 0.5], [6, -6]);
   const cardRY = useTransform(sx, [-0.5, 0.5], [-8, 8]);
-  const nearX = useTransform(sx, [-0.5, 0.5], [42, -42]);
-  const nearY = useTransform(sy, [-0.5, 0.5], [30, -30]);
-  const farX = useTransform(sx, [-0.5, 0.5], [-28, 28]);
-  const farY = useTransform(sy, [-0.5, 0.5], [-20, 20]);
 
   return (
     <section
@@ -101,83 +97,17 @@ export function Hero() {
             style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), transparent 68%)" }}
           />
 
-          {/* Main listing card */}
+          {/* Hero image with a subtle parallax tilt */}
           <motion.div
             style={
               reduce
                 ? undefined
                 : { x: cardX, y: cardY, rotateX: cardRX, rotateY: cardRY, transformStyle: "preserve-3d" }
             }
-            className="relative mx-auto w-full max-w-md rounded-[1.75rem] border border-black/[0.06] bg-white p-5 shadow-[0_40px_80px_-30px_rgba(2,48,71,0.35)]"
+            className="relative mx-auto w-full max-w-xl overflow-hidden rounded-[1.75rem] shadow-[0_40px_80px_-30px_rgba(2,48,71,0.35)] ring-1 ring-black/[0.06]"
           >
-            <div
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl"
-              style={{ background: "linear-gradient(135deg,#f3f5f8,#e7ebf1)" }}
-            >
-              <div className="absolute inset-0 grid place-items-center text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">
-                Produktbild
-              </div>
-              <span className="absolute left-3 top-3 rounded-md bg-ink px-2 py-1 text-[10px] font-bold text-white">
-                Amazon&apos;s Choice
-              </span>
-            </div>
-
-            <div className="mt-4 flex items-center gap-2">
-              <div className="flex gap-0.5">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FF9900">
-                    <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-xs font-semibold text-ink-muted">4,8</span>
-            </div>
-
-            <div className="mt-3 space-y-2">
-              <div className="h-3 w-4/5 rounded bg-ink/10" />
-              <div className="h-3 w-3/5 rounded bg-ink/10" />
-            </div>
-
-            <div className="mt-5 flex items-end justify-between">
-              <span className="text-2xl font-extrabold tracking-tight text-ink">
-                59,<span className="align-top text-lg">99 €</span>
-              </span>
-              <span
-                className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lift"
-                style={{ backgroundImage: "var(--brand-gradient)" }}
-              >
-                In den Warenkorb
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Floating chip: Conversion */}
-          <motion.div
-            style={reduce ? undefined : { x: nearX, y: nearY }}
-            className="absolute -left-4 top-4 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift md:-left-10"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">Conversion</div>
-            <div className="text-lg font-extrabold text-ink">+50 %</div>
-          </motion.div>
-
-          {/* Floating chip: organic rank */}
-          <motion.div
-            style={reduce ? undefined : { x: farX, y: farY }}
-            className="absolute -right-3 top-1 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift md:-right-6"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">Organisch</div>
-            <div className="flex items-center gap-1 text-lg font-extrabold text-ink">
-              #1 <span style={{ color: "#10B981" }}>&uarr;</span>
-            </div>
-          </motion.div>
-
-          {/* Floating chip: TACoS */}
-          <motion.div
-            style={reduce ? undefined : { x: nearX, y: farY }}
-            className="absolute -bottom-5 right-8 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">TACoS</div>
-            <div className="text-lg font-extrabold text-ink">5,8 %</div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/graphics/Homepage_Hero.png" alt="temoa Amazon Full Service" className="w-full" />
           </motion.div>
         </div>
       </div>
