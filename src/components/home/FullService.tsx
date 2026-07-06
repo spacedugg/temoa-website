@@ -2,16 +2,13 @@
 
 import { SectionHeading } from "../ui/SectionHeading";
 import { RevealGroup, RevealItem, Reveal } from "../ui/Reveal";
-import { Icon, type IconName } from "../ui/Icon";
 
-const ICOLOR = ["text-brand-600", "text-cyan", "text-red", "text-emerald", "text-navy"];
-
-const services: { n: string; icon: IconName; name: string; result: string; href: string }[] = [
-  { n: "01", icon: "strategy", name: "Strategie & Analyse", result: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
-  { n: "02", icon: "content", name: "Content & Listings", result: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
-  { n: "03", icon: "ads", name: "Advertising / PPC", result: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
-  { n: "04", icon: "account", name: "Account-Management", result: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
-  { n: "05", icon: "globe", name: "Internationalisierung", result: "Lokalisieren statt übersetzen.", href: "/leistungen/internationalisierung" },
+const services: { n: string; name: string; result: string; href: string; image?: string }[] = [
+  { n: "01", name: "Strategie & Analyse", result: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
+  { n: "02", name: "Content & Listings", result: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
+  { n: "03", name: "Advertising / PPC", result: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
+  { n: "04", name: "Account-Management", result: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
+  { n: "05", name: "Internationalisierung", result: "Lokalisieren statt übersetzen.", href: "/leistungen/internationalisierung" },
 ];
 
 export function FullService() {
@@ -28,24 +25,26 @@ export function FullService() {
           }
         />
 
-        <Reveal delay={0.06}>
-          <div
-            className="mt-10 flex aspect-[4/1] w-full items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
-            style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
-          >
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild 4:1</span>
-          </div>
-        </Reveal>
-
-        <RevealGroup className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
-          {services.map((s, i) => (
+        <RevealGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
+          {services.map((s) => (
             <RevealItem key={s.n} className="h-full">
-              <a href={s.href} className="surface surface-hover group flex h-full flex-col items-center p-5 text-center">
-                <span className={ICOLOR[i % ICOLOR.length]}>
-                  <Icon name={s.icon} size={32} />
-                </span>
-                <h3 className="mt-4 text-sm font-bold leading-snug text-ink">{s.name}</h3>
-                <p className="mt-1.5 text-sm leading-snug text-ink-muted">{s.result}</p>
+              <a href={s.href} className="surface surface-hover group flex h-full flex-col overflow-hidden">
+                {/* per-service image (placeholder until the graphic is added) */}
+                <div className="relative flex aspect-[4/3] w-full items-center justify-center bg-[linear-gradient(135deg,#ffffff,#e7ecf2)]">
+                  {s.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={s.image} alt={s.name} className="h-full w-full object-cover" />
+                  ) : (
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild</span>
+                  )}
+                  <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2 py-0.5 text-[11px] font-extrabold text-brand-600 shadow-soft ring-1 ring-black/[0.05]">
+                    {s.n}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="text-sm font-bold leading-snug text-ink">{s.name}</h3>
+                  <p className="mt-1.5 text-sm leading-snug text-ink-muted">{s.result}</p>
+                </div>
               </a>
             </RevealItem>
           ))}
