@@ -57,12 +57,12 @@ export function Problem() {
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-white px-6 py-6 text-center shadow-lift ring-1 ring-black/[0.05]">
             <span className="eyebrow justify-center !text-red">
               <span className="h-1.5 w-1.5 rounded-full bg-red" />
-              Die Ursache
+              Die Folge
             </span>
             <p className="mt-3 text-balance text-lg font-semibold leading-snug text-ink md:text-xl">
-              Andere Symptome, dieselbe Ursache:{" "}
-              <span className="text-gradient">ein Listing, das nicht auf Klickrate und Conversion verkauft.</span>{" "}
-              Ohne dieses Fundament bleibt der Umsatz von Werbung abhängig, die jährlich teurer wird.
+              Das Listing bleibt schwach und{" "}
+              <span className="text-gradient">verkauft nie aus eigener Kraft.</span> Sichtbarkeit und Marge bleiben
+              vom immer teureren Werbebudget abhängig.
             </p>
           </div>
         </Reveal>
