@@ -50,6 +50,20 @@ function Media({ className = "", label = "Bild" }: { className?: string; label?:
   );
 }
 
+/** Standalone image placeholder at a given aspect ratio, usable as a Points
+ *  aside or anywhere a future image will sit. */
+export function Placeholder({
+  aspect = "aspect-[4/3]",
+  label = "Bild",
+  className = "",
+}: {
+  aspect?: string;
+  label?: string;
+  className?: string;
+}) {
+  return <Media className={`w-full ${aspect} ${className}`} label={label} />;
+}
+
 /** Quiet lead marker for neutral feature/deliverable lists.
  *  A thin accent chevron, no checkmark. `color` is a text-* class. */
 function Lead({ color = "text-brand-500" }: { color?: string }) {
@@ -119,6 +133,7 @@ export function ServiceHero({
   sub,
   image,
   imageAlt = "",
+  imageAspect = "aspect-square",
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -126,6 +141,8 @@ export function ServiceHero({
   /** Optional hero image; falls back to a neutral placeholder. */
   image?: string;
   imageAlt?: string;
+  /** Aspect ratio for the placeholder (service heroes are 1:1). */
+  imageAspect?: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-white pt-32 pb-16 md:pt-40 md:pb-20">
@@ -168,7 +185,7 @@ export function ServiceHero({
               className="w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
             />
           ) : (
-            <Media className="aspect-[4/3] w-full" />
+            <Media className={`${imageAspect} w-full`} />
           )}
         </Reveal>
       </div>
@@ -256,6 +273,7 @@ export function SplitCards({
   items,
   image,
   imageAlt = "",
+  imageAspect = "aspect-[4/3]",
   callout,
   tone = "white",
   reverse = false,
@@ -266,6 +284,7 @@ export function SplitCards({
   items: Card[];
   image?: string;
   imageAlt?: string;
+  imageAspect?: string;
   callout?: string;
   tone?: Tone;
   reverse?: boolean;
@@ -273,10 +292,10 @@ export function SplitCards({
   return (
     <Shell tone={tone}>
       <SectionHeading eyebrow={eyebrow} size="compact" title={title} description={description} />
-      <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-2 lg:gap-10">
+      <div className="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
         {/* stacked, compact cards */}
         <Reveal className={reverse ? "lg:order-2" : ""}>
-          <div className="flex h-full flex-col gap-4">
+          <div className="flex h-full flex-col justify-center gap-4">
             {items.map((it, i) => {
               const a = accent(i);
               return (
@@ -291,17 +310,17 @@ export function SplitCards({
             })}
           </div>
         </Reveal>
-        {/* square image, matches the stack height */}
+        {/* image at its natural aspect, no crop */}
         <Reveal direction="left" delay={0.08} className={reverse ? "lg:order-1" : ""}>
           {image ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={image}
               alt={imageAlt}
-              className="h-full min-h-[16rem] w-full rounded-3xl object-cover shadow-lift ring-1 ring-black/[0.05]"
+              className={`w-full rounded-3xl object-cover shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
             />
           ) : (
-            <Media className="h-full min-h-[16rem] w-full" />
+            <Media className={`w-full ${imageAspect}`} />
           )}
         </Reveal>
       </div>
@@ -522,18 +541,33 @@ export function TextMedia({
   text,
   reverse = false,
   tone = "white",
+  image,
+  imageAlt = "",
+  imageAspect = "aspect-[4/3]",
 }: {
   eyebrow?: string;
   title: ReactNode;
   text: string;
   reverse?: boolean;
   tone?: Tone;
+  image?: string;
+  imageAlt?: string;
+  imageAspect?: string;
 }) {
   return (
     <Shell tone={tone}>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal className={reverse ? "lg:order-2" : ""}>
-          <Media className="aspect-[4/3] w-full" />
+          {image ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={image}
+              alt={imageAlt}
+              className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
+            />
+          ) : (
+            <Media className={`${imageAspect} w-full`} />
+          )}
         </Reveal>
         <div className={`text-center md:text-left ${reverse ? "lg:order-1" : ""}`}>
           <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0" />
@@ -616,12 +650,52 @@ export function BulletPanel({
   title,
   points,
   tone = "white",
+  withImage = false,
+  image,
+  imageAlt = "",
+  imageAspect = "aspect-square",
 }: {
   eyebrow?: string;
   title: ReactNode;
   points: string[];
   tone?: Tone;
+  /** Switch to a split layout with the points stacked beside an image. */
+  withImage?: boolean;
+  image?: string;
+  imageAlt?: string;
+  imageAspect?: string;
 }) {
+  if (withImage || image) {
+    return (
+      <Shell tone={tone}>
+        <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+        <div className="mt-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <Reveal>
+            <div className="surface flex flex-col gap-4 p-7 md:p-8">
+              {points.map((p) => (
+                <div key={p} className="flex items-start gap-3">
+                  <Lead />
+                  <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal direction="left" delay={0.08}>
+            {image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={image}
+                alt={imageAlt}
+                className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
+              />
+            ) : (
+              <Media className={`w-full ${imageAspect}`} />
+            )}
+          </Reveal>
+        </div>
+      </Shell>
+    );
+  }
   return (
     <Shell tone={tone}>
       <SectionHeading eyebrow={eyebrow} size="compact" title={title} />

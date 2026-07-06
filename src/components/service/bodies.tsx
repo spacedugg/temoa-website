@@ -1,6 +1,8 @@
 import {
   ServiceHero,
   Cards,
+  SplitCards,
+  Placeholder,
   Points,
   Rows,
   Compare,
@@ -12,7 +14,7 @@ import {
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
-import { BudgetSplitDiagram, MarketWorkStrip } from "./Diagrams";
+import { BudgetSplitDiagram } from "./Diagrams";
 import { Testimonials } from "../home/Testimonials";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
@@ -41,11 +43,11 @@ export function FullServiceBody() {
           { title: "Viele SKUs, mehrere Marktplätze", body: "Komplexität, die nebenher nicht sauber zu führen ist." },
         ]}
       />
-      <Cards
+      <SplitCards
         tone="white"
         eyebrow="Die Ausgangslage"
         title="Warum die üblichen Lösungen an Amazon scheitern."
-        cols={3}
+        imageAspect="aspect-[4/3]"
         callout="Die größten Verluste entstehen bei Chancen, die intern nie auffallen."
         items={[
           { title: "Internes Team zu klein", body: "Das Wissen fehlt oder liegt bei einer Person. Fällt sie aus, steht Amazon." },
@@ -122,6 +124,8 @@ export function FullServiceBody() {
         tone="white"
         eyebrow="Der Unterschied"
         title="Eine Strategie über alle Bereiche, statt isolierter Einzelmaßnahmen."
+        withImage
+        imageAspect="aspect-square"
         points={[
           "Spezialisten für Strategie, Content, PPC und Operations, abgestimmt auf ein gemeinsames Ziel",
           "Effizienz, weil jeder Bereich auf denselben Daten und derselben Planung arbeitet",
@@ -162,6 +166,7 @@ export function StrategieBody() {
           "Es fehlt ein Plan mit klaren Zielen.",
         ]}
         bridge="Kurzfristig mehr Umsatz, langfristig weniger Marge. Eine durchdachte Strategie dreht dieses Muster, bevor es Geld kostet."
+        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
@@ -194,6 +199,7 @@ export function StrategieBody() {
         title="Damit steht das Fundament."
         text="Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme."
         reverse
+        imageAspect="aspect-[3/2]"
       />
       <Testimonials tone="white" />
       <ServiceCTA
@@ -223,6 +229,7 @@ export function ContentBody() {
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing datenbasiert: Was sucht euer Kunde, woran scheitert die Kaufentscheidung, wo schlägt euch der Wettbewerb. Daraus bauen wir Content, der konvertiert und organisch rankt."
+        imageAspect="aspect-[3/2]"
       />
       <ContentShowcase />
       <Compare
@@ -292,6 +299,7 @@ export function AdvertisingBody() {
         title="Mehr Budget ist keine Strategie."
         text="Wir rechnen jedes Produkt erst auf seine Marge durch. Nicht alles gehört in die Skalierung, sondern nur das, was nach allen Kosten Gewinn bringt. Darauf bauen wir eine saubere Kampagnenarchitektur und steuern sie laufend nach."
         reverse
+        imageAspect="aspect-[3/2]"
       />
       <Cards
         tone="blue"
@@ -382,15 +390,15 @@ export function AccountBody() {
         ]}
         bridge="Wir greifen früher ein, bevor es Umsatz kostet."
       />
-      <Cards
+      <SplitCards
         tone="white"
         eyebrow="Wie wir arbeiten"
         title="So bleibt euer Account stabil."
-        cols={3}
+        imageAspect="aspect-[3/2]"
         items={[
-          { n: "01", title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
-          { n: "02", title: "Ein vernetztes System", body: "Bestand, Pricing, Content und Werbung greifen ineinander, gesteuert als Ganzes." },
-          { n: "03", title: "Volle Transparenz", body: "Klare Empfehlungen und priorisierte Maßnahmen, ohne euch durch 20 Tabs zu klicken." },
+          { title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
+          { title: "Ein vernetztes System", body: "Bestand, Pricing, Content und Werbung greifen ineinander, gesteuert als Ganzes." },
+          { title: "Volle Transparenz", body: "Klare Empfehlungen und priorisierte Maßnahmen, ohne euch durch 20 Tabs zu klicken." },
         ]}
       />
       <Cards
@@ -444,7 +452,7 @@ export function InternationalisierungBody() {
           "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
         ]}
         bridge="Jeder Marktplatz hat eigene Käufer, eigene Suche, eigenen Wettbewerb. Also fängt jeder bei uns von vorne an."
-        aside={<MarketWorkStrip />}
+        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
