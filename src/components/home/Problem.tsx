@@ -30,7 +30,16 @@ export function Problem() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.06}>
+        <Reveal delay={0.08}>
+          <div
+            className="mx-auto mt-10 flex aspect-[4/1] max-w-5xl items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
+            style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild 4:1</span>
+          </div>
+        </Reveal>
+
+        <RevealGroup className="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.06}>
           {pains.map((p, i) => (
             <RevealItem key={p.title} className="h-full">
               <div className="surface surface-hover flex h-full flex-col items-center p-5 text-center">

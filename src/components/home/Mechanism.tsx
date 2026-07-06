@@ -34,7 +34,7 @@ const rows: { old: string; temoa: string }[] = [
 function Connector() {
   return (
     <div className="flex shrink-0 items-center justify-center text-white/30 md:px-1">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="rotate-90 md:rotate-0">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="rotate-90">
         <path d="M4 12h14m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
@@ -66,60 +66,74 @@ export function Mechanism() {
           </Reveal>
         </div>
 
-        {/* Prominent dark mechanism card */}
-        <Reveal delay={0.12}>
-          <div
-            className="relative mx-auto mt-12 max-w-5xl overflow-hidden rounded-[2rem] p-7 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.55)] md:p-12"
-            style={{ background: "linear-gradient(150deg,#0A1E2B 25%,#053048 100%)" }}
-          >
+        {/* Split: mechanism card left, image right */}
+        <div className="mx-auto mt-12 grid max-w-5xl items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
+          <Reveal delay={0.12}>
             <div
-              className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-50 blur-3xl"
-              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.35), transparent 70%)" }}
-            />
-            <div className="relative flex flex-col items-stretch gap-3 md:flex-row md:items-center">
-              {stages.map((s, i) => (
-                <RevealItemless key={s.name} delay={0.15 + i * 0.08}>
-                  <div className="relative flex-1 rounded-2xl bg-white/[0.06] p-5 ring-1 ring-white/10 backdrop-blur">
-                    {s.signal && (
-                      <span
-                        className="absolute -top-2.5 left-5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow"
-                        style={{ backgroundImage: "var(--brand-gradient)" }}
-                      >
-                        Ranking-Signal
-                      </span>
-                    )}
-                    <span className="text-white">
-                      <Icon name={s.icon} size={28} />
-                    </span>
-                    <div className="mt-3 text-base font-bold text-white">{s.name}</div>
-                    <div className="mt-1 text-sm leading-snug text-white/65">{s.meaning}</div>
+              className="relative h-full overflow-hidden rounded-[2rem] p-7 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.55)] md:p-8"
+              style={{ background: "linear-gradient(150deg,#0A1E2B 25%,#053048 100%)" }}
+            >
+              <div
+                className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-50 blur-3xl"
+                style={{ background: "radial-gradient(circle, rgba(255,153,0,0.35), transparent 70%)" }}
+              />
+              <div className="relative flex flex-col gap-3">
+                {stages.map((s, i) => (
+                  <RevealItemless key={s.name} delay={0.15 + i * 0.08}>
+                    <div className="relative rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10 backdrop-blur">
+                      {s.signal && (
+                        <span
+                          className="absolute -top-2.5 left-4 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow"
+                          style={{ backgroundImage: "var(--brand-gradient)" }}
+                        >
+                          Ranking-Signal
+                        </span>
+                      )}
+                      <div className="flex items-center gap-3">
+                        <span className="text-white">
+                          <Icon name={s.icon} size={26} />
+                        </span>
+                        <div>
+                          <div className="text-base font-bold text-white">{s.name}</div>
+                          <div className="text-sm leading-snug text-white/65">{s.meaning}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </RevealItemless>
+                ))}
+
+                <Connector />
+
+                {/* outcome */}
+                <Reveal delay={0.4}>
+                  <div
+                    className="rounded-2xl p-4 text-white shadow-lift"
+                    style={{ backgroundImage: "var(--brand-gradient)" }}
+                  >
+                    <div className="text-sm font-bold uppercase tracking-[0.12em] text-white/85">Ergebnis</div>
+                    <div className="mt-1 text-lg font-extrabold leading-tight">Listing verkauft organisch.</div>
+                    <div className="mt-0.5 text-sm text-white/90">PPC skaliert profitabel obendrauf.</div>
                   </div>
-                </RevealItemless>
-              ))}
+                </Reveal>
+              </div>
 
-              <Connector />
-
-              {/* outcome */}
-              <Reveal delay={0.4} className="md:basis-[15rem]">
-                <div
-                  className="rounded-2xl p-5 text-white shadow-lift"
-                  style={{ backgroundImage: "var(--brand-gradient)" }}
-                >
-                  <div className="text-sm font-bold uppercase tracking-[0.12em] text-white/85">Ergebnis</div>
-                  <div className="mt-2 text-lg font-extrabold leading-tight">Listing verkauft organisch.</div>
-                  <div className="mt-1 text-sm text-white/90">PPC skaliert profitabel obendrauf.</div>
-                </div>
-              </Reveal>
-            </div>
-
-            <Reveal delay={0.45}>
-              <p className="relative mt-7 text-center text-sm leading-relaxed text-white/75 md:text-base">
+              <p className="relative mt-6 text-sm leading-relaxed text-white/75">
                 Klickrate und Conversion entscheiden über euer organisches Ranking. Deshalb bauen wir das Listing
                 zuerst darauf, bevor ein Euro in Werbung fließt.
               </p>
-            </Reveal>
-          </div>
-        </Reveal>
+            </div>
+          </Reveal>
+
+          {/* square image placeholder, same height as the card */}
+          <Reveal direction="left" delay={0.16} className="flex items-center">
+            <div
+              className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
+              style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+            >
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild</span>
+            </div>
+          </Reveal>
+        </div>
 
         {/* Alt / Neu comparison */}
         <Reveal delay={0.1}>
@@ -164,7 +178,6 @@ function RevealItemless({ children, delay }: { children: React.ReactNode; delay:
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className="flex-1"
     >
       {children}
     </motion.div>
