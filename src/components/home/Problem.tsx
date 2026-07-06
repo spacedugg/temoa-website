@@ -9,7 +9,7 @@ const pains: { icon: IconName; title: string; body: string }[] = [
   { icon: "target", title: "Zeit-Engpass", body: "Listing-Optimierung ist ein Vollzeitjob. Im Tagesgeschäft bleibt sie liegen." },
   { icon: "chart", title: "Falsche Signale", body: "Klickrate und Conversion, die wichtigsten Ranking-Signale, werden ignoriert." },
   { icon: "ads", title: "PPC ohne Conversion", body: "Jeder Klick auf ein schwaches Listing ist verbranntes Budget." },
-  { icon: "account", title: "Abhängig von einer Person", body: "Fällt sie aus, steht Amazon still." },
+  { icon: "puzzle", title: "Wissen fehlt im Haus", body: "Das Team ist stark im Produkt, das spezialisierte Amazon-Know-how fehlt." },
 ];
 
 export function Problem() {
@@ -51,8 +51,9 @@ export function Problem() {
               Die Ursache
             </span>
             <p className="mt-3 text-balance text-lg font-semibold leading-snug text-ink md:text-xl">
-              Das bekämpft nur Symptome. Was bleibt, ist{" "}
-              <span className="text-gradient">ein Listing, das organisch nicht verkauft.</span>
+              Andere Symptome, dieselbe Ursache:{" "}
+              <span className="text-gradient">ein Listing, das nicht auf Klickrate und Conversion verkauft.</span>{" "}
+              Ohne dieses Fundament bleibt der Umsatz von Werbung abhängig, die jährlich teurer wird.
             </p>
           </div>
         </Reveal>
