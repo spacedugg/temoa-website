@@ -1,7 +1,6 @@
 import {
   ServiceHero,
   Cards,
-  SplitCards,
   Points,
   Rows,
   Compare,
@@ -29,8 +28,6 @@ export function FullServiceBody() {
           </>
         }
         sub="Done-for-you, kein Ratschlag zum Selbermachen. Wir übernehmen jeden Bereich und führen ihn mit einer Tiefe, die intern selten zusammenkommt."
-        image="/graphics/FullService_Hero.png"
-        imageAlt="Das Full-Service-Team von temoa"
       />
       <Cards
         tone="blue"
@@ -44,13 +41,12 @@ export function FullServiceBody() {
           { title: "Viele SKUs, mehrere Marktplätze", body: "Komplexität, die nebenher nicht sauber zu führen ist." },
         ]}
       />
-      <SplitCards
+      <Cards
         tone="white"
         eyebrow="Die Ausgangslage"
         title="Warum die üblichen Lösungen an Amazon scheitern."
+        cols={3}
         callout="Die größten Verluste entstehen bei Chancen, die intern nie auffallen."
-        image="/graphics/FullService_Ausgnagslage.png"
-        imageAlt="Warum übliche Amazon-Lösungen scheitern"
         items={[
           { title: "Internes Team zu klein", body: "Das Wissen fehlt oder liegt bei einer Person. Fällt sie aus, steht Amazon." },
           { title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer baut Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
@@ -64,7 +60,6 @@ export function FullServiceBody() {
         items={[
           {
             n: "01",
-            image: "/graphics/FullService_Strategie.png",
             title: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
             line: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
             bullets: [
@@ -75,7 +70,6 @@ export function FullServiceBody() {
           },
           {
             n: "02",
-            image: "/graphics/FullService_Content.png",
             title: "Ein Listing, das auch ohne Werbung verkauft.",
             line: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
             bullets: [
@@ -86,7 +80,6 @@ export function FullServiceBody() {
           },
           {
             n: "03",
-            image: "/graphics/FullService_PPC.png",
             title: "Saubere Kampagnen, gesteuert am TACoS.",
             line: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
             bullets: [
@@ -97,7 +90,6 @@ export function FullServiceBody() {
           },
           {
             n: "04",
-            image: "/graphics/FullService_Account.png",
             title: "Stabiler Betrieb, geschützte Rankings.",
             line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
             bullets: [

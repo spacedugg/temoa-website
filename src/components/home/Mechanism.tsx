@@ -121,14 +121,6 @@ export function Mechanism() {
           </div>
         </Reveal>
 
-        {/* Organic-first visual */}
-        <Reveal delay={0.1}>
-          <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/graphics/Homepage_OrganicFirst.png" alt="Organic First, PPC Second" className="w-full" />
-          </div>
-        </Reveal>
-
         {/* Alt / Neu comparison */}
         <Reveal delay={0.1}>
           <div className="glass mx-auto mt-10 max-w-5xl overflow-hidden rounded-3xl">
