@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 import { TiltCard } from "../ui/TiltCard";
+import { LISTING_SETS, APLUS } from "@/lib/showcase";
+
+/* One real listing set (main image + gallery) and one real A+ content set. */
+const listing = LISTING_SETS[0];
+const gallery = listing.images.slice(1, 7);
+const aplus = APLUS.slice(0, 4);
 
 export function DesignShowcase() {
   return (
@@ -21,13 +27,24 @@ export function DesignShowcase() {
         />
 
         <div className="mt-12 grid items-center gap-12 lg:grid-cols-[1fr_1fr]">
-          {/* Listing-Set: 1 Hauptbild + 6 Listingbilder */}
+          {/* Listing: main image + gallery */}
           <Reveal>
             <div className="glass rounded-3xl p-5 md:p-7">
-              <PlaceholderTile className="aspect-square w-full" label="Hauptbild" />
-              <div className="mt-3 grid grid-cols-2 gap-3">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <PlaceholderTile key={i} className="aspect-square w-full" label={`Bild ${i + 1}`} small />
+              <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.05]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={listing.images[0]}
+                  alt={`${listing.label} Hauptbild`}
+                  loading="lazy"
+                  className="aspect-square w-full object-contain"
+                />
+              </div>
+              <div className="mt-3 grid grid-cols-6 gap-2">
+                {gallery.map((src, i) => (
+                  <div key={i} className="overflow-hidden rounded-lg bg-white ring-1 ring-black/[0.04]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={src} alt="" loading="lazy" className="aspect-square w-full object-contain" />
+                  </div>
                 ))}
               </div>
             </div>
@@ -46,13 +63,14 @@ export function DesignShowcase() {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <TiltCard className="group" intensity={10}>
-                  <div className="space-y-4" style={{ transform: "translateZ(40px)" }}>
-                    <PlaceholderTile className="aspect-[16/9] w-full shadow-lift" label="A+ Modul · Hero" />
-                    <div className="grid grid-cols-2 gap-4">
-                      <PlaceholderTile className="aspect-[4/3] w-full shadow-lift" label="A+ Modul" small />
-                      <PlaceholderTile className="aspect-[4/3] w-full shadow-lift" label="A+ Modul" small />
-                    </div>
-                    <PlaceholderTile className="aspect-[16/7] w-full shadow-lift" label="A+ Vergleich" small />
+                  <div
+                    className="overflow-hidden rounded-2xl bg-white shadow-lift ring-1 ring-black/[0.06]"
+                    style={{ transform: "translateZ(40px)" }}
+                  >
+                    {aplus.map((src, i) => (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img key={i} src={src} alt="" loading="lazy" className="block w-full" />
+                    ))}
                   </div>
                 </TiltCard>
               </motion.div>
@@ -80,27 +98,5 @@ export function DesignShowcase() {
         </Reveal>
       </div>
     </section>
-  );
-}
-
-function PlaceholderTile({
-  className,
-  label,
-  small,
-}: {
-  className?: string;
-  label: string;
-  small?: boolean;
-}) {
-  return (
-    <div
-      className={`relative flex items-center justify-center overflow-hidden rounded-2xl ring-1 ring-black/[0.05] ${className ?? ""}`}
-      style={{ background: "linear-gradient(135deg,#ffffff,#eaeef3)" }}
-    >
-      <div className="pointer-events-none absolute -right-5 -top-5 h-16 w-16 rounded-full bg-white/70 blur-2xl" />
-      <span className={`relative font-semibold uppercase tracking-[0.14em] text-ink-faint ${small ? "text-[10px]" : "text-xs"}`}>
-        {label}
-      </span>
-    </div>
   );
 }
