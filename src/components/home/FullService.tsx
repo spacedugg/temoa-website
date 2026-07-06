@@ -28,7 +28,16 @@ export function FullService() {
           }
         />
 
-        <RevealGroup className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
+        <Reveal delay={0.06}>
+          <div
+            className="mt-10 flex aspect-[4/1] w-full items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
+            style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild 4:1</span>
+          </div>
+        </Reveal>
+
+        <RevealGroup className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
           {services.map((s, i) => (
             <RevealItem key={s.n} className="h-full">
               <a href={s.href} className="surface surface-hover group flex h-full flex-col items-center p-5 text-center">
