@@ -307,7 +307,9 @@ export function Unterschied() {
     <Station label="Zusammenarbeit" tone="paper">
       <StationTitle>Alle Bereiche arbeiten mit denselben Zahlen.</StationTitle>
       <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-14">
-        <ul className="space-y-6">
+        {/* Vorher Zeilen zwischen Haarlinien. Das Theme fuehrt solche Listen
+            als Karten, damit sie als Block lesbar sind. */}
+        <ul className="grid gap-3 sm:grid-cols-2">
           {unterschied.map((t, i) => (
             <motion.li
               key={t}
@@ -315,10 +317,10 @@ export function Unterschied() {
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
-              className="grid grid-cols-[2rem_1fr] gap-x-4 border-t border-ink/[0.09] pt-6"
+              className="panel panel-lift flex h-full items-start gap-4 p-5 md:p-6"
             >
-              <span className="num text-[1.1rem] text-ink/25">{String(i + 1).padStart(2, "0")}</span>
-              <span className="max-w-[48ch] text-body text-ink">{t}</span>
+              <span className="schritt schritt-navy shrink-0">{i + 1}</span>
+              <span className="min-w-0 text-body text-ink">{t}</span>
             </motion.li>
           ))}
         </ul>

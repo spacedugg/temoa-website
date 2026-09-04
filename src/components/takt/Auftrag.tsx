@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { Zahl } from "./Zahl";
+import { Neigung } from "./Neigung";
 
 /**
  * Hero der Startseite.
@@ -96,8 +97,12 @@ export function Auftrag() {
             </motion.div>
           </div>
 
+          {/* Der Listing-Nachbau kippt leicht zum Zeiger. Deutet an, dass die
+              Platte im Raum steht, ohne albern zu wirken. */}
           <motion.div {...rise(0.16)} className="min-w-0">
-            <ListingKarte />
+            <Neigung>
+              <ListingKarte />
+            </Neigung>
           </motion.div>
         </div>
       </div>
