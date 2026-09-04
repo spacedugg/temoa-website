@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { ComingSoon } from "@/components/sections/ComingSoon";
 import {
   StrategieBody,
@@ -85,11 +85,11 @@ export default async function LeistungPage({
   if (!meta[slug]) notFound();
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <Body slug={slug} />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

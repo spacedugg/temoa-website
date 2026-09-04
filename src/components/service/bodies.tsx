@@ -2,7 +2,6 @@ import {
   ServiceHero,
   Cards,
   SplitCards,
-  Placeholder,
   Points,
   Rows,
   Compare,
@@ -15,7 +14,7 @@ import {
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram } from "./Diagrams";
-import { Testimonials } from "../home/Testimonials";
+import { Stimmen } from "../takt/sections";
 
 /* ============ FULL SERVICE (Übersicht) ============ */
 export function FullServiceBody() {
@@ -30,6 +29,8 @@ export function FullServiceBody() {
           </>
         }
         sub="Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht."
+        image="/bilder/n-leistungen.webp"
+        imageAlt="Fünf Bereiche, die an einem Konto zusammenlaufen"
       />
       <Cards
         tone="blue"
@@ -133,7 +134,7 @@ export function FullServiceBody() {
           "Ein Ansprechpartner, ein Report, eine Planung für alle fünf Bereiche",
         ]}
       />
-      <Testimonials tone="blue" />
+      <Stimmen />
       <ServiceCTA
         title="Welcher Bereich bremst euer Wachstum?"
         sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
@@ -155,6 +156,8 @@ export function StrategieBody() {
           </>
         }
         sub="Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte."
+        image="/bilder/s-strategie.webp"
+        imageAlt="Aus den Berichten im Konto entsteht eine Reihenfolge"
       />
       <Points
         tone="blue"
@@ -167,7 +170,6 @@ export function StrategieBody() {
           "Es fehlt eine Reihenfolge: alles ist wichtig, nichts kommt zuerst.",
         ]}
         bridge="Wer die Berichte nicht auswertet, optimiert nach Geschmack. Das kostet über Monate Marge."
-        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
@@ -203,7 +205,7 @@ export function StrategieBody() {
         reverse
         imageAspect="aspect-[3/2]"
       />
-      <Testimonials tone="white" />
+      <Stimmen />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
         sub="In der kostenlosen Potenzialanalyse werten wir eure Berichte aus und zeigen, welche drei Schritte zuerst kommen."
@@ -224,6 +226,8 @@ export function ContentBody() {
           </>
         }
         sub="Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion."
+        image="/bilder/s-content.webp"
+        imageAlt="Produktseite aus Hauptbild, Textblöcken und weiteren Bildern"
       />
       <ContentResultBand />
       <TextMedia
@@ -231,6 +235,8 @@ export function ContentBody() {
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken."
+        image="/bilder/n-organic.webp"
+        imageAlt="Sichtbarkeit, Klick und Kauf als Kette, daneben eine steigende Kurve"
         imageAspect="aspect-[3/2]"
       />
       <ContentShowcase />
@@ -259,7 +265,7 @@ export function ContentBody() {
           ],
         }}
       />
-      <Testimonials tone="white" />
+      <Stimmen />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
         sub="In der kostenlosen Potenzialanalyse gehen wir eure Listings durch und zeigen, an welcher Stelle Besucher abspringen."
@@ -280,6 +286,8 @@ export function AdvertisingBody() {
           </>
         }
         sub="Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt."
+        image="/bilder/s-advertising.webp"
+        imageAlt="Budget geht dorthin, wo nach Kosten Gewinn bleibt"
       />
       <Points
         tone="blue"
@@ -300,6 +308,8 @@ export function AdvertisingBody() {
         eyebrow="Unser Ansatz"
         title="Mehr Budget ist keine Strategie."
         text="Wir rechnen jedes Produkt erst auf seine Marge durch. In die Skalierung geht nur, was nach allen Kosten Gewinn bringt. Darauf setzen wir eine saubere Kampagnenarchitektur auf und steuern sie laufend nach."
+        image="/bilder/n-ursache.webp"
+        imageAlt="Trichter: viel Traffic oben, wenige profitable Verkäufe unten"
         reverse
         imageAspect="aspect-[3/2]"
       />
@@ -357,7 +367,7 @@ export function AdvertisingBody() {
           },
         ]}
       />
-      <Testimonials tone="white" />
+      <Stimmen />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
@@ -379,6 +389,8 @@ export function AccountBody() {
           </>
         }
         sub="Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment."
+        image="/bilder/s-account.webp"
+        imageAlt="Tagesgeschäft an einem Pult gesteuert"
       />
       <Points
         tone="blue"
@@ -396,6 +408,8 @@ export function AccountBody() {
         tone="white"
         eyebrow="Wie wir arbeiten"
         title="So bleibt euer Account stabil."
+        image="/bilder/n-reporting.webp"
+        imageAlt="Schwebendes Dashboard mit Kurve, Balken und zwei Kennzahlkarten"
         imageAspect="aspect-[3/2]"
         items={[
           { title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
@@ -426,7 +440,7 @@ export function AccountBody() {
           "Anfragen an den Amazon-Support laufen über uns",
         ]}
       />
-      <Testimonials tone="blue" />
+      <Stimmen />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
         sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
@@ -447,6 +461,8 @@ export function InternationalisierungBody() {
           </>
         }
         sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu."
+        image="/bilder/s-international.webp"
+        imageAlt="Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern"
       />
       <Points
         tone="blue"
@@ -459,7 +475,6 @@ export function InternationalisierungBody() {
           "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
         ]}
         bridge="Andere Käufer, andere Suchbegriffe, anderer Wettbewerb. Deshalb beginnt bei uns jedes Land mit einer eigenen Recherche, nicht mit einer Übersetzung."
-        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
@@ -519,7 +534,7 @@ export function InternationalisierungBody() {
           ],
         }}
       />
-      <Testimonials tone="blue" />
+      <Stimmen />
       <ServiceCTA
         title="Welcher Markt ist euer nächster?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."

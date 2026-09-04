@@ -210,7 +210,7 @@ const tiles: Tile[] = [
 
 export function ContentShowcase() {
   return (
-    <section className="relative isolate bg-white py-20 md:py-24">
+    <section className="relative isolate ground py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
           eyebrow="Content"

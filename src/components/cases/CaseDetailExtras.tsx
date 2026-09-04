@@ -11,7 +11,7 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
   const [open, setOpen] = useState<string | null>(null);
   if (!c.images || c.images.length === 0) return null;
   return (
-    <section className="relative bg-white py-12 md:py-16">
+    <section className="relative ground py-12 md:py-16">
       <div className="container-x">
         <Reveal>
           <h2 className="mx-auto mb-8 max-w-3xl text-center text-2xl font-bold tracking-tight text-ink md:text-3xl">
@@ -50,7 +50,7 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
 export function OtherCases({ slug }: { slug: string }) {
   const others = cases.filter((c) => c.slug !== slug);
   return (
-    <section className="relative bg-[#EDF5FB] py-14 md:py-16">
+    <section className="ground-tint relative py-14 md:py-16">
       <div className="container-x">
         <h2 className="mb-8 text-center text-xl font-bold tracking-tight text-ink md:text-2xl">Weitere Case Studies</h2>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-3">

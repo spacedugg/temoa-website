@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
@@ -58,10 +58,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-white pt-32 md:pt-40">
+        <section className="relative overflow-hidden ground pt-32 md:pt-40">
           <div
             className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-50 blur-3xl"
             style={{ background: `radial-gradient(circle, ${post.accent}33, transparent 70%)` }}
@@ -108,7 +108,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Body + TOC */}
-        <section className="relative bg-white py-14 md:py-16">
+        <section className="relative ground py-14 md:py-16">
           <div className="container-x">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
               <article className="article-body max-w-2xl" dangerouslySetInnerHTML={{ __html: html }} />
@@ -134,7 +134,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         {/* Related */}
         {related.length > 0 && (
-          <section className="relative bg-[#EDF5FB] py-16 md:py-20">
+          <section className="ground-tint relative py-16 md:py-20">
             <div className="container-x">
               <h2 className="text-2xl font-bold tracking-tight text-ink">Weiterlesen</h2>
               <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
@@ -153,7 +153,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in eurem Account das Wachstum liegt."
         />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

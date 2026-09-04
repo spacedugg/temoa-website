@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ const sections = [
 export default function AgbPage() {
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <PageHero
           eyebrow="Rechtliches"
@@ -46,7 +46,7 @@ export default function AgbPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

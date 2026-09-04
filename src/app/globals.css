@@ -167,21 +167,39 @@ footer :where(a, button):focus-visible,
       0 36px 70px -28px rgba(2, 48, 71, 0.42);
   }
 
+  /* Bestandsklassen aus der Zeit vor dem Theme „Studio". Sie stecken noch in
+     den Unterseiten. Statt sie dort einzeln zu ersetzen, tragen sie hier den
+     Plattenlook des Themes: gestaffelter Schatten und Lichtkante oben. */
   .card {
-    @apply rounded-card bg-white shadow-soft;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 30px 54px -28px rgba(13, 36, 57, 0.2);
   }
 
   /* Solid premium card. Pops on tinted/grey section tones, lifts on hover. */
   /* Erhebung wird einmal erklaert: Schatten. Ein 1px-Rand unter einem weichen
      Schatten ergibt die typische Geisterkarte. */
   .surface {
-    @apply rounded-card bg-white shadow-lift transition-all duration-300;
+    @apply transition-all duration-300;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 30px 54px -28px rgba(13, 36, 57, 0.2);
   }
   .surface-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow:
-      0 16px 30px -12px rgba(2, 48, 71, 0.18),
-      0 36px 70px -24px rgba(2, 48, 71, 0.28);
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 18px 32px -14px rgba(13, 36, 57, 0.16),
+      0 50px 84px -34px rgba(13, 36, 57, 0.3);
   }
 
   /* ================================================================
@@ -502,15 +520,37 @@ footer :where(a, button):focus-visible,
      2.0:1 auf Weiß und ist der bekannteste Marker generierter Oberflächen.
      Jetzt Vollton #C96D00 mit 3.7:1, zulässig ab 24px Schriftgröße.
      Der Klassenname bleibt, damit die 52 Fundstellen unverändert weiterlaufen. */
+  /* Betontes Wort in einer Überschrift.
+     Hatte hart #C96D00, das las sich als Gold und wirkte schmutzig. Die Klasse
+     steckt an über fünfzig Stellen in Überschriften, deshalb wird sie hier
+     umdefiniert statt überall ersetzt: das Wort bleibt dunkel und bekommt den
+     orangen Balken unter der Grundlinie, wie `.mark`. */
   .text-gradient {
-    color: #C96D00;
+    position: relative;
+    color: inherit;
+    font-weight: 700;
     background-image: none;
     -webkit-background-clip: border-box;
     background-clip: border-box;
   }
-  /* Auf dunklem Grund braucht der Akzent die helle Variante. */
+  .text-gradient::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.04em;
+    height: 0.1em;
+    min-height: 3px;
+    border-radius: 999px;
+    background: #ff9900;
+  }
+  /* Auf dunklem Grund erreicht Orange genug Kontrast und darf Schrift sein.
+     Der Balken entfällt dort, sonst doppelt sich die Auszeichnung. */
   .on-dark .text-gradient {
     color: #FFB033;
+  }
+  .on-dark .text-gradient::after {
+    display: none;
   }
 
   .text-gradient-emerald {

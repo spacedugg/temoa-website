@@ -28,11 +28,21 @@ const aspect = (im?: RefImage | null, fb = 1) =>
  * einzelne Beispiel mit einem farbigen Schatten vom weißen Hintergrund ab,
  * ohne dass ein sichtbarer Container nötig ist. */
 const ACCENTS = ["#FF9900", "#FF3131", "#023047", "#2A9BD8"];
-/* Kräftiger, rundum laufender Farb-Glow (oben, unten, seitlich) plus feiner
- * farbiger Rahmen, damit sich jedes Beispiel klar abhebt. */
+/* Jedes Beispiel sitzt auf der Platte des Themes: gestaffelter Schatten plus
+ * Lichtkante oben. Die Farbe kommt nur als feine Kante und als leiser Schein
+ * darunter dazu, damit die Beispiele sich unterscheiden.
+ *
+ * Vorher lief ein kräftiger Farb-Glow rundum. Auf dem warmen Grund des Themes
+ * las sich der orange Schein als Schmutzrand um eine weisse Karte. */
 const accentShadow = (i: number) => {
   const c = ACCENTS[i % ACCENTS.length];
-  return `0 0 0 1px ${c}33, 0 14px 38px -10px ${c}99, 0 -10px 30px -14px ${c}73, 0 0 28px -2px ${c}59`;
+  return [
+    "inset 0 1px 0 rgba(255,255,255,0.9)",
+    `0 0 0 1px ${c}26`,
+    "0 1px 2px rgba(13,36,57,0.05)",
+    "0 10px 20px -10px rgba(13,36,57,0.1)",
+    `0 34px 60px -30px ${c}59`,
+  ].join(", ");
 };
 
 const guard = (e: React.MouseEvent) => {
@@ -121,9 +131,15 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
 
 function ListingGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
+  // Ein einzelnes Beispiel bekommt die ganze Breite, sonst zwei Spalten.
+  const einzeln = listings.length === 1;
   return (
     <>
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
+      <div
+        className={`mx-auto grid grid-cols-1 gap-x-8 gap-y-12 ${
+          einzeln ? "max-w-[920px]" : "max-w-[1180px] lg:grid-cols-2"
+        }`}
+      >
         {listings.map((l, i) => (
           <ListingCard key={l.id} listing={l} accent={i} onOpen={() => p.open(i)} />
         ))}
@@ -175,8 +191,14 @@ function EbcGallery({ listings }: { listings: RefListing[] }) {
   const p = usePager(listings.length);
   return (
     <>
-      <div className="mx-auto max-w-7xl">
-        <div className="columns-2 gap-6 [column-fill:_balance] sm:columns-3 md:columns-4 xl:columns-6">
+      <div className={listings.length === 1 ? "mx-auto max-w-[420px]" : "mx-auto max-w-7xl"}>
+        <div
+          className={
+            listings.length === 1
+              ? ""
+              : "columns-2 gap-6 [column-fill:_balance] sm:columns-3 md:columns-4 xl:columns-6"
+          }
+        >
           {listings.map((l, i) => (
             <button
               key={l.id}
@@ -476,11 +498,81 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
 /* ============================================================================
  * Galerie-Rahmen mit Kategorie-Umschaltung
  * ========================================================================== */
-function EmptyNote() {
+/* ----------------------------------------------------------------------------
+ * Rueckfall, solange die Referenz-Bibliothek fuer eine Kategorie nichts
+ * liefert. Vorher stand hier ein grauer Satz („noch keine Beispiele ...
+ * verbunden"), also Entwicklersprache auf einer Kundenseite. Jetzt zeigt die
+ * Seite denselben Aufbau an einem erfundenen Produkt, sichtbar als solches
+ * gekennzeichnet, damit die Anordnung lesbar bleibt.
+ * -------------------------------------------------------------------------- */
+const bild = (url: string, order: number, width: number, height: number): RefImage => ({
+  url,
+  order,
+  width,
+  height,
+  mediaType: "image",
+  metadata: null,
+});
+
+const BEISPIEL: Partial<Record<RefCategory, RefListing[]>> = {
+  main_images: [
+    {
+      id: "beispiel-listing",
+      title: null,
+      category: "main_images",
+      layout: "listing_grid",
+      images: [
+        bild("/bilder/p-haupt.webp", 0, 1024, 1024),
+        bild("/bilder/p-detail.webp", 1, 1024, 1024),
+        bild("/bilder/p-szene.webp", 2, 1024, 1024),
+        bild("/bilder/p-gruppe.webp", 3, 1024, 1024),
+        bild("/bilder/p-material.webp", 4, 1024, 1024),
+        bild("/bilder/p-offen.webp", 5, 1024, 1024),
+        bild("/bilder/p-unterwegs.webp", 6, 1024, 1024),
+      ],
+    },
+  ],
+  a_plus: [
+    {
+      id: "beispiel-aplus",
+      title: null,
+      category: "a_plus",
+      layout: "ebc_gapped",
+      images: [
+        bild("/bilder/a-hero.webp", 0, 1600, 608),
+        bild("/bilder/a-nutzen.webp", 1, 1024, 768),
+        bild("/bilder/a-vergleich.webp", 2, 1600, 608),
+        bild("/bilder/a-anwendung.webp", 3, 1024, 768),
+      ],
+    },
+  ],
+};
+
+const HINWEIS: Record<RefCategory, string> = {
+  main_images: "Hauptbild und sechs Listingbilder an einem erfundenen Produkt. Kein Kundenlisting.",
+  a_plus: "A+ Module an einem erfundenen Produkt. Kein Kundenlisting.",
+  brand_store: "Brand Stores zeigen wir im Gespräch am Konto, nicht als Screenshot.",
+  brand_story: "Brand Stories zeigen wir im Gespräch am Konto, nicht als Screenshot.",
+};
+
+function Hinweis({ text }: { text: string }) {
   return (
-    <p className="mx-auto max-w-xl py-12 text-center text-sm text-ink-faint">
-      In dieser Kategorie sind noch keine Beispiele aus der Referenz-Bibliothek verbunden.
+    <p className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2.5 text-center text-xs text-ink-faint">
+      <span aria-hidden className="h-1 w-1 shrink-0 rounded-full bg-brand-500" />
+      {text}
     </p>
+  );
+}
+
+function LeerePlatte({ text }: { text: string }) {
+  return (
+    <div className="panel mx-auto max-w-xl px-8 py-12 text-center">
+      <span aria-hidden className="node-glow mx-auto block" />
+      <p className="mt-5 text-pretty text-sm leading-relaxed text-ink-muted">{text}</p>
+      <a href="/gespraech-vereinbaren" className="btn-text mt-6">
+        Potenzialanalyse buchen
+      </a>
+    </div>
   );
 }
 
@@ -488,38 +580,53 @@ export function DesignGallery({ data }: { data: RefData }) {
   const [active, setActive] = useState<RefCategory>("main_images");
   const [visible, setVisible] = useState(10);
   useEffect(() => setVisible(10), [active]);
-  const listings = data[active];
+  const echt = data[active];
+  const rueckfall = echt.length === 0;
+  const listings = rueckfall ? BEISPIEL[active] ?? [] : echt;
   // EBC zeigt direkt die Gesamtmenge (kein „Mehr laden"), der Rest paginiert.
   const paginated = active !== "a_plus";
   const shown = paginated ? listings.slice(0, visible) : listings;
 
   const render = () => {
-    if (!listings.length) return <EmptyNote />;
-    switch (active) {
-      case "main_images":
-        return <ListingGallery listings={shown} />;
-      case "a_plus":
-        return <EbcGallery listings={shown} />;
-      case "brand_store":
-        return <BrandStoreGallery listings={shown} />;
-      case "brand_story":
-        return <BrandStoryGallery listings={shown} />;
-    }
+    if (!listings.length) return <LeerePlatte text={HINWEIS[active]} />;
+    const galerie = (() => {
+      switch (active) {
+        case "main_images":
+          return <ListingGallery listings={shown} />;
+        case "a_plus":
+          return <EbcGallery listings={shown} />;
+        case "brand_store":
+          return <BrandStoreGallery listings={shown} />;
+        case "brand_story":
+          return <BrandStoryGallery listings={shown} />;
+      }
+    })();
+    return (
+      <>
+        {galerie}
+        {rueckfall && <Hinweis text={HINWEIS[active]} />}
+      </>
+    );
   };
 
   return (
-    <section className="relative bg-white py-12 md:py-16">
+    <section className="relative ground py-12 md:py-16">
       <div className="container-x">
+        {/* Die aktive Kategorie lag vorher auf einem orangen Farbverlauf mit
+            weisser Schrift. Jetzt Navy als Flaeche, das Orange sitzt als
+            Leuchtpunkt davor. */}
         <div className="flex justify-center">
-          <div className="inline-flex flex-wrap justify-center gap-1 rounded-full bg-navy/[0.05] p-1.5">
+          <div className="panel inline-flex flex-wrap justify-center gap-1 !rounded-full p-1.5">
             {TABS.map((t) => (
               <button
                 key={t.key}
                 type="button"
                 onClick={() => setActive(t.key)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all ${active === t.key ? "text-white shadow-soft" : "text-ink-muted hover:text-ink"}`}
-                style={active === t.key ? { backgroundImage: "var(--brand-gradient)" } : undefined}
+                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                  active === t.key ? "bg-navy text-white shadow-soft" : "text-ink-muted hover:bg-navy/[0.04] hover:text-ink"
+                }`}
               >
+                {active === t.key && <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />}
                 {t.label}
               </button>
             ))}

@@ -1,15 +1,17 @@
 "use client";
 
 import { Reveal } from "../ui/Reveal";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Testimonials } from "../home/Testimonials";
+import { SectionHeading, Pille } from "../ui/SectionHeading";
+import { Stimmen } from "../takt/sections";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
 
-const metrics = [
-  { value: "+147 %", label: "Umsatz, Vitaworld", color: "#FF3131" },
-  { value: "+439 %", label: "Conversion Rate, HaA", color: "#2A9BD8" },
-  { value: "−35 %", label: "TACoS, Marke aus Gartenzubehör", color: "#FF9900" },
+/* `runter` heisst: der Wert soll sinken, der Pfeil zeigt nach unten. Eine
+   gesunkene TACoS ist ein gutes Ergebnis, deshalb bleibt der Pfeil gruen. */
+const metrics: { value: string; label: string; runter?: boolean }[] = [
+  { value: "+147 %", label: "Umsatz, Vitaworld" },
+  { value: "+439 %", label: "Conversion Rate, HaA" },
+  { value: "−35 %", label: "TACoS, Marke aus Gartenzubehör", runter: true },
 ];
 
 const fit = [
@@ -48,7 +50,7 @@ export function BookingBody() {
   return (
     <>
       {/* Hero: copy left, booking card (with calendar) right */}
-      <section className="relative overflow-hidden bg-white pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="relative overflow-hidden ground pt-32 pb-16 md:pt-40 md:pb-20">
         <div
           className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full opacity-60 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 50%, transparent 72%)" }}
@@ -57,10 +59,7 @@ export function BookingBody() {
           {/* left: copy + Clemens photo */}
           <div className="flex flex-col text-center lg:text-left">
             <Reveal>
-              <span className="eyebrow lg:justify-start">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-                Kostenlose Potenzialanalyse
-              </span>
+              <Pille>Kostenlose Potenzialanalyse</Pille>
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="mx-auto mt-5 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
@@ -93,7 +92,7 @@ export function BookingBody() {
                     </span>
                   </div>
                   <div className="ml-1">
-                    <div className="text-sm font-bold text-white">Dein Host: Clemens</div>
+                    <div className="text-sm font-bold text-white">Clemens</div>
                     <div className="text-xs text-white/80">Euer Ansprechpartner bei temoa</div>
                   </div>
                 </div>
@@ -112,20 +111,37 @@ export function BookingBody() {
         </div>
       </section>
 
-      {/* Real results band (dark) */}
-      <section className="relative bg-white pb-4">
+      {/* Belegte Zahlen aus den Case Studies, als dunkles Podest.
+          Vorher stand jede Zahl in einer eigenen Farbe, rot, blau, orange.
+          Drei Signalfarben nebeneinander sagen nichts, sie machen nur Lärm.
+          Jetzt weisse Zahlen, der Pfeil traegt die Richtung. */}
+      <section className="ground relative pb-4">
         <div className="container-x">
           <Reveal>
-            <div
-              className="grid gap-6 rounded-[1.75rem] px-6 py-9 text-center sm:grid-cols-3 md:px-12"
-              style={{ background: "linear-gradient(135deg,#0A1E2B,#053048)" }}
-            >
+            <div className="ground-deep on-dark grid gap-4 overflow-hidden rounded-[1.75rem] px-5 py-8 sm:grid-cols-3 md:px-8">
               {metrics.map((m) => (
-                <div key={m.label}>
-                  <div className="text-3xl font-extrabold tracking-tight md:text-4xl" style={{ color: m.color }}>
-                    {m.value}
+                <div key={m.label} className="panel-dark flex flex-col gap-3 p-5">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-3xl font-extrabold leading-none tracking-tight text-white [font-variant-numeric:tabular-nums] md:text-4xl">
+                      {m.value}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="grid h-6 w-6 shrink-0 place-items-center rounded-lg"
+                      style={{ background: "#16A34A26", color: "#4ADE80" }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+                          stroke="currentColor"
+                          strokeWidth="2.4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
                   </div>
-                  <div className="mt-1.5 text-sm text-white/70">{m.label}</div>
+                  <div className="text-[0.82rem] leading-snug text-chalk-muted">{m.label}</div>
                 </div>
               ))}
             </div>
@@ -134,7 +150,7 @@ export function BookingBody() {
       </section>
 
       {/* Passt / Passt nicht */}
-      <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+      <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Für wen" size="compact" title={<>Wann sich das Gespräch <span className="text-gradient">lohnt.</span></>} />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
@@ -176,44 +192,43 @@ export function BookingBody() {
         </div>
       </section>
 
-      <Testimonials tone="white" />
+      <Stimmen />
 
       {/* FAQ */}
-      <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+      <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="FAQ" size="compact" title={<>Bevor ihr <span className="text-gradient">bucht.</span></>} />
           <BookingFAQ />
         </div>
       </section>
 
-      {/* Final CTA -> back up to the calendar */}
-      <section className="relative py-20 md:py-28">
-        <div className="container-x">
-          <div
-            className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
-            style={{ backgroundImage: "var(--brand-gradient-deep)" }}
-          >
-            <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-14 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />
-            <Reveal>
-              <h2 className="relative mx-auto max-w-2xl text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl">
-                Nehmt euch die 30 Minuten.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="relative mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
-                Der Termin ist kostenlos und unverbindlich. Danach wisst ihr, was in eurem Konto liegt.
-              </p>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <div className="relative mt-8 flex justify-center">
-                <a href="#kalender" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-ink shadow-lift transition-transform duration-300 hover:-translate-y-0.5">
-                  Termin sichern
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </a>
-              </div>
-            </Reveal>
-          </div>
+      {/* Abschluss: zurueck nach oben zum Kalender. Dasselbe dunkle Podest wie
+          die uebrigen Abschluss-Sektionen, nicht mehr die orange Flaeche. */}
+      <section className="on-dark ground-deep relative overflow-hidden py-20 text-center md:py-28">
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+        <div className="container-x relative">
+          <Reveal>
+            <h2 className="title mx-auto max-w-[24ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
+              Nehmt euch die 30 Minuten.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mx-auto mt-5 max-w-[50ch] text-pretty text-lead text-chalk-muted">
+              Der Termin ist kostenlos und unverbindlich. Danach wisst ihr, was in eurem Konto liegt.
+            </p>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <div className="mt-9 flex justify-center">
+              <a href="#kalender" className="btn-on-dark">
+                Termin sichern
+                <span className="disc" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 19V5m0 0l-5 5m5-5l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { SectionHeading } from "../ui/SectionHeading";
+import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Ambient } from "../ui/Ambient";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
@@ -9,12 +9,14 @@ import { Logo } from "../Logo";
 
 /* ---------------- palette / tones ---------------- */
 
-// Two section tones only: white and light blue. Nothing else.
+/* Zwei Sektionstoene. Die Namen bleiben, damit die Aufrufe in bodies.tsx
+   unveraendert weiterlaufen; dahinter liegen jetzt die Gruende des Themes
+   „Studio". Reinweiss kommt auf den Unterseiten nicht mehr vor. */
 type Tone = "white" | "blue";
 
 const toneBg: Record<Tone, string> = {
-  white: "bg-white",
-  blue: "bg-[#EDF5FB]",
+  white: "ground",
+  blue: "ground-tint",
 };
 
 /* Rotating accent colours so nothing reads as all-orange. */
@@ -40,13 +42,58 @@ function Shell({ children, id, tone = "white" }: { children: ReactNode; id?: str
 
 function Media({ className = "", label = "Bild" }: { className?: string; label?: string }) {
   return (
-    <div
-      className={`relative flex items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${className}`}
-      style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
-    >
-      <div className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/70 blur-2xl" />
+    <div className={`panel relative flex items-center justify-center overflow-hidden ${className}`}>
+      <span aria-hidden className="halo halo-cool -right-10 -top-10 h-40 w-40" />
       <span className="relative text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">{label}</span>
     </div>
+  );
+}
+
+/**
+ * Bild in einer Sektion.
+ *
+ * Die Illustrationen unter /bilder sind freigestellt und haben keinen eigenen
+ * Grund. Ein Rahmen mit Radius und Schatten darum wuerde sie als Kasten auf
+ * der Flaeche zeigen, genau der Fehler, der auf der Startseite schon
+ * behoben ist. Fotos dagegen brauchen die Kante. Deshalb entscheidet der
+ * Pfad: /bilder = freigestellt, alles andere = Platte.
+ */
+function SzeneBild({
+  src,
+  alt = "",
+  aspect,
+  className = "",
+}: {
+  src: string;
+  alt?: string;
+  aspect?: string;
+  className?: string;
+}) {
+  const frei = src.startsWith("/bilder/");
+  if (frei) {
+    return (
+      <div className={`relative ${className}`}>
+        <span aria-hidden className="halo left-[14%] top-[16%] h-3/4 w-3/4" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt={alt} loading="lazy" className="relative w-full" />
+      </div>
+    );
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt={alt} loading="lazy" className={`panel w-full object-cover ${aspect ?? ""} ${className}`} />
+  );
+}
+
+/** Die orange Pfeilscheibe im Primaerbutton. Das Orange sitzt auf der Scheibe,
+ *  nie auf der Buttonflaeche. */
+function Pfeil() {
+  return (
+    <span className="disc" aria-hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
   );
 }
 
@@ -145,7 +192,7 @@ export function ServiceHero({
   imageAspect?: string;
 }) {
   return (
-    <section className="relative isolate overflow-hidden bg-white pt-32 pb-16 md:pt-40 md:pb-20">
+    <section className="relative isolate overflow-hidden ground pt-32 pb-16 md:pt-40 md:pb-20">
       <div
         className="pointer-events-none absolute -right-40 -top-44 h-[36rem] w-[36rem] rounded-full opacity-60 blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(255,153,0,0.14), rgba(42,155,216,0.10) 50%, transparent 72%)" }}
@@ -153,10 +200,7 @@ export function ServiceHero({
       <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="text-center md:text-left">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-black/[0.06] bg-white px-4 py-1.5 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-ink-soft shadow-soft">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-              {eyebrow}
-            </span>
+            <Pille>{eyebrow}</Pille>
           </Reveal>
           <Reveal delay={0.06}>
             <h1 className="mt-6 text-balance pb-1 text-3xl font-extrabold leading-[1.12] tracking-tight text-ink sm:text-4xl lg:text-5xl">
@@ -170,20 +214,16 @@ export function ServiceHero({
           </Reveal>
           <Reveal delay={0.18}>
             <div className="mt-8 flex justify-center md:justify-start">
-              <a href="/gespraech-vereinbaren" className="btn-primary !px-7 !py-4 text-base">
+              <a href="/gespraech-vereinbaren" className="btn-primary">
                 Potenzialanalyse buchen
+                <Pfeil />
               </a>
             </div>
           </Reveal>
         </div>
         <Reveal direction="left" delay={0.1}>
           {image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={image}
-              alt={imageAlt}
-              className="w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
-            />
+            <SzeneBild src={image} alt={imageAlt} aspect={imageAspect} />
           ) : (
             <Media className={`${imageAspect} w-full`} />
           )}
@@ -292,7 +332,7 @@ export function SplitCards({
   return (
     <Shell tone={tone}>
       <SectionHeading eyebrow={eyebrow} size="compact" title={title} description={description} />
-      <div className="mt-12 grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
+      <div className={`mt-12 grid items-center gap-6 lg:gap-10 ${image ? "lg:grid-cols-2" : "mx-auto max-w-3xl"}`}>
         {/* stacked, compact cards */}
         <Reveal className={reverse ? "lg:order-2" : ""}>
           <div className="flex h-full flex-col justify-center gap-4">
@@ -310,19 +350,13 @@ export function SplitCards({
             })}
           </div>
         </Reveal>
-        {/* image at its natural aspect, no crop */}
-        <Reveal direction="left" delay={0.08} className={reverse ? "lg:order-1" : ""}>
-          {image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={image}
-              alt={imageAlt}
-              className={`w-full rounded-3xl object-cover shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
-            />
-          ) : (
-            <Media className={`w-full ${imageAspect}`} />
-          )}
-        </Reveal>
+        {/* Bild in seinem eigenen Verhaeltnis, ohne Beschnitt. Fehlt es, gibt
+            es keine zweite Spalte. */}
+        {image && (
+          <Reveal direction="left" delay={0.08} className={reverse ? "lg:order-1" : ""}>
+            <SzeneBild src={image} alt={imageAlt} aspect={imageAspect} />
+          </Reveal>
+        )}
       </div>
       {callout && (
         <Reveal delay={0.1}>
@@ -438,12 +472,7 @@ export function Rows({
             <Reveal key={it.title}>
               <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
                 {it.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={it.image}
-                    alt=""
-                    className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${reverse ? "lg:order-2" : ""}`}
-                  />
+                  <SzeneBild src={it.image} className={reverse ? "lg:order-2" : ""} />
                 ) : (
                   <Media className={`aspect-[4/3] w-full ${reverse ? "lg:order-2" : ""}`} />
                 )}
@@ -554,20 +583,28 @@ export function TextMedia({
   imageAlt?: string;
   imageAspect?: string;
 }) {
+  // Ohne Bild entfaellt die Bildspalte. Ein leerer grauer Kasten mit der
+  // Aufschrift „Bild" ist schlechter als eine ruhig gesetzte Textsektion.
+  if (!image) {
+    return (
+      <Shell tone={tone}>
+        <div className="panel mx-auto max-w-3xl px-8 py-10 text-center md:px-12 md:py-12">
+          <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+          <Reveal delay={0.1}>
+            <p className="mx-auto mt-4 max-w-xl text-balance text-base leading-relaxed text-ink-muted md:text-lg">
+              {text}
+            </p>
+          </Reveal>
+        </div>
+      </Shell>
+    );
+  }
+
   return (
     <Shell tone={tone}>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal className={reverse ? "lg:order-2" : ""}>
-          {image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={image}
-              alt={imageAlt}
-              className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
-            />
-          ) : (
-            <Media className={`${imageAspect} w-full`} />
-          )}
+          <SzeneBild src={image} alt={imageAlt} aspect={imageAspect} />
         </Reveal>
         <div className={`text-center md:text-left ${reverse ? "lg:order-1" : ""}`}>
           <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0" />
@@ -602,12 +639,7 @@ export function AccentStrip({
     <Shell tone={tone}>
       <Reveal>
         <div className="surface p-8 text-center md:p-10">
-          {eyebrow && (
-            <span className="eyebrow justify-center">
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-              {eyebrow}
-            </span>
-          )}
+          {eyebrow && <Pille>{eyebrow}</Pille>}
           <h2 className="mx-auto mt-3 max-w-2xl text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
             {title}
           </h2>
@@ -725,7 +757,7 @@ export function ResultBlock({
   benefits: string[];
 }) {
   return (
-    <section className="relative isolate bg-white py-20 md:py-24">
+    <section className="relative isolate ground py-20 md:py-24">
       <Ambient />
       <div className="container-x">
         <Reveal>
@@ -757,53 +789,48 @@ export function ResultBlock({
 
 /* ---------------- final CTA ---------------- */
 
+/**
+ * Abschluss-CTA der Unterseiten.
+ *
+ * Vorher: eine Flaeche in tiefem Orange-Rot mit einer weissen Pille darin. Das
+ * war der lauteste Punkt der Seite, ohne der wichtigste zu sein, und Orange lag
+ * als Buttonumgebung statt als Akzent. Jetzt dasselbe dunkle Podest wie der
+ * Homepage-Abschluss: Navy, orange Lichtkante oben, weisser Button mit oranger
+ * Pfeilscheibe.
+ */
 export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; chips?: string[] }) {
   return (
-    <section className="relative py-20 md:py-28">
-      <div className="container-x">
-        <div
-          className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
-          style={{ backgroundImage: "var(--brand-gradient-deep)" }}
-        >
-          <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-14 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />
-          <Reveal>
-            <h2 className="relative mx-auto max-w-2xl text-balance pb-1 text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl">
-              {title}
-            </h2>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <p className="relative mx-auto mt-4 max-w-xl text-balance text-base leading-relaxed text-white/90 md:text-lg">
-              {sub}
-            </p>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <div className="relative mt-8 flex justify-center">
-              <a
-                href="/gespraech-vereinbaren"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-base font-semibold text-ink shadow-lift transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                Potenzialanalyse buchen
-              </a>
+    <section className="on-dark ground-deep relative overflow-hidden py-20 text-center md:py-28">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+      <div className="container-x relative">
+        <Reveal>
+          <h2 className="title mx-auto max-w-[26ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
+            {title}
+          </h2>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="mx-auto mt-5 max-w-[54ch] text-pretty text-lead text-chalk-muted">{sub}</p>
+        </Reveal>
+        <Reveal delay={0.14}>
+          <div className="mt-9 flex justify-center">
+            <a href="/gespraech-vereinbaren" className="btn-on-dark">
+              Potenzialanalyse buchen
+              <Pfeil />
+            </a>
+          </div>
+        </Reveal>
+        {chips && (
+          <Reveal delay={0.2}>
+            <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
+              {chips.map((c) => (
+                <span key={c} className="panel-dark flex items-center justify-center gap-2.5 px-4 py-3.5 text-small text-chalk-muted">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                  {c}
+                </span>
+              ))}
             </div>
           </Reveal>
-          {chips && (
-            <Reveal delay={0.2}>
-              <div className="relative mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-white/90">
-                {chips.map((c) => (
-                  <span key={c} className="inline-flex items-center gap-2">
-                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/25 text-white">
-                      <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                    {c}
-                  </span>
-                ))}
-              </div>
-            </Reveal>
-          )}
-        </div>
+        )}
       </div>
     </section>
   );

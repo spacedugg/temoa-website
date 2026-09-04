@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Reveal } from "./Reveal";
+import { Pille } from "./SectionHeading";
 
 export function PageHero({
   eyebrow,
@@ -15,17 +16,12 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden pb-10 pt-36 md:pt-44">
-      <div
-        className="pointer-events-none absolute left-1/2 top-24 h-72 w-[36rem] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.20), rgba(255,49,49,0.08) 50%, transparent 72%)" }}
-      />
+    <section className="ground relative overflow-hidden pb-10 pt-36 md:pt-44">
+      <span aria-hidden className="halo left-1/2 top-16 h-64 w-[30rem] -translate-x-1/2 opacity-60" />
+      <span aria-hidden className="halo-cool halo left-[14%] top-40 h-56 w-[22rem] opacity-70" />
       <div className="container-x relative text-center">
         <Reveal>
-          <span className="eyebrow justify-center">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-            {eyebrow}
-          </span>
+          <Pille>{eyebrow}</Pille>
         </Reveal>
         <Reveal delay={0.05}>
           <h1 className="mx-auto mt-5 max-w-3xl text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.25rem]">
@@ -41,7 +37,7 @@ export function PageHero({
           <Reveal delay={0.15}>
             <div className="mt-7 flex flex-wrap justify-center gap-2">
               {chips.map((c) => (
-                <span key={c} className="rounded-full border border-navy/[0.1] bg-white px-3.5 py-1.5 text-sm font-medium text-ink-muted shadow-soft">
+                <span key={c} className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-ink-muted shadow-soft ring-1 ring-navy/[0.07]">
                   {c}
                 </span>
               ))}

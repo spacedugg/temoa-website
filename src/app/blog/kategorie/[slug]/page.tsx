@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
@@ -33,9 +33,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
-        <section className="relative overflow-hidden bg-white pb-10 pt-36 md:pt-44">
+        <section className="relative overflow-hidden ground pb-10 pt-36 md:pt-44">
           <div
             className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-50 blur-3xl"
             style={{ background: `radial-gradient(circle, ${cat.accent}33, transparent 70%)` }}
@@ -69,7 +69,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
 
-        <section className="relative bg-white pb-24">
+        <section className="relative ground pb-24">
           <div className="container-x">
             <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
               {posts.map((p) => (
@@ -81,7 +81,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

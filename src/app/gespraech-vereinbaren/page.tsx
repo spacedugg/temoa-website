@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { BookingBody } from "@/components/booking/BookingBody";
 
 export const metadata: Metadata = {
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function GespraechBuchenPage() {
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <BookingBody />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

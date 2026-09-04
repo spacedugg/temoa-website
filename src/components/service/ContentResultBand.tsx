@@ -87,7 +87,7 @@ const items: { Viz: (p: { color: string }) => React.ReactNode; title: string; bo
 
 export function ContentResultBand() {
   return (
-    <section className="relative bg-white py-12 md:py-16">
+    <section className="relative ground py-12 md:py-16">
       <div className="container-x">
         <Reveal>
           <p className="mx-auto max-w-2xl text-center text-sm font-bold uppercase tracking-[0.16em] text-ink-faint">

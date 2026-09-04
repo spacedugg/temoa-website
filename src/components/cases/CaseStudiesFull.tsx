@@ -82,7 +82,7 @@ function SubStat({ stat, accent }: { stat: CaseStat; accent: string }) {
 }
 
 export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
-  const tone = index % 2 === 1 ? "bg-[#EDF5FB]" : "bg-white";
+  const tone = index % 2 === 1 ? "ground-tint" : "ground";
   return (
     <section id={c.slug} className={`relative scroll-mt-28 ${tone} py-16 md:py-24`}>
       <div className="container-x">

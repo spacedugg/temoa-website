@@ -61,7 +61,7 @@ function CaseTile({ c }: { c: CaseStudy }) {
 
 export function CaseGrid() {
   return (
-    <section className="relative bg-white py-16 md:py-20">
+    <section className="relative ground py-16 md:py-20">
       <div className="container-x">
         <RevealGroup className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2" stagger={0.08}>
           {cases.map((c) => (

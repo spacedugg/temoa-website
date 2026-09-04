@@ -209,6 +209,51 @@
       "motiv": "Globus mit zwei Faehnchen (abgeloest durch die Familie szene3d)",
       "prompt": "A single matte deep navy blue globe on a clean surface, with exactly two small amazon orange flags planted in it. No continents drawn, no map detail, no other markings. Nothing else in the frame.",
       "aktiv": false
+    },
+    {
+      "kennung": "s-strategie",
+      "seite": "Leistung: Strategie & Analyse",
+      "size": "1280x1280",
+      "motiv": "Aus drei Berichten wird eine Reihenfolge",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "Three frosted glass panels fanned out in a row on the left, each showing simple matte navy bars and one thin orange line. From the rightmost panel a single thick glowing orange arrow leads to a low navy platform on the right that carries four white rounded pucks in a short ascending staircase, the highest puck topped by a small orange flag. Nothing else in the frame."
+    },
+    {
+      "kennung": "s-content",
+      "seite": "Leistung: Content & Listings",
+      "size": "1280x1280",
+      "motiv": "Produktseite aus Bild und Textbloecken",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "One large floating rounded white panel in three-quarter view. Its left half is a single large light grey image block with a simple matte navy bottle silhouette on it, its right half shows one short orange bar and four thin navy bars stacked as placeholder lines. Below the panel three small white rounded thumbnail tiles float in a row, each connected up to the large panel by a thin glowing orange line. Nothing else in the frame."
+    },
+    {
+      "kennung": "s-advertising",
+      "seite": "Leistung: Advertising",
+      "size": "1280x1280",
+      "motiv": "Budget geht dorthin, wo Gewinn bleibt",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "A low navy platform carrying three white rounded columns of clearly different heights, the tallest on the right. Above them one white rounded funnel-shaped hopper floats, and thick glowing orange arrows curve out of the hopper into the tallest column and into the middle column, while the shortest column on the left gets a thin dim grey arrow that stops short of it. Small orange discs stack inside the tallest column. Nothing else in the frame."
+    },
+    {
+      "kennung": "s-account",
+      "seite": "Leistung: Account-Management",
+      "size": "1280x1280",
+      "motiv": "Tagesgeschaeft laeuft auf einem Pult",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "A white rounded control console standing on a low navy platform, tilted towards the viewer, with three matte navy rotary dials and two small orange toggle switches on its surface. Behind it one frosted glass panel floats showing a flat orange line with a small orange upward arrow. To the right of the console two small navy parcel boxes sit on the platform, one carrying a small orange check mark. Nothing else in the frame."
+    },
+    {
+      "kennung": "s-international",
+      "seite": "Leistung: Internationalisierung",
+      "size": "1280x1280",
+      "motiv": "Jeder Marktplatz ein eigener Aufbau",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "A matte navy globe resting on a low white rounded disc in the centre. Four separate low navy platforms are arranged around it, each carrying its own small white rounded panel with three thin navy placeholder bars and one small orange marker pin. Each platform is connected to the central globe by one thin glowing orange line. The four platforms stand clearly apart from each other. Nothing else in the frame."
     }
   ],
   "stilblocks": {

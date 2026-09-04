@@ -10,7 +10,7 @@ export function ComingSoon({
   sub?: string;
 }) {
   return (
-    <section className="relative isolate flex min-h-[72vh] items-center bg-white pt-36 pb-24">
+    <section className="ground relative isolate flex min-h-[72vh] items-center pt-36 pb-24">
       <Ambient />
       <div className="container-x text-center">
         <span className="eyebrow justify-center">

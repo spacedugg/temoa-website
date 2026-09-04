@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ImpressumPage() {
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <PageHero
           eyebrow="Rechtliches"
@@ -69,7 +69,7 @@ export default function ImpressumPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -20,7 +20,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <PageHero
           eyebrow="Blog"
@@ -33,7 +33,7 @@ export default function BlogPage() {
         />
 
         {/* Themen / category navigation */}
-        <section className="relative bg-white pb-8 pt-4">
+        <section className="relative ground pb-8 pt-4">
           <div className="container-x">
             <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
               {categories.map((c) => (
@@ -64,7 +64,7 @@ export default function BlogPage() {
         </section>
 
         {/* Featured */}
-        <section className="relative bg-[#EDF5FB] py-16 md:py-20">
+        <section className="ground-tint relative py-16 md:py-20">
           <div className="container-x">
             <Reveal>
               <div className="flex items-end justify-between gap-4">
@@ -86,7 +86,7 @@ export default function BlogPage() {
           sub="In der kostenlosen Potenzialanalyse schauen wir konkret auf eure Marke."
         />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }
