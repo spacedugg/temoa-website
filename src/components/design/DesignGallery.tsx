@@ -94,7 +94,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
       onContextMenu={guard}
     >
       {interactive && <MaximizeBadge />}
-      <div className="grid gap-2" style={{ gridTemplateColumns: `${heroAspect}fr 1.5fr` }}>
+      <div className="listing-raster" style={{ "--hero": `${heroAspect}fr` } as React.CSSProperties}>
         <div className="overflow-hidden rounded-sm">
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
@@ -616,7 +616,10 @@ export function DesignGallery({ data }: { data: RefData }) {
             weisser Schrift. Jetzt Navy als Flaeche, das Orange sitzt als
             Leuchtpunkt davor. */}
         <div className="flex justify-center">
-          <div className="panel inline-flex flex-wrap justify-center gap-1 !rounded-full p-1.5">
+          {/* Auf dem Telefon brechen die vier Kategorien auf zwei Zeilen. Eine
+              vollrunde Pille um zwei Zeilen sieht falsch aus, deshalb dort
+              ein normaler Radius. */}
+          <div className="panel inline-flex flex-wrap justify-center gap-1 !rounded-[1.4rem] p-1.5 sm:!rounded-full">
             {TABS.map((t) => (
               <button
                 key={t.key}

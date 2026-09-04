@@ -375,6 +375,21 @@ footer :where(a, button):focus-visible,
     }
   }
 
+  /* Aufbau einer Produktseite: links das Hauptbild, rechts die sechs
+     weiteren Bilder. Auf dem Telefon steht das Hauptbild oben und die
+     sechs darunter, sonst waere das Hauptbild rund 120 px breit.
+     --hero traegt das Seitenverhaeltnis des Hauptbilds. */
+  .listing-raster {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .listing-raster {
+      grid-template-columns: var(--hero, 1fr) 1.5fr;
+    }
+  }
+
   /* Farbige Platten.
      Zwei Dinge, die verschiedene Sachen sagen, sollen sich auch farblich
      unterscheiden. Vorher war fast alles weiss, dadurch war zum Beispiel bei
