@@ -8,6 +8,11 @@ S=".claude/skills/impeccable/scripts/generate-image.mjs"
 P=".impeccable/bildprompts"
 STIL="$(cat "$P/stil.txt")"
 
+# generate-image.mjs legt den Zielordner nur im --plate-Pfad an, nicht im
+# --prompt-Pfad. Ohne dieses mkdir schlaegt das Schreiben fehl, nachdem das
+# Bild bereits erzeugt und abgerechnet wurde.
+mkdir -p public/bilder
+
 gen () { # $1 = Kennung, $2 = Groesse
   echo "→ $1 ($2)"
   node "$S" --prompt "$(cat "$P/$1.txt")
