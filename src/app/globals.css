@@ -21,7 +21,9 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
+  /* Nicht reinweiß. Der Grund ist die erste Materialschicht des Themes,
+     weiße Platten sollen darauf stehen und nicht mit ihm verschmelzen. */
+  background-color: #f6f9fd;
   color: #0A1E2B;
   overflow-x: hidden;
 }
@@ -180,6 +182,159 @@ footer :where(a, button):focus-visible,
     box-shadow:
       0 16px 30px -12px rgba(2, 48, 71, 0.18),
       0 36px 70px -24px rgba(2, 48, 71, 0.28);
+  }
+
+  /* ================================================================
+     Theme „Studio"
+
+     Ersetzt die frühere Welt „Taktplan", die aus einer mitlaufenden Linie
+     am linken Rand, Stationsnummern und flachen weißen Sektionen bestand.
+     Diese Welt hier arbeitet mit drei Mitteln:
+
+       1. Der Grund ist nie reinweiß, sondern ein sehr heller kühler Verlauf
+          mit einem warmen Lichtkern. Dadurch stehen weiße Flächen darauf.
+       2. Inhalte liegen auf Platten mit gestaffeltem Schatten und einer
+          feinen Lichtkante oben. Nichts schwebt frei im Weißraum.
+       3. Zusammenhänge werden gezeichnet: glühende orange Verbindungen,
+          Podeste, Ringe. Nicht beschrieben.
+     ================================================================ */
+
+  /* Heller Sektionsgrund mit warmem Lichtkern. */
+  .ground {
+    position: relative;
+    background:
+      radial-gradient(120% 80% at 78% -10%, rgba(255, 153, 0, 0.09), transparent 60%),
+      radial-gradient(90% 70% at 8% 110%, rgba(43, 108, 176, 0.07), transparent 62%),
+      linear-gradient(180deg, #ffffff 0%, #f6f9fd 100%);
+  }
+  /* Zweite Stufe: etwas kräftiger getönt, für Sektionen die sich absetzen sollen. */
+  .ground-tint {
+    position: relative;
+    background:
+      radial-gradient(100% 70% at 15% -20%, rgba(255, 153, 0, 0.1), transparent 58%),
+      linear-gradient(180deg, #f4f8fd 0%, #eaf1f9 100%);
+  }
+  /* Dunkles Podest. Trägt weißen Text, deshalb immer zusammen mit .on-dark. */
+  .ground-deep {
+    position: relative;
+    background:
+      radial-gradient(110% 80% at 82% -15%, rgba(255, 153, 0, 0.2), transparent 58%),
+      radial-gradient(80% 60% at 6% 108%, rgba(255, 153, 0, 0.09), transparent 60%),
+      linear-gradient(165deg, #14344c 0%, #0d2439 55%, #0a1c2d 100%);
+  }
+
+  /* Hauptplatte. Der gestaffelte Schatten erzeugt die Tiefe, die eine
+     einzelne Schattenstufe nicht hinbekommt. Die Lichtkante oben lässt die
+     Kante physisch wirken statt gezeichnet. */
+  .panel {
+    border-radius: 1.75rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 34px 60px -30px rgba(13, 36, 57, 0.22);
+  }
+  .panel-lift {
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.4s ease;
+  }
+  .panel-lift:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 18px 32px -14px rgba(13, 36, 57, 0.16),
+      0 52px 86px -34px rgba(13, 36, 57, 0.3);
+  }
+  /* Platte auf dunklem Grund. */
+  .panel-dark {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  /* Hervorgehobene Platte auf dunklem Grund, mit oranger Kante. */
+  .panel-dark-accent {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 0 0 1px rgba(255, 153, 0, 0.35),
+      0 0 44px -14px rgba(255, 153, 0, 0.32);
+  }
+
+  /* Icon-Kachel, wie in den Referenzen: gerundetes Quadrat, weiß, Navy-Symbol. */
+  .tile {
+    @apply grid shrink-0 place-items-center text-navy;
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 1rem;
+    background: linear-gradient(155deg, #ffffff, #eef4fb);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.06),
+      0 10px 18px -10px rgba(13, 36, 57, 0.22);
+  }
+  .tile-lg {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1.25rem;
+  }
+  /* Kachel auf dunklem Grund. */
+  .tile-dark {
+    @apply grid shrink-0 place-items-center text-brand-500;
+    height: 3.25rem;
+    width: 3.25rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  /* Glühende orange Verbindung. Waagerecht und senkrecht, für Ketten und Ringe. */
+  .link-glow {
+    background: linear-gradient(90deg, rgba(255, 153, 0, 0), #ff9900 45%, rgba(255, 153, 0, 0));
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.75);
+    height: 2px;
+  }
+  .link-glow-v {
+    background: linear-gradient(180deg, rgba(255, 153, 0, 0), #ff9900 45%, rgba(255, 153, 0, 0));
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.75);
+    width: 2px;
+  }
+  /* Leuchtpunkt am Anschlusspunkt einer Verbindung. */
+  .node-glow {
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 999px;
+    background: #ff9900;
+    box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.16), 0 0 16px rgba(255, 153, 0, 0.8);
+  }
+
+  /* Warmer Lichtkern hinter einem Element. Immer aria-hidden und pointer-events-none. */
+  .halo {
+    position: absolute;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 153, 0, 0.34), transparent 66%);
+    filter: blur(46px);
+  }
+  .halo-cool {
+    background: radial-gradient(circle, rgba(43, 108, 176, 0.24), transparent 66%);
+  }
+
+  /* KPI-Karte mit Trendrichtung, nach der Referenz mit den drei Kennzahlen. */
+  .kpi {
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.1rem 1.25rem;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 16px 30px -18px rgba(13, 36, 57, 0.22);
   }
 
   /* Primär-Aktion.

@@ -19,6 +19,19 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - KEINE umgangssprachlichen oder vulgaeren Ausdruecke. Verboten z. B.: "Geld in Werbung pumpen", "ins Werbebudget pumpen". Stattdessen nuechtern formulieren.
 - Above-the-fold/Hero: knapp halten. Kein unnoetiger Text, keine Microcopy unter dem Haupt-CTA.
 
+## Theme „Studio" (verbindlich, ersetzt „Taktplan")
+
+Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken Rand, Stationsnummern 00 bis 09, flache weisse Sektionen. Der Kunde hat es verworfen. Referenz sind die von ihm gelieferten Beispielbilder: weiche 3D-Renderings, Glasplatten, gluehende orange Verbindungen, isometrische Navy-Podeste.
+
+- **Kein Balken am linken Rand.** Die Komponente `TaktLine` ist geloescht und darf nicht zurueckkommen.
+- **Der Grund ist nie reinweiss.** Drei Toene, in `globals.css` definiert: `.ground` (heller Verlauf mit warmem Lichtkern), `.ground-tint` (kraeftiger getoent), `.ground-deep` (dunkles Navy-Podest, immer mit `.on-dark`). Die Toene wechseln ueber die Seite, damit Sektionen als Bloecke lesbar sind.
+- **Inhalte liegen auf Platten, nie frei im Weissraum.** `.panel` (weiss, gestaffelter Schatten, Lichtkante oben), `.panel-lift` (Hover), `.panel-dark` und `.panel-dark-accent` auf dunklem Grund. Grosse Radien, 1,75 rem an Platten.
+- **Keine Haarlinien-Listen.** Die frueheren Zeilen zwischen zwei Linien (`RuledRow`) sind durch `Karte` ersetzt: Icon-Kachel, kurze Ueberschrift, ein Satz. Icons kommen aus `src/components/takt/Icons.tsx`, Navy-Form mit einem orangen Detail.
+- **Zusammenhaenge werden gezeichnet, nicht beschrieben.** `.link-glow`, `.link-glow-v`, `.node-glow`, `.halo` und die Podest-Illustrationen. Kein Fliesstext, der erklaert, was ein Bild zeigen kann.
+- **Sektionsbezeichnung** ist eine Pille mit Leuchtpunkt (`Eyebrow`), keine nackte Zeile.
+- **Illustrationen der Familie `szene3d` brauchen eine weisse Platte.** Ihr Studiogrund ist nicht exakt weiss und stuende auf getoentem Grund als Kasten. Deshalb immer in ein `.panel` setzen und mit `[mix-blend-mode:multiply]` einbinden.
+- **Kennzahlen sind Karten** (`.kpi`), mit gruenem Trendpfeil, nicht nackte Zahlen unter einer Linie.
+
 ## Design- und Bildregeln (nach Kundenfeedback verbindlich)
 
 - **Amazon muss above the fold ankommen.** Ein Besucher darf nach zwei Sekunden nicht raten, worum es geht. Frueher stand dort nur „Wachstum ist keine Frage des Werbebudgets", das konnte jede Marketingfirma sein.

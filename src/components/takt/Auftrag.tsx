@@ -35,12 +35,9 @@ export function Auftrag() {
         };
 
   return (
-    <section id="top" className="relative overflow-hidden bg-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 -top-60 h-[46rem] w-[46rem] rounded-full opacity-90 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.13), transparent 65%)" }}
-      />
+    <section id="top" className="ground relative overflow-hidden">
+      <span aria-hidden className="halo pointer-events-none -right-32 -top-44 h-[42rem] w-[42rem]" />
+      <span aria-hidden className="halo halo-cool pointer-events-none -left-40 top-64 h-[34rem] w-[34rem]" />
 
       <div className="container-x relative">
         <div className="grid items-center gap-y-14 pb-24 pt-28 lg:grid-cols-[1fr_0.95fr] lg:gap-x-16 lg:pb-32 lg:pt-36">
@@ -74,14 +71,20 @@ export function Auftrag() {
               </a>
             </motion.div>
 
-            <motion.div
-              {...rise(0.3)}
-              className="mt-12 grid max-w-[34rem] grid-cols-3 gap-x-6 border-t border-ink/[0.09] pt-7"
-            >
+            {/* Kennzahlen als eigene Karten. Vorher standen sie als nackte
+                Zahlen unter einer Haarlinie und gingen im Weißraum unter. */}
+            <motion.div {...rise(0.3)} className="mt-12 grid max-w-[36rem] gap-3 sm:grid-cols-3">
               {readings.map((r) => (
-                <div key={r.label} className="min-w-0">
-                  <div className="num text-[clamp(1.3rem,1rem+1vw,1.8rem)] text-ink">{r.value}</div>
-                  <div className="mt-2 text-[0.7rem] font-bold leading-tight text-ink">{r.label}</div>
+                <div key={r.label} className="kpi min-w-0">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="num text-[clamp(1.3rem,1rem+1vw,1.75rem)] text-ink">{r.value}</span>
+                    <span aria-hidden className="text-signal-pos">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                        <path d="M5 17L12 9l3 3 5-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="mt-2 text-[0.72rem] font-bold leading-tight text-ink">{r.label}</div>
                   <div className="mt-1 text-[0.7rem] leading-tight text-ink-faint">{r.note}</div>
                 </div>
               ))}
@@ -113,11 +116,11 @@ function ListingKarte() {
 
   return (
     <div className="relative">
-      <div className="rounded-panel bg-white p-5 shadow-[0_40px_90px_-45px_rgba(2,48,71,0.5)] ring-1 ring-inset ring-ink/[0.07] md:p-6">
+      <div className="panel p-5 md:p-6">
         <div className="grid gap-5 sm:grid-cols-[1.05fr_1fr] md:gap-6">
           {/* Bildstrecke */}
           <div className="min-w-0">
-            <div className="overflow-hidden rounded-inner bg-canvas-tint/50">
+            <div className="overflow-hidden rounded-[1.25rem] bg-canvas-tint/50">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/bilder/p-haupt.webp"
@@ -131,7 +134,7 @@ function ListingKarte() {
               {galerie.map((g) => (
                 <div
                   key={g.src}
-                  className="overflow-hidden rounded-[0.625rem] bg-canvas-tint/50 ring-1 ring-inset ring-ink/[0.06]"
+                  className="overflow-hidden rounded-[0.75rem] bg-canvas-tint/50 shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={g.src} alt={g.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />

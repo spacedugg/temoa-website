@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Station, StationTitle, StationLead, Eyebrow, RuledRow } from "./Station";
+import { Station, StationTitle, StationLead, Eyebrow, Karte } from "./Station";
+import type { IconName } from "./Icons";
 import { Bildfeld } from "./Bildfeld";
 
 /**
@@ -11,17 +12,17 @@ import { Bildfeld } from "./Bildfeld";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-const fuerWen = [
-  { n: "01", title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
-  { n: "02", title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
-  { n: "03", title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
-  { n: "04", title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
+const fuerWen: { icon: IconName; title: string; body: string }[] = [
+  { icon: "regal", title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
+  { icon: "kompass", title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
+  { icon: "stufen", title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
+  { icon: "globus", title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
 ];
 
-const ausgangslage = [
-  { n: "01", title: "Internes Team zu klein", body: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken." },
-  { n: "02", title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
-  { n: "03", title: "Amazon ist ein Vollzeitjob", body: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert." },
+const ausgangslage: { icon: IconName; title: string; body: string }[] = [
+  { icon: "uhr", title: "Internes Team zu klein", body: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken." },
+  { icon: "streuung", title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
+  { icon: "schild", title: "Amazon ist ein Vollzeitjob", body: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert." },
 ];
 
 const bereiche = [
@@ -92,12 +93,8 @@ export function FullServiceKopf() {
     reduce ? {} : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.85, delay, ease: EASE } };
 
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 -top-60 h-[46rem] w-[46rem] rounded-full opacity-90 blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.13), transparent 65%)" }}
-      />
+    <section className="ground relative overflow-hidden">
+      <span aria-hidden className="halo pointer-events-none -right-32 -top-44 h-[42rem] w-[42rem]" />
       <div className="container-x relative">
         <div className="pb-24 pt-28 md:pb-28 md:pt-32">
           <motion.div {...rise(0)}>
@@ -126,7 +123,7 @@ export function FullServiceKopf() {
               </motion.div>
             </div>
 
-            <motion.div {...rise(0.18)} className="overflow-hidden rounded-[1.25rem] shadow-[0_50px_90px_-45px_rgba(2,48,71,0.5)]">
+            <motion.div {...rise(0.18)} className="panel overflow-hidden p-3">
               <Bildfeld
                 id="B-05"
                 aspect="aspect-[4/5]"
@@ -148,11 +145,10 @@ export function FuerWen() {
   return (
     <Station label="Für wen wir arbeiten" tone="tint">
       <StationTitle>Passt das zu eurer Marke?</StationTitle>
-      <div className="mt-12">
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {fuerWen.map((r) => (
-          <RuledRow key={r.n} index={r.n} title={r.title} body={r.body} tone="tint" />
+          <Karte key={r.title} icon={r.icon} title={r.title} body={r.body} />
         ))}
-        <div className="border-t border-ink/[0.09]" />
       </div>
     </Station>
   );
@@ -163,11 +159,10 @@ export function Ausgangslage() {
   return (
     <Station label="Ausgangslage" tone="paper">
       <StationTitle>Warum die üblichen Lösungen an Amazon scheitern.</StationTitle>
-      <div className="mt-12">
+      <div className="mt-12 grid gap-5 md:grid-cols-3 lg:gap-6">
         {ausgangslage.map((r) => (
-          <RuledRow key={r.n} index={r.n} title={r.title} body={r.body} tone="paper" />
+          <Karte key={r.title} icon={r.icon} title={r.title} body={r.body} />
         ))}
-        <div className="border-t border-ink/[0.09]" />
       </div>
       <div className="mt-12 border-l-2 border-brand-500 pl-6 md:pl-8">
         <p className="max-w-[46ch] text-balance text-[1.2rem] font-bold leading-[1.4] text-ink md:text-[1.4rem]">

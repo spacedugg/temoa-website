@@ -1,96 +1,60 @@
 # Bildbriefing temoa
 
-Abgeleitet aus dem Ordner „Website inspiration". Die Vorlagen bilden eine geschlossene Familie: weicher 3D-Render, mattes Material, abgerundete Kanten, Navy und Orange auf hellem Grund, Gegenstände als Metapher. Keine Fotografie. Diese Familie wird fortgeführt, keines der Beispielbilder wird verwendet.
+Drei Stilfamilien, technisch definiert in `content/bild-prompts.json` unter `stilblocks`. Jedes Bild wählt seine Familie über das Feld `stil`.
 
-## So setzt du ein Bild ein
+## 1. `szene3d`, die Leitfamilie
 
-Die Prompts liegen maschinenlesbar in `content/bild-prompts.json`, der Stilblock steht dort einmal und wird an jeden Prompt angehängt.
+Abgeleitet aus den Referenzbildern des Kunden. Weiches 3D-Render, matte Kunststoffflächen mit großen Rundungen, Navy (#243B55) und Amazon-Orange (#FF9900) auf hellem Studiogrund, glühende orange Verbindungen, isometrische Podeste, dreiviertel-isometrische Ansicht.
 
-1. Prompt in `content/bild-prompts.json` eintragen oder `"aktiv": false` entfernen.
+Trägt die Argumentationssektionen: Ursache, Organic First, Leistungen.
+
+Zwei technische Regeln für diese Familie:
+
+- Immer auf eine weiße Platte (`.panel`) setzen. Der Studiogrund ist nicht exakt weiß und stünde auf getöntem Grund als Kasten in der Sektion.
+- Mit `[mix-blend-mode:multiply]` einbinden. Damit verschwindet der Grund in der weißen Platte, die dunklen Flächen bleiben unverändert.
+
+## 2. `produkt`
+
+Fotorealistische Produktaufnahmen. Ein durchgehendes, frei erfundenes Produkt ohne Marke und ohne Schrift, damit alle Aufnahmen als ein Set zusammenpassen. Trägt den Hero, die Designbeispiele und die A+ Module.
+
+Beispiel-Listings werden auf der Seite als erfunden gekennzeichnet. Kein Amazon-Logo, kein Prime, keine Amazon-Oberfläche.
+
+## 3. `objekt`, abgelöst
+
+Die frühere Familie: ein einzelner matter Gegenstand auf weißem Grund, viel Luft, kein Glühen. Genau dieses Regelwerk hat die Seite wie eine Architekturseite wirken lassen. Nur noch Archiv, nicht mehr verwenden. Die Einträge stehen in der JSON auf `"aktiv": false`, damit die verworfenen Motive nachvollziehbar bleiben.
+
+## Schrift gehört in kein generiertes Bild
+
+Bildmodelle setzen Text zuverlässig fehlerhaft. Deshalb steht in jedem Prompt „no text". Der Bildgrund kommt aus der Datei, jede Beschriftung zeichnet der Code darüber. Das gilt auch für A+ Module und Listing-Nachbauten.
+
+## So erzeugst du ein Bild
+
+1. Eintrag in `content/bild-prompts.json` anlegen: `kennung`, `size`, `stil`, `prompt`. Bei Szenen ohne freien Hintergrund zusätzlich `"rahmen": false`.
 2. `OPENAI_API_KEY=... node scripts/gen-bilder-openai.mjs --only <kennung>`
-   Das Script erzeugt mit `gpt-image-2` das Bild in der hinterlegten Kantenlänge und schreibt zwei Dateien: `public/bilder/<kennung>.webp` für die Auslieferung, rund 60 kB, und `bilder-original/<kennung>.png` als Original. Das PNG liegt außerhalb von `public`, damit es nicht mitdeployt wird.
-3. Im Code an der Bildfläche `src="/bilder/<kennung>.webp"` und ein `alt` ergänzen. Am Layout ändert sich nichts, die Fläche hat bereits ihr endgültiges Seitenverhältnis.
 
-`gpt-image-2` erlaubt freie Auflösungen, solange beide Kantenlängen durch 16 teilbar sind und das Seitenverhältnis zwischen 1:3 und 3:1 liegt. Die Formate aus diesem Briefing lassen sich damit exakt treffen, ohne Beschnitt.
+Das Script erzeugt mit `gpt-image-2` zwei Dateien: `public/bilder/<kennung>.webp` für die Auslieferung, rund 30 bis 60 kB, und `bilder-original/<kennung>.png` als Original. Das PNG liegt außerhalb von `public`, damit es nicht mitdeployt wird.
 
-## Stand: was gezeichnet ist und was noch ein Bild braucht
+`FUELLUNG=0.9 node scripts/gen-bilder-openai.mjs --only <kennung> --nur-rahmen` rahmt aus dem vorhandenen Original neu, ohne die API zu rufen. Das kostet nichts.
 
-Nach der Rückmeldung „minimalistischer, moderner, keine überfrachteten KI-Grafiken" ist ein Teil der Flächen nicht mehr Bild, sondern direkt im Code gezeichnet: SVG in den Farben der Seite, animiert beim Scrollen.
+`gpt-image-2` erlaubt freie Auflösungen, solange beide Kantenlängen durch 16 teilbar sind und das Seitenverhältnis zwischen 1:3 und 3:1 liegt. Formate lassen sich damit exakt treffen, ohne Beschnitt im Layout.
 
-| Fläche | Sektion | Zustand |
-|---|---|---|
-| Kopfbereich | Station 00 | **gezeichnet.** Listing-Karte mit steigender Kurve, `ListingSzene` in `src/components/takt/Grafiken.tsx` |
-| Verfahren | Station 02 | **gezeichnet.** Vier Stufen mit durchlaufender orange Linie, `TaktSzene`, die Linie wächst beim Scrollen |
-| Umfang | Station 03 | **entfallen.** Das breite Bildband war Füllmaterial, die fünf Zeilen stehen für sich |
-| B-02 Befund | Station 01 | **fertig.** Zweite Fassung aus dem Briefing, Kartenstapel plus flach liegende Uhr. Liegt als `public/bilder/b-02.webp` und ist eingebaut |
+## Was in kein Bild gehört
 
-Vorteil der gezeichneten Variante: scharf auf jedem Display, wenige Kilobyte, exakt in den Farben der Seite, und sie kann sich beim Scrollen aufbauen. Nachteil: sie sieht gezeichnet aus, nicht fotografiert.
-
-Für alles, was doch ein Bild wird, gilt der folgende Stilblock. Er ist bewusst reduzierter als die Beispielbilder aus dem Inspirationsordner: **ein Gegenstand, eine Aussage, viel Luft.** Keine fünf Icons mit Verbindungslinien, kein Glühen, kein Icon-Gewimmel.
-
-## Stilblock
-
-Diesen Block an **jeden** Prompt anhängen. Er hält die vier Bilder zusammen.
-
-```
-Minimal 3D render, one single subject, nothing else in frame. Matte material,
-soft neutral studio light from one side, one soft shadow. Clean white
-background with a large amount of empty space around the object. Colour
-palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900),
-white and light warm grey. No other colours, no gradients across the frame, no
-glow effects, no connecting lines, no floating icons, no collage of multiple
-symbols. Absolutely no text, no letters, no numbers, no logos, no interface
-labels. Calm, restrained, editorial. High detail, quiet composition.
-```
-
-Zwei Hinweise aus deinen Vorlagen: Wo Schrift im Bild steht, wird sie von der KI fast immer fehlerhaft gesetzt. Deshalb steht in jedem Prompt „no text". Die Website bringt ihre Beschriftung selbst mit. Und der Hintergrund ist immer sauber, damit das Bild in der Fläche sitzt und nicht dagegen arbeitet.
-
----
-
-## B-02 · Startseite, Station 01 „Der Befund"
-
-- Seitenverhältnis **4:3** quer, Export mindestens 1600 × 1200 px
-- Hintergrund: weiß
-- Steht neben der Ursachen-Aussage
-- Aussage: seit dem Launch hat niemand das Listing angefasst
-
-```
-A single tall stack of identical plain light grey rounded cards, seen from a
-slight angle, leaning a little to one side as if nobody has touched it in a
-long time. One card near the top edge is amazon orange. Nothing else in the
-frame.
-
-[Stilblock anhängen]
-```
-
-Wenn dir dieser Aufbau zu ruhig ist, gibt es eine zweite Fassung: dieselbe
-Kartenstapel-Idee, aber daneben eine flach liegende navyfarbene Uhr mit einem
-orangen Zeiger. Mehr als zwei Gegenstände sollten es nicht werden, sonst kippt
-es in die überladene Optik zurück.
-
----
-
-## Später: Leistungsseiten
-
-Je ein Kopfbild im Format 3:2, weißer Hintergrund, gleicher Stilblock.
-
-| Kennung | Seite | Motiv |
-|---|---|---|
-| B-10 | Strategie & Analyse | Eine einzelne navy Schachfigur, daneben eine orange markierte flache Karte |
-| B-11 | Content & Listings | Drei gestaffelte Bildrahmen, der vorderste scharf, ein oranger Rahmenrand |
-| B-12 | Advertising / PPC | Ein einzelner navy Schieberegler, der Griff orange |
-| B-13 | Account-Management | Ein navy Regal mit gleichmäßig einsortierten Kartons, einer davon orange |
-| B-14 | Internationalisierung | Ein navy Globus mit genau zwei orangen Fähnchen |
-
-## Was nicht ins Bild gehört
-
-- Amazon-Logo, Amazon-Oberflächen, das Wort Amazon in irgendeiner Form
-- Fremde Marken, erkennbare Produktverpackungen, echte Produktfotos
+- Amazon-Logo, Amazon-Oberflächen, Prime-Kennzeichnung
+- Fremde Marken, erkennbare Produktverpackungen
 - Menschen, Gesichter, Hände
 - Text jeder Art, auch klein oder unscharf im Hintergrund
-- Zusätzliche Farben: kein Grün, kein Violett, kein Rot außer dem Orange
-- Glasoptik, Neon, Farbverläufe über das ganze Bild
+- Zusätzliche Farben: kein Violett, kein Rot außer dem Orange. Grün nur als Trendrichtung in KPI-Karten, dort im Code, nicht im Bild.
+- Erfundene Leistungszahlen. Kennzahlen stehen belegt im Text, nicht als Fantasiewert in einer Grafik.
 
-## Regel für jedes weitere Bild
+## Bestand
 
-Ein Gegenstand, höchstens zwei. Viel leere Fläche. Kein Verbindungsliniennetz, kein Glühen, keine Icon-Sammlung. Wenn ein Motiv nur funktioniert, weil drei Symbole nebeneinanderstehen, ist es kein Bild, sondern eine Grafik. Dann gehört es in den Code und nicht in eine Bilddatei.
+| Kennung | Familie | Fläche |
+|---|---|---|
+| `n-ursache` | szene3d | Startseite, Ursache: Trichter, viele Besucher oben, zwei Käufe unten |
+| `n-organic` | szene3d | Startseite, Organic First: Suche, Klick, Kauf, dann die Kurve |
+| `n-leistungen` | szene3d | Startseite, Leistungen: fünf Bereiche im Ring um eine Mitte |
+| `p-haupt` bis `p-unterwegs` | produkt | Hero und Designbeispiele: sieben Listingbilder |
+| `a-hero`, `a-nutzen`, `a-anwendung`, `a-vergleich` | produkt | Designbeispiele: vier A+ Grundbilder |
+
+Offen: Kopfbilder für die fünf Leistungsseiten und die zweite Fläche der Full-Service-Seite. Motive noch nicht festgelegt, die alten `objekt`-Prompts dafür sind abgelöst.

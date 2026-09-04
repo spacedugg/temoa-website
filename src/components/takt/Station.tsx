@@ -2,27 +2,29 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
+import { Icon, type IconName } from "./Icons";
 
 /**
- * Sektionsgerüst.
+ * Sektionsgerüst im Theme „Studio".
  *
- * Frühere Fassung war ein „Taktplan": jede Sektion trug links eine große
- * Nummer und eine Bezeichnung wie „Der Befund" oder „Das Verfahren". Das war
- * die Sprache eines Bauplans, nicht die des Amazon-Geschäfts, und die Spalte
- * hat auf jeder Sektion rund zehn Rem Breite gekostet, ohne etwas zu sagen.
+ * Zwei Fassungen liegen hinter dieser: erst ein „Taktplan" mit mitlaufender
+ * Linie am linken Rand und Stationsnummern, dann dieselbe Struktur ohne
+ * Nummern. Beide hatten flache weiße Sektionen, auf denen Text frei schwebte.
  *
- * Jetzt läuft der Inhalt über die volle Breite. Die Bezeichnung steht als
- * kurze Zeile über der Überschrift, dort wo sie gelesen wird.
+ * Jetzt trägt jede Sektion einen eigenen Grund: heller Verlauf mit warmem
+ * Lichtkern, kräftiger getönt, oder ein dunkles Podest. Inhalte liegen darauf
+ * auf Platten. Die Töne wechseln über die Seite, damit Sektionen als Blöcke
+ * lesbar sind und nicht als eine lange weiße Bahn.
  *
- * Typografische Regel: groß wird leicht gesetzt, klein wird fett gesetzt.
+ * Typografische Regel bleibt: groß wird leicht gesetzt, klein wird fett.
  */
 
 export type Tone = "paper" | "tint" | "dark";
 
 const grounds: Record<Tone, string> = {
-  paper: "bg-white text-ink",
-  tint: "bg-canvas-tint text-ink",
-  dark: "on-dark bg-navy text-chalk",
+  paper: "ground text-ink",
+  tint: "ground-tint text-ink",
+  dark: "on-dark ground-deep text-chalk",
 };
 
 export function Station({
@@ -52,7 +54,13 @@ export function Station({
   );
 }
 
-/** Bezeichnung über der Überschrift: oranger Punkt, dann das Wort. */
+/**
+ * Bezeichnung über der Überschrift.
+ *
+ * Sitzt als kleine Pille auf dem Grund, mit einem Leuchtpunkt davor. Das
+ * bindet sie an die Glow-Sprache des Themes und hebt sie vom Grund ab, statt
+ * sie als nackte Zeile daraufzulegen.
+ */
 export function Eyebrow({ label, dark = false }: { label: string; dark?: boolean }) {
   const reduce = useReducedMotion();
   return (
@@ -61,10 +69,15 @@ export function Eyebrow({ label, dark = false }: { label: string; dark?: boolean
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-15% 0px" }}
       transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-      className="mb-5 flex items-center gap-2.5"
+      className={clsx(
+        "mb-6 inline-flex items-center gap-2.5 rounded-full py-2 pl-3 pr-4",
+        dark
+          ? "bg-white/[0.07] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
+          : "bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.2)]"
+      )}
     >
-      <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-brand-500" />
-      <span className={clsx("text-label font-bold uppercase", dark ? "text-chalk-muted" : "text-ink-muted")}>
+      <span aria-hidden className="node-glow" />
+      <span className={clsx("text-label font-bold uppercase", dark ? "text-chalk" : "text-ink-soft")}>
         {label}
       </span>
     </motion.div>
@@ -144,49 +157,56 @@ export function Reading({
   );
 }
 
-/** Zeile einer gerissenen Liste. Ersetzt die Kartenreihe. */
-export function RuledRow({
-  index,
+/**
+ * Inhaltskarte.
+ *
+ * Ersetzt die frühere `RuledRow`, eine Zeile zwischen zwei Haarlinien. Die
+ * hat den Text frei auf dem weißen Grund liegen lassen und pro Blick kaum
+ * etwas getragen. Jetzt ist es eine Platte mit Icon-Kachel, wie in den
+ * Referenzen: Symbol, kurze Überschrift, ein Satz.
+ */
+export function Karte({
+  icon,
   title,
   body,
   href,
   tone = "paper",
+  className,
 }: {
-  index: string;
+  icon: IconName;
   title: string;
   body: string;
   href?: string;
   tone?: Tone;
+  className?: string;
 }) {
   const dark = tone === "dark";
   const inner = (
     <>
-      <span className={clsx("num text-[1.5rem]", dark ? "text-white/25" : "text-ink/20")}>{index}</span>
-      <span className="min-w-0">
-        <span
-          className={clsx(
-            "block text-[1.25rem] font-bold leading-snug tracking-[-0.015em] md:text-[1.4rem]",
-            dark ? "text-white" : "text-ink"
-          )}
-        >
-          {title}
-        </span>
-        <span className={clsx("mt-2.5 block max-w-[54ch] text-body", dark ? "text-chalk-muted" : "text-ink-muted")}>
-          {body}
-        </span>
+      <span className={clsx(dark ? "tile-dark" : "tile", "mb-5")}>
+        <Icon name={icon} className="h-6 w-6" />
+      </span>
+      <span
+        className={clsx(
+          "block text-[1.1rem] font-bold leading-snug tracking-[-0.015em] md:text-[1.2rem]",
+          dark ? "text-white" : "text-ink"
+        )}
+      >
+        {title}
+      </span>
+      <span className={clsx("mt-2.5 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
+        {body}
       </span>
       {href && (
         <span
           className={clsx(
-            "hidden shrink-0 self-center transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem]",
-            dark
-              ? "text-brand-400 group-hover:bg-white/10"
-              : "text-navy group-hover:bg-brand-500 group-hover:text-ink"
+            "mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-bold transition-transform duration-300 group-hover:translate-x-1",
+            dark ? "text-brand-400" : "text-navy"
           )}
-          aria-hidden
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          Mehr dazu
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
       )}
@@ -194,12 +214,13 @@ export function RuledRow({
   );
 
   const shared = clsx(
-    "group grid grid-cols-[2.5rem_1fr] items-start gap-x-5 gap-y-1 border-t py-8 transition-colors duration-300 md:grid-cols-[3.5rem_1fr_auto] md:py-9",
-    dark ? "border-white/10" : "border-ink/[0.09]"
+    "group flex h-full flex-col p-7 md:p-8",
+    dark ? "panel-dark" : "panel panel-lift",
+    className
   );
 
   return href ? (
-    <a href={href} className={clsx(shared, "-mx-5 px-5 hover:bg-ink/[0.025]")}>
+    <a href={href} className={shared}>
       {inner}
     </a>
   ) : (

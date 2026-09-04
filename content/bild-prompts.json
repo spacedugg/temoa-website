@@ -1,6 +1,31 @@
 {
-  "_hinweis": "Bildprompts aus copy/bildbriefing.md. Zwei Stilfamilien in stilblocks: \"produkt\" fuer fotorealistische Produktaufnahmen (Hero, Designbeispiele), \"objekt\" fuer die reduzierten 3D-Objekte als Akzent. Jedes Bild waehlt seine Familie ueber \"stil\". \"rahmen\": false schaltet das Nachrahmen ab, sinnvoll bei Szenen ohne freien Hintergrund. Eintraege mit \"aktiv\": false laufen nicht mit. Aufruf: node scripts/gen-bilder-openai.mjs --only <kennung>",
+  "_hinweis": "Bildprompts aus copy/bildbriefing.md. Drei Stilfamilien in stilblocks. \"szene3d\": weiche 3D-Szenen nach den Kundenreferenzen, Navy und Orange, gluehende Verbindungen, heller Grund. Das ist die Leitfamilie fuer Argumentationssektionen. \"produkt\": fotorealistische Produktaufnahmen fuer Hero, Designbeispiele und A+ Module. \"objekt\": die alte reduzierte Einzelgegenstand-Familie, abgeloest, nur noch Archiv. Jedes Bild waehlt seine Familie ueber \"stil\". \"rahmen\": false schaltet das Nachrahmen ab. Aufruf: node scripts/gen-bilder-openai.mjs --only <kennung>",
   "bilder": [
+    {
+      "kennung": "n-ursache",
+      "seite": "Startseite: Ursache",
+      "size": "1600x1200",
+      "motiv": "Trichter: viele Besucher oben, wenige Kaeufe unten",
+      "stil": "szene3d",
+      "prompt": "A soft 3D funnel standing on a low rounded navy platform. Many small navy spheres flow into the wide top opening of the funnel, and only two orange spheres come out of the narrow bottom and rest on the platform. Exactly this one arrangement in the frame."
+    },
+    {
+      "kennung": "n-organic",
+      "seite": "Startseite: Organic First",
+      "size": "1600x896",
+      "motiv": "Isometrische Kette: Sichtbarkeit, Klick, Kauf, dann steigende Kurve",
+      "stil": "szene3d",
+      "prompt": "A long low navy platform carrying three white rounded pucks in a row, each puck topped by one floating rounded white card, the three connected left to right by short thick glowing orange arrows. Each card carries a single simple matte navy pictogram, from left to right: a magnifying glass, a mouse cursor arrow, and a shopping bag with a small orange check mark. At the right end of the platform a taller white podium carries a floating frosted glass panel showing a rising orange bar chart with an upward orange arrow. Nothing else in the frame.",
+      "rahmen": false
+    },
+    {
+      "kennung": "n-leistungen",
+      "seite": "Startseite: Leistungen",
+      "size": "1408x1408",
+      "motiv": "Nabe mit fuenf Bereichen ringsum",
+      "stil": "szene3d",
+      "prompt": "A white rounded cube in the centre standing on a low navy disc. Five white rounded-square tiles are arranged evenly in a ring around it, each connected to the centre cube by one thin glowing orange line. Each tile carries a single simple matte navy pictogram: a chess knight, a small shop front, a megaphone, a gear with a clock hand, and a globe with two small orange pins. Nothing else."
+    },
     {
       "kennung": "p-haupt",
       "seite": "Startseite: Hero und Designbeispiele",
@@ -98,14 +123,15 @@
       "kennung": "b-02",
       "seite": "Startseite, Station 01 Der Befund",
       "size": "1600x1200",
-      "motiv": "Geneigter Kartenstapel plus flach liegende Uhr: seit dem Launch nicht angefasst",
-      "prompt": "A tall stack of identical plain light grey rounded cards on a clean surface, clearly tilted and leaning to one side, the edges slightly uneven as if the stack has been standing untouched for years. One single card near the top of the stack is amazon orange. In the foreground beside the stack, lying flat on its back, a plain deep navy blue round wall clock: a slim raised navy rim, a flat navy face, and two clearly readable pointed hands in amazon orange, one short and one long, no numbers and no tick marks on the dial. Exactly these two objects in the frame, generous empty space around them."
+      "motiv": "Geneigter Kartenstapel plus flach liegende Uhr: seit dem Launch nicht angefasst (abgeloest durch die Familie szene3d)",
+      "prompt": "A tall stack of identical plain light grey rounded cards on a clean surface, clearly tilted and leaning to one side, the edges slightly uneven as if the stack has been standing untouched for years. One single card near the top of the stack is amazon orange. In the foreground beside the stack, lying flat on its back, a plain deep navy blue round wall clock: a slim raised navy rim, a flat navy face, and two clearly readable pointed hands in amazon orange, one short and one long, no numbers and no tick marks on the dial. Exactly these two objects in the frame, generous empty space around them.",
+      "aktiv": false
     },
     {
       "kennung": "b-02-a",
       "seite": "Startseite, Station 01 Der Befund",
       "size": "1600x1200",
-      "motiv": "Kartenstapel, unberuehrt seit dem Launch (verworfen: nur Grau und Orange, kein Navy)",
+      "motiv": "Kartenstapel, unberuehrt seit dem Launch (verworfen: nur Grau und Orange, kein Navy) (abgeloest durch die Familie szene3d)",
       "prompt": "A single tall stack of identical plain light grey rounded cards, seen from a slight angle, leaning a little to one side as if nobody has touched it in a long time. One card near the top edge is amazon orange. Nothing else in the frame.",
       "aktiv": false
     },
@@ -113,7 +139,7 @@
       "kennung": "b-02-b",
       "seite": "Startseite, Station 01 Der Befund",
       "size": "1600x1200",
-      "motiv": "Kartenstapel plus flach liegende Uhr, zweite Fassung (verworfen: Uhr liest sich wie ein Untersetzer)",
+      "motiv": "Kartenstapel plus flach liegende Uhr, zweite Fassung (verworfen: Uhr liest sich wie ein Untersetzer) (abgeloest durch die Familie szene3d)",
       "prompt": "A tall stack of identical plain light grey rounded cards, seen from a slight angle, leaning a little to one side as if untouched for a long time. One card near the top edge is amazon orange. Beside the stack, lying flat on its back on the surface, a plain deep navy blue round clock face with a single orange hand. Exactly these two objects in the frame, nothing else.",
       "aktiv": false
     },
@@ -121,7 +147,7 @@
       "kennung": "b-05",
       "seite": "Full Service, Kopfbereich",
       "size": "1200x1504",
-      "motiv": "Platzhalter, Motiv noch offen",
+      "motiv": "Platzhalter, Motiv noch offen (abgeloest durch die Familie szene3d)",
       "prompt": "A single deep navy blue rounded upright panel standing on a clean surface, one narrow amazon orange edge along its side. Nothing else in the frame.",
       "aktiv": false
     },
@@ -129,7 +155,7 @@
       "kennung": "b-06",
       "seite": "Full Service, quadratische Flaeche",
       "size": "1408x1408",
-      "motiv": "Platzhalter, Motiv noch offen",
+      "motiv": "Platzhalter, Motiv noch offen (abgeloest durch die Familie szene3d)",
       "prompt": "A single plain light grey rounded cube resting on a clean surface, one face amazon orange. Nothing else in the frame.",
       "aktiv": false
     },
@@ -137,7 +163,7 @@
       "kennung": "b-10",
       "seite": "Strategie & Analyse",
       "size": "1600x1072",
-      "motiv": "Schachfigur, daneben markierte Karte",
+      "motiv": "Schachfigur, daneben markierte Karte (abgeloest durch die Familie szene3d)",
       "prompt": "A single deep navy blue chess knight standing on a clean surface. Beside it lies one flat light grey card with an amazon orange marker stripe. Exactly these two objects in the frame.",
       "aktiv": false
     },
@@ -145,7 +171,7 @@
       "kennung": "b-11",
       "seite": "Content & Listings",
       "size": "1600x1072",
-      "motiv": "Drei gestaffelte Bildrahmen",
+      "motiv": "Drei gestaffelte Bildrahmen (abgeloest durch die Familie szene3d)",
       "prompt": "Three plain light grey rounded picture frames standing in a staggered row, the front one crisp and in focus, its border amazon orange. Nothing else in the frame.",
       "aktiv": false
     },
@@ -153,7 +179,7 @@
       "kennung": "b-12",
       "seite": "Advertising",
       "size": "1600x1072",
-      "motiv": "Einzelner Schieberegler",
+      "motiv": "Einzelner Schieberegler (abgeloest durch die Familie szene3d)",
       "prompt": "A single deep navy blue horizontal slider track resting on a clean surface, its handle amazon orange. Nothing else in the frame.",
       "aktiv": false
     },
@@ -161,7 +187,7 @@
       "kennung": "b-13",
       "seite": "Account-Management",
       "size": "1600x1072",
-      "motiv": "Regal mit einsortierten Kartons",
+      "motiv": "Regal mit einsortierten Kartons (abgeloest durch die Familie szene3d)",
       "prompt": "A single deep navy blue open shelf holding evenly arranged plain boxes, one of the boxes amazon orange. Nothing else in the frame.",
       "aktiv": false
     },
@@ -169,13 +195,14 @@
       "kennung": "b-14",
       "seite": "Internationalisierung",
       "size": "1600x1072",
-      "motiv": "Globus mit zwei Faehnchen",
+      "motiv": "Globus mit zwei Faehnchen (abgeloest durch die Familie szene3d)",
       "prompt": "A single matte deep navy blue globe on a clean surface, with exactly two small amazon orange flags planted in it. No continents drawn, no map detail, no other markings. Nothing else in the frame.",
       "aktiv": false
     }
   ],
   "stilblocks": {
     "objekt": "Minimal 3D render, one single subject, nothing else in frame. Matte material, soft neutral studio light from one side, one soft shadow. Clean white background with a large amount of empty space around the object. Colour palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900), white and light warm grey. No other colours, no gradients across the frame, no glow effects, no connecting lines, no floating icons, no collage of multiple symbols. Absolutely no text, no letters, no numbers, no logos, no interface labels. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, restrained, editorial. High detail, quiet composition.",
-    "produkt": "Photorealistic e-commerce product photography of a premium consumer brand. Clean even studio lighting, soft natural shadow under the product, no harsh reflections. Tack sharp focus, very high detail, shot straight on at product height with a normal lens, no wide-angle distortion. Absolutely no text, no letters, no numbers, no logos, no printed labels, no engraving and no branding of any kind, neither on the product nor anywhere in the scene. No people, no faces, no hands, no body parts. Calm neutral colour world. Nothing else in the frame that competes with the product."
+    "produkt": "Photorealistic e-commerce product photography of a premium consumer brand. Clean even studio lighting, soft natural shadow under the product, no harsh reflections. Tack sharp focus, very high detail, shot straight on at product height with a normal lens, no wide-angle distortion. Absolutely no text, no letters, no numbers, no logos, no printed labels, no engraving and no branding of any kind, neither on the product nor anywhere in the scene. No people, no faces, no hands, no body parts. Calm neutral colour world. Nothing else in the frame that competes with the product.",
+    "szene3d": "Soft 3D render in a clean premium product-illustration style, the look of a high-end SaaS website illustration. Matte plastic surfaces with generously rounded corners and soft bevels. Colour palette strictly deep navy blue (#243B55), amazon orange (#FF9900), white and very light cool grey, no other colours. Soft diffuse studio light from above, gentle contact shadows, no harsh highlights, no reflections. Thin glowing orange connector lines where elements relate to each other. The background is a clean near-white studio sweep with a subtle warm glow, no visible horizon line. Three-quarter isometric view. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. Crisp, calm, high detail, generous empty space around the subject."
   }
 }

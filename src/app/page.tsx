@@ -1,6 +1,5 @@
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
-import { TaktLine } from "@/components/takt/TaktLine";
 import { Auftrag } from "@/components/takt/Auftrag";
 import {
   Kundenband,
@@ -21,21 +20,19 @@ export default function Home() {
   return (
     <>
       <Kopfzeile />
-      <TaktLine>
-        <main id="inhalt">
-          <Auftrag />
-          <Kundenband />
-          <Befund />
-          <Verfahren />
-          <Leistungen />
-          <Nachweis />
-          <Arbeiten />
-          <Stimmen />
-          <Termin />
-          <Mannschaft />
-          <Wissen posts={featured} />
-        </main>
-      </TaktLine>
+      <main id="inhalt">
+        <Auftrag />
+        <Kundenband />
+        <Befund />
+        <Verfahren />
+        <Leistungen />
+        <Nachweis />
+        <Arbeiten />
+        <Stimmen />
+        <Termin />
+        <Mannschaft />
+        <Wissen posts={featured} />
+      </main>
       <Fusszeile />
     </>
   );
