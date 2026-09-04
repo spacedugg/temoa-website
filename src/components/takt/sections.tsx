@@ -102,7 +102,15 @@ export function Befund() {
             Klicks und Käufen. Wer dort zurückliegt, muss Sichtbarkeit dauerhaft einkaufen.
           </p>
         </div>
-        <div className="overflow-hidden rounded-[1.25rem] shadow-[0_40px_70px_-40px_rgba(2,48,71,0.5)]"><Bildfeld id="B-02" aspect="aspect-[4/3]" tone="paper" /></div>
+        <div className="overflow-hidden rounded-[1.25rem] shadow-[0_40px_70px_-40px_rgba(2,48,71,0.5)]">
+          <Bildfeld
+            id="B-02"
+            aspect="aspect-[4/3]"
+            tone="paper"
+            src="/bilder/b-02.webp"
+            alt="Ein hoher Stapel gleicher Karten, daneben eine flach liegende Uhr: das Listing steht seit dem Launch unverändert."
+          />
+        </div>
       </div>
     </Station>
   );

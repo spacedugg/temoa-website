@@ -4,9 +4,14 @@ Abgeleitet aus dem Ordner „Website inspiration". Die Vorlagen bilden eine gesc
 
 ## So setzt du ein Bild ein
 
-1. Bild erzeugen, auf die angegebene Kantenlänge exportieren (PNG oder WebP).
-2. Datei unter `public/bilder/<kennung>.png` ablegen.
-3. Im Code an der Bildfläche `src="/bilder/<kennung>.png"` und ein `alt` ergänzen. Am Layout ändert sich nichts, die Fläche hat bereits ihr endgültiges Seitenverhältnis.
+Die Prompts liegen maschinenlesbar in `content/bild-prompts.json`, der Stilblock steht dort einmal und wird an jeden Prompt angehängt.
+
+1. Prompt in `content/bild-prompts.json` eintragen oder `"aktiv": false` entfernen.
+2. `OPENAI_API_KEY=... node scripts/gen-bilder-openai.mjs --only <kennung>`
+   Das Script erzeugt mit `gpt-image-2` das Bild in der hinterlegten Kantenlänge und schreibt zwei Dateien: `public/bilder/<kennung>.webp` für die Auslieferung, rund 60 kB, und `bilder-original/<kennung>.png` als Original. Das PNG liegt außerhalb von `public`, damit es nicht mitdeployt wird.
+3. Im Code an der Bildfläche `src="/bilder/<kennung>.webp"` und ein `alt` ergänzen. Am Layout ändert sich nichts, die Fläche hat bereits ihr endgültiges Seitenverhältnis.
+
+`gpt-image-2` erlaubt freie Auflösungen, solange beide Kantenlängen durch 16 teilbar sind und das Seitenverhältnis zwischen 1:3 und 3:1 liegt. Die Formate aus diesem Briefing lassen sich damit exakt treffen, ohne Beschnitt.
 
 ## Stand: was gezeichnet ist und was noch ein Bild braucht
 
@@ -17,7 +22,7 @@ Nach der Rückmeldung „minimalistischer, moderner, keine überfrachteten KI-Gr
 | Kopfbereich | Station 00 | **gezeichnet.** Listing-Karte mit steigender Kurve, `ListingSzene` in `src/components/takt/Grafiken.tsx` |
 | Verfahren | Station 02 | **gezeichnet.** Vier Stufen mit durchlaufender orange Linie, `TaktSzene`, die Linie wächst beim Scrollen |
 | Umfang | Station 03 | **entfallen.** Das breite Bildband war Füllmaterial, die fünf Zeilen stehen für sich |
-| B-02 Befund | Station 01 | **offen.** Bleibt eine Bildfläche, weil hier eine Szene gebraucht wird und keine Grafik |
+| B-02 Befund | Station 01 | **fertig.** Zweite Fassung aus dem Briefing, Kartenstapel plus flach liegende Uhr. Liegt als `public/bilder/b-02.webp` und ist eingebaut |
 
 Vorteil der gezeichneten Variante: scharf auf jedem Display, wenige Kilobyte, exakt in den Farben der Seite, und sie kann sich beim Scrollen aufbauen. Nachteil: sie sieht gezeichnet aus, nicht fotografiert.
 

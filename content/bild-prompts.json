@@ -1,0 +1,85 @@
+{
+  "_hinweis": "Bildprompts abgeleitet aus copy/bildbriefing.md. Der Stilblock haelt alle Bilder zusammen und wird vom Script an jeden Prompt angehaengt. Eintraege mit \"aktiv\": false laufen nicht mit, das sind verworfene Fassungen oder noch nicht freigegebene Motive. Aufruf: node scripts/gen-bilder-openai.mjs --only <kennung>",
+  "stilblock": "Minimal 3D render, one single subject, nothing else in frame. Matte material, soft neutral studio light from one side, one soft shadow. Clean white background with a large amount of empty space around the object. Colour palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900), white and light warm grey. No other colours, no gradients across the frame, no glow effects, no connecting lines, no floating icons, no collage of multiple symbols. Absolutely no text, no letters, no numbers, no logos, no interface labels. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, restrained, editorial. High detail, quiet composition.",
+  "bilder": [
+    {
+      "kennung": "b-02",
+      "seite": "Startseite, Station 01 Der Befund",
+      "size": "1600x1200",
+      "motiv": "Geneigter Kartenstapel plus flach liegende Uhr: seit dem Launch nicht angefasst",
+      "prompt": "A tall stack of identical plain light grey rounded cards on a clean surface, clearly tilted and leaning to one side, the edges slightly uneven as if the stack has been standing untouched for years. One single card near the top of the stack is amazon orange. In the foreground beside the stack, lying flat on its back, a plain deep navy blue round wall clock: a slim raised navy rim, a flat navy face, and two clearly readable pointed hands in amazon orange, one short and one long, no numbers and no tick marks on the dial. Exactly these two objects in the frame, generous empty space around them."
+    },
+    {
+      "kennung": "b-02-a",
+      "seite": "Startseite, Station 01 Der Befund",
+      "size": "1600x1200",
+      "motiv": "Kartenstapel, unberuehrt seit dem Launch (verworfen: nur Grau und Orange, kein Navy)",
+      "prompt": "A single tall stack of identical plain light grey rounded cards, seen from a slight angle, leaning a little to one side as if nobody has touched it in a long time. One card near the top edge is amazon orange. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-02-b",
+      "seite": "Startseite, Station 01 Der Befund",
+      "size": "1600x1200",
+      "motiv": "Kartenstapel plus flach liegende Uhr, zweite Fassung (verworfen: Uhr liest sich wie ein Untersetzer)",
+      "prompt": "A tall stack of identical plain light grey rounded cards, seen from a slight angle, leaning a little to one side as if untouched for a long time. One card near the top edge is amazon orange. Beside the stack, lying flat on its back on the surface, a plain deep navy blue round clock face with a single orange hand. Exactly these two objects in the frame, nothing else.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-05",
+      "seite": "Full Service, Kopfbereich",
+      "size": "1200x1504",
+      "motiv": "Platzhalter, Motiv noch offen",
+      "prompt": "A single deep navy blue rounded upright panel standing on a clean surface, one narrow amazon orange edge along its side. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-06",
+      "seite": "Full Service, quadratische Flaeche",
+      "size": "1408x1408",
+      "motiv": "Platzhalter, Motiv noch offen",
+      "prompt": "A single plain light grey rounded cube resting on a clean surface, one face amazon orange. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-10",
+      "seite": "Strategie & Analyse",
+      "size": "1600x1072",
+      "motiv": "Schachfigur, daneben markierte Karte",
+      "prompt": "A single deep navy blue chess knight standing on a clean surface. Beside it lies one flat light grey card with an amazon orange marker stripe. Exactly these two objects in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-11",
+      "seite": "Content & Listings",
+      "size": "1600x1072",
+      "motiv": "Drei gestaffelte Bildrahmen",
+      "prompt": "Three plain light grey rounded picture frames standing in a staggered row, the front one crisp and in focus, its border amazon orange. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-12",
+      "seite": "Advertising",
+      "size": "1600x1072",
+      "motiv": "Einzelner Schieberegler",
+      "prompt": "A single deep navy blue horizontal slider track resting on a clean surface, its handle amazon orange. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-13",
+      "seite": "Account-Management",
+      "size": "1600x1072",
+      "motiv": "Regal mit einsortierten Kartons",
+      "prompt": "A single deep navy blue open shelf holding evenly arranged plain boxes, one of the boxes amazon orange. Nothing else in the frame.",
+      "aktiv": false
+    },
+    {
+      "kennung": "b-14",
+      "seite": "Internationalisierung",
+      "size": "1600x1072",
+      "motiv": "Globus mit zwei Faehnchen",
+      "prompt": "A single matte deep navy blue globe on a clean surface, with exactly two small amazon orange flags planted in it. No continents drawn, no map detail, no other markings. Nothing else in the frame.",
+      "aktiv": false
+    }
+  ]
+}
