@@ -7,7 +7,7 @@ import { Station, StationTitle, StationLead, Karte } from "./Station";
 import type { IconName } from "./Icons";
 import { Bildfeld } from "./Bildfeld";
 import { Verlauf } from "./Verlauf";
-import { Zahl } from "./Zahl";
+import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
 import { testimonials, initials } from "@/lib/testimonials";
 import type { PostMeta } from "@/lib/blog";
@@ -497,9 +497,10 @@ export function Nachweis() {
                     key={s.label}
                     className="rounded-[0.9rem] bg-white/[0.06] px-3 py-2.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
                   >
-                    <div className="text-[0.95rem] font-extrabold text-white [font-variant-numeric:tabular-nums]">
-                      {s.value}
-                    </div>
+                    <ZahlText
+                      text={s.value}
+                      className="block text-[0.95rem] font-extrabold text-white"
+                    />
                     <div className="mt-0.5 text-[0.66rem] leading-tight text-chalk-faint">{s.label}</div>
                   </div>
                 ))}
@@ -805,7 +806,7 @@ export function Termin({
               <div key={k} className="flex gap-4 border-t border-white/10 py-4 first:border-t-0 first:pt-0 last:pb-0">
                 <span aria-hidden className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
                 <p className="text-small text-chalk-muted">
-                  <span className="font-bold text-white">{k}</span> {v}
+                  <ZahlText text={k} className="font-bold text-white" /> {v}
                 </p>
               </div>
             ))}

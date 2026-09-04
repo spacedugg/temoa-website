@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ZahlText } from "../takt/Zahl";
 import { cases, type CaseStudy, type CaseStat, type CaseBadge } from "@/lib/cases";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
@@ -59,7 +60,7 @@ function HeroStat({ stat }: { stat: CaseStat }) {
   return (
     <div className="rounded-2xl bg-white/[0.08] p-5 ring-1 ring-white/12 backdrop-blur">
       <div className="flex items-center gap-1.5 text-white">
-        <span className="text-3xl font-extrabold leading-none tracking-tight md:text-4xl">{stat.value}</span>
+        <ZahlText text={stat.value} className="text-3xl font-extrabold leading-none tracking-tight md:text-4xl" />
         <TrendArrow trend={stat.trend} light />
       </div>
       <div className="mt-2 text-sm font-bold text-white">{stat.label}</div>
@@ -72,7 +73,7 @@ function SubStat({ stat, accent }: { stat: CaseStat; accent: string }) {
   return (
     <div className="surface flex h-full flex-col p-5 text-center">
       <div className="flex items-center justify-center gap-1.5" style={{ color: accent }}>
-        <span className="text-2xl font-extrabold leading-none tracking-tight">{stat.value}</span>
+        <ZahlText text={stat.value} className="text-2xl font-extrabold leading-none tracking-tight" />
         <TrendArrow trend={stat.trend} />
       </div>
       <div className="mt-2 text-sm font-bold text-ink">{stat.label}</div>

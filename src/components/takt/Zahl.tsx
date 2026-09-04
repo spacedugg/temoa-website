@@ -65,3 +65,42 @@ export function Zahl({
     </span>
   );
 }
+
+/**
+ * Zerlegt einen fertig formatierten Wert in Vorzeichen, Zahl und Einheit.
+ *
+ * Die Kennzahlen der Case Studies liegen als Text vor: „+147 %", „−19,4 %",
+ * „×3,2", „17.042", „392.327 €", „32,5 %". Statt die Daten umzubauen, liest
+ * diese Funktion die Zahl heraus und laesst alles davor und danach stehen.
+ * Deutsche Schreibweise: Punkt trennt Tausender, Komma ist das Dezimalzeichen.
+ */
+function zerlegen(text: string) {
+  const m = text.match(/^(\D*?)([\d.]+(?:,\d+)?)(.*)$/);
+  if (!m) return null;
+  const [, vor, zahl, nach] = m;
+  const stellen = zahl.includes(",") ? zahl.split(",")[1].length : 0;
+  const bis = Number(zahl.replace(/\./g, "").replace(",", "."));
+  if (!Number.isFinite(bis)) return null;
+  return { vor, bis, nach, stellen };
+}
+
+/**
+ * Kennzahl, die als fertiger Text vorliegt, und trotzdem hochzaehlt.
+ *
+ * Laesst sich kein Zahlenteil finden (etwa bei „Kostenlos"), steht der Text
+ * unveraendert da. Damit ist der Aufruf immer sicher.
+ */
+export function ZahlText({ text, dauer, className }: { text: string; dauer?: number; className?: string }) {
+  const teile = zerlegen(text);
+  if (!teile) return <span className={className}>{text}</span>;
+  return (
+    <Zahl
+      bis={teile.bis}
+      vor={teile.vor}
+      nach={teile.nach}
+      stellen={teile.stellen}
+      dauer={dauer}
+      className={className}
+    />
+  );
+}
