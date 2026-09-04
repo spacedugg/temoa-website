@@ -1,6 +1,6 @@
 ---
 title: "TACoS erklärt: Die Kennzahl, die mehr über dein Amazon-Geschäft verrät als ACoS"
-meta_description: "TACoS (Total Advertising Cost of Sales) zeigt, wie stark dein Gesamtumsatz von Werbung abhängt. Definition, Berechnung und Interpretation für Seller."
+meta_description: "TACoS (Total Advertising Cost of Sales) zeigt, wie stark dein Gesamtumsatz von Werbung abhängt. Definition, Berechnung und Interpretation für Marken."
 keywords: ["TACoS", "Total ACoS", "Amazon Kennzahlen", "organischer Umsatz Amazon"]
 kategorie: "Amazon PPC & Advertising"
 ---

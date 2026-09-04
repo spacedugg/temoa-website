@@ -17,7 +17,7 @@ Liegst du über der jeweils geltenden Schwelle, hast du in der Regel unbegrenzte
 
 ## Die vier Faktoren, die den Score treiben
 
-Der IPI setzt sich aus mehreren Komponenten zusammen. Diese vier sind die wichtigsten Hebel:
+Der IPI setzt sich aus mehreren Komponenten zusammen. Diese vier wiegen am schwersten:
 
 1. **Überbestand (Excess Inventory):** Zu viel Ware im Verhältnis zur Verkaufsgeschwindigkeit drückt den Score. Kapital, das in liegender Ware gebunden ist, ist aus Amazons Sicht ineffizient genutzter Platz.
 2. **Sell-Through-Rate (Abverkaufsrate):** Wie viele Einheiten du im Verhältnis zum durchschnittlichen Lagerbestand über einen Zeitraum verkaufst. Hohe Drehung = guter Score.
@@ -33,7 +33,7 @@ Typische Ursachen sind unausgewogene Bestellmengen (zu viel auf einmal eingekauf
 Der Score reagiert nicht über Nacht, lässt sich aber systematisch heben:
 
 - **Überbestand abbauen:** Senke gezielt die Bestände von langsam drehenden Produkten – über Preisaktionen, Bündelung oder Abverkauf. Plane künftige Nachschübe kleiner und häufiger statt selten und groß.
-- **Hängende Bestände sofort beheben:** Prüfe regelmäßig den Bericht zu stranded inventory und reaktiviere oder entferne betroffene Einheiten. Das ist der schnellste Hebel, weil er oft mit wenigen Klicks erledigt ist.
+- **Hängende Bestände sofort beheben:** Prüfe regelmäßig den Bericht zu stranded inventory und reaktiviere oder entferne betroffene Einheiten. Das wirkt am schnellsten, weil es oft mit wenigen Klicks erledigt ist.
 - **Verfügbarkeit sichern:** Stelle für deine Topseller eine zuverlässige Nachschubplanung auf, damit sie nicht ausverkaufen.
 - **Abverkauf steigern:** Verbessere Listings und Werbung deiner Bestandsprodukte, damit sich vorhandene Ware schneller dreht.
 - **Totes Inventar entfernen:** Was sich dauerhaft nicht verkauft, solltest du liquidieren oder zurückholen, statt weiter Lagerkosten und IPI-Abzug zu zahlen.

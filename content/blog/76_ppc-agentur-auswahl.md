@@ -37,7 +37,7 @@ Sei skeptisch bei garantierten ACoS- oder Umsatzwerten (im Auktionsumfeld unmög
 
 ## Fazit
 
-Eine PPC-Agentur auszuwählen heißt, einen Werbe-Spezialisten an einer entscheidenden Stellschraube deines Geschäfts zu beteiligen. Achte auf strategisches Denken (ACoS *und* TACoS, Margenbewusstsein, saubere Kampagnenstruktur), Transparenz und nachweisbare Ergebnisse – und kläre, ob ein Spezialist oder eine integrierte Full-Service-Lösung besser zu deinem Reifegrad passt. Wer Garantieversprechen und reine ACoS-Fixierung als Warnsignale erkennt und die richtigen Fragen stellt, findet einen Partner, der Werbung als profitablen Wachstumshebel führt – nicht nur als Kostenstelle.
+Eine PPC-Agentur auszuwählen heißt, einen Werbe-Spezialisten an einer entscheidenden Stellschraube deines Geschäfts zu beteiligen. Achte auf strategisches Denken (ACoS *und* TACoS, Margenbewusstsein, saubere Kampagnenstruktur), Transparenz und nachweisbare Ergebnisse – und kläre, ob ein Spezialist oder eine integrierte Full-Service-Lösung besser zu deinem Reifegrad passt. Wer Garantieversprechen und reine ACoS-Fixierung als Warnsignale erkennt und die richtigen Fragen stellt, findet einen Partner, der Werbung als profitablen Wachstumstreiber führt – nicht nur als Kostenstelle.
 
 ---
 

@@ -13,7 +13,7 @@ Wer kleine, leichte und günstige Produkte über FBA verkauft hat, kannte das Pr
 
 ## Was Small and Light war
 
-Small and Light war ein FBA-Sonderprogramm für preisgünstige, kleine und leichte Artikel. Es bot deutlich reduzierte Fulfillment-Gebühren, weil solche Produkte bei normalen FBA-Sätzen oft kaum profitabel zu versenden waren. Der Kompromiss: etwas langsamere Lieferung als beim Standard-Prime-Versand. Für viele Verkäufer von Kleinteilen, Verbrauchsgütern und Zubehör war es ein wichtiger Hebel, um dünne Margen zu retten.
+Small and Light war ein FBA-Sonderprogramm für preisgünstige, kleine und leichte Artikel. Es bot deutlich reduzierte Fulfillment-Gebühren, weil solche Produkte bei normalen FBA-Sätzen oft kaum profitabel zu versenden waren. Der Kompromiss: etwas langsamere Lieferung als beim Standard-Prime-Versand. Für viele Verkäufer von Kleinteilen, Verbrauchsgütern und Zubehör war es ein wichtiges Mittel, um dünne Margen zu retten.
 
 ## Was sich geändert hat
 

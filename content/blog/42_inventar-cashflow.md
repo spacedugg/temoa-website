@@ -17,7 +17,7 @@ Wachstum bedeutet, mehr Ware einzukaufen, bevor du sie verkauft hast. Du bezahls
 
 Hinter dem Paradox steckt der Cash-Conversion-Zyklus: die Zeit zwischen dem Bezahlen deiner Ware und dem Erhalt des Geldes aus dem Verkauf. Je länger dieser Zyklus, desto mehr Liquidität bindet jedes Wachstum. Drei Faktoren bestimmen ihn: wie lange deine Ware bis zum Verkauf liegt, wann du deinen Lieferanten bezahlst und wie schnell Amazon dich auszahlt. Wer diesen Zyklus versteht, kann ihn gezielt verkürzen.
 
-## Hebel zur Verbesserung
+## Was den Cashflow verbessert
 
 Du kannst an mehreren Stellen ansetzen:
 

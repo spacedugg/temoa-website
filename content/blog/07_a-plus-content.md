@@ -19,14 +19,14 @@ Voraussetzung ist die Teilnahme an der Amazon Brand Registry – also eine einge
 
 ## Warum A+ Content die Conversion hebt
 
-Drei Mechanismen wirken zusammen. Erstens reduziert visuelle Information die kognitive Last: Ein Bild, das Größe oder Anwendung zeigt, beantwortet Fragen schneller als ein Textblock. Zweitens schafft konsistentes Branding Vertrauen – ein professionell gestaltetes Listing wirkt seriöser als reiner Fließtext. Drittens beantwortet guter A+ Content Einwände, bevor sie zur Kaufbremse werden, etwa durch Vergleichstabellen oder Anwendungsszenen. Amazon selbst nennt A+ Content als Hebel für höhere Conversion-Raten.
+Drei Mechanismen wirken zusammen. Erstens reduziert visuelle Information die kognitive Last: Ein Bild, das Größe oder Anwendung zeigt, beantwortet Fragen schneller als ein Textblock. Zweitens schafft konsistentes Branding Vertrauen – ein professionell gestaltetes Listing wirkt seriöser als reiner Fließtext. Drittens beantwortet guter A+ Content Einwände, bevor sie zur Kaufbremse werden, etwa durch Vergleichstabellen oder Anwendungsszenen. Amazon selbst nennt A+ Content als Faktor für höhere Conversion-Raten.
 
 ## Die wichtigsten Modultypen
 
 A+ Content wird aus vorgefertigten Modulen zusammengesetzt. Besonders nützlich sind:
 
 - **Bild + Text:** Kombiniert eine Anwendungsszene mit einer kurzen Nutzenbotschaft – ideal, um Vorteile statt Specs zu zeigen.
-- **Vergleichstabelle:** Stellt deine Produktvarianten (oder dich gegenüber generischen Alternativen) gegenüber und lenkt Käufer zur passenden Wahl – zugleich ein guter Cross-Selling-Hebel.
+- **Vergleichstabelle:** Stellt deine Produktvarianten (oder dich gegenüber generischen Alternativen) gegenüber und lenkt Käufer zur passenden Wahl – zugleich eine gute Gelegenheit für Cross-Selling.
 - **Banner / Markenkopf:** Verankert Logo und Markenwelt oben im Bereich.
 - **Feature-Raster:** Mehrere Kacheln mit Icon und kurzem Text für die wichtigsten Eigenschaften auf einen Blick.
 
@@ -44,4 +44,4 @@ Ein verbreitetes Missverständnis: A+ Content ranke direkt in der Amazon-Suche. 
 
 ## Fazit
 
-A+ Content ist ein kostenloser oder günstiger Hebel mit großer Wirkung – vorausgesetzt, du behandelst ihn als Verkaufsinstrument und nicht als Deko. Wer markenregistriert ist, sollte ihn für jedes wichtige Produkt nutzen, ihn entlang der Käuferfragen aufbauen, mobil denken und Amazons Regeln einhalten. Ein einfaches Listing zeigt, was ein Produkt *ist*. Gutes A+ Content zeigt, warum es das richtige *für den Käufer* ist – und genau das entscheidet über die Conversion.
+A+ Content ist ein kostenloses oder günstiges Mittel mit großer Wirkung – vorausgesetzt, du behandelst ihn als Verkaufsinstrument und nicht als Deko. Wer markenregistriert ist, sollte ihn für jedes wichtige Produkt nutzen, ihn entlang der Käuferfragen aufbauen, mobil denken und Amazons Regeln einhalten. Ein einfaches Listing zeigt, was ein Produkt *ist*. Gutes A+ Content zeigt, warum es das richtige *für den Käufer* ist – und genau das entscheidet über die Conversion.
