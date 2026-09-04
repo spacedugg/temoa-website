@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Pille } from "../ui/SectionHeading";
 
 /* Schematic, claim-free diagrams that illustrate a mechanism.
    Relative widths only, no invented numbers. */
@@ -14,10 +15,7 @@ export function MarketWorkStrip() {
   const chips = ["Keywords", "Content", "Kampagnen"];
   return (
     <div ref={ref} className="surface p-6 md:p-7">
-      <div className="flex items-center gap-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-        <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">Jeder Marktplatz, die komplette Arbeit</span>
-      </div>
+      <Pille>Jeder Marktplatz, die komplette Arbeit</Pille>
 
       <div className="mt-6 space-y-3">
         {[0, 1, 2].map((m) => (
@@ -58,7 +56,9 @@ function Track({
   delay = 0,
 }: {
   label: string;
-  segments: { w: string; color: string; text?: string; light?: boolean }[];
+  /* `schrift` setzt die Textfarbe im Segment. Auf oranger Flaeche gehoert
+     Navy hin, weisse Schrift auf #FF9900 ist nicht lesbar. */
+  segments: { w: string; color: string; text?: string; light?: boolean; schrift?: "navy" | "weiss" }[];
   delay?: number;
 }) {
   const ref = useRef(null);
@@ -70,7 +70,9 @@ function Track({
         {segments.map((s, i) => (
           <motion.div
             key={i}
-            className={`flex items-center justify-center px-2 text-[11px] font-semibold ${s.light ? "text-ink-muted" : "text-white"}`}
+            className={`flex items-center justify-center px-2 text-[11px] font-bold ${
+              s.light ? "text-ink-muted" : s.schrift === "navy" ? "text-navy" : "text-white"
+            }`}
             style={{ background: s.color }}
             initial={{ width: 0 }}
             animate={inView ? { width: s.w } : {}}
@@ -87,23 +89,20 @@ function Track({
 export function BudgetSplitDiagram() {
   return (
     <div className="surface p-6 md:p-7">
-      <div className="flex items-center gap-2">
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-        <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">Wohin das Budget fließt</span>
-      </div>
+      <Pille>Wohin das Budget fließt</Pille>
       <div className="mt-6 space-y-6">
         <Track
           label="Ohne Steuerung"
           segments={[
             { w: "68%", color: "linear-gradient(135deg,#FF6B5E,#E11414)", text: "Streuverlust" },
-            { w: "32%", color: "linear-gradient(135deg,#FF9900,#FF6B1F)", text: "Profit" },
+            { w: "32%", color: "linear-gradient(135deg,#FF9900,#FFB033)", text: "Profit", schrift: "navy" },
           ]}
         />
         <Track
           label="Mit sauberer Struktur"
           delay={0.25}
           segments={[
-            { w: "76%", color: "linear-gradient(135deg,#FF9900,#FF6B1F)", text: "Profit" },
+            { w: "76%", color: "linear-gradient(135deg,#FF9900,#FFB033)", text: "Profit", schrift: "navy" },
             { w: "24%", color: "#E6EDF3", text: "Test", light: true },
           ]}
         />

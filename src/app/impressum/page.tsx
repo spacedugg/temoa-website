@@ -38,7 +38,7 @@ export default function ImpressumPage() {
               <div>
                 <h2 className="text-lg font-bold text-ink">Kontakt</h2>
                 <p className="mt-2">
-                  E-Mail: <a className="text-brand-600 hover:text-brand-700" href="mailto:tools@temoa.de">tools@temoa.de</a>
+                  E-Mail: <a className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2 hover:decoration-navy" href="mailto:tools@temoa.de">tools@temoa.de</a>
                   <br />Telefon: [Telefonnummer]
                 </p>
               </div>
@@ -58,7 +58,7 @@ export default function ImpressumPage() {
                 <h2 className="text-lg font-bold text-ink">EU-Streitschlichtung</h2>
                 <p className="mt-2">
                   Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-                  <a className="text-brand-600 hover:text-brand-700" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">
+                  <a className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2 hover:decoration-navy" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">
                     ec.europa.eu/consumers/odr
                   </a>
                   . Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer

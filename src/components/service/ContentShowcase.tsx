@@ -80,7 +80,7 @@ function MainImageViz() {
         1
       </span>
       <Photo className="h-[78%] w-[52%]" src={B.haupt} />
-      <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold text-brand-600 shadow-soft ring-1 ring-black/[0.05]">
+      <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold text-navy shadow-soft ring-1 ring-black/[0.05]">
         <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
           <path d="M3 11l4-4 3 3 4-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -175,7 +175,7 @@ function SeoViz() {
           <path d="M14 14l-3.5-3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
         </svg>
         <span className="h-1.5 w-16 rounded-full bg-navy/15" />
-        <span className="ml-auto rounded-full bg-brand-500/15 px-1.5 py-0.5 text-[8px] font-bold text-brand-600">#1</span>
+        <span className="ml-auto rounded-full bg-brand-500/15 px-1.5 py-0.5 text-[8px] font-bold text-navy">#1</span>
       </div>
       <div className="flex flex-wrap gap-1">
         <span className="h-2.5 w-10 rounded bg-navy/15" />

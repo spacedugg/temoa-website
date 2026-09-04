@@ -97,9 +97,9 @@ export function FullServiceBody() {
             line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
             bullets: [
               "Buy-Box-Monitoring inklusive Verlust-Ursachen: Preis, Verfügbarkeit, Mehranbieter",
-              "Forecasting und Inventar, damit Out-of-Stock keine Rankings zerstört",
+              "Bestand und Nachschub geplant, damit kein Bestseller leerläuft und Rankings wegbrechen",
               "Account Health, Ticketing und Troubleshooting mit dem Amazon-Support, Uploads über Flat Files",
-              "Pricing-Strategien und Profitability Protection",
+              "Pricing gesteuert, damit Wachstum nicht die Marge frisst",
             ],
           },
           {
@@ -424,10 +424,10 @@ export function AccountBody() {
         cols={3}
         items={[
           { title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
-          { title: "Forecasting & Inventar", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { title: "Account Health & Cases", body: "Konto-Gesundheit im Blick, Fälle mit dem Amazon-Support geklärt." },
-          { title: "Pricing & Profitability Protection", body: "Preise gesteuert, Marge geschützt." },
-          { title: "Strategie- & Performance-Calls", body: "Regelmäßig, mit klaren nächsten Schritten." },
+          { title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
+          { title: "Konto-Gesundheit", body: "Warnungen früh gesehen, Fälle mit dem Amazon-Support geklärt." },
+          { title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
+          { title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
         ]}
       />
       <ResultBlock

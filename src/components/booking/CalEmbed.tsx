@@ -58,7 +58,7 @@ export function CalEmbed() {
             href={`https://cal.com/${CAL_LINK}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-brand-600 underline underline-offset-2"
+            className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2"
           >
             Termin direkt bei Cal.com buchen
           </a>

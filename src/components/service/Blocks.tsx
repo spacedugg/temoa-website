@@ -272,7 +272,7 @@ export function Cards({
               <div className="surface surface-hover flex h-full flex-col p-6">
                 <div className="flex items-center justify-between">
                   <span className={`block h-1.5 w-10 rounded-full ${a.bar}`} />
-                  {it.n && <span className={`text-lg font-extrabold ${a.text}`}>{it.n}</span>}
+                  {it.n && <span className="text-lg font-extrabold text-ink-soft">{it.n}</span>}
                 </div>
                 {it.kicker && (
                   <span className={`mt-4 text-xs font-bold uppercase tracking-[0.13em] ${a.text}`}>{it.kicker}</span>
@@ -542,7 +542,7 @@ export function Compare({
             <div className="flex items-center gap-2">
               <Logo className="h-5 w-auto" />
               {right.label && (
-                <span className="text-xs font-bold uppercase tracking-[0.13em] text-brand-700">{right.label}</span>
+                <span className="text-xs font-bold uppercase tracking-[0.13em] text-ink-soft">{right.label}</span>
               )}
             </div>
             <RevealGroup className="mt-5 space-y-3" stagger={0.06}>

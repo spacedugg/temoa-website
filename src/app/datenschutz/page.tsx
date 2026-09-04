@@ -31,7 +31,7 @@ export default function DatenschutzPage() {
                 <h2 className="text-lg font-bold text-ink">1. Verantwortlicher</h2>
                 <p className="mt-2">
                   Verantwortlich im Sinne der DSGVO ist [Firmenname], [Anschrift]. Kontakt:{" "}
-                  <a className="text-brand-600 hover:text-brand-700" href="mailto:tools@temoa.de">tools@temoa.de</a>.
+                  <a className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2 hover:decoration-navy" href="mailto:tools@temoa.de">tools@temoa.de</a>.
                 </p>
               </div>
               <div>
