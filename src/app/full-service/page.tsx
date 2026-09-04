@@ -6,7 +6,7 @@ import { FullServiceBody } from "@/components/service/bodies";
 export const metadata: Metadata = {
   title: "Full Service · temoa",
   description:
-    "Ein eingespieltes Team für euren kompletten Amazon-Account: Strategie, Content, Advertising, Account-Management und Internationalisierung aus einer Hand.",
+    "Strategie, Content, Advertising, Account-Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
 };
 
 export default function FullServicePage() {

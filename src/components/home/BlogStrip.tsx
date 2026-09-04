@@ -8,7 +8,7 @@ import type { PostMeta } from "@/lib/blog";
 
 export function BlogStrip({ posts }: { posts: PostMeta[] }) {
   return (
-    <section className="relative isolate border-t border-black/[0.05] bg-white py-20 md:py-24">
+    <section className="section-y relative isolate border-t border-ink/[0.06] bg-white">
       <Ambient />
       <div className="container-x">
         <SectionHeading

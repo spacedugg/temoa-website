@@ -6,7 +6,7 @@ import { BookingBody } from "@/components/booking/BookingBody";
 export const metadata: Metadata = {
   title: "Potenzialanalyse buchen · temoa",
   description:
-    "Kostenlose, unverbindliche Potenzialanalyse: In etwa 30 Minuten zeigen wir euch konkret, wo in eurem Amazon-Account Umsatz und Marge liegen.",
+    "Kostenlose Potenzialanalyse: Wir sehen uns vorab eure Listings und Kampagnen an und kommen mit konkreten Beobachtungen ins Gespräch. Etwa 30 Minuten, unverbindlich.",
 };
 
 export default function GespraechBuchenPage() {

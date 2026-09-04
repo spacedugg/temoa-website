@@ -5,10 +5,10 @@ import { Ambient } from "../ui/Ambient";
 import { testimonials, initials, type Testimonial } from "@/lib/testimonials";
 
 export function Testimonials({ tone = "white" }: { tone?: "white" | "blue" } = {}) {
-  const bg = tone === "blue" ? "bg-[#EDF5FB]" : "bg-white";
+  const bg = tone === "blue" ? "bg-canvas-tint" : "bg-white";
   const edge = tone === "blue" ? "#EDF5FB" : "#ffffff";
   return (
-    <section className={`relative isolate overflow-hidden ${bg} py-20 md:py-24`}>
+    <section className={`section-y relative isolate overflow-hidden ${bg}`}>
       {tone === "white" && <Ambient />}
       <div className="container-x">
         <SectionHeading
@@ -16,7 +16,7 @@ export function Testimonials({ tone = "white" }: { tone?: "white" | "blue" } = {
           size="compact"
           title={
             <>
-              Was unsere <span className="text-gradient">Kunden sagen.</span>
+              Im Wortlaut, <span className="text-gradient">mit Zahlen.</span>
             </>
           }
         />
@@ -37,7 +37,7 @@ export function Testimonials({ tone = "white" }: { tone?: "white" | "blue" } = {
 
 function Card({ t }: { t: Testimonial }) {
   return (
-    <figure className="glass flex w-[20rem] shrink-0 flex-col rounded-3xl p-6 md:w-[23rem]">
+    <figure className="glass flex w-[20rem] shrink-0 flex-col rounded-card p-6 md:w-[23rem]">
       <div className="flex gap-0.5">
         {Array.from({ length: 5 }).map((_, s) => (
           <svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="#FF9900">
@@ -56,7 +56,7 @@ function Card({ t }: { t: Testimonial }) {
         {/* Person photo, falls back to initials if the image is missing */}
         <div
           className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full text-sm font-bold text-white shadow-lift ring-2 ring-white"
-          style={{ backgroundImage: "var(--brand-gradient)" }}
+          style={{ backgroundImage: "var(--brand-gradient-deep)" }}
         >
           <span aria-hidden>{initials(t.name)}</span>
           {t.image && (

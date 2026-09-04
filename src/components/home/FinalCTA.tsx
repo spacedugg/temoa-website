@@ -4,11 +4,11 @@ import { Reveal } from "../ui/Reveal";
 
 export function FinalCTA() {
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="section-y-lg relative">
       <div className="container-x">
         <div
-          className="relative overflow-hidden rounded-[2.5rem] px-6 py-16 text-center shadow-glow md:px-12 md:py-20"
-          style={{ backgroundImage: "var(--brand-gradient)", backgroundSize: "150% 150%" }}
+          className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
+          style={{ backgroundImage: "var(--brand-gradient-deep)" }}
         >
           {/* soft light blobs for depth */}
           <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
@@ -21,14 +21,15 @@ export function FinalCTA() {
           </Reveal>
           <Reveal delay={0.08}>
             <p className="relative mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
-              Das zeigen wir euch in einer kostenlosen Potenzialanalyse.
+              In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen euch,
+              was euer Sortiment noch hergibt.
             </p>
           </Reveal>
           <Reveal delay={0.14}>
             <div className="relative mt-8 flex justify-center">
               <a
                 href="/gespraech-vereinbaren"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-ink shadow-lift transition-transform duration-300 hover:-translate-y-0.5"
+                className="inline-flex min-h-[3rem] items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-bold text-ink shadow-lift transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.985]"
               >
                 Potenzialanalyse buchen
               </a>

@@ -51,7 +51,7 @@ export function Navbar() {
           scrolled ? "glass shadow-lift" : "border border-transparent bg-white/0"
         )}
       >
-        <a href="/#top" className="flex items-center gap-2 pl-1">
+        <a href="/#top" aria-label="temoa, zur Startseite" className="flex min-h-[2.75rem] items-center gap-2 rounded-full pl-1 pr-2">
           <Logo />
         </a>
 
@@ -62,11 +62,11 @@ export function Navbar() {
               (l.children && l.children.some((c) => pathname === c.href));
             if (l.children) {
               return (
-                <div key={l.href} className="group relative">
+                <div key={l.href} className="group relative" data-menu>
                   <a
                     href={l.href}
                     className={clsx(
-                      "flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                      "flex min-h-[2.75rem] items-center gap-1 rounded-full px-4 py-2.5 text-sm font-medium transition-colors",
                       active ? "bg-black/[0.05] text-ink" : "text-ink-muted hover:bg-black/[0.04] hover:text-ink"
                     )}
                   >
@@ -76,13 +76,13 @@ export function Navbar() {
                     </svg>
                   </a>
                   {/* Mega-Menü */}
-                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                    <div className="w-80 rounded-3xl border border-black/[0.06] bg-white p-2.5 shadow-[0_24px_60px_-20px_rgba(2,48,71,0.35)]">
+                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div className="w-80 rounded-card bg-white p-2.5 shadow-[0_24px_60px_-20px_rgba(2,48,71,0.35)]">
                       {/* Full Service zuerst, als Einstieg in die Übersicht */}
                       <a
                         href={l.href}
                         className={clsx(
-                          "flex items-center justify-between rounded-2xl px-4 py-2.5 text-sm font-bold transition-colors",
+                          "flex min-h-[2.75rem] items-center justify-between rounded-inner px-4 py-2.5 text-sm font-bold transition-colors",
                           pathname === l.href ? "bg-brand-50 text-brand-700" : "text-ink hover:bg-black/[0.04]"
                         )}
                       >
@@ -97,7 +97,7 @@ export function Navbar() {
                           key={c.href}
                           href={c.href}
                           className={clsx(
-                            "block rounded-2xl px-4 py-2.5 text-sm font-medium transition-colors",
+                            "block min-h-[2.75rem] rounded-inner px-4 py-2.5 text-sm font-medium leading-6 transition-colors",
                             pathname === c.href ? "bg-brand-50 text-brand-700" : "text-ink-muted hover:bg-black/[0.04] hover:text-ink"
                           )}
                         >
@@ -114,7 +114,7 @@ export function Navbar() {
                 key={l.href}
                 href={l.href}
                 className={clsx(
-                  "rounded-full px-3.5 py-2 text-sm font-medium transition-colors",
+                  "flex min-h-[2.75rem] items-center rounded-full px-4 py-2.5 text-sm font-medium transition-colors",
                   pathname === l.href ? "bg-black/[0.05] text-ink" : "text-ink-muted hover:bg-black/[0.04] hover:text-ink"
                 )}
               >
@@ -129,9 +129,11 @@ export function Navbar() {
             Potenzialanalyse buchen
           </a>
           <button
-            aria-label="Menü"
+            aria-label={open ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((o) => !o)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/70 md:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-ink/10 bg-white/70 md:hidden"
           >
             <div className="space-y-1.5">
               <span className={clsx("block h-0.5 w-5 bg-ink transition-transform", open && "translate-y-2 rotate-45")} />
@@ -145,17 +147,18 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="glass absolute inset-x-4 top-20 max-h-[80vh] overflow-y-auto rounded-3xl p-4 shadow-lift md:hidden"
+            className="glass absolute inset-x-4 top-20 max-h-[80vh] overflow-y-auto rounded-panel p-4 shadow-lift md:hidden"
           >
             {links.map((l) => (
               <div key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-base font-semibold text-ink hover:bg-black/[0.04]"
+                  className="block min-h-[3rem] rounded-inner px-4 py-3 text-base font-bold text-ink hover:bg-ink/[0.04]"
                 >
                   {l.label}
                 </a>
@@ -166,7 +169,7 @@ export function Navbar() {
                         key={c.href}
                         href={c.href}
                         onClick={() => setOpen(false)}
-                        className="block rounded-lg px-3 py-2 text-sm text-ink-muted hover:bg-black/[0.04] hover:text-ink"
+                        className="block min-h-[2.75rem] rounded-inner px-3 py-2.5 text-sm leading-6 text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
                       >
                         {c.label}
                       </a>

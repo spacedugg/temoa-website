@@ -29,7 +29,7 @@ export function FullServiceBody() {
             <span className="text-gradient">kompletten Amazon-Account.</span>
           </>
         }
-        sub="Done-for-you, kein Ratschlag zum Selbermachen. Wir übernehmen jeden Bereich und führen ihn mit einer Tiefe, die intern selten zusammenkommt."
+        sub="Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht."
       />
       <Cards
         tone="blue"
@@ -37,10 +37,10 @@ export function FullServiceBody() {
         title="Passt das zu eurer Marke?"
         cols={4}
         items={[
-          { title: "Etabliertes Sortiment", body: "Eigene Marke, ernsthafter Umsatz, aber Luft nach oben." },
+          { title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
           { title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
           { title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
-          { title: "Viele SKUs, mehrere Marktplätze", body: "Komplexität, die nebenher nicht sauber zu führen ist." },
+          { title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
         ]}
       />
       <SplitCards
@@ -50,8 +50,8 @@ export function FullServiceBody() {
         imageAspect="aspect-[4/3]"
         callout="Die größten Verluste entstehen bei Chancen, die intern nie auffallen."
         items={[
-          { title: "Internes Team zu klein", body: "Das Wissen fehlt oder liegt bei einer Person. Fällt sie aus, steht Amazon." },
-          { title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer baut Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
+          { title: "Internes Team zu klein", body: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken." },
+          { title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
           { title: "Amazon ist ein Vollzeitjob", body: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert." },
         ]}
       />
@@ -87,7 +87,7 @@ export function FullServiceBody() {
             bullets: [
               "Kampagnenstruktur mit Suchbegriff-Isolation und Harvesting von Auto zu Exact, ohne Kannibalisieren",
               "Platzierungs- und Gebotssteuerung, Top-of-Search gezielt eingesetzt",
-              "Profitabilität als Ziel, zum Traffic-Aufbau bewusst auch mal darüber hinaus",
+              "Profitabilität als Ziel, beim Aufbau neuer Suchbegriffe bewusst und befristet darüber hinaus",
             ],
           },
           {
@@ -123,20 +123,20 @@ export function FullServiceBody() {
       <BulletPanel
         tone="white"
         eyebrow="Der Unterschied"
-        title="Eine Strategie über alle Bereiche, statt isolierter Einzelmaßnahmen."
+        title="Alle Bereiche arbeiten mit denselben Zahlen."
         withImage
         imageAspect="aspect-square"
         points={[
-          "Spezialisten für Strategie, Content, PPC und Operations, abgestimmt auf ein gemeinsames Ziel",
-          "Effizienz, weil jeder Bereich auf denselben Daten und derselben Planung arbeitet",
-          "Wir verantworten das Ergebnis. Kein Finger-Pointing zwischen Dienstleistern.",
-          "Ihr habt den Kopf frei, wir führen das Tagesgeschäft.",
+          "Dieselbe Keyword- und Margenanalyse liegt Content, Kampagnen und Pricing zugrunde",
+          "Was im Search Query Report auffällt, landet in derselben Woche im Listing und in der Kampagne",
+          "Wir verantworten das Ergebnis. Kein Verschieben der Verantwortung zwischen Dienstleistern.",
+          "Ein Ansprechpartner, ein Report, eine Planung für alle fünf Bereiche",
         ]}
       />
       <Testimonials tone="blue" />
       <ServiceCTA
-        title="Wir zeigen euch, wo in eurem Account das Wachstum liegt."
-        sub="In einer kostenlosen Potenzialanalyse, konkret auf eure Marke bezogen."
+        title="Welcher Bereich bremst euer Wachstum?"
+        sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
         chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
       />
     </>
@@ -151,21 +151,22 @@ export function StrategieBody() {
         eyebrow="Individuelle Amazon-Strategie"
         title={
           <>
-            Bevor ihr skaliert, <span className="text-gradient">wisst ihr, wohin.</span>
+            Die Antworten liegen <span className="text-gradient">in eurem Konto.</span>
           </>
         }
-        sub="Wir analysieren Markt, Wettbewerb und eure Zahlen bis auf SKU-Ebene und machen daraus einen Fahrplan, der jede Maßnahme steuert."
+        sub="Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte."
       />
       <Points
         tone="blue"
         eyebrow="Das Problem"
-        title="Warum viele Marken ihr Potenzial liegen lassen."
+        title="Warum im Konto nichts vorangeht."
         points={[
-          "Werbung wird hochgefahren, bevor das Listing überhaupt konvertiert.",
-          "Profitabilität wird nie auf SKU-Ebene durchgerechnet.",
-          "Es fehlt ein Plan mit klaren Zielen.",
+          "Die Berichte liegen im Konto, ausgewertet hat sie zuletzt niemand.",
+          "Werbung wird hochgefahren, bevor das Listing konvertiert.",
+          "Die Marge wird nie bis auf die einzelne Variante durchgerechnet.",
+          "Es fehlt eine Reihenfolge: alles ist wichtig, nichts kommt zuerst.",
         ]}
-        bridge="Kurzfristig mehr Umsatz, langfristig weniger Marge. Eine durchdachte Strategie dreht dieses Muster, bevor es Geld kostet."
+        bridge="Wer die Berichte nicht auswertet, optimiert nach Geschmack. Das kostet über Monate Marge."
         aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
@@ -176,20 +177,21 @@ export function StrategieBody() {
         items={[
           {
             title: "Analyse",
-            subtitle: "Daten treiben Entscheidungen",
+            subtitle: "Was in den Berichten steht",
             bullets: [
-              "Search Query Performance bis auf den einzelnen Suchbegriff",
+              "Search Query Performance je Suchbegriff: Impressionen, Klickrate, Conversion, Cart-Adds",
+              "Verkäufe und Traffic je ASIN: wie viele Besucher kommen und wie viele davon kaufen",
               "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
               "Margen- und Deckungsbeitragsrechnung je Variante inklusive aller Fees",
             ],
           },
           {
             title: "Strategie & Fahrplan",
-            subtitle: "Aus Daten wird ein Plan",
+            subtitle: "Was daraus folgt",
             bullets: [
-              "Maßgeschneiderte Amazon-Strategie für eure Marke",
+              "Welche Produkte Wachstum bekommen und welche gehalten werden",
               "ACoS- und TACoS-Ziele als Messlatte",
-              "Priorisierter Maßnahmenplan",
+              "Reihenfolge der Maßnahmen, sortiert nach erwartetem Umsatz-Effekt",
             ],
           },
         ]}
@@ -204,7 +206,7 @@ export function StrategieBody() {
       <Testimonials tone="white" />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
-        sub="In der kostenlosen Potenzialanalyse skizzieren wir die ersten Schritte eurer Strategie."
+        sub="In der kostenlosen Potenzialanalyse werten wir eure Berichte aus und zeigen, welche drei Schritte zuerst kommen."
       />
     </>
   );
@@ -221,14 +223,14 @@ export function ContentBody() {
             Content, der aus Klicks <span className="text-gradient">Käufer macht.</span>
           </>
         }
-        sub="Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt."
+        sub="Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion."
       />
       <ContentResultBand />
       <TextMedia
         tone="blue"
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
-        text="Wir entwickeln jedes Listing datenbasiert: Was sucht euer Kunde, woran scheitert die Kaufentscheidung, wo schlägt euch der Wettbewerb. Daraus bauen wir Content, der konvertiert und organisch rankt."
+        text="Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken."
         imageAspect="aspect-[3/2]"
       />
       <ContentShowcase />
@@ -239,28 +241,28 @@ export function ContentBody() {
         left={{
           label: "Vor der Zusammenarbeit",
           points: [
-            "Viel Traffic, der nicht zum Kauf führt",
-            "Listings, die in der Suche untergehen",
+            "Traffic kommt, gekauft wird woanders",
+            "Das Listing taucht in der Suche kaum auf",
             "Keywords ohne System, Rankings ohne Plan",
-            "Werbebudget auf Listings, die nicht konvertieren",
-            "Verstöße gegen Richtlinien, die das Konto gefährden",
+            "Werbebudget läuft auf Seiten, die nicht konvertieren",
+            "Richtlinienverstöße gefährden das Konto",
           ],
         }}
         right={{
           label: "So arbeiten wir",
           points: [
-            "Retail Ready: optimierter Content als Basis für profitable Werbung",
-            "Aus Besuchern werden Käufer in Sekunden",
-            "Keyword-Strategie für gezielt steigende Rankings",
-            "Storytelling, das eure Marke unverwechselbar macht",
-            "Richtlinienkonform ohne Risiko fürs Konto",
+            "Retail Ready: der Content steht, bevor Budget fließt",
+            "Hauptbild auf die Klickrate ausgelegt, nicht nach Geschmack gewählt",
+            "Keywords, die tatsächlich zum Kauf führen, gezielt besetzt",
+            "A+ Content beantwortet die Fragen, an denen der Kauf sonst scheitert",
+            "Richtlinienkonform, ohne Risiko fürs Konto",
           ],
         }}
       />
       <Testimonials tone="white" />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
-        sub="In der kostenlosen Potenzialanalyse zeigen wir euch, wo euer Content Käufer verliert."
+        sub="In der kostenlosen Potenzialanalyse gehen wir eure Listings durch und zeigen, an welcher Stelle Besucher abspringen."
       />
     </>
   );
@@ -277,7 +279,7 @@ export function AdvertisingBody() {
             Skalieren, ohne die <span className="text-gradient">Marge zu verlieren.</span>
           </>
         }
-        sub="Wir steuern eure Kampagnen nach dem Deckungsbeitrag jedes Produkts, auf Basis eurer realen Account-Daten statt auf Klick-Metriken. So wächst der Umsatz und die Marge wächst mit."
+        sub="Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt."
       />
       <Points
         tone="blue"
@@ -297,14 +299,14 @@ export function AdvertisingBody() {
         tone="white"
         eyebrow="Unser Ansatz"
         title="Mehr Budget ist keine Strategie."
-        text="Wir rechnen jedes Produkt erst auf seine Marge durch. Nicht alles gehört in die Skalierung, sondern nur das, was nach allen Kosten Gewinn bringt. Darauf bauen wir eine saubere Kampagnenarchitektur und steuern sie laufend nach."
+        text="Wir rechnen jedes Produkt erst auf seine Marge durch. In die Skalierung geht nur, was nach allen Kosten Gewinn bringt. Darauf setzen wir eine saubere Kampagnenarchitektur auf und steuern sie laufend nach."
         reverse
         imageAspect="aspect-[3/2]"
       />
       <Cards
         tone="blue"
         eyebrow="Was wir steuern"
-        title="Fünf Bereiche, die über eure Marge entscheiden."
+        title="Von der Struktur bis zum einzelnen Gebot."
         cols={3}
         items={[
           {
@@ -417,7 +419,12 @@ export function AccountBody() {
       <ResultBlock
         badge="Wir machen die Arbeit"
         title="Ihr bekommt die Ergebnisse."
-        benefits={["Planbare Performance", "Transparente KPIs", "Profitables Wachstum", "Volle Entlastung"]}
+        benefits={[
+          "Buy-Box-Verluste am selben Tag geklärt",
+          "Nachschub geplant, bevor der Bestand kippt",
+          "Monatsreport mit klaren nächsten Schritten",
+          "Anfragen an den Amazon-Support laufen über uns",
+        ]}
       />
       <Testimonials tone="blue" />
       <ServiceCTA
@@ -436,10 +443,10 @@ export function InternationalisierungBody() {
         eyebrow="Internationalisierung"
         title={
           <>
-            Neue Länder testen, <span className="text-gradient">profitabel wachsen.</span>
+            Jeder Marktplatz ist ein <span className="text-gradient">eigener Markt.</span>
           </>
         }
-        sub="Wir entwickeln eure Internationalisierungsstrategie und realisieren den Markteintritt über Amazons internationale Marktplätze, effizient, risikoarm und datenbasiert."
+        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu."
       />
       <Points
         tone="blue"
@@ -451,7 +458,7 @@ export function InternationalisierungBody() {
           "Kampagnen aus dem Startmarkt werden eins zu eins übernommen.",
           "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
         ]}
-        bridge="Jeder Marktplatz hat eigene Käufer, eigene Suche, eigenen Wettbewerb. Also fängt jeder bei uns von vorne an."
+        bridge="Andere Käufer, andere Suchbegriffe, anderer Wettbewerb. Deshalb beginnt bei uns jedes Land mit einer eigenen Recherche, nicht mit einer Übersetzung."
         aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards

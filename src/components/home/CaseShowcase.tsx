@@ -44,7 +44,7 @@ function Panels() {
         <a
           key={c.slug}
           href={`/ergebnisse/${c.slug}`}
-          className="group relative isolate flex min-w-0 flex-1 overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/5 transition-[flex] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] hover:flex-[2.6]"
+          className="group relative isolate flex min-w-0 flex-1 overflow-hidden rounded-panel shadow-lift transition-[flex] duration-500 ease-[cubic-bezier(0.2,0.7,0.2,1)] hover:flex-[2.6]"
           style={mesh(c.accent)}
         >
           {/* real case background image, shown in full colour */}
@@ -110,7 +110,7 @@ function MobileCards() {
         <a
           key={c.slug}
           href={`/ergebnisse/${c.slug}`}
-          className="relative isolate flex h-52 flex-col overflow-hidden rounded-3xl p-5 shadow-lift ring-1 ring-black/5"
+          className="relative isolate flex h-52 flex-col overflow-hidden rounded-panel p-5 shadow-lift"
           style={mesh(c.accent)}
         >
           {c.bgImage && (
@@ -134,7 +134,7 @@ function MobileCards() {
 
 export function CaseShowcase() {
   return (
-    <section id="case-studies" className="relative scroll-mt-24 bg-white py-20 md:py-24">
+    <section id="case-studies" className="section-y relative scroll-mt-24 bg-white">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
@@ -145,8 +145,13 @@ export function CaseShowcase() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="mt-3 text-balance text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl">
-              Marken, die mit uns <span className="text-gradient">gewachsen sind.</span>
+              Vier Marken, <span className="text-gradient">vier Ausgangslagen.</span>
             </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-3 text-base leading-relaxed text-ink-muted">
+              Ausgangslage, Vorgehen, Ergebnis. Mit den Zahlen dahinter.
+            </p>
           </Reveal>
         </div>
 
@@ -158,7 +163,7 @@ export function CaseShowcase() {
         </Reveal>
 
         <p className="mt-6 hidden text-center text-sm text-ink-faint lg:block">
-          Fahrt über eine Marke, um mehr zu sehen, oder klickt für die ganze Case Study.
+          Über eine Marke fahren zeigt die Details, ein Klick die ganze Case Study.
         </p>
       </div>
     </section>

@@ -35,7 +35,7 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
         <Testimonials tone="white" />
         <ServiceCTA
           title="Solche Ergebnisse für eure Marke?"
-          sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in euren Listings und Kampagnen das nächste Umsatzwachstum liegt."
+          sub="In der kostenlosen Potenzialanalyse schauen wir, welcher Schritt aus dieser Case Study auf euer Sortiment passt."
           chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
         />
       </main>

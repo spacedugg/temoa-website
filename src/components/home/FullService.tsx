@@ -4,8 +4,6 @@ import { SectionHeading } from "../ui/SectionHeading";
 import { RevealGroup, RevealItem, Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
-const ICOLOR = ["text-brand-600", "text-cyan", "text-red", "text-emerald", "text-navy"];
-
 const services: { n: string; icon: IconName; name: string; result: string; href: string }[] = [
   { n: "01", icon: "strategy", name: "Strategie & Analyse", result: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
   { n: "02", icon: "content", name: "Content & Listings", result: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
@@ -16,7 +14,7 @@ const services: { n: string; icon: IconName; name: string; result: string; href:
 
 export function FullService() {
   return (
-    <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+    <section className="section-y relative bg-canvas-tint">
       <div className="container-x">
         <SectionHeading
           eyebrow="Full Service"
@@ -30,18 +28,17 @@ export function FullService() {
 
         <Reveal delay={0.06}>
           <div
-            className="mt-10 flex aspect-[4/1] w-full items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
-            style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+            className="mx-auto mt-10 flex aspect-[7/1] w-full max-w-4xl items-center justify-center overflow-hidden rounded-card bg-white/60"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild 4:1</span>
+            <span className="text-label font-semibold uppercase text-ink-line">Bild folgt</span>
           </div>
         </Reveal>
 
         <RevealGroup className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.06}>
-          {services.map((s, i) => (
+          {services.map((s) => (
             <RevealItem key={s.n} className="h-full">
               <a href={s.href} className="surface surface-hover group flex h-full flex-col items-center p-5 text-center">
-                <span className={ICOLOR[i % ICOLOR.length]}>
+                <span className="text-ink-soft transition-colors duration-300 group-hover:text-brand-700">
                   <Icon name={s.icon} size={32} />
                 </span>
                 <h3 className="mt-4 text-sm font-bold leading-snug text-ink">{s.name}</h3>

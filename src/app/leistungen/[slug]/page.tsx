@@ -15,17 +15,17 @@ const meta: Record<string, { name: string; description: string }> = {
   strategie: {
     name: "Strategie & Analyse",
     description:
-      "Wir analysieren Markt, Wettbewerb und eure Zahlen bis auf SKU-Ebene und machen daraus einen Fahrplan, der jede Maßnahme steuert.",
+      "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
   },
   "listing-seo": {
     name: "Content & Listings",
     description:
-      "Hauptbilder, Produktbilder, A+ und SEO, gebaut auf Klickrate, Conversion und einen hochwertigen Markenauftritt.",
+      "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
   },
   "ppc-advertising": {
     name: "Advertising / PPC",
     description:
-      "Wir steuern eure Kampagnen nach dem Deckungsbeitrag jedes Produkts, statt auf Klick-Metriken. So wächst der Umsatz und die Marge wächst mit.",
+      "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
   },
   "account-management": {
     name: "Account-Management",
@@ -35,7 +35,7 @@ const meta: Record<string, { name: string; description: string }> = {
   internationalisierung: {
     name: "Internationalisierung",
     description:
-      "Eure Marke auf weiteren Amazon-Marktplätzen aufbauen. Lokalisiert statt übersetzt: eigener Content, eigene Keywords und eigene Kampagnen je Markt.",
+      "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
   },
 };
 
@@ -70,7 +70,7 @@ function Body({ slug }: { slug: string }) {
         <ComingSoon
           eyebrow="Leistung"
           title="Diese Leistung folgt in Kürze"
-          sub="Diese Leistungsseite bauen wir gerade neu. Die Inhalte folgen in Kürze."
+          sub="Diese Leistungsseite überarbeiten wir gerade. Die Inhalte folgen in Kürze."
         />
       );
   }

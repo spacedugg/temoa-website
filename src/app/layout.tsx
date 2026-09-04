@@ -17,7 +17,7 @@ const caros = localFont({
 export const metadata: Metadata = {
   title: "temoa · Amazon Full Service Wachstumspartner",
   description:
-    "Wir machen euer Listing organisch so stark, dass es auch ohne Werbung verkauft. Erst dann kommt PPC dazu und arbeitet vom ersten Euro an profitabel. Organic First, PPC Second.",
+    "Wir bringen euer Amazon-Listing dahin, dass es auch ohne Werbung verkauft. Danach skaliert PPC, was bereits konvertiert. Organic First, PPC Second.",
   metadataBase: new URL("https://temoa.de"),
   icons: { icon: "/logo/logo-icon.svg" },
   openGraph: {
@@ -36,7 +36,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={caros.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <a href="#inhalt" className="skip-link">
+          Zum Inhalt springen
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

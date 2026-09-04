@@ -12,7 +12,7 @@ import { Counter } from "@/components/ui/Counter";
 export const metadata: Metadata = {
   title: "Case Studies · temoa",
   description:
-    "Vier Marken, vier Ausgangslagen, echte Zahlen: profitables Wachstum, sinkende PPC-Abhängigkeit und saisonale Skalierung auf Amazon.",
+    "Vier Amazon-Konten mit Ausgangslage, Vorgehen und Ergebnis: profitables Wachstum, weniger PPC-Abhängigkeit, ein Launch von null und vier Marktplätze parallel.",
 };
 
 /* 98 % Kundenbindung als ruhiger Abschluss über den Kundenstimmen. */
@@ -25,7 +25,7 @@ function RetentionBand() {
         </div>
         <div className="mx-auto mt-3 h-0.5 w-12 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
         <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
-          Kundenbindung. Marken bleiben, weil die Zusammenarbeit liefert, ganz ohne lange Laufzeiten.
+          Kundenbindung. Marken bleiben, weil die Zahlen stimmen, nicht weil ein Vertrag sie hält.
         </p>
       </div>
     </section>
@@ -41,10 +41,10 @@ export default function ErgebnissePage() {
           eyebrow="Case Studies"
           title={
             <>
-              Ergebnisse aus echten <span className="text-gradient">Amazon-Konten.</span>
+              Vier Konten, <span className="text-gradient">vollständig nachgerechnet.</span>
             </>
           }
-          description="Vier Marken, vier Ausgangslagen. Zahlen aus laufenden Projekten, eine Marke auf Wunsch anonymisiert."
+          description="Ausgangslage, Vorgehen und Ergebnis je Marke, mit Zeitraum und den Zahlen aus dem Konto. Auch dort, wo es zwischendurch nicht rund lief."
         />
         <Stats tone="white" />
         <ProofStrip tone="blue" bare />
@@ -52,8 +52,8 @@ export default function ErgebnissePage() {
         <RetentionBand />
         <Testimonials tone="white" />
         <ServiceCTA
-          title="Lasst uns über eure Marke sprechen."
-          sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in euren Listings und Kampagnen das nächste Umsatzwachstum liegt."
+          title="Was wäre bei euch möglich?"
+          sub="In der kostenlosen Potenzialanalyse rechnen wir das an euren Zahlen durch, nicht an fremden."
           chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
         />
       </main>

@@ -1,39 +1,42 @@
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/home/Hero";
-import { Credibility } from "@/components/home/Credibility";
-import { Problem } from "@/components/home/Problem";
-import { Mechanism } from "@/components/home/Mechanism";
-import { FullService } from "@/components/home/FullService";
-import { CaseShowcase } from "@/components/home/CaseShowcase";
-import { Stats } from "@/components/home/Stats";
-import { DesignShowcase } from "@/components/home/DesignShowcase";
-import { Testimonials } from "@/components/home/Testimonials";
-import { FinalCTA } from "@/components/home/FinalCTA";
-import { Team } from "@/components/home/Team";
-import { BlogStrip } from "@/components/home/BlogStrip";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
+import { TaktLine } from "@/components/takt/TaktLine";
+import { Auftrag } from "@/components/takt/Auftrag";
+import {
+  Kundenband,
+  Befund,
+  Verfahren,
+  Leistungen,
+  Nachweis,
+  Arbeiten,
+  Stimmen,
+  Termin,
+  Mannschaft,
+  Wissen,
+} from "@/components/takt/sections";
 import { getFeaturedPosts } from "@/lib/blog";
 
 export default function Home() {
   const featured = getFeaturedPosts(4);
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Credibility />
-        <Problem />
-        <Mechanism />
-        <FullService />
-        <CaseShowcase />
-        <Stats />
-        <DesignShowcase />
-        <Testimonials tone="blue" />
-        <FinalCTA />
-        <Team />
-        <BlogStrip posts={featured} />
-      </main>
-      <Footer />
+      <Kopfzeile />
+      <TaktLine>
+        <main id="inhalt">
+          <Auftrag />
+          <Kundenband />
+          <Befund />
+          <Verfahren />
+          <Leistungen />
+          <Nachweis />
+          <Arbeiten />
+          <Stimmen />
+          <Termin />
+          <Mannschaft />
+          <Wissen posts={featured} />
+        </main>
+      </TaktLine>
+      <Fusszeile />
     </>
   );
 }

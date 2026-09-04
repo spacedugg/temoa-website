@@ -27,7 +27,7 @@ const members: { src: string; name: string }[] = [
 
 export function Team() {
   return (
-    <section id="team" className="relative bg-[#EDF5FB] py-20 md:py-24">
+    <section id="team" className="section-y relative bg-canvas-tint">
       <div className="container-x">
         <SectionHeading
           eyebrow="Team"
@@ -37,7 +37,7 @@ export function Team() {
               Das Team hinter <span className="text-gradient">temoa.</span>
             </>
           }
-          description="Strateginnen, Designer und PPC-Spezialisten, die jeden Tag an eurem Amazon-Wachstum arbeiten."
+          description="Strategie, Design, Advertising und Account-Management, alle im Haus."
         />
 
         <Reveal delay={0.08}>
@@ -49,7 +49,7 @@ export function Team() {
             >
               <span className="text-2xl font-extrabold leading-tight">Menschen, kein Tool.</span>
               <p className="mt-2 text-sm leading-relaxed text-white/75">
-                Ein eingespieltes Team für Strategie, Content, PPC und Account-Management, an einem Tisch.
+                An eurem Konto arbeiten mehrere gleichzeitig, jeder in seinem Bereich.
               </p>
             </div>
             {candids.map((src) => (

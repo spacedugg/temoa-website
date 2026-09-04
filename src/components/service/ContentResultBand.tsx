@@ -91,7 +91,7 @@ export function ContentResultBand() {
       <div className="container-x">
         <Reveal>
           <p className="mx-auto max-w-2xl text-center text-sm font-bold uppercase tracking-[0.16em] text-ink-faint">
-            Wofür wir Content bauen
+            Wofür wir Content erstellen
           </p>
         </Reveal>
         <RevealGroup className="mx-auto mt-8 grid max-w-5xl items-stretch gap-4 md:grid-cols-3" stagger={0.08}>

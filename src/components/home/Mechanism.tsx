@@ -15,19 +15,19 @@ const stages: { name: string; meaning: string; icon: IconName; signal?: boolean 
 const rows: { old: string; temoa: string }[] = [
   {
     old: "Bilder, Texte und Titel einmal erstellt, dann läuft Werbung",
-    temoa: "Listing auf CTR und Conversion optimiert, bis es organisch verkauft",
+    temoa: "Hauptbild, Titel und A+ nachgeschärft, bis die Conversion steht",
   },
   {
     old: "Content nach Standard, ohne Datenbasis",
     temoa: "Content aus Search Query Report, Wettbewerb und Bewertungen",
   },
   {
-    old: "Abhängig von PPC, Klicks werden jährlich teurer",
-    temoa: "Organisch unabhängig, PPC profitabel statt teuer",
+    old: "Sichtbarkeit wird über Gebote gekauft, der Klickpreis steigt jedes Jahr",
+    temoa: "Organische Plätze halten die Sichtbarkeit, Werbung kommt dazu",
   },
   {
     old: "Umsatz um jeden Preis",
-    temoa: "Profitabilität als Maßstab (TACoS)",
+    temoa: "Jede SKU auf Deckungsbeitrag gerechnet, gesteuert über den TACoS",
   },
 ];
 
@@ -43,7 +43,7 @@ function Connector() {
 
 export function Mechanism() {
   return (
-    <section className="relative isolate bg-white py-24 md:py-32">
+    <section className="section-y relative isolate bg-white">
       <Ambient />
       <div className="container-x">
         {/* Centered, high-emphasis intro */}
@@ -61,7 +61,8 @@ export function Mechanism() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-xl text-balance text-lg leading-relaxed text-ink-muted">
-              Zuerst ein Listing, das auf Klickrate und Conversion verkauft. Erst dann skaliert PPC profitabel.
+              Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt bei uns zuerst
+              das Listing, dann die Kampagne.
             </p>
           </Reveal>
         </div>
@@ -70,7 +71,7 @@ export function Mechanism() {
         <div className="mx-auto mt-12 grid max-w-5xl items-stretch gap-6 lg:grid-cols-2 lg:gap-8">
           <Reveal delay={0.12}>
             <div
-              className="relative h-full overflow-hidden rounded-[2rem] p-7 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.55)] md:p-8"
+              className="on-dark relative h-full overflow-hidden rounded-panel p-7 shadow-panel md:p-8"
               style={{ background: "linear-gradient(150deg,#0A1E2B 25%,#053048 100%)" }}
             >
               <div
@@ -80,11 +81,11 @@ export function Mechanism() {
               <div className="relative flex flex-col gap-3">
                 {stages.map((s, i) => (
                   <RevealItemless key={s.name} delay={0.15 + i * 0.08}>
-                    <div className="relative rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10 backdrop-blur">
+                    <div className="relative rounded-inner bg-white/[0.07] p-4 ring-1 ring-white/10">
                       {s.signal && (
                         <span
                           className="absolute -top-2.5 left-4 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.1em] text-white shadow"
-                          style={{ backgroundImage: "var(--brand-gradient)" }}
+                          style={{ backgroundImage: "var(--brand-gradient-deep)" }}
                         >
                           Ranking-Signal
                         </span>
@@ -107,19 +108,19 @@ export function Mechanism() {
                 {/* outcome */}
                 <Reveal delay={0.4}>
                   <div
-                    className="rounded-2xl p-4 text-white shadow-lift"
-                    style={{ backgroundImage: "var(--brand-gradient)" }}
+                    className="rounded-inner p-4 text-white shadow-lift"
+                    style={{ backgroundImage: "var(--brand-gradient-deep)" }}
                   >
                     <div className="text-sm font-bold uppercase tracking-[0.12em] text-white/85">Ergebnis</div>
-                    <div className="mt-1 text-lg font-extrabold leading-tight">Listing verkauft organisch.</div>
-                    <div className="mt-0.5 text-sm text-white/90">PPC skaliert profitabel obendrauf.</div>
+                    <div className="mt-1 text-lg font-extrabold leading-tight">Das Listing verkauft ohne Werbung.</div>
+                    <div className="mt-0.5 text-sm text-white/90">Kampagnen bauen darauf auf.</div>
                   </div>
                 </Reveal>
               </div>
 
               <p className="relative mt-6 text-sm leading-relaxed text-white/75">
-                Klickrate und Conversion entscheiden über euer organisches Ranking. Deshalb bauen wir das Listing
-                zuerst darauf, bevor ein Euro in Werbung fließt.
+                Konkret sind das neues Hauptbild, neue Listingbilder, Titel, Bullets, Backend-Felder und A+ Content.
+                Einmal erstellt reicht nicht, die Zahlen bestimmen die Nacharbeit.
               </p>
             </div>
           </Reveal>
@@ -127,24 +128,23 @@ export function Mechanism() {
           {/* square image placeholder, same height as the card */}
           <Reveal direction="left" delay={0.16} className="flex items-center">
             <div
-              className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
-              style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+              className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-panel bg-canvas-tint/70"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild</span>
+              <span className="text-label font-semibold uppercase text-ink-line">Bild folgt</span>
             </div>
           </Reveal>
         </div>
 
         {/* Alt / Neu comparison */}
         <Reveal delay={0.1}>
-          <div className="glass mx-auto mt-10 max-w-5xl overflow-hidden rounded-3xl">
+          <div className="glass mx-auto mt-10 max-w-5xl overflow-hidden rounded-panel">
             <div className="grid grid-cols-2 border-b border-black/[0.06]">
               <div className="px-5 py-4">
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Wie es jetzt läuft</span>
+                <span className="text-label font-semibold uppercase text-ink-faint">Wie es jetzt läuft</span>
               </div>
               <div className="flex items-center gap-2 border-l border-black/[0.06] bg-brand-50/50 px-5 py-4">
                 <Logo className="h-4 w-auto" />
-                <span className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">arbeitet</span>
+                <span className="text-label font-semibold uppercase text-brand-800">arbeitet</span>
               </div>
             </div>
             <RevealGroup className="divide-y divide-black/[0.05]" stagger={0.07}>
@@ -188,7 +188,7 @@ function CheckIcon() {
   return (
     <span
       className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-      style={{ background: "#16A34A1A", color: "#16A34A", boxShadow: "0 0 10px -1px #16A34A66" }}
+      style={{ background: "rgba(27,127,75,0.10)", color: "#1B7F4B" }}
     >
       <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
         <path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -201,7 +201,7 @@ function CrossIcon() {
   return (
     <span
       className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-      style={{ background: "#FF31311A", color: "#E11414", boxShadow: "0 0 10px -1px #FF313155" }}
+      style={{ background: "rgba(192,40,30,0.10)", color: "#C0281E" }}
     >
       <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
         <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />

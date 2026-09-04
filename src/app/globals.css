@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 :root {
+  /* Heller Markenverlauf. Trägt ausschließlich dunklen Text (ink, 7.9:1 bis 4.6:1). */
   --brand-gradient: linear-gradient(110deg, #FF9900 0%, #FF6B1F 52%, #FF3131 100%);
+  /* Dunkle Variante derselben Familie für große Flächen mit weißem Text (5.3:1 bis 7.5:1). */
+  --brand-gradient-deep: linear-gradient(110deg, #C74A0B 0%, #B33314 55%, #A32318 100%);
+  /* Fokus-Ring. Auf hellem Grund Ink, auf dunklem Grund wird er in .on-dark umgestellt. */
+  --focus-ring: #0A1E2B;
 }
 
 * {
@@ -26,10 +31,84 @@ body {
   color: #0A1E2B;
 }
 
+/* ---------- Fokus ----------
+   Vorher gab es projektweit keinen einzigen Fokus-Stil. Der Ring liegt außerhalb
+   des Elements, damit er auf runden Buttons nicht vom Radius beschnitten wird. */
+:where(a, button, [role="button"], input, textarea, select, summary):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+/* Auf dunklen Flächen (Footer, Panels) muss der Ring hell sein. */
+footer :where(a, button):focus-visible,
+.on-dark :where(a, button):focus-visible {
+  --focus-ring: #FFFFFF;
+}
+
+/* Sprungmarke für Tastaturnutzer. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  border-radius: 9999px;
+  background: #0A1E2B;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
 /* ---------- Layout helpers ---------- */
 @layer components {
   .container-x {
     @apply mx-auto w-full max-w-7xl px-6 md:px-8;
+  }
+
+  /* ---------- Vertikaler Rhythmus ----------
+     Drei Abstände statt der bisher acht ad-hoc Kombinationen.
+     Unten jeweils etwas mehr als oben, weil das optisch ausgeglichen wirkt. */
+  .section-y {
+    @apply pt-20 pb-24 md:pt-24 md:pb-28;
+  }
+  .section-y-sm {
+    @apply pt-12 pb-14 md:pt-14 md:pb-16;
+  }
+  .section-y-lg {
+    @apply pt-28 pb-32 md:pt-32 md:pb-36;
+  }
+
+  /* Typografische Textur.
+     Groß wird leicht gesetzt (Caros Light 300), klein wird fett gesetzt.
+     Vorher stand alles in 800, deshalb wirkte jede Ebene gleich laut. */
+  .display {
+    font-weight: 300;
+    letter-spacing: -0.032em;
+    line-height: 1.02;
+  }
+  .display strong,
+  .display .em {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .title {
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .title strong,
+  .title .em {
+    font-weight: 700;
+  }
+  .num {
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    line-height: 1;
   }
 
   .eyebrow {
@@ -60,12 +139,14 @@ body {
   }
 
   .card {
-    @apply rounded-3xl border border-black/[0.06] bg-white shadow-soft;
+    @apply rounded-card bg-white shadow-soft;
   }
 
   /* Solid premium card. Pops on tinted/grey section tones, lifts on hover. */
+  /* Erhebung wird einmal erklaert: Schatten. Ein 1px-Rand unter einem weichen
+     Schatten ergibt die typische Geisterkarte. */
   .surface {
-    @apply rounded-3xl bg-white ring-1 ring-black/[0.06] shadow-lift transition-all duration-300;
+    @apply rounded-card bg-white shadow-lift transition-all duration-300;
   }
   .surface-hover:hover {
     transform: translateY(-4px);
@@ -74,36 +155,72 @@ body {
       0 36px 70px -24px rgba(2, 48, 71, 0.28);
   }
 
+  /* Primär-Aktion.
+     Neue Form: kein Pillen-Button mehr, sondern eine Platte mit weichem Radius
+     und einer eigenen Scheibe für den Pfeil. Dunkler Text auf Orange, 7,9:1. */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300;
-    background-image: var(--brand-gradient);
-    background-size: 200% 200%;
-    box-shadow: 0 10px 30px -8px rgba(255, 107, 31, 0.55);
+    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-brand-500 py-2 pl-6 pr-2 text-small font-bold text-ink transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 12px 28px -14px rgba(255, 153, 0, 0.9);
   }
   .btn-primary:hover {
-    background-position: 100% 50%;
-    box-shadow: 0 16px 44px -10px rgba(255, 107, 31, 0.72);
-    transform: translateY(-1px);
+    background-color: #FFA827;
+    transform: translateY(-2px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 20px 40px -16px rgba(255, 153, 0, 0.95);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+  /* Scheibe im Button, wandert beim Hover nach rechts. */
+  .btn-primary .disc {
+    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-ink text-brand-500 transition-transform duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-primary:hover .disc {
+    transform: translateX(3px);
+  }
+
+  /* Zweite Aktion: Textlink mit Unterkante, keine zweite Pille. */
+  .btn-text {
+    @apply inline-flex min-h-[3.25rem] items-center gap-2 text-small font-bold text-ink transition-colors duration-300;
+    box-shadow: inset 0 -1px 0 rgba(10, 30, 43, 0.25);
+  }
+  .btn-text:hover {
+    color: #C96D00;
+    box-shadow: inset 0 -1px 0 #C96D00;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white/60 px-6 py-3.5 text-sm font-semibold text-ink transition-all duration-300 hover:border-black/20 hover:bg-white;
+    @apply inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-[0.875rem] border border-ink/[0.12] bg-white px-6 text-small font-bold text-ink transition-all duration-300 hover:border-ink/[0.25];
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 6px 18px -12px rgba(2, 48, 71, 0.5);
+  }
+  .btn-ghost:active {
+    transform: scale(0.985);
   }
 }
 
 @layer utilities {
+  /* Akzent in Überschriften. War ein Farbverlauf: dessen oranges Ende lag bei
+     2.0:1 auf Weiß und ist der bekannteste Marker generierter Oberflächen.
+     Jetzt Vollton #C96D00 mit 3.7:1, zulässig ab 24px Schriftgröße.
+     Der Klassenname bleibt, damit die 52 Fundstellen unverändert weiterlaufen. */
   .text-gradient {
-    background-image: var(--brand-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #C96D00;
+    background-image: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+  }
+  /* Auf dunklem Grund braucht der Akzent die helle Variante. */
+  .on-dark .text-gradient {
+    color: #FFB033;
   }
 
   .text-gradient-emerald {
-    background-image: linear-gradient(110deg, #023047 0%, #0E7CA0 55%, #34A7C9 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #0B5E7A;
+    background-image: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
   }
 
   /* Subtle dotted/grid backdrop */
@@ -256,23 +373,50 @@ body {
 }
 .article-body blockquote {
   margin-top: 1.4rem;
-  border-left: 3px solid #FF9900;
   background: #F4F8FB;
-  border-radius: 0 0.9rem 0.9rem 0;
-  padding: 0.9rem 1.2rem;
+  border-radius: 0.9rem;
+  padding: 1.1rem 1.3rem;
   color: #13344A;
   font-style: italic;
 }
 .article-body blockquote p { margin: 0; }
 
-/* Respect reduced motion */
+/* ---------- Bewegungsreduktion ----------
+   Vorher wurde pauschal auf 0.001ms gesetzt. Das nimmt auch die Rückmeldung
+   bei Hover und Fokus weg und schiebt die Laufbänder an ihr Ende, statt sie
+   anzuhalten. Jetzt: Wege raus, Zustandswechsel bleiben sichtbar. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    animation-duration: 0.001ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    /* kurz genug, dass keine Bewegung entsteht, lang genug für Rückmeldung */
+    transition-duration: 0.08s !important;
     scroll-behavior: auto !important;
+  }
+  /* Laufbänder halten an, statt an ihr Ende zu springen. */
+  .animate-marquee,
+  .animate-float,
+  .animate-pulse-ring,
+  .animate-gradient-pan,
+  .animate-shimmer {
+    animation: none !important;
+  }
+  /* Verschiebungen aus Hover-Zuständen entfernen. */
+  .surface-hover:hover,
+  .glass-hover:hover,
+  .btn-primary:hover {
+    transform: none !important;
+  }
+}
+
+/* Wer Transparenz reduziert, bekommt eine deckende Fläche statt Milchglas. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: #FFFFFF;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }

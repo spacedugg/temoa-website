@@ -16,7 +16,6 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden pb-10 pt-36 md:pt-44">
-      <div className="pointer-events-none absolute inset-0 bg-grid mask-radial opacity-50" />
       <div
         className="pointer-events-none absolute left-1/2 top-24 h-72 w-[36rem] -translate-x-1/2 rounded-full opacity-60 blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(255,153,0,0.20), rgba(255,49,49,0.08) 50%, transparent 72%)" }}

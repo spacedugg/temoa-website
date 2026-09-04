@@ -32,10 +32,10 @@ function LogoRow({ logos, duration, reverse }: { logos: string[]; duration: numb
 
 export function Credibility() {
   return (
-    <section className="relative border-y border-black/[0.05] bg-white py-12 md:py-16">
+    <section className="section-y-sm relative border-y border-ink/[0.06] bg-white">
       <div className="container-x">
-        <p className="mb-8 text-center text-xs font-bold uppercase tracking-[0.16em] text-ink-faint">
-          60+ Marken vertrauen auf temoa
+        <p className="mb-8 text-center text-label font-bold uppercase text-ink-faint">
+          Täglich in unserer Verantwortung
         </p>
         <div className="space-y-7">
           <LogoRow logos={rows[0]} duration={52} />

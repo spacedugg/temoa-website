@@ -220,7 +220,7 @@ export function ContentShowcase() {
               Produktbilder und <span className="text-gradient">SEO.</span>
             </>
           }
-          description="Jedes Element eurer Detailseite, gebaut auf Klickrate und Conversion. Hier als Sketch."
+          description="Jedes Element eurer Detailseite, ausgerichtet auf Klickrate und Conversion. Hier als Sketch."
         />
 
         <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>

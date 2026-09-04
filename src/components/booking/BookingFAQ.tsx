@@ -22,11 +22,15 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Mit wem sprechen wir?",
-    a: "Direkt mit Clemens, einem der drei Gründer von temoa. Kein Vertrieb ohne Fachwissen, sondern jemand, der euren Account wirklich einschätzen kann.",
+    a: "Direkt mit Clemens, einem der drei Gründer von temoa. Er kann euren Account fachlich einschätzen und tut das im Gespräch auch.",
+  },
+  {
+    q: "Wie schnell geht es nach dem Gespräch los?",
+    a: "Sobald Umfang und Ziel abgestimmt sind. Wir richten einen gemeinsamen Google Drive ein, dort legt ihr die Assets ab, die wir nicht schon auf Amazon finden. Mehr braucht es nicht. Wettbewerb, Produkte und Zielgruppe analysieren wir selbst, ohne dass ihr dafür in weiteren Terminen sitzt.",
   },
   {
     q: "Für wen lohnt sich das?",
-    a: "Für etablierte Marken mit eigenem Sortiment auf Amazon, die mehr aus ihrem Account holen wollen.",
+    a: "Für etablierte Marken mit eigenem Sortiment und ab etwa 50.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
   },
 ];
 

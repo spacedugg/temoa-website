@@ -116,7 +116,7 @@ export const cases: CaseStudy[] = [
     accent: "#FF9900",
     headline: "Vom Cold Launch zu Top-Performance in 17 Wochen",
     subheadline:
-      "Organic-First gestartet, mit kleinem Werbebudget aufgebaut. Erreicht eine Conversion-Stärke, die etablierte Marken selten erreichen.",
+      "Organic First gestartet, mit kleinem Werbebudget aufgebaut. Am Ende eine Conversion Rate, die etablierte Marken selten sehen.",
     preview: { value: "+439 %", label: "Conversion Rate", trend: "up" },
     sections: [
       {
@@ -160,12 +160,12 @@ export const cases: CaseStudy[] = [
     accent: "#2A9BD8",
     headline: "Profitable Skalierung in der Akut-Nische",
     subheadline:
-      "Strukturiert aufgebaut, profitabel skaliert. Sichtbare Trust-Signale am Amazon-Marktplatz erreicht.",
+      "Zwei Produktlaunches in einer Nische, in der Käufer akut eine Lösung brauchen und kaum vergleichen.",
     preview: { value: "+37,3 %", label: "Conversion Rate", trend: "up" },
     sections: [
       {
         heading: "Ausgangslage",
-        body: "Neue Produktlaunches in der Schädlingsbekämpfung, einer Nische, in der Käufer nicht recherchieren, sondern akut eine Problemlösung wollen. Sichtbarkeit und Effizienz müssen vom ersten Tag sitzen.",
+        body: "Neue Produktlaunches in der Schädlingsbekämpfung, einer Nische, in der Käufer kaum recherchieren und akut eine Problemlösung wollen. Sichtbarkeit und Effizienz müssen vom ersten Tag sitzen.",
       },
       {
         heading: "Unser Vorgehen",

@@ -34,10 +34,6 @@ export function Hero() {
   const cardY = useTransform(sy, [-0.5, 0.5], [12, -12]);
   const cardRX = useTransform(sy, [-0.5, 0.5], [6, -6]);
   const cardRY = useTransform(sx, [-0.5, 0.5], [-8, 8]);
-  const nearX = useTransform(sx, [-0.5, 0.5], [42, -42]);
-  const nearY = useTransform(sy, [-0.5, 0.5], [30, -30]);
-  const farX = useTransform(sx, [-0.5, 0.5], [-28, 28]);
-  const farY = useTransform(sy, [-0.5, 0.5], [-20, 20]);
 
   return (
     <section
@@ -45,7 +41,7 @@ export function Hero() {
       ref={ref}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="relative overflow-hidden bg-white pt-32 pb-20 md:pt-40 md:pb-28"
+      className="relative overflow-hidden bg-white pt-32 pb-24 md:pt-40 md:pb-32"
     >
       {/* Soft warm glow, top-right only, keeps the rest crisp white */}
       <div
@@ -55,7 +51,6 @@ export function Hero() {
             "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 45%, transparent 70%)",
         }}
       />
-      <div className="pointer-events-none absolute inset-0 bg-grid mask-radial opacity-[0.3]" />
 
       <div className="container-x relative grid items-center gap-14 lg:grid-cols-[0.92fr_1.08fr]">
         {/* Left: copy (centered on mobile, left from md) */}
@@ -75,8 +70,8 @@ export function Hero() {
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mx-auto mt-6 max-w-xl text-balance text-lg leading-relaxed text-ink-muted md:mx-0">
-              Wir machen euer Listing organisch so stark, dass es auch ohne Werbung
-              verkauft. Erst dann kommt PPC dazu und arbeitet vom ersten Euro an profitabel.
+              Wir bringen euer Listing dahin, dass es auch ohne Werbung verkauft.
+              Danach skaliert PPC, was bereits konvertiert.
             </p>
           </Reveal>
           <Reveal delay={0.18}>
@@ -108,10 +103,10 @@ export function Hero() {
                 ? undefined
                 : { x: cardX, y: cardY, rotateX: cardRX, rotateY: cardRY, transformStyle: "preserve-3d" }
             }
-            className="relative mx-auto w-full max-w-md rounded-[1.75rem] border border-black/[0.06] bg-white p-5 shadow-[0_40px_80px_-30px_rgba(2,48,71,0.35)]"
+            className="relative mx-auto w-full max-w-md rounded-panel bg-white p-5 shadow-[0_40px_80px_-30px_rgba(2,48,71,0.35)]"
           >
             <div
-              className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl"
+              className="relative aspect-[4/3] w-full overflow-hidden rounded-inner"
               style={{ background: "linear-gradient(135deg,#f3f5f8,#e7ebf1)" }}
             >
               <div className="absolute inset-0 grid place-items-center text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">
@@ -143,41 +138,12 @@ export function Hero() {
                 59,<span className="align-top text-lg">99 €</span>
               </span>
               <span
-                className="rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lift"
+                className="rounded-full px-5 py-2.5 text-sm font-bold text-ink"
                 style={{ backgroundImage: "var(--brand-gradient)" }}
               >
                 In den Warenkorb
               </span>
             </div>
-          </motion.div>
-
-          {/* Floating chip: Conversion */}
-          <motion.div
-            style={reduce ? undefined : { x: nearX, y: nearY }}
-            className="absolute -left-4 top-4 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift md:-left-10"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">Conversion</div>
-            <div className="text-lg font-extrabold text-ink">+50 %</div>
-          </motion.div>
-
-          {/* Floating chip: organic rank */}
-          <motion.div
-            style={reduce ? undefined : { x: farX, y: farY }}
-            className="absolute -right-3 top-1 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift md:-right-6"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">Organisch</div>
-            <div className="flex items-center gap-1 text-lg font-extrabold text-ink">
-              #1 <span style={{ color: "#10B981" }}>&uarr;</span>
-            </div>
-          </motion.div>
-
-          {/* Floating chip: TACoS */}
-          <motion.div
-            style={reduce ? undefined : { x: nearX, y: farY }}
-            className="absolute -bottom-5 right-8 rounded-2xl border border-black/[0.06] bg-white px-4 py-3 shadow-lift"
-          >
-            <div className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">TACoS</div>
-            <div className="text-lg font-extrabold text-ink">5,8 %</div>
           </motion.div>
         </div>
       </div>

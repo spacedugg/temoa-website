@@ -7,7 +7,7 @@ import { TiltCard } from "../ui/TiltCard";
 
 export function DesignShowcase() {
   return (
-    <section className="relative bg-white py-20 md:py-24">
+    <section className="section-y relative bg-white">
       <div className="container-x">
         <SectionHeading
           eyebrow="Designbeispiele"

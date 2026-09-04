@@ -14,13 +14,15 @@ const metrics = [
 
 const fit = [
   "Ihr seid eine etablierte Marke mit eigenem Sortiment auf Amazon.",
+  "Bei euch kümmern sich ein, zwei Leute um Amazon und die Zeit reicht nicht.",
   "Ihr wollt profitabel wachsen, nicht Umsatz um jeden Preis.",
   "Ihr seht Amazon als Vertriebskanal, in den ihr investiert.",
 ];
 const noFit = [
-  "Ihr sucht die billigste Lösung statt das beste Ergebnis.",
-  "Ihr wollt schnelle Tricks und garantierte Rankings.",
-  "Ihr steht noch ganz am Anfang, ohne nennenswerten Umsatz.",
+  "Euer Amazon-Umsatz liegt unter 50.000 € im Monat, dann fehlt den Produkten der Traffic.",
+  "Ihr sucht den günstigsten Anbieter.",
+  "Ihr wollt garantierte Rankings und schnelle Tricks.",
+  "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
 ];
 
 function CheckGreen() {
@@ -62,12 +64,13 @@ export function BookingBody() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="mx-auto mt-5 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
-                Findet heraus, wie viel Umsatz euer Account <span className="text-gradient">liegen lässt.</span>
+                Erst schauen wir in euren Account, <span className="text-gradient">dann reden wir.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mx-auto mt-5 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
-                Wir schauen in euren Amazon-Account und zeigen euch die größten Chancen, konkret an eurer Marke.
+                Vor dem Termin sehen wir uns eure Listings und Kampagnen an. Im Gespräch bekommt ihr konkrete
+                Beobachtungen und eine Einschätzung, keine Präsentation.
               </p>
             </Reveal>
             {/* Square portrait, face fully visible (no mid-face crop) */}
@@ -133,7 +136,7 @@ export function BookingBody() {
       {/* Passt / Passt nicht */}
       <section className="relative bg-[#EDF5FB] py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Für wen" size="compact" title={<>Passt das zu <span className="text-gradient">eurer Marke?</span></>} />
+          <SectionHeading eyebrow="Für wen" size="compact" title={<>Wann sich das Gespräch <span className="text-gradient">lohnt.</span></>} />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             <Reveal>
               <div className="surface flex h-full flex-col p-7">
@@ -187,19 +190,19 @@ export function BookingBody() {
       <section className="relative py-20 md:py-28">
         <div className="container-x">
           <div
-            className="relative overflow-hidden rounded-[2.5rem] px-6 py-16 text-center shadow-glow md:px-12 md:py-20"
-            style={{ backgroundImage: "var(--brand-gradient)", backgroundSize: "150% 150%" }}
+            className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
+            style={{ backgroundImage: "var(--brand-gradient-deep)" }}
           >
             <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-14 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />
             <Reveal>
               <h2 className="relative mx-auto max-w-2xl text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl">
-                Bereit, das Potenzial zu sehen?
+                Nehmt euch die 30 Minuten.
               </h2>
             </Reveal>
             <Reveal delay={0.08}>
               <p className="relative mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
-                Sichert euch euren kostenlosen Analyse-Termin. Unverbindlich, in etwa 30 Minuten.
+                Der Termin ist kostenlos und unverbindlich. Danach wisst ihr, was in eurem Konto liegt.
               </p>
             </Reveal>
             <Reveal delay={0.14}>

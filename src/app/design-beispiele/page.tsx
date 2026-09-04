@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Designbeispiele · temoa",
   description:
-    "So bauen wir Amazon-Content: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
+    "Amazon-Content von temoa: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
 };
 
 export default async function DesignBeispielePage({
@@ -47,8 +47,8 @@ export default async function DesignBeispielePage({
         <DesignGallery data={references} />
         <Testimonials tone="blue" />
         <ServiceCTA
-          title="Wie viel Umsatz verliert ihr an schwachem Content?"
-          sub="In der kostenlosen Potenzialanalyse zeigen wir euch, wo euer Content Käufer verliert."
+          title="Und wie sieht euer Listing aus?"
+          sub="In der kostenlosen Potenzialanalyse sagen wir euch, welches Format bei euch zuerst überarbeitet gehört."
         />
       </main>
       <Footer />

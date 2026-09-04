@@ -762,8 +762,8 @@ export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; 
     <section className="relative py-20 md:py-28">
       <div className="container-x">
         <div
-          className="relative overflow-hidden rounded-[2.5rem] px-6 py-16 text-center shadow-glow md:px-12 md:py-20"
-          style={{ backgroundImage: "var(--brand-gradient)", backgroundSize: "150% 150%" }}
+          className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
+          style={{ backgroundImage: "var(--brand-gradient-deep)" }}
         >
           <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-14 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />

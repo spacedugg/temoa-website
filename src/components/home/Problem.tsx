@@ -3,18 +3,16 @@
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 
-const ICOLOR = ["text-brand-600", "text-cyan", "text-red", "text-navy"];
-
 const pains: { icon: IconName; title: string; body: string }[] = [
-  { icon: "target", title: "Zeit-Engpass", body: "Listing-Optimierung ist ein Vollzeitjob. Im Tagesgeschäft bleibt sie liegen." },
-  { icon: "chart", title: "Falsche Signale", body: "Klickrate und Conversion, die wichtigsten Ranking-Signale, werden ignoriert." },
-  { icon: "ads", title: "PPC ohne Conversion", body: "Jeder Klick auf ein schwaches Listing ist verbranntes Budget." },
-  { icon: "puzzle", title: "Wissen fehlt im Haus", body: "Das Team ist stark im Produkt, das spezialisierte Amazon-Know-how fehlt." },
+  { icon: "layers", title: "Zu viele Produkte, zu wenig Zeit", body: "Mehrere hundert Artikel liegen bei ein, zwei Leuten, die daneben zehn andere Dinge machen." },
+  { icon: "content", title: "Seit dem Launch nichts verändert", body: "Bilder, Titel und A+ Content stehen genau so da wie am ersten Tag." },
+  { icon: "ads", title: "Kampagnen ohne Struktur", body: "Auto, Phrase und Exact laufen nebeneinander und bieten gegeneinander." },
+  { icon: "search", title: "Berichte, die niemand auswertet", body: "Search Query Bericht und Ads-Performance liegen im Konto und werden nicht gelesen." },
 ];
 
 export function Problem() {
   return (
-    <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+    <section className="section-y relative bg-canvas-tint">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
@@ -32,18 +30,17 @@ export function Problem() {
 
         <Reveal delay={0.08}>
           <div
-            className="mx-auto mt-10 flex aspect-[4/1] max-w-5xl items-center justify-center overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.05]"
-            style={{ background: "linear-gradient(135deg,#ffffff,#e7ecf2)" }}
+            className="mx-auto mt-10 flex aspect-[7/1] max-w-4xl items-center justify-center overflow-hidden rounded-card bg-white/60"
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">Bild 4:1</span>
+            <span className="text-label font-semibold uppercase text-ink-line">Bild folgt</span>
           </div>
         </Reveal>
 
         <RevealGroup className="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.06}>
-          {pains.map((p, i) => (
+          {pains.map((p) => (
             <RevealItem key={p.title} className="h-full">
               <div className="surface surface-hover flex h-full flex-col items-center p-5 text-center">
-                <span className={ICOLOR[i % ICOLOR.length]}>
+                <span className="text-ink-soft">
                   <Icon name={p.icon} size={30} />
                 </span>
                 <h3 className="mt-4 text-balance text-base font-bold leading-snug text-ink">{p.title}</h3>
@@ -54,15 +51,15 @@ export function Problem() {
         </RevealGroup>
 
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-white px-6 py-6 text-center shadow-lift ring-1 ring-black/[0.05]">
+          <div className="mx-auto mt-10 max-w-2xl rounded-card bg-white px-7 py-7 text-center shadow-lift">
             <span className="eyebrow justify-center !text-red">
               <span className="h-1.5 w-1.5 rounded-full bg-red" />
               Die Ursache
             </span>
             <p className="mt-3 text-balance text-lg font-semibold leading-snug text-ink md:text-xl">
-              Andere Symptome, dieselbe Ursache:{" "}
-              <span className="text-gradient">ein Listing, das nicht auf Klickrate und Conversion verkauft.</span>{" "}
-              Ohne dieses Fundament bleibt der Umsatz von Werbung abhängig, die jährlich teurer wird.
+              Vier Symptome, eine Ursache:{" "}
+              <span className="text-gradient">das Listing überzeugt zu wenige Besucher.</span>{" "}
+              Amazon rankt nach Klicks und Käufen. Wer dort zurückliegt, muss Sichtbarkeit dauerhaft einkaufen.
             </p>
           </div>
         </Reveal>
