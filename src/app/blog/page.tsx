@@ -46,14 +46,26 @@ export default function BlogPage() {
                       >
                         <Icon name={c.icon} size={20} />
                       </span>
-                      <span className="text-xs font-semibold text-ink-faint">{counts[c.slug] ?? 0} Beiträge</span>
+                      <span className="text-xs font-semibold text-ink-faint">
+                        {counts[c.slug] === 1 ? "1 Beitrag" : `${counts[c.slug] ?? 0} Beiträge`}
+                      </span>
                     </div>
                     <h3 className="mt-4 text-base font-bold leading-snug text-ink">{c.label}</h3>
                     <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-muted">{c.blurb}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold" style={{ color: c.accent }}>
+                    {/* Der Linktext stand in der Kategoriefarbe. Bei 13 px ist
+                        Orange auf Weiss nicht lesbar. Der Text bleibt dunkel,
+                        die Farbe sitzt auf dem Pfeil. */}
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-ink">
                       Themen ansehen
-                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
-                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        width="13"
+                        height="13"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        style={{ color: c.accent }}
+                        className="transition-transform group-hover:translate-x-0.5"
+                      >
+                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </span>
                   </a>

@@ -59,7 +59,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 </span>
                 <div>
                   <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">{cat.label}</h1>
-                  <p className="mt-1 text-sm font-medium text-ink-faint">{posts.length} Beiträge</p>
+                  <p className="mt-1 text-sm font-medium text-ink-faint">
+                    {posts.length === 1 ? "1 Beitrag" : `${posts.length} Beiträge`}
+                  </p>
                 </div>
               </div>
             </Reveal>

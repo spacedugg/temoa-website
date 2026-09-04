@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
+import { Pille } from "../ui/SectionHeading";
 
 /* Impressionsanteil: aufsteigende Balken. */
 function BarsViz({ color }: { color: string }) {
@@ -79,10 +80,14 @@ function ConversionViz({ color }: { color: string }) {
   );
 }
 
+/* Die Ueberschriften hiessen "Höherer Impressionsanteil", "Maximale
+   Klickrate" und "Conversion Rate Uplift". Das erste und zweite waren
+   Steigerungsbehauptungen, das dritte war englisch. Jetzt steht dort die
+   Kennzahl, die Aussage macht der Satz darunter. */
 const items: { Viz: (p: { color: string }) => React.ReactNode; title: string; body: string; color: string }[] = [
-  { Viz: BarsViz, title: "Höherer Impressionsanteil", body: "Sichtbar bei genau den Suchbegriffen, die kaufen.", color: "#FF9900" },
-  { Viz: ClickViz, title: "Maximale Klickrate", body: "Das Hauptbild gewinnt den Klick im Suchergebnis.", color: "#FF3131" },
-  { Viz: ConversionViz, title: "Conversion Rate Uplift", body: "Die Detailseite überzeugt in Sekunden zum Kauf.", color: "#0E7CA0" },
+  { Viz: BarsViz, title: "Impressionsanteil", body: "Sichtbar bei genau den Suchbegriffen, die kaufen.", color: "#FF9900" },
+  { Viz: ClickViz, title: "Klickrate", body: "Das Hauptbild gewinnt den Klick im Suchergebnis.", color: "#FF3131" },
+  { Viz: ConversionViz, title: "Conversion Rate", body: "Die Detailseite überzeugt in Sekunden zum Kauf.", color: "#0E7CA0" },
 ];
 
 export function ContentResultBand() {
@@ -90,9 +95,9 @@ export function ContentResultBand() {
     <section className="relative ground py-12 md:py-16">
       <div className="container-x">
         <Reveal>
-          <p className="mx-auto max-w-2xl text-center text-sm font-bold uppercase tracking-[0.16em] text-ink-faint">
-            Wofür wir Content erstellen
-          </p>
+          <div className="flex justify-center">
+            <Pille>Worauf wir Content ausrichten</Pille>
+          </div>
         </Reveal>
         <RevealGroup className="mx-auto mt-8 grid max-w-5xl items-stretch gap-4 md:grid-cols-3" stagger={0.08}>
           {items.map((it) => (
