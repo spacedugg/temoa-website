@@ -111,6 +111,38 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
 
 **Call-Buchen-Unterseite:** Prozessablauf, FAQ, Einbindung des Cal.com-Kalenders.
 
+## Unterseiten (Stand nach dem Theme-Wechsel)
+
+- **Eine Kopf- und Fusszeile fuer alle Seiten**: `takt/Kopfzeile` und
+  `takt/Fusszeile`. Die alten `Navbar` und `Footer` sind geloescht.
+- **Sektionsbezeichnung** ist ueberall die Komponente `Pille`
+  (`ui/SectionHeading`): Pille mit Leuchtpunkt, keine nackte Zeile.
+- **Sektionstoene** kommen aus `ground` und `ground-tint`. `bg-white` und
+  `bg-[#EDF5FB]` als Sektionsgrund sind raus.
+- **Abschluss-CTA** ist ueberall dasselbe dunkle Podest (`ground-deep`,
+  orange Lichtkante oben, `btn-on-dark`). Die frueheren Flaechen in tiefem
+  Orange-Rot (`--brand-gradient-deep`) sind weg.
+- **Bilder in Sektionen** laufen ueber `SzeneBild` in `service/Blocks`:
+  Pfade unter `/bilder` sind freigestellt und bekommen keinen Rahmen, Fotos
+  bekommen die Platte. Fehlt ein Bild, entfaellt die Bildspalte. Es gibt
+  keine grauen Kaesten mit der Aufschrift „Bild" mehr.
+- **Kein Orange als Schriftfarbe**, auch nicht `brand-600` (#F08400, rund
+  2,6:1 auf Weiss). Links sind Navy mit oranger Unterlaenge. Auf oranger
+  Flaeche steht immer dunkler Text.
+- **Leistungsseiten** haben je eine eigene freigestellte Illustration:
+  `s-strategie`, `s-content`, `s-advertising`, `s-account`,
+  `s-international`.
+- **Designbeispiele**: solange die Referenz-Bibliothek
+  (`src/data/references.json`) leer ist, zeigt die Seite den Aufbau am
+  erfundenen Beispielprodukt, sichtbar gekennzeichnet. Der Aufbau ist
+  links das Hauptbild, rechts die sechs Listingbilder (`listing-raster`,
+  auf dem Telefon gestapelt).
+- **Alte Sektionen sind geloescht.** `components/home` und
+  `components/sections` enthielten 37 Vorfassungen, auf die keine Seite
+  mehr zeigte. Sie kommen nicht zurueck; erhalten bleiben
+  `sections/Blocks`, `ComingSoon`, `Listing3D`, `Mocks`, `SocialProof`
+  und `home/Stats`.
+
 ## Branch
 
-Entwicklung auf `claude/pensive-turing-llpu6b`.
+Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
