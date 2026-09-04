@@ -29,8 +29,12 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 - **Keine Haarlinien-Listen.** Die frueheren Zeilen zwischen zwei Linien (`RuledRow`) sind durch `Karte` ersetzt: Icon-Kachel, kurze Ueberschrift, ein Satz. Icons kommen aus `src/components/takt/Icons.tsx`, Navy-Form mit einem orangen Detail.
 - **Zusammenhaenge werden gezeichnet, nicht beschrieben.** `.link-glow`, `.link-glow-v`, `.node-glow`, `.halo` und die Podest-Illustrationen. Kein Fliesstext, der erklaert, was ein Bild zeigen kann.
 - **Sektionsbezeichnung** ist eine Pille mit Leuchtpunkt (`Eyebrow`), keine nackte Zeile.
-- **Illustrationen der Familie `szene3d` brauchen eine weisse Platte.** Ihr Studiogrund ist nicht exakt weiss und stuende auf getoentem Grund als Kasten. Deshalb immer in ein `.panel` setzen und mit `[mix-blend-mode:multiply]` einbinden.
 - **Kennzahlen sind Karten** (`.kpi`), mit gruenem Trendpfeil, nicht nackte Zahlen unter einer Linie.
+- **Illustrationen sind freigestellt.** Die `szene3d`-Bilder werden mit `background: "transparent"` erzeugt und sitzen ohne Platte direkt auf dem Grund. Vorher hatten sie einen Studiogrund, der als Kasten auf der Flaeche stand und die Grafik abgeschnitten wirken liess. Entweder nahtlos auf dem Grund oder klar in einer Kachel, nie ein Bild mit eigenem hellgrauen Grund auf Weiss.
+- **Farbe traegt die Reihenfolge.** Wenn zwei Bloecke verschiedene Dinge sagen, unterscheiden sie sich auch farblich: `.panel-cool` fuer den ersten, das orange Band als Scharnier, `.panel-navy` fuer den zweiten. Dazu Schrittmarken (`.schritt`). Vorher war es weiss, orange, weiss, dann sprang das Auge aufs Orange und die Folge war nicht zu sehen.
+- **Der CTA ist der hellste Punkt der Sektion.** `btn-primary` ist groesser als ein normaler Button und traegt einen orangen Lichthof. Orange wird nie zur Buttonflaeche.
+- **Designbeispiele folgen dem Aufbau eines Listings**, nicht einem freien Raster: Hauptbild gross, darunter die sechs weiteren Bilder in zwei Spalten und drei Zeilen, rechts der A+ Content vertikal gestapelt mit Modulen im Querformat.
+- **Fotos gehoeren nicht in Kameragroesse ins Repo.** `node scripts/bilder-optimieren.mjs` rechnet die Fotos unter `public` auf Anzeigegroesse herunter und schreibt WebP, die Originale wandern nach `fotos-original` ausserhalb von `public`. Die Teamfotos lagen mit bis zu 2,5 MB je Datei im Repo, zusammen 22 MB fuer eine Sektion mit Quadraten von rund hundert Pixeln.
 
 ## Design- und Bildregeln (nach Kundenfeedback verbindlich)
 
@@ -40,9 +44,10 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 - **Kein dunkler Text auf oranger Flaeche bei Buttons.** Primaerbutton ist Navy mit weisser Schrift, die Pfeilscheibe traegt das Orange (`btn-primary`). Auf dunklem Grund kehrt es sich um: weisse Flaeche, Navy-Text (`btn-on-dark`). Orange bleibt Akzent, nie Buttonflaeche.
 - **Keine schwebenden Textbloecke auf Weiss.** Inhalte sitzen in abgesetzten Flaechen: Karten, getoente Baender, dunkle Sektionen. Zwei Textbausteine ohne sichtbare Trennung nebeneinander sind ein Fehler.
 - **Keine nackten Tabellen und keine Durchstreichungslisten.** Gegenueberstellungen laufen als zwei Karten, links das Uebliche gedaempft mit Kreuz, rechts die temoa-Fassung betont mit Haken.
-- **Zwei Bildfamilien, klar getrennt** (siehe `content/bild-prompts.json`):
-  1. `produkt`: fotorealistische Produktaufnahmen fuer Hero, Designbeispiele und A+ Module. Das ist die Familie, die Amazon-Wirkung erzeugt. Ein durchgaengiges, frei erfundenes Produkt ohne Marke und ohne Schrift.
-  2. `objekt`: die reduzierten matten 3D-Gegenstaende, nur noch als Akzent in Argumentationssektionen.
+- **Drei Bildfamilien, klar getrennt** (siehe `content/bild-prompts.json`):
+  1. `szene3d`: weiche 3D-Illustrationen nach den Kundenreferenzen, freigestellt auf transparentem Grund. Leitfamilie fuer Argumentationssektionen.
+  2. `produkt`: fotorealistische Produktaufnahmen fuer Hero, Designbeispiele und A+ Module. Ein durchgaengiges, frei erfundenes Produkt ohne Marke und ohne Schrift.
+  3. `objekt`: die frueheren matten Einzelgegenstaende, abgeloest, nur noch Archiv.
 - **Schrift gehoert nie ins generierte Bild.** Bildmodelle setzen Schrift fehlerhaft. Der Bildgrund kommt aus der Datei, jede Beschriftung zeichnet der Code darueber. Gilt auch fuer A+ Module und Listing-Nachbauten.
 - **Listing-Nachbauten ohne Amazon-Oberflaeche.** Kein Amazon-Logo, kein Prime, keine Amazon-Chrome. Nur der Aufbau einer Produktseite. Beispiel-Listings werden als erfunden gekennzeichnet.
 - **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 60+ Marken, 5+ Marktplaetze, 98 % Kundenbindung), nicht als Fantasiewert in einer Grafik.

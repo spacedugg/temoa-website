@@ -75,7 +75,11 @@ const FUELLUNG = Number(process.env.FUELLUNG || 0.84);
  */
 async function nachrahmen(sharp, rohdaten, breite, hoehe) {
   const original = sharp(rohdaten);
-  const { width: ow, height: oh } = await original.metadata();
+  const { width: ow, height: oh, hasAlpha } = await original.metadata();
+  // Freigestellte Grafiken duerfen bis fast an die Kante laufen: der Rand ist
+  // transparent, die Abstaende bestimmt die Seite. Bilder mit Studiogrund
+  // brauchen etwas Luft, sonst wirken sie beschnitten.
+  const fuellung = hasAlpha ? 0.97 : FUELLUNG;
 
   // Die Kanten des Motivs ueber trim finden, ohne das Ergebnis zu verwenden:
   // die Versaetze verraten das umschliessende Rechteck im Original.
@@ -87,7 +91,7 @@ async function nachrahmen(sharp, rohdaten, breite, hoehe) {
 
   // Ausschnitt im Zielseitenverhaeltnis, gross genug fuer die gewuenschte Fuellung.
   const seiten = breite / hoehe;
-  let aw = Math.max(mw / FUELLUNG, (mh / FUELLUNG) * seiten);
+  let aw = Math.max(mw / fuellung, (mh / fuellung) * seiten);
   let ah = aw / seiten;
   // Nicht ueber das Original hinaus.
   const grenze = Math.min(ow / aw, oh / ah, 1);
@@ -147,11 +151,20 @@ function stilblock(bild) {
 async function erzeuge(bild, versuch = 1) {
   const size = pruefeGroesse(bild.size, bild.kennung);
   const prompt = `${bild.prompt.trim()}\n\n${stilblock(bild).trim()}`;
+  // Freigestellt: die Illustration bekommt keinen Studiogrund, sondern Alpha.
+  // Damit sitzt sie nahtlos auf dem Seitengrund, ohne Kasten und ohne dass ein
+  // Beschnitt der Grafik sichtbar wird. Bei gpt-image-2 verlangt das PNG.
+  const frei = bild.transparent === true;
+  const koerper = { model: MODEL, prompt, size, quality: QUALITY, n: N };
+  if (frei) {
+    koerper.background = "transparent";
+    koerper.output_format = "png";
+  }
   try {
     const res = await fetch("https://api.openai.com/v1/images/generations", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
-      body: JSON.stringify({ model: MODEL, prompt, size, quality: QUALITY, n: N }),
+      body: JSON.stringify(koerper),
     });
     if (!res.ok) {
       const text = await res.text();

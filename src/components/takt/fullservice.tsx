@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Station, StationTitle, StationLead, Eyebrow, Karte } from "./Station";
-import type { IconName } from "./Icons";
+import { Icon, type IconName } from "./Icons";
 import { Bildfeld } from "./Bildfeld";
 
 /**
@@ -214,27 +214,86 @@ export function Bereiche() {
 }
 
 /* ---------- 04 · Immer enthalten ---------- */
+/**
+ * Reporting.
+ *
+ * Vorher: die Bezeichnung stand in einer eigenen Spalte links, daneben eine
+ * kleine Überschrift und drei fett gesetzte Zeilen ohne erkennbares Verhältnis,
+ * alles flach auf Weiß. Die Sektion hatte kein Gewicht und man sah nicht, wie
+ * die Texte zueinander stehen.
+ *
+ * Jetzt: eine Überschrift in Sektionsgröße, darunter drei Karten mit Symbol
+ * und einem Satz, daneben das Bild. Damit ist die Hierarchie in einem Blick da.
+ */
 export function Reporting() {
+  const reduce = useReducedMotion();
+  const auf = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 16 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: "-12% 0px" },
+          transition: { duration: 0.6, delay, ease: EASE },
+        };
+
+  const punkte: { icon: IconName; title: string; body: string }[] = [
+    {
+      icon: "bericht",
+      title: "Monatlicher Performance-Report",
+      body: "Umsatz, Werbekosten und Deckungsbeitrag je Produkt, in einer Ansicht.",
+    },
+    {
+      icon: "stufen",
+      title: "Profit- und Verlust-Analyse",
+      body: "Welche SKU verdient, welche kostet, und woran es liegt.",
+    },
+    {
+      icon: "lupe",
+      title: "Markttrends und Wettbewerb",
+      body: "Wo eure Suchbegriffe wandern und wer euch Plätze abnimmt.",
+    },
+  ];
+
   return (
-    <section className="relative border-y border-ink/[0.08] bg-white py-14 md:py-16">
-      <div className="container-x">
-        <div className="grid gap-y-8 md:grid-cols-[8rem_1fr] md:gap-x-14 lg:grid-cols-[10rem_1fr]">
-          <span className="text-label font-bold uppercase text-ink-muted">Immer enthalten</span>
-          <div className="min-w-0">
-            <h2 className="title max-w-[24ch] text-balance text-[clamp(1.5rem,1.2rem+1vw,2rem)] text-ink">
-              Reporting, das ihr in fünf Minuten versteht.
-            </h2>
-            <div className="mt-6 flex flex-wrap gap-x-10 gap-y-3">
-              {["Monatliche Performance-Reports", "Profit- und Verlust-Analyse", "Markttrends und Wettbewerbsbeobachtung"].map((t) => (
-                <span key={t} className="text-small font-bold text-ink">
-                  {t}
+    <Station label="Immer enthalten" tone="tint">
+      <div className="grid gap-10 lg:grid-cols-[1fr_0.68fr] lg:items-center lg:gap-14">
+        <div className="min-w-0">
+          <StationTitle>Reporting, das ihr in fünf Minuten versteht.</StationTitle>
+          <StationLead>
+            Kein Datenexport zum Selbstauswerten. Ihr bekommt die Zahlen, die eine Entscheidung
+            tragen, und dazu unsere Einordnung.
+          </StationLead>
+
+          <div className="mt-8 space-y-3">
+            {punkte.map((p, i) => (
+              <motion.div key={p.title} {...auf(i * 0.07)} className="panel flex items-start gap-4 p-5 md:p-6">
+                <span className="tile">
+                  <Icon name={p.icon} className="h-6 w-6" />
                 </span>
-              ))}
-            </div>
+                <div className="min-w-0">
+                  <div className="text-[1.02rem] font-bold leading-snug text-ink">{p.title}</div>
+                  <div className="mt-1 text-small leading-relaxed text-ink-muted">{p.body}</div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        <motion.div {...auf(0.12)} className="relative flex items-center justify-center">
+          <span aria-hidden className="halo left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/bilder/n-reporting.webp"
+            alt="Ein schwebendes Dashboard mit steigender Kurve, Balken und zwei Kennzahlkarten."
+            width={1408}
+            height={1056}
+            loading="lazy"
+            className="relative w-full"
+          />
+        </motion.div>
       </div>
-    </section>
+    </Station>
   );
 }
 

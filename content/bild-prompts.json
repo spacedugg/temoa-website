@@ -7,7 +7,8 @@
       "size": "1600x1200",
       "motiv": "Trichter: viele Besucher oben, wenige Kaeufe unten",
       "stil": "szene3d",
-      "prompt": "A soft 3D funnel standing on a low rounded navy platform. Many small navy spheres flow into the wide top opening of the funnel, and only two orange spheres come out of the narrow bottom and rest on the platform. Exactly this one arrangement in the frame."
+      "prompt": "A soft 3D funnel standing on a low rounded navy platform. Many small navy spheres flow into the wide top opening of the funnel, and only two orange spheres come out of the narrow bottom and rest on the platform. Exactly this one arrangement in the frame.",
+      "transparent": true
     },
     {
       "kennung": "n-organic",
@@ -16,7 +17,7 @@
       "motiv": "Isometrische Kette: Sichtbarkeit, Klick, Kauf, dann steigende Kurve",
       "stil": "szene3d",
       "prompt": "A long low navy platform carrying three white rounded pucks in a row, each puck topped by one floating rounded white card, the three connected left to right by short thick glowing orange arrows. Each card carries a single simple matte navy pictogram, from left to right: a magnifying glass, a mouse cursor arrow, and a shopping bag with a small orange check mark. At the right end of the platform a taller white podium carries a floating frosted glass panel showing a rising orange bar chart with an upward orange arrow. Nothing else in the frame.",
-      "rahmen": false
+      "transparent": true
     },
     {
       "kennung": "n-leistungen",
@@ -24,7 +25,17 @@
       "size": "1408x1408",
       "motiv": "Nabe mit fuenf Bereichen ringsum",
       "stil": "szene3d",
-      "prompt": "A white rounded cube in the centre standing on a low navy disc. Five white rounded-square tiles are arranged evenly in a ring around it, each connected to the centre cube by one thin glowing orange line. Each tile carries a single simple matte navy pictogram: a chess knight, a small shop front, a megaphone, a gear with a clock hand, and a globe with two small orange pins. Nothing else."
+      "prompt": "A white rounded cube in the centre standing on a low navy disc. Five white rounded-square tiles are arranged evenly in a ring around it, each connected to the centre cube by one thin glowing orange line. Each tile carries a single simple matte navy pictogram: a chess knight, a small shop front, a megaphone, a gear with a clock hand, and a globe with two small orange pins. Nothing else.",
+      "transparent": true
+    },
+    {
+      "kennung": "n-reporting",
+      "seite": "Full Service: Reporting",
+      "size": "1408x1056",
+      "motiv": "Schwebendes Dashboard: Kurve, Balken, zwei Kennzahlkarten",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "One large floating rounded white panel seen in three-quarter view, showing a rising orange line over a row of navy bars. Two smaller rounded white cards float in front of its lower right corner, each carrying a short orange upward arrow. A thin glowing orange line connects the two small cards to the large panel. Nothing else."
     },
     {
       "kennung": "p-haupt",
@@ -203,6 +214,6 @@
   "stilblocks": {
     "objekt": "Minimal 3D render, one single subject, nothing else in frame. Matte material, soft neutral studio light from one side, one soft shadow. Clean white background with a large amount of empty space around the object. Colour palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900), white and light warm grey. No other colours, no gradients across the frame, no glow effects, no connecting lines, no floating icons, no collage of multiple symbols. Absolutely no text, no letters, no numbers, no logos, no interface labels. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, restrained, editorial. High detail, quiet composition.",
     "produkt": "Photorealistic e-commerce product photography of a premium consumer brand. Clean even studio lighting, soft natural shadow under the product, no harsh reflections. Tack sharp focus, very high detail, shot straight on at product height with a normal lens, no wide-angle distortion. Absolutely no text, no letters, no numbers, no logos, no printed labels, no engraving and no branding of any kind, neither on the product nor anywhere in the scene. No people, no faces, no hands, no body parts. Calm neutral colour world. Nothing else in the frame that competes with the product.",
-    "szene3d": "Soft 3D render in a clean premium product-illustration style, the look of a high-end SaaS website illustration. Matte plastic surfaces with generously rounded corners and soft bevels. Colour palette strictly deep navy blue (#243B55), amazon orange (#FF9900), white and very light cool grey, no other colours. Soft diffuse studio light from above, gentle contact shadows, no harsh highlights, no reflections. Thin glowing orange connector lines where elements relate to each other. The background is a clean near-white studio sweep with a subtle warm glow, no visible horizon line. Three-quarter isometric view. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. Crisp, calm, high detail, generous empty space around the subject."
+    "szene3d": "Soft 3D render in a clean premium product-illustration style, the look of a high-end SaaS website illustration. Matte plastic surfaces with generously rounded corners and soft bevels. Colour palette: deep navy blue (#243B55) and a lighter slate blue for depth, amazon orange (#FF9900) as the single bright accent, white and very light cool grey. No other bright colours. Soft diffuse studio light from above, one gentle contact shadow directly beneath each object, no harsh highlights, no reflections. Thin glowing orange connector lines where elements relate to each other. THE SUBJECT IS COMPLETELY ISOLATED ON A FULLY TRANSPARENT BACKGROUND: no backdrop, no studio sweep, no ground plane, no floor, no horizon, no vignette, nothing behind or around the objects. Three-quarter isometric view. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. Crisp, calm, high detail."
   }
 }

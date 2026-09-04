@@ -143,9 +143,6 @@ export function Befund() {
               einkaufen.
             </p>
           </div>
-          {/* Der Studiogrund der Illustrationen ist nicht exakt weiß und stünde
-              als Rechteck auf der Platte. Multiplizieren lässt Weiß verschwinden
-              und hält die dunklen Flächen unverändert. */}
           <div className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -154,7 +151,7 @@ export function Befund() {
               width={1600}
               height={1200}
               loading="lazy"
-              className="w-full [mix-blend-mode:multiply]"
+              className="w-full"
             />
           </div>
         </div>
@@ -228,64 +225,89 @@ export function Verfahren() {
         zuerst das Listing, dann die Kampagne.
       </StationLead>
 
-      {/* Der Ablauf als Bild: Sichtbarkeit, Klick, Kauf, dann die Kurve. */}
-      <motion.div {...auf(0.08)} className="panel relative mt-10 overflow-hidden px-4 py-6 md:px-10 md:py-8">
-        {/* Die Illustration braucht eine weiße Bühne. Auf dem getönten Grund
-            würde ihr Studiogrund selbst beim Multiplizieren als Kasten stehen. */}
+      {/* Der Ablauf als Bild. Die Grafik ist freigestellt und sitzt ohne Platte
+          direkt auf dem Grund, damit nichts abgeschnitten wirkt. */}
+      <motion.div {...auf(0.08)} className="relative mt-8">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/bilder/n-organic.webp"
-          alt="Drei Stufen auf einem Podest, durch Pfeile verbunden: Suche, Klick, Kauf. Am Ende eine steigende Kurve."
+          alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf. Am Ende eine steigende Kurve."
           width={1600}
           height={896}
           loading="lazy"
-          className="relative mx-auto w-full max-w-[52rem] [mix-blend-mode:multiply]"
+          className="mx-auto w-full max-w-[54rem]"
         />
       </motion.div>
 
-      {/* Dieselbe Kette benannt. Das Bild zeigt sie, hier steht, was sie bedeutet. */}
-      <Phase label="Organic First" />
-      <div className="mt-6 grid gap-5 md:grid-cols-3">
-        {stufen.map((s, i) => (
-          <motion.div
-            key={s.name}
-            {...auf(i * 0.08)}
-            className={clsx(
-              "panel relative p-6 md:p-7",
-              s.signal ? "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.45),0_1px_2px_rgba(13,36,57,0.05),0_18px_34px_-18px_rgba(13,36,57,0.22)]" : ""
-            )}
-          >
-            {s.signal && (
-              <span className="absolute right-5 top-5 rounded-full bg-brand-500 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-navy">
-                Ranking-Signal
-              </span>
-            )}
-            <div className="num text-[2rem] text-ink/15">{String(i + 1).padStart(2, "0")}</div>
-            <div className="mt-3 text-[1.15rem] font-bold leading-snug text-ink">{s.name}</div>
-            <div className="mt-1.5 text-small text-ink-muted">{s.meaning}</div>
-          </motion.div>
-        ))}
-      </div>
+      {/* Erster Block: kuehle Platte. Zweiter Block: Navy. Dazwischen das orange
+          Ergebnisband als Scharnier. Drei verschiedene Werte, damit die
+          Reihenfolge zu sehen ist. Vorher war es weiss, orange, weiss, dann
+          sprang das Auge aufs Orange und die Folge ging verloren. */}
+      <motion.div {...auf(0.05)} className="panel-cool mt-12 p-6 md:p-8">
+        <div className="flex items-center gap-3.5">
+          <span className="schritt schritt-navy">1</span>
+          <div className="min-w-0">
+            <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
+            <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+          </div>
+        </div>
 
-      {/* Ergebnis der ersten Phase, trägt in die zweite. */}
-      <motion.div
-        {...auf(0.24)}
-        className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-[1.75rem] bg-brand-500 px-7 py-6 text-navy shadow-[0_0_50px_-12px_rgba(255,153,0,0.6)]"
-      >
-        <span className="text-label font-bold uppercase">Ergebnis</span>
-        <span className="text-[1.15rem] font-extrabold leading-snug">Das Listing verkauft ohne Werbung.</span>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {stufen.map((s, i) => (
+            <div
+              key={s.name}
+              className={clsx(
+                "relative rounded-[1.25rem] bg-white p-5 md:p-6",
+                s.signal
+                  ? "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.5),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-16px_rgba(13,36,57,0.2)]"
+                  : "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-18px_rgba(13,36,57,0.2)]"
+              )}
+            >
+              <div className="flex items-start justify-between gap-3">
+                <span className="num text-[1.7rem] text-ink/20">{String(i + 1).padStart(2, "0")}</span>
+                {s.signal && (
+                  <span className="rounded-full bg-brand-500 px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-navy">
+                    Ranking-Signal
+                  </span>
+                )}
+              </div>
+              <div className="mt-2.5 text-[1.05rem] font-bold leading-snug text-ink">{s.name}</div>
+              <div className="mt-1.5 text-small text-ink-muted">{s.meaning}</div>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
-      <Phase label="PPC Second" className="mt-12" />
-      <div className="mt-6 grid gap-5 md:grid-cols-3">
-        {ppc.map((p, i) => (
-          <motion.div key={p.title} {...auf(i * 0.08)} className="panel p-6 md:p-7">
-            <span aria-hidden className="node-glow block" />
-            <div className="mt-4 text-[1.05rem] font-bold leading-snug text-ink">{p.title}</div>
-            <div className="mt-1.5 text-small text-ink-muted">{p.body}</div>
-          </motion.div>
-        ))}
-      </div>
+      {/* Scharnier zwischen den beiden Bloecken. */}
+      <motion.div
+        {...auf(0.12)}
+        className="relative mx-auto -mt-3 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-brand-500 px-7 py-4 text-navy shadow-[0_14px_34px_-10px_rgba(255,153,0,0.7)]"
+      >
+        <span className="text-label font-bold uppercase">Ergebnis</span>
+        <span className="text-center text-[1.05rem] font-extrabold leading-snug">
+          Das Listing verkauft ohne Werbung.
+        </span>
+      </motion.div>
+
+      <motion.div {...auf(0.05)} className="on-dark panel-navy -mt-3 p-6 md:p-8">
+        <div className="flex items-center gap-3.5">
+          <span className="schritt schritt-orange">2</span>
+          <div className="min-w-0">
+            <div className="text-[1.05rem] font-extrabold leading-tight text-white">PPC Second</div>
+            <div className="text-small text-chalk-muted">Werbung skaliert erst, was schon konvertiert.</div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {ppc.map((p) => (
+            <div key={p.title} className="rounded-[1.25rem] bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_0_0_1px_rgba(255,255,255,0.07)] md:p-6">
+              <span aria-hidden className="node-glow block" />
+              <div className="mt-4 text-[1.05rem] font-bold leading-snug text-white">{p.title}</div>
+              <div className="mt-1.5 text-small text-chalk-muted">{p.body}</div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Gegenüberstellung als zwei Karten. Die frühere Tabelle mit
           Durchstreichung war schwer zu lesen und trug pro Blick kaum etwas. */}
@@ -330,17 +352,6 @@ export function Verfahren() {
   );
 }
 
-/** Phasenmarke: Leuchtpunkt, Wort, dann eine Linie bis zum Rand. */
-function Phase({ label, className }: { label: string; className?: string }) {
-  return (
-    <div className={clsx("mt-12 flex items-center gap-3", className)}>
-      <span aria-hidden className="node-glow" />
-      <span className="text-label font-bold uppercase text-ink-soft">{label}</span>
-      <span aria-hidden className="link-glow flex-1 opacity-40" />
-    </div>
-  );
-}
-
 /* ============================================================
    03 · Leistungen
    ============================================================ */
@@ -382,20 +393,20 @@ export function Leistungen() {
         Analyse.
       </StationLead>
 
-      <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1fr_0.72fr] lg:gap-14">
-        <div className="grid gap-5 sm:grid-cols-2">
-          {leistungen.map((l, i) => (
-            <motion.div
-              key={l.title}
-              {...auf(i * 0.06)}
-              className={clsx("h-full", i === 4 ? "sm:col-span-2" : "")}
-            >
-              <Karte icon={l.icon} title={l.title} body={l.body} href={l.href} />
-            </motion.div>
-          ))}
-        </div>
+      {/* Drei Spalten, zwei Zeilen. Fuenf Karten plus die Grafik in der sechsten
+          Zelle: damit geht das Raster auf und Bild und Karten haben dieselbe
+          Groesse. Vorher stand links eine hohe Kartenspalte neben einem
+          quadratischen Bild, das passte nicht zusammen. */}
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {leistungen.map((l, i) => (
+          <motion.div key={l.title} {...auf(i * 0.06)} className="h-full">
+            <Karte icon={l.icon} title={l.title} body={l.body} href={l.href} />
+          </motion.div>
+        ))}
 
-        <motion.div {...auf(0.12)} className="panel relative overflow-hidden p-4 md:p-6">
+        {/* Die Grafik sitzt freigestellt in der Zelle, ohne Platte darunter. */}
+        <motion.div {...auf(0.3)} className="relative flex items-center justify-center">
+          <span aria-hidden className="halo left-1/2 top-1/2 h-[16rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/bilder/n-leistungen.webp"
@@ -403,7 +414,7 @@ export function Leistungen() {
             width={1408}
             height={1408}
             loading="lazy"
-            className="relative w-full [mix-blend-mode:multiply]"
+            className="relative w-full max-w-[19rem]"
           />
         </motion.div>
       </div>
@@ -512,6 +523,14 @@ const bildstrecke = [
   { src: "/bilder/p-unterwegs.webp", rolle: "Unterwegs", alt: "Flasche in der Seitentasche eines Rucksacks" },
 ];
 
+/**
+ * Designbeispiele.
+ *
+ * Das Layout folgt dem Aufbau eines echten Listings, nicht einem freien
+ * Bildraster: links das Hauptbild gross, darunter die sechs weiteren Bilder in
+ * zwei Spalten und drei Zeilen. Rechts der A+ Content, vertikal gestapelt,
+ * jedes Modul selbst im Querformat.
+ */
 export function Arbeiten() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
@@ -524,6 +543,8 @@ export function Arbeiten() {
           transition: { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
         };
 
+  const [haupt, ...weitere] = bildstrecke;
+
   return (
     <Station label="Designbeispiele" tone="tint">
       <StationTitle>
@@ -534,95 +555,91 @@ export function Arbeiten() {
         Marke sind frei erfunden, die Arbeit ist echt.
       </StationLead>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
-        {/* Bildstrecke */}
+      <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8">
+        {/* Bildstrecke im Aufbau der Produktseite */}
         <div className="min-w-0">
-          <div className="text-label font-bold uppercase text-ink-faint">Bildstrecke</div>
-          {/* Vier Spalten, das Hauptbild über zwei mal zwei Felder. Mit den sechs
-              weiteren Bildern und der Infokachel geht das Raster lückenlos auf. */}
-          <div className="mt-4 grid grid-cols-4 gap-2.5">
-            {bildstrecke.map((b, i) => (
-              <motion.figure
-                key={b.src}
-                {...auf(i * 0.05)}
-                className={clsx(
-                  "group relative m-0 overflow-hidden rounded-[0.9rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_26px_-16px_rgba(13,36,57,0.28)]",
-                  i === 0 ? "col-span-2 row-span-2" : ""
-                )}
-              >
+          <BereichsKopf label="Bildstrecke" note="1 Hauptbild + 6 Listingbilder" />
+
+          <motion.figure {...auf(0)} className="listing-kachel m-0 mt-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={haupt.src} alt={haupt.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
+            <Rolle text={haupt.rolle} />
+          </motion.figure>
+
+          <div className="mt-3 grid grid-cols-2 gap-3">
+            {weitere.map((b, i) => (
+              <motion.figure key={b.src} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={b.src} alt={b.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/75 to-transparent px-2.5 pb-1.5 pt-6">
-                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-white">{b.rolle}</span>
-                </figcaption>
+                <Rolle text={b.rolle} />
               </motion.figure>
             ))}
-            <motion.div
-              {...auf(0.35)}
-              className="col-span-2 flex flex-col justify-center rounded-[0.625rem] bg-navy p-5"
-            >
-              <span aria-hidden className="h-2 w-2 rounded-full bg-brand-500" />
-              <p className="mt-3 text-[0.95rem] font-bold leading-snug text-white">
-                Ein Set, sieben Rollen
-              </p>
-              <p className="mt-1.5 text-[0.78rem] leading-snug text-chalk-muted">
-                Jedes Bild beantwortet eine eigene Frage: Was ist es, wie ist es gemacht, wofür ist
-                es, welche Varianten gibt es.
-              </p>
-            </motion.div>
           </div>
         </div>
 
-        {/* A+ Content: Bildgrund aus der Datei, Text aus dem Code */}
+        {/* A+ Content: vertikal gestapelt, jedes Modul im Querformat */}
         <div className="min-w-0">
-          <div className="text-label font-bold uppercase text-ink-faint">A+ Content</div>
-          <div className="mt-4 space-y-2.5">
-            <motion.div
-              {...auf(0.05)}
-              className="relative overflow-hidden rounded-[0.9rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_26px_-16px_rgba(13,36,57,0.28)]"
-            >
+          <BereichsKopf label="A+ Content" note="4 Module, untereinander" />
+
+          <div className="mt-4 space-y-3">
+            <motion.div {...auf(0.05)} className="listing-kachel relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/bilder/a-hero.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
               <div className="absolute inset-y-0 left-0 flex w-[58%] flex-col justify-center px-5 md:px-7">
-                <p className="text-[clamp(0.85rem,0.5rem+0.9vw,1.25rem)] font-extrabold leading-tight text-navy">
+                <p className="text-[clamp(0.9rem,0.5rem+0.9vw,1.3rem)] font-extrabold leading-tight text-navy">
                   24 Stunden kalt.
                   <br />
                   12 Stunden heiß.
                 </p>
-                <p className="mt-1.5 text-[0.7rem] leading-snug text-navy/70">Doppelwandig, vakuumisoliert</p>
+                <p className="mt-1.5 text-[0.72rem] leading-snug text-navy/70">Doppelwandig, vakuumisoliert</p>
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-2.5">
-              {[
-                { src: "/bilder/a-nutzen.webp", t: "Hält die Kälte", b: "Auch nach einem Tag im Rucksack." },
-                { src: "/bilder/a-anwendung.webp", t: "Passt in den Alltag", b: "Schreibtisch, Küche, Tasche." },
-              ].map((m, i) => (
-                <motion.div
-                  key={m.src}
-                  {...auf(0.1 + i * 0.05)}
-                  className="overflow-hidden rounded-[0.9rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_26px_-16px_rgba(13,36,57,0.28)]"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.src} alt="" width={1024} height={768} className="aspect-[4/3] w-full object-cover" />
-                  <div className="px-3 py-2.5">
-                    <p className="text-[0.75rem] font-bold leading-snug text-ink">{m.t}</p>
-                    <p className="mt-0.5 text-[0.68rem] leading-snug text-ink-faint">{m.b}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            {[
+              { src: "/bilder/a-nutzen.webp", t: "Hält die Kälte", b: "Auch nach einem Tag im Rucksack.", w: 1024, h: 768, ar: "aspect-[4/3]" },
+              { src: "/bilder/a-anwendung.webp", t: "Passt in den Alltag", b: "Schreibtisch, Küche, Tasche.", w: 1024, h: 768, ar: "aspect-[4/3]" },
+            ].map((m, i) => (
+              <motion.div key={m.src} {...auf(0.1 + i * 0.05)} className="listing-kachel flex items-stretch">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={m.src} alt="" width={m.w} height={m.h} className="w-[46%] shrink-0 object-cover" />
+                <div className="flex min-w-0 flex-col justify-center px-4 py-3 md:px-5">
+                  <p className="text-[0.9rem] font-bold leading-snug text-ink">{m.t}</p>
+                  <p className="mt-1 text-[0.75rem] leading-snug text-ink-muted">{m.b}</p>
+                </div>
+              </motion.div>
+            ))}
 
-            <motion.div
-              {...auf(0.2)}
-              className="overflow-hidden rounded-[0.9rem] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_26px_-16px_rgba(13,36,57,0.28)]"
-            >
+            <motion.div {...auf(0.2)} className="listing-kachel">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/bilder/a-vergleich.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
-              <div className="flex items-baseline justify-between gap-3 px-4 py-2.5">
-                <p className="text-[0.75rem] font-bold text-ink">Fünf Farben, eine Form</p>
-                <p className="text-[0.68rem] text-ink-faint">Modul: Varianten</p>
+              <div className="flex items-baseline justify-between gap-3 px-4 py-3">
+                <p className="text-[0.85rem] font-bold text-ink">Fünf Farben, eine Form</p>
+                <p className="text-[0.7rem] text-ink-faint">Modul: Varianten</p>
               </div>
+            </motion.div>
+
+            {/* Die rechte Spalte war unten leer. Statt Luft steht dort, was an so
+                einem Listing gearbeitet wird. */}
+            <motion.div {...auf(0.26)} className="on-dark panel-navy p-6 md:p-7">
+              <div className="text-[1rem] font-extrabold leading-snug text-white">
+                Was an diesem Listing gemacht wurde
+              </div>
+              <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                {[
+                  ["7", "Bilder, jedes mit eigener Aufgabe"],
+                  ["4", "A+ Module, aufeinander aufgebaut"],
+                  ["1", "Bildsprache über alle Varianten"],
+                ].map(([zahl, text]) => (
+                  <div key={text} className="min-w-0">
+                    <div className="num text-[1.9rem] text-brand-500">{zahl}</div>
+                    <div className="mt-1.5 text-[0.75rem] leading-snug text-chalk-muted">{text}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 border-t border-white/10 pt-4 text-[0.78rem] leading-relaxed text-chalk-muted">
+                Titel, Bullets und Backend-Felder gehören dazu, sind hier aber nicht abgebildet: sie
+                stehen im Text der Produktseite, nicht im Bild.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -635,6 +652,25 @@ export function Arbeiten() {
         </svg>
       </a>
     </Station>
+  );
+}
+
+/** Kopf eines der beiden Bereiche: Bezeichnung links, Umfang rechts. */
+function BereichsKopf({ label, note }: { label: string; note: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-4 border-b border-ink/[0.09] pb-2.5">
+      <span className="text-label font-bold uppercase text-ink-soft">{label}</span>
+      <span className="text-[0.7rem] text-ink-faint">{note}</span>
+    </div>
+  );
+}
+
+/** Rolle eines Listingbildes, unten in der Kachel. */
+function Rolle({ text }: { text: string }) {
+  return (
+    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/75 to-transparent px-3 pb-2 pt-7">
+      <span className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-white">{text}</span>
+    </figcaption>
   );
 }
 
@@ -750,20 +786,20 @@ export function Termin({
    08 · Mannschaft
    ============================================================ */
 
-const candids = ["/team/Main.jpg", "/team/DSCF2442.jpg", "/team/DSCF2526.jpg", "/team/DSCF2497-2.jpg", "/team/DSCF2749.jpg"];
+const candids = ["/team/Main.webp", "/team/DSCF2442.webp", "/team/DSCF2526.webp", "/team/DSCF2497-2.webp", "/team/DSCF2749.webp"];
 const members = [
-  { src: "/team/Clemens.jpg", name: "Clemens" },
-  { src: "/team/Marvin.jpg", name: "Marvin" },
-  { src: "/team/Christoph.jpg", name: "Christoph" },
-  { src: "/team/Jonas.jpg", name: "Jonas" },
-  { src: "/team/Anzelika.jpg", name: "Anzelika" },
-  { src: "/team/Marina.jpg", name: "Marina" },
-  { src: "/team/Eddie.jpg", name: "Eddie" },
-  { src: "/team/Ole.jpg", name: "Ole" },
-  { src: "/team/Vadim.jpg", name: "Vadim" },
-  { src: "/team/Dias.jpg", name: "Dias" },
-  { src: "/team/Burak.jpeg", name: "Burak" },
-  { src: "/team/Noor.jpeg", name: "Noor" },
+  { src: "/team/Clemens.webp", name: "Clemens" },
+  { src: "/team/Marvin.webp", name: "Marvin" },
+  { src: "/team/Christoph.webp", name: "Christoph" },
+  { src: "/team/Jonas.webp", name: "Jonas" },
+  { src: "/team/Anzelika.webp", name: "Anzelika" },
+  { src: "/team/Marina.webp", name: "Marina" },
+  { src: "/team/Eddie.webp", name: "Eddie" },
+  { src: "/team/Ole.webp", name: "Ole" },
+  { src: "/team/Vadim.webp", name: "Vadim" },
+  { src: "/team/Dias.webp", name: "Dias" },
+  { src: "/team/Burak.webp", name: "Burak" },
+  { src: "/team/Noor.webp", name: "Noor" },
 ];
 
 export function Mannschaft() {

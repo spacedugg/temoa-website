@@ -118,7 +118,7 @@ export function Kopfzeile() {
           <div className="flex items-center gap-3">
             <a
               href="/gespraech-vereinbaren"
-              className="hidden min-h-[2.75rem] items-center rounded-[0.75rem] bg-navy px-5 text-small font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-soft md:inline-flex"
+              className="hidden min-h-[2.9rem] items-center gap-2.5 rounded-[0.9rem] bg-navy px-5 text-small font-extrabold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_8px_18px_-6px_rgba(255,153,0,0.45),0_14px_30px_-14px_rgba(11,31,52,0.7)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-soft md:inline-flex"
             >
               Potenzialanalyse buchen
             </a>

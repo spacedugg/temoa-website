@@ -7,22 +7,22 @@ import { Reveal } from "../ui/Reveal";
    (kein object-cover, also kein durchgeschnittenes Gesicht). Das Masonry darf
    asymmetrisch laufen; eine Text-Kachel füllt den entstehenden Whitespace und
    bringt die Collage wieder in Balance. */
-const candids = ["/team/Main.jpg", "/team/DSCF2442.jpg", "/team/DSCF2526.jpg", "/team/DSCF2497-2.jpg", "/team/DSCF2749.jpg"];
+const candids = ["/team/Main.webp", "/team/DSCF2442.webp", "/team/DSCF2526.webp", "/team/DSCF2497-2.webp", "/team/DSCF2749.webp"];
 
 /* Einzelne Mitarbeiterbilder (quadratisch) mit Namen. */
 const members: { src: string; name: string }[] = [
-  { src: "/team/Clemens.jpg", name: "Clemens" },
-  { src: "/team/Marvin.jpg", name: "Marvin" },
-  { src: "/team/Christoph.jpg", name: "Christoph" },
-  { src: "/team/Jonas.jpg", name: "Jonas" },
-  { src: "/team/Anzelika.jpg", name: "Anzelika" },
-  { src: "/team/Marina.jpg", name: "Marina" },
-  { src: "/team/Eddie.jpg", name: "Eddie" },
-  { src: "/team/Ole.jpg", name: "Ole" },
-  { src: "/team/Vadim.jpg", name: "Vadim" },
-  { src: "/team/Dias.jpg", name: "Dias" },
-  { src: "/team/Burak.jpeg", name: "Burak" },
-  { src: "/team/Noor.jpeg", name: "Noor" },
+  { src: "/team/Clemens.webp", name: "Clemens" },
+  { src: "/team/Marvin.webp", name: "Marvin" },
+  { src: "/team/Christoph.webp", name: "Christoph" },
+  { src: "/team/Jonas.webp", name: "Jonas" },
+  { src: "/team/Anzelika.webp", name: "Anzelika" },
+  { src: "/team/Marina.webp", name: "Marina" },
+  { src: "/team/Eddie.webp", name: "Eddie" },
+  { src: "/team/Ole.webp", name: "Ole" },
+  { src: "/team/Vadim.webp", name: "Vadim" },
+  { src: "/team/Dias.webp", name: "Dias" },
+  { src: "/team/Burak.webp", name: "Burak" },
+  { src: "/team/Noor.webp", name: "Noor" },
 ];
 
 export function Team() {

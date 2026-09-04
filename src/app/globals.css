@@ -326,6 +326,89 @@ footer :where(a, button):focus-visible,
     background: radial-gradient(circle, rgba(43, 108, 176, 0.24), transparent 66%);
   }
 
+  /* Kachel eines Listingbildes oder A+ Moduls.
+     Beim Zeigen kippt sie leicht nach vorne und hebt sich an. Das macht die
+     Designbeispiele greifbar, ohne dass eine Animation dauernd laeuft. */
+  .listing-kachel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.9rem;
+    background: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 12px 24px -16px rgba(13, 36, 57, 0.28);
+    transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.45s ease;
+    transform-style: preserve-3d;
+  }
+  .listing-kachel:hover {
+    transform: perspective(900px) translateY(-6px) rotateX(3deg) scale(1.015);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 26px 48px -20px rgba(13, 36, 57, 0.4);
+    z-index: 2;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .listing-kachel,
+    .listing-kachel:hover {
+      transform: none;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+
+  /* Farbige Platten.
+     Zwei Dinge, die verschiedene Sachen sagen, sollen sich auch farblich
+     unterscheiden. Vorher war fast alles weiss, dadurch war zum Beispiel bei
+     „Organic First, PPC Second" nicht zu sehen, dass der eine Block vor dem
+     anderen kommt: weiss, orange, weiss. Das Auge sprang aufs Orange. */
+  .panel-navy {
+    border-radius: 1.75rem;
+    background: linear-gradient(165deg, #16374f 0%, #0e2740 60%, #0b1f34 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 1px 2px rgba(13, 36, 57, 0.1),
+      0 24px 48px -24px rgba(13, 36, 57, 0.5);
+  }
+  /* Warme Platte: gehoert zum Orange, ohne eine volle orange Flaeche zu sein. */
+  .panel-warm {
+    border-radius: 1.75rem;
+    background: linear-gradient(160deg, #fff8ee 0%, #ffeed6 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(255, 153, 0, 0.18),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 24px 46px -26px rgba(180, 100, 10, 0.32);
+  }
+  /* Kuehle Platte fuer die dritte Ebene. */
+  .panel-cool {
+    border-radius: 1.75rem;
+    background: linear-gradient(160deg, #f3f8fe 0%, #e6eff9 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(43, 108, 176, 0.12),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 24px 46px -26px rgba(13, 36, 57, 0.22);
+  }
+
+  /* Schrittmarke: grosse Zahl in einer Scheibe. Macht eine Reihenfolge
+     unmissverstaendlich, auch wenn die Bloecke untereinander liegen. */
+  .schritt {
+    @apply grid shrink-0 place-items-center rounded-full text-[0.95rem] font-extrabold;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+  .schritt-navy {
+    background: #0e2740;
+    color: #fff;
+    box-shadow: 0 8px 18px -8px rgba(13, 36, 57, 0.6);
+  }
+  .schritt-orange {
+    background: #ff9900;
+    color: #0b1f34;
+    box-shadow: 0 8px 18px -8px rgba(255, 153, 0, 0.8);
+  }
+
   /* KPI-Karte mit Trendrichtung, nach der Referenz mit den drei Kennzahlen. */
   .kpi {
     border-radius: 1.25rem;
@@ -341,26 +424,36 @@ footer :where(a, button):focus-visible,
      Navy-Fläche mit weißem Text (13,4:1). Orange bleibt Akzent auf der
      Pfeilscheibe. Die frühere Fassung war Navy-Text auf oranger Fläche, das
      sah stumpf aus und zog das Orange ins Bräunliche. */
+  /* Das ist DER Button der Seite. Er muss sofort auffallen, ohne dass Orange
+     zur Flaeche wird: Navy traegt den weissen Text, die orange Scheibe und ein
+     oranger Lichthof darunter machen ihn zum hellsten Punkt der Sektion. */
   .btn-primary {
-    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-navy py-2 pl-6 pr-2 text-small font-bold text-white transition-all duration-300;
+    @apply relative inline-flex min-h-[3.6rem] items-center gap-4 rounded-[1.1rem] bg-navy py-2.5 pl-7 pr-2.5 text-[0.95rem] font-extrabold text-white transition-all duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
-    box-shadow: 0 12px 28px -14px rgba(2, 48, 71, 0.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 10px 22px -8px rgba(255, 153, 0, 0.42),
+      0 20px 44px -18px rgba(11, 31, 52, 0.7);
   }
   .btn-primary:hover {
-    background-color: #0B4D6B;
-    transform: translateY(-2px);
-    box-shadow: 0 20px 40px -16px rgba(2, 48, 71, 0.8);
+    background-color: #14374f;
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 16px 32px -8px rgba(255, 153, 0, 0.62),
+      0 30px 60px -20px rgba(11, 31, 52, 0.75);
   }
   .btn-primary:active {
     transform: translateY(0);
   }
   /* Scheibe im Button, wandert beim Hover nach rechts. */
   .btn-primary .disc {
-    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-brand-500 text-navy transition-transform duration-300;
+    @apply grid h-10 w-10 shrink-0 place-items-center rounded-[0.8rem] bg-brand-500 text-navy transition-transform duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 0 18px -2px rgba(255, 153, 0, 0.75);
   }
   .btn-primary:hover .disc {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 
   /* Primär-Aktion auf dunklem Grund. Der Navy-Button verschwindet dort, also

@@ -78,7 +78,7 @@ export function BookingBody() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] sm:aspect-[3/2] lg:aspect-square">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/team/Clemens.jpg"
+                  src="/team/Clemens.webp"
                   alt="Clemens, euer Ansprechpartner bei temoa"
                   className="absolute inset-0 h-full w-full object-cover object-center [filter:brightness(1.05)]"
                 />

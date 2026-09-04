@@ -10,35 +10,35 @@ const founders = [
     name: "Clemens",
     role: "Founder & Sales",
     body: "Euer erstes Gespräch läuft über Clemens – ehrlich, ohne Verkaufsdruck und mit klarem Blick auf das, was sich für euch wirklich lohnt.",
-    img: "/team/Clemens.jpg",
+    img: "/team/Clemens.webp",
     accent: "from-brand-500/30 to-transparent",
   },
   {
     name: "Christoph",
     role: "Founder & Client Success",
     body: "Christoph übersetzt Strategie in Zahlen, die ihr im Konto seht – und sorgt dafür, dass die Ergebnisse Monat für Monat halten.",
-    img: "/team/Christoph.jpg",
+    img: "/team/Christoph.webp",
     accent: "from-red/30 to-transparent",
   },
   {
     name: "Eddie",
     role: "Founder & Operations",
     body: "Eddie hält Abläufe, Tools und Reporting zusammen, damit das Team schnell liefert und im Konto nichts liegen bleibt.",
-    img: "/team/Eddie.jpg",
+    img: "/team/Eddie.webp",
     accent: "from-cyan/30 to-transparent",
   },
 ];
 
 const team = [
-  { name: "Marvin", img: "/team/Marvin.jpg" },
-  { name: "Ole", img: "/team/Ole.jpg" },
-  { name: "Jonas", img: "/team/Jonas.jpg" },
-  { name: "Marina", img: "/team/Marina.jpg" },
-  { name: "Dias", img: "/team/Dias.jpg" },
-  { name: "Vadim", img: "/team/Vadim.jpg" },
-  { name: "Anzelika", img: "/team/Anzelika.jpg" },
-  { name: "Burak", img: "/team/Burak.jpeg" },
-  { name: "Noor", img: "/team/Noor.jpeg" },
+  { name: "Marvin", img: "/team/Marvin.webp" },
+  { name: "Ole", img: "/team/Ole.webp" },
+  { name: "Jonas", img: "/team/Jonas.webp" },
+  { name: "Marina", img: "/team/Marina.webp" },
+  { name: "Dias", img: "/team/Dias.webp" },
+  { name: "Vadim", img: "/team/Vadim.webp" },
+  { name: "Anzelika", img: "/team/Anzelika.webp" },
+  { name: "Burak", img: "/team/Burak.webp" },
+  { name: "Noor", img: "/team/Noor.webp" },
 ];
 
 export function Team() {
