@@ -394,9 +394,9 @@ export function Arbeiten() {
    06 · Stimmen
    ============================================================ */
 
-export function Stimmen() {
+export function Stimmen({ n = "06" }: { n?: string } = {}) {
   return (
-    <Station n="06" label="Die Stimmen" tone="tint">
+    <Station n={n} label="Die Stimmen" tone="tint">
       <StationTitle>
         Im Wortlaut, <span className="em text-brand-700">mit Zahlen.</span>
       </StationTitle>
@@ -444,24 +444,30 @@ export function Stimmen() {
    07 · Termin
    ============================================================ */
 
-export function Termin() {
+export function Termin({
+  n = "07",
+  title,
+  sub,
+}: {
+  n?: string;
+  title?: React.ReactNode;
+  sub?: React.ReactNode;
+} = {}) {
   return (
     <section className="relative bg-brand-500 text-ink">
       <div className="container-x">
         <div className="grid gap-y-8 py-24 md:grid-cols-[9rem_1fr] md:gap-x-12 md:py-32 lg:grid-cols-[11rem_1fr]">
           <div className="flex items-baseline gap-4 md:flex-col md:items-start md:gap-3">
-            <span className="num text-[3.5rem] text-ink/20 md:text-[4.5rem]">
-              07
-            </span>
+            <span className="num text-[3.5rem] text-ink/20 md:text-[4.5rem]">{n}</span>
             <span className="text-label font-bold uppercase text-ink/70 md:border-t md:border-ink/20 md:pt-4">Der Termin</span>
           </div>
           <div className="min-w-0">
             <h2 className="title max-w-[20ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)]">
-              Wie viel Umsatz lässt euer Listing liegen?
+              {title ?? "Wie viel Umsatz lässt euer Listing liegen?"}
             </h2>
             <p className="mt-6 max-w-[52ch] text-pretty text-lead text-ink/80">
-              In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen
-              euch, was euer Sortiment noch hergibt.
+              {sub ??
+                "In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen euch, was euer Sortiment noch hergibt."}
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <a

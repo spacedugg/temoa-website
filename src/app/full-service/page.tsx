@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { FullServiceBody } from "@/components/service/bodies";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
+import { TaktLine } from "@/components/takt/TaktLine";
+import {
+  FullServiceKopf,
+  FuerWen,
+  Ausgangslage,
+  Bereiche,
+  Reporting,
+  Unterschied,
+} from "@/components/takt/fullservice";
+import { Stimmen, Termin } from "@/components/takt/sections";
 
 export const metadata: Metadata = {
   title: "Full Service · temoa",
@@ -12,11 +21,24 @@ export const metadata: Metadata = {
 export default function FullServicePage() {
   return (
     <>
-      <Navbar />
-      <main>
-        <FullServiceBody />
-      </main>
-      <Footer />
+      <Kopfzeile />
+      <TaktLine>
+        <main id="inhalt">
+          <FullServiceKopf />
+          <FuerWen />
+          <Ausgangslage />
+          <Bereiche />
+          <Reporting />
+          <Unterschied />
+          <Stimmen n="05" />
+          <Termin
+            n="06"
+            title="Welcher Bereich bremst euer Wachstum?"
+            sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
+          />
+        </main>
+      </TaktLine>
+      <Fusszeile />
     </>
   );
 }
