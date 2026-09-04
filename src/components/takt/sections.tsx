@@ -803,29 +803,43 @@ export function Termin({
    08 · Mannschaft
    ============================================================ */
 
-const candids = ["/team/Main.webp", "/team/DSCF2442.webp", "/team/DSCF2526.webp", "/team/DSCF2497-2.webp", "/team/DSCF2749.webp"];
+/**
+ * Die drei Aufnahmen ueber den Portraits. Reihenfolge: Gruppe, Paar,
+ * Arbeitsplatz. Vorher stand in der Mitte ein einzelnes Portrait zwischen zwei
+ * Gruppenbildern und las sich als versprengter Kopf.
+ */
+const candids = ["/team/Main.webp", "/team/DSCF2526.webp", "/team/DSCF2749.webp"];
 
 /**
- * Das Team.
+ * Das Team, wie es der Kunde zugeordnet hat.
  *
- * `rolle` ist absichtlich leer. Erfundene Funktionen fuer echte Mitarbeiter
- * waeren eine Behauptung ueber Personen, deshalb wird nur der Name gezeigt,
- * solange die Zuordnung nicht vom Kunden kommt. Sobald sie da ist, hier
- * eintragen, die Darstellung ist schon dafuer gebaut.
+ * Zwei Ebenen, weil sie zwei verschiedene Dinge sagen: die drei Gruender
+ * stehen fuer die Zusammenarbeit selbst und sind die Ansprechpartner, die
+ * neun im Team stehen fuer die Bereiche, die im Haus liegen. Ein Raster aus
+ * zwoelf gleichen Kacheln haette diesen Unterschied verschluckt.
+ *
+ * `linkedin` fehlt noch. Erfundene Profil-Adressen wuerden ins Nichts oder auf
+ * fremde Profile fuehren, deshalb faellt das Symbol weg, solange die Adresse
+ * nicht vorliegt.
  */
-const members: { src: string; name: string; rolle?: string }[] = [
-  { src: "/team/Clemens.webp", name: "Clemens" },
-  { src: "/team/Marvin.webp", name: "Marvin" },
-  { src: "/team/Christoph.webp", name: "Christoph" },
-  { src: "/team/Jonas.webp", name: "Jonas" },
-  { src: "/team/Anzelika.webp", name: "Anzelika" },
-  { src: "/team/Marina.webp", name: "Marina" },
-  { src: "/team/Eddie.webp", name: "Eddie" },
-  { src: "/team/Ole.webp", name: "Ole" },
-  { src: "/team/Vadim.webp", name: "Vadim" },
-  { src: "/team/Dias.webp", name: "Dias" },
-  { src: "/team/Burak.webp", name: "Burak" },
-  { src: "/team/Noor.webp", name: "Noor" },
+type Person = { src: string; name: string; rolle: string; linkedin?: string };
+
+const gruender: Person[] = [
+  { src: "/team/Clemens.webp", name: "Clemens", rolle: "Founder & Sales" },
+  { src: "/team/Christoph.webp", name: "Christoph", rolle: "Founder & Client Success" },
+  { src: "/team/Eddie.webp", name: "Eddie", rolle: "Founder & Operations" },
+];
+
+const members: Person[] = [
+  { src: "/team/Ole.webp", name: "Ole", rolle: "Content Manager" },
+  { src: "/team/Jonas.webp", name: "Jonas", rolle: "Content Manager" },
+  { src: "/team/Marvin.webp", name: "Marvin", rolle: "Marketplace Consultant" },
+  { src: "/team/Anzelika.webp", name: "Anzelika", rolle: "Marketplace Consultant" },
+  { src: "/team/Vadim.webp", name: "Vadim", rolle: "Graphic Designer" },
+  { src: "/team/Marina.webp", name: "Marina", rolle: "Graphic Designer" },
+  { src: "/team/Dias.webp", name: "Dias", rolle: "3D Artist" },
+  { src: "/team/Burak.webp", name: "Burak", rolle: "Marketplace Growth Associate" },
+  { src: "/team/Noor.webp", name: "Noor", rolle: "Marketplace Growth Associate" },
 ];
 
 /** Die Bereiche, die im Haus liegen. Deckungsgleich mit den Leistungen. */
@@ -837,6 +851,23 @@ const imHaus = [
   "Internationalisierung",
 ];
 
+/** LinkedIn-Symbol. Nur gezeichnet, wenn eine Adresse vorliegt. */
+function LinkedIn({ href, name }: { href: string; name: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${name} auf LinkedIn`}
+      className="grid h-9 w-9 place-items-center rounded-[0.7rem] bg-canvas-tint text-navy transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy hover:text-white"
+    >
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+        <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.1 8.65 22 10.9 22 14v7h-4v-6.2c0-1.5-.03-3.4-2.1-3.4-2.05 0-2.36 1.6-2.36 3.3V21h-3.9z" />
+      </svg>
+    </a>
+  );
+}
+
 /**
  * Team.
  *
@@ -844,10 +875,10 @@ const imHaus = [
  * Satz („Menschen, kein Tool ...") der frei auf der Flaeche lag und nichts
  * trug. Der Satz ist geloescht.
  *
- * Jetzt: Fotos in Farbe, die drei Teamszenen groesser, darunter ein Band mit
- * den Bereichen die im Haus liegen, dann die Portraits mit Platz fuer die
- * Rolle. Am Ende die belegten Kennzahlen, weil sie hier zur Aussage gehoeren:
- * dieses Team betreut diese Zahl an Marken.
+ * Jetzt zwei Ebenen. Die drei Gruender gross, mit rundem Portrait, Rolle und
+ * Platz fuer LinkedIn: sie sind die Ansprechpartner. Darunter das Team in
+ * neun Karten mit Rolle. Ein Raster aus zwoelf gleichen Kacheln hat den
+ * Unterschied verschluckt und ohne Rollen stand dort nur ein Vorname.
  */
 export function Mannschaft() {
   const reduce = useReducedMotion();
@@ -902,16 +933,50 @@ export function Mannschaft() {
         ))}
       </div>
 
-      {/* Portraits. Die Karte hebt sich beim Zeigen an, der Name bleibt lesbar. */}
-      <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+      {/* Die drei Gruender. Rundes Portrait, damit sie sich von den
+          quadratischen Team-Karten unterscheiden. */}
+      <div className="mt-4 grid gap-4 sm:grid-cols-3">
+        {gruender.map((g, i) => (
+          <motion.div
+            key={g.src}
+            {...auf(0.04 + i * 0.05)}
+            className="panel panel-lift flex flex-col items-center px-6 py-7 text-center"
+          >
+            <span className="relative">
+              <span aria-hidden className="halo -left-3 -top-3 h-[7.5rem] w-[7.5rem] opacity-70" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={g.src}
+                alt={g.name}
+                loading="lazy"
+                className="relative h-[5.5rem] w-[5.5rem] rounded-full object-cover shadow-[0_1px_2px_rgba(13,36,57,0.06),0_14px_28px_-14px_rgba(13,36,57,0.4)]"
+              />
+            </span>
+            <p className="mt-5 text-[1.35rem] font-extrabold leading-tight tracking-tight text-ink">{g.name}</p>
+            <p className="mt-1.5 text-small text-ink-muted">{g.rolle}</p>
+            {g.linkedin && (
+              <div className="mt-5">
+                <LinkedIn href={g.linkedin} name={g.name} />
+              </div>
+            )}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Das Team. Die Karte hebt sich beim Zeigen an, Name und Rolle bleiben lesbar. */}
+      <motion.p {...auf(0.06)} className="mt-10 flex items-center gap-2.5">
+        <span aria-hidden className="node-glow" />
+        <span className="text-label font-bold uppercase text-ink-soft">Team</span>
+      </motion.p>
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {members.map((m, i) => (
-          <motion.div key={m.src} {...auf(0.04 + i * 0.025)} className="panel panel-lift overflow-hidden p-2.5">
-            <div className="overflow-hidden rounded-[0.75rem]">
+          <motion.div key={m.src} {...auf(0.04 + i * 0.025)} className="panel panel-lift overflow-hidden p-3">
+            <div className="overflow-hidden rounded-[0.85rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={m.src} alt={m.name} loading="lazy" className="aspect-square w-full object-cover" />
             </div>
-            <p className="mt-2.5 px-0.5 text-[0.8rem] font-bold leading-tight text-ink">{m.name}</p>
-            {m.rolle && <p className="mt-0.5 px-0.5 text-[0.7rem] leading-tight text-ink-faint">{m.rolle}</p>}
+            <p className="mt-3 px-0.5 text-[0.85rem] font-bold leading-tight text-ink">{m.name}</p>
+            <p className="mt-1 px-0.5 text-[0.72rem] leading-snug text-ink-faint">{m.rolle}</p>
           </motion.div>
         ))}
       </div>
