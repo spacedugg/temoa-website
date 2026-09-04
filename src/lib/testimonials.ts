@@ -1,4 +1,15 @@
-export type Testimonial = { quote: string; name: string; role: string; image?: string };
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  image?: string;
+  /**
+   * "logo" bei Firmenlogos im Querformat. Die wurden vorher wie ein Portrait
+   * behandelt und im runden Rahmen beschnitten, das sah nach einem Fehler aus.
+   * Logos werden jetzt eingepasst statt beschnitten.
+   */
+  art?: "person" | "logo";
+};
 
 /* Verbatim, echte Kundenzitate. Original-Wortlaut bleibt unverändert. */
 export const testimonials: Testimonial[] = [
@@ -28,6 +39,7 @@ export const testimonials: Testimonial[] = [
     name: "Dennis Hoheusel",
     role: "GF FUTUM Handels GmbH",
     image: "/clients/Dennis.png.avif",
+    art: "logo",
   },
   {
     quote: "Die Performance der Ergebnisse war hervorragend, Branding und Design passen perfekt zusammen.",
@@ -41,6 +53,7 @@ export const testimonials: Testimonial[] = [
     name: "Gilbert Baeumer",
     role: "GF Baeumer Online GmbH",
     image: "/clients/Gilbert.png.webp",
+    art: "logo",
   },
   {
     quote: "Ich war extrem zufrieden: kurzer Draht und top Ergebnisse.",

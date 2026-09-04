@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
+const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
 
 /** Client-logo marquee + a compact trust line. Drop onto any subpage.
  *  `bare` zeigt nur die Logos (ohne Überschrift und Trust-Zeile) — sinnvoll,

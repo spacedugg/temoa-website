@@ -5,7 +5,7 @@ import Image from "next/image";
 /* 14 client logos split across three rows so a logo never appears twice
    on screen at once. Each row loops its own subset, slowly, alternating
    direction for a calm, premium feel. */
-const all = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
+const all = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
 const rows = [all.slice(0, 5), all.slice(5, 10), all.slice(10, 14)];
 
 function LogoRow({ logos, duration, reverse }: { logos: string[]; duration: number; reverse?: boolean }) {

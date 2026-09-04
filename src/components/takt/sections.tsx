@@ -15,7 +15,7 @@ import type { PostMeta } from "@/lib/blog";
    Logos und die beiden verbliebenen Kennzahlen.
    ============================================================ */
 
-const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
+const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
 const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
 
 function LogoRow({ row, duration, reverse }: { row: string[]; duration: number; reverse?: boolean }) {
@@ -555,7 +555,10 @@ export function Arbeiten() {
         Marke sind frei erfunden, die Arbeit ist echt.
       </StationLead>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-8">
+      {/* Die Bildstrecke ist schmaler als der A+ Content. Damit wird die linke
+          Spalte kuerzer und die beiden Spalten schliessen unten auf derselben
+          Hoehe ab. Bei gleicher Breite lief die Bildstrecke deutlich laenger. */}
+      <div className="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:gap-8">
         {/* Bildstrecke im Aufbau der Produktseite */}
         <div className="min-w-0">
           <BereichsKopf label="Bildstrecke" note="1 Hauptbild + 6 Listingbilder" />
@@ -685,19 +688,30 @@ export function Stimmen() {
         Im Wortlaut, <span className="em mark">mit Zahlen.</span>
       </StationTitle>
 
-      <div className="mt-12 columns-1 gap-6 md:columns-2 [&>*]:mb-6">
+      {/* Drei Spalten und kleinere Karten. Vorher standen sie in zwei Spalten
+          mit grosser Schrift und wirkten aufdringlich. Als Wand gelesen tragen
+          sie mehr, ohne sich vorzudraengen. */}
+      <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
         {testimonials.map((t) => (
-          <figure key={t.name} className="panel break-inside-avoid p-7">
+          <figure key={t.name} className="panel break-inside-avoid p-5">
             <div className="flex gap-0.5" aria-label="5 von 5 Sternen">
               {Array.from({ length: 5 }).map((_, s) => (
-                <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
+                <svg key={s} width="11" height="11" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
                   <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
                 </svg>
               ))}
             </div>
-            <blockquote className="mt-5 text-pretty text-body text-ink">„{t.quote}"</blockquote>
-            <figcaption className="mt-5 flex items-center gap-3">
-              <span className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-canvas-tint text-small font-bold text-ink">
+            <blockquote className="mt-3.5 text-pretty text-[0.86rem] leading-relaxed text-ink">
+              „{t.quote}"
+            </blockquote>
+            <figcaption className="mt-4 flex items-center gap-2.5 border-t border-ink/[0.07] pt-3.5">
+              <span
+                className={clsx(
+                  "relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full text-[0.7rem] font-bold text-ink",
+                  // Logos brauchen weissen Grund und werden eingepasst, Portraits füllen den Kreis.
+                  t.art === "logo" ? "bg-white p-1 ring-1 ring-inset ring-ink/[0.08]" : "bg-canvas-tint"
+                )}
+              >
                 <span aria-hidden>{initials(t.name)}</span>
                 {t.image && (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -705,7 +719,10 @@ export function Stimmen() {
                     src={t.image}
                     alt=""
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className={clsx(
+                      "absolute inset-0 h-full w-full",
+                      t.art === "logo" ? "scale-[0.72] object-contain" : "object-cover"
+                    )}
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.display = "none";
                     }}
@@ -713,8 +730,8 @@ export function Stimmen() {
                 )}
               </span>
               <span className="min-w-0">
-                <span className="block truncate text-small font-bold text-ink">{t.name}</span>
-                <span className="block truncate text-small text-ink-faint">{t.role}</span>
+                <span className="block truncate text-[0.78rem] font-bold text-ink">{t.name}</span>
+                <span className="block truncate text-[0.72rem] text-ink-faint">{t.role}</span>
               </span>
             </figcaption>
           </figure>
@@ -787,7 +804,16 @@ export function Termin({
    ============================================================ */
 
 const candids = ["/team/Main.webp", "/team/DSCF2442.webp", "/team/DSCF2526.webp", "/team/DSCF2497-2.webp", "/team/DSCF2749.webp"];
-const members = [
+
+/**
+ * Das Team.
+ *
+ * `rolle` ist absichtlich leer. Erfundene Funktionen fuer echte Mitarbeiter
+ * waeren eine Behauptung ueber Personen, deshalb wird nur der Name gezeigt,
+ * solange die Zuordnung nicht vom Kunden kommt. Sobald sie da ist, hier
+ * eintragen, die Darstellung ist schon dafuer gebaut.
+ */
+const members: { src: string; name: string; rolle?: string }[] = [
   { src: "/team/Clemens.webp", name: "Clemens" },
   { src: "/team/Marvin.webp", name: "Marvin" },
   { src: "/team/Christoph.webp", name: "Christoph" },
@@ -802,38 +828,107 @@ const members = [
   { src: "/team/Noor.webp", name: "Noor" },
 ];
 
-export function Mannschaft() {
-  return (
-    <Station label="Team" tone="paper" id="team">
-      <StationTitle>Das Team hinter temoa.</StationTitle>
-      <StationLead>
-        Strategie, Design, Advertising und Account-Management, alle im Haus.
-      </StationLead>
+/** Die Bereiche, die im Haus liegen. Deckungsgleich mit den Leistungen. */
+const imHaus = [
+  "Strategie & Analyse",
+  "Content & Listings",
+  "Advertising",
+  "Account-Management",
+  "Internationalisierung",
+];
 
-      <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {candids.slice(0, 3).map((src) => (
-          <div key={src} className="overflow-hidden rounded-[1.25rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_18px_34px_-20px_rgba(13,36,57,0.3)]">
+/**
+ * Team.
+ *
+ * Vorher: Portraits in Schwarzweiss, darunter nur der Vorname, und am Ende ein
+ * Satz („Menschen, kein Tool ...") der frei auf der Flaeche lag und nichts
+ * trug. Der Satz ist geloescht.
+ *
+ * Jetzt: Fotos in Farbe, die drei Teamszenen groesser, darunter ein Band mit
+ * den Bereichen die im Haus liegen, dann die Portraits mit Platz fuer die
+ * Rolle. Am Ende die belegten Kennzahlen, weil sie hier zur Aussage gehoeren:
+ * dieses Team betreut diese Zahl an Marken.
+ */
+export function Mannschaft() {
+  const reduce = useReducedMotion();
+  const auf = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 14 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: "-10% 0px" },
+          transition: { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
+        };
+
+  return (
+    <Station label="Team" tone="tint" id="team">
+      <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-14">
+        <div className="min-w-0">
+          <StationTitle>Das Team hinter temoa.</StationTitle>
+          <StationLead>
+            Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig,
+            jeder in seinem Bereich, mit denselben Zahlen vor sich.
+          </StationLead>
+        </div>
+
+        {/* Die Bereiche, die nicht eingekauft werden. */}
+        <motion.div {...auf(0.06)} className="panel p-6 md:p-7">
+          <span className="text-label font-bold uppercase text-ink-soft">Alles im Haus</span>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {imHaus.map((b) => (
+              <span
+                key={b}
+                className="rounded-full bg-canvas-tint px-3 py-1.5 text-[0.75rem] font-bold text-ink shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
+              >
+                {b}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Drei Teamszenen, in Farbe. Schwarzweiss wirkte trist. */}
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {candids.slice(0, 3).map((src, i) => (
+          <motion.div
+            key={src}
+            {...auf(i * 0.06)}
+            className="overflow-hidden rounded-[1.25rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_20px_38px_-22px_rgba(13,36,57,0.34)]"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={src} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="mt-3 grid grid-cols-4 gap-3 sm:grid-cols-6 lg:grid-cols-12">
-        {members.map((m) => (
-          <div key={m.src}>
-            <div className="overflow-hidden rounded-[0.9rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.28)]">
+      {/* Portraits. Die Karte hebt sich beim Zeigen an, der Name bleibt lesbar. */}
+      <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
+        {members.map((m, i) => (
+          <motion.div key={m.src} {...auf(0.04 + i * 0.025)} className="panel panel-lift overflow-hidden p-2.5">
+            <div className="overflow-hidden rounded-[0.75rem]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.src} alt={m.name} loading="lazy" className="aspect-square w-full object-cover grayscale transition duration-500 hover:grayscale-0" />
+              <img src={m.src} alt={m.name} loading="lazy" className="aspect-square w-full object-cover" />
             </div>
-            <p className="mt-2 text-[0.7rem] font-bold text-ink">{m.name}</p>
-          </div>
+            <p className="mt-2.5 px-0.5 text-[0.8rem] font-bold leading-tight text-ink">{m.name}</p>
+            {m.rolle && <p className="mt-0.5 px-0.5 text-[0.7rem] leading-tight text-ink-faint">{m.rolle}</p>}
+          </motion.div>
         ))}
       </div>
 
-      <p className="mt-10 max-w-[46ch] text-body font-bold text-ink">
-        Menschen, kein Tool. An eurem Konto arbeiten mehrere gleichzeitig, jeder in seinem Bereich.
-      </p>
+      {/* Belegte Kennzahlen. Hier gehoeren sie hin: dieses Team traegt sie. */}
+      <motion.div {...auf(0.1)} className="mt-6 grid gap-4 sm:grid-cols-3">
+        {[
+          ["60+", "Marken in Betreuung"],
+          ["5+", "Amazon-Marktplätze"],
+          ["98 %", "verlängern nach Performance"],
+        ].map(([wert, text]) => (
+          <div key={text} className="kpi">
+            <div className="num text-[1.7rem] text-ink">{wert}</div>
+            <div className="mt-1.5 text-[0.78rem] font-bold leading-tight text-ink">{text}</div>
+          </div>
+        ))}
+      </motion.div>
     </Station>
   );
 }

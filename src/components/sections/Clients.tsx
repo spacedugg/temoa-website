@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Reveal } from "../ui/Reveal";
 
-const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
+const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
 const rowA = logos.slice(0, 7);
 const rowB = logos.slice(7);
 
