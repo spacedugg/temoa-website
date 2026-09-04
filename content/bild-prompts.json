@@ -254,6 +254,15 @@
       "stil": "szene3d",
       "transparent": true,
       "prompt": "A matte navy globe resting on a low white rounded disc in the centre. Four separate low navy platforms are arranged around it, each carrying its own small white rounded panel with three thin navy placeholder bars and one small orange marker pin. Each platform is connected to the central globe by one thin glowing orange line. The four platforms stand clearly apart from each other. Nothing else in the frame."
+    },
+    {
+      "kennung": "n-zahlen",
+      "seite": "Full Service: Zusammenarbeit",
+      "size": "1280x1280",
+      "motiv": "Mehrere Bereiche lesen dieselbe Quelle",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "One large frosted glass panel floating upright in the centre, showing a rising orange line over a row of matte navy bars. Four low navy platforms stand in a ring in front of it, each carrying one small white rounded card with three thin navy placeholder bars. From every card one thin glowing orange line runs up to the same central glass panel. The four cards are clearly separate from each other but all connected to the one panel. Nothing else in the frame."
     }
   ],
   "stilblocks": {

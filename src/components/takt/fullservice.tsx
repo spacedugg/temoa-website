@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Station, StationTitle, StationLead, Eyebrow, Karte } from "./Station";
 import { Icon, type IconName } from "./Icons";
-import { Bildfeld } from "./Bildfeld";
+import { Zusammenlauf } from "./Zusammenlauf";
 
 /**
  * /full-service in der Welt „Taktplan".
@@ -103,7 +103,7 @@ export function FullServiceKopf() {
 
           <div className="grid min-w-0 items-center gap-y-12 lg:grid-cols-[1fr_0.8fr] lg:gap-x-16">
             <div className="min-w-0">
-              <motion.h1 {...rise(0.08)} className="display max-w-[17ch] text-balance text-[clamp(2.4rem,1.6rem+2.6vw,3.75rem)] text-ink">
+              <motion.h1 {...rise(0.08)} className="display max-w-full text-balance text-[clamp(2.1rem,1.4rem+2.2vw,3.25rem)] text-ink">
                 Ein eingespieltes Team für euren{" "}
                 <span className="em mark">kompletten Amazon-Account.</span>
               </motion.h1>
@@ -123,14 +123,17 @@ export function FullServiceKopf() {
               </motion.div>
             </div>
 
-            <motion.div {...rise(0.18)} className="panel overflow-hidden p-3">
-              <Bildfeld
-                id="B-05"
-                aspect="aspect-[4/5]"
-                tone="paper"
-                priority
-                src="/bilder/p-unterwegs.webp"
-                alt="Produktaufnahme aus einem Listing, das wir gebaut haben"
+            {/* Vorher stand hier eine Produktaufnahme mit einem Rucksack in
+                einer Platte. Auf der Uebersichtsseite geht es um fuenf
+                Bereiche an einem Konto, nicht um ein einzelnes Produkt.
+                Die Illustration ist freigestellt und braucht keine Platte. */}
+            <motion.div {...rise(0.18)} className="relative min-w-0">
+              <span aria-hidden className="halo left-[10%] top-[12%] h-3/4 w-3/4" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/bilder/n-leistungen.webp"
+                alt="Fünf Bereiche, die an einem Konto zusammenlaufen"
+                className="relative w-full"
               />
             </motion.div>
           </div>
@@ -319,8 +322,11 @@ export function Unterschied() {
             </motion.li>
           ))}
         </ul>
-        <div className="overflow-hidden rounded-[1.25rem] shadow-[0_40px_70px_-40px_rgba(2,48,71,0.45)]">
-          <Bildfeld id="B-06" aspect="aspect-square" tone="paper" />
+        {/* Hier stand ein leeres Bildfeld. Die Aussage der Sektion ist ein
+            Zusammenhang, und den zeichnet dieses Theme statt ihn zu
+            bebildern: eine Quelle, fuenf Bereiche, leuchtende Verbindungen. */}
+        <div className="min-w-0">
+          <Zusammenlauf />
         </div>
       </div>
     </Station>

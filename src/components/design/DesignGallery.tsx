@@ -610,7 +610,10 @@ export function DesignGallery({ data }: { data: RefData }) {
   };
 
   return (
-    <section className="relative ground py-12 md:py-16">
+    /* Der "Mehr laden"-Knopf sass am unteren Rand der Sektion, direkt vor
+       den Kundenstimmen, und las sich als Knopf der Bewertungen. Mehr Luft
+       nach unten. */
+    <section className="ground relative py-12 pb-20 md:py-16 md:pb-28">
       <div className="container-x">
         {/* Die aktive Kategorie lag vorher auf einem orangen Farbverlauf mit
             weisser Schrift. Jetzt Navy als Flaeche, das Orange sitzt als
@@ -640,7 +643,10 @@ export function DesignGallery({ data }: { data: RefData }) {
         </Reveal>
 
         {paginated && visible < listings.length && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-12 flex flex-col items-center gap-3">
+            <span className="text-xs font-semibold text-ink-faint">
+              {Math.min(visible, listings.length)} von {listings.length} Beispielen
+            </span>
             <button type="button" className="btn-primary" onClick={() => setVisible((v) => v + 10)}>
               Mehr laden
             </button>

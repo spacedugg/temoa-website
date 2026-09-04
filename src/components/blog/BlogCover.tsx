@@ -57,11 +57,23 @@ export function BlogCover({
   return (
     <div
       className={`relative overflow-hidden ${className ?? ""}`}
-      style={{ background: `linear-gradient(135deg, ${accent} 0%, #0A1E2B 115%)` }}
+      /* Vorher lief der Verlauf von der Kategoriefarbe nach Navy. Bei den
+         orangen Kategorien ergab das ein schmutziges Braungold ueber die
+         ganze Flaeche, und das auf zweiundachtzig Artikeln. Jetzt traegt
+         Navy die Flaeche wie das dunkle Podest des Themes, die
+         Kategoriefarbe sitzt als Lichtkern darin. */
+      style={{
+        background: `radial-gradient(115% 85% at 80% -12%, ${accent}59, transparent 58%),
+          radial-gradient(80% 60% at 8% 108%, ${accent}26, transparent 60%),
+          linear-gradient(165deg, #14344c 0%, #0d2439 55%, #0a1c2d 100%)`,
+      }}
     >
+      {/* Lichtkante oben in der Kategoriefarbe, damit die Kategorie auch am
+          Rand ablesbar ist. */}
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: accent }} />
       {/* dotted texture */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18]"
+        className="pointer-events-none absolute inset-0 opacity-[0.14]"
         style={{
           backgroundImage: "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
           backgroundSize: "16px 16px",
@@ -69,7 +81,7 @@ export function BlogCover({
       />
       {/* soft light blob, position varies by seed */}
       <div
-        className="pointer-events-none absolute h-40 w-40 rounded-full bg-white/20 blur-2xl"
+        className="pointer-events-none absolute h-40 w-40 rounded-full bg-white/[0.14] blur-2xl"
         style={{ top: `${10 + (h % 30)}%`, left: `${(h % 40)}%` }}
       />
       {/* concentric arcs motif */}
@@ -83,13 +95,14 @@ export function BlogCover({
         <circle cx="50" cy="50" r="32" stroke="currentColor" strokeWidth="1" />
         <circle cx="50" cy="50" r="18" stroke="currentColor" strokeWidth="1" />
       </svg>
-      {/* category icon */}
+      {/* Kategoriesymbol. Lag vorher klein in der Ecke, dadurch war die
+          Flaeche fast leer. */}
       <svg
-        className="absolute bottom-4 right-5 h-12 w-12 text-white/85"
+        className="absolute bottom-5 right-6 h-20 w-20 text-white/70"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.4"
+        strokeWidth="1.1"
         strokeLinecap="round"
         strokeLinejoin="round"
         style={{ transform: `translateX(${dx}px)` }}
@@ -97,7 +110,8 @@ export function BlogCover({
         {ICON_PATHS[icon] ?? ICON_PATHS.strategy}
       </svg>
       {label && (
-        <span className="absolute left-5 top-4 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+        <span className="absolute left-5 top-5 inline-flex items-center gap-2.5 rounded-full bg-white/10 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)] backdrop-blur-sm">
+          <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: accent }} />
           {label}
         </span>
       )}

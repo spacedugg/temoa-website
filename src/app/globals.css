@@ -110,28 +110,33 @@ footer :where(a, button):focus-visible,
      Orange als Schriftfarbe auf Weiß erreicht keinen ausreichenden Kontrast und
      kippt optisch ins Gold. Deshalb bleibt das Wort dunkel und bekommt einen
      orangen Balken unter der Grundlinie. */
+  /* Betontes Wort in einer Überschrift: dunkel und fett, darunter ein oranger
+     Strich.
+
+     Vorher war der Strich ein absolut gesetztes ::after mit left:0 und
+     right:0, dazu white-space: nowrap. Das hatte zwei Fehler. Erstens konnte
+     die Überschrift nicht umbrechen und lief aus ihrer Spalte heraus, auf der
+     Full-Service-Seite bis unter das Bild. Zweitens spannte der Strich über
+     die ganze Zeilenbreite statt unter die Wörter, auch über den Leerraum
+     dahinter.
+
+     Jetzt eine echte Unterstreichung: sie folgt dem Text, bricht mit ihm um
+     und endet mit dem letzten Buchstaben. */
   .mark {
-    position: relative;
     font-weight: 700;
-    white-space: nowrap;
+    text-decoration-line: underline;
+    text-decoration-color: #ff9900;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 0.19em;
+    text-decoration-skip-ink: none;
   }
-  .mark::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -0.04em;
-    height: 0.1em;
-    min-height: 3px;
-    border-radius: 999px;
-    background: #ff9900;
-  }
-  /* In langen Überschriften darf das Wort umbrechen, dann ohne Balken. */
+  /* Der Klassenname bleibt, damit die Fundstellen weiterlaufen. Umbrechen
+     darf jetzt jedes betonte Wort, deshalb ist hier nichts mehr zu tun. */
   .mark-wrap {
     white-space: normal;
   }
-  .mark-wrap::after {
-    display: none;
+  .on-dark .mark {
+    text-decoration-color: #ffb033;
   }
   .num {
     font-weight: 300;
@@ -540,32 +545,27 @@ footer :where(a, button):focus-visible,
      steckt an über fünfzig Stellen in Überschriften, deshalb wird sie hier
      umdefiniert statt überall ersetzt: das Wort bleibt dunkel und bekommt den
      orangen Balken unter der Grundlinie, wie `.mark`. */
+  /* Wie .mark, nur unter dem alten Klassennamen: er steht an über fünfzig
+     Stellen. Der Strich war ein absolut gesetztes ::after über die ganze
+     Zeilenbreite und lief bei umbrechenden Überschriften ins Leere. Jetzt
+     eine echte Unterstreichung, die dem Text folgt. */
   .text-gradient {
-    position: relative;
     color: inherit;
     font-weight: 700;
     background-image: none;
     -webkit-background-clip: border-box;
     background-clip: border-box;
-  }
-  .text-gradient::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -0.04em;
-    height: 0.1em;
-    min-height: 3px;
-    border-radius: 999px;
-    background: #ff9900;
+    text-decoration-line: underline;
+    text-decoration-color: #ff9900;
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 0.19em;
+    text-decoration-skip-ink: none;
   }
   /* Auf dunklem Grund erreicht Orange genug Kontrast und darf Schrift sein.
-     Der Balken entfällt dort, sonst doppelt sich die Auszeichnung. */
+     Der Strich entfällt dort, sonst doppelt sich die Auszeichnung. */
   .on-dark .text-gradient {
     color: #FFB033;
-  }
-  .on-dark .text-gradient::after {
-    display: none;
+    text-decoration-line: none;
   }
 
   .text-gradient-emerald {

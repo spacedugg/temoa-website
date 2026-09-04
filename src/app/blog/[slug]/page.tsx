@@ -37,11 +37,52 @@ function slugify(s: string) {
     .replace(/^-|-$/g, "");
 }
 
+/**
+ * Loest HTML-Entities in Text auf, der als Text ausgegeben wird.
+ *
+ * Das Inhaltsverzeichnis liest die Ueberschriften aus dem gerenderten HTML.
+ * Dort steht ein Anfuehrungszeichen als `&quot;`. React gibt den String
+ * unveraendert aus, deshalb stand im Verzeichnis woertlich
+ * „niedrig ist immer gut&quot;". Betroffen war jede Ueberschrift mit
+ * Anfuehrungszeichen, kaufmaennischem Und oder Apostroph.
+ */
+function entitiesAuflösen(s: string) {
+  const bekannt: Record<string, string> = {
+    amp: "&",
+    lt: "<",
+    gt: ">",
+    quot: '"',
+    apos: "'",
+    nbsp: " ",
+    ndash: "–",
+    mdash: "–",
+    hellip: "…",
+    laquo: "«",
+    raquo: "»",
+    bdquo: "„",
+    ldquo: "“",
+    rdquo: "”",
+    sbquo: "‚",
+    lsquo: "‘",
+    rsquo: "’",
+    shy: "",
+  };
+  return s.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (treffer, name: string) => {
+    if (name.startsWith("#x") || name.startsWith("#X")) {
+      return String.fromCodePoint(parseInt(name.slice(2), 16));
+    }
+    if (name.startsWith("#")) {
+      return String.fromCodePoint(parseInt(name.slice(1), 10));
+    }
+    return name.toLowerCase() in bekannt ? bekannt[name.toLowerCase()] : treffer;
+  });
+}
+
 /** Inject ids into h2 headings and build a table of contents. */
 function withToc(html: string) {
   const toc: { id: string; label: string }[] = [];
   const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner) => {
-    const label = String(inner).replace(/<[^>]+>/g, "").trim();
+    const label = entitiesAuflösen(String(inner).replace(/<[^>]+>/g, "")).trim();
     const id = slugify(label);
     toc.push({ id, label });
     return `<h2 id="${id}">${inner}</h2>`;
@@ -71,7 +112,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <nav className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
                 <a href="/blog" className="hover:text-ink">Blog</a>
                 <span className="text-ink-faint">/</span>
-                <a href={`/blog/kategorie/${post.categorySlug}`} className="hover:text-ink" style={{ color: post.accent }}>
+                <a
+                  href={`/blog/kategorie/${post.categorySlug}`}
+                  className="font-semibold text-navy underline decoration-2 underline-offset-2 hover:decoration-navy"
+                  style={{ textDecorationColor: post.accent }}
+                >
                   {post.categoryLabel}
                 </a>
               </nav>
@@ -86,7 +131,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </Reveal>
             <Reveal delay={0.15}>
               <div className="mt-5 flex items-center gap-3 text-sm text-ink-faint">
-                <span className="font-semibold" style={{ color: post.accent }}>
+                <span className="inline-flex items-center gap-2 font-semibold text-ink">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: post.accent }} />
                   {post.categoryShort}
                 </span>
                 <span className="h-1 w-1 rounded-full bg-ink-faint" />
@@ -101,6 +147,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 icon={post.categoryIcon}
                 seed={post.slug}
                 image={post.image}
+                label={post.categoryLabel}
                 className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
               />
             </Reveal>

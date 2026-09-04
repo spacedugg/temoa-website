@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
+import { Zahl } from "./Zahl";
 
 /**
  * Hero der Startseite.
@@ -17,10 +18,12 @@ import { Eyebrow } from "./Station";
  * gesetzt, statt von einem Bildmodell verunglückt zu werden.
  */
 
-const readings = [
-  { value: "Ø +30 %", label: "Profitabilität", note: "im Durchschnitt" },
-  { value: "21 Mio. €", label: "Jahresumsatz", note: "in Betreuung" },
-  { value: "98 %", label: "Kundenbindung", note: "Verlängerung nach Performance" },
+/* Die Werte laufen beim Sichtbarwerden auf. Vorher stand die fertige Zahl da
+   und wurde ueberflogen. `vor` und `nach` bleiben Text, nur die Zahl zaehlt. */
+const readings: { bis: number; vor?: string; nach?: string; label: string; note: string }[] = [
+  { bis: 30, vor: "Ø +", nach: " %", label: "Profitabilität", note: "im Durchschnitt" },
+  { bis: 21, nach: " Mio. €", label: "Jahresumsatz", note: "in Betreuung" },
+  { bis: 98, nach: " %", label: "Kundenbindung", note: "Verlängerung nach Performance" },
 ];
 
 export function Auftrag() {
@@ -77,7 +80,9 @@ export function Auftrag() {
               {readings.map((r) => (
                 <div key={r.label} className="kpi min-w-0">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="num text-[clamp(1.3rem,1rem+1vw,1.75rem)] text-ink">{r.value}</span>
+                    <span className="num text-[clamp(1.3rem,1rem+1vw,1.75rem)] text-ink">
+                      <Zahl bis={r.bis} vor={r.vor} nach={r.nach} />
+                    </span>
                     <span aria-hidden className="text-signal-pos">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                         <path d="M5 17L12 9l3 3 5-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />

@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { Station, StationTitle, StationLead, Karte } from "./Station";
 import type { IconName } from "./Icons";
 import { Bildfeld } from "./Bildfeld";
+import { Verlauf } from "./Verlauf";
+import { Zahl } from "./Zahl";
 import { cases } from "@/lib/cases";
 import { testimonials, initials } from "@/lib/testimonials";
 import type { PostMeta } from "@/lib/blog";
@@ -58,9 +60,13 @@ export function Kundenband() {
                 Täglich in unserer Verantwortung
               </span>
             </span>
-            <span className="text-small font-bold text-ink [font-variant-numeric:tabular-nums]">60+ Marken</span>
+            <span className="text-small font-bold text-ink">
+              <Zahl bis={60} nach="+" /> Marken
+            </span>
             <span aria-hidden className="h-1 w-1 rounded-full bg-ink-line" />
-            <span className="text-small font-bold text-ink [font-variant-numeric:tabular-nums]">5+ Marktplätze</span>
+            <span className="text-small font-bold text-ink">
+              <Zahl bis={5} nach="+" /> Marktplätze
+            </span>
           </div>
           <div className="mt-8 space-y-6">
             <LogoRow row={logoRows[0]} duration={58} />
@@ -225,19 +231,25 @@ export function Verfahren() {
         zuerst das Listing, dann die Kampagne.
       </StationLead>
 
-      {/* Der Ablauf als Bild. Die Grafik ist freigestellt und sitzt ohne Platte
-          direkt auf dem Grund, damit nichts abgeschnitten wirkt. */}
-      <motion.div {...auf(0.08)} className="relative mt-8">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/bilder/n-organic.webp"
-          alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf. Am Ende eine steigende Kurve."
-          width={1600}
-          height={896}
-          loading="lazy"
-          className="mx-auto w-full max-w-[54rem]"
-        />
-      </motion.div>
+      {/* Links die Kette Suche, Klick, Kauf als freigestellte Grafik, rechts
+          der Verlauf, der sich beim Scrollen aufbaut. Vorher stand hier nur
+          das fertige Bild, dadurch war an der Stelle keine Bewegung. */}
+      <div className="mt-8 grid items-center gap-6 lg:grid-cols-[0.92fr_1fr] lg:gap-10">
+        <motion.div {...auf(0.08)} className="relative min-w-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/bilder/n-organic.webp"
+            alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf. Am Ende eine steigende Kurve."
+            width={1600}
+            height={896}
+            loading="lazy"
+            className="w-full"
+          />
+        </motion.div>
+        <motion.div {...auf(0.14)} className="min-w-0">
+          <Verlauf />
+        </motion.div>
+      </div>
 
       {/* Erster Block: kuehle Platte. Zweiter Block: Navy. Dazwischen das orange
           Ergebnisband als Scharnier. Drei verschiedene Werte, damit die
@@ -555,12 +567,15 @@ export function Arbeiten() {
         Marke sind frei erfunden, die Arbeit ist echt.
       </StationLead>
 
-      {/* Die Bildstrecke ist schmaler als der A+ Content. Damit wird die linke
-          Spalte kuerzer und die beiden Spalten schliessen unten auf derselben
-          Hoehe ab. Bei gleicher Breite lief die Bildstrecke deutlich laenger. */}
-      <div className="mt-12 grid gap-6 lg:grid-cols-[0.78fr_1fr] lg:gap-8">
+      {/* Beide Spalten schliessen unten auf derselben Hoehe ab.
+          Vorher war das ueber die Spaltenbreite geschaetzt, das konnte nie
+          genau aufgehen. Jetzt bestimmt die Bildstrecke die Hoehe (ihre Bilder
+          haben feste Seitenverhaeltnisse) und die letzte Platte der rechten
+          Spalte fuellt den Rest. Die Breite ist so gesetzt, dass links immer
+          etwas mehr Hoehe entsteht als rechts an Inhalt braucht. */}
+      <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[0.84fr_1fr] lg:gap-8">
         {/* Bildstrecke im Aufbau der Produktseite */}
-        <div className="min-w-0">
+        <div className="flex min-w-0 flex-col">
           <BereichsKopf label="Bildstrecke" note="1 Hauptbild + 6 Listingbilder" />
 
           <motion.figure {...auf(0)} className="listing-kachel m-0 mt-4">
@@ -581,10 +596,10 @@ export function Arbeiten() {
         </div>
 
         {/* A+ Content: vertikal gestapelt, jedes Modul im Querformat */}
-        <div className="min-w-0">
+        <div className="flex min-w-0 flex-col">
           <BereichsKopf label="A+ Content" note="4 Module, untereinander" />
 
-          <div className="mt-4 space-y-3">
+          <div className="mt-4 flex flex-1 flex-col gap-3">
             <motion.div {...auf(0.05)} className="listing-kachel relative">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/bilder/a-hero.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
@@ -623,7 +638,9 @@ export function Arbeiten() {
 
             {/* Die rechte Spalte war unten leer. Statt Luft steht dort, was an so
                 einem Listing gearbeitet wird. */}
-            <motion.div {...auf(0.26)} className="on-dark panel-navy p-6 md:p-7">
+            {/* Diese Platte fuellt den Rest der Spalte, damit beide Spalten
+                unten auf derselben Hoehe enden. */}
+            <motion.div {...auf(0.26)} className="on-dark panel-navy flex flex-1 flex-col justify-center p-6 md:p-7">
               <div className="text-[1rem] font-extrabold leading-snug text-white">
                 Was an diesem Listing gemacht wurde
               </div>
@@ -981,16 +998,19 @@ export function Mannschaft() {
         ))}
       </div>
 
-      {/* Belegte Kennzahlen. Hier gehoeren sie hin: dieses Team traegt sie. */}
+      {/* Belegte Kennzahlen. Hier gehoeren sie hin: dieses Team traegt sie.
+          Die Zahlen laufen beim Sichtbarwerden auf. */}
       <motion.div {...auf(0.1)} className="mt-6 grid gap-4 sm:grid-cols-3">
         {[
-          ["60+", "Marken in Betreuung"],
-          ["5+", "Amazon-Marktplätze"],
-          ["98 %", "verlängern nach Performance"],
-        ].map(([wert, text]) => (
-          <div key={text} className="kpi">
-            <div className="num text-[1.7rem] text-ink">{wert}</div>
-            <div className="mt-1.5 text-[0.78rem] font-bold leading-tight text-ink">{text}</div>
+          { bis: 60, nach: "+", text: "Marken in Betreuung" },
+          { bis: 5, nach: "+", text: "Amazon-Marktplätze" },
+          { bis: 98, nach: " %", text: "verlängern nach Performance" },
+        ].map((k) => (
+          <div key={k.text} className="kpi">
+            <div className="num text-[1.7rem] text-ink">
+              <Zahl bis={k.bis} nach={k.nach} />
+            </div>
+            <div className="mt-1.5 text-[0.78rem] font-bold leading-tight text-ink">{k.text}</div>
           </div>
         ))}
       </motion.div>
