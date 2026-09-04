@@ -40,15 +40,6 @@ function Shell({ children, id, tone = "white" }: { children: ReactNode; id?: str
   );
 }
 
-function Media({ className = "", label = "Bild" }: { className?: string; label?: string }) {
-  return (
-    <div className={`panel relative flex items-center justify-center overflow-hidden ${className}`}>
-      <span aria-hidden className="halo halo-cool -right-10 -top-10 h-40 w-40" />
-      <span className="relative text-xs font-semibold uppercase tracking-[0.16em] text-ink-faint">{label}</span>
-    </div>
-  );
-}
-
 /**
  * Bild in einer Sektion.
  *
@@ -95,20 +86,6 @@ function Pfeil() {
       </svg>
     </span>
   );
-}
-
-/** Standalone image placeholder at a given aspect ratio, usable as a Points
- *  aside or anywhere a future image will sit. */
-export function Placeholder({
-  aspect = "aspect-[4/3]",
-  label = "Bild",
-  className = "",
-}: {
-  aspect?: string;
-  label?: string;
-  className?: string;
-}) {
-  return <Media className={`w-full ${aspect} ${className}`} label={label} />;
 }
 
 /** Quiet lead marker for neutral feature/deliverable lists.
@@ -197,8 +174,8 @@ export function ServiceHero({
         className="pointer-events-none absolute -right-40 -top-44 h-[36rem] w-[36rem] rounded-full opacity-60 blur-3xl"
         style={{ background: "radial-gradient(circle, rgba(255,153,0,0.14), rgba(42,155,216,0.10) 50%, transparent 72%)" }}
       />
-      <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="text-center md:text-left">
+      <div className={`container-x relative grid items-center gap-12 ${image ? "lg:grid-cols-[1.05fr_0.95fr]" : "max-w-3xl text-center"}`}>
+        <div className={image ? "text-center md:text-left" : ""}>
           <Reveal>
             <Pille>{eyebrow}</Pille>
           </Reveal>
@@ -208,12 +185,12 @@ export function ServiceHero({
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
-            <p className="mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-ink-muted md:mx-0 md:text-lg">
+            <p className={`mx-auto mt-5 max-w-xl text-balance text-base leading-relaxed text-ink-muted md:text-lg ${image ? "md:mx-0" : ""}`}>
               {sub}
             </p>
           </Reveal>
           <Reveal delay={0.18}>
-            <div className="mt-8 flex justify-center md:justify-start">
+            <div className={`mt-8 flex justify-center ${image ? "md:justify-start" : ""}`}>
               <a href="/gespraech-vereinbaren" className="btn-primary">
                 Potenzialanalyse buchen
                 <Pfeil />
@@ -221,13 +198,13 @@ export function ServiceHero({
             </div>
           </Reveal>
         </div>
-        <Reveal direction="left" delay={0.1}>
-          {image ? (
+        {/* Ohne Bild entfaellt die Bildspalte. Ein grauer Kasten mit der
+            Aufschrift „Bild" ist schlechter als eine mittige Textspalte. */}
+        {image && (
+          <Reveal direction="left" delay={0.1}>
             <SzeneBild src={image} alt={imageAlt} aspect={imageAspect} />
-          ) : (
-            <Media className={`${imageAspect} w-full`} />
-          )}
-        </Reveal>
+          </Reveal>
+        )}
       </div>
     </section>
   );
@@ -446,58 +423,6 @@ export function Points({
   );
 }
 
-/* ---------------- alternating media / text rows ---------------- */
-
-export type Row = { n?: string; title: string; line: string; bullets: string[]; image?: string };
-
-export function Rows({
-  eyebrow,
-  title,
-  items,
-  tone = "white",
-}: {
-  eyebrow?: string;
-  title: ReactNode;
-  items: Row[];
-  tone?: Tone;
-}) {
-  return (
-    <Shell tone={tone}>
-      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
-      <div className="mt-14 space-y-14 lg:space-y-20">
-        {items.map((it, i) => {
-          const reverse = i % 2 === 1;
-          const a = accent(i);
-          return (
-            <Reveal key={it.title}>
-              <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-                {it.image ? (
-                  <SzeneBild src={it.image} className={reverse ? "lg:order-2" : ""} />
-                ) : (
-                  <Media className={`aspect-[4/3] w-full ${reverse ? "lg:order-2" : ""}`} />
-                )}
-                <div className={reverse ? "lg:order-1" : ""}>
-                  {it.n && <span className={`text-lg font-extrabold ${a.text}`}>{it.n}</span>}
-                  <h3 className="mt-2 text-balance text-xl font-bold leading-snug text-ink sm:text-2xl">{it.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-ink-muted">{it.line}</p>
-                  <ul className="mt-5 space-y-2.5">
-                    {it.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
-                        <Lead color={a.text} />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          );
-        })}
-      </div>
-    </Shell>
-  );
-}
-
 /* ---------------- two-column compare ---------------- */
 
 export function Compare({
@@ -675,76 +600,6 @@ export function AccentStrip({
   );
 }
 
-/* ---------------- bullet panel (der Unterschied) ---------------- */
-
-export function BulletPanel({
-  eyebrow,
-  title,
-  points,
-  tone = "white",
-  withImage = false,
-  image,
-  imageAlt = "",
-  imageAspect = "aspect-square",
-}: {
-  eyebrow?: string;
-  title: ReactNode;
-  points: string[];
-  tone?: Tone;
-  /** Switch to a split layout with the points stacked beside an image. */
-  withImage?: boolean;
-  image?: string;
-  imageAlt?: string;
-  imageAspect?: string;
-}) {
-  if (withImage || image) {
-    return (
-      <Shell tone={tone}>
-        <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
-        <div className="mt-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          <Reveal>
-            <div className="surface flex flex-col gap-4 p-7 md:p-8">
-              {points.map((p) => (
-                <div key={p} className="flex items-start gap-3">
-                  <Lead />
-                  <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal direction="left" delay={0.08}>
-            {image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={image}
-                alt={imageAlt}
-                className={`w-full rounded-3xl shadow-lift ring-1 ring-black/[0.05] ${imageAspect}`}
-              />
-            ) : (
-              <Media className={`w-full ${imageAspect}`} />
-            )}
-          </Reveal>
-        </div>
-      </Shell>
-    );
-  }
-  return (
-    <Shell tone={tone}>
-      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
-      <Reveal delay={0.08}>
-        <div className="surface mt-10 grid gap-x-8 gap-y-5 p-8 sm:grid-cols-2 md:p-10">
-          {points.map((p) => (
-            <div key={p} className="flex items-start gap-3">
-              <Lead />
-              <p className="text-sm leading-snug text-ink md:text-base">{p}</p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </Shell>
-  );
-}
-
 /* ---------------- result block (Ihr bekommt, dark accent) ---------------- */
 
 export function ResultBlock({
@@ -761,21 +616,26 @@ export function ResultBlock({
       <Ambient />
       <div className="container-x">
         <Reveal>
-          <div className="grid items-stretch gap-6 overflow-hidden rounded-[2rem] lg:grid-cols-2">
-            <Media className="min-h-[18rem] w-full" />
-            <div
-              className="flex flex-col justify-center p-8 text-white md:p-12"
-              style={{ background: "linear-gradient(135deg,#0A1E2B,#053048)" }}
-            >
-              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.13em] text-white/90">
+          {/* Vorher zwei Spalten: links ein leerer weisser Kasten mit der
+              Aufschrift „Bild", rechts das dunkle Feld. Ein halb leerer
+              Zweispalter ist schlechter als ein durchgehendes Podest,
+              deshalb steht die Aussage jetzt auf der ganzen Breite und die
+              Punkte laufen zweispaltig. */}
+          <div className="on-dark ground-deep relative overflow-hidden rounded-panel p-8 md:p-12">
+            <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+            <div className="relative">
+              <span className="inline-flex w-fit items-center gap-2.5 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.13em] text-white/90 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)]">
+                <span aria-hidden className="node-glow" />
                 {badge}
               </span>
-              <h2 className="mt-4 text-balance text-2xl font-bold leading-tight tracking-tight sm:text-3xl">{title}</h2>
-              <ul className="mt-6 space-y-3">
+              <h2 className="mt-5 max-w-[24ch] text-balance text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl">
+                {title}
+              </h2>
+              <ul className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-2">
                 {benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-base font-medium">
+                  <li key={b} className="flex items-start gap-3 text-base font-medium text-chalk-muted">
                     <Tick onDark />
-                    <span>{b}</span>
+                    <span className="min-w-0">{b}</span>
                   </li>
                 ))}
               </ul>

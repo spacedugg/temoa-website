@@ -3,11 +3,9 @@ import {
   Cards,
   SplitCards,
   Points,
-  Rows,
   Compare,
   TextMedia,
   AccentStrip,
-  BulletPanel,
   ResultBlock,
   ServiceCTA,
 } from "./Blocks";
@@ -15,134 +13,6 @@ import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram } from "./Diagrams";
 import { Stimmen } from "../takt/sections";
-
-/* ============ FULL SERVICE (Übersicht) ============ */
-export function FullServiceBody() {
-  return (
-    <>
-      <ServiceHero
-        eyebrow="Full Service"
-        title={
-          <>
-            Ein eingespieltes Team für euren{" "}
-            <span className="text-gradient">kompletten Amazon-Account.</span>
-          </>
-        }
-        sub="Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht."
-        image="/bilder/n-leistungen.webp"
-        imageAlt="Fünf Bereiche, die an einem Konto zusammenlaufen"
-      />
-      <Cards
-        tone="blue"
-        eyebrow="Für wen"
-        title="Passt das zu eurer Marke?"
-        cols={4}
-        items={[
-          { title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
-          { title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
-          { title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
-          { title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
-        ]}
-      />
-      <SplitCards
-        tone="white"
-        eyebrow="Die Ausgangslage"
-        title="Warum die üblichen Lösungen an Amazon scheitern."
-        imageAspect="aspect-[4/3]"
-        callout="Die größten Verluste entstehen bei Chancen, die intern nie auffallen."
-        items={[
-          { title: "Internes Team zu klein", body: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken." },
-          { title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
-          { title: "Amazon ist ein Vollzeitjob", body: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert." },
-        ]}
-      />
-      <Rows
-        tone="blue"
-        eyebrow="Was wir übernehmen"
-        title="Fünf Bereiche, jeder in voller Tiefe."
-        items={[
-          {
-            n: "01",
-            title: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
-            line: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
-            bullets: [
-              "Search Query Performance je Suchbegriff: Impression-Share, Klickrate, Conversion, Cart-Adds",
-              "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
-              "Vollständige Margen- und Deckungsbeitragsrechnung je Variante, inklusive aller Fees",
-            ],
-          },
-          {
-            n: "02",
-            title: "Ein Listing, das auch ohne Werbung verkauft.",
-            line: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
-            bullets: [
-              "Hauptbild zuerst, optimiert auf die Klickrate, den wichtigsten Faktor im Suchergebnis",
-              "Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
-              "Titel, Bullets, Backend und alle Attributfelder so aufgebaut, dass Rufus und COSMO sie verstehen",
-            ],
-          },
-          {
-            n: "03",
-            title: "Saubere Kampagnen, gesteuert am TACoS.",
-            line: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
-            bullets: [
-              "Kampagnenstruktur mit Suchbegriff-Isolation und Harvesting von Auto zu Exact, ohne Kannibalisieren",
-              "Platzierungs- und Gebotssteuerung, Top-of-Search gezielt eingesetzt",
-              "Profitabilität als Ziel, beim Aufbau neuer Suchbegriffe bewusst und befristet darüber hinaus",
-            ],
-          },
-          {
-            n: "04",
-            title: "Stabiler Betrieb, geschützte Rankings.",
-            line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
-            bullets: [
-              "Buy-Box-Monitoring inklusive Verlust-Ursachen: Preis, Verfügbarkeit, Mehranbieter",
-              "Bestand und Nachschub geplant, damit kein Bestseller leerläuft und Rankings wegbrechen",
-              "Account Health, Ticketing und Troubleshooting mit dem Amazon-Support, Uploads über Flat Files",
-              "Pricing gesteuert, damit Wachstum nicht die Marge frisst",
-            ],
-          },
-          {
-            n: "05",
-            title: "Jeder neue Marktplatz von Grund auf aufgebaut.",
-            line: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
-            bullets: [
-              "Eigene Keyword-Recherche je Marktplatz",
-              "Content und Kampagnen für jeden Markt neu aufgesetzt",
-              "Lokalisieren statt übersetzen",
-            ],
-          },
-        ]}
-      />
-      <AccentStrip
-        tone="blue"
-        eyebrow="Immer enthalten"
-        title="Reporting, das ihr in fünf Minuten versteht."
-        items={["Monatliche Performance-Reports", "Profit- und Verlust-Analyse", "Markttrends und Wettbewerbsbeobachtung"]}
-        icons={["chart", "margin", "search"]}
-      />
-      <BulletPanel
-        tone="white"
-        eyebrow="Der Unterschied"
-        title="Alle Bereiche arbeiten mit denselben Zahlen."
-        withImage
-        imageAspect="aspect-square"
-        points={[
-          "Dieselbe Keyword- und Margenanalyse liegt Content, Kampagnen und Pricing zugrunde",
-          "Was im Search Query Report auffällt, landet in derselben Woche im Listing und in der Kampagne",
-          "Wir verantworten das Ergebnis. Kein Verschieben der Verantwortung zwischen Dienstleistern.",
-          "Ein Ansprechpartner, ein Report, eine Planung für alle fünf Bereiche",
-        ]}
-      />
-      <Stimmen />
-      <ServiceCTA
-        title="Welcher Bereich bremst euer Wachstum?"
-        sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
-        chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
-      />
-    </>
-  );
-}
 
 /* ============ STRATEGIE ============ */
 export function StrategieBody() {
