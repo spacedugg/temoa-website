@@ -104,6 +104,33 @@ footer :where(a, button):focus-visible,
   .title .em {
     font-weight: 700;
   }
+  /* Betontes Wort in einer Überschrift.
+     Orange als Schriftfarbe auf Weiß erreicht keinen ausreichenden Kontrast und
+     kippt optisch ins Gold. Deshalb bleibt das Wort dunkel und bekommt einen
+     orangen Balken unter der Grundlinie. */
+  .mark {
+    position: relative;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .mark::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.04em;
+    height: 0.1em;
+    min-height: 3px;
+    border-radius: 999px;
+    background: #ff9900;
+  }
+  /* In langen Überschriften darf das Wort umbrechen, dann ohne Balken. */
+  .mark-wrap {
+    white-space: normal;
+  }
+  .mark-wrap::after {
+    display: none;
+  }
   .num {
     font-weight: 300;
     font-variant-numeric: tabular-nums;
@@ -156,27 +183,49 @@ footer :where(a, button):focus-visible,
   }
 
   /* Primär-Aktion.
-     Neue Form: kein Pillen-Button mehr, sondern eine Platte mit weichem Radius
-     und einer eigenen Scheibe für den Pfeil. Dunkler Text auf Orange, 7,9:1. */
+     Navy-Fläche mit weißem Text (13,4:1). Orange bleibt Akzent auf der
+     Pfeilscheibe. Die frühere Fassung war Navy-Text auf oranger Fläche, das
+     sah stumpf aus und zog das Orange ins Bräunliche. */
   .btn-primary {
-    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-brand-500 py-2 pl-6 pr-2 text-small font-bold text-ink transition-all duration-300;
+    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-navy py-2 pl-6 pr-2 text-small font-bold text-white transition-all duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 12px 28px -14px rgba(255, 153, 0, 0.9);
+    box-shadow: 0 12px 28px -14px rgba(2, 48, 71, 0.75);
   }
   .btn-primary:hover {
-    background-color: #FFA827;
+    background-color: #0B4D6B;
     transform: translateY(-2px);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 20px 40px -16px rgba(255, 153, 0, 0.95);
+    box-shadow: 0 20px 40px -16px rgba(2, 48, 71, 0.8);
   }
   .btn-primary:active {
     transform: translateY(0);
   }
   /* Scheibe im Button, wandert beim Hover nach rechts. */
   .btn-primary .disc {
-    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-ink text-brand-500 transition-transform duration-300;
+    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-brand-500 text-navy transition-transform duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
   }
   .btn-primary:hover .disc {
+    transform: translateX(3px);
+  }
+
+  /* Primär-Aktion auf dunklem Grund. Der Navy-Button verschwindet dort, also
+     kehrt sich das Verhältnis um: weiße Fläche, Navy-Text, orange Scheibe. */
+  .btn-on-dark {
+    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-white py-2 pl-6 pr-2 text-small font-bold text-navy transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-on-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.45);
+  }
+  .btn-on-dark:active {
+    transform: translateY(0);
+  }
+  .btn-on-dark .disc {
+    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-brand-500 text-navy transition-transform duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-on-dark:hover .disc {
     transform: translateX(3px);
   }
 
@@ -186,8 +235,8 @@ footer :where(a, button):focus-visible,
     box-shadow: inset 0 -1px 0 rgba(10, 30, 43, 0.25);
   }
   .btn-text:hover {
-    color: #C96D00;
-    box-shadow: inset 0 -1px 0 #C96D00;
+    color: #023047;
+    box-shadow: inset 0 -2px 0 #FF9900;
   }
 
   .btn-ghost {

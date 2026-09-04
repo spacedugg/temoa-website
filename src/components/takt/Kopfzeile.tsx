@@ -70,7 +70,7 @@ export function Kopfzeile() {
                       href={l.href}
                       className={clsx(
                         "flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
-                        active ? "text-brand-800" : "text-ink-muted hover:text-ink"
+                        active ? "text-ink" : "text-ink-muted hover:text-ink"
                       )}
                     >
                       {l.label}
@@ -86,7 +86,7 @@ export function Kopfzeile() {
                             href={c.href}
                             className={clsx(
                               "flex min-h-[2.75rem] items-center gap-3 px-3 text-small transition-colors",
-                              pathname === c.href ? "text-brand-800" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
+                              pathname === c.href ? "text-ink" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
                             )}
                           >
                             <span className="num text-[0.95rem] text-ink/25">
@@ -106,7 +106,7 @@ export function Kopfzeile() {
                   href={l.href}
                   className={clsx(
                     "flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
-                    pathname === l.href ? "text-brand-800" : "text-ink-muted hover:text-ink"
+                    pathname === l.href ? "text-ink" : "text-ink-muted hover:text-ink"
                   )}
                 >
                   {l.label}
@@ -118,7 +118,7 @@ export function Kopfzeile() {
           <div className="flex items-center gap-3">
             <a
               href="/gespraech-vereinbaren"
-              className="hidden min-h-[2.75rem] items-center rounded-[0.75rem] bg-brand-500 px-5 text-small font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 md:inline-flex"
+              className="hidden min-h-[2.75rem] items-center rounded-[0.75rem] bg-navy px-5 text-small font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-soft md:inline-flex"
             >
               Potenzialanalyse buchen
             </a>
@@ -179,7 +179,7 @@ export function Kopfzeile() {
               <a
                 href="/gespraech-vereinbaren"
                 onClick={() => setOpen(false)}
-                className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] bg-brand-500 text-base font-bold text-ink"
+                className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] bg-navy text-base font-bold text-white"
               >
                 Potenzialanalyse buchen
               </a>

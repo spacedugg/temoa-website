@@ -1,7 +1,99 @@
 {
-  "_hinweis": "Bildprompts abgeleitet aus copy/bildbriefing.md. Der Stilblock haelt alle Bilder zusammen und wird vom Script an jeden Prompt angehaengt. Eintraege mit \"aktiv\": false laufen nicht mit, das sind verworfene Fassungen oder noch nicht freigegebene Motive. Aufruf: node scripts/gen-bilder-openai.mjs --only <kennung>",
-  "stilblock": "Minimal 3D render, one single subject, nothing else in frame. Matte material, soft neutral studio light from one side, one soft shadow. Clean white background with a large amount of empty space around the object. Colour palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900), white and light warm grey. No other colours, no gradients across the frame, no glow effects, no connecting lines, no floating icons, no collage of multiple symbols. Absolutely no text, no letters, no numbers, no logos, no interface labels. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, restrained, editorial. High detail, quiet composition.",
+  "_hinweis": "Bildprompts aus copy/bildbriefing.md. Zwei Stilfamilien in stilblocks: \"produkt\" fuer fotorealistische Produktaufnahmen (Hero, Designbeispiele), \"objekt\" fuer die reduzierten 3D-Objekte als Akzent. Jedes Bild waehlt seine Familie ueber \"stil\". \"rahmen\": false schaltet das Nachrahmen ab, sinnvoll bei Szenen ohne freien Hintergrund. Eintraege mit \"aktiv\": false laufen nicht mit. Aufruf: node scripts/gen-bilder-openai.mjs --only <kennung>",
   "bilder": [
+    {
+      "kennung": "p-haupt",
+      "seite": "Startseite: Hero und Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Hauptbild des Listings",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Single product standing upright, centred, on a pure white seamless background, filling most of the frame, exactly as a marketplace main image is shot."
+    },
+    {
+      "kennung": "p-detail",
+      "seite": "Startseite: Hero und Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Detail Verschluss",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Tight close-up of the upper third: the brushed steel screw cap, the carrying loop and the shoulder, on a pure white seamless background, so that material and machining are clearly readable."
+    },
+    {
+      "kennung": "p-szene",
+      "seite": "Startseite: Hero und Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Anwendung",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. The bottle standing on a light oak kitchen counter beside a plain light ceramic cup, soft daylight from the left, a softly blurred bright kitchen behind it.",
+      "rahmen": false
+    },
+    {
+      "kennung": "p-gruppe",
+      "seite": "Startseite: Hero und Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Varianten",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Three of these bottles standing in a row on a pure white seamless background: the middle one matte deep navy blue, the left one matte warm sand, the right one matte off-white. Identical shape, evenly spaced, straight on."
+    },
+    {
+      "kennung": "p-material",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Material",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Extreme close-up of the matte navy surface meeting the brushed steel of the cap, filling the frame, so the two materials and the fine machining are clearly readable. Neutral light grey background."
+    },
+    {
+      "kennung": "p-offen",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Verschluss geöffnet",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. The bottle standing upright with the steel cap unscrewed and lying flat next to its base, the open mouth of the bottle visible from a slightly raised angle. Pure white seamless background."
+    },
+    {
+      "kennung": "p-unterwegs",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1024x1024",
+      "motiv": "Listingbild: unterwegs",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. The bottle standing upright in the open side pocket of a plain dark grey canvas daypack, the pack resting on a pale concrete step, soft overcast daylight, softly blurred neutral surroundings.",
+      "rahmen": false
+    },
+    {
+      "kennung": "a-hero",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1600x608",
+      "motiv": "A+ Modul: Kopfbild",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Wide banner composition: the bottle standing upright in the right third on a smooth pale sand coloured surface, large calm empty space to the left, soft directional daylight, one long soft shadow.",
+      "rahmen": false
+    },
+    {
+      "kennung": "a-nutzen",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1024x768",
+      "motiv": "A+ Modul: Nutzen",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. The bottle standing on a pale stone surface with a few clear ice cubes resting beside its base, cool even daylight, a plain very light background.",
+      "rahmen": false
+    },
+    {
+      "kennung": "a-anwendung",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1024x768",
+      "motiv": "A+ Modul: Anwendung",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. The bottle standing on a light wooden desk beside a closed plain notebook and a small plain ceramic dish, warm soft daylight from the side, a softly blurred bright room behind.",
+      "rahmen": false
+    },
+    {
+      "kennung": "a-vergleich",
+      "seite": "Startseite: Designbeispiele",
+      "size": "1600x608",
+      "motiv": "A+ Modul: Varianten",
+      "stil": "produkt",
+      "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Wide banner composition: five of these bottles standing in an evenly spaced row on a pure white seamless background, in matte deep navy, matte warm sand, matte off-white, matte olive and matte graphite. Identical shape, shot straight on."
+    },
     {
       "kennung": "b-02",
       "seite": "Startseite, Station 01 Der Befund",
@@ -81,5 +173,9 @@
       "prompt": "A single matte deep navy blue globe on a clean surface, with exactly two small amazon orange flags planted in it. No continents drawn, no map detail, no other markings. Nothing else in the frame.",
       "aktiv": false
     }
-  ]
+  ],
+  "stilblocks": {
+    "objekt": "Minimal 3D render, one single subject, nothing else in frame. Matte material, soft neutral studio light from one side, one soft shadow. Clean white background with a large amount of empty space around the object. Colour palette strictly limited to deep navy blue (#023047), amazon orange (#FF9900), white and light warm grey. No other colours, no gradients across the frame, no glow effects, no connecting lines, no floating icons, no collage of multiple symbols. Absolutely no text, no letters, no numbers, no logos, no interface labels. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, restrained, editorial. High detail, quiet composition.",
+    "produkt": "Photorealistic e-commerce product photography of a premium consumer brand. Clean even studio lighting, soft natural shadow under the product, no harsh reflections. Tack sharp focus, very high detail, shot straight on at product height with a normal lens, no wide-angle distortion. Absolutely no text, no letters, no numbers, no logos, no printed labels, no engraving and no branding of any kind, neither on the product nor anywhere in the scene. No people, no faces, no hands, no body parts. Calm neutral colour world. Nothing else in the frame that competes with the product."
+  }
 }

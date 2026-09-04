@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Station, StationTitle, StationLead, RuledRow } from "./Station";
 import { Bildfeld } from "./Bildfeld";
-import { TaktSzene } from "./Grafiken";
 import { cases } from "@/lib/cases";
 import { testimonials, initials } from "@/lib/testimonials";
 import type { PostMeta } from "@/lib/blog";
@@ -84,7 +83,7 @@ const befunde = [
 
 export function Befund() {
   return (
-    <Station n="01" label="Der Befund" tone="paper">
+    <Station label="Ausgangslage" tone="paper">
       <StationTitle>Das Nötigste reicht auf Amazon nicht.</StationTitle>
 
       <div className="mt-12">
@@ -96,7 +95,7 @@ export function Befund() {
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:gap-12">
         <div className="border-l-2 border-brand-500 pl-6 md:pl-8">
-          <span className="text-label font-bold uppercase text-brand-800">Die Ursache</span>
+          <span className="text-label font-bold uppercase text-ink-muted">Die Ursache</span>
           <p className="mt-3 max-w-[52ch] text-balance text-[1.2rem] font-bold leading-[1.4] text-ink md:text-[1.4rem]">
             Vier Symptome, eine Ursache: das Listing überzeugt zu wenige Besucher. Amazon rankt nach
             Klicks und Käufen. Wer dort zurückliegt, muss Sichtbarkeit dauerhaft einkaufen.
@@ -128,96 +127,187 @@ const stufen = [
 
 const gegenueber = [
   {
-    alt: "Bilder, Texte und Titel einmal erstellt, dann läuft Werbung",
+    alt: "Listing einmal erstellt, danach nur noch Werbung",
     neu: "Hauptbild, Titel und A+ nachgeschärft, bis die Conversion steht",
   },
   {
-    alt: "Content nach Standard, ohne Datenbasis",
+    alt: "Content nach Gefühl, ohne Datenbasis",
     neu: "Content aus Search Query Report, Wettbewerb und Bewertungen",
   },
   {
-    alt: "Sichtbarkeit wird über Gebote gekauft, der Klickpreis steigt jedes Jahr",
-    neu: "Organische Plätze halten die Sichtbarkeit, Werbung kommt dazu",
+    alt: "Sichtbarkeit über Gebote gekauft, Klickpreise steigen jedes Jahr",
+    neu: "Organische Plätze tragen die Sichtbarkeit, Werbung kommt dazu",
   },
   {
     alt: "Umsatz um jeden Preis",
-    neu: "Jede SKU auf Deckungsbeitrag gerechnet, gesteuert über den TACoS",
+    neu: "Jede SKU auf Deckungsbeitrag gerechnet",
   },
 ];
 
 export function Verfahren() {
   const reduce = useReducedMotion();
+  const auf = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 14 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: "-12% 0px" },
+          transition: { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
+        };
+
   return (
-    <Station n="02" label="Das Verfahren" tone="dark">
+    <Station label="Unser Vorgehen" tone="dark">
       <StationTitle>
         Organic First, <span className="em text-brand-400">PPC Second.</span>
       </StationTitle>
-      <StationLead tone="dark">
-        Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt bei uns zuerst
-        das Listing, dann die Kampagne.
-      </StationLead>
+      <div className="grid gap-10 lg:grid-cols-[1fr_0.62fr] lg:items-center lg:gap-14">
+        <StationLead tone="dark" className="mt-6 lg:mt-0">
+          Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt bei uns
+          zuerst das Listing, dann die Kampagne.
+        </StationLead>
 
-      {/* Takt: drei Stufen, dann das Ergebnis */}
-      <div className="mt-14 grid gap-px overflow-hidden rounded-inner bg-board-rule md:grid-cols-4">
-        {stufen.map((s, i) => (
-          <motion.div
-            key={s.name}
-            initial={reduce ? undefined : { opacity: 0, y: 14 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-12% 0px" }}
-            transition={{ duration: 0.6, delay: i * 0.09, ease: [0.32, 0.72, 0, 1] }}
-            className="relative bg-board-raised p-6"
-          >
-            <span className="text-label font-bold text-chalk-faint [font-variant-numeric:tabular-nums]">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div className="mt-4 text-[1.05rem] font-bold leading-snug text-chalk">{s.name}</div>
-            <div className="mt-1.5 text-small text-chalk-muted">{s.meaning}</div>
-            {s.signal && (
-              <span className="mt-4 inline-block text-label font-bold uppercase text-brand-500">
-                Ranking-Signal
+        {/* Zeigt, wo die Klickrate entsteht: die Kachel im Suchergebnis. */}
+        <figure className="m-0">
+          <div className="relative mx-auto max-w-[22rem] rounded-card bg-white p-4 ring-2 ring-brand-500">
+            <div className="overflow-hidden rounded-inner bg-canvas-tint/40">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/bilder/p-haupt.webp"
+                alt="Produktkachel im Suchergebnis: Hauptbild der Isolierflasche"
+                width={1024}
+                height={1024}
+                className="aspect-square w-full object-cover"
+              />
+            </div>
+            <p className="mt-3 text-[0.85rem] font-bold leading-snug text-ink">
+              Isolierflasche 750 ml, doppelwandig, 24 h kalt
+            </p>
+            <div className="mt-2 flex items-center gap-2">
+              <span className="flex gap-0.5" aria-hidden>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900">
+                    <path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.2 6.8L12 17.4 6 20.7l1.2-6.8-5-4.8 6.9-.8L12 2z" />
+                  </svg>
+                ))}
               </span>
-            )}
-          </motion.div>
-        ))}
+              <span className="text-[0.7rem] text-ink-faint">1.284</span>
+            </div>
+            <p className="mt-1.5 num text-[1.35rem] text-ink">34,90 €</p>
+          </div>
+          <figcaption className="mt-4 text-center text-small text-chalk-muted">
+            Hier entsteht die Klickrate: Hauptbild, Titel, Bewertungen, Preis.
+          </figcaption>
+        </figure>
+      </div>
+
+      {/* Der Ablauf als Kette: drei Stufen, davon zwei Ranking-Signale, dann das Ergebnis. */}
+      <div className="mt-16">
+        <div className="flex items-center gap-3">
+          <span className="text-label font-bold uppercase text-brand-400">Organic First</span>
+          <span aria-hidden className="h-px flex-1 bg-white/10" />
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {stufen.map((s, i) => (
+            <motion.div
+              key={s.name}
+              {...auf(i * 0.09)}
+              className={clsx(
+                "relative rounded-card p-6 ring-1 ring-inset",
+                s.signal ? "bg-white/[0.07] ring-brand-500/40" : "bg-white/[0.035] ring-white/[0.08]"
+              )}
+            >
+              {s.signal && (
+                <span className="absolute right-5 top-5 rounded-full bg-brand-500 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-navy">
+                  Ranking-Signal
+                </span>
+              )}
+              <div className="num text-[2.2rem] text-white/20">{String(i + 1).padStart(2, "0")}</div>
+              <div className="mt-3 text-[1.15rem] font-bold leading-snug text-white">{s.name}</div>
+              <div className="mt-1.5 text-small text-chalk-muted">{s.meaning}</div>
+              {/* Pfeil zur nächsten Stufe, nur auf breiten Fenstern */}
+              {i < stufen.length - 1 && (
+                <span
+                  aria-hidden
+                  className="absolute -right-[1.4rem] top-1/2 hidden -translate-y-1/2 text-brand-500 md:block"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Ergebnis der ersten Phase, trägt in die zweite */}
         <motion.div
-          initial={reduce ? undefined : { opacity: 0, y: 14 }}
-          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-12% 0px" }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.32, 0.72, 0, 1] }}
-          className="bg-brand-500 p-6 text-ink"
+          {...auf(0.3)}
+          className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-card bg-brand-500 px-6 py-5 text-navy"
         >
           <span className="text-label font-bold uppercase">Ergebnis</span>
-          <div className="mt-4 text-[1.05rem] font-extrabold leading-snug">
-            Das Listing verkauft ohne Werbung.
-          </div>
-          <div className="mt-1.5 text-small font-medium">Kampagnen bauen darauf auf.</div>
+          <span className="text-[1.15rem] font-extrabold leading-snug">Das Listing verkauft ohne Werbung.</span>
+        </motion.div>
+
+        <div className="mt-10 flex items-center gap-3">
+          <span className="text-label font-bold uppercase text-brand-400">PPC Second</span>
+          <span aria-hidden className="h-px flex-1 bg-white/10" />
+        </div>
+
+        <motion.div {...auf(0.1)} className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            ["Skalieren, was konvertiert", "Budget geht auf Suchbegriffe, die auf der Detailseite kaufen."],
+            ["Platz halten", "Marke und Bestseller-Begriffe bleiben besetzt, auch gegen Wettbewerber."],
+            ["Auf Profit steuern", "Jede SKU auf Deckungsbeitrag gerechnet, geführt über den TACoS."],
+          ].map(([t, b], i) => (
+            <div key={t} className="rounded-card bg-white/[0.035] p-6 ring-1 ring-inset ring-white/[0.08]">
+              <span aria-hidden className="block h-1.5 w-1.5 rounded-full bg-brand-500" />
+              <div className="mt-4 text-[1.05rem] font-bold leading-snug text-white">{t}</div>
+              <div className="mt-1.5 text-small text-chalk-muted">{b}</div>
+              <span className="sr-only">{`Baustein ${i + 1}`}</span>
+            </div>
+          ))}
         </motion.div>
       </div>
 
-      <p className="mt-8 max-w-[62ch] text-body text-chalk-muted">
-        Konkret sind das neues Hauptbild, neue Listingbilder, Titel, Bullets, Backend-Felder und A+
-        Content. Einmal erstellt reicht nicht, die Zahlen bestimmen die Nacharbeit.
-      </p>
+      {/* Gegenüberstellung als zwei Karten. Die frühere Tabelle mit Durchstreichung
+          war schwer zu lesen und hat pro Blick kaum Information getragen. */}
+      <div className="mt-16 grid gap-5 lg:grid-cols-2 lg:gap-6">
+        <motion.div {...auf(0)} className="rounded-card bg-white/[0.03] p-7 ring-1 ring-inset ring-white/[0.07] md:p-8">
+          <span className="text-label font-bold uppercase text-chalk-faint">Wie es meistens läuft</span>
+          <ul className="mt-6 space-y-4">
+            {gegenueber.map((r) => (
+              <li key={r.alt} className="flex gap-3.5">
+                <span aria-hidden className="mt-1 shrink-0 text-chalk-faint">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                </span>
+                <span className="text-small leading-snug text-chalk-faint">{r.alt}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
-      {/* Gegenüberstellung als Buch, nicht als Tabelle mit Rahmen */}
-      <div className="mt-16">
-        <div className="grid grid-cols-2 gap-x-6 border-b border-board-rule pb-3 md:gap-x-12">
-          <span className="text-label font-bold uppercase text-chalk-faint">Wie es jetzt läuft</span>
-          <span className="text-label font-bold uppercase text-brand-500">Wie temoa arbeitet</span>
-        </div>
-        {gegenueber.map((r) => (
-          <div key={r.neu} className="grid grid-cols-2 gap-x-6 border-b border-board-rule py-5 md:gap-x-12">
-            <p className="text-small leading-snug text-chalk-faint line-through decoration-chalk-faint/40">
-              {r.alt}
-            </p>
-            <p className="text-small font-bold leading-snug text-chalk">{r.neu}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-16">
-        <TaktSzene />
+        <motion.div
+          {...auf(0.1)}
+          className="rounded-card bg-white/[0.08] p-7 ring-1 ring-inset ring-brand-500/35 md:p-8"
+        >
+          <span className="text-label font-bold uppercase text-brand-400">Wie temoa arbeitet</span>
+          <ul className="mt-6 space-y-4">
+            {gegenueber.map((r) => (
+              <li key={r.neu} className="flex gap-3.5">
+                <span aria-hidden className="mt-1 shrink-0 text-brand-500">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <span className="text-small font-bold leading-snug text-white">{r.neu}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </Station>
   );
@@ -237,9 +327,9 @@ const leistungen = [
 
 export function Leistungen() {
   return (
-    <Station n="03" label="Der Umfang" tone="paper">
+    <Station label="Leistungen" tone="paper">
       <StationTitle>
-        Fünf Leistungen, in der <span className="em text-brand-700">richtigen Reihenfolge.</span>
+        Fünf Leistungen, in der <span className="em mark">richtigen Reihenfolge.</span>
       </StationTitle>
 
       <div className="mt-12">
@@ -268,7 +358,7 @@ export function Leistungen() {
 
 export function Nachweis() {
   return (
-    <Station n="04" label="Der Nachweis" tone="dark" id="nachweis">
+    <Station label="Ergebnisse" tone="dark" id="nachweis">
       <StationTitle>
         Vier Marken, <span className="em text-brand-400">vier Ausgangslagen.</span>
       </StationTitle>
@@ -331,64 +421,135 @@ export function Nachweis() {
    05 · Arbeiten (Designbeispiele)
    ============================================================ */
 
+/* Ein komplettes Listing: sieben Bilder plus vier A+ Module.
+   Die Bilder liegen als Datei vor, jede Beschriftung zeichnet der Code. */
+const bildstrecke = [
+  { src: "/bilder/p-haupt.webp", rolle: "Hauptbild", alt: "Hauptbild: Isolierflasche freigestellt auf weißem Grund" },
+  { src: "/bilder/p-detail.webp", rolle: "Verschluss", alt: "Detailbild: Schraubverschluss aus gebürstetem Stahl" },
+  { src: "/bilder/p-szene.webp", rolle: "Anwendung", alt: "Anwendungsbild: Flasche auf einer Küchenarbeitsplatte" },
+  { src: "/bilder/p-gruppe.webp", rolle: "Varianten", alt: "Varianten: drei Farben nebeneinander" },
+  { src: "/bilder/p-material.webp", rolle: "Material", alt: "Makrobild: matte Oberfläche und gebürsteter Stahl" },
+  { src: "/bilder/p-offen.webp", rolle: "Geöffnet", alt: "Flasche mit abgeschraubtem Verschluss" },
+  { src: "/bilder/p-unterwegs.webp", rolle: "Unterwegs", alt: "Flasche in der Seitentasche eines Rucksacks" },
+];
+
 export function Arbeiten() {
   const reduce = useReducedMotion();
-  const tiles = ["Hauptbild", "Bild 2", "Bild 3", "Bild 4", "Bild 5", "Bild 6", "Bild 7"];
-  return (
-    <Station n="05" label="Die Arbeiten" tone="tint">
-      <StationTitle>
-        So sieht <span className="em text-brand-700">Retail Ready</span> aus.
-      </StationTitle>
-      <StationLead>Ein komplettes Listing, vom Hauptbild bis zum A+ Content.</StationLead>
+  const auf = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 12 },
+          whileInView: { opacity: 1, y: 0 },
+          viewport: { once: true, margin: "-10% 0px" },
+          transition: { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
+        };
 
-      <div className="mt-12 grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-12">
-        {/* Bildstrecke als Kontaktbogen */}
-        <div>
+  return (
+    <Station label="Designbeispiele" tone="tint">
+      <StationTitle>
+        So sieht <span className="em mark">Retail Ready</span> aus.
+      </StationTitle>
+      <StationLead>
+        Ein komplettes Listing aus unserer Produktion: sieben Bilder und vier A+ Module. Produkt und
+        Marke sind frei erfunden, die Arbeit ist echt.
+      </StationLead>
+
+      <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-12">
+        {/* Bildstrecke */}
+        <div className="min-w-0">
           <div className="text-label font-bold uppercase text-ink-faint">Bildstrecke</div>
+          {/* Vier Spalten, das Hauptbild über zwei mal zwei Felder. Mit den sechs
+              weiteren Bildern und der Infokachel geht das Raster lückenlos auf. */}
           <div className="mt-4 grid grid-cols-4 gap-2.5">
-            {tiles.map((t, i) => (
-              <motion.div
-                key={t}
-                initial={reduce ? undefined : { opacity: 0 }}
-                whileInView={reduce ? undefined : { opacity: 1 }}
-                viewport={{ once: true, margin: "-10% 0px" }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
+            {bildstrecke.map((b, i) => (
+              <motion.figure
+                key={b.src}
+                {...auf(i * 0.05)}
                 className={clsx(
-                  "flex items-end rounded-[0.5rem] bg-white p-2 shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]",
-                  i === 0 ? "col-span-2 row-span-2 aspect-square" : "aspect-square"
+                  "group relative m-0 overflow-hidden rounded-[0.625rem] bg-white shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]",
+                  i === 0 ? "col-span-2 row-span-2" : ""
                 )}
               >
-                <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-ink-line">{t}</span>
-              </motion.div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={b.src} alt={b.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/75 to-transparent px-2.5 pb-1.5 pt-6">
+                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-white">{b.rolle}</span>
+                </figcaption>
+              </motion.figure>
             ))}
+            <motion.div
+              {...auf(0.35)}
+              className="col-span-2 flex flex-col justify-center rounded-[0.625rem] bg-navy p-5"
+            >
+              <span aria-hidden className="h-2 w-2 rounded-full bg-brand-500" />
+              <p className="mt-3 text-[0.95rem] font-bold leading-snug text-white">
+                Ein Set, sieben Rollen
+              </p>
+              <p className="mt-1.5 text-[0.78rem] leading-snug text-chalk-muted">
+                Jedes Bild beantwortet eine eigene Frage: Was ist es, wie ist es gemacht, wofür ist
+                es, welche Varianten gibt es.
+              </p>
+            </motion.div>
           </div>
         </div>
 
-        {/* A+ Aufbau als Blattstapel */}
-        <div>
+        {/* A+ Content: Bildgrund aus der Datei, Text aus dem Code */}
+        <div className="min-w-0">
           <div className="text-label font-bold uppercase text-ink-faint">A+ Content</div>
-          <div className="mt-4 space-y-2">
-            <div className="flex aspect-[16/6] items-end rounded-[0.5rem] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]">
-              <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-ink-line">Modul, Hero</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {["Modul, Nutzen", "Modul, Anwendung"].map((t) => (
-                <div key={t} className="flex aspect-[4/3] items-end rounded-[0.5rem] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]">
-                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-ink-line">{t}</span>
-                </div>
+          <div className="mt-4 space-y-2.5">
+            <motion.div
+              {...auf(0.05)}
+              className="relative overflow-hidden rounded-[0.625rem] bg-white shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/bilder/a-hero.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
+              <div className="absolute inset-y-0 left-0 flex w-[58%] flex-col justify-center px-5 md:px-7">
+                <p className="text-[clamp(0.85rem,0.5rem+0.9vw,1.25rem)] font-extrabold leading-tight text-navy">
+                  24 Stunden kalt.
+                  <br />
+                  12 Stunden heiß.
+                </p>
+                <p className="mt-1.5 text-[0.7rem] leading-snug text-navy/70">Doppelwandig, vakuumisoliert</p>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              {[
+                { src: "/bilder/a-nutzen.webp", t: "Hält die Kälte", b: "Auch nach einem Tag im Rucksack." },
+                { src: "/bilder/a-anwendung.webp", t: "Passt in den Alltag", b: "Schreibtisch, Küche, Tasche." },
+              ].map((m, i) => (
+                <motion.div
+                  key={m.src}
+                  {...auf(0.1 + i * 0.05)}
+                  className="overflow-hidden rounded-[0.625rem] bg-white shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={m.src} alt="" width={1024} height={768} className="aspect-[4/3] w-full object-cover" />
+                  <div className="px-3 py-2.5">
+                    <p className="text-[0.75rem] font-bold leading-snug text-ink">{m.t}</p>
+                    <p className="mt-0.5 text-[0.68rem] leading-snug text-ink-faint">{m.b}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
-            <div className="flex aspect-[16/5] items-end rounded-[0.5rem] bg-white p-3 shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]">
-              <span className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-ink-line">Modul, Vergleich</span>
-            </div>
+
+            <motion.div
+              {...auf(0.2)}
+              className="overflow-hidden rounded-[0.625rem] bg-white shadow-[0_10px_24px_-16px_rgba(2,48,71,0.5)]"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/bilder/a-vergleich.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
+              <div className="flex items-baseline justify-between gap-3 px-4 py-2.5">
+                <p className="text-[0.75rem] font-bold text-ink">Fünf Farben, eine Form</p>
+                <p className="text-[0.68rem] text-ink-faint">Modul: Varianten</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      <a
-        href="/design-beispiele"
-        className="btn-text mt-10"
-      >
+      <a href="/design-beispiele" className="btn-text mt-10">
         Mehr Designbeispiele
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -402,11 +563,11 @@ export function Arbeiten() {
    06 · Stimmen
    ============================================================ */
 
-export function Stimmen({ n = "06" }: { n?: string } = {}) {
+export function Stimmen() {
   return (
-    <Station n={n} label="Die Stimmen" tone="tint">
+    <Station label="Kundenstimmen" tone="tint">
       <StationTitle>
-        Im Wortlaut, <span className="em text-brand-700">mit Zahlen.</span>
+        Im Wortlaut, <span className="em mark">mit Zahlen.</span>
       </StationTitle>
 
       <div className="mt-12 columns-1 gap-6 md:columns-2 [&>*]:mb-6">
@@ -453,46 +614,52 @@ export function Stimmen({ n = "06" }: { n?: string } = {}) {
    ============================================================ */
 
 export function Termin({
-  n = "07",
   title,
   sub,
 }: {
-  n?: string;
   title?: React.ReactNode;
   sub?: React.ReactNode;
 } = {}) {
   return (
-    <section className="relative bg-brand-500 text-ink">
+    <section className="on-dark relative overflow-hidden bg-navy text-chalk">
+      {/* orange Lichtkante oben, damit die Sektion nicht als Block abfällt */}
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
       <div className="container-x">
-        <div className="grid gap-y-8 py-24 md:grid-cols-[9rem_1fr] md:gap-x-12 md:py-32 lg:grid-cols-[11rem_1fr]">
-          <div className="flex items-baseline gap-4 md:flex-col md:items-start md:gap-3">
-            <span className="num text-[3.5rem] text-ink/20 md:text-[4.5rem]">{n}</span>
-            <span className="text-label font-bold uppercase text-ink/70 md:border-t md:border-ink/20 md:pt-4">Der Termin</span>
-          </div>
+        <div className="grid items-center gap-y-10 py-20 md:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16">
           <div className="min-w-0">
-            <h2 className="title max-w-[20ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)]">
+            <h2 className="title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)] text-white">
               {title ?? "Wie viel Umsatz lässt euer Listing liegen?"}
             </h2>
-            <p className="mt-6 max-w-[52ch] text-pretty text-lead text-ink/80">
+            <p className="mt-6 max-w-[52ch] text-pretty text-lead text-chalk-muted">
               {sub ??
                 "In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen euch, was euer Sortiment noch hergibt."}
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a
-                href="/gespraech-vereinbaren"
-                className="group inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-ink py-2 pl-6 pr-2 text-small font-bold text-white transition-all duration-300 hover:-translate-y-0.5"
-              >
+            <div className="mt-10">
+              <a href="/gespraech-vereinbaren" className="btn-on-dark">
                 Potenzialanalyse buchen
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-brand-500 text-ink transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
+                <span className="disc" aria-hidden>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
               </a>
-              <span className="text-small font-bold text-ink/75">
-                Ihr verlängert nach Performance · 98 % Kundenbindung
-              </span>
             </div>
+          </div>
+
+          {/* Risk-Reversal als abgesetzte Platte, nicht als Nebensatz hinter dem Button */}
+          <div className="rounded-card bg-white/[0.06] p-7 ring-1 ring-inset ring-white/10 md:p-8">
+            {[
+              ["Keine lange Laufzeit", "Ihr verlängert nach Performance, nicht nach Vertrag."],
+              ["98 %", "unserer Marken verlängern die Zusammenarbeit."],
+              ["Kostenlos", "Die Analyse selbst kostet euch nichts außer der Zeit."],
+            ].map(([k, v]) => (
+              <div key={k} className="flex gap-4 border-t border-white/10 py-4 first:border-t-0 first:pt-0 last:pb-0">
+                <span aria-hidden className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                <p className="text-small text-chalk-muted">
+                  <span className="font-bold text-white">{k}</span> {v}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -522,7 +689,7 @@ const members = [
 
 export function Mannschaft() {
   return (
-    <Station n="08" label="Die Mannschaft" tone="paper" id="team">
+    <Station label="Team" tone="paper" id="team">
       <StationTitle>Das Team hinter temoa.</StationTitle>
       <StationLead>
         Strategie, Design, Advertising und Account-Management, alle im Haus.
@@ -562,7 +729,7 @@ export function Mannschaft() {
 
 export function Wissen({ posts }: { posts: PostMeta[] }) {
   return (
-    <Station n="09" label="Das Wissen" tone="paper">
+    <Station label="Blog" tone="paper">
       <StationTitle>Klartext zu Amazon.</StationTitle>
 
       <div className="mt-12">
@@ -581,7 +748,7 @@ export function Wissen({ posts }: { posts: PostMeta[] }) {
               </span>
               <span className="mt-2 block text-label font-bold uppercase text-ink-faint">{p.categoryShort}</span>
             </span>
-            <span className="hidden shrink-0 self-center text-brand-700 transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem] md:group-hover:bg-brand-500 md:group-hover:text-ink" aria-hidden>
+            <span className="hidden shrink-0 self-center text-navy transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem] md:group-hover:bg-brand-500 md:group-hover:text-ink" aria-hidden>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

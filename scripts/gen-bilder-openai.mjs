@@ -107,11 +107,13 @@ async function nachrahmen(sharp, rohdaten, breite, hoehe) {
 // Das PNG aus der API wiegt ueber zwei Megabyte. Fuer die Website entsteht
 // daneben ein nachgerahmtes WebP, das die Seite tatsaechlich ausliefert. Das
 // PNG bleibt unangetastet als Original liegen.
-async function alsWebp(rohdaten, ziel, size) {
+async function alsWebp(rohdaten, ziel, size, rahmen = true) {
   try {
     const sharp = (await import("sharp")).default;
     const [breite, hoehe] = size.split("x").map(Number);
-    const gerahmt = await nachrahmen(sharp, rohdaten, breite, hoehe);
+    const gerahmt = rahmen
+      ? await nachrahmen(sharp, rohdaten, breite, hoehe)
+      : await sharp(rohdaten).resize(breite, hoehe, { fit: "cover" }).toBuffer();
     await sharp(gerahmt).webp({ quality: 82 }).toFile(ziel);
     const kb = Math.round(fs.statSync(ziel).size / 1024);
     return `${path.basename(ziel)} (${kb} kB)`;
@@ -131,9 +133,20 @@ function pruefeGroesse(size, kennung) {
   return size;
 }
 
+/** Stilblock zu einem Bild. `stil` wählt die Familie, Standard ist "objekt". */
+function stilblock(bild) {
+  if (spec.stilblocks) {
+    const key = bild.stil || "objekt";
+    const block = spec.stilblocks[key];
+    if (!block) throw new Error(`${bild.kennung}: Stilblock "${key}" ist nicht definiert`);
+    return block;
+  }
+  return spec.stilblock;
+}
+
 async function erzeuge(bild, versuch = 1) {
   const size = pruefeGroesse(bild.size, bild.kennung);
-  const prompt = `${bild.prompt.trim()}\n\n${spec.stilblock.trim()}`;
+  const prompt = `${bild.prompt.trim()}\n\n${stilblock(bild).trim()}`;
   try {
     const res = await fetch("https://api.openai.com/v1/images/generations", {
       method: "POST",
@@ -155,7 +168,7 @@ async function erzeuge(bild, versuch = 1) {
       const rohdaten = Buffer.from(eintrag.b64_json, "base64");
       fs.writeFileSync(path.join(ORIGINALE, `${basis}.png`), rohdaten);
       dateien.push(`bilder-original/${basis}.png`);
-      const webp = await alsWebp(rohdaten, path.join(OUT, `${basis}.webp`), size);
+      const webp = await alsWebp(rohdaten, path.join(OUT, `${basis}.webp`), size, bild.rahmen !== false);
       if (webp) dateien.push(`public/bilder/${webp}`);
     }
     return `fertig ${bild.kennung} (${size}) -> ${dateien.join(", ")}`;
@@ -180,10 +193,8 @@ if (args.includes("--nur-rahmen")) {
       continue;
     }
     const size = pruefeGroesse(bild.size, bild.kennung);
-    const [breite, hoehe] = size.split("x").map(Number);
-    const gerahmt = await nachrahmen(sharp, fs.readFileSync(original), breite, hoehe);
     const ziel = path.join(OUT, `${bild.kennung}.webp`);
-    await sharp(gerahmt).webp({ quality: 82 }).toFile(ziel);
+    await alsWebp(fs.readFileSync(original), ziel, size, bild.rahmen !== false);
     console.log(`gerahmt ${bild.kennung} (Fuellung ${FUELLUNG}) -> ${Math.round(fs.statSync(ziel).size / 1024)} kB`);
   }
   process.exit(0);

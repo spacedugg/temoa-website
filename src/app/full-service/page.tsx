@@ -30,9 +30,8 @@ export default function FullServicePage() {
           <Bereiche />
           <Reporting />
           <Unterschied />
-          <Stimmen n="05" />
+          <Stimmen />
           <Termin
-            n="06"
             title="Welcher Bereich bremst euer Wachstum?"
             sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
           />

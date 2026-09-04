@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Station, StationTitle, StationLead, RuledRow } from "./Station";
+import { Station, StationTitle, StationLead, Eyebrow, RuledRow } from "./Station";
 import { Bildfeld } from "./Bildfeld";
 
 /**
@@ -99,21 +99,16 @@ export function FullServiceKopf() {
         style={{ background: "radial-gradient(circle, rgba(255,153,0,0.13), transparent 65%)" }}
       />
       <div className="container-x relative">
-        <div className="grid gap-y-12 pb-24 pt-32 md:grid-cols-[8rem_1fr] md:gap-x-14 md:pb-28 md:pt-40 lg:grid-cols-[10rem_1fr]">
-          <div className="flex items-center gap-4 md:flex-col md:items-start md:gap-4">
-            <motion.span {...rise(0)} className="num text-[3.5rem] text-ink/10 md:text-[4.5rem]">
-              00
-            </motion.span>
-            <motion.span {...rise(0.05)} className="text-label font-bold uppercase text-brand-800 md:border-t md:border-ink/10 md:pt-4">
-              Full Service
-            </motion.span>
-          </div>
+        <div className="pb-24 pt-28 md:pb-28 md:pt-32">
+          <motion.div {...rise(0)}>
+            <Eyebrow label="Amazon Full Service" />
+          </motion.div>
 
           <div className="grid min-w-0 items-center gap-y-12 lg:grid-cols-[1fr_0.8fr] lg:gap-x-16">
             <div className="min-w-0">
               <motion.h1 {...rise(0.08)} className="display max-w-[17ch] text-balance text-[clamp(2.4rem,1.6rem+2.6vw,3.75rem)] text-ink">
                 Ein eingespieltes Team für euren{" "}
-                <span className="em text-brand-700">kompletten Amazon-Account.</span>
+                <span className="em mark">kompletten Amazon-Account.</span>
               </motion.h1>
               <motion.p {...rise(0.16)} className="mt-8 max-w-[52ch] text-pretty text-lead text-ink-muted">
                 Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum
@@ -132,7 +127,14 @@ export function FullServiceKopf() {
             </div>
 
             <motion.div {...rise(0.18)} className="overflow-hidden rounded-[1.25rem] shadow-[0_50px_90px_-45px_rgba(2,48,71,0.5)]">
-              <Bildfeld id="B-05" aspect="aspect-[4/5]" tone="paper" priority />
+              <Bildfeld
+                id="B-05"
+                aspect="aspect-[4/5]"
+                tone="paper"
+                priority
+                src="/bilder/p-unterwegs.webp"
+                alt="Produktaufnahme aus einem Listing, das wir gebaut haben"
+              />
             </motion.div>
           </div>
         </div>
@@ -144,7 +146,7 @@ export function FullServiceKopf() {
 /* ---------- 01 · Für wen ---------- */
 export function FuerWen() {
   return (
-    <Station n="01" label="Für wen" tone="tint">
+    <Station label="Für wen wir arbeiten" tone="tint">
       <StationTitle>Passt das zu eurer Marke?</StationTitle>
       <div className="mt-12">
         {fuerWen.map((r) => (
@@ -159,7 +161,7 @@ export function FuerWen() {
 /* ---------- 02 · Die Ausgangslage ---------- */
 export function Ausgangslage() {
   return (
-    <Station n="02" label="Die Ausgangslage" tone="paper">
+    <Station label="Ausgangslage" tone="paper">
       <StationTitle>Warum die üblichen Lösungen an Amazon scheitern.</StationTitle>
       <div className="mt-12">
         {ausgangslage.map((r) => (
@@ -180,7 +182,7 @@ export function Ausgangslage() {
 export function Bereiche() {
   const reduce = useReducedMotion();
   return (
-    <Station n="03" label="Was wir übernehmen" tone="dark">
+    <Station label="Was wir übernehmen" tone="dark">
       <StationTitle>Fünf Bereiche, jeder in voller Tiefe.</StationTitle>
 
       <div className="mt-14">
@@ -222,7 +224,7 @@ export function Reporting() {
     <section className="relative border-y border-ink/[0.08] bg-white py-14 md:py-16">
       <div className="container-x">
         <div className="grid gap-y-8 md:grid-cols-[8rem_1fr] md:gap-x-14 lg:grid-cols-[10rem_1fr]">
-          <span className="text-label font-bold uppercase text-brand-800">Immer enthalten</span>
+          <span className="text-label font-bold uppercase text-ink-muted">Immer enthalten</span>
           <div className="min-w-0">
             <h2 className="title max-w-[24ch] text-balance text-[clamp(1.5rem,1.2rem+1vw,2rem)] text-ink">
               Reporting, das ihr in fünf Minuten versteht.
@@ -245,7 +247,7 @@ export function Reporting() {
 export function Unterschied() {
   const reduce = useReducedMotion();
   return (
-    <Station n="04" label="Der Unterschied" tone="paper">
+    <Station label="Zusammenarbeit" tone="paper">
       <StationTitle>Alle Bereiche arbeiten mit denselben Zahlen.</StationTitle>
       <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-14">
         <ul className="space-y-6">

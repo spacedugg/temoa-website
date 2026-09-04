@@ -19,6 +19,21 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - KEINE umgangssprachlichen oder vulgaeren Ausdruecke. Verboten z. B.: "Geld in Werbung pumpen", "ins Werbebudget pumpen". Stattdessen nuechtern formulieren.
 - Above-the-fold/Hero: knapp halten. Kein unnoetiger Text, keine Microcopy unter dem Haupt-CTA.
 
+## Design- und Bildregeln (nach Kundenfeedback verbindlich)
+
+- **Amazon muss above the fold ankommen.** Ein Besucher darf nach zwei Sekunden nicht raten, worum es geht. Frueher stand dort nur „Wachstum ist keine Frage des Werbebudgets", das konnte jede Marketingfirma sein.
+- **Keine Stationsnummerierung, keine Bauplan-Sprache.** Verboten als Sektionsbezeichnung: „Der Auftrag", „Der Befund", „Das Verfahren", „Der Umfang", „Der Nachweis", „Die Arbeiten", „Die Mannschaft", „Das Wissen", „Fuer wen", „Die Ausgangslage" in Verbindung mit einer Nummer 00 bis 09. So redet in diesem Geschaeft niemand. Sektionen tragen eine kurze normale Bezeichnung ueber der Ueberschrift (Ausgangslage, Unser Vorgehen, Leistungen, Ergebnisse, Designbeispiele, Kundenstimmen, Team, Blog) oder gar keine.
+- **Kein dunkles Orange als Schriftfarbe.** `brand-700` (#C96D00) und `brand-800` (#9E5600) sind als Text verboten, das liest sich als Gold und wirkt schmutzig. Betonte Woerter in Ueberschriften bleiben dunkel und bekommen die Klasse `mark`, die einen orangen Balken unter die Grundlinie setzt. Auf dunklem Grund darf `brand-400` Text sein.
+- **Kein dunkler Text auf oranger Flaeche bei Buttons.** Primaerbutton ist Navy mit weisser Schrift, die Pfeilscheibe traegt das Orange (`btn-primary`). Auf dunklem Grund kehrt es sich um: weisse Flaeche, Navy-Text (`btn-on-dark`). Orange bleibt Akzent, nie Buttonflaeche.
+- **Keine schwebenden Textbloecke auf Weiss.** Inhalte sitzen in abgesetzten Flaechen: Karten, getoente Baender, dunkle Sektionen. Zwei Textbausteine ohne sichtbare Trennung nebeneinander sind ein Fehler.
+- **Keine nackten Tabellen und keine Durchstreichungslisten.** Gegenueberstellungen laufen als zwei Karten, links das Uebliche gedaempft mit Kreuz, rechts die temoa-Fassung betont mit Haken.
+- **Zwei Bildfamilien, klar getrennt** (siehe `content/bild-prompts.json`):
+  1. `produkt`: fotorealistische Produktaufnahmen fuer Hero, Designbeispiele und A+ Module. Das ist die Familie, die Amazon-Wirkung erzeugt. Ein durchgaengiges, frei erfundenes Produkt ohne Marke und ohne Schrift.
+  2. `objekt`: die reduzierten matten 3D-Gegenstaende, nur noch als Akzent in Argumentationssektionen.
+- **Schrift gehoert nie ins generierte Bild.** Bildmodelle setzen Schrift fehlerhaft. Der Bildgrund kommt aus der Datei, jede Beschriftung zeichnet der Code darueber. Gilt auch fuer A+ Module und Listing-Nachbauten.
+- **Listing-Nachbauten ohne Amazon-Oberflaeche.** Kein Amazon-Logo, kein Prime, keine Amazon-Chrome. Nur der Aufbau einer Produktseite. Beispiel-Listings werden als erfunden gekennzeichnet.
+- **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 60+ Marken, 5+ Marktplaetze, 98 % Kundenbindung), nicht als Fantasiewert in einer Grafik.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.
@@ -63,7 +78,7 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 
 Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, selbst klickbar zur Uebersichtsseite) · Case Studies · Designbeispiele · CTA "Potenzialanalyse buchen"
 
-1. Hero (Versprechen + Angebot als CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen")
+1. Hero (Amazon in der ersten Zeile, Versprechen, CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen", rechts ein Listing-Nachbau mit echten Produktbildern)
 2. Credibility-Band (Kundenlogos + Zahlen: Ø +30 % Profitabilitaet, 21 Mio EUR betreuter Jahresumsatz, 60+ betreute Marken, 5+ Marktplaetze)
 3. Problem (kurz, knackig, visuell: "Das Noetigste reicht nicht" + Pain-Liste, fuehrt mit Zeitmangel; KEIN "nebenbei")
 4. Mechanismus Organic First, PPC Second + Alt/Neu-Tabelle (Spalten "Wie es jetzt laeuft" vs "Wie temoa arbeitet"; kein Wort "Agentur")

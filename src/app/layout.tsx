@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "temoa · Amazon Full Service Wachstumspartner",
     description:
-      "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First, PPC Second.",
+      "Amazon Full Service: Erst verkauft euer Listing, dann skaliert die Werbung. Organic First, PPC Second.",
     type: "website",
     locale: "de_DE",
   },

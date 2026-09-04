@@ -4,11 +4,15 @@ import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 
 /**
- * Welt „Taktplan", helle Fassung.
+ * Sektionsgerüst.
  *
- * Die Seite ist ein Plan, der von oben nach unten gelesen wird. Jede Sektion
- * ist eine Station mit Nummer und Bezeichnung. Der Grund ist weiß, einzelne
- * Stationen tragen Farbe: getönt, dunkel oder orange.
+ * Frühere Fassung war ein „Taktplan": jede Sektion trug links eine große
+ * Nummer und eine Bezeichnung wie „Der Befund" oder „Das Verfahren". Das war
+ * die Sprache eines Bauplans, nicht die des Amazon-Geschäfts, und die Spalte
+ * hat auf jeder Sektion rund zehn Rem Breite gekostet, ohne etwas zu sagen.
+ *
+ * Jetzt läuft der Inhalt über die volle Breite. Die Bezeichnung steht als
+ * kurze Zeile über der Überschrift, dort wo sie gelesen wird.
  *
  * Typografische Regel: groß wird leicht gesetzt, klein wird fett gesetzt.
  */
@@ -22,15 +26,14 @@ const grounds: Record<Tone, string> = {
 };
 
 export function Station({
-  n,
   label,
   tone = "paper",
   id,
   children,
   className,
 }: {
-  n: string;
-  label: string;
+  /** Kurze Bezeichnung über der Überschrift. Weglassen, wenn die Überschrift reicht. */
+  label?: string;
   tone?: Tone;
   id?: string;
   children: React.ReactNode;
@@ -40,8 +43,8 @@ export function Station({
   return (
     <section id={id} className={clsx("relative scroll-mt-24", grounds[tone], className)}>
       <div className="container-x">
-        <div className="grid gap-y-10 py-24 md:grid-cols-[8rem_1fr] md:gap-x-14 md:py-32 lg:grid-cols-[10rem_1fr]">
-          <StationMark n={n} label={label} dark={dark} />
+        <div className="py-20 md:py-28">
+          {label && <Eyebrow label={label} dark={dark} />}
           <div className="min-w-0">{children}</div>
         </div>
       </div>
@@ -49,28 +52,22 @@ export function Station({
   );
 }
 
-function StationMark({ n, label, dark }: { n: string; label: string; dark: boolean }) {
+/** Bezeichnung über der Überschrift: oranger Punkt, dann das Wort. */
+export function Eyebrow({ label, dark = false }: { label: string; dark?: boolean }) {
   const reduce = useReducedMotion();
   return (
-    <div className="flex items-center gap-4 md:sticky md:top-28 md:h-fit md:flex-col md:items-start md:gap-4">
-      <motion.span
-        initial={reduce ? undefined : { opacity: 0, y: 8 }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-15% 0px" }}
-        transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-        className={clsx("num text-[3.5rem] md:text-[4.5rem]", dark ? "text-white/15" : "text-ink/10")}
-      >
-        {n}
-      </motion.span>
-      <span
-        className={clsx(
-          "text-label font-bold uppercase md:border-t md:pt-4",
-          dark ? "border-white/15 text-brand-400" : "border-ink/10 text-brand-800"
-        )}
-      >
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, y: 8 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-15% 0px" }}
+      transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+      className="mb-5 flex items-center gap-2.5"
+    >
+      <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-brand-500" />
+      <span className={clsx("text-label font-bold uppercase", dark ? "text-chalk-muted" : "text-ink-muted")}>
         {label}
       </span>
-    </div>
+    </motion.div>
   );
 }
 
@@ -184,7 +181,7 @@ export function RuledRow({
             "hidden shrink-0 self-center transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem]",
             dark
               ? "text-brand-400 group-hover:bg-white/10"
-              : "text-brand-700 group-hover:bg-brand-500 group-hover:text-ink"
+              : "text-navy group-hover:bg-brand-500 group-hover:text-ink"
           )}
           aria-hidden
         >
