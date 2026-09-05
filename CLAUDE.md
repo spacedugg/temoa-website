@@ -52,6 +52,39 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 - **Listing-Nachbauten ohne Amazon-Oberflaeche.** Kein Amazon-Logo, kein Prime, keine Amazon-Chrome. Nur der Aufbau einer Produktseite. Beispiel-Listings werden als erfunden gekennzeichnet.
 - **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 60+ Marken, 5+ Marktplaetze, 98 % Kundenbindung), nicht als Fantasiewert in einer Grafik.
 
+## Farben und Sektionsfarben (Stand nach der zweiten Feedbackrunde)
+
+- **Die farbige Sektion ist Rot, nicht Orange.** Erste Fassung war die
+  Markenfarbe #FF9900 mit dunklem Text darauf. Der Kunde hat das als
+  anstrengend zurueckgewiesen: dunkelbraun auf Orange kommt auf 6:1, das ist
+  messbar in Ordnung und flimmert trotzdem, weil beide Toene fast gleich hell
+  sind. `.ground-signal` ist jetzt ein tiefes Rot (#b81f14 bis #8f150f) mit
+  weisser Schrift, 7,4:1. Damit kommt endlich das Rot aus dem Logo vor.
+- **Rot heisst Problem, Gruen heisst Ergebnis.** Die Problem-Sektion jeder
+  Leistungsseite ist dunkel mit rot getoenten Nummern und roter Kante oben.
+  Kennzahlen, die sich verbessert haben, stehen in Gruen (#6EE7A0 auf
+  dunklem Grund) mit gruenem Trendpfeil. Bei ACoS und TACoS zeigt der Pfeil
+  nach unten und bleibt gruen, weil ein gefallener Wert dort gut ist.
+- **Der Abschluss-CTA liegt auf der roten Flaeche**, nicht auf Navy: die
+  Fusszeile ist Navy, und zwei gleiche Toene direkt uebereinander lassen
+  nicht erkennen, wo die Seite endet.
+- **Der Knopf in der Kopfzeile traegt die Markenflaeche**, weil Navy auf
+  einer Seite voller Navy nicht als Aktion auffaellt.
+- **Kein farbiger Strich oben links auf weissen Kacheln.** Das Muster stand
+  auf jeder zweiten Kachel der Website und hat sie alle gleich aussehen
+  lassen. Reihenfolge tragen Ziffern, Farbe sitzt auf Aufzaehlungszeichen.
+- **Diagramme tragen keine erfundene Zeitachse.** „Vor der Ueberarbeitung"
+  bis „Nach zwoelf Monaten" ist ein Versprechen, das niemand einloesen kann.
+  Ein Schema zeigt den Mechanismus, ein Fall zeigt Zahlen, nichts dazwischen.
+- **Kleingedruckte Hinweise unter Diagrammen entfallen.** Dass eine
+  Darstellung schematisch ist, sieht man ihr an, wenn keine Zahl daran steht.
+- **Zahlenwiederholung vermeiden.** Ø +30 %, 21 Mio. EUR und 98 % standen
+  viermal auf der Startseite. Eine Zahl, die viermal dasteht, ueberzeugt
+  nicht mehr, sie nutzt sich ab.
+- **Jede Leistungsseite endet mit einem belegten Fall** (Komponente
+  `Ergebnis` in `service/Blocks`), verlinkt auf die zugehoerige Case Study.
+  Die Zahlen stammen aus `src/lib/cases.ts`, nicht aus der Fantasie.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.
