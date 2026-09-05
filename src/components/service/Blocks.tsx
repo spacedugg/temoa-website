@@ -781,7 +781,7 @@ export function SignalSatz({
       <div className="container-x relative">
         {eyebrow && (
           <Reveal>
-            <span className="inline-flex items-center gap-2.5 rounded-full bg-navy px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white">
+            <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.14] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]">
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-400" />
               {eyebrow}
             </span>
@@ -797,12 +797,12 @@ export function SignalSatz({
             {punkte.map((p) => (
               <RevealItem key={p} className="h-full">
                 <div className="panel-signal flex h-full items-center gap-3.5 px-5 py-4">
-                  <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-navy text-white">
+                  <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-500 text-[#7a1109]">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="text-small font-bold leading-snug text-navy">{p}</span>
+                  <span className="text-small font-bold leading-snug text-white">{p}</span>
                 </div>
               </RevealItem>
             ))}

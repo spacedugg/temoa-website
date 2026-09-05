@@ -1,7 +1,6 @@
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Auftrag } from "@/components/takt/Auftrag";
-import { Haltung } from "@/components/takt/Haltung";
 import {
   Kundenband,
   Befund,
@@ -25,10 +24,12 @@ export default function Home() {
         <Auftrag />
         <Kundenband />
         <Befund />
-        <Verfahren />
+        {/* Die fuenf Leistungen standen an fuenfter Stelle und gingen unter.
+            Jetzt kommen sie direkt nach der Ausgangslage: erst das Problem,
+            dann was wir abdecken, dann wie wir vorgehen, dann der Nachweis. */}
         <Leistungen />
+        <Verfahren />
         <Nachweis />
-        <Haltung />
         <Arbeiten />
         <Stimmen />
         <Termin />

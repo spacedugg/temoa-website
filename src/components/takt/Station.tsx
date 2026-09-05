@@ -84,7 +84,7 @@ export function Eyebrow({
       className={clsx(
         "mb-6 inline-flex items-center gap-2.5 rounded-full py-2 pl-3 pr-4",
         signal
-          ? "bg-navy/[0.14] shadow-[inset_0_0_0_1px_rgba(42,20,0,0.14)]"
+          ? "bg-white/[0.14] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]"
           : dark
             ? "bg-white/[0.07] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
             : "bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.2)]"
@@ -92,12 +92,12 @@ export function Eyebrow({
     >
       <span
         aria-hidden
-        className={clsx("node-glow", signal && "!bg-navy !shadow-[0_0_0_4px_rgba(10,30,43,0.12)]")}
+        className={clsx("node-glow", signal && "!bg-brand-400 !shadow-[0_0_0_4px_rgba(255,153,0,0.22)]")}
       />
       <span
         className={clsx(
           "text-label font-bold uppercase",
-          signal ? "text-navy" : dark ? "text-chalk" : "text-ink-soft"
+          signal ? "text-white" : dark ? "text-chalk" : "text-ink-soft"
         )}
       >
         {label}

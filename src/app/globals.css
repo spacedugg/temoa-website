@@ -263,32 +263,36 @@ footer :where(a, button):focus-visible,
 
   /* Signalsektion: volle Markenfläche.
 
-     Der Kunde wollte auch mal eine ganze Sektion in Farbe. Orange trägt
-     ausschließlich dunklen Text, deshalb ist diese Fläche nur für kurze,
-     große Aussagen gedacht, nicht für Fließtext oder lange Listen. Sie wirkt
-     als Zäsur zwischen zwei hellen Sektionen, so wie ein Absatz im Text.
-     `.on-signal` stellt die Textfarben darauf um. */
+     Erste Fassung war das Orange der Marke mit dunklem Text darauf. Der Kunde
+     hat das als anstrengend zu lesen zurückgewiesen, zu Recht: dunkelbraun auf
+     #FF9900 kommt auf 6:1, das ist messbar in Ordnung und trotzdem flimmert es,
+     weil beide Töne fast gleich hell sind.
+
+     Jetzt ein tiefes Rot aus dem Logo mit weißer Schrift, 7,4:1. Damit ist die
+     Fläche lesbar, und die Logo-Farbe kommt endlich vor: bisher lief die ganze
+     Seite auf Navy und Orange, das Rot lag brach. Orange bleibt der Akzent
+     darauf, für Leuchtkanten und Punkte, nie als Schriftfarbe. */
   .ground-signal {
     position: relative;
     background:
-      radial-gradient(90% 120% at 88% 0%, rgba(255, 193, 92, 0.55), transparent 60%),
-      radial-gradient(80% 110% at 4% 100%, rgba(255, 107, 31, 0.4), transparent 62%),
-      linear-gradient(150deg, #ff9900 0%, #ff8a00 55%, #f97a12 100%);
+      radial-gradient(85% 120% at 88% -10%, rgba(255, 153, 0, 0.42), transparent 58%),
+      radial-gradient(75% 110% at 2% 108%, rgba(120, 12, 8, 0.55), transparent 62%),
+      linear-gradient(148deg, #b81f14 0%, #a51a12 52%, #8f150f 100%);
   }
   .on-signal {
-    color: #2a1400;
+    color: #ffffff;
   }
   .on-signal .signal-leise {
-    color: rgba(42, 20, 0, 0.72);
+    color: rgba(255, 236, 230, 0.82);
   }
   /* Platte auf der Signalfläche: aufgehellt, damit sie sich abhebt, ohne
      weiß zu werden und die Fläche zu zerschneiden. */
   .panel-signal {
     border-radius: 1.75rem;
-    background: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.1);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.5),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
   }

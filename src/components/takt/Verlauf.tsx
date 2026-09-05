@@ -1,185 +1,131 @@
 "use client";
 
-import { motion, useInView, useReducedMotion, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useId, useRef } from "react";
 
 /* ============================================================
-   Verlauf: der Graph, der sich aufbaut.
+   Verlauf: was sich zwischen Werbung und organischem Umsatz verschiebt.
 
-   Der Kunde wollte mehr Performance-Charakter und ausdruecklich einen
-   Graphen, der sich aufbaut, als wuerden Verkaeufe steigen. Vorher stand
-   an dieser Stelle nur ein fertiges Bild.
+   Erste Fassung war ein einzelner steigender Balkenverlauf mit der
+   Achsenbeschriftung „Vor der Ueberarbeitung" und „Nach zwoelf Monaten",
+   dazu die Ueberschrift „Organische Verkaeufe wachsen weiter, wenn die
+   Werbung pausiert" und daneben „Ø +30 % Profitabilitaet". Drei Aussagen,
+   die nichts miteinander zu tun hatten, und eine Zeitachse, die ein
+   Versprechen behauptet hat, das niemand einloesen kann.
 
-   Was hier gezeichnet wird, ist schematisch und traegt bewusst keine
-   Werte an der Kurve: erfundene Leistungszahlen in einer Grafik sind laut
-   Projektvorgabe nicht erlaubt. Beziffert ist nur, was belegt ist.
+   Jetzt zeigt das Bild genau eine Sache, naemlich die Aussage der Sektion:
+   unten liegt das orange Band, der Umsatz ueber Werbung, und es bleibt ueber
+   die ganze Breite gleich hoch. Darueber waechst die gruene Flaeche, der
+   Umsatz ohne Werbung. Keine Zeitachse, keine Werte an den Flaechen, weil es
+   der Mechanismus ist und kein Fall.
 
    Bei prefers-reduced-motion steht alles sofort im Endzustand.
    ============================================================ */
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-/** Die zwoelf Balken. Werte sind Anteile der Hoehe, keine Zahlenangaben. */
-const balken = [0.22, 0.26, 0.24, 0.31, 0.35, 0.33, 0.42, 0.5, 0.56, 0.66, 0.78, 0.94];
+/* Anteile der Hoehe, keine Zahlenangaben. Das organische Wachstum zieht an,
+   das Werbeband bleibt konstant dick. */
+const organisch = [0.08, 0.1, 0.09, 0.13, 0.17, 0.2, 0.26, 0.33, 0.42, 0.53, 0.66, 0.8];
 
-/* Die Kurve laeuft ueber denselben Verlauf, etwas darueber. */
-const KURVE = balken
-  .map((v, i) => {
-    const x = 6 + (i * 88) / (balken.length - 1);
-    const y = 62 - v * 50;
-    return `${i === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`;
-  })
-  .join(" ");
+const BASIS = 68;
+const WERBUNG_OBEN = 56; /* konstante Hoehe: das Werbebudget bleibt gleich */
+const SKALA = 48;
+const LINKS = 4;
+const RECHTS = 196;
 
-/** Zaehlt eine Zahl hoch, sobald sie im Bild ist. */
-function Zahl({ bis, suffix = "", vorzeichen = "" }: { bis: number; suffix?: string; vorzeichen?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const drin = useInView(ref, { once: true, margin: "-15% 0px" });
-  const reduce = useReducedMotion();
-  const [wert, setWert] = useState(reduce ? bis : 0);
-
-  useEffect(() => {
-    if (!drin || reduce) return;
-    const steuerung = animate(0, bis, {
-      duration: 1.4,
-      ease: EASE,
-      onUpdate: (v) => setWert(Math.round(v)),
-    });
-    return () => steuerung.stop();
-  }, [drin, reduce, bis]);
-
-  return (
-    <span ref={ref} className="[font-variant-numeric:tabular-nums]">
-      {vorzeichen}
-      {wert}
-      {suffix}
-    </span>
-  );
+function x(i: number) {
+  return LINKS + (i * (RECHTS - LINKS)) / (organisch.length - 1);
 }
+/* Die organische Flaeche liegt AUF dem Werbeband, nicht darunter. Nur so
+   sieht man, dass unten nichts dazukommt und oben alles waechst. */
+function yOrganisch(i: number) {
+  return WERBUNG_OBEN - organisch[i] * SKALA;
+}
+
+function linie(f: (i: number) => number) {
+  return organisch.map((_, i) => `${i === 0 ? "M" : "L"}${x(i).toFixed(1)},${f(i).toFixed(1)}`).join(" ");
+}
+
+const flaecheWerbung = `M${LINKS},${WERBUNG_OBEN} L${RECHTS},${WERBUNG_OBEN} L${RECHTS},${BASIS} L${LINKS},${BASIS} Z`;
+const flaecheOrganisch = `${linie(yOrganisch)} L${RECHTS},${WERBUNG_OBEN} L${LINKS},${WERBUNG_OBEN} Z`;
+const linieWerbung = `M${LINKS},${WERBUNG_OBEN} L${RECHTS},${WERBUNG_OBEN}`;
 
 export function Verlauf() {
   const ref = useRef<HTMLDivElement>(null);
   const drin = useInView(ref, { once: true, margin: "-15% 0px" });
   const reduce = useReducedMotion();
   const zeigen = reduce || drin;
+  const id = useId().replace(/:/g, "");
 
   return (
-    <div ref={ref} className="panel relative overflow-hidden p-6 md:p-8">
-      <span aria-hidden className="halo -right-16 -top-20 h-64 w-64 opacity-80" />
+    <div ref={ref} className="panel relative overflow-hidden p-6 md:p-9">
+      <span aria-hidden className="halo -right-16 -top-24 h-72 w-72 opacity-70" />
 
-      <div className="relative flex flex-wrap items-start justify-between gap-x-6 gap-y-3">
-        <div className="min-w-0">
-          <span className="inline-flex items-center gap-2.5">
-            <span aria-hidden className="node-glow" />
-            <span className="text-label font-bold uppercase text-ink-soft">Was sich aufbaut</span>
-          </span>
-          <p className="mt-3 max-w-[34ch] text-balance text-[1.15rem] font-bold leading-snug text-ink md:text-[1.35rem]">
-            Organische Verkäufe wachsen weiter, wenn die Werbung pausiert.
-          </p>
-        </div>
-
-        {/* Belegte Angabe, keine Fantasiezahl an der Kurve. */}
-        <div className="kpi shrink-0">
-          <div className="flex items-center gap-2.5">
-            <span className="num text-[1.7rem] text-ink">
-              Ø <Zahl bis={30} suffix=" %" vorzeichen="+" />
-            </span>
-            <span
-              aria-hidden
-              className="grid h-6 w-6 place-items-center rounded-lg"
-              style={{ background: "#16A34A14", color: "#16A34A" }}
-            >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                <path d="M6 18L18 6m0 0h-7m7 0v7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </div>
-          <div className="mt-1 text-[0.75rem] font-bold leading-tight text-ink">Profitabilität</div>
-        </div>
+      <div className="relative">
+        <span className="inline-flex items-center gap-2.5">
+          <span aria-hidden className="node-glow" />
+          <span className="text-label font-bold uppercase text-ink-soft">Was sich verschiebt</span>
+        </span>
+        <p className="mt-4 max-w-[38ch] text-balance text-[1.2rem] font-bold leading-snug text-ink md:text-[1.5rem]">
+          Das Werbebudget bleibt gleich. Alles, was darüber wächst, verkauft ihr ohne Werbung.
+        </p>
       </div>
 
-      <div className="relative mt-7">
-        <svg viewBox="0 0 100 70" className="w-full" role="img" aria-label="Ein Verlauf, der über zwölf Schritte ansteigt. Schematische Darstellung ohne Werte.">
-          <defs>
-            <linearGradient id="verlauf-flaeche" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#FF9900" stopOpacity="0.28" />
-              <stop offset="100%" stopColor="#FF9900" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="verlauf-balken" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2b6cb0" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#2b6cb0" stopOpacity="0.16" />
-            </linearGradient>
-          </defs>
+      <svg
+        viewBox="0 0 200 76"
+        className="relative mt-8 w-full"
+        role="img"
+        aria-label="Unten ein Band gleicher Höhe für den Umsatz über Werbung, darüber eine Fläche für den Umsatz ohne Werbung, die nach rechts deutlich wächst."
+      >
+        <defs>
+          <linearGradient id={`${id}-org`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#22C55E" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#22C55E" stopOpacity="0.16" />
+          </linearGradient>
+          <linearGradient id={`${id}-ads`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFB347" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#FF9900" stopOpacity="0.7" />
+          </linearGradient>
+          <clipPath id={`${id}-clip`}>
+            <motion.rect
+              x="0"
+              y="0"
+              height="76"
+              initial={reduce ? undefined : { width: 0 }}
+              animate={zeigen ? { width: 200 } : {}}
+              transition={{ duration: 1.6, ease: EASE }}
+              width={reduce ? 200 : undefined}
+            />
+          </clipPath>
+        </defs>
 
-          {/* Grundlinie */}
-          <line x1="4" y1="62.5" x2="96" y2="62.5" stroke="rgba(13,36,57,0.12)" strokeWidth="0.5" />
-
-          {/* Balken: wachsen einer nach dem anderen aus der Grundlinie */}
-          {balken.map((v, i) => {
-            const breite = 4.6;
-            const x = 6 + (i * 88) / (balken.length - 1) - breite / 2;
-            const hoehe = v * 50;
-            return (
-              <motion.rect
-                key={i}
-                x={x}
-                width={breite}
-                rx="1.2"
-                fill="url(#verlauf-balken)"
-                initial={reduce ? undefined : { y: 62, height: 0 }}
-                animate={zeigen ? { y: 62 - hoehe, height: hoehe } : {}}
-                transition={{ duration: 0.55, delay: 0.1 + i * 0.055, ease: EASE }}
-                y={reduce ? 62 - hoehe : undefined}
-                height={reduce ? hoehe : undefined}
-              />
-            );
-          })}
-
-          {/* Flaeche unter der Kurve */}
-          <motion.path
-            d={`${KURVE} L94,62.5 L6,62.5 Z`}
-            fill="url(#verlauf-flaeche)"
-            initial={reduce ? undefined : { opacity: 0 }}
-            animate={zeigen ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.85, ease: "easeOut" }}
-          />
-
-          {/* Die Kurve zeichnet sich */}
-          <motion.path
-            d={KURVE}
+        <g clipPath={`url(#${id}-clip)`}>
+          <path d={flaecheWerbung} fill={`url(#${id}-ads)`} />
+          <path d={flaecheOrganisch} fill={`url(#${id}-org)`} />
+          <path
+            d={linie(yOrganisch)}
             fill="none"
-            stroke="#FF9900"
+            stroke="#16A34A"
             strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={reduce ? undefined : { pathLength: 0 }}
-            animate={zeigen ? { pathLength: 1 } : {}}
-            transition={{ duration: 1.5, delay: 0.25, ease: "easeInOut" }}
-            style={{ filter: "drop-shadow(0 0 4px rgba(255,153,0,0.6))" }}
           />
+          <path d={linieWerbung} fill="none" stroke="#E07C00" strokeWidth="1.4" strokeLinecap="round" />
+        </g>
+      </svg>
 
-          {/* Leuchtpunkt am Ende, sobald die Kurve steht */}
-          <motion.circle
-            cx="94"
-            cy={(62 - balken[balken.length - 1] * 50).toFixed(2)}
-            r="2"
-            fill="#FF9900"
-            initial={reduce ? undefined : { scale: 0, opacity: 0 }}
-            animate={zeigen ? { scale: 1, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 260, damping: 15, delay: 1.7 }}
-            style={{ transformOrigin: "94px 15px", filter: "drop-shadow(0 0 6px rgba(255,153,0,0.9))" }}
-          />
-        </svg>
-
-        {/* Zwei Marken auf der Zeitachse, ohne Zahlenwerte. */}
-        <div className="mt-1 flex justify-between text-[0.68rem] font-semibold text-ink-faint">
-          <span>Vor der Überarbeitung</span>
-          <span>Nach zwölf Monaten</span>
-        </div>
+      {/* Legende. Sie sagt, welche Flaeche was ist, mehr braucht das Bild nicht. */}
+      <div className="relative mt-6 flex flex-wrap gap-x-7 gap-y-2">
+        <span className="inline-flex items-center gap-2.5 text-small font-bold text-ink">
+          <span aria-hidden className="h-3 w-3 rounded-[0.3rem]" style={{ background: "#FF9900" }} />
+          Umsatz über Werbung
+        </span>
+        <span className="inline-flex items-center gap-2.5 text-small font-bold text-ink">
+          <span aria-hidden className="h-3 w-3 rounded-[0.3rem]" style={{ background: "#22C55E" }} />
+          Umsatz ohne Werbung
+        </span>
       </div>
-      {/* Unter dem Diagramm stand ein Hinweis, dass die Darstellung schematisch
-          ist. Das sieht man ihr an: es steht keine einzige Zahl an der Kurve.
-          Der Satz ist raus. */}
     </div>
   );
 }

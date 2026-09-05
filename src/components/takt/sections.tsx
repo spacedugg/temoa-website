@@ -1,10 +1,11 @@
 "use client";
 
+import { Fragment } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Station, StationTitle, StationLead, Karte } from "./Station";
-import type { IconName } from "./Icons";
+import { Icon, type IconName } from "./Icons";
 import { Bildfeld } from "./Bildfeld";
 import { Verlauf } from "./Verlauf";
 import { Zahl, ZahlText } from "./Zahl";
@@ -232,37 +233,39 @@ export function Verfahren() {
         zuerst das Listing, dann die Kampagne.
       </StationLead>
 
-      {/* Links die Kette Suche, Klick, Kauf als freigestellte Grafik, rechts
-          der Verlauf, der sich beim Scrollen aufbaut. Vorher stand hier nur
-          das fertige Bild, dadurch war an der Stelle keine Bewegung. */}
-      <div className="mt-8 grid items-center gap-6 lg:grid-cols-[0.92fr_1fr] lg:gap-10">
-        <motion.div {...auf(0.08)} className="relative min-w-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/bilder/n-organic.webp"
-            alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf. Am Ende eine steigende Kurve."
-            width={1600}
-            height={896}
-            loading="lazy"
-            className="w-full"
-          />
-        </motion.div>
-        <motion.div {...auf(0.14)} className="min-w-0">
-          <Verlauf />
-        </motion.div>
-      </div>
+      {/* Der Verlauf laeuft ueber die ganze Breite. Vorher stand links ein
+          Bild und rechts eine quadratische Platte: eine Kurve in einem
+          Quadrat ist keine Kurve, sie sieht gestaucht aus, und das Bild
+          daneben hat nichts damit zu tun gehabt. Die Kette Suche, Klick,
+          Kauf steht jetzt in der Platte darunter, wo sie hingehoert. */}
+      <motion.div {...auf(0.1)} className="mt-10">
+        <Verlauf />
+      </motion.div>
 
       {/* Erster Block: kuehle Platte. Zweiter Block: Navy. Dazwischen das orange
           Ergebnisband als Scharnier. Drei verschiedene Werte, damit die
           Reihenfolge zu sehen ist. Vorher war es weiss, orange, weiss, dann
           sprang das Auge aufs Orange und die Folge ging verloren. */}
       <motion.div {...auf(0.05)} className="panel-cool mt-12 p-6 md:p-8">
-        <div className="flex items-center gap-3.5">
-          <span className="schritt schritt-navy">1</span>
-          <div className="min-w-0">
-            <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
-            <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="flex min-w-0 flex-1 items-center gap-3.5">
+            <span className="schritt schritt-navy">1</span>
+            <div className="min-w-0">
+              <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
+              <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+            </div>
           </div>
+          {/* Die Kette Suche, Klick, Kauf steht neben der Ueberschrift, zu der
+              sie gehoert, statt als eigenes Bild in einer eigenen Spalte. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/bilder/n-organic.webp"
+            alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf."
+            width={1600}
+            height={896}
+            loading="lazy"
+            className="hidden w-[15rem] shrink-0 md:block lg:w-[19rem]"
+          />
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -380,9 +383,12 @@ const leistungen: { icon: IconName; title: string; body: string; href: string }[
 /**
  * Leistungen.
  *
- * Aufbau nach der Referenz mit der Nabe: links die fünf Bereiche als Karten,
- * rechts das Bild, das zeigt, dass sie an einer Stelle zusammenlaufen. Vorher
- * war es eine Liste zwischen Haarlinien.
+ * Vorher fuenf weisse Karten in einem Raster, die aussahen wie jede andere
+ * Kartenreihe der Seite. Der Kunde hat gesagt, die fuenf Bereiche gehen unter,
+ * obwohl sie das Angebot sind. Zwei Sachen sind deshalb anders: die Sektion
+ * steht jetzt direkt hinter der Ausgangslage statt an fuenfter Stelle, und die
+ * Karten sind dunkel. Fuenf Navy-Platten auf hellem Grund sind ein Block, den
+ * man nicht ueberliest, ohne dass eine neue Farbe dazukommt.
  */
 export function Leistungen() {
   const reduce = useReducedMotion();
@@ -406,18 +412,43 @@ export function Leistungen() {
         Analyse.
       </StationLead>
 
-      {/* Drei Spalten, zwei Zeilen. Fuenf Karten plus die Grafik in der sechsten
-          Zelle: damit geht das Raster auf und Bild und Karten haben dieselbe
-          Groesse. Vorher stand links eine hohe Kartenspalte neben einem
-          quadratischen Bild, das passte nicht zusammen. */}
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {leistungen.map((l, i) => (
-          <motion.div key={l.title} {...auf(i * 0.06)} className="h-full">
-            <Karte icon={l.icon} title={l.title} body={l.body} href={l.href} />
-          </motion.div>
+          <motion.a
+            key={l.title}
+            {...auf(i * 0.06)}
+            href={l.href}
+            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden p-7 transition-transform duration-500 ease-temoa hover:-translate-y-1 md:p-8"
+          >
+            {/* Der Lichthof zieht beim Zeigen an, damit die Karte reagiert,
+                ohne dass sich das Layout bewegt. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-10 -top-16 h-44 w-44 rounded-full opacity-60 blur-[50px] transition-opacity duration-500 group-hover:opacity-100"
+              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.5), transparent 70%)" }}
+            />
+            <div className="relative flex items-start justify-between gap-4">
+              <span className="tile-dark">
+                <Icon name={l.icon} className="h-8 w-8" />
+              </span>
+              <span className="num text-[1.6rem] leading-none text-white/20">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+            <div className="relative mt-6 text-[1.25rem] font-bold leading-snug tracking-[-0.015em] text-white md:text-[1.4rem]">
+              {l.title}
+            </div>
+            <div className="relative mt-2.5 text-small leading-relaxed text-chalk-muted">{l.body}</div>
+            <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+              Mehr dazu
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </motion.a>
         ))}
 
-        {/* Die Grafik sitzt freigestellt in der Zelle, ohne Platte darunter. */}
+        {/* Die Grafik sitzt freigestellt in der sechsten Zelle, ohne Platte. */}
         <motion.div {...auf(0.3)} className="relative flex items-center justify-center">
           <span aria-hidden className="halo left-1/2 top-1/2 h-[16rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -442,9 +473,36 @@ export function Leistungen() {
   );
 }
 
+
 /* ============================================================
    04 · Nachweis
    ============================================================ */
+
+/**
+ * Gruener Trendpfeil neben einer Kennzahl.
+ *
+ * `runter` heisst: der Wert soll sinken. Eine gefallene ACoS ist ein gutes
+ * Ergebnis, deshalb bleibt der Pfeil auch dann gruen, er zeigt nur nach unten.
+ */
+function TrendPfeil({ runter = false }: { runter?: boolean }) {
+  return (
+    <span
+      aria-hidden
+      className="grid h-7 w-7 shrink-0 place-items-center rounded-[0.6rem]"
+      style={{ background: "rgba(34,197,94,0.22)", color: "#6EE7A0" }}
+    >
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+        <path
+          d={runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+          stroke="currentColor"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
 
 export function Nachweis() {
   return (
@@ -452,7 +510,10 @@ export function Nachweis() {
       <StationTitle>
         Fünf Marken, <span className="em text-brand-400">fünf Ausgangslagen.</span>
       </StationTitle>
-      <StationLead tone="dark">Ausgangslage, Vorgehen, Ergebnis. Mit den Zahlen dahinter.</StationLead>
+      <StationLead tone="dark">
+        Ausgangslage, Vorgehen, Ergebnis. Jede Zahl auf dieser Seite kommt aus einem Konto, das wir
+        betreuen.
+      </StationLead>
 
       {/* Die Fälle als Karten. Vorher waren es Zeilen zwischen Haarlinien:
           das Bild klein links, der Text daneben, viel Leerraum rechts. */}
@@ -524,21 +585,31 @@ export function Nachweis() {
               </h3>
 
               {/* Kennzahlen als eigene Kacheln. Die wichtigste steht gross und
-                  allein, die beiden anderen daneben. Vorher waren alle drei
-                  gleich klein, dann liest man keine. */}
+                  allein, die beiden anderen daneben.
+
+                  Weiss auf Navy war zu leise: das sind Ergebnisse, und
+                  Ergebnisse sind gruen. Die Kachel bekommt einen gruenen
+                  Grund, die Zahl leuchtet, der Pfeil sagt die Richtung. */}
               <div className="mt-auto grid gap-2.5 pt-5">
                 {c.heroStats.slice(0, 1).map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-[1.1rem] bg-white/[0.08] px-4 py-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
+                    className="rounded-[1.1rem] px-4 py-4"
+                    style={{
+                      background: "linear-gradient(150deg, rgba(34,197,94,0.22), rgba(34,197,94,0.08))",
+                      boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.35), 0 12px 30px -18px rgba(34,197,94,0.7)",
+                    }}
                   >
-                    <ZahlText
-                      text={s.value}
-                      className="num block text-[clamp(2rem,1.4rem+1.6vw,2.6rem)] leading-none text-white"
-                    />
-                    <div className="mt-2 text-[0.78rem] font-bold leading-tight text-white/80">{s.label}</div>
+                    <div className="flex items-center gap-2">
+                      <ZahlText
+                        text={s.value}
+                        className="num block text-[clamp(2.1rem,1.4rem+1.8vw,2.9rem)] leading-none text-[#6EE7A0]"
+                      />
+                      <TrendPfeil runter={s.trend === "down"} />
+                    </div>
+                    <div className="mt-2 text-[0.82rem] font-bold leading-tight text-white">{s.label}</div>
                     {s.sublabel && (
-                      <div className="mt-0.5 text-[0.7rem] leading-tight text-chalk-faint">{s.sublabel}</div>
+                      <div className="mt-0.5 text-[0.72rem] leading-tight text-white/60">{s.sublabel}</div>
                     )}
                   </div>
                 ))}
@@ -546,13 +617,14 @@ export function Nachweis() {
                   {c.heroStats.slice(1, 3).map((s) => (
                     <div
                       key={s.label}
-                      className="rounded-[0.9rem] bg-white/[0.06] px-3.5 py-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+                      className="rounded-[0.9rem] px-3.5 py-3"
+                      style={{
+                        background: "rgba(34,197,94,0.1)",
+                        boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.24)",
+                      }}
                     >
-                      <ZahlText
-                        text={s.value}
-                        className="num block text-[1.35rem] leading-none text-white"
-                      />
-                      <div className="mt-1.5 text-[0.7rem] leading-tight text-chalk-faint">{s.label}</div>
+                      <ZahlText text={s.value} className="num block text-[1.4rem] leading-none text-[#6EE7A0]" />
+                      <div className="mt-1.5 text-[0.72rem] leading-tight text-white/70">{s.label}</div>
                     </div>
                   ))}
                 </div>
@@ -617,7 +689,7 @@ export function Arbeiten() {
         So sieht <span className="em mark">Retail Ready</span> aus.
       </StationTitle>
       <StationLead>
-        Ein komplettes Listing aus unserer Produktion: sieben Bilder und vier A+ Module. Produkt und
+        Ein komplettes Listing aus unserer Produktion: sieben Bilder und fünf A+ Module. Produkt und
         Marke sind frei erfunden, die Arbeit ist echt.
       </StationLead>
 
@@ -630,7 +702,7 @@ export function Arbeiten() {
       <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[0.84fr_1fr] lg:gap-8">
         {/* Bildstrecke im Aufbau der Produktseite */}
         <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="Bildstrecke" note="1 Hauptbild + 6 Listingbilder" />
+          <BereichsKopf label="Listing" note="1 Hauptbild + 6 Listingbilder" />
 
           <motion.figure {...auf(0)} className="listing-kachel m-0 mt-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -651,7 +723,7 @@ export function Arbeiten() {
 
         {/* A+ Content: vertikal gestapelt, jedes Modul im Querformat */}
         <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="A+ Content" note="4 Module, untereinander" />
+          <BereichsKopf label="A+ Content" note="5 Module, untereinander" />
 
           <div className="mt-4 flex flex-1 flex-col gap-3">
             <motion.div {...auf(0.05)} className="listing-kachel relative">
@@ -690,6 +762,64 @@ export function Arbeiten() {
               </div>
             </motion.div>
 
+            {/* Fuenftes Modul: die Vergleichstabelle. Die steht in fast jeder
+                Premium-A+-Seite und braucht kein Foto, sie wird gezeichnet.
+                Schrift kommt nie aus einem Bildmodell, deshalb sind die
+                Zeilen Balken und die Haken echte Zeichen. */}
+            <motion.div {...auf(0.23)} className="listing-kachel p-4 md:p-5">
+              <div className="flex items-baseline justify-between gap-3">
+                <p className="text-[0.85rem] font-bold text-ink">Welche Größe passt?</p>
+                <p className="text-[0.7rem] text-ink-faint">Modul: Vergleich</p>
+              </div>
+              <div className="mt-3.5 grid grid-cols-[1.4fr_repeat(3,1fr)] gap-x-2 gap-y-2.5">
+                {[0, 1, 2, 3].map((sp) => (
+                  <div key={`kopf-${sp}`} className="flex items-center">
+                    {sp === 0 ? (
+                      <span className="block h-1.5 w-10 rounded-full bg-navy/20" />
+                    ) : (
+                      <span
+                        className={clsx(
+                          "block aspect-square w-7 rounded-[0.4rem] bg-canvas-tint",
+                          sp === 2 && "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.55)]"
+                        )}
+                      />
+                    )}
+                  </div>
+                ))}
+                {[0, 1, 2, 3].map((z) => (
+                  <Fragment key={`zeile-${z}`}>
+                    <span className="self-center">
+                      <span
+                        className="block h-1.5 rounded-full bg-navy/20"
+                        style={{ width: `${78 - z * 11}%` }}
+                      />
+                    </span>
+                    {[0, 1, 2].map((sp) => {
+                      const ja = sp === 1 || z < 2 || (sp === 2 && z === 2);
+                      return (
+                        <span key={sp} className="flex justify-center self-center">
+                          {ja ? (
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
+                              <path
+                                d="M5 12.5l4.5 4.5L19 7"
+                                stroke={sp === 1 ? "#16A34A" : "#0A1E2B"}
+                                strokeOpacity={sp === 1 ? 1 : 0.35}
+                                strokeWidth="2.6"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          ) : (
+                            <span aria-hidden className="block h-1 w-3 rounded-full bg-navy/15" />
+                          )}
+                        </span>
+                      );
+                    })}
+                  </Fragment>
+                ))}
+              </div>
+            </motion.div>
+
             {/* Die rechte Spalte war unten leer. Statt Luft steht dort, was an so
                 einem Listing gearbeitet wird. */}
             {/* Diese Platte fuellt den Rest der Spalte, damit beide Spalten
@@ -701,7 +831,7 @@ export function Arbeiten() {
               <div className="mt-5 grid gap-4 sm:grid-cols-3">
                 {[
                   ["7", "Bilder, jedes mit eigener Aufgabe"],
-                  ["4", "A+ Module, aufeinander aufgebaut"],
+                  ["5", "A+ Module, aufeinander aufgebaut"],
                   ["1", "Bildsprache über alle Varianten"],
                 ].map(([zahl, text]) => (
                   <div key={text} className="min-w-0">
@@ -752,61 +882,112 @@ function Rolle({ text }: { text: string }) {
    06 · Stimmen
    ============================================================ */
 
+/**
+ * Eine einzelne Stimme.
+ *
+ * Vorher lagen alle Karten in einem Mauerwerk-Raster (CSS columns). Das
+ * bricht die Spalten unterschiedlich hoch um, dadurch stand oben rechts eine
+ * Karte allein und ihr Schatten sah aus wie ein Fehler. Jetzt haben alle
+ * Karten dieselbe Breite und laufen in zwei Baendern.
+ */
+function Stimme({ t }: { t: (typeof testimonials)[number] }) {
+  return (
+    <figure className="panel m-0 flex w-[19rem] shrink-0 flex-col p-6 md:w-[22rem]">
+      <div className="flex gap-0.5" aria-label="5 von 5 Sternen">
+        {Array.from({ length: 5 }).map((_, s) => (
+          <svg key={s} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
+            <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
+          </svg>
+        ))}
+      </div>
+      <blockquote className="mt-4 text-pretty text-[0.9rem] leading-relaxed text-ink">
+        „{t.quote}"
+      </blockquote>
+      <figcaption className="mt-auto flex items-center gap-3 pt-5">
+        <span
+          className={clsx(
+            "relative grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full text-[0.7rem] font-bold text-ink",
+            t.art === "logo" ? "bg-white p-1 ring-1 ring-inset ring-ink/[0.08]" : "bg-canvas-tint"
+          )}
+        >
+          <span aria-hidden>{initials(t.name)}</span>
+          {t.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={t.image}
+              alt=""
+              loading="lazy"
+              className={clsx(
+                "absolute inset-0 h-full w-full",
+                t.art === "logo" ? "scale-[0.72] object-contain" : "object-cover"
+              )}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+              }}
+            />
+          )}
+        </span>
+        <span className="min-w-0">
+          <span className="block truncate text-[0.82rem] font-bold text-ink">{t.name}</span>
+          <span className="block truncate text-[0.74rem] text-ink-faint">{t.role}</span>
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/**
+ * Ein Band aus Stimmen, das von allein laeuft.
+ *
+ * Die Liste steht zweimal hintereinander, deshalb springt sie bei -50 % nicht.
+ * Beim Zeigen haelt sie an, damit man in Ruhe lesen kann, und weil der Rahmen
+ * horizontal scrollbar ist, kann man auch selbst durchwischen. Bei
+ * prefers-reduced-motion steht das Band still, siehe globals.css.
+ */
+function StimmenBand({ liste, dauer, rueckwaerts }: { liste: typeof testimonials; dauer: number; rueckwaerts?: boolean }) {
+  return (
+    <div className="group relative overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div
+        className="flex w-max animate-marquee items-stretch gap-4 group-hover:[animation-play-state:paused]"
+        style={{ animationDuration: `${dauer}s`, animationDirection: rueckwaerts ? "reverse" : "normal" }}
+      >
+        {[...liste, ...liste].map((t, i) => (
+          <Stimme key={`${t.name}-${i}`} t={t} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function Stimmen() {
+  const mitte = Math.ceil(testimonials.length / 2);
+  const oben = testimonials.slice(0, mitte);
+  const unten = testimonials.slice(mitte);
+
   return (
     <Station label="Kundenstimmen" tone="tint">
       <StationTitle>
         Im Wortlaut, <span className="em mark">mit Zahlen.</span>
       </StationTitle>
 
-      {/* Drei Spalten und kleinere Karten. Vorher standen sie in zwei Spalten
-          mit grosser Schrift und wirkten aufdringlich. Als Wand gelesen tragen
-          sie mehr, ohne sich vorzudraengen. */}
-      <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3 [&>*]:mb-4">
-        {testimonials.map((t) => (
-          <figure key={t.name} className="panel break-inside-avoid p-5">
-            <div className="flex gap-0.5" aria-label="5 von 5 Sternen">
-              {Array.from({ length: 5 }).map((_, s) => (
-                <svg key={s} width="11" height="11" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
-                  <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote className="mt-3.5 text-pretty text-[0.86rem] leading-relaxed text-ink">
-              „{t.quote}"
-            </blockquote>
-            <figcaption className="mt-4 flex items-center gap-2.5 border-t border-ink/[0.07] pt-3.5">
-              <span
-                className={clsx(
-                  "relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-full text-[0.7rem] font-bold text-ink",
-                  // Logos brauchen weissen Grund und werden eingepasst, Portraits füllen den Kreis.
-                  t.art === "logo" ? "bg-white p-1 ring-1 ring-inset ring-ink/[0.08]" : "bg-canvas-tint"
-                )}
-              >
-                <span aria-hidden>{initials(t.name)}</span>
-                {t.image && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={t.image}
-                    alt=""
-                    loading="lazy"
-                    className={clsx(
-                      "absolute inset-0 h-full w-full",
-                      t.art === "logo" ? "scale-[0.72] object-contain" : "object-cover"
-                    )}
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                )}
-              </span>
-              <span className="min-w-0">
-                <span className="block truncate text-[0.78rem] font-bold text-ink">{t.name}</span>
-                <span className="block truncate text-[0.72rem] text-ink-faint">{t.role}</span>
-              </span>
-            </figcaption>
-          </figure>
-        ))}
+      {/* Zwei Baender, gegenlaeufig. Der Verlauf an den Kanten muss den
+          getoenten Sektionsgrund treffen, nicht Weiss, sonst zeichnet sich
+          eine Kante ab. */}
+      <div className="relative mt-10">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-20"
+          style={{ background: "linear-gradient(90deg, #eef4fb, rgba(238,244,251,0))" }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 md:w-20"
+          style={{ background: "linear-gradient(270deg, #eef4fb, rgba(238,244,251,0))" }}
+        />
+        <div className="space-y-4">
+          <StimmenBand liste={oben} dauer={72} />
+          <StimmenBand liste={unten} dauer={88} rueckwaerts />
+        </div>
       </div>
     </Station>
   );
@@ -816,6 +997,20 @@ export function Stimmen() {
    07 · Termin
    ============================================================ */
 
+/**
+ * Abschluss-CTA der Startseite.
+ *
+ * Zwei Fehler steckten in der alten Fassung. Erstens lag sie auf demselben
+ * Navy wie die Fusszeile direkt darunter, dadurch war nicht zu sehen, wo die
+ * Seite aufhoert und der Fuss anfaengt. Zweitens stand rechts eine Platte mit
+ * drei Zeilen Risk-Reversal, unter anderem „Die Analyse selbst kostet euch
+ * nichts ausser der Zeit". Das ist keine Zusage, das ist eine Selbstverstaend-
+ * lichkeit, und in dieser Groesse hat es niemand gelesen.
+ *
+ * Jetzt steht der wichtigste Block der Seite auf der Markenflaeche, und rechts
+ * sitzt das Gesicht, mit dem das Gespraech stattfindet. Aus einer Aufforderung
+ * wird eine Verabredung.
+ */
 export function Termin({
   title,
   sub,
@@ -824,16 +1019,14 @@ export function Termin({
   sub?: React.ReactNode;
 } = {}) {
   return (
-    <section className="on-dark relative overflow-hidden bg-navy text-chalk">
-      {/* orange Lichtkante oben, damit die Sektion nicht als Block abfällt */}
-      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+    <section className="on-signal ground-signal relative overflow-hidden">
       <div className="container-x">
-        <div className="grid items-center gap-y-10 py-20 md:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:gap-x-16">
+        <div className="grid items-center gap-y-12 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-x-16">
           <div className="min-w-0">
-            <h2 className="title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)] text-white">
+            <h2 className="title max-w-[20ch] text-balance text-[clamp(2.1rem,1.3rem+2.4vw,3.5rem)]">
               {title ?? "Wie viel Umsatz lässt euer Listing liegen?"}
             </h2>
-            <p className="mt-6 max-w-[52ch] text-pretty text-lead text-chalk-muted">
+            <p className="signal-leise mt-6 max-w-[46ch] text-pretty text-lead">
               {sub ??
                 "In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen euch, was euer Sortiment noch hergibt."}
             </p>
@@ -847,23 +1040,41 @@ export function Termin({
                 </span>
               </a>
             </div>
+
+            {/* Zwei Zusagen, die etwas wert sind. Die dritte Zeile von vorher
+                ist raus: dass eine kostenlose Analyse kostenlos ist, muss man
+                nicht als Argument aufschreiben. */}
+            <div className="mt-9 flex flex-wrap gap-3">
+              {["Ohne lange Laufzeit, ihr verlängert nach Performance", "98 % unserer Marken verlängern"].map((c) => (
+                <span key={c} className="panel-signal inline-flex items-center gap-2.5 px-4 py-3 text-small font-bold text-white">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Risk-Reversal als abgesetzte Platte, nicht als Nebensatz hinter dem Button */}
-          <div className="panel-dark p-7 md:p-8">
-            {[
-              ["Keine lange Laufzeit", "Ihr verlängert nach Performance, nicht nach Vertrag."],
-              ["98 %", "unserer Marken verlängern die Zusammenarbeit."],
-              ["Kostenlos", "Die Analyse selbst kostet euch nichts außer der Zeit."],
-            ].map(([k, v]) => (
-              <div key={k} className="flex gap-4 border-t border-white/10 py-4 first:border-t-0 first:pt-0 last:pb-0">
-                <span aria-hidden className="mt-[0.6rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                <p className="text-small text-chalk-muted">
-                  <ZahlText text={k} className="font-bold text-white" /> {v}
-                </p>
+          <figure className="relative mx-auto w-full max-w-[23rem] lg:mx-0 lg:ml-auto">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/team/Clemens.webp"
+              alt="Clemens, Founder und Sales bei temoa"
+              loading="lazy"
+              className="w-full rounded-[1.75rem] object-cover shadow-[0_34px_80px_-34px_rgba(60,6,3,0.8)]"
+            />
+            <figcaption
+              className="absolute -bottom-6 left-4 right-4 rounded-[1.1rem] px-5 py-4"
+              style={{
+                background: "#0d2439",
+                boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 44px -22px rgba(0,0,0,0.8)",
+              }}
+            >
+              <div className="text-[0.95rem] font-bold text-white">Clemens</div>
+              <div className="mt-0.5 text-small text-chalk-faint">
+                Founder &amp; Sales. Er führt das Gespräch selbst.
               </div>
-            ))}
-          </div>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
