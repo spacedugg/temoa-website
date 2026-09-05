@@ -32,41 +32,36 @@ export default function BlogPage() {
           description="Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext."
         />
 
-        {/* Themen / category navigation */}
-        <section className="relative ground pb-8 pt-4">
+        {/* Themen.
+            Vorher acht weisse Kacheln mit Icon, Ueberschrift, Beschreibungssatz
+            und einer Linkzeile. Acht Absaetze, bevor der erste Beitrag kommt.
+            Jetzt nur noch Icon, Thema und Anzahl: das Icon gross und in der
+            Themenfarbe, die Kachel selbst getoent. */}
+        <section className="relative ground pb-10 pt-4">
           <div className="container-x">
             <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
               {categories.map((c) => (
                 <RevealItem key={c.slug} className="h-full">
-                  <a href={`/blog/kategorie/${c.slug}`} className="surface surface-hover group flex h-full flex-col p-5">
-                    <div className="flex items-center justify-between">
-                      <span
-                        className="inline-flex h-10 w-10 items-center justify-center rounded-2xl"
-                        style={{ color: c.accent, background: `${c.accent}1A` }}
-                      >
-                        <Icon name={c.icon} size={20} />
-                      </span>
-                      <span className="text-xs font-semibold text-ink-faint">
+                  <a
+                    href={`/blog/kategorie/${c.slug}`}
+                    className="panel panel-lift group relative flex h-full items-center gap-4 overflow-hidden p-5"
+                  >
+                    <span
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 h-1 opacity-80"
+                      style={{ background: c.accent }}
+                    />
+                    <span
+                      className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.1rem] transition-transform duration-300 group-hover:scale-105"
+                      style={{ color: c.accent, background: `${c.accent}18` }}
+                    >
+                      <Icon name={c.icon} size={30} />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[1.02rem] font-bold leading-snug text-ink">{c.label}</span>
+                      <span className="mt-1 block text-small text-ink-faint">
                         {counts[c.slug] === 1 ? "1 Beitrag" : `${counts[c.slug] ?? 0} Beiträge`}
                       </span>
-                    </div>
-                    <h3 className="mt-4 text-base font-bold leading-snug text-ink">{c.label}</h3>
-                    <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-muted">{c.blurb}</p>
-                    {/* Der Linktext stand in der Kategoriefarbe. Bei 13 px ist
-                        Orange auf Weiss nicht lesbar. Der Text bleibt dunkel,
-                        die Farbe sitzt auf dem Pfeil. */}
-                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-ink">
-                      Themen ansehen
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        style={{ color: c.accent }}
-                        className="transition-transform group-hover:translate-x-0.5"
-                      >
-                        <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
                     </span>
                   </a>
                 </RevealItem>

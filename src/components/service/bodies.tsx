@@ -8,6 +8,7 @@ import {
   AccentStrip,
   ResultBlock,
   ServiceCTA,
+  SignalSatz,
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
@@ -50,29 +51,31 @@ export function StrategieBody() {
             title: "Analyse",
             subtitle: "Was in den Berichten steht",
             bullets: [
-              "Search Query Performance je Suchbegriff: Impressionen, Klickrate, Conversion, Cart-Adds",
-              "Verkäufe und Traffic je ASIN: wie viele Besucher kommen und wie viele davon kaufen",
-              "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
-              "Margen- und Deckungsbeitragsrechnung je Variante inklusive aller Fees",
+              "Zu welchen Suchbegriffen ihr gefunden, geklickt und gekauft werdet",
+              "Wie viele Besucher jedes Produkt bekommt und wie viele davon kaufen",
+              "Wie sich euer Anteil am Markt über die Monate verändert",
+              "Was jede einzelne Variante nach allen Gebühren verdient",
             ],
           },
           {
             title: "Strategie & Fahrplan",
             subtitle: "Was daraus folgt",
             bullets: [
-              "Welche Produkte Wachstum bekommen und welche gehalten werden",
-              "ACoS- und TACoS-Ziele als Messlatte",
-              "Reihenfolge der Maßnahmen, sortiert nach erwartetem Umsatz-Effekt",
+              "Welche Produkte wachsen sollen und welche nur gehalten werden",
+              "Ein Zielwert für ACoS und TACoS",
+              "Die Reihenfolge: was zuerst, was danach, was später",
             ],
           },
         ]}
       />
-      <TextMedia
-        tone="blue"
-        title="Damit steht das Fundament."
-        text="Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme."
-        reverse
-        imageAspect="aspect-[3/2]"
+      <SignalSatz
+        eyebrow="Was ihr danach habt"
+        title={<>Ihr wisst, was zuerst dran ist. Und warum.</>}
+        punkte={[
+          "Ihr seht schwarz auf weiß, welches Produkt Geld verdient",
+          "Ihr wisst, welcher Schritt am meisten bringt",
+          "Ihr habt eine Zahl, an der ihr uns messt",
+        ]}
       />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"

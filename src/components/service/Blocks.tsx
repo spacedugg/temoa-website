@@ -410,7 +410,9 @@ export function Points({
       {aside ? (
         <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
           <div>
-            <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+            {/* Neben dem Diagramm steht die Ueberschrift linksbuendig ueber
+                ihrer eigenen Spalte, nicht mittig ueber einer halben Seite. */}
+            <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="mx-0" />
             {list}
             {takeaway}
           </div>
@@ -734,7 +736,12 @@ export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; 
                 loading="lazy"
                 className="w-full rounded-[1.75rem] object-cover shadow-[0_30px_70px_-30px_rgba(0,0,0,0.75)]"
               />
-              <figcaption className="panel-dark absolute -bottom-6 left-4 right-4 px-5 py-4">
+              {/* Die Bildunterschrift liegt auf dem Foto. Halbtransparent wird
+                  sie darauf schmutzig, deshalb eine gedeckte Flaeche. */}
+              <figcaption
+                className="absolute -bottom-6 left-4 right-4 rounded-[1.1rem] px-5 py-4 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.8)]"
+                style={{ background: "#0d2439", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.09), 0 18px 40px -20px rgba(0,0,0,0.8)" }}
+              >
                 <div className="text-[0.95rem] font-bold text-white">Clemens</div>
                 <div className="mt-0.5 text-small text-chalk-faint">
                   Founder &amp; Sales. Er führt das Gespräch selbst.
@@ -743,6 +750,64 @@ export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; 
             </figure>
           </Reveal>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Signalsatz: die eine farbige Sektion je Seite ---------------- */
+
+/**
+ * Eine Aussage auf voller Markenfarbe.
+ *
+ * Der Kunde wollte, dass auf einer Seite auch mal eine ganze Sektion
+ * eingefaerbt ist. Das ist die Stelle dafuer: ein Satz, der die Sektionen
+ * davor zusammenfasst, dazu hoechstens drei kurze Belege.
+ *
+ * Orange traegt ausschliesslich dunklen Text, deshalb steht hier nichts
+ * Kleingedrucktes und kein Fliesstext.
+ */
+export function SignalSatz({
+  eyebrow,
+  title,
+  punkte,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  punkte?: string[];
+}) {
+  return (
+    <section className="on-signal ground-signal relative overflow-hidden py-16 md:py-24">
+      <div className="container-x relative">
+        {eyebrow && (
+          <Reveal>
+            <span className="inline-flex items-center gap-2.5 rounded-full bg-navy px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white">
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+              {eyebrow}
+            </span>
+          </Reveal>
+        )}
+        <Reveal delay={0.06}>
+          <h2 className="title mt-6 max-w-[20ch] text-balance text-[clamp(2rem,1.3rem+2.2vw,3.4rem)]">
+            {title}
+          </h2>
+        </Reveal>
+        {punkte && (
+          <RevealGroup className="mt-10 grid gap-3 sm:grid-cols-3" stagger={0.07}>
+            {punkte.map((p) => (
+              <RevealItem key={p} className="h-full">
+                <div className="panel-signal flex h-full items-center gap-3.5 px-5 py-4">
+                  <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-navy text-white">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="text-small font-bold leading-snug text-navy">{p}</span>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        )}
       </div>
     </section>
   );

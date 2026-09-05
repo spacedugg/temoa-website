@@ -164,7 +164,6 @@ function APlusViz() {
     { src: B.aHero, links: true },
     { src: B.aNutzen, links: false },
     { src: B.aAnwendung, links: true },
-    { src: B.aVergleich, links: false },
   ];
   return (
     <div className="space-y-2.5 rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
@@ -190,7 +189,7 @@ function BrandStoryViz() {
   return (
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
       <div className="relative overflow-hidden rounded-[0.7rem]">
-        <Bild src={B.szene} className="aspect-[16/6]" fit="cover" />
+        <Bild src={B.szene} className="aspect-[16/7]" fit="cover" />
         <div className="absolute inset-y-0 left-0 flex w-1/2 flex-col justify-center gap-1.5 bg-gradient-to-r from-white/95 to-white/0 p-3">
           <span aria-hidden className="h-5 w-5 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
           <Zeile w="82%" stark />
@@ -327,7 +326,10 @@ export function ContentShowcase() {
                   } flex h-full flex-col p-5 md:p-6`}
                 >
                   <Viz />
-                  <div className="mt-6 flex flex-1 flex-col">
+                  {/* Die Nachbauten sind unterschiedlich hoch. Der Text sitzt
+                      deshalb am Fuss der Kachel, sonst haengt unter den
+                      kuerzeren Kacheln eine leere Flaeche. */}
+                  <div className="mt-auto flex flex-col pt-6">
                     <span
                       className={`text-label font-bold uppercase tracking-[0.14em] ${
                         k.dunkel ? "text-brand-400" : "text-ink-soft"

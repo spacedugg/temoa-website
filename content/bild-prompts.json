@@ -270,7 +270,8 @@
       "size": "1024x1024",
       "motiv": "Hauptbild des Hero-Listings",
       "stil": "produkt",
-      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Single pan seen from a raised three-quarter angle so the interior surface and the handle are both fully visible, centred on a pure white seamless background, filling most of the frame, exactly as a marketplace main image is shot."
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Single pan seen from a raised three-quarter angle so the interior surface and the handle are both fully visible, centred on a pure white seamless background, filling most of the frame, exactly as a marketplace main image is shot.",
+      "rahmen": false
     },
     {
       "kennung": "h-detail",
@@ -278,7 +279,8 @@
       "size": "1024x1024",
       "motiv": "Listingbild: Griff und Beschichtung",
       "stil": "produkt",
-      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Tight close-up of the joint between the wooden handle and the pan body: the brushed steel collar, the rivets and the edge of the non-stick coating, on a pure white seamless background, so that material and machining are clearly readable."
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Tight close-up of the joint between the wooden handle and the pan body: the brushed steel collar, the rivets and the edge of the non-stick coating, on a pure white seamless background, so that material and machining are clearly readable.",
+      "rahmen": false
     },
     {
       "kennung": "h-szene",
@@ -295,7 +297,8 @@
       "size": "1024x1024",
       "motiv": "Listingbild: Groessen",
       "stil": "produkt",
-      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Three of these pans in a row on a pure white seamless background, seen from a raised three-quarter angle, in three different diameters from small on the left to large on the right, identical shape and identical colours, evenly spaced."
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Three of these pans in a row on a pure white seamless background, seen from a raised three-quarter angle, in three different diameters from small on the left to large on the right, identical shape and identical colours, evenly spaced.",
+      "rahmen": false
     },
     {
       "kennung": "s-content-ansatz",

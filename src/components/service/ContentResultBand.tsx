@@ -127,10 +127,11 @@ export function ContentResultBand() {
                 <span className="text-label font-bold uppercase tracking-[0.14em] text-chalk-faint">
                   {`0${i + 1}`}
                 </span>
-                <div className="mt-5 scale-125 origin-left">
+                {/* Die Zeichen sind der Blickfang der Kachel, deshalb gross. */}
+                <div className="mt-6 origin-left scale-[1.7]">
                   <it.Viz color={it.color} />
                 </div>
-                <h3 className="mt-8 text-[1.4rem] font-bold leading-snug text-white md:text-[1.6rem]">
+                <h3 className="mt-14 text-[1.4rem] font-bold leading-snug text-white md:text-[1.6rem]">
                   {it.title}
                 </h3>
                 <p className="mt-2 text-small leading-relaxed text-chalk-muted">{it.body}</p>
