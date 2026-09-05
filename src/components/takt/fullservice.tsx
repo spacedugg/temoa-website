@@ -12,11 +12,14 @@ import { Zusammenlauf } from "./Zusammenlauf";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-const fuerWen: { icon: IconName; title: string; body: string }[] = [
-  { icon: "regal", title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
-  { icon: "kompass", title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
-  { icon: "stufen", title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
-  { icon: "globus", title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
+/* Vorher stand hier je eine kurze Ueberschrift und ein Satz darunter. Das las
+   sich als viel Text auf wenig Flaeche. Jetzt traegt die Ueberschrift die
+   Aussage allein, dafuer ein paar Woerter laenger, und das Icon wird gross. */
+const fuerWen: { icon: IconName; title: string }[] = [
+  { icon: "regal", title: "Eigene Marke, ab 50.000 € Umsatz im Monat" },
+  { icon: "kompass", title: "Starke Produkte, aber wenig Amazon-Wissen im Haus" },
+  { icon: "stufen", title: "Das Sortiment wächst schneller als das Team" },
+  { icon: "globus", title: "Mehrere hundert Artikel auf mehreren Marktplätzen" },
 ];
 
 const ausgangslage: { icon: IconName; title: string; body: string }[] = [
@@ -79,11 +82,14 @@ const bereiche = [
   },
 ];
 
-const unterschied = [
-  "Dieselbe Keyword- und Margenanalyse liegt Content, Kampagnen und Pricing zugrunde",
-  "Was im Search Query Report auffällt, landet in derselben Woche im Listing und in der Kampagne",
-  "Wir verantworten das Ergebnis. Kein Verschieben der Verantwortung zwischen Dienstleistern.",
-  "Ein Ansprechpartner, ein Report, eine Planung für alle fünf Bereiche",
+/* "Alle Bereiche arbeiten mit denselben Zahlen" war zu abgehoben: natuerlich
+   tun sie das. Gemeint ist etwas Konkretes, naemlich dass bei euch nicht drei
+   Dienstleister nebeneinander arbeiten. Die Punkte sagen das jetzt direkt. */
+const unterschied: { icon: IconName; title: string }[] = [
+  { icon: "bericht", title: "Ein Ansprechpartner für alle fünf Bereiche, nicht drei Dienstleister" },
+  { icon: "uhr", title: "Was in den Zahlen auffällt, ist in derselben Woche im Listing geändert" },
+  { icon: "ziel", title: "Wir rechnen einmal die Marge und alle arbeiten mit diesem Ergebnis" },
+  { icon: "schild", title: "Läuft etwas schief, sind wir es. Keiner zeigt auf den anderen." },
 ];
 
 /* ---------- 00 · Kopf ---------- */
@@ -150,7 +156,7 @@ export function FuerWen() {
       <StationTitle>Passt das zu eurer Marke?</StationTitle>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {fuerWen.map((r) => (
-          <Karte key={r.title} icon={r.icon} title={r.title} body={r.body} />
+          <Karte key={r.title} icon={r.icon} title={r.title} />
         ))}
       </div>
     </Station>
@@ -240,22 +246,13 @@ export function Reporting() {
           transition: { duration: 0.6, delay, ease: EASE },
         };
 
-  const punkte: { icon: IconName; title: string; body: string }[] = [
-    {
-      icon: "bericht",
-      title: "Monatlicher Performance-Report",
-      body: "Umsatz, Werbekosten und Deckungsbeitrag je Produkt, in einer Ansicht.",
-    },
-    {
-      icon: "stufen",
-      title: "Profit- und Verlust-Analyse",
-      body: "Welche SKU verdient, welche kostet, und woran es liegt.",
-    },
-    {
-      icon: "lupe",
-      title: "Markttrends und Wettbewerb",
-      body: "Wo eure Suchbegriffe wandern und wer euch Plätze abnimmt.",
-    },
+  /* Vorher stand hier eine kurze Ueberschrift und ein Satz darunter, und in
+     einem davon "wo eure Suchbegriffe wandern". So redet niemand. Jetzt sagt
+     die Zeile in normalen Worten, was drinsteht. */
+  const punkte: { icon: IconName; title: string }[] = [
+    { icon: "bericht", title: "Jeden Monat: was jedes Produkt eingebracht und gekostet hat" },
+    { icon: "stufen", title: "Welche Artikel Gewinn machen und welche Geld verlieren" },
+    { icon: "lupe", title: "Bei welchen Suchbegriffen ihr Plätze gewinnt oder verliert" },
   ];
 
   return (
@@ -270,13 +267,12 @@ export function Reporting() {
 
           <div className="mt-8 space-y-3">
             {punkte.map((p, i) => (
-              <motion.div key={p.title} {...auf(i * 0.07)} className="panel flex items-start gap-4 p-5 md:p-6">
-                <span className="tile">
-                  <Icon name={p.icon} className="h-6 w-6" />
+              <motion.div key={p.title} {...auf(i * 0.07)} className="panel flex items-center gap-5 p-5 md:p-6">
+                <span className="tile !h-[3.75rem] !w-[3.75rem] !rounded-[1.2rem]">
+                  <Icon name={p.icon} className="h-8 w-8" />
                 </span>
-                <div className="min-w-0">
-                  <div className="text-[1.02rem] font-bold leading-snug text-ink">{p.title}</div>
-                  <div className="mt-1 text-small leading-relaxed text-ink-muted">{p.body}</div>
+                <div className="min-w-0 text-[1.05rem] font-bold leading-snug text-ink md:text-[1.12rem]">
+                  {p.title}
                 </div>
               </motion.div>
             ))}
@@ -305,22 +301,26 @@ export function Unterschied() {
   const reduce = useReducedMotion();
   return (
     <Station label="Zusammenarbeit" tone="paper">
-      <StationTitle>Alle Bereiche arbeiten mit denselben Zahlen.</StationTitle>
+      <StationTitle>
+        Bei euch arbeitet <span className="em mark">ein Team,</span> nicht drei Firmen.
+      </StationTitle>
       <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:gap-14">
         {/* Vorher Zeilen zwischen Haarlinien. Das Theme fuehrt solche Listen
             als Karten, damit sie als Block lesbar sind. */}
         <ul className="grid gap-3 sm:grid-cols-2">
-          {unterschied.map((t, i) => (
+          {unterschied.map((u, i) => (
             <motion.li
-              key={t}
+              key={u.title}
               initial={reduce ? undefined : { opacity: 0, y: 12 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
-              className="panel panel-lift flex h-full items-start gap-4 p-5 md:p-6"
+              className="panel panel-lift flex h-full items-center gap-5 p-5 md:p-6"
             >
-              <span className="schritt schritt-navy shrink-0">{i + 1}</span>
-              <span className="min-w-0 text-body text-ink">{t}</span>
+              <span className="tile !h-[3.75rem] !w-[3.75rem] !rounded-[1.2rem]">
+                <Icon name={u.icon} className="h-8 w-8" />
+              </span>
+              <span className="min-w-0 text-[1.02rem] font-bold leading-snug text-ink">{u.title}</span>
             </motion.li>
           ))}
         </ul>

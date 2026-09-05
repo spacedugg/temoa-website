@@ -16,7 +16,9 @@ import { useRef } from "react";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-const bereiche = ["Strategie", "Content", "Advertising", "Account", "Märkte"];
+/* "Märkte" war unklar. Gemeint sind weitere Amazon-Laender, deshalb steht
+   dort jetzt das Wort, das der Bereich auf der Seite auch traegt. */
+const bereiche = ["Strategie", "Content", "Advertising", "Account", "Länder"];
 
 /** Die kleinen Balken im Kopf der Platte. Anteile, keine Werte. */
 const balken = [0.34, 0.42, 0.38, 0.55, 0.62, 0.58, 0.74, 0.88];
@@ -35,7 +37,7 @@ export function Zusammenlauf() {
       <div className="relative">
         <span className="inline-flex items-center gap-2.5">
           <span aria-hidden className="node-glow" />
-          <span className="text-label font-bold uppercase text-ink-soft">Eine Quelle</span>
+          <span className="text-label font-bold uppercase text-ink-soft">Eine Auswertung</span>
         </span>
 
         <div className="mt-4 rounded-[1.25rem] bg-canvas-tint p-4 shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]">
@@ -54,9 +56,8 @@ export function Zusammenlauf() {
               />
             ))}
           </div>
-          <div className="mt-3 flex items-center justify-between border-t border-ink/[0.07] pt-3">
-            <span className="text-[0.72rem] font-bold text-ink">Umsatz, Marge, TACoS</span>
-            <span className="text-[0.68rem] text-ink-faint">täglich aktuell</span>
+          <div className="mt-3 border-t border-ink/[0.07] pt-3">
+            <span className="text-[0.78rem] font-bold text-ink">Umsatz, Marge, TACoS</span>
           </div>
         </div>
       </div>
@@ -92,10 +93,6 @@ export function Zusammenlauf() {
         ))}
       </div>
 
-      <p className="relative mt-5 border-t border-ink/[0.07] pt-4 text-[0.72rem] leading-relaxed text-ink-faint">
-        Kein Bereich rechnet mit eigenen Zahlen. Wer Content macht, sieht dieselbe Marge wie der,
-        der die Gebote setzt.
-      </p>
     </div>
   );
 }

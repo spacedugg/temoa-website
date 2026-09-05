@@ -187,6 +187,14 @@ export function Reading({
  * etwas getragen. Jetzt ist es eine Platte mit Icon-Kachel, wie in den
  * Referenzen: Symbol, kurze Überschrift, ein Satz.
  */
+/**
+ * Karte mit Icon.
+ *
+ * `body` ist absichtlich freiwillig. Der Kunde fand die Kacheln zu textlastig
+ * und wollte stattdessen laengere Ueberschriften ohne Unterzeile und deutlich
+ * groessere Icons. Ohne `body` schaltet die Karte genau in diese Fassung: das
+ * Icon wird gross, die Ueberschrift traegt die Aussage allein.
+ */
 export function Karte({
   icon,
   title,
@@ -197,28 +205,40 @@ export function Karte({
 }: {
   icon: IconName;
   title: string;
-  body: string;
+  /** Weglassen, wenn die Ueberschrift die Aussage allein traegt. */
+  body?: string;
   href?: string;
   tone?: Tone;
   className?: string;
 }) {
   const dark = tone === "dark";
+  const nurTitel = !body;
   const inner = (
     <>
-      <span className={clsx(dark ? "tile-dark" : "tile", "mb-5")}>
-        <Icon name={icon} className="h-6 w-6" />
+      <span
+        className={clsx(
+          dark ? "tile-dark" : "tile",
+          nurTitel ? "mb-6 !h-[4.5rem] !w-[4.5rem] !rounded-[1.4rem]" : "mb-5"
+        )}
+      >
+        <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-6 w-6"} />
       </span>
       <span
         className={clsx(
-          "block text-[1.1rem] font-bold leading-snug tracking-[-0.015em] md:text-[1.2rem]",
+          "block font-bold leading-snug tracking-[-0.015em]",
+          nurTitel
+            ? "text-[1.2rem] md:text-[1.35rem]"
+            : "text-[1.1rem] md:text-[1.2rem]",
           dark ? "text-white" : "text-ink"
         )}
       >
         {title}
       </span>
-      <span className={clsx("mt-2.5 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
-        {body}
-      </span>
+      {body && (
+        <span className={clsx("mt-2.5 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
+          {body}
+        </span>
+      )}
       {href && (
         <span
           className={clsx(
