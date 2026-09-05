@@ -85,27 +85,55 @@ function ConversionViz({ color }: { color: string }) {
    Steigerungsbehauptungen, das dritte war englisch. Jetzt steht dort die
    Kennzahl, die Aussage macht der Satz darunter. */
 const items: { Viz: (p: { color: string }) => React.ReactNode; title: string; body: string; color: string }[] = [
-  { Viz: BarsViz, title: "Impressionsanteil", body: "Sichtbar bei genau den Suchbegriffen, die kaufen.", color: "#FF9900" },
-  { Viz: ClickViz, title: "Klickrate", body: "Das Hauptbild gewinnt den Klick im Suchergebnis.", color: "#FF3131" },
-  { Viz: ConversionViz, title: "Conversion Rate", body: "Die Detailseite überzeugt in Sekunden zum Kauf.", color: "#0E7CA0" },
+  { Viz: BarsViz, title: "Impressionsanteil", body: "Wie oft ihr überhaupt auftaucht, wenn jemand euer Produkt sucht.", color: "#FF9900" },
+  { Viz: ClickViz, title: "Klickrate", body: "Wie viele von denen, die euch sehen, auf euer Bild klicken.", color: "#FF7A5C" },
+  { Viz: ConversionViz, title: "Conversion Rate", body: "Wie viele von denen, die klicken, am Ende kaufen.", color: "#4FC3E8" },
 ];
 
+/**
+ * Die drei Zahlen, an denen Content gemessen wird.
+ *
+ * Der Kunde nennt diese Sektion den Nordstern der Content-Seite: sie ist die
+ * greifbarste Stelle der ganzen Seite. Vorher stand sie als schmales helles
+ * Band zwischen zwei anderen hellen Sektionen und ging unter. Jetzt ist sie
+ * ein dunkles Podest mit eigener Ueberschrift und grossen Kacheln.
+ */
 export function ContentResultBand() {
   return (
-    <section className="relative ground py-12 md:py-16">
-      <div className="container-x">
+    <section className="on-dark ground-deep relative overflow-hidden py-16 md:py-24">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+      <div className="container-x relative">
         <Reveal>
           <div className="flex justify-center">
-            <Pille>Worauf wir Content ausrichten</Pille>
+            <Pille>Woran Amazon euer Listing misst</Pille>
           </div>
         </Reveal>
-        <RevealGroup className="mx-auto mt-8 grid max-w-5xl items-stretch gap-4 md:grid-cols-3" stagger={0.08}>
-          {items.map((it) => (
+        <Reveal delay={0.06}>
+          <h2 className="title mx-auto mt-6 max-w-[20ch] text-balance text-center text-[clamp(1.9rem,1.3rem+1.8vw,3rem)] text-white">
+            Drei Zahlen entscheiden alles.
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="mx-auto mt-5 max-w-[46ch] text-pretty text-center text-lead text-chalk-muted">
+            Wie oft ihr gezeigt werdet. Wie oft geklickt wird. Wie oft gekauft wird. Jedes Bild und jeder Satz,
+            den wir schreiben, zahlt auf eine dieser drei Zahlen ein.
+          </p>
+        </Reveal>
+
+        <RevealGroup className="mx-auto mt-12 grid max-w-5xl items-stretch gap-4 md:grid-cols-3 md:gap-5" stagger={0.08}>
+          {items.map((it, i) => (
             <RevealItem key={it.title} className="h-full">
-              <div className="surface relative flex h-full flex-col p-6">
-                <it.Viz color={it.color} />
-                <h3 className="mt-5 text-lg font-bold leading-snug text-ink">{it.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{it.body}</p>
+              <div className="panel-dark relative flex h-full flex-col p-7 md:p-8">
+                <span className="text-label font-bold uppercase tracking-[0.14em] text-chalk-faint">
+                  {`0${i + 1}`}
+                </span>
+                <div className="mt-5 scale-125 origin-left">
+                  <it.Viz color={it.color} />
+                </div>
+                <h3 className="mt-8 text-[1.4rem] font-bold leading-snug text-white md:text-[1.6rem]">
+                  {it.title}
+                </h3>
+                <p className="mt-2 text-small leading-relaxed text-chalk-muted">{it.body}</p>
               </div>
             </RevealItem>
           ))}

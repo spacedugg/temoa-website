@@ -11,7 +11,7 @@ import {
 } from "./Blocks";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
-import { BudgetSplitDiagram } from "./Diagrams";
+import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
 
 /* ============ STRATEGIE ============ */
 export function StrategieBody() {
@@ -103,8 +103,8 @@ export function ContentBody() {
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken."
-        image="/bilder/n-organic.webp"
-        imageAlt="Sichtbarkeit, Klick und Kauf als Kette, daneben eine steigende Kurve"
+        image="/bilder/s-content-ansatz.webp"
+        imageAlt="Vier Treffer nebeneinander, einer leuchtet, darüber eine steigende Kurve"
         imageAspect="aspect-[3/2]"
       />
       <ContentShowcase />
@@ -174,63 +174,39 @@ export function AdvertisingBody() {
         tone="white"
         eyebrow="Unser Ansatz"
         title="Mehr Budget ist keine Strategie."
-        text="Wir rechnen jedes Produkt erst auf seine Marge durch. In die Skalierung geht nur, was nach allen Kosten Gewinn bringt. Darauf setzen wir eine saubere Kampagnenarchitektur auf und steuern sie laufend nach."
-        image="/bilder/n-ursache.webp"
-        imageAlt="Trichter: viel Traffic oben, wenige profitable Verkäufe unten"
+        text="Bevor ein Produkt mehr Budget bekommt, rechnen wir es durch: Wareneinsatz, Amazon-Gebühren, Versand, Werbung. Was danach Gewinn bringt, skalieren wir. Der Rest wird gehalten."
+        aside={<MargenDiagramm />}
         reverse
-        imageAspect="aspect-[3/2]"
       />
       <Cards
         tone="blue"
-        eyebrow="Was wir steuern"
-        title="Von der Struktur bis zum einzelnen Gebot."
+        eyebrow="Was wir übernehmen"
+        title="Von der Margenrechnung bis zum einzelnen Gebot."
         cols={3}
         items={[
           {
-            title: "Profit-First",
-            subtitle: "Erst analysieren, dann skalieren",
-            bullets: [
-              "Marge und Deckungsbeitrag je Produkt",
-              "Welche Produkte überhaupt profitabel wachsen können",
-              "Nur diese bekommen mehr Budget, der Rest wird gehalten",
-              "Optimiert wird auf den Gewinn, nicht nur auf den ACoS",
-            ],
+            title: "Erst rechnen, dann skalieren",
+            body: "Mehr Budget bekommt nur, was nach allen Kosten Gewinn bringt.",
           },
           {
-            title: "Kampagnenstruktur",
-            subtitle: "Architektur vor Bid-Management",
-            bullets: [
-              "Saubere Keyword-Segmentierung, intent-basiertes Clustering",
-              "Sponsored Products für direkte Sales, Sponsored Brands für Sichtbarkeit, Sponsored Display fürs Retargeting",
-              "Brand Defense: eure Markenbegriffe gegen Wettbewerber geschützt",
-            ],
+            title: "Kampagnen sauber aufgebaut",
+            body: "Jede Kampagne hat eine Aufgabe. Keine bietet gegen die andere.",
           },
           {
-            title: "Keywordmanagement",
-            subtitle: "Laufend neue, konvertierende Suchbegriffe",
-            bullets: [
-              "Strukturierte Research-Kampagnen",
-              "Konvertierende Suchbegriffe gezielt übernehmen",
-              "Laufende Optimierung statt einmal aufsetzen",
-            ],
+            title: "Eure Marke verteidigt",
+            body: "Wer nach eurem Namen sucht, landet bei euch, nicht beim Wettbewerb.",
           },
           {
-            title: "Gebotssteuerung",
-            subtitle: "Dynamisch, nicht statisch",
-            bullets: [
-              "Gebote angepasst an Performance, Wettbewerb und Saison",
-              "Platzierungen getrennt für Top-of-Search und den Rest",
-              "Tägliche Steuerung, nicht monatlich",
-            ],
+            title: "Neue Suchbegriffe laufend gesucht",
+            body: "Was verkauft, wandert in die eigene Kampagne. Was nicht, fliegt raus.",
           },
           {
-            title: "Paid trifft Organic",
-            subtitle: "TACoS als Maßstab",
-            bullets: [
-              "TACoS als Effizienzmaß für Paid und Organic zusammen",
-              "Werbung, die das organische Ranking mitzieht",
-              "Budget dorthin, wo es Umsatz und Sichtbarkeit zugleich bringt",
-            ],
+            title: "Gebote täglich nachgezogen",
+            body: "Angepasst an Wettbewerb, Saison und Platzierung, nicht einmal im Monat.",
+          },
+          {
+            title: "Werbung, die das Ranking mitzieht",
+            body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
           },
         ]}
       />
@@ -274,8 +250,8 @@ export function AccountBody() {
         tone="white"
         eyebrow="Wie wir arbeiten"
         title="So bleibt euer Account stabil."
-        image="/bilder/n-reporting.webp"
-        imageAlt="Schwebendes Dashboard mit Kurve, Balken und zwei Kennzahlkarten"
+        image="/bilder/s-account-monitor.webp"
+        imageAlt="Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet"
         imageAspect="aspect-[3/2]"
         items={[
           { title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },

@@ -263,6 +263,57 @@
       "stil": "szene3d",
       "transparent": true,
       "prompt": "One large frosted glass panel floating upright in the centre, showing a rising orange line over a row of matte navy bars. Four low navy platforms stand in a ring in front of it, each carrying one small white rounded card with three thin navy placeholder bars. From every card one thin glowing orange line runs up to the same central glass panel. The four cards are clearly separate from each other but all connected to the one panel. Nothing else in the frame."
+    },
+    {
+      "kennung": "h-haupt",
+      "seite": "Startseite: Hero-Listing",
+      "size": "1024x1024",
+      "motiv": "Hauptbild des Hero-Listings",
+      "stil": "produkt",
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Single pan seen from a raised three-quarter angle so the interior surface and the handle are both fully visible, centred on a pure white seamless background, filling most of the frame, exactly as a marketplace main image is shot."
+    },
+    {
+      "kennung": "h-detail",
+      "seite": "Startseite: Hero-Listing",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Griff und Beschichtung",
+      "stil": "produkt",
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Tight close-up of the joint between the wooden handle and the pan body: the brushed steel collar, the rivets and the edge of the non-stick coating, on a pure white seamless background, so that material and machining are clearly readable."
+    },
+    {
+      "kennung": "h-szene",
+      "seite": "Startseite: Hero-Listing",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Anwendung",
+      "stil": "produkt",
+      "rahmen": false,
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. The pan resting on a matte black induction hob in a bright modern kitchen, a folded light linen cloth beside it, soft daylight from the left, the kitchen behind it softly blurred. The pan is empty and clean."
+    },
+    {
+      "kennung": "h-gruppe",
+      "seite": "Startseite: Hero-Listing",
+      "size": "1024x1024",
+      "motiv": "Listingbild: Groessen",
+      "stil": "produkt",
+      "prompt": "The product is a 28 cm frying pan with a matte deep charcoal non-stick interior, a smooth matte deep navy blue exterior and a solid oiled ash wood handle joined by a brushed stainless steel collar. The entire surface is completely smooth, unbranded and unlabelled, no printed markings of any kind. Three of these pans in a row on a pure white seamless background, seen from a raised three-quarter angle, in three different diameters from small on the left to large on the right, identical shape and identical colours, evenly spaced."
+    },
+    {
+      "kennung": "s-content-ansatz",
+      "seite": "Leistung: Content, Unser Ansatz",
+      "size": "1408x1056",
+      "motiv": "Aus den Daten des Kontos entsteht das Listing",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "A row of four white rounded tiles standing upright on a low navy platform, seen in three-quarter view. The three outer tiles are plain and slightly dimmed; the second tile from the left is taller, brighter, rimmed with a glowing orange edge and carries one simple matte navy bottle pictogram. Above and behind the row one frosted glass panel floats showing a short rising orange bar chart, connected down to the highlighted tile by one thin glowing orange line. Nothing else in the frame."
+    },
+    {
+      "kennung": "s-account-monitor",
+      "seite": "Leistung: Account, Wie wir arbeiten",
+      "size": "1408x1056",
+      "motiv": "Fruehwarnung im Tagesgeschaeft",
+      "stil": "szene3d",
+      "transparent": true,
+      "prompt": "Three white rounded pucks standing in a row on one long low navy platform in three-quarter view, each puck carrying one simple matte navy pictogram: a shopping cart, a stacked pair of parcel boxes, and a shield. A small glowing orange beacon light sits on top of the middle puck and one thin glowing orange line runs from it up to a floating rounded white card above the row, which carries a single orange exclamation mark. Nothing else in the frame."
     }
   ],
   "stilblocks": {

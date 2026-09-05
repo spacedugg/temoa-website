@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { Zahl } from "./Zahl";
@@ -75,24 +76,12 @@ export function Auftrag() {
               </a>
             </motion.div>
 
-            {/* Kennzahlen als eigene Karten. Vorher standen sie als nackte
-                Zahlen unter einer Haarlinie und gingen im Weißraum unter. */}
-            <motion.div {...rise(0.3)} className="mt-12 grid max-w-[36rem] gap-3 sm:grid-cols-3">
-              {readings.map((r) => (
-                <div key={r.label} className="kpi min-w-0">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="num text-[clamp(1.3rem,1rem+1vw,1.75rem)] text-ink">
-                      <Zahl bis={r.bis} vor={r.vor} nach={r.nach} />
-                    </span>
-                    <span aria-hidden className="text-signal-pos">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 17L12 9l3 3 5-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </div>
-                  <div className="mt-2 text-[0.72rem] font-bold leading-tight text-ink">{r.label}</div>
-                  <div className="mt-1 text-[0.7rem] leading-tight text-ink-faint">{r.note}</div>
-                </div>
+            {/* Kennzahlen als eigene Karten. Vorher weiss auf hellem Grund und
+                still: drei blasse Kaesten, die niemand ansieht. Jetzt dunkle
+                Podeste mit einer Kurve, die von allein laeuft. */}
+            <motion.div {...rise(0.3)} className="mt-12 grid max-w-[38rem] gap-3 sm:grid-cols-3">
+              {readings.map((r, i) => (
+                <KennzahlKarte key={r.label} {...r} index={i} reduce={!!reduce} />
               ))}
             </motion.div>
           </div>
@@ -111,6 +100,75 @@ export function Auftrag() {
 }
 
 /**
+ * Eine Kennzahl auf dunklem Podest, mit einer Kurve, die sich immer wieder
+ * neu zeichnet.
+ *
+ * Der Kunde wollte, dass sich im Hero etwas bewegt, ohne dass man mit dem
+ * Zeiger darueberfahren muss. Die drei Karten laufen versetzt, damit es ein
+ * Takt wird und kein Flackern. Bei prefers-reduced-motion steht die Kurve
+ * fertig da.
+ */
+function KennzahlKarte({
+  bis,
+  vor,
+  nach,
+  label,
+  note,
+  index,
+  reduce,
+}: {
+  bis: number;
+  vor?: string;
+  nach?: string;
+  label: string;
+  note: string;
+  index: number;
+  reduce: boolean;
+}) {
+  const kurven = [
+    "M2 26 L14 22 L26 24 L38 15 L50 11 L62 4",
+    "M2 24 L14 25 L26 18 L38 19 L50 10 L62 6",
+    "M2 27 L14 20 L26 21 L38 13 L50 12 L62 3",
+  ];
+  return (
+    <div className="panel-navy on-dark min-w-0 p-5">
+      <div className="flex items-baseline gap-1.5">
+        <span className="num text-[clamp(1.35rem,1rem+1.1vw,1.9rem)] text-white">
+          <Zahl bis={bis} vor={vor} nach={nach} />
+        </span>
+      </div>
+
+      <svg
+        viewBox="0 0 64 30"
+        aria-hidden
+        className="mt-3 h-7 w-full overflow-visible"
+        preserveAspectRatio="none"
+      >
+        <motion.path
+          d={kurven[index % kurven.length]}
+          fill="none"
+          stroke="#FF9900"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
+          animate={reduce ? { pathLength: 1 } : { pathLength: [0, 1, 1, 0] }}
+          transition={
+            reduce
+              ? undefined
+              : { duration: 7, times: [0, 0.45, 0.85, 1], repeat: Infinity, delay: index * 0.5, ease: "easeInOut" }
+          }
+          style={{ filter: "drop-shadow(0 0 6px rgba(255,153,0,0.45))" }}
+        />
+      </svg>
+
+      <div className="mt-3 text-[0.75rem] font-bold leading-tight text-white">{label}</div>
+      <div className="mt-1 text-[0.7rem] leading-tight text-chalk-faint">{note}</div>
+    </div>
+  );
+}
+
+/**
  * Produktdetailseite als Nachbau: Bildstrecke links, Kaufbereich rechts.
  *
  * Kein Amazon-Logo und keine Amazon-Oberfläche, nur der Aufbau einer
@@ -118,11 +176,25 @@ export function Auftrag() {
  * Kennzahlen stehen im Textblock daneben.
  */
 function ListingKarte() {
-  const galerie = [
-    { src: "/bilder/p-detail.webp", alt: "Listingbild: Verschluss im Detail" },
-    { src: "/bilder/p-szene.webp", alt: "Listingbild: Flasche auf einer Küchenarbeitsplatte" },
-    { src: "/bilder/p-gruppe.webp", alt: "Listingbild: drei Farbvarianten nebeneinander" },
+  /* Eigenes Produkt fuer den Hero. Vorher lag hier dieselbe Flasche wie in
+     den Designbeispielen weiter unten; ein Bild soll auf der Seite nur an
+     einer Stelle vorkommen. */
+  const bilder = [
+    { src: "/bilder/h-haupt.webp", alt: "Hauptbild eines Listings: Bratpfanne in Navy mit Holzgriff" },
+    { src: "/bilder/h-detail.webp", alt: "Listingbild: Übergang von Griff zu Pfannenkörper" },
+    { src: "/bilder/h-szene.webp", alt: "Listingbild: Pfanne auf einem Kochfeld" },
+    { src: "/bilder/h-gruppe.webp", alt: "Listingbild: drei Größen nebeneinander" },
   ];
+  const reduce = useReducedMotion();
+  const [aktiv, setAktiv] = useState(0);
+
+  /* Die Bildstrecke wechselt von allein. Der Kunde wollte Bewegung, ohne dass
+     man den Zeiger bemuehen muss. */
+  useEffect(() => {
+    if (reduce) return;
+    const t = setInterval(() => setAktiv((i) => (i + 1) % bilder.length), 3200);
+    return () => clearInterval(t);
+  }, [reduce, bilder.length]);
 
   return (
     <div className="relative">
@@ -130,25 +202,36 @@ function ListingKarte() {
         <div className="grid gap-5 sm:grid-cols-[1.05fr_1fr] md:gap-6">
           {/* Bildstrecke */}
           <div className="min-w-0">
-            <div className="overflow-hidden rounded-[1.25rem] bg-canvas-tint/50">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/bilder/p-haupt.webp"
-                alt="Hauptbild eines Listings: matte Isolierflasche in Navy auf weißem Grund"
-                width={1024}
-                height={1024}
-                className="aspect-square w-full object-cover"
-              />
+            <div className="relative aspect-square overflow-hidden rounded-[1.25rem] bg-canvas-tint/50">
+              {bilder.map((b, i) => (
+                <motion.img
+                  key={b.src}
+                  src={b.src}
+                  alt={i === 0 ? b.alt : ""}
+                  width={1024}
+                  height={1024}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  animate={{ opacity: i === aktiv ? 1 : 0 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                />
+              ))}
             </div>
-            <div className="mt-3 grid grid-cols-3 gap-3">
-              {galerie.map((g) => (
-                <div
-                  key={g.src}
-                  className="overflow-hidden rounded-[0.75rem] bg-canvas-tint/50 shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
+            <div className="mt-3 grid grid-cols-4 gap-2.5">
+              {bilder.map((b, i) => (
+                <button
+                  key={b.src}
+                  type="button"
+                  onClick={() => setAktiv(i)}
+                  aria-label={b.alt}
+                  className={`overflow-hidden rounded-[0.75rem] bg-canvas-tint/50 transition-shadow ${
+                    i === aktiv
+                      ? "shadow-[inset_0_0_0_2px_#FF9900]"
+                      : "shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
+                  }`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={g.src} alt={g.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
-                </div>
+                  <img src={b.src} alt="" width={1024} height={1024} className="aspect-square w-full object-cover" />
+                </button>
               ))}
             </div>
           </div>
@@ -157,7 +240,7 @@ function ListingKarte() {
           <div className="flex min-w-0 flex-col">
             <span className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink-faint">Marke</span>
             <p className="mt-2 text-[1.05rem] font-bold leading-snug text-ink">
-              Isolierflasche 750 ml, doppelwandig, 24 h kalt
+              Bratpfanne 28 cm, antihaftbeschichtet, für Induktion
             </p>
 
             <div className="mt-3 flex items-center gap-2">

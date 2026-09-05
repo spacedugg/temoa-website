@@ -370,12 +370,18 @@ export function Points({
         const a = accent(i);
         const orphan = !aside && points.length % 2 === 1 && i === points.length - 1;
         return (
+          // Diese Saetze sind die Stelle, an der sich der Leser wiedererkennen
+          // soll. Vorher standen sie klein neben einem kleinen Icon. Jetzt
+          // grosse Icon-Kachel, groessere Schrift, Fettung.
           <Reveal key={p} delay={i * 0.05} className={orphan ? "sm:col-span-2" : ""}>
-            <div className="surface relative flex h-full items-start gap-3.5 p-5">
-              <span className={`mt-0.5 shrink-0 ${a.text}`}>
-                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={24} />
+            <div className="panel panel-lift relative flex h-full items-center gap-5 p-6 md:p-7">
+              <span
+                className={`grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] ${a.text}`}
+                style={{ background: "rgba(10,30,43,0.04)", boxShadow: "inset 0 0 0 1px rgba(10,30,43,0.06)" }}
+              >
+                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={30} />
               </span>
-              <p className="text-sm leading-snug text-ink md:text-[0.95rem]">{p}</p>
+              <p className="text-[1.02rem] font-bold leading-snug text-ink md:text-[1.12rem]">{p}</p>
             </div>
           </Reveal>
         );
@@ -498,6 +504,7 @@ export function TextMedia({
   image,
   imageAlt = "",
   imageAspect = "aspect-[4/3]",
+  aside,
 }: {
   eyebrow?: string;
   title: ReactNode;
@@ -507,10 +514,12 @@ export function TextMedia({
   image?: string;
   imageAlt?: string;
   imageAspect?: string;
+  /** Steht anstelle des Bildes. Fuer gezeichnete Diagramme. */
+  aside?: ReactNode;
 }) {
   // Ohne Bild entfaellt die Bildspalte. Ein leerer grauer Kasten mit der
   // Aufschrift „Bild" ist schlechter als eine ruhig gesetzte Textsektion.
-  if (!image) {
+  if (!image && !aside) {
     return (
       <Shell tone={tone}>
         <div className="panel mx-auto max-w-3xl px-8 py-10 text-center md:px-12 md:py-12">
@@ -529,7 +538,7 @@ export function TextMedia({
     <Shell tone={tone}>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         <Reveal className={reverse ? "lg:order-2" : ""}>
-          <SzeneBild src={image} alt={imageAlt} aspect={imageAspect} />
+          {aside ?? <SzeneBild src={image!} alt={imageAlt} aspect={imageAspect} />}
         </Reveal>
         <div className={`text-center md:text-left ${reverse ? "lg:order-1" : ""}`}>
           <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0" />
@@ -633,7 +642,10 @@ export function ResultBlock({
               </h2>
               <ul className="mt-8 grid gap-x-8 gap-y-4 sm:grid-cols-2">
                 {benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-base font-medium text-chalk-muted">
+                  // Auf dem dunklen Podest stand die Liste in Grau. Technisch
+                  // lesbar, optisch kraftlos: die Aussage der Sektion darf
+                  // nicht blasser sein als die Ueberschrift darueber.
+                  <li key={b} className="flex items-start gap-3 text-[1.05rem] font-bold leading-snug text-white">
                     <Tick onDark />
                     <span className="min-w-0">{b}</span>
                   </li>
@@ -702,7 +714,7 @@ export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; 
                   {chips.map((c) => (
                     <span
                       key={c}
-                      className="panel-dark flex items-center gap-2.5 px-4 py-3.5 text-small text-chalk-muted"
+                      className="panel-dark flex items-center gap-2.5 px-4 py-3.5 text-small font-bold text-chalk"
                     >
                       <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
                       {c}
