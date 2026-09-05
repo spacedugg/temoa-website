@@ -222,7 +222,7 @@ export function Verfahren() {
         };
 
   return (
-    <Station label="Unser Vorgehen" tone="paper">
+    <Station label="Unser Vorgehen" tone="warm">
       <StationTitle>
         Organic First, <span className="em mark">PPC Second.</span>
       </StationTitle>
@@ -559,7 +559,7 @@ export function Arbeiten() {
   const [haupt, ...weitere] = bildstrecke;
 
   return (
-    <Station label="Designbeispiele" tone="tint">
+    <Station label="Designbeispiele" tone="paper">
       <StationTitle>
         So sieht <span className="em mark">Retail Ready</span> aus.
       </StationTitle>
@@ -911,7 +911,7 @@ export function Mannschaft() {
         };
 
   return (
-    <Station label="Team" tone="tint" id="team">
+    <Station label="Team" tone="warm" id="team">
       <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-14">
         <div className="min-w-0">
           <StationTitle>Das Team hinter temoa.</StationTitle>

@@ -1,6 +1,7 @@
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Auftrag } from "@/components/takt/Auftrag";
+import { Haltung } from "@/components/takt/Haltung";
 import {
   Kundenband,
   Befund,
@@ -27,6 +28,7 @@ export default function Home() {
         <Verfahren />
         <Leistungen />
         <Nachweis />
+        <Haltung />
         <Arbeiten />
         <Stimmen />
         <Termin />

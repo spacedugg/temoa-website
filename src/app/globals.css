@@ -7,6 +7,12 @@
   --brand-gradient: linear-gradient(110deg, #FF9900 0%, #FF6B1F 52%, #FF3131 100%);
   /* Dunkle Variante derselben Familie für große Flächen mit weißem Text (5.3:1 bis 7.5:1). */
   --brand-gradient-deep: linear-gradient(110deg, #C74A0B 0%, #B33314 55%, #A32318 100%);
+  /* Textmarker fuer betonte Woerter in Ueberschriften. Gezeichnete Flaeche
+     mit unruhigen Kanten, an den Enden auslaufend wie ein abgesetzter
+     Filzstift. Liegt als Variable hier, damit `.mark` und `.text-gradient`
+     dieselbe Datei benutzen statt sie viermal zu wiederholen. */
+  --marker-hell: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%2040%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27ga%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23FF9900%27%20stop-opacity%3D%27.45%27%2F%3E%3Cstop%20offset%3D%27.1%27%20stop-color%3D%27%23FF9900%27%2F%3E%3Cstop%20offset%3D%27.88%27%20stop-color%3D%27%23FF9900%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FF9900%27%20stop-opacity%3D%27.3%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%27url%28%23ga%29%27%20opacity%3D%27.92%27%20d%3D%27M2%209.4C26%206.2%2052%208.6%2078%207%20104%205.4%20131%208.2%20157%206.5%20172%205.6%20187%207.3%20198.5%206.3L198%2033.2C186%2035.3%20170%2032.7%20154%2034.4%20128%2037.1%20101%2034%2075%2035.5%2049%2037%2025%2034.3%202%2035.9Z%27%2F%3E%3Cpath%20fill%3D%27%23FF7A00%27%20opacity%3D%27.26%27%20d%3D%27M3%2011.6C30%209.5%2060%2012.3%2090%2010.4%20120%208.5%20150%2011.7%20196%209.9L196%2017.5C152%2019.3%20118%2016.2%2088%2018.1%2058%2020%2030%2017.3%203%2019.2Z%27%2F%3E%3Cpath%20fill%3D%27%23ffffff%27%20opacity%3D%27.15%27%20d%3D%27M14%2013.3C40%2012%2066%2014.1%2092%2012.7L92%2015.7C66%2017.1%2040%2015%2014%2016.3ZM112%2012.5C138%2011.3%20164%2013.3%20190%2012L190%2015C164%2016.3%20138%2014.3%20112%2015.5Z%27%2F%3E%3C%2Fsvg%3E");
+  --marker-dunkel: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%2040%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27gb%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23FFB033%27%20stop-opacity%3D%27.45%27%2F%3E%3Cstop%20offset%3D%27.1%27%20stop-color%3D%27%23FFB033%27%2F%3E%3Cstop%20offset%3D%27.88%27%20stop-color%3D%27%23FFB033%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FFB033%27%20stop-opacity%3D%27.3%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%27url%28%23gb%29%27%20opacity%3D%27.8%27%20d%3D%27M2%209.4C26%206.2%2052%208.6%2078%207%20104%205.4%20131%208.2%20157%206.5%20172%205.6%20187%207.3%20198.5%206.3L198%2033.2C186%2035.3%20170%2032.7%20154%2034.4%20128%2037.1%20101%2034%2075%2035.5%2049%2037%2025%2034.3%202%2035.9Z%27%2F%3E%3Cpath%20fill%3D%27%23FF9900%27%20opacity%3D%27.26%27%20d%3D%27M3%2011.6C30%209.5%2060%2012.3%2090%2010.4%20120%208.5%20150%2011.7%20196%209.9L196%2017.5C152%2019.3%20118%2016.2%2088%2018.1%2058%2020%2030%2017.3%203%2019.2Z%27%2F%3E%3Cpath%20fill%3D%27%23ffffff%27%20opacity%3D%27.15%27%20d%3D%27M14%2013.3C40%2012%2066%2014.1%2092%2012.7L92%2015.7C66%2017.1%2040%2015%2014%2016.3ZM112%2012.5C138%2011.3%20164%2013.3%20190%2012L190%2015C164%2016.3%20138%2014.3%20112%2015.5Z%27%2F%3E%3C%2Fsvg%3E");
   /* Fokus-Ring. Auf hellem Grund Ink, auf dunklem Grund wird er in .on-dark umgestellt. */
   --focus-ring: #0A1E2B;
 }
@@ -106,38 +112,36 @@ footer :where(a, button):focus-visible,
   .title .em {
     font-weight: 700;
   }
-  /* Betontes Wort in einer Überschrift.
-     Orange als Schriftfarbe auf Weiß erreicht keinen ausreichenden Kontrast und
-     kippt optisch ins Gold. Deshalb bleibt das Wort dunkel und bekommt einen
-     orangen Balken unter der Grundlinie. */
-  /* Betontes Wort in einer Überschrift: dunkel und fett, darunter ein oranger
-     Strich.
+  /* Betontes Wort in einer Ueberschrift.
 
-     Vorher war der Strich ein absolut gesetztes ::after mit left:0 und
-     right:0, dazu white-space: nowrap. Das hatte zwei Fehler. Erstens konnte
-     die Überschrift nicht umbrechen und lief aus ihrer Spalte heraus, auf der
-     Full-Service-Seite bis unter das Bild. Zweitens spannte der Strich über
-     die ganze Zeilenbreite statt unter die Wörter, auch über den Leerraum
-     dahinter.
+     Der Kunde wollte keinen geraden Strich, sondern einen Textmarker mit
+     Struktur. Ein gerader Balken bleibt gerade, egal wie dick, deshalb ist
+     der Strich jetzt eine gezeichnete Flaeche: unruhige Ober- und Unterkante,
+     an beiden Enden auslaufend wie ein abgesetzter Filzstift, darin eine
+     zweite Lage und zwei helle Schlieren.
 
-     Jetzt eine echte Unterstreichung: sie folgt dem Text, bricht mit ihm um
-     und endet mit dem letzten Buchstaben. */
+     `box-decoration-break: clone` sorgt dafuer, dass jede Zeile eines
+     umbrechenden Wortes ihren eigenen Strich bekommt. `multiply` laesst die
+     Schrift durch die Farbe kommen, statt sie zuzudecken. */
   .mark {
     font-weight: 700;
-    text-decoration-line: underline;
-    text-decoration-color: #ff9900;
-    text-decoration-thickness: 0.075em;
-    text-underline-offset: 0.19em;
-    text-decoration-skip-ink: none;
+    background-image: var(--marker-hell);
+    background-repeat: no-repeat;
+    background-size: 100% 0.72em;
+    background-position: 0 82%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.06em;
+    margin: 0 -0.06em;
   }
-  /* Der Klassenname bleibt, damit die Fundstellen weiterlaufen. Umbrechen
-     darf jetzt jedes betonte Wort, deshalb ist hier nichts mehr zu tun. */
+  /* Der Klassenname bleibt, damit die Fundstellen weiterlaufen. */
   .mark-wrap {
     white-space: normal;
   }
   .on-dark .mark {
-    text-decoration-color: #ffb033;
+    background-image: var(--marker-dunkel);
   }
+
   .num {
     font-weight: 300;
     font-variant-numeric: tabular-nums;
@@ -244,6 +248,49 @@ footer :where(a, button):focus-visible,
       radial-gradient(110% 80% at 82% -15%, rgba(255, 153, 0, 0.2), transparent 58%),
       radial-gradient(80% 60% at 6% 108%, rgba(255, 153, 0, 0.09), transparent 60%),
       linear-gradient(165deg, #14344c 0%, #0d2439 55%, #0a1c2d 100%);
+  }
+
+  /* Warmer Grund. Dritte helle Stufe neben .ground und .ground-tint, damit
+     nicht jede zweite Sektion denselben kühlen Ton hat. Trägt normalen
+     dunklen Text, weiße Platten stehen darauf gut. */
+  .ground-warm {
+    position: relative;
+    background:
+      radial-gradient(100% 75% at 82% -12%, rgba(255, 153, 0, 0.16), transparent 62%),
+      radial-gradient(85% 60% at 6% 106%, rgba(255, 122, 0, 0.09), transparent 62%),
+      linear-gradient(180deg, #fff8ef 0%, #fdf0e2 100%);
+  }
+
+  /* Signalsektion: volle Markenfläche.
+
+     Der Kunde wollte auch mal eine ganze Sektion in Farbe. Orange trägt
+     ausschließlich dunklen Text, deshalb ist diese Fläche nur für kurze,
+     große Aussagen gedacht, nicht für Fließtext oder lange Listen. Sie wirkt
+     als Zäsur zwischen zwei hellen Sektionen, so wie ein Absatz im Text.
+     `.on-signal` stellt die Textfarben darauf um. */
+  .ground-signal {
+    position: relative;
+    background:
+      radial-gradient(90% 120% at 88% 0%, rgba(255, 193, 92, 0.55), transparent 60%),
+      radial-gradient(80% 110% at 4% 100%, rgba(255, 107, 31, 0.4), transparent 62%),
+      linear-gradient(150deg, #ff9900 0%, #ff8a00 55%, #f97a12 100%);
+  }
+  .on-signal {
+    color: #2a1400;
+  }
+  .on-signal .signal-leise {
+    color: rgba(42, 20, 0, 0.72);
+  }
+  /* Platte auf der Signalfläche: aufgehellt, damit sie sich abhebt, ohne
+     weiß zu werden und die Fläche zu zerschneiden. */
+  .panel-signal {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.22);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   /* Hauptplatte. Der gestaffelte Schatten erzeugt die Tiefe, die eine
@@ -545,27 +592,25 @@ footer :where(a, button):focus-visible,
      steckt an über fünfzig Stellen in Überschriften, deshalb wird sie hier
      umdefiniert statt überall ersetzt: das Wort bleibt dunkel und bekommt den
      orangen Balken unter der Grundlinie, wie `.mark`. */
-  /* Wie .mark, nur unter dem alten Klassennamen: er steht an über fünfzig
-     Stellen. Der Strich war ein absolut gesetztes ::after über die ganze
-     Zeilenbreite und lief bei umbrechenden Überschriften ins Leere. Jetzt
-     eine echte Unterstreichung, die dem Text folgt. */
+  /* Wie .mark, nur unter dem alten Klassennamen: er steht an ueber fuenfzig
+     Stellen. Damit sieht jede Auszeichnung auf der Seite gleich aus. */
   .text-gradient {
     color: inherit;
-    font-weight: 700;
-    background-image: none;
+    background-color: transparent;
     -webkit-background-clip: border-box;
     background-clip: border-box;
-    text-decoration-line: underline;
-    text-decoration-color: #ff9900;
-    text-decoration-thickness: 0.075em;
-    text-underline-offset: 0.19em;
-    text-decoration-skip-ink: none;
+    font-weight: 700;
+    background-image: var(--marker-hell);
+    background-repeat: no-repeat;
+    background-size: 100% 0.72em;
+    background-position: 0 82%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.06em;
+    margin: 0 -0.06em;
   }
-  /* Auf dunklem Grund erreicht Orange genug Kontrast und darf Schrift sein.
-     Der Strich entfällt dort, sonst doppelt sich die Auszeichnung. */
   .on-dark .text-gradient {
-    color: #FFB033;
-    text-decoration-line: none;
+    background-image: var(--marker-dunkel);
   }
 
   .text-gradient-emerald {

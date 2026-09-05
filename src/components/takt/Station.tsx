@@ -19,12 +19,14 @@ import { Icon, type IconName } from "./Icons";
  * Typografische Regel bleibt: groß wird leicht gesetzt, klein wird fett.
  */
 
-export type Tone = "paper" | "tint" | "dark";
+export type Tone = "paper" | "tint" | "warm" | "dark" | "signal";
 
 const grounds: Record<Tone, string> = {
   paper: "ground text-ink",
   tint: "ground-tint text-ink",
+  warm: "ground-warm text-ink",
   dark: "on-dark ground-deep text-chalk",
+  signal: "on-signal ground-signal",
 };
 
 export function Station({
@@ -42,11 +44,12 @@ export function Station({
   className?: string;
 }) {
   const dark = tone === "dark";
+  const signal = tone === "signal";
   return (
     <section id={id} className={clsx("relative scroll-mt-24", grounds[tone], className)}>
       <div className="container-x">
         <div className="py-20 md:py-28">
-          {label && <Eyebrow label={label} dark={dark} />}
+          {label && <Eyebrow label={label} dark={dark} signal={signal} />}
           <div className="min-w-0">{children}</div>
         </div>
       </div>
@@ -61,7 +64,16 @@ export function Station({
  * bindet sie an die Glow-Sprache des Themes und hebt sie vom Grund ab, statt
  * sie als nackte Zeile daraufzulegen.
  */
-export function Eyebrow({ label, dark = false }: { label: string; dark?: boolean }) {
+export function Eyebrow({
+  label,
+  dark = false,
+  signal = false,
+}: {
+  label: string;
+  dark?: boolean;
+  /** Auf der orangen Signalfläche: dunkle Pille statt weißer. */
+  signal?: boolean;
+}) {
   const reduce = useReducedMotion();
   return (
     <motion.div
@@ -71,13 +83,23 @@ export function Eyebrow({ label, dark = false }: { label: string; dark?: boolean
       transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
       className={clsx(
         "mb-6 inline-flex items-center gap-2.5 rounded-full py-2 pl-3 pr-4",
-        dark
-          ? "bg-white/[0.07] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
-          : "bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.2)]"
+        signal
+          ? "bg-navy/[0.14] shadow-[inset_0_0_0_1px_rgba(42,20,0,0.14)]"
+          : dark
+            ? "bg-white/[0.07] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
+            : "bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.2)]"
       )}
     >
-      <span aria-hidden className="node-glow" />
-      <span className={clsx("text-label font-bold uppercase", dark ? "text-chalk" : "text-ink-soft")}>
+      <span
+        aria-hidden
+        className={clsx("node-glow", signal && "!bg-navy !shadow-[0_0_0_4px_rgba(10,30,43,0.12)]")}
+      />
+      <span
+        className={clsx(
+          "text-label font-bold uppercase",
+          signal ? "text-navy" : dark ? "text-chalk" : "text-ink-soft"
+        )}
+      >
         {label}
       </span>
     </motion.div>
@@ -114,7 +136,7 @@ export function StationLead({
     <p
       className={clsx(
         "mt-6 max-w-[56ch] text-pretty text-lead",
-        tone === "dark" ? "text-chalk-muted" : "text-ink-muted",
+        tone === "dark" ? "text-chalk-muted" : tone === "signal" ? "signal-leise" : "text-ink-muted",
         className
       )}
     >
