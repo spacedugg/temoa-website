@@ -9,7 +9,7 @@ import {
   Reporting,
   Unterschied,
 } from "@/components/takt/fullservice";
-import { Stimmen, Termin } from "@/components/takt/sections";
+import { Termin } from "@/components/takt/sections";
 
 export const metadata: Metadata = {
   title: "Full Service · temoa",
@@ -28,7 +28,6 @@ export default function FullServicePage() {
         <Bereiche />
         <Reporting />
         <Unterschied />
-        <Stimmen />
         <Termin
           title="Welcher Bereich bremst euer Wachstum?"
           sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."

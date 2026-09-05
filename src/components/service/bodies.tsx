@@ -12,7 +12,6 @@ import {
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram } from "./Diagrams";
-import { Stimmen } from "../takt/sections";
 
 /* ============ STRATEGIE ============ */
 export function StrategieBody() {
@@ -75,7 +74,6 @@ export function StrategieBody() {
         reverse
         imageAspect="aspect-[3/2]"
       />
-      <Stimmen />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
         sub="In der kostenlosen Potenzialanalyse werten wir eure Berichte aus und zeigen, welche drei Schritte zuerst kommen."
@@ -135,7 +133,6 @@ export function ContentBody() {
           ],
         }}
       />
-      <Stimmen />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
         sub="In der kostenlosen Potenzialanalyse gehen wir eure Listings durch und zeigen, an welcher Stelle Besucher abspringen."
@@ -237,7 +234,6 @@ export function AdvertisingBody() {
           },
         ]}
       />
-      <Stimmen />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
@@ -310,7 +306,6 @@ export function AccountBody() {
           "Anfragen an den Amazon-Support laufen über uns",
         ]}
       />
-      <Stimmen />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
         sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
@@ -404,7 +399,6 @@ export function InternationalisierungBody() {
           ],
         }}
       />
-      <Stimmen />
       <ServiceCTA
         title="Welcher Markt ist euer nächster?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."

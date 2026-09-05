@@ -46,6 +46,51 @@ export type CaseStudy = {
 
 export const cases: CaseStudy[] = [
   {
+    slug: "miganeo",
+    displayName: "Miganeo",
+    mono: "M",
+    anonymized: false,
+    industry: "Pool, Garten und Outdoor",
+    marketplaces: ["DE", "FR", "IT", "ES", "NL", "BE"],
+    timeframe: "Mai bis August 2026",
+    accent: "#12A0A8",
+    headline: "Aus vier Kampagnen im Ausland wurden 120",
+    subheadline:
+      "Fünf Marktplätze liefen nebenher. Nach einem Sommer kommt der größte Teil des Wachstums von dort.",
+    preview: { value: "×20", label: "Umsatz im Ausland", trend: "up" },
+    sections: [
+      {
+        heading: "Ausgangslage",
+        body: "In Deutschland lief der Account gut. Im Ausland liefen vier einzelne Kampagnen nebenher und brachten 8.967 € in einem Vierteljahr. Fünf Marktplätze standen offen, aber niemand im Haus hatte die Zeit, sie aufzubauen.",
+      },
+      {
+        heading: "Unser Vorgehen",
+        body: "Jeder Marktplatz bekam die volle Arbeit neu: eigene Keyword-Recherche, eigene Kampagnen, eigene Texte in der Landessprache. Aus vier Kampagnen im Ausland wurden 120, insgesamt 157 über sechs Marktplätze und 66 beworbene Artikel. Parallel wurden Hauptbilder und Produktdetailseiten der wichtigsten Artikel überarbeitet.",
+      },
+      {
+        heading: "Ergebnis",
+        body: "299.184 € Umsatz über Werbung bei 29.490 € Einsatz, ACoS 9,9 %, TACoS 6,02 %. Der Umsatz im Ausland stieg von 8.967 € auf 179.287 €. 98,9 % davon kamen über Suchbegriffe außerhalb des eigenen Markennamens: das Wachstum ist neu gewonnen, nicht umgebucht. Die neu aufgebaute Struktur in Deutschland holt aus jedem Werbeeuro 20,6 % mehr Umsatz als die alte.",
+      },
+    ],
+    heroStats: [
+      { value: "×20", label: "Umsatz im Ausland", sublabel: "8.967 € auf 179.287 €", trend: "up" },
+      { value: "6,02 %", label: "TACoS", sublabel: "über alle sechs Marktplätze", trend: "down" },
+      { value: "9,9 %", label: "ACoS", sublabel: "299.184 € Werbeumsatz bei 29.490 € Einsatz", trend: "down" },
+    ],
+    subStats: [
+      {
+        value: "98,9 %",
+        label: "Umsatz außerhalb der eigenen Marke",
+        sublabel: "kein Wachstum aus dem eigenen Markennamen",
+        trend: "up",
+      },
+      { value: "+149,5 %", label: "Umsatz Trampolin-Zubehör", sublabel: "11.059 € auf 27.587 €", trend: "up" },
+      { value: "+38,3 %", label: "Umsatz Bootsmotoren", sublabel: "269.759 € auf 372.998 €", trend: "up" },
+      { value: "+24,7 %", label: "Conversion Rate Sandfilteranlagen", sublabel: "nach neuen Produktbildern", trend: "up" },
+    ],
+    badges: [{ label: "Effizienzziel des Kunden übertroffen", icon: "trophy" }],
+  },
+  {
     slug: "vitaworld",
     displayName: "Vitaworld",
     mono: "V",

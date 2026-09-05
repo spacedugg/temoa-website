@@ -658,39 +658,79 @@ export function ResultBlock({
  * Homepage-Abschluss: Navy, orange Lichtkante oben, weisser Button mit oranger
  * Pfeilscheibe.
  */
+/**
+ * Abschluss-CTA.
+ *
+ * Vorher stand hier nur zentrierter Text auf dunklem Grund: dieselbe Form wie
+ * jede andere Sektion, nur dunkler. Der Kunde hat zu Recht gesagt, dass der
+ * wichtigste Block der Seite dann untergeht. Jetzt steht links die Aussage mit
+ * dem Knopf, rechts das Gesicht, mit dem das Gespraech stattfindet. Ein Foto
+ * an dieser Stelle macht aus einer Aufforderung eine Verabredung.
+ */
 export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; chips?: string[] }) {
   return (
-    <section className="on-dark ground-deep relative overflow-hidden py-20 text-center md:py-28">
+    <section className="on-dark ground-deep relative overflow-hidden py-20 md:py-28">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+      {/* Lichtkern hinter dem Portraet, damit die rechte Seite Gewicht bekommt. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute right-[-6%] top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full opacity-70 blur-[80px]"
+        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.34), transparent 68%)" }}
+      />
       <div className="container-x relative">
-        <Reveal>
-          <h2 className="title mx-auto max-w-[26ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
-            {title}
-          </h2>
-        </Reveal>
-        <Reveal delay={0.08}>
-          <p className="mx-auto mt-5 max-w-[54ch] text-pretty text-lead text-chalk-muted">{sub}</p>
-        </Reveal>
-        <Reveal delay={0.14}>
-          <div className="mt-9 flex justify-center">
-            <a href="/gespraech-vereinbaren" className="btn-on-dark">
-              Potenzialanalyse buchen
-              <Pfeil />
-            </a>
+        <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
+          <div>
+            <Reveal>
+              <h2 className="title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2vw,3.1rem)] text-white">
+                {title}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <p className="mt-5 max-w-[48ch] text-pretty text-lead text-chalk-muted">{sub}</p>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <div className="mt-9">
+                <a href="/gespraech-vereinbaren" className="btn-on-dark">
+                  Potenzialanalyse buchen
+                  <Pfeil />
+                </a>
+              </div>
+            </Reveal>
+            {chips && (
+              <Reveal delay={0.2}>
+                <div className="mt-9 grid gap-3 sm:grid-cols-3">
+                  {chips.map((c) => (
+                    <span
+                      key={c}
+                      className="panel-dark flex items-center gap-2.5 px-4 py-3.5 text-small text-chalk-muted"
+                    >
+                      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
+                      {c}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+            )}
           </div>
-        </Reveal>
-        {chips && (
-          <Reveal delay={0.2}>
-            <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-3">
-              {chips.map((c) => (
-                <span key={c} className="panel-dark flex items-center justify-center gap-2.5 px-4 py-3.5 text-small text-chalk-muted">
-                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                  {c}
-                </span>
-              ))}
-            </div>
+
+          <Reveal delay={0.12}>
+            <figure className="relative mx-auto max-w-[22rem] md:mx-0 md:ml-auto">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/team/Clemens.webp"
+                alt="Clemens, Founder und Sales bei temoa"
+                loading="lazy"
+                className="w-full rounded-[1.75rem] object-cover shadow-[0_30px_70px_-30px_rgba(0,0,0,0.75)]"
+              />
+              <figcaption className="panel-dark absolute -bottom-6 left-4 right-4 px-5 py-4">
+                <div className="text-[0.95rem] font-bold text-white">Clemens</div>
+                <div className="mt-0.5 text-small text-chalk-faint">
+                  Founder &amp; Sales. Er führt das Gespräch selbst.
+                </div>
+              </figcaption>
+            </figure>
           </Reveal>
-        )}
+        </div>
       </div>
     </section>
   );

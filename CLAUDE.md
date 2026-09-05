@@ -68,7 +68,7 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 - Verbotenes Wort: "Hebel" und jede Hebel-Analogie. Wir "hebeln" nichts; PPC wird nicht "zum Hebel".
 - Verbotene Woerter: "ausrollen" / "Rollout" und "erprobt" / "erprobtes Setup". Wir "rollen" nichts aus und nennen nichts "erprobt".
 - Internationalisierung: NIE behaupten, was in einem Markt verkauft, verkaufe automatisch im naechsten (das ist falsch). Kernaussage: Jeder Marktplatz ist ein eigener Markt und bekommt die komplette Arbeit neu (eigene Keyword-Recherche, eigener Content, eigene Kampagnen). Nicht auf Europa/USA begrenzen, es geht um Amazon-Marktplaetze weltweit.
-- Kundenstimmen/Reviews: GENAU EINE Bewertungssektion (die Homepage-Section) wird unveraendert auf jede Seite dupliziert. Keine abgespeckte 3-Karten-Variante.
+- Kundenstimmen/Reviews: Es gibt GENAU EINE Bewertungssektion (die Homepage-Section), keine abgespeckte 3-Karten-Variante. Sie steht nur noch auf der Homepage und auf der Buchungsseite. Auf allen anderen Seiten ist sie entfernt: der Kunde findet Bewertungen auf jeder Seite zu viel.
 - KI-Suche mitdenken: Content KI-ready fuer Rufus, COSMO und A10 (nicht Keywords stapeln, sondern Relevanz zeigen).
 - Kern-Argument Organic First: Listing zuerst auf Klickrate (CTR) und Conversion (CVR) optimieren, das sind die wichtigsten Ranking-Signale. Sonst bleibt PPC-Abhaengigkeit, Klicks werden jaehrlich teurer, Margen enger (Negativspirale).
 - Ueberschriften kurz, knackig, konkret. Keine generischen Floskeln, die nach etwas klingen, aber nichts sagen (Negativbeispiele: "Klarheit ueber Zahlen, Markt und Ziele", "Werbung, die Profitabilitaet bringt").

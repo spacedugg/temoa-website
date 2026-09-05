@@ -4,7 +4,6 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 import { DesignGallery } from "@/components/design/DesignGallery";
 import { getReferencesRaw } from "@/lib/references";
-import { Stimmen } from "@/components/takt/sections";
 import { ServiceCTA } from "@/components/service/Blocks";
 
 // Read the blob references at request time so the token is picked up
@@ -45,7 +44,6 @@ export default async function DesignBeispielePage({
           </div>
         )}
         <DesignGallery data={references} />
-        <Stimmen />
         <ServiceCTA
           title="Und wie sieht euer Listing aus?"
           sub="In der kostenlosen Potenzialanalyse sagen wir euch, welches Format bei euch zuerst überarbeitet gehört."

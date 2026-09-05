@@ -449,11 +449,11 @@ export function Nachweis() {
   return (
     <Station label="Ergebnisse" tone="dark" id="nachweis">
       <StationTitle>
-        Vier Marken, <span className="em text-brand-400">vier Ausgangslagen.</span>
+        Fünf Marken, <span className="em text-brand-400">fünf Ausgangslagen.</span>
       </StationTitle>
       <StationLead tone="dark">Ausgangslage, Vorgehen, Ergebnis. Mit den Zahlen dahinter.</StationLead>
 
-      {/* Vier Fälle als Karten. Vorher waren es Zeilen zwischen Haarlinien:
+      {/* Die Fälle als Karten. Vorher waren es Zeilen zwischen Haarlinien:
           das Bild klein links, der Text daneben, viel Leerraum rechts. */}
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:gap-6">
         {cases.map((c, i) => (
@@ -462,7 +462,18 @@ export function Nachweis() {
             href={`/ergebnisse/${c.slug}`}
             className="panel-dark group flex flex-col overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1"
           >
-            <div className="relative aspect-[16/9] w-full overflow-hidden">
+            {/* Liegt kein Foto vor, steht statt eines leeren Kastens ein
+                Farbfeld in der Akzentfarbe der Marke. */}
+            <div
+              className="relative aspect-[16/9] w-full overflow-hidden"
+              style={
+                c.bgImage
+                  ? undefined
+                  : {
+                      backgroundImage: `radial-gradient(120% 130% at 18% 0%, ${c.accent} 0%, ${c.accent}00 58%), radial-gradient(110% 120% at 100% 100%, ${c.accent}55 0%, transparent 60%), linear-gradient(155deg, #10314a 30%, #0a2035 100%)`,
+                    }
+              }
+            >
               {c.bgImage && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -471,6 +482,11 @@ export function Nachweis() {
                   loading={i === 0 ? undefined : "lazy"}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.05]"
                 />
+              )}
+              {!c.bgImage && (
+                <span className="absolute inset-0 flex items-center justify-center text-[3.5rem] font-extrabold leading-none text-white/25">
+                  {c.mono}
+                </span>
               )}
               <span
                 aria-hidden
@@ -490,20 +506,39 @@ export function Nachweis() {
                 {c.headline}
               </h3>
 
-              {/* Kennzahlen als eigene Kacheln, damit sie als Ergebnis lesbar sind. */}
-              <div className="mt-5 grid grid-cols-3 gap-2.5">
-                {c.heroStats.slice(0, 3).map((s) => (
+              {/* Kennzahlen als eigene Kacheln. Die wichtigste steht gross und
+                  allein, die beiden anderen daneben. Vorher waren alle drei
+                  gleich klein, dann liest man keine. */}
+              <div className="mt-auto grid gap-2.5 pt-5">
+                {c.heroStats.slice(0, 1).map((s) => (
                   <div
                     key={s.label}
-                    className="rounded-[0.9rem] bg-white/[0.06] px-3 py-2.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+                    className="rounded-[1.1rem] bg-white/[0.08] px-4 py-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
                   >
                     <ZahlText
                       text={s.value}
-                      className="block text-[0.95rem] font-extrabold text-white"
+                      className="num block text-[clamp(2rem,1.4rem+1.6vw,2.6rem)] leading-none text-white"
                     />
-                    <div className="mt-0.5 text-[0.66rem] leading-tight text-chalk-faint">{s.label}</div>
+                    <div className="mt-2 text-[0.78rem] font-bold leading-tight text-white/80">{s.label}</div>
+                    {s.sublabel && (
+                      <div className="mt-0.5 text-[0.7rem] leading-tight text-chalk-faint">{s.sublabel}</div>
+                    )}
                   </div>
                 ))}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {c.heroStats.slice(1, 3).map((s) => (
+                    <div
+                      key={s.label}
+                      className="rounded-[0.9rem] bg-white/[0.06] px-3.5 py-3 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]"
+                    >
+                      <ZahlText
+                        text={s.value}
+                        className="num block text-[1.35rem] leading-none text-white"
+                      />
+                      <div className="mt-1.5 text-[0.7rem] leading-tight text-chalk-faint">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <span className="mt-6 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
