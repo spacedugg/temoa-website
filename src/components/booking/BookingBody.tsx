@@ -56,58 +56,88 @@ export function BookingBody() {
           className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full opacity-60 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 50%, transparent 72%)" }}
         />
-        <div className="container-x relative grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          {/* left: copy + Clemens photo */}
+        <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="flex flex-col text-center lg:text-left">
             <Reveal>
               <Pille>Kostenlose Potenzialanalyse</Pille>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mx-auto mt-5 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
+              <h1 className="mx-auto mt-6 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
                 Erst schauen wir in euren Account, <span className="text-gradient">dann reden wir.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mx-auto mt-5 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
-                Vor dem Termin sehen wir uns eure Listings und Kampagnen an. Im Gespräch bekommt ihr konkrete
-                Beobachtungen und eine Einschätzung, keine Präsentation.
+              <p className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
+                Vor dem Termin sehen wir uns eure Listings und Kampagnen an. Im Gespräch bekommt ihr
+                konkrete Beobachtungen und eine Einschätzung, keine Präsentation.
               </p>
             </Reveal>
-            {/* Square portrait, face fully visible (no mid-face crop) */}
-            <Reveal delay={0.18} className="mt-8">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] sm:aspect-[3/2] lg:aspect-square">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/team/Clemens.webp"
-                  alt="Clemens, euer Ansprechpartner bei temoa"
-                  className="absolute inset-0 h-full w-full object-cover object-center [filter:brightness(1.05)]"
-                />
-                <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent p-5 pt-16">
-                  <div className="flex items-center gap-1 text-white">
-                    <span className="flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FF9900">
-                          <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                        </svg>
-                      ))}
-                    </span>
-                  </div>
-                  <div className="ml-1">
-                    <div className="text-sm font-bold text-white">Clemens</div>
-                    <div className="text-xs text-white/80">Euer Ansprechpartner bei temoa</div>
-                  </div>
-                </div>
+
+            {/* Was in den 45 Minuten passiert. Vorher stand das nirgends, und
+                wer nicht weiss, was ihn erwartet, bucht nicht. */}
+            <Reveal delay={0.16}>
+              <ul className="mx-auto mt-8 grid max-w-lg gap-3 text-left lg:mx-0">
+                {[
+                  "45 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
+                  "Wir zeigen den Bildschirm und gehen eure Zahlen durch",
+                  "Am Ende wisst ihr, welche drei Schritte zuerst kommen",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3">
+                    <CheckGreen />
+                    <span className="text-base leading-snug text-ink">{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.22}>
+              <div className="mt-9 flex justify-center lg:justify-start">
+                <a href="#kalender" className="btn-primary">
+                  Zum Kalender
+                  <span className="disc" aria-hidden>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 5v13m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </Reveal>
           </div>
 
-          {/* right: booking card */}
-          <Reveal direction="left" delay={0.1} className="lg:self-center">
-            <div id="kalender" className="flex scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
-              <div className="flex-1">
-                <CalEmbed />
+          {/* Das Portrait war quadratisch beschnitten und hat den Kopf oben
+              abgeschnitten. Ein Hochformat zeigt die Aufnahme, wie sie ist. */}
+          <Reveal direction="left" delay={0.12}>
+            <figure className="relative mx-auto w-full max-w-[26rem] lg:mx-0 lg:ml-auto">
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/[0.06]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/team/Clemens.webp"
+                  alt="Clemens, euer Ansprechpartner bei temoa"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                />
               </div>
-            </div>
+              <figcaption
+                className="absolute -bottom-5 left-5 right-5 rounded-[1.1rem] px-5 py-4"
+                style={{
+                  background: "#0d2439",
+                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 44px -22px rgba(0,0,0,0.7)",
+                }}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="flex gap-0.5" aria-hidden>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900">
+                        <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
+                      </svg>
+                    ))}
+                  </span>
+                </div>
+                <div className="mt-2 text-[0.95rem] font-bold text-white">Clemens</div>
+                <div className="mt-0.5 text-small text-chalk-faint">
+                  Founder &amp; Sales. Er führt das Gespräch selbst.
+                </div>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
@@ -121,11 +151,10 @@ export function BookingBody() {
           <Reveal>
             <div className="ground-deep on-dark grid gap-4 overflow-hidden rounded-[1.75rem] px-5 py-8 sm:grid-cols-3 md:px-8">
               {metrics.map((m) => (
-                // Gruen steht hier fuer „besser geworden". Der Kunde wollte
-                // diesen Akzent deutlicher: eine gruene Kante oben, der Pfeil
-                // groesser, die Zahl laeuft auf.
+                // Gruen steht fuer „besser geworden", aber als Strich ueber
+                // der Kachel war es zu viel: die Kante hat den Block in drei
+                // Streifen zerlegt. Der gruene Pfeil reicht.
                 <div key={m.label} className="panel-dark relative flex flex-col gap-3 overflow-hidden p-5 md:p-6">
-                  <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#22C55E" }} />
                   <div className="flex items-start justify-between gap-2">
                     <ZahlText
                       text={m.value}
@@ -195,6 +224,30 @@ export function BookingBody() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* Der Kalender steht jetzt in einer eigenen Sektion ueber die volle
+          Breite. Vorher war er in eine Spalte des Hero gequetscht: der Rahmen
+          hatte 540 px Mindesthoehe und overflow-hidden, dadurch war die
+          Terminauswahl unten abgeschnitten. */}
+      <section id="kalender" className="ground-tint relative scroll-mt-24 py-20 md:py-24">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Termin"
+            size="compact"
+            title={
+              <>
+                Sucht euch <span className="text-gradient">einen Termin.</span>
+              </>
+            }
+            description="Ihr bekommt sofort eine Bestätigung mit dem Videolink."
+          />
+          <Reveal delay={0.08}>
+            <div className="mx-auto mt-10 max-w-4xl rounded-[2rem] bg-white p-4 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
+              <CalEmbed />
+            </div>
+          </Reveal>
         </div>
       </section>
 

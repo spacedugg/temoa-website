@@ -46,11 +46,13 @@ export function CalEmbed() {
   if (CAL_LINK) {
     return (
       <div>
-        <div className="relative min-h-[540px] overflow-hidden rounded-3xl ring-1 ring-black/[0.06]">
-          <div className="pointer-events-none absolute inset-0 grid place-items-center text-sm text-ink-faint">
+        {/* Kein overflow-hidden und keine feste Hoehe: der Cal-Rahmen waechst
+            mit der Terminauswahl, vorher war er bei 540 px abgeschnitten. */}
+        <div className="relative rounded-3xl ring-1 ring-black/[0.06]">
+          <div className="pointer-events-none absolute inset-x-0 top-40 grid place-items-center text-sm text-ink-faint">
             Kalender wird geladen …
           </div>
-          <div id="cal-inline" className="relative min-h-[540px] w-full" />
+          <div id="cal-inline" className="relative min-h-[42rem] w-full md:min-h-[46rem]" />
         </div>
         <p className="mt-4 text-center text-sm text-ink-faint">
           Kalender lädt nicht?{" "}
