@@ -19,18 +19,22 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
  *  niemand.
  * ============================================================ */
 
+/* Eigenes Beispielprodukt fuer diese Seite. Vorher lief hier dieselbe
+   Isolierflasche wie in den Designbeispielen der Startseite, in jeder der
+   sechs Kacheln. Ein Bild soll nur an einer Stelle vorkommen, und wenn
+   ueberall dasselbe Produkt steht, sieht die Sektion aus wie eine Kachel,
+   die sechsmal gedruckt wurde. */
 const B = {
-  haupt: "/bilder/p-haupt.webp",
-  detail: "/bilder/p-detail.webp",
-  szene: "/bilder/p-szene.webp",
-  gruppe: "/bilder/p-gruppe.webp",
-  material: "/bilder/p-material.webp",
-  offen: "/bilder/p-offen.webp",
-  unterwegs: "/bilder/p-unterwegs.webp",
-  aHero: "/bilder/a-hero.webp",
-  aNutzen: "/bilder/a-nutzen.webp",
-  aAnwendung: "/bilder/a-anwendung.webp",
-  aVergleich: "/bilder/a-vergleich.webp",
+  haupt: "/bilder/c-haupt.webp",
+  detail: "/bilder/c-detail.webp",
+  szene: "/bilder/c-szene.webp",
+  gruppe: "/bilder/c-gruppe.webp",
+  material: "/bilder/c-material.webp",
+  offen: "/bilder/c-offen.webp",
+  raum: "/bilder/c-raum.webp",
+  aHero: "/bilder/ca-hero.webp",
+  aNutzen: "/bilder/ca-nutzen.webp",
+  aAnwendung: "/bilder/ca-anwendung.webp",
 };
 
 /* --- kleine Bausteine ------------------------------------------------- */
@@ -124,7 +128,7 @@ function SucheViz() {
  * Der Aufbau, den jeder von Amazon kennt, ohne Amazon-Oberflaeche.
  */
 function ListingViz() {
-  const spalte = [B.detail, B.szene, B.gruppe, B.material, B.offen, B.unterwegs];
+  const spalte = [B.detail, B.szene, B.gruppe, B.material, B.offen, B.raum];
   return (
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
       <div className="flex gap-2.5">
@@ -163,7 +167,7 @@ function APlusViz() {
   const module: { src: string; links: boolean }[] = [
     { src: B.aHero, links: true },
     { src: B.aNutzen, links: false },
-    { src: B.aAnwendung, links: true },
+    { src: B.szene, links: true },
   ];
   return (
     <div className="space-y-2.5 rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
@@ -189,7 +193,7 @@ function BrandStoryViz() {
   return (
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
       <div className="relative overflow-hidden rounded-[0.7rem]">
-        <Bild src={B.szene} className="aspect-[16/7]" fit="cover" />
+        <Bild src={B.aAnwendung} className="aspect-[16/7]" fit="cover" />
         <div className="absolute inset-y-0 left-0 flex w-1/2 flex-col justify-center gap-1.5 bg-gradient-to-r from-white/95 to-white/0 p-3">
           <span aria-hidden className="h-5 w-5 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
           <Zeile w="82%" stark />
@@ -197,7 +201,7 @@ function BrandStoryViz() {
         </div>
       </div>
       <div className="mt-2.5 grid grid-cols-3 gap-2">
-        {[B.unterwegs, B.material, B.offen].map((s) => (
+        {[B.raum, B.material, B.offen].map((s) => (
           <div key={s} className="rounded-[0.6rem] bg-[#F7F9FB] p-1.5">
             <Bild src={s} className="aspect-[4/3]" fit="cover" />
             <div className="mt-1.5 space-y-1 px-0.5">
