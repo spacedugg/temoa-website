@@ -3,6 +3,7 @@
 import { Reveal } from "../ui/Reveal";
 import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Stimmen } from "../takt/sections";
+import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
 
@@ -120,28 +121,33 @@ export function BookingBody() {
           <Reveal>
             <div className="ground-deep on-dark grid gap-4 overflow-hidden rounded-[1.75rem] px-5 py-8 sm:grid-cols-3 md:px-8">
               {metrics.map((m) => (
-                <div key={m.label} className="panel-dark flex flex-col gap-3 p-5">
+                // Gruen steht hier fuer „besser geworden". Der Kunde wollte
+                // diesen Akzent deutlicher: eine gruene Kante oben, der Pfeil
+                // groesser, die Zahl laeuft auf.
+                <div key={m.label} className="panel-dark relative flex flex-col gap-3 overflow-hidden p-5 md:p-6">
+                  <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#22C55E" }} />
                   <div className="flex items-start justify-between gap-2">
-                    <span className="text-3xl font-extrabold leading-none tracking-tight text-white [font-variant-numeric:tabular-nums] md:text-4xl">
-                      {m.value}
-                    </span>
+                    <ZahlText
+                      text={m.value}
+                      className="num text-[clamp(2rem,1.4rem+1.6vw,2.75rem)] leading-none text-white"
+                    />
                     <span
                       aria-hidden
-                      className="grid h-6 w-6 shrink-0 place-items-center rounded-lg"
-                      style={{ background: "#16A34A26", color: "#4ADE80" }}
+                      className="grid h-8 w-8 shrink-0 place-items-center rounded-[0.7rem]"
+                      style={{ background: "#22C55E26", color: "#4ADE80", boxShadow: "0 0 14px -2px #22C55E77" }}
                     >
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                         <path
                           d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
                           stroke="currentColor"
-                          strokeWidth="2.4"
+                          strokeWidth="2.6"
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
                       </svg>
                     </span>
                   </div>
-                  <div className="text-[0.82rem] leading-snug text-chalk-muted">{m.label}</div>
+                  <div className="text-small font-bold leading-snug text-white/85">{m.label}</div>
                 </div>
               ))}
             </div>

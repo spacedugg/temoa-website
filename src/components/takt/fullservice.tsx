@@ -34,9 +34,9 @@ const bereiche = [
     title: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
     line: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
     bullets: [
-      "Search Query Performance je Suchbegriff: Impression-Share, Klickrate, Conversion, Cart-Adds",
-      "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
-      "Vollständige Margen- und Deckungsbeitragsrechnung je Variante, inklusive aller Fees",
+      "Welche Suchbegriffe euch Umsatz bringen und welche nur Geld kosten",
+      "Wo ihr im Markt steht, Monat für Monat",
+      "Was bei jeder Variante nach allen Gebühren übrig bleibt",
     ],
   },
   {
@@ -44,9 +44,9 @@ const bereiche = [
     title: "Ein Listing, das auch ohne Werbung verkauft.",
     line: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
     bullets: [
-      "Hauptbild zuerst, optimiert auf die Klickrate, den wichtigsten Faktor im Suchergebnis",
-      "Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
-      "Titel, Bullets, Backend und alle Attributfelder so aufgebaut, dass Rufus und COSMO sie verstehen",
+      "Zuerst das Hauptbild: es entscheidet, ob im Suchergebnis geklickt wird",
+      "Alle Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
+      "Titel, Bullets und die Felder im Hintergrund, verständlich für Rufus und COSMO",
     ],
   },
   {
@@ -54,9 +54,9 @@ const bereiche = [
     title: "Saubere Kampagnen, gesteuert am TACoS.",
     line: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
     bullets: [
-      "Kampagnenstruktur mit Suchbegriff-Isolation und Harvesting von Auto zu Exact, ohne Kannibalisieren",
-      "Platzierungs- und Gebotssteuerung, Top-of-Search gezielt eingesetzt",
-      "Profitabilität als Ziel, beim Aufbau neuer Suchbegriffe bewusst und befristet darüber hinaus",
+      "Jede Kampagne mit einer klaren Aufgabe, keine bietet gegen die andere",
+      "Gebote und Platzierungen getrennt gesteuert, Top-of-Search gezielt",
+      "Beim Aufbau neuer Suchbegriffe bewusst teurer, danach zurück auf Profit",
     ],
   },
   {
@@ -64,10 +64,10 @@ const bereiche = [
     title: "Stabiler Betrieb, geschützte Rankings.",
     line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
     bullets: [
-      "Buy-Box-Monitoring inklusive Verlust-Ursachen: Preis, Verfügbarkeit, Mehranbieter",
-      "Forecasting und Inventar, damit Out-of-Stock keine Rankings zerstört",
-      "Account Health, Ticketing und Troubleshooting mit dem Amazon-Support, Uploads über Flat Files",
-      "Pricing-Strategien und Profitability Protection",
+      "Buy-Box weg? Wir sehen es am selben Tag, samt Ursache",
+      "Nachschub geplant, damit kein Bestseller leerläuft und Rankings kippen",
+      "Konto-Gesundheit im Blick, Fälle laufen über uns zum Amazon-Support",
+      "Preise so gesteuert, dass Wachstum die Marge nicht auffrisst",
     ],
   },
   {
@@ -137,8 +137,8 @@ export function FullServiceKopf() {
               <span aria-hidden className="halo left-[10%] top-[12%] h-3/4 w-3/4" />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/bilder/n-leistungen.webp"
-                alt="Fünf Bereiche, die an einem Konto zusammenlaufen"
+                src="/bilder/n-team.webp"
+                alt="Fünf Arbeitsplätze auf einem Podest, alle verbunden mit einer gemeinsamen Auswertung"
                 className="relative w-full"
               />
             </motion.div>
@@ -261,8 +261,8 @@ export function Reporting() {
         <div className="min-w-0">
           <StationTitle>Reporting, das ihr in fünf Minuten versteht.</StationTitle>
           <StationLead>
-            Kein Datenexport zum Selbstauswerten. Ihr bekommt die Zahlen, die eine Entscheidung
-            tragen, und dazu unsere Einordnung.
+            Kein Datenexport zum Selbstauswerten. Ihr bekommt die Zahlen, auf die es ankommt,
+            und dazu unsere Einordnung.
           </StationLead>
 
           <div className="mt-8 space-y-3">

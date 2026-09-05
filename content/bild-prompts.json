@@ -317,6 +317,106 @@
       "stil": "szene3d",
       "transparent": true,
       "prompt": "Three white rounded pucks standing in a row on one long low navy platform in three-quarter view, each puck carrying one simple matte navy pictogram: a shopping cart, a stacked pair of parcel boxes, and a shield. A small glowing orange beacon light sits on top of the middle puck and one thin glowing orange line runs from it up to a floating rounded white card above the row, which carries a single orange exclamation mark. Nothing else in the frame."
+    },
+    {
+      "kennung": "n-team",
+      "seite": "Full Service: Kopf",
+      "size": "1408x1056",
+      "motiv": "Fuenf Arbeitsplaetze an einem gemeinsamen Konto",
+      "stil": "szene3d",
+      "transparent": true,
+      "rahmen": false,
+      "prompt": "One long low navy platform in three-quarter isometric view carrying five small white rounded desks in a row, each desk with one floating rounded white card above it showing a simple matte navy pictogram: a chess knight, a picture frame, a megaphone, a gear, and a globe. Thin glowing orange lines run from all five cards inwards and upwards to one larger frosted glass panel floating above the centre of the platform, which shows a rising orange line over a few navy bars. Nothing else in the frame."
+    },
+    {
+      "kennung": "c-haupt",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Hauptbild",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Single unit standing upright, centred on a pure white seamless background, filling most of the frame, exactly as a marketplace main image is shot.",
+      "rahmen": true
+    },
+    {
+      "kennung": "c-detail",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Detail Bedienring",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Tight close-up of the flat circular top: the recessed matte navy control ring and the edge of the fabric mesh, on a pure white seamless background, so that material and machining are clearly readable.",
+      "rahmen": true
+    },
+    {
+      "kennung": "c-szene",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Anwendung im Raum",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. The unit standing on a light oak floor beside a low linen armchair in a bright calm living room, soft daylight from a tall window on the left, the room behind it softly blurred.",
+      "rahmen": false
+    },
+    {
+      "kennung": "c-gruppe",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Farbvarianten",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Three of these units standing in a row on a pure white seamless background: the middle one off-white, the left one warm sand, the right one matte deep navy. Identical shape, evenly spaced, straight on.",
+      "rahmen": true
+    },
+    {
+      "kennung": "c-material",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Material",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Extreme macro of the fabric mesh where it meets the smooth matte housing and one wooden leg, filling the frame, on a pure white seamless background.",
+      "rahmen": true
+    },
+    {
+      "kennung": "c-offen",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Filterwechsel",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. The unit with its lower fabric cover detached and standing upright beside it, revealing the plain cylindrical filter inside, both on a pure white seamless background.",
+      "rahmen": true
+    },
+    {
+      "kennung": "c-raum",
+      "seite": "Leistung: Content, Beispiel-Listing",
+      "size": "1024x1024",
+      "motiv": "Groesse im Raum",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. The unit standing next to a plain light grey two-seat sofa in an empty bright room with a light oak floor, seen straight on, so the size of the unit compared to the sofa is immediately readable.",
+      "rahmen": false
+    },
+    {
+      "kennung": "ca-hero",
+      "seite": "Leistung: Content, A+ Module",
+      "size": "1408x800",
+      "motiv": "A+ Modul: Aufmacher",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Wide horizontal lifestyle banner: the unit standing at the left third of a bright calm living room with a light oak floor and a tall window, generous empty wall space on the right side of the frame.",
+      "rahmen": false
+    },
+    {
+      "kennung": "ca-nutzen",
+      "seite": "Leistung: Content, A+ Module",
+      "size": "1408x800",
+      "motiv": "A+ Modul: Aufbau",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Wide horizontal shot of the unit seen from a slight angle against a plain warm sand backdrop, softly lit, with clear empty space around it.",
+      "rahmen": false
+    },
+    {
+      "kennung": "ca-anwendung",
+      "seite": "Leistung: Content, A+ Module",
+      "size": "1408x800",
+      "motiv": "A+ Modul: im Schlafzimmer",
+      "stil": "produkt",
+      "prompt": "The product is a floor-standing air purifier for rooms up to 40 m2, about 70 cm tall: a smooth matte off-white cylindrical body with a fine light sand fabric mesh around its lower two thirds, a flat circular top with a recessed matte navy control ring, and three slim solid oiled ash wood legs. The entire surface is completely smooth, unbranded and unlabelled, no printed markings, no display text of any kind. Wide horizontal shot of the unit standing beside a made bed with plain light linen bedding in a quiet bedroom at dusk, warm soft light, the room softly blurred.",
+      "rahmen": false
     }
   ],
   "stilblocks": {

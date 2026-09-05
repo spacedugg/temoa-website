@@ -187,11 +187,11 @@ const gegenueber = [
   },
   {
     alt: "Sichtbarkeit über Gebote gekauft, Klickpreise steigen jedes Jahr",
-    neu: "Organische Plätze tragen die Sichtbarkeit, Werbung kommt dazu",
+    neu: "Die Sichtbarkeit kommt organisch, Werbung legt sich obendrauf",
   },
   {
     alt: "Umsatz um jeden Preis",
-    neu: "Jede SKU auf Deckungsbeitrag gerechnet",
+    neu: "Jedes Produkt einzeln durchgerechnet, bevor Budget fließt",
   },
 ];
 
@@ -206,7 +206,7 @@ const gegenueber = [
 const ppc = [
   { title: "Skalieren, was konvertiert", body: "Budget geht auf Suchbegriffe, die auf der Detailseite kaufen." },
   { title: "Platz halten", body: "Marke und Bestseller-Begriffe bleiben besetzt, auch gegen Wettbewerber." },
-  { title: "Auf Profit steuern", body: "Jede SKU auf Deckungsbeitrag gerechnet, geführt über den TACoS." },
+  { title: "Auf Profit steuern", body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz." },
 ];
 
 export function Verfahren() {
@@ -456,16 +456,27 @@ export function Nachweis() {
       {/* Die Fälle als Karten. Vorher waren es Zeilen zwischen Haarlinien:
           das Bild klein links, der Text daneben, viel Leerraum rechts. */}
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:gap-6">
-        {cases.map((c, i) => (
+        {cases.map((c, i) => {
+          /* Fuenf Faelle gehen in zwei Spalten nicht auf, der letzte bliebe
+             allein stehen. Der neueste Fall laeuft deshalb ueber die ganze
+             Breite: Bild links, Text rechts. */
+          const breit = i === 0;
+          return (
           <a
             key={c.slug}
             href={`/ergebnisse/${c.slug}`}
-            className="panel-dark group flex flex-col overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1"
+            className={clsx(
+              "panel-dark group overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1",
+              breit ? "flex flex-col sm:col-span-2 md:flex-row" : "flex flex-col"
+            )}
           >
             {/* Liegt kein Foto vor, steht statt eines leeren Kastens ein
                 Farbfeld in der Akzentfarbe der Marke. */}
             <div
-              className="relative aspect-[16/9] w-full overflow-hidden"
+              className={clsx(
+                "relative w-full overflow-hidden",
+                breit ? "aspect-[16/9] md:aspect-auto md:w-[46%]" : "aspect-[16/9]"
+              )}
               style={
                 c.bgImage
                   ? undefined
@@ -490,7 +501,12 @@ export function Nachweis() {
               )}
               <span
                 aria-hidden
-                className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0d2439] to-transparent"
+                className={clsx(
+                  "absolute bg-gradient-to-t from-[#0d2439] to-transparent",
+                  breit
+                    ? "inset-x-0 bottom-0 h-24 md:inset-y-0 md:left-auto md:right-0 md:h-full md:w-24 md:bg-gradient-to-l"
+                    : "inset-x-0 bottom-0 h-24"
+                )}
               />
             </div>
 
@@ -549,7 +565,8 @@ export function Nachweis() {
               </span>
             </div>
           </a>
-        ))}
+          );
+        })}
       </div>
     </Station>
   );

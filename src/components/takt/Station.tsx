@@ -221,7 +221,7 @@ export function Karte({
           nurTitel ? "mb-6 !h-[4.5rem] !w-[4.5rem] !rounded-[1.4rem]" : "mb-5"
         )}
       >
-        <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-6 w-6"} />
+        <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-8 w-8"} />
       </span>
       <span
         className={clsx(

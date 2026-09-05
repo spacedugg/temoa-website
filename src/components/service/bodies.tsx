@@ -257,9 +257,9 @@ export function AccountBody() {
         imageAlt="Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet"
         imageAspect="aspect-[3/2]"
         items={[
-          { title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
-          { title: "Ein vernetztes System", body: "Bestand, Pricing, Content und Werbung greifen ineinander, gesteuert als Ganzes." },
-          { title: "Volle Transparenz", body: "Klare Empfehlungen und priorisierte Maßnahmen, ohne euch durch 20 Tabs zu klicken." },
+          { title: "Wir sehen es, bevor ihr es merkt", body: "Buy-Box weg, Bestand knapp, Warnung im Postfach." },
+          { title: "Alles hängt zusammen", body: "Bestand, Preis, Content und Werbung werden zusammen gesteuert." },
+          { title: "Ihr müsst nichts suchen", body: "Ihr bekommt die Empfehlung, nicht zwanzig offene Tabs." },
         ]}
       />
       <Cards

@@ -177,11 +177,9 @@ export function Verlauf() {
           <span>Nach zwölf Monaten</span>
         </div>
       </div>
-
-      <p className="relative mt-5 border-t border-ink/[0.07] pt-4 text-[0.72rem] leading-relaxed text-ink-faint">
-        Schematische Darstellung des Verlaufs, ohne Werte an der Kurve. Beziffert ist nur die
-        durchschnittliche Steigerung der Profitabilität über die von uns betreuten Marken.
-      </p>
+      {/* Unter dem Diagramm stand ein Hinweis, dass die Darstellung schematisch
+          ist. Das sieht man ihr an: es steht keine einzige Zahl an der Kurve.
+          Der Satz ist raus. */}
     </div>
   );
 }
