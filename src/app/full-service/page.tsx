@@ -8,6 +8,8 @@ import {
   Bereiche,
   Reporting,
   Unterschied,
+  NichtFuerWen,
+  Onboarding,
 } from "@/components/takt/fullservice";
 import { Termin } from "@/components/takt/sections";
 
@@ -24,10 +26,14 @@ export default function FullServicePage() {
       <main id="inhalt">
         <FullServiceKopf />
         <FuerWen />
+        {/* Direkt hinter „fuer wen es passt" steht, fuer wen es nicht passt.
+            Eine Auswahl, die niemanden ausschliesst, ist keine Auswahl. */}
+        <NichtFuerWen />
         <Ausgangslage />
         <Bereiche />
         <Reporting />
         <Unterschied />
+        <Onboarding />
         <Termin
           title="Welcher Bereich bremst euer Wachstum?"
           sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
