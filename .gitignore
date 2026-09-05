@@ -8,3 +8,10 @@ npm-debug.log*
 .env*.local
 .vercel
 next-env.d.ts
+
+# Aufnahmen und Hilfsskripte der Sichtpruefung. Sie entstehen im
+# Projektverzeichnis, weil Playwright dort installiert ist, und gehoeren
+# nicht ins Repo.
+/*.png
+/.shot.mjs
+/.err.mjs
