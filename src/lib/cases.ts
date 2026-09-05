@@ -49,6 +49,7 @@ export const cases: CaseStudy[] = [
     slug: "miganeo",
     displayName: "Miganeo",
     mono: "M",
+    bgImage: "/case_studies/miganeo.webp",
     anonymized: false,
     industry: "Pool, Garten und Outdoor",
     marketplaces: ["DE", "FR", "IT", "ES", "NL", "BE"],

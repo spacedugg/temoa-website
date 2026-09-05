@@ -11,6 +11,7 @@ import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
 import { testimonials, initials } from "@/lib/testimonials";
 import type { PostMeta } from "@/lib/blog";
+import { BlogCover } from "../blog/BlogCover";
 
 /* ============================================================
    Kundenband. Zwei dünne Bänder von vorher zu einem verschmolzen:
@@ -1051,22 +1052,10 @@ export function Mannschaft() {
         ))}
       </div>
 
-      {/* Belegte Kennzahlen. Hier gehoeren sie hin: dieses Team traegt sie.
-          Die Zahlen laufen beim Sichtbarwerden auf. */}
-      <motion.div {...auf(0.1)} className="mt-6 grid gap-4 sm:grid-cols-3">
-        {[
-          { bis: 60, nach: "+", text: "Marken in Betreuung" },
-          { bis: 5, nach: "+", text: "Amazon-Marktplätze" },
-          { bis: 98, nach: " %", text: "verlängern nach Performance" },
-        ].map((k) => (
-          <div key={k.text} className="kpi">
-            <div className="num text-[1.7rem] text-ink">
-              <Zahl bis={k.bis} nach={k.nach} />
-            </div>
-            <div className="mt-1.5 text-[0.78rem] font-bold leading-tight text-ink">{k.text}</div>
-          </div>
-        ))}
-      </motion.div>
+      {/* Hier standen noch einmal 60+, 5+ und 98 %. Dieselben drei Zahlen
+          stehen schon im Kopf der Seite, im Kundenband und im Abschluss.
+          Viermal dieselbe Zahl auf einer Seite ueberzeugt nicht, sie nutzt
+          sich ab. */}
     </Station>
   );
 }
@@ -1076,40 +1065,45 @@ export function Mannschaft() {
    ============================================================ */
 
 export function Wissen({ posts }: { posts: PostMeta[] }) {
+  /* Vorher eine Liste zwischen Haarlinien, genau die Form, die dieses Theme
+     ueberall sonst abgeloest hat: Nummer, Titel, Pfeil, auf weissem Grund.
+     Jetzt drei Karten mit dem Titelbild des Beitrags. */
   return (
     <Station label="Blog" tone="paper">
       <StationTitle>Klartext zu Amazon.</StationTitle>
 
-      <div className="mt-12">
-        {posts.map((p, i) => (
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        {posts.slice(0, 3).map((p) => (
           <a
             key={p.slug}
             href={`/blog/${p.slug}`}
-            className="group -mx-5 grid grid-cols-[2.5rem_1fr] items-start gap-x-5 border-t border-ink/[0.09] px-5 py-7 transition-colors duration-300 hover:bg-ink/[0.025] md:grid-cols-[3.5rem_1fr_auto]"
+            className="panel panel-lift group flex h-full flex-col overflow-hidden"
           >
-            <span className="num text-[1.5rem] text-ink/20">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span className="min-w-0">
-              <span className="block max-w-[48ch] text-balance text-[1.05rem] font-bold leading-snug text-ink md:text-[1.15rem]">
+            <BlogCover
+              accent={p.accent}
+              icon={p.categoryIcon}
+              seed={p.slug}
+              label={p.categoryShort}
+              image={p.image}
+              className="aspect-[16/10] w-full"
+            />
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-balance text-[1.05rem] font-bold leading-snug text-ink md:text-[1.15rem]">
                 {p.title}
+              </h3>
+              <p className="mt-2.5 line-clamp-2 text-small leading-relaxed text-ink-muted">{p.description}</p>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.8rem] font-bold text-navy transition-transform duration-300 group-hover:translate-x-1">
+                Lesen
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </span>
-              <span className="mt-2 block text-label font-bold uppercase text-ink-faint">{p.categoryShort}</span>
-            </span>
-            <span className="hidden shrink-0 self-center text-navy transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem] md:group-hover:bg-brand-500 md:group-hover:text-ink" aria-hidden>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
+            </div>
           </a>
         ))}
-        <div className="border-t border-ink/[0.09]" />
       </div>
 
-      <a
-        href="/blog"
-        className="btn-text mt-10"
-      >
+      <a href="/blog" className="btn-text mt-10">
         Alle Beiträge
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -1118,3 +1112,4 @@ export function Wissen({ posts }: { posts: PostMeta[] }) {
     </Station>
   );
 }
+
