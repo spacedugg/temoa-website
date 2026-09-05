@@ -5,11 +5,12 @@ import {
   Points,
   Compare,
   TextMedia,
-  AccentStrip,
   ResultBlock,
   ServiceCTA,
-  SignalSatz,
+  Lieferung,
+  Ergebnis,
 } from "./Blocks";
+import { Marktkarte } from "./Karte";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
@@ -68,14 +69,42 @@ export function StrategieBody() {
           },
         ]}
       />
-      <SignalSatz
-        eyebrow="Was ihr danach habt"
-        title={<>Ihr wisst, was zuerst dran ist. Und warum.</>}
-        punkte={[
-          "Ihr seht schwarz auf weiß, welches Produkt Geld verdient",
-          "Ihr wisst, welcher Schritt am meisten bringt",
-          "Ihr habt eine Zahl, an der ihr uns messt",
+      <Lieferung
+        eyebrow="Was ihr danach in der Hand habt"
+        title={<>Zwei Dokumente, mit denen ihr arbeiten könnt.</>}
+        stuecke={[
+          {
+            kicker: "Dokument 1",
+            title: "Margenübersicht je Artikel",
+            punkte: [
+              "Verkaufspreis, Amazon-Gebühren, FBA, Wareneinsatz und Werbung je Variante",
+              "Was am Ende übrig bleibt, in Euro und in Prozent",
+              "Welche Artikel Wachstum verdienen und welche nur gehalten werden",
+            ],
+          },
+          {
+            kicker: "Dokument 2",
+            title: "Fahrplan für die nächsten Monate",
+            punkte: [
+              "Was zuerst kommt, weil es schnell wirkt, und was warten kann",
+              "Welche Artikel in den ersten Content-Sprint gehen",
+              "Ab wann Kampagnen dazugeschaltet werden und mit welchem Ziel",
+              "Wie tief wir ins Tagesgeschäft gehen sollen, von Beobachten bis Übernehmen",
+              "Wo der Bestand knapp wird, bevor er die Skalierung ausbremst",
+            ],
+          },
         ]}
+      />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="Vitaworld, Q1 2025 auf Q1 2026"
+        zeile="Erst durchgerechnet, dann skaliert: der Adspend stieg um 39 %, der Umsatz um 147 %."
+        werte={[
+          { wert: "+147 %", label: "Umsatz", sub: "131k € auf 326k € pro Quartal" },
+          { wert: "−44 %", label: "TACoS", sub: "von 10,4 % auf 5,8 %", runter: true },
+          { wert: "−19,4 %", label: "PPC-Anteil am Umsatz", sub: "von 36 % auf 29 %", runter: true },
+        ]}
+        href="/ergebnisse/vitaworld"
       />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
@@ -135,6 +164,17 @@ export function ContentBody() {
             "Richtlinienkonform, ohne Risiko fürs Konto",
           ],
         }}
+      />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="HaA, Launch über 17 Wochen"
+        zeile="Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget."
+        werte={[
+          { wert: "32,5 %", label: "Conversion Rate", sub: "von 5,5 % in der Launch-Woche" },
+          { wert: "13,5 %", label: "ACoS", sub: "trotz laufender Skalierung", runter: true },
+          { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
+        ]}
+        href="/ergebnisse/haa"
       />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
@@ -213,6 +253,17 @@ export function AdvertisingBody() {
           },
         ]}
       />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="FUTUM, erstes volles Amazon-Jahr"
+        zeile="Zwei Produktlaunches in einer Akut-Nische, profitabel skaliert statt Wachstum eingekauft."
+        werte={[
+          { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung", runter: true },
+          { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
+          { wert: "392.327 €", label: "Umsatz 2025", sub: "bei 17.042 Bestellungen" },
+        ]}
+        href="/ergebnisse/futum"
+      />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
         sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
@@ -257,20 +308,32 @@ export function AccountBody() {
         imageAlt="Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet"
         imageAspect="aspect-[3/2]"
         items={[
-          { title: "Wir sehen es, bevor ihr es merkt", body: "Buy-Box weg, Bestand knapp, Warnung im Postfach." },
-          { title: "Alles hängt zusammen", body: "Bestand, Preis, Content und Werbung werden zusammen gesteuert." },
-          { title: "Ihr müsst nichts suchen", body: "Ihr bekommt die Empfehlung, nicht zwanzig offene Tabs." },
+          {
+            title: "Buy-Box weg, 9:40 Uhr",
+            body: "Ein Mehranbieter unterbietet euch um 40 Cent. Wir sehen es am Vormittag, prüfen die Marge und entscheiden mit euch: mitgehen oder aussitzen.",
+          },
+          {
+            title: "Noch 18 Tage Bestand vor der Saison",
+            body: "Der Nachschub braucht 6 Wochen bis ins Lager. Wir melden das, bevor der Artikel leerläuft und das Ranking mit ihm.",
+          },
+          {
+            title: "Richtlinienwarnung im Postfach",
+            body: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
+          },
         ]}
       />
       <Cards
         tone="blue"
         eyebrow="Was wir übernehmen"
-        title="Das Tagesgeschäft in unserer Hand."
+        title="Acht Aufgaben, die euch keiner mehr abnimmt."
         cols={3}
         items={[
           { title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
           { title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { title: "Konto-Gesundheit", body: "Warnungen früh gesehen, Fälle mit dem Amazon-Support geklärt." },
+          { title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
+          { title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
+          { title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
+          { title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
           { title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
           { title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
         ]}
@@ -284,6 +347,17 @@ export function AccountBody() {
           "Monatsreport mit klaren nächsten Schritten",
           "Anfragen an den Amazon-Support laufen über uns",
         ]}
+      />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="Marke aus Gartenzubehör, Saison 2026"
+        zeile="Schon im Herbst vorbereitet, damit die Nachfrage im April auf einen Account trifft, der sie aushält."
+        werte={[
+          { wert: "−35 %", label: "TACoS im Hauptmarkt", sub: "über die Saison", runter: true },
+          { wert: "+21 %", label: "Conversion Rate", sub: "Hauptmarkt DE" },
+          { wert: "+110 %", label: "Klicks Italien", sub: "bei sinkendem ACoS" },
+        ]}
+        href="/ergebnisse/marke-gartenzubehoer"
       />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
@@ -301,10 +375,10 @@ export function InternationalisierungBody() {
         eyebrow="Internationalisierung"
         title={
           <>
-            Jeder Marktplatz ist ein <span className="text-gradient">eigener Markt.</span>
+            Jedes Land sucht <span className="text-gradient">anders.</span>
           </>
         }
-        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu."
+        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen."
         image="/bilder/s-international.webp"
         imageAlt="Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern"
       />
@@ -348,12 +422,23 @@ export function InternationalisierungBody() {
           },
         ]}
       />
-      <AccentStrip
+      <TextMedia
         tone="blue"
+        eyebrow="Wie es aussieht"
+        title="Ein Konto, jedes Land für sich aufgebaut."
+        text="Der Startmarkt bleibt der Startmarkt. Jedes weitere Land bekommt die komplette Arbeit noch einmal, statt eine Übersetzung des ersten."
+        aside={<Marktkarte />}
+      />
+      <Ergebnis
         eyebrow="Aus der Praxis"
-        title="Vier Marktplätze parallel aufgebaut."
-        items={["Saisonstart auf allen Märkten vorbereitet", "TACoS im Hauptmarkt −35 %", "Zweitmarkt: Klicks +110 % bei sinkendem ACoS"]}
-        icons={["rocket", "margin", "target"]}
+        title="Miganeo, Sommer 2026"
+        zeile="Fünf Marktplätze in zehn Wochen aufgebaut, aus vier losen Kampagnen wurden 120."
+        werte={[
+          { wert: "×20", label: "Umsatz im Ausland", sub: "8.967 € auf 179.287 €" },
+          { wert: "9,9 %", label: "ACoS", sub: "299.184 € Umsatz bei 29.490 € Einsatz", runter: true },
+          { wert: "98,9 %", label: "außerhalb der eigenen Marke", sub: "neu gewonnen, nicht umgebucht" },
+        ]}
+        href="/ergebnisse/miganeo"
       />
       <Compare
         tone="white"

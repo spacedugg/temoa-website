@@ -6,6 +6,7 @@ import { Ambient } from "../ui/Ambient";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 import { Logo } from "../Logo";
+import { ZahlText } from "../takt/Zahl";
 
 /* ---------------- palette / tones ---------------- */
 
@@ -246,17 +247,30 @@ export function Cards({
           const a = accent(i);
           return (
             <Reveal key={i} delay={i * 0.05} className={`${colWidth[cols]}`}>
-              <div className="surface surface-hover flex h-full flex-col p-6">
-                <div className="flex items-center justify-between">
-                  <span className={`block h-1.5 w-10 rounded-full ${a.bar}`} />
-                  {it.n && <span className="text-lg font-extrabold text-ink-soft">{it.n}</span>}
-                </div>
-                {it.kicker && (
-                  <span className={`mt-4 text-xs font-bold uppercase tracking-[0.13em] ${a.text}`}>{it.kicker}</span>
+              {/* Der farbige Strich oben links stand auf jeder zweiten Kachel
+                  der Website und hat sie alle gleich aussehen lassen. Er ist
+                  raus. Die Reihenfolge tragen jetzt Ziffern in der Ecke, die
+                  Farbe sitzt auf den Aufzaehlungszeichen. */}
+              <div className="panel panel-lift flex h-full flex-col p-6 md:p-7">
+                {(it.n || it.kicker) && (
+                  <div className="flex items-center justify-between gap-3">
+                    {it.kicker ? (
+                      <span className="text-label font-bold uppercase tracking-[0.14em] text-ink-soft">
+                        {it.kicker}
+                      </span>
+                    ) : (
+                      <span />
+                    )}
+                    {it.n && <span className="num text-[1.5rem] leading-none text-ink/20">{it.n}</span>}
+                  </div>
                 )}
-                {it.title && <h3 className="mt-3 text-balance text-lg font-bold leading-snug text-ink">{it.title}</h3>}
-                {it.subtitle && <p className="mt-1 text-sm font-medium text-ink-muted">{it.subtitle}</p>}
-                {it.body && <p className="mt-3 text-sm leading-relaxed text-ink-muted">{it.body}</p>}
+                {it.title && (
+                  <h3 className={`text-balance text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem] ${it.n || it.kicker ? "mt-4" : ""}`}>
+                    {it.title}
+                  </h3>
+                )}
+                {it.subtitle && <p className="mt-1.5 text-small font-medium text-ink-faint">{it.subtitle}</p>}
+                {it.body && <p className="mt-3 text-small leading-relaxed text-ink-muted">{it.body}</p>}
                 {it.bullets && (
                   <ul className="mt-4 space-y-2.5">
                     {it.bullets.map((b) => (
@@ -313,18 +327,23 @@ export function SplitCards({
         {/* stacked, compact cards */}
         <Reveal className={reverse ? "lg:order-2" : ""}>
           <div className="flex h-full flex-col justify-center gap-4">
-            {items.map((it, i) => {
-              const a = accent(i);
-              return (
-                <div key={i} className="surface flex items-start gap-3.5 p-5">
-                  <span className={`mt-1 block h-8 w-1 shrink-0 rounded-full ${a.bar}`} />
-                  <div>
-                    {it.title && <h3 className="text-balance text-base font-bold leading-snug text-ink">{it.title}</h3>}
-                    {it.body && <p className="mt-1 text-sm leading-relaxed text-ink-muted">{it.body}</p>}
-                  </div>
+            {items.map((it, i) => (
+              /* Auch hier ist der farbige Balken raus. Die Nummer sagt die
+                 Reihenfolge, das reicht. */
+              <div key={i} className="panel flex items-start gap-5 p-5 md:p-6">
+                <span className="num shrink-0 text-[1.4rem] leading-none text-ink/20">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0">
+                  {it.title && (
+                    <h3 className="text-balance text-[1.05rem] font-bold leading-snug text-ink md:text-[1.15rem]">
+                      {it.title}
+                    </h3>
+                  )}
+                  {it.body && <p className="mt-1.5 text-small leading-relaxed text-ink-muted">{it.body}</p>}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </Reveal>
         {/* Bild in seinem eigenen Verhaeltnis, ohne Beschnitt. Fehlt es, gibt
@@ -344,16 +363,28 @@ export function SplitCards({
   );
 }
 
-/* ---------------- problem points (two columns) + bridge ---------------- */
+/* ---------------- Das Problem ---------------- */
 
-const POINT_ICONS: IconName[] = ["margin", "ads", "search", "target", "chart", "spark"];
-
+/**
+ * Die Problem-Sektion jeder Leistungsseite.
+ *
+ * Vorher: vier weisse Karten in einem Raster, darunter ein blaugruener Kasten
+ * mit der Schlussfolgerung. Dieselbe Form wie jede andere Kartenreihe der
+ * Seite, nur mit anderem Inhalt, und auf jeder Leistungsseite noch einmal.
+ *
+ * Jetzt ist es die einzige dunkle Stelle im oberen Drittel einer Leistungs-
+ * seite, mit rot getoenten Nummern. Rot steht auf dieser Website fuer das,
+ * was schiefgeht, gruen fuer Ergebnisse. Damit hat die Sektion eine eigene
+ * Form und man sieht auf jeder Seite sofort, dass hier das Problem steht.
+ *
+ * `tone` bleibt in der Signatur, damit die Aufrufe unveraendert laufen; die
+ * Sektion ist immer dunkel.
+ */
 export function Points({
   eyebrow,
   title,
   points,
   bridge,
-  tone = "white",
   aside,
 }: {
   eyebrow?: string;
@@ -361,27 +392,24 @@ export function Points({
   points: string[];
   bridge?: string;
   tone?: Tone;
-  /** Optional diagram/visual rendered beside the points. */
+  /** Optionales Diagramm neben der Liste. */
   aside?: ReactNode;
 }) {
-  const list = (
-    <div className={`grid gap-4 ${aside ? "mt-8" : "mt-10 sm:grid-cols-2"}`}>
+  const liste = (
+    <div className={`grid gap-3.5 ${aside ? "mt-9" : "mt-10 sm:grid-cols-2 sm:gap-4"}`}>
       {points.map((p, i) => {
-        const a = accent(i);
-        const orphan = !aside && points.length % 2 === 1 && i === points.length - 1;
+        const allein = !aside && points.length % 2 === 1 && i === points.length - 1;
         return (
-          // Diese Saetze sind die Stelle, an der sich der Leser wiedererkennen
-          // soll. Vorher standen sie klein neben einem kleinen Icon. Jetzt
-          // grosse Icon-Kachel, groessere Schrift, Fettung.
-          <Reveal key={p} delay={i * 0.05} className={orphan ? "sm:col-span-2" : ""}>
-            <div className="panel panel-lift relative flex h-full items-center gap-5 p-6 md:p-7">
+          <Reveal key={p} delay={i * 0.05} className={allein ? "sm:col-span-2" : ""}>
+            <div className="panel-dark flex h-full items-center gap-4 p-5 md:gap-5 md:p-6">
               <span
-                className={`grid h-14 w-14 shrink-0 place-items-center rounded-[1rem] ${a.text}`}
-                style={{ background: "rgba(10,30,43,0.04)", boxShadow: "inset 0 0 0 1px rgba(10,30,43,0.06)" }}
+                aria-hidden
+                className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.85rem] text-[0.9rem] font-extrabold"
+                style={{ background: "rgba(224,36,22,0.16)", color: "#FF8C7A" }}
               >
-                <Icon name={POINT_ICONS[i % POINT_ICONS.length]} size={30} />
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-[1.02rem] font-bold leading-snug text-ink md:text-[1.12rem]">{p}</p>
+              <p className="text-[1rem] font-bold leading-snug text-white md:text-[1.1rem]">{p}</p>
             </div>
           </Reveal>
         );
@@ -389,45 +417,79 @@ export function Points({
     </div>
   );
 
-  const takeaway = bridge && (
+  const schluss = bridge && (
     <Reveal delay={0.1}>
       <div
-        className={`flex items-center gap-4 rounded-2xl px-6 py-5 text-left shadow-lift ${aside ? "mt-8" : "mx-auto mt-10 max-w-2xl"}`}
-        style={{ background: "linear-gradient(135deg,#0A1E2B,#0B4D6B)" }}
+        className={`flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7 ${
+          aside ? "mt-8" : "mt-10"
+        }`}
+        style={{
+          background: "rgba(255,153,0,0.12)",
+          boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)",
+        }}
       >
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-white" style={{ backgroundImage: "var(--brand-gradient)" }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-500 text-navy">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </span>
-        <p className="text-base font-semibold leading-snug text-white md:text-lg">{bridge}</p>
+        <p className="text-[1.05rem] font-bold leading-snug text-white md:text-[1.2rem]">{bridge}</p>
       </div>
     </Reveal>
   );
 
   return (
-    <Shell tone={tone}>
-      {aside ? (
-        <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
-          <div>
-            {/* Neben dem Diagramm steht die Ueberschrift linksbuendig ueber
-                ihrer eigenen Spalte, nicht mittig ueber einer halben Seite. */}
-            <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="mx-0" />
-            {list}
-            {takeaway}
+    <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#C0241A" }} />
+      <div className="container-x relative">
+        {aside ? (
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
+            <div>
+              <ProblemKopf eyebrow={eyebrow} title={title} />
+              {liste}
+              {schluss}
+            </div>
+            <Reveal direction="left" delay={0.08} className="lg:sticky lg:top-28">
+              {aside}
+            </Reveal>
           </div>
-          <Reveal direction="left" delay={0.08} className="lg:sticky lg:top-28">
-            {aside}
-          </Reveal>
-        </div>
-      ) : (
-        <>
-          <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
-          {list}
-          {takeaway}
-        </>
+        ) : (
+          <>
+            <ProblemKopf eyebrow={eyebrow} title={title} />
+            {liste}
+            {schluss}
+          </>
+        )}
+      </div>
+    </section>
+  );
+}
+
+/** Kopf der Problem-Sektion. Die Pille ist hier rot statt orange. */
+function ProblemKopf({ eyebrow, title }: { eyebrow?: string; title: ReactNode }) {
+  return (
+    <div className="max-w-2xl">
+      {eyebrow && (
+        <Reveal>
+          <span
+            className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white"
+            style={{ background: "rgba(224,36,22,0.18)", boxShadow: "inset 0 0 0 1px rgba(224,36,22,0.4)" }}
+          >
+            <span
+              aria-hidden
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ background: "#FF6B5E", boxShadow: "0 0 0 4px rgba(224,36,22,0.2)" }}
+            />
+            {eyebrow}
+          </span>
+        </Reveal>
       )}
-    </Shell>
+      <Reveal delay={0.05}>
+        <h2 className="mt-5 text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] font-bold leading-tight tracking-tight text-white">
+          {title}
+        </h2>
+      </Reveal>
+    </div>
   );
 }
 
@@ -551,62 +613,6 @@ export function TextMedia({
           </Reveal>
         </div>
       </div>
-    </Shell>
-  );
-}
-
-/* ---------------- accent strip (reporting) ---------------- */
-
-export function AccentStrip({
-  eyebrow,
-  title,
-  items,
-  icons,
-  tone = "blue",
-}: {
-  eyebrow?: string;
-  title: ReactNode;
-  items: string[];
-  /** Optional animated icon per item, replacing the plain chevron marker. */
-  icons?: IconName[];
-  tone?: Tone;
-}) {
-  return (
-    <Shell tone={tone}>
-      <Reveal>
-        <div className="surface p-8 text-center md:p-10">
-          {eyebrow && <Pille>{eyebrow}</Pille>}
-          <h2 className="mx-auto mt-3 max-w-2xl text-balance text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-            {title}
-          </h2>
-          {icons ? (
-            <div className="mt-8 grid gap-7 sm:grid-cols-3">
-              {items.map((it, i) => {
-                const a = accent(i);
-                return (
-                  <Reveal key={it} delay={i * 0.08}>
-                    <div className="flex flex-col items-center gap-3">
-                      <span className={a.text}>
-                        <Icon name={icons[i % icons.length]} size={32} />
-                      </span>
-                      <span className="max-w-[16rem] text-sm font-medium leading-snug text-ink">{it}</span>
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-              {items.map((it) => (
-                <span key={it} className="inline-flex items-center gap-2 text-sm font-medium text-ink">
-                  <Lead color="text-cyan" />
-                  {it}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-      </Reveal>
     </Shell>
   );
 }
@@ -755,26 +761,28 @@ export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; 
   );
 }
 
-/* ---------------- Signalsatz: die eine farbige Sektion je Seite ---------------- */
+/* ---------------- Lieferung: was am Ende in der Hand liegt ---------------- */
 
 /**
- * Eine Aussage auf voller Markenfarbe.
+ * Was der Kunde nach einer Leistung konkret bekommt.
  *
- * Der Kunde wollte, dass auf einer Seite auch mal eine ganze Sektion
- * eingefaerbt ist. Das ist die Stelle dafuer: ein Satz, der die Sektionen
- * davor zusammenfasst, dazu hoechstens drei kurze Belege.
+ * Vorher stand hier eine Sektion in voller Markenfarbe mit drei Zeilen der
+ * Art „Ihr wisst, welcher Schritt am meisten bringt". Das ist ein Gefuehl,
+ * kein Ergebnis. Wer eine Analyse kauft, will wissen, was danach auf dem
+ * Tisch liegt: welches Dokument, mit welchem Inhalt.
  *
- * Orange traegt ausschliesslich dunklen Text, deshalb steht hier nichts
- * Kleingedrucktes und kein Fliesstext.
+ * Die Sektion steht auf der roten Markenflaeche, weil sie die Antwort auf
+ * das Problem weiter oben ist, und weisse Schrift darauf ist lesbar; das
+ * fruehere Orange mit dunkler Schrift war es nicht.
  */
-export function SignalSatz({
+export function Lieferung({
   eyebrow,
   title,
-  punkte,
+  stuecke,
 }: {
   eyebrow?: string;
   title: ReactNode;
-  punkte?: string[];
+  stuecke: { kicker: string; title: string; punkte: string[] }[];
 }) {
   return (
     <section className="on-signal ground-signal relative overflow-hidden py-16 md:py-24">
@@ -788,26 +796,148 @@ export function SignalSatz({
           </Reveal>
         )}
         <Reveal delay={0.06}>
-          <h2 className="title mt-6 max-w-[20ch] text-balance text-[clamp(2rem,1.3rem+2.2vw,3.4rem)]">
+          <h2 className="title mt-6 max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.2vw,3.2rem)]">
             {title}
           </h2>
         </Reveal>
-        {punkte && (
-          <RevealGroup className="mt-10 grid gap-3 sm:grid-cols-3" stagger={0.07}>
-            {punkte.map((p) => (
-              <RevealItem key={p} className="h-full">
-                <div className="panel-signal flex h-full items-center gap-3.5 px-5 py-4">
-                  <span aria-hidden className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-500 text-[#7a1109]">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                      <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                  <span className="text-small font-bold leading-snug text-white">{p}</span>
+
+        <RevealGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-6" stagger={0.08}>
+          {stuecke.map((d) => (
+            <RevealItem key={d.title} className="h-full">
+              <div className="panel-signal flex h-full flex-col p-7 md:p-8">
+                <span className="text-label font-bold uppercase tracking-[0.14em] text-white/70">
+                  {d.kicker}
+                </span>
+                <h3 className="mt-3 text-[1.3rem] font-bold leading-snug text-white md:text-[1.5rem]">
+                  {d.title}
+                </h3>
+                <ul className="mt-5 space-y-3">
+                  {d.punkte.map((t) => (
+                    <li key={t} className="flex items-start gap-3">
+                      <span
+                        aria-hidden
+                        className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500 text-[#7a1109]"
+                      >
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                          <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                      <span className="text-small leading-relaxed text-white">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealGroup>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Ergebnis: ein belegter Fall je Leistungsseite ---------------- */
+
+/**
+ * Ein Fall aus der Praxis, direkt auf der Leistungsseite.
+ *
+ * Der Kunde hat zu Recht gesagt, dass auf den Unterseiten ueberall erklaert
+ * wird, was wir tun, aber nirgends steht, was dabei herausgekommen ist. Die
+ * Case Studies liegen zwei Klicks entfernt, und dorthin geht niemand mitten
+ * im Lesen.
+ *
+ * Die Zahlen kommen aus den Faellen, die auf /ergebnisse stehen, und der Block
+ * verlinkt dorthin. Gruen heisst auch hier: hat sich verbessert. Bei ACoS und
+ * TACoS zeigt der Pfeil nach unten und bleibt gruen, weil ein gefallener Wert
+ * dort das gute Ergebnis ist.
+ */
+export function Ergebnis({
+  eyebrow,
+  title,
+  zeile,
+  werte,
+  href,
+}: {
+  eyebrow: string;
+  title: string;
+  zeile: string;
+  werte: { wert: string; label: string; sub?: string; runter?: boolean }[];
+  href: string;
+}) {
+  return (
+    <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
+      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#22C55E" }} />
+      <div className="container-x relative">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <div>
+            <Reveal>
+              <span
+                className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white"
+                style={{ background: "rgba(34,197,94,0.18)", boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.32)" }}
+              >
+                <span
+                  aria-hidden
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ background: "#6EE7A0", boxShadow: "0 0 0 4px rgba(34,197,94,0.2)" }}
+                />
+                {eyebrow}
+              </span>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="mt-5 text-balance text-[clamp(1.8rem,1.3rem+1.5vw,2.6rem)] font-bold leading-tight tracking-tight text-white">
+                {title}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-4 max-w-[42ch] text-pretty text-lead text-chalk-muted">{zeile}</p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <a href={href} className="btn-text mt-8 !text-brand-400">
+                Ganze Case Study lesen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </Reveal>
+          </div>
+
+          <RevealGroup className="grid gap-4 sm:grid-cols-3" stagger={0.08}>
+            {werte.map((w) => (
+              <RevealItem key={w.label} className="h-full">
+                <div
+                  className="flex h-full flex-col rounded-[1.25rem] p-6"
+                  style={{
+                    background: "linear-gradient(150deg, rgba(34,197,94,0.2), rgba(34,197,94,0.07))",
+                    boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.32), 0 14px 34px -20px rgba(34,197,94,0.7)",
+                  }}
+                >
+                  <div className="flex items-center gap-2">
+                    <ZahlText
+                      text={w.wert}
+                      className="num text-[clamp(1.9rem,1.3rem+1.5vw,2.5rem)] leading-none text-[#6EE7A0]"
+                    />
+                    <span
+                      aria-hidden
+                      className="grid h-6 w-6 shrink-0 place-items-center rounded-[0.5rem]"
+                      style={{ background: "rgba(34,197,94,0.22)", color: "#6EE7A0" }}
+                    >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d={w.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+                          stroke="currentColor"
+                          strokeWidth="2.6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div className="mt-3 text-[0.85rem] font-bold leading-tight text-white">{w.label}</div>
+                  {w.sub && <div className="mt-1 text-[0.74rem] leading-tight text-white/60">{w.sub}</div>}
                 </div>
               </RevealItem>
             ))}
           </RevealGroup>
-        )}
+        </div>
       </div>
     </section>
   );
