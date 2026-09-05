@@ -239,45 +239,53 @@ export function BookingBody() {
         </div>
       </section>
 
-      {/* Belegte Zahlen aus den Case Studies, als dunkles Podest.
-          Vorher stand jede Zahl in einer eigenen Farbe, rot, blau, orange.
-          Drei Signalfarben nebeneinander sagen nichts, sie machen nur Lärm.
-          Jetzt weisse Zahlen, der Pfeil traegt die Richtung. */}
-      <section className="ground relative pb-4">
-        <div className="container-x">
-          <Reveal>
-            <div className="ground-deep on-dark grid gap-4 overflow-hidden rounded-[1.75rem] px-5 py-8 sm:grid-cols-3 md:px-8">
-              {metrics.map((m) => (
-                // Gruen steht fuer „besser geworden", aber als Strich ueber
-                // der Kachel war es zu viel: die Kante hat den Block in drei
-                // Streifen zerlegt. Der gruene Pfeil reicht.
-                <div key={m.label} className="panel-dark relative flex flex-col gap-3 overflow-hidden p-5 md:p-6">
-                  <div className="flex items-start justify-between gap-2">
+      {/* Belegte Zahlen aus den Case Studies.
+          Vorher lagen sie als abgerundeter Navy-Kasten in einer hellen Sektion,
+          und darin steckte jede Zahl noch einmal in einer eigenen Kachel: eine
+          Kachel in einem Kasten in einer Sektion. Jetzt traegt die Sektion das
+          Navy selbst, die Zahlen stehen frei darauf, getrennt durch feine
+          Linien. */}
+      <section className="on-dark ground-deep relative isolate overflow-hidden py-12 md:py-16">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-[-8%] top-[-40%] h-[26rem] w-[26rem] rounded-full opacity-70 blur-[80px]"
+          style={{ background: "radial-gradient(circle, rgba(255,153,0,0.22), transparent 68%)" }}
+        />
+        <div className="container-x relative">
+          <div className="grid gap-y-8 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-white/[0.1]">
+            {metrics.map((m, i) => (
+              <Reveal
+                key={m.label}
+                delay={i * 0.07}
+                className={i === 0 ? "sm:pr-8" : i === metrics.length - 1 ? "sm:pl-8" : "sm:px-8"}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="min-w-0">
                     <ZahlText
                       text={m.value}
                       className="num text-[clamp(2rem,1.4rem+1.6vw,2.75rem)] leading-none text-white"
                     />
-                    <span
-                      aria-hidden
-                      className="grid h-8 w-8 shrink-0 place-items-center rounded-[0.7rem]"
-                      style={{ background: "#22C55E26", color: "#4ADE80", boxShadow: "0 0 14px -2px #22C55E77" }}
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
-                          stroke="currentColor"
-                          strokeWidth="2.6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
+                    <div className="mt-2.5 text-small font-bold leading-snug text-white/85">{m.label}</div>
                   </div>
-                  <div className="text-small font-bold leading-snug text-white/85">{m.label}</div>
+                  <span
+                    aria-hidden
+                    className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-[0.7rem]"
+                    style={{ background: "#22C55E26", color: "#4ADE80", boxShadow: "0 0 14px -2px #22C55E77" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+                        stroke="currentColor"
+                        strokeWidth="2.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -330,7 +338,7 @@ export function BookingBody() {
           Breite. Vorher war er in eine Spalte des Hero gequetscht: der Rahmen
           hatte 540 px Mindesthoehe und overflow-hidden, dadurch war die
           Terminauswahl unten abgeschnitten. */}
-      <section id="kalender" className="ground-tint relative scroll-mt-24 py-20 md:py-24">
+      <section id="kalender" className="ground relative scroll-mt-24 py-20 md:py-24">
         <div className="container-x">
           <SectionHeading
             eyebrow="Termin"

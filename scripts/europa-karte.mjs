@@ -1,5 +1,5 @@
-// Erzeugt die Länderumrisse für die Europakarte auf der
-// Internationalisierungsseite.
+// Erzeugt die Weltkugel für die Internationalisierungsseite: Länderumrisse,
+// Gitternetz und die Punkte der Marktplätze.
 //
 // Warum ein Skript und keine gezeichnete Karte: eine Karte aus Stützpunkten von
 // Hand sieht aus wie ein Klecks, und Flaggen landen auf den falschen Ländern.
@@ -20,9 +20,10 @@ const welt = JSON.parse(
 );
 const laender = topojson.feature(welt, welt.objects.countries).features;
 
-/* Was gezeichnet wird. `markt` sind die Amazon-Marktplätze, der Rest ist
-   Umgebung, damit Europa als Europa lesbar ist und nicht als Inselgruppe. */
+/* Die Amazon-Marktplätze, die gezeigt werden: Pan-EU, Großbritannien und die
+   USA. Kein Kanada und kein Mexiko, die stehen nur als Umgebung auf der Kugel. */
 const MARKT = {
+  "United States of America": "US",
   Germany: "DE",
   France: "FR",
   Italy: "IT",
@@ -34,77 +35,67 @@ const MARKT = {
   "United Kingdom": "UK",
 };
 
+/* Umgebung, damit die Kugel bewohnt aussieht und Europa als Europa lesbar ist. */
 const UMGEBUNG = [
   "Ireland", "Portugal", "Switzerland", "Austria", "Czechia", "Slovakia", "Hungary",
   "Slovenia", "Croatia", "Bosnia and Herz.", "Serbia", "Montenegro", "Kosovo",
   "Albania", "North Macedonia", "Greece", "Bulgaria", "Romania", "Moldova",
   "Ukraine", "Belarus", "Lithuania", "Latvia", "Estonia", "Finland", "Norway",
-  "Denmark", "Luxembourg", "Morocco", "Algeria", "Tunisia", "Turkey", "Iceland",
+  "Denmark", "Luxembourg", "Turkey", "Iceland",
+  "Morocco", "Algeria", "Tunisia", "Libya", "Egypt", "W. Sahara", "Mauritania",
+  "Mali", "Niger", "Senegal", "Guinea", "Nigeria", "Chad", "Sudan",
+  "Canada", "Greenland", "Mexico", "Cuba", "Bahamas", "Haiti", "Dominican Rep.",
+  "Jamaica", "Guatemala", "Honduras", "Nicaragua", "Costa Rica", "Panama",
+  "Venezuela", "Colombia", "Brazil", "Guyana", "Suriname",
 ];
 
-/* Lambert konforme Kegelprojektion, die übliche Projektion für Europakarten.
-   Die Breitenkreise laufen leicht gebogen, dadurch sieht die Karte aus wie eine
-   Karte und nicht wie ein gestrecktes Rechteck. */
+/* Orthografische Projektion: der Blick auf eine Kugel aus grosser Entfernung.
+   Damit sieht die Grafik aus wie ein Globus und nicht wie ein gestrecktes
+   Rechteck, und der Bogen ueber den Atlantik in die USA ergibt geografisch
+   Sinn. Der Mittelpunkt liegt im Nordatlantik, dadurch sind Europa und die
+   Ostkueste Nordamerikas gleichzeitig zu sehen. */
 const RAD = Math.PI / 180;
-const phi1 = 43 * RAD;
-const phi2 = 62 * RAD;
-const phi0 = 48 * RAD;
-const lam0 = 12 * RAD;
+const MITTE_LON = -26 * RAD;
+const MITTE_LAT = 45 * RAD;
+const R = 460;
+const CX = 500;
+const CY = 500;
 
-const t = (phi) => Math.tan(Math.PI / 4 + phi / 2);
-const n = Math.log(Math.cos(phi1) / Math.cos(phi2)) / Math.log(t(phi2) / t(phi1));
-const F = (Math.cos(phi1) * Math.pow(t(phi1), n)) / n;
-const rho0 = F / Math.pow(t(phi0), n);
-
-function projiziere([lon, lat]) {
+/** Kosinus des Winkelabstands zum Mittelpunkt der sichtbaren Halbkugel. */
+function kosinus(lon, lat) {
   const phi = lat * RAD;
   const lam = lon * RAD;
-  const rho = F / Math.pow(t(phi), n);
-  const theta = n * (lam - lam0);
-  /* Bildschirmkoordinaten: y waechst nach unten. In der Projektion waechst y
-     nach Norden, deshalb hier umgedreht, sonst steht die Karte auf dem Kopf. */
-  return [rho * Math.sin(theta), rho * Math.cos(theta) - rho0];
-}
-
-/* Ausschnitt: Portugal bis Polen, Nordafrika bis Mittelschweden. Alles
-   ausserhalb wird abgeschnitten, damit die Karte nah genug herangeholt ist.
-   Der Kunde wollte ausdruecklich nicht den ganzen Globus sehen. */
-const FENSTER = { lonMin: -12.5, lonMax: 30, latMin: 35.5, latMax: 69.5 };
-
-const ecken = [
-  [FENSTER.lonMin, FENSTER.latMin],
-  [FENSTER.lonMax, FENSTER.latMin],
-  [FENSTER.lonMin, FENSTER.latMax],
-  [FENSTER.lonMax, FENSTER.latMax],
-  [(FENSTER.lonMin + FENSTER.lonMax) / 2, FENSTER.latMax],
-  [(FENSTER.lonMin + FENSTER.lonMax) / 2, FENSTER.latMin],
-].map(projiziere);
-
-const minX = Math.min(...ecken.map((p) => p[0]));
-const maxX = Math.max(...ecken.map((p) => p[0]));
-const minY = Math.min(...ecken.map((p) => p[1]));
-const maxY = Math.max(...ecken.map((p) => p[1]));
-
-const BREITE = 1000;
-const skala = BREITE / (maxX - minX);
-const HOEHE = Math.round((maxY - minY) * skala);
-
-const auf = ([lon, lat]) => {
-  const [x, y] = projiziere([lon, lat]);
-  return [(x - minX) * skala, (y - minY) * skala];
-};
-
-/* Ringe, die komplett ausserhalb des Fensters liegen, fliegen raus: sonst
-   schleppt die Datei Inseln im Atlantik und in der Karibik mit. */
-function ringImFenster(ring) {
-  return ring.some(([lon, lat]) =>
-    lon > FENSTER.lonMin - 6 && lon < FENSTER.lonMax + 6 &&
-    lat > FENSTER.latMin - 4 && lat < FENSTER.latMax + 4
+  return (
+    Math.sin(MITTE_LAT) * Math.sin(phi) +
+    Math.cos(MITTE_LAT) * Math.cos(phi) * Math.cos(lam - MITTE_LON)
   );
 }
 
+/**
+ * Punkte auf der Rueckseite werden auf den Rand der Kugel gezogen, statt sie
+ * wegzulassen: sonst reisst eine Kueste, die ueber den Rand laeuft, mitten im
+ * Land ab.
+ */
+function auf([lon, lat]) {
+  const phi = lat * RAD;
+  const lam = lon * RAD;
+  let x = Math.cos(phi) * Math.sin(lam - MITTE_LON);
+  let y = Math.cos(MITTE_LAT) * Math.sin(phi) - Math.sin(MITTE_LAT) * Math.cos(phi) * Math.cos(lam - MITTE_LON);
+  if (kosinus(lon, lat) < 0) {
+    const laenge = Math.hypot(x, y) || 1;
+    x /= laenge;
+    y /= laenge;
+  }
+  return [CX + R * x, CY - R * y];
+}
+
+/* Ringe, die komplett auf der Rueckseite liegen, fliegen raus. */
+function ringSichtbar(ring) {
+  return ring.some(([lon, lat]) => kosinus(lon, lat) > 0.02);
+}
+
 /* Douglas-Peucker: Punkte, die auf der Verbindung ihrer Nachbarn liegen,
-   fallen weg. Bei 1,4 Einheiten Toleranz auf 1000 Breite sieht man den
+   fallen weg. Bei 1,2 Einheiten Toleranz auf 1000 Breite sieht man den
    Unterschied nicht, die Datei wird aber weniger als halb so gross. */
 function vereinfache(punkte, toleranz) {
   if (punkte.length < 3) return punkte;
@@ -138,12 +129,12 @@ function ringPfad(ring) {
      Punkt in zwei offene Haelften teilen und jede fuer sich vereinfachen. */
   let fern = 0;
   for (let i = 1; i < roh.length; i++) {
-    if (Math.hypot(roh[i][0] - roh[0][0], roh[i][1] - roh[0][1]) > Math.hypot(roh[fern][0] - roh[0][0], roh[fern][1] - roh[0][1])) {
-      fern = i;
-    }
+    const d = Math.hypot(roh[i][0] - roh[0][0], roh[i][1] - roh[0][1]);
+    const bisher = Math.hypot(roh[fern][0] - roh[0][0], roh[fern][1] - roh[0][1]);
+    if (d > bisher) fern = i;
   }
-  const vorne = vereinfache(roh.slice(0, fern + 1), 1.4);
-  const hinten = vereinfache(roh.slice(fern), 1.4);
+  const vorne = vereinfache(roh.slice(0, fern + 1), 1.2);
+  const hinten = vereinfache(roh.slice(fern), 1.2);
   const knapp = [...vorne.slice(0, -1), ...hinten].map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`);
   const ohneDoppel = knapp.filter((p, i) => i === 0 || p !== knapp[i - 1]);
   if (ohneDoppel.length < 4) return "";
@@ -155,7 +146,7 @@ function pfad(geometrie) {
     geometrie.type === "Polygon"
       ? [geometrie.coordinates[0]]
       : geometrie.coordinates.map((poly) => poly[0]);
-  return ringe.filter(ringImFenster).map(ringPfad).filter(Boolean).join("");
+  return ringe.filter(ringSichtbar).map(ringPfad).filter(Boolean).join("");
 }
 
 const raus = [];
@@ -171,6 +162,7 @@ for (const f of laender) {
 /* Wo die Nadel steht. Bewusst nicht der Flaechenschwerpunkt: der liegt bei
    Frankreich mitten im Zentralmassiv und bei Italien im Meer. */
 const NADELN = {
+  US: [-88, 39],
   DE: [10.2, 51.2],
   FR: [2.2, 47.0],
   IT: [12.4, 43.0],
@@ -186,16 +178,53 @@ const nadeln = Object.fromEntries(
   Object.entries(NADELN).map(([k, v]) => [k, auf(v).map((z) => Math.round(z * 10) / 10)])
 );
 
+/* Gitternetz: Laengen- und Breitenkreise. Sie machen aus einer Scheibe eine
+   Kugel, weil sie sich zum Rand hin zusammenschieben. */
+const gitter = [];
+function linie(punkte) {
+  if (punkte.length > 1) gitter.push(`M${punkte.join("L")}`);
+}
+for (let lon = -180; lon < 180; lon += 20) {
+  let punkte = [];
+  for (let lat = -80; lat <= 80; lat += 2) {
+    if (kosinus(lon, lat) <= 0.02) {
+      linie(punkte);
+      punkte = [];
+      continue;
+    }
+    const [x, y] = auf([lon, lat]);
+    punkte.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+  }
+  linie(punkte);
+}
+for (let lat = -60; lat <= 80; lat += 20) {
+  let punkte = [];
+  for (let lon = -180; lon <= 180; lon += 2) {
+    if (kosinus(lon, lat) <= 0.02) {
+      linie(punkte);
+      punkte = [];
+      continue;
+    }
+    const [x, y] = auf([lon, lat]);
+    punkte.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+  }
+  linie(punkte);
+}
+
 const inhalt = `/* Erzeugt von scripts/europa-karte.mjs. Nicht von Hand aendern.
    Quelle der Umrisse: Natural Earth ueber world-atlas (Public Domain),
-   Lambert konforme Kegelprojektion, Ausschnitt Portugal bis Polen. */
+   orthografische Projektion mit Blick auf den Nordatlantik: Europa rechts,
+   Nordamerika links. */
 
-export const KARTE_BREITE = ${BREITE};
-export const KARTE_HOEHE = ${HOEHE};
+export const KARTE_BREITE = 1000;
+export const KARTE_HOEHE = 1000;
+export const KUGEL = { cx: ${CX}, cy: ${CY}, r: ${R} };
 
 export type Land = { name: string; code: string | null; d: string };
 
 export const LAENDER: Land[] = ${JSON.stringify(raus)};
+
+export const GITTER: string[] = ${JSON.stringify(gitter)};
 
 export const NADELN: Record<string, [number, number]> = ${JSON.stringify(nadeln)};
 `;
@@ -203,5 +232,5 @@ export const NADELN: Record<string, [number, number]> = ${JSON.stringify(nadeln)
 const ziel = path.join(ROOT, "src/components/service/europa-geo.ts");
 fs.writeFileSync(ziel, inhalt);
 console.log(
-  `${raus.length} Laender, ${(inhalt.length / 1024).toFixed(0)} kB -> ${path.relative(ROOT, ziel)} (${BREITE}x${HOEHE})`
+  `${raus.length} Laender, ${gitter.length} Gitterlinien, ${(inhalt.length / 1024).toFixed(0)} kB -> ${path.relative(ROOT, ziel)}`
 );

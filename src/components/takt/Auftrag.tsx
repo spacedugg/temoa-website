@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { Neigung } from "./Neigung";
+import { HeroBild } from "./HeroBild";
 import { testimonials } from "@/lib/testimonials";
 
 /* ============================================================
@@ -17,8 +18,9 @@ import { testimonials } from "@/lib/testimonials";
    Ergebnisses, und die drei dunklen Karten setzten drei weitere Farbakzente
    neben den Knopf, der eigentlich der einzige Blickfang sein soll.
 
-   Jetzt: rechts eine Wachstumsszene im Bildstil der Website, freigestellt und
-   in leichter Bewegung. Links unter dem Knopf sozialer Beleg statt Kennzahlen:
+   Jetzt: rechts die Hero-Grafik aus `HeroBild`, eine Produktseite mit zwei
+   belegten Kennzahlen und der Wachstumsszene dahinter. Links unter dem Knopf
+   sozialer Beleg statt Kennzahlkarten:
    echte Gesichter aus den Kundenstimmen, fuenf Sterne, eine Zeile. Wer neu auf
    die Seite kommt, sieht damit zuerst, dass es echte Kunden gibt.
    ============================================================ */
@@ -131,26 +133,12 @@ export function Auftrag() {
             </motion.div>
           </div>
 
-          {/* Die Wachstumsszene. Freigestellt, ohne Platte, mit einem warmen
-              Lichtkern dahinter. Sie hebt und senkt sich leise und kippt zum
-              Zeiger: Bewegung ohne Zutun, aber nichts, was blinkt. */}
+          {/* Die Hero-Grafik liegt in `HeroBild`: Produktseite, zwei belegte
+              Kennzahlen und die Wachstumsszene dahinter. Vorher stand hier nur
+              die Wachstumsszene allein, das war dem Kunden zu duenn. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-[70px]"
-              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.3), transparent 68%)" }}
-            />
             <Neigung>
-              <motion.img
-                src="/bilder/h-wachstum.webp"
-                alt="Wachsende Balken, ein Aufwärtspfeil, ein Einkaufswagen und ein Paket"
-                width={1536}
-                height={1152}
-                className="relative mx-auto w-full max-w-[34rem]"
-                animate={reduce ? undefined : { y: [0, -12, 0] }}
-                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-                style={{ filter: "drop-shadow(0 30px 50px rgba(11,31,52,0.22))" }}
-              />
+              <HeroBild />
             </Neigung>
           </motion.div>
         </div>

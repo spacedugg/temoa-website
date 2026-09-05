@@ -218,6 +218,30 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   den Knopf, der der einzige Blickfang sein soll. Portraits sind nur die
   Bilder mit `art: "person"`, zwei der Kundenbilder sind Buchstabenkacheln.
 
+## Siebte Feedbackrunde (verbindlich)
+
+- **Keine Kachel in der Kachel, nirgends.** Eine Sektion mit eigener Farbe
+  traegt ihren Inhalt direkt, nicht noch einmal in einem Kasten, und darin
+  nicht noch einmal in Kacheln. Umgestellt: Kennzahlenband (Startseite und
+  Case Studies), Zahlenband und Kalender auf der Buchungsseite, die 98 %
+  mit der Kundenstimme, das Kundenband auf der Startseite. Wo eine weisse
+  Flaeche noetig ist (Kalender-Einbettung), traegt die Sektion denselben
+  hellen Ton wie die Nachbarn, damit die Flaeche nicht als Kasten liest.
+  Ausnahme mit Absicht: der Abschluss-CTA ist eine Karte, das ist so
+  beschlossen.
+- **Die Marktplatzgrafik ist eine Kugel.** Orthografische Projektion mit Blick
+  auf den Nordatlantik (`scripts/europa-karte.mjs`), dadurch sind Europa und
+  die Ostkueste der USA gleichzeitig zu sehen und der Bogen ueber den Atlantik
+  ergibt Sinn. Gitternetz, Lichtkante und Schattenseite machen aus der Scheibe
+  eine Kugel. Die Schilder stehen neben der Kugel mit einer Linie auf ihren
+  Punkt: auf der Kugel ist Europa zu klein fuer neun Beschriftungen. Die
+  Aufzaehlung der Laender unter dem Text ist raus, die Namen stehen an den
+  Schildern.
+- **Die Hero-Grafik ist eine Komposition**, kein einzelnes Bild: Produktseite
+  im Vordergrund, zwei belegte Kennzahlen als Karten darueber, die
+  Wachstumsszene dahinter. Keine Amazon-Oberflaeche, keine erfundenen Zahlen,
+  keine Schrift aus dem Bildmodell.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.

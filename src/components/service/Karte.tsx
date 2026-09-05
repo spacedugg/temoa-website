@@ -3,7 +3,7 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Pille } from "../ui/SectionHeading";
-import { KARTE_BREITE, KARTE_HOEHE, LAENDER, NADELN } from "./europa-geo";
+import { GITTER, KUGEL, LAENDER, NADELN } from "./europa-geo";
 
 /* ============================================================
    Die Marktplatzkarte auf der Internationalisierungsseite.
@@ -117,33 +117,42 @@ function Flagge({ code }: { code: string }) {
 /* ---------------- Marktplätze ---------------- */
 
 /**
- * `versatz` schiebt das Schild vom Landepunkt weg. Deutschland, Frankreich,
- * Spanien, Polen und Grossbritannien tragen ihr Schild im Land. Die
- * Niederlande und Belgien sind dafuer zu klein: dort steht das Schild ueber
- * der Nordsee und eine kurze Linie zeigt auf das Land.
+ * Die Schilder stehen neben der Kugel, nicht darauf: auf der Kugel ist Europa
+ * zu klein, dort wuerden sich neun Beschriftungen ueberlagern. Eine feine
+ * Linie fuehrt von jedem Schild auf seinen Punkt.
  */
-type Ziel = { code: string; name: string; versatz?: [number, number] };
+type Ziel = { code: string; name: string; y: number; seite: "links" | "rechts" };
 
 const ZIELE: Ziel[] = [
-  { code: "DE", name: "Deutschland" },
-  { code: "FR", name: "Frankreich" },
-  { code: "ES", name: "Spanien" },
-  { code: "IT", name: "Italien", versatz: [78, 34] },
-  { code: "PL", name: "Polen" },
-  { code: "SE", name: "Schweden", versatz: [76, -18] },
-  { code: "UK", name: "Großbritannien", versatz: [-86, -46] },
-  { code: "NL", name: "Niederlande", versatz: [-92, -54] },
-  { code: "BE", name: "Belgien", versatz: [-118, 6] },
+  { code: "SE", name: "Schweden", y: 70, seite: "rechts" },
+  { code: "PL", name: "Polen", y: 178, seite: "rechts" },
+  { code: "NL", name: "Niederlande", y: 286, seite: "rechts" },
+  { code: "DE", name: "Deutschland", y: 394, seite: "rechts" },
+  { code: "BE", name: "Belgien", y: 502, seite: "rechts" },
+  { code: "UK", name: "Großbritannien", y: 610, seite: "rechts" },
+  { code: "FR", name: "Frankreich", y: 718, seite: "rechts" },
+  { code: "IT", name: "Italien", y: 826, seite: "rechts" },
+  { code: "ES", name: "Spanien", y: 934, seite: "rechts" },
+  { code: "US", name: "USA", y: 415, seite: "links" },
 ];
 
-/* Die USA liegen ausserhalb des Ausschnitts. Das Schild sitzt ueber dem
-   Atlantik am linken Rand, der Bogen laeuft von Deutschland dorthin: „und
-   ueber den Atlantik". */
-const USA_PUNKT: [number, number] = [96, 430];
+const SCHILD_H = 76;
+const RAND_RECHTS = 1035;
+const RAND_LINKS = -35;
+
+/** Breite eines Schildes: Flaggenscheibe, Text, Innenabstaende. */
+function breite(name: string) {
+  return 130 + name.length * 23;
+}
 
 const START = NADELN.DE;
 
-function bogen(von: [number, number], nach: [number, number], hebung = 0.22) {
+/**
+ * Ein Bogen ueber die Kugel. Die Woelbung waechst mit der Entfernung, dadurch
+ * sieht die Verbindung nach Amerika aus wie ein Sprung ueber den Atlantik und
+ * nicht wie ein Strich auf einer Scheibe.
+ */
+function bogen(von: [number, number], nach: [number, number]) {
   const [x1, y1] = von;
   const [x2, y2] = nach;
   const mx = (x1 + x2) / 2;
@@ -151,10 +160,10 @@ function bogen(von: [number, number], nach: [number, number], hebung = 0.22) {
   const dx = x2 - x1;
   const dy = y2 - y1;
   const laenge = Math.hypot(dx, dy) || 1;
-  /* Der Bogen weicht immer nach oben aus, dadurch kreuzen sich die Linien
-     weniger und die Karte bleibt lesbar. */
+  const hebung = Math.min(0.34, 0.16 + laenge / 2600);
   const nx = (-dy / laenge) * laenge * hebung;
   const ny = (dx / laenge) * laenge * hebung;
+  /* Immer nach oben ausweichen: so kreuzen sich die Bogen weniger. */
   const richtung = ny > 0 ? -1 : 1;
   return `M${x1},${y1} Q${mx + nx * richtung},${my + ny * richtung} ${x2},${y2}`;
 }
@@ -174,14 +183,14 @@ function Schild({
   index: number;
   reduce: boolean;
 }) {
+  const w = breite(ziel.name);
+  const rechts = ziel.seite === "rechts";
+  const kante = rechts ? RAND_RECHTS : RAND_LINKS;
+  const x = rechts ? kante : kante - w;
   const [px, py] = NADELN[ziel.code];
-  const [vx, vy] = ziel.versatz ?? [0, 0];
-  const cx = px + vx;
-  const cy = py + vy;
-  const breite = 96;
-  const hoehe = 46;
   const gezeigt = aktiv === ziel.code;
   const zustand = reduce || an;
+  const verzoegerung = 0.35 + index * 0.06;
 
   return (
     <motion.g
@@ -189,52 +198,63 @@ function Schild({
       onMouseLeave={() => setAktiv(null)}
       style={{ cursor: "default" }}
       initial={false}
-      animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.7 }}
-      transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.5 + index * 0.07 }}
+      animate={{ opacity: zustand ? 1 : 0 }}
+      transition={{ duration: 0.5, delay: verzoegerung }}
     >
-      {/* Linie vom Schild zum Land, nur wenn das Schild versetzt steht. */}
-      {ziel.versatz && (
-        <line
-          x1={cx + (vx < 0 ? breite / 2 : -breite / 2)}
-          y1={cy}
-          x2={px}
-          y2={py}
-          stroke="rgba(11,31,52,0.35)"
-          strokeWidth="2"
-        />
-      )}
-      {ziel.versatz && <circle cx={px} cy={py} r={5} fill="#0A1E2B" />}
+      {/* Leitlinie vom Schild auf den Punkt. */}
+      <motion.path
+        d={`M${kante},${ziel.y} C${rechts ? kante - 120 : kante + 120},${ziel.y} ${(kante + px) / 2},${py} ${px},${py}`}
+        fill="none"
+        stroke={gezeigt ? "rgba(255,153,0,0.95)" : "rgba(11,31,52,0.28)"}
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        initial={false}
+        animate={{ pathLength: zustand ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: verzoegerung, ease: EASE }}
+      />
 
+      {/* Punkt auf dem Land. */}
       <motion.g
-        animate={{ y: gezeigt && !reduce ? -4 : 0 }}
+        initial={false}
+        animate={{ opacity: zustand ? 1 : 0, scale: zustand ? (gezeigt ? 1.25 : 1) : 0.3 }}
+        transition={{ type: "spring", stiffness: 300, damping: 18, delay: verzoegerung + 0.2 }}
+        style={{ transformOrigin: `${px}px ${py}px` }}
+      >
+        <circle cx={px} cy={py} r={13} fill="rgba(255,153,0,0.25)" />
+        <circle cx={px} cy={py} r={6.5} fill="#FF9900" style={{ filter: "drop-shadow(0 0 7px rgba(255,153,0,0.95))" }} />
+      </motion.g>
+
+      {/* Das Schild. */}
+      <motion.g
+        animate={{ y: gezeigt && !reduce ? -3 : 0 }}
         transition={{ type: "spring", stiffness: 400, damping: 22 }}
       >
         <rect
-          x={cx - breite / 2}
-          y={cy - hoehe / 2}
-          width={breite}
-          height={hoehe}
-          rx={hoehe / 2}
+          x={x}
+          y={ziel.y - SCHILD_H / 2}
+          width={w}
+          height={SCHILD_H}
+          rx={SCHILD_H / 2}
           fill="#ffffff"
-          stroke={gezeigt ? "rgba(255,153,0,0.85)" : "rgba(11,31,52,0.1)"}
+          stroke={gezeigt ? "rgba(255,153,0,0.8)" : "rgba(11,31,52,0.09)"}
           strokeWidth="2"
-          style={{ filter: "drop-shadow(0 6px 14px rgba(11,31,52,0.22))" }}
+          style={{ filter: "drop-shadow(0 10px 20px rgba(11,31,52,0.16))" }}
         />
-        <g transform={`translate(${cx - breite / 2 + 25} ${cy}) scale(1.4)`}>
+        <g transform={`translate(${x + 44} ${ziel.y}) scale(2.05)`}>
           <g clipPath="url(#karte-flagge)">
             <Flagge code={ziel.code} />
           </g>
           <circle r={9} fill="none" stroke="rgba(11,31,52,0.2)" strokeWidth="1.2" />
         </g>
         <text
-          x={cx - breite / 2 + 44}
-          y={cy + 10}
+          x={x + 80}
+          y={ziel.y + 13}
           fill="#0A1E2B"
-          fontSize="28"
-          fontWeight="800"
-          style={{ letterSpacing: "0.01em" }}
+          fontSize="42"
+          fontWeight="700"
+          style={{ letterSpacing: "-0.01em" }}
         >
-          {ziel.code}
+          {ziel.name}
         </text>
       </motion.g>
     </motion.g>
@@ -249,7 +269,7 @@ export function EuropaKarte() {
   const [aktiv, setAktiv] = useState<string | null>(null);
 
   /* Sicherheitsnetz: falls der Beobachter in einem Browser nicht ausloest, ist
-     die Karte nach zwei Sekunden trotzdem da. Eine leere Flaeche ist der
+     die Kugel nach zwei Sekunden trotzdem da. Eine leere Flaeche ist der
      schlimmste Fehler, den eine Animation machen kann. */
   useEffect(() => {
     if (imBild) setAn(true);
@@ -258,92 +278,130 @@ export function EuropaKarte() {
   }, [imBild]);
 
   const zustand = reduce || an;
-  const verbindungen = [
-    ...ZIELE.filter((z) => z.code !== "DE").map((z) => ({
-      code: z.code,
-      d: bogen(START, NADELN[z.code]),
-    })),
-    { code: "US", d: bogen(START, USA_PUNKT, 0.16) },
-  ];
+  const verbindungen = ZIELE.filter((z) => z.code !== "DE").map((z) => ({
+    code: z.code,
+    d: bogen(START, NADELN[z.code]),
+  }));
 
   return (
     <div className="relative" ref={huelle}>
       <svg
-        viewBox={`0 0 ${KARTE_BREITE} ${KARTE_HOEHE}`}
+        viewBox="-380 -40 1880 1080"
         className="relative w-full"
         role="img"
-        aria-label="Karte von Europa mit den Amazon-Marktplätzen Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen, Schweden und Großbritannien, dazu ein Verweis auf die USA."
+        aria-label="Eine Weltkugel mit Blick auf den Nordatlantik. Markiert sind die Amazon-Marktplätze Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen, Schweden, Großbritannien und die USA."
       >
         <defs>
           <clipPath id="karte-flagge">
             <circle r={9} />
           </clipPath>
+          {/* Die Kugel: Licht von oben links, Schatten zum unteren Rand. */}
+          <radialGradient id="kugel-flaeche" cx="34%" cy="26%" r="82%">
+            <stop offset="0%" stopColor="#1E5480" />
+            <stop offset="55%" stopColor="#123B5C" />
+            <stop offset="100%" stopColor="#08192B" />
+          </radialGradient>
+          {/* Nur eine feine helle Kante. Ein oranger Lichtrand als Verlauf
+              wird ueber dem dunklen Blau braun und sieht aus wie ein Rahmen. */}
+          <radialGradient id="kugel-rand" cx="50%" cy="50%" r="50%">
+            <stop offset="94%" stopColor="rgba(190,222,240,0)" />
+            <stop offset="99.5%" stopColor="rgba(214,236,250,0.5)" />
+            <stop offset="100%" stopColor="rgba(190,222,240,0)" />
+          </radialGradient>
+          <clipPath id="kugel-clip">
+            <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} />
+          </clipPath>
         </defs>
 
-        {/* Kein Grund hinter der Karte: eine getoente Flaeche steht als
-            Rechteck auf der Sektion, und genau solche Kaesten in Kaesten sind
-            hier unerwuenscht. Der Sektionsgrund reicht. */}
+        <motion.g
+          initial={false}
+          animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.94 }}
+          transition={{ duration: 0.8, ease: EASE }}
+          style={{ transformOrigin: `${KUGEL.cx}px ${KUGEL.cy}px` }}
+        >
+          {/* Schein hinter der Kugel, damit sie im Raum steht. */}
+          <circle cx={KUGEL.cx} cy={KUGEL.cy + 26} r={KUGEL.r} fill="rgba(11,31,52,0.16)" style={{ filter: "blur(28px)" }} />
+          <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} fill="url(#kugel-flaeche)" />
 
-        {/* Die Laender. Marktplaetze in Navy, der Rest als ruhige Umgebung,
-            damit Europa als Europa lesbar ist. */}
-        <g>
-          {LAENDER.map((l) => {
-            const markt = Boolean(l.code);
-            const gezeigt = aktiv !== null && aktiv === l.code;
-            return (
-              <motion.path
-                key={l.name}
-                d={l.d}
-                stroke="rgba(255,255,255,0.85)"
-                strokeWidth={markt ? 2 : 1.2}
-                strokeLinejoin="round"
-                initial={false}
-                animate={{
-                  opacity: zustand ? 1 : 0,
-                  fill: gezeigt ? "#1B4E70" : markt ? "#12395A" : "#CBDAE6",
-                }}
-                transition={{ duration: markt ? 0.5 : 0.7, delay: markt ? 0.15 : 0, ease: EASE }}
-                onMouseEnter={markt ? () => setAktiv(l.code) : undefined}
-                onMouseLeave={markt ? () => setAktiv(null) : undefined}
-              />
-            );
-          })}
-        </g>
+          <g clipPath="url(#kugel-clip)">
+            {/* Gitternetz zuerst, danach die Laender darueber. */}
+            {GITTER.map((d, i) => (
+              <path key={i} d={d} fill="none" stroke="rgba(190,222,240,0.14)" strokeWidth="1.4" />
+            ))}
 
-        {/* Verbindungen von Deutschland aus. Die Grundlinie liegt fest, der
-            Lichtpunkt laeuft als kurzer Strich darauf entlang: das ist eine
-            gestrichelte Linie, deren Versatz sich bewegt. Robust in jedem
-            Browser, anders als Bewegung entlang eines Pfades. */}
-        <g>
+            {LAENDER.map((l) => {
+              const markt = Boolean(l.code);
+              const gezeigt = aktiv !== null && aktiv === l.code;
+              return (
+                <motion.path
+                  key={l.name}
+                  d={l.d}
+                  stroke="rgba(255,255,255,0.22)"
+                  strokeWidth={markt ? 1.6 : 1}
+                  strokeLinejoin="round"
+                  initial={false}
+                  animate={{ fill: gezeigt ? "#5CA6D8" : markt ? "#3D86BC" : "#1B4A6E" }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                  onMouseEnter={markt ? () => setAktiv(l.code) : undefined}
+                  onMouseLeave={markt ? () => setAktiv(null) : undefined}
+                />
+              );
+            })}
+
+            {/* Lichtkante oben links, Schatten unten rechts: das macht aus dem
+                Kreis eine Kugel. */}
+            <circle
+              cx={KUGEL.cx}
+              cy={KUGEL.cy}
+              r={KUGEL.r}
+              fill="none"
+              stroke="rgba(255,255,255,0.4)"
+              strokeWidth="3"
+              style={{ filter: "blur(6px)" }}
+            />
+            <ellipse
+              cx={KUGEL.cx + KUGEL.r * 0.5}
+              cy={KUGEL.cy + KUGEL.r * 0.55}
+              rx={KUGEL.r * 0.95}
+              ry={KUGEL.r * 0.9}
+              fill="rgba(4,14,24,0.42)"
+              style={{ filter: "blur(60px)" }}
+            />
+          </g>
+          <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} fill="url(#kugel-rand)" />
+        </motion.g>
+
+        {/* Verbindungen von Deutschland aus, mit einem Lichtpunkt, der immer
+            wieder darueber laeuft. */}
+        <g clipPath="url(#kugel-clip)">
           {verbindungen.map((v, i) => (
             <g key={v.code}>
               <motion.path
                 d={v.d}
                 fill="none"
-                stroke="rgba(255,153,0,0.42)"
-                strokeWidth="2.6"
+                stroke="rgba(255,153,0,0.5)"
+                strokeWidth="2.4"
                 strokeLinecap="round"
-                strokeDasharray={v.code === "US" ? "10 12" : undefined}
                 initial={false}
                 animate={{ pathLength: zustand ? 1 : 0, opacity: zustand ? 1 : 0 }}
-                transition={{ duration: 0.7, delay: 0.25 + i * 0.07, ease: EASE }}
+                transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: EASE }}
               />
               {!reduce && (
                 <motion.path
                   d={v.d}
                   fill="none"
-                  stroke="#FF9900"
+                  stroke="#FFB347"
                   strokeWidth="5"
                   strokeLinecap="round"
-                  strokeDasharray="26 1200"
+                  strokeDasharray="24 1400"
                   style={{ filter: "drop-shadow(0 0 6px rgba(255,153,0,0.9))" }}
                   initial={{ strokeDashoffset: 0, opacity: 0 }}
-                  animate={zustand ? { strokeDashoffset: [0, -1226], opacity: [0, 1, 1, 0] } : {}}
+                  animate={zustand ? { strokeDashoffset: [0, -1424], opacity: [0, 1, 1, 0] } : {}}
                   transition={{
-                    duration: 2.6,
-                    delay: 1.1 + i * 0.42,
+                    duration: 2.8,
+                    delay: 1.1 + i * 0.4,
                     repeat: Infinity,
-                    repeatDelay: 2.4,
+                    repeatDelay: 2.2,
                     ease: "easeInOut",
                     times: [0, 0.1, 0.85, 1],
                   }}
@@ -353,24 +411,22 @@ export function EuropaKarte() {
           ))}
         </g>
 
-        {/* Der Startmarkt pulst leise weiter, damit klar ist, wo alles beginnt. */}
+        {/* Der Startmarkt pulst leise weiter. */}
         {!reduce && zustand && (
           <motion.circle
             cx={START[0]}
             cy={START[1]}
-            r={12}
+            r={11}
             fill="none"
             stroke="#FF9900"
             strokeWidth="3"
             initial={{ scale: 0.5, opacity: 0.9 }}
-            animate={{ scale: 2.6, opacity: 0 }}
+            animate={{ scale: 2.8, opacity: 0 }}
             transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
             style={{ transformOrigin: `${START[0]}px ${START[1]}px` }}
           />
         )}
-        <circle cx={START[0]} cy={START[1]} r={7} fill="#FF9900" style={{ filter: "drop-shadow(0 0 8px rgba(255,153,0,0.9))" }} />
 
-        {/* Die Schilder */}
         {ZIELE.map((z, i) => (
           <Schild
             key={z.code}
@@ -382,55 +438,13 @@ export function EuropaKarte() {
             reduce={!!reduce}
           />
         ))}
-
-        {/* Die USA am linken Rand, ueber dem Atlantik. */}
-        <motion.g
-          initial={false}
-          animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.7 }}
-          transition={{ type: "spring", stiffness: 260, damping: 18, delay: 1.15 }}
-        >
-          <rect
-            x={USA_PUNKT[0] - 60}
-            y={USA_PUNKT[1] - 23}
-            width={120}
-            height={46}
-            rx={23}
-            fill="#0A1E2B"
-            style={{ filter: "drop-shadow(0 6px 14px rgba(11,31,52,0.3))" }}
-          />
-          <g transform={`translate(${USA_PUNKT[0] - 36} ${USA_PUNKT[1]}) scale(1.4)`}>
-            <g clipPath="url(#karte-flagge)">
-              <Flagge code="US" />
-            </g>
-            <circle r={9} fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.2" />
-          </g>
-          <text x={USA_PUNKT[0] - 17} y={USA_PUNKT[1] + 10} fill="#ffffff" fontSize="28" fontWeight="800">
-            USA
-          </text>
-        </motion.g>
-
-        {/* Pille wie im Rest der Website, hier als Bildunterschrift im Bild. */}
-        <motion.g
-          initial={false}
-          animate={{ opacity: zustand ? 1 : 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <rect x={26} y={26} width={214} height={54} rx={27} fill="#ffffff" stroke="rgba(11,31,52,0.08)" strokeWidth="2" style={{ filter: "drop-shadow(0 6px 14px rgba(11,31,52,0.14))" }} />
-          <circle cx={58} cy={53} r={9} fill="#FF9900" />
-          <text x={78} y={63} fill="#0A1E2B" fontSize="27" fontWeight="800" style={{ letterSpacing: "0.06em" }}>
-            PAN-EU
-          </text>
-        </motion.g>
       </svg>
     </div>
   );
 }
 
 /**
- * Die Sektion um die Karte: links die Karte, rechts der Text.
- *
- * Vorher stand die Grafik ueber die volle Breite unter einer zentrierten
- * Ueberschrift, dadurch wurde die Sektion sehr hoch fuer eine kurze Aussage.
+ * Die Sektion um die Kugel: links die Grafik, rechts der Text.
  */
 export function MarktSektion({
   eyebrow,
@@ -452,10 +466,6 @@ export function MarktSektion({
               {title}
             </h2>
             {text && <p className="mt-5 max-w-[42ch] text-pretty text-lead text-ink-muted">{text}</p>}
-            <p className="mt-6 max-w-[42ch] text-small text-ink-faint">
-              Pan-EU: Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen und
-              Schweden. Dazu Großbritannien und die USA.
-            </p>
           </div>
         </div>
       </div>

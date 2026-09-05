@@ -26,10 +26,17 @@ const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
 function LogoRow({ row, duration, reverse }: { row: string[]; duration: number; reverse?: boolean }) {
   return (
     <div className="relative overflow-hidden">
-      {/* Die Verläufe an den Kanten müssen die Plattenfarbe treffen, nicht den
-          Seitengrund, sonst zeichnet sich eine Kante ab. */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent md:w-24" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent md:w-24" />
+      {/* Die Verläufe an den Kanten müssen den Sektionsgrund treffen, sonst
+          zeichnet sich eine Kante ab. Das Band liegt jetzt direkt auf `.ground`,
+          nicht mehr auf einer weissen Platte. */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-24"
+        style={{ background: "linear-gradient(to right, #fafcfe, rgba(250,252,254,0))" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-24"
+        style={{ background: "linear-gradient(to left, #fafcfe, rgba(250,252,254,0))" }}
+      />
       <div
         className="flex w-max animate-marquee items-center gap-14 md:gap-20"
         style={{ animationDuration: `${duration}s`, animationDirection: reverse ? "reverse" : "normal" }}
@@ -47,34 +54,34 @@ function LogoRow({ row, duration, reverse }: { row: string[]; duration: number; 
 /**
  * Kundenband.
  *
- * Lag vorher als weiße Bahn zwischen zwei Haarlinien auf der Seite. Jetzt
- * liegt es als eigene Platte auf dem getönten Grund, damit es als Block
- * gelesen wird und die Logos einen sauberen weißen Untergrund haben.
+ * Drei Fassungen: erst eine weisse Bahn zwischen zwei Haarlinien, dann eine
+ * weisse Platte auf getoentem Grund. Die Platte war wieder ein Kasten in einer
+ * Sektion, die selbst schon eine andere Farbe hatte. Jetzt laeuft das Band
+ * ueber die volle Breite auf hellem Grund, die Logos brauchen keine eigene
+ * Flaeche darunter.
  */
 export function Kundenband() {
   return (
-    <section className="ground-tint relative">
+    <section className="ground relative">
       <div className="container-x py-12 md:py-16">
-        <div className="panel overflow-hidden px-6 py-8 md:px-10 md:py-10">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-            <span className="inline-flex items-center gap-2.5">
-              <span aria-hidden className="node-glow" />
-              <span className="text-label font-bold uppercase text-ink-soft">
-                Täglich in unserer Verantwortung
-              </span>
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+          <span className="inline-flex items-center gap-2.5">
+            <span aria-hidden className="node-glow" />
+            <span className="text-label font-bold uppercase text-ink-soft">
+              Täglich in unserer Verantwortung
             </span>
-            <span className="text-small font-bold text-ink">
-              <Zahl bis={60} nach="+" /> Marken
-            </span>
-            <span aria-hidden className="h-1 w-1 rounded-full bg-ink-line" />
-            <span className="text-small font-bold text-ink">
-              <Zahl bis={5} nach="+" /> Marktplätze
-            </span>
-          </div>
-          <div className="mt-8 space-y-6">
-            <LogoRow row={logoRows[0]} duration={58} />
-            <LogoRow row={logoRows[1]} duration={72} reverse />
-          </div>
+          </span>
+          <span className="text-small font-bold text-ink">
+            <Zahl bis={60} nach="+" /> Marken
+          </span>
+          <span aria-hidden className="h-1 w-1 rounded-full bg-ink-line" />
+          <span className="text-small font-bold text-ink">
+            <Zahl bis={5} nach="+" /> Marktplätze
+          </span>
+        </div>
+        <div className="mt-8 space-y-6">
+          <LogoRow row={logoRows[0]} duration={58} />
+          <LogoRow row={logoRows[1]} duration={72} reverse />
         </div>
       </div>
     </section>
