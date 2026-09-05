@@ -90,7 +90,6 @@ export default function BlogPage() {
 
         <ServiceCTA
           title="Lieber direkt über euren Account sprechen?"
-          sub="In der kostenlosen Potenzialanalyse schauen wir konkret auf eure Marke."
         />
       </main>
       <Fusszeile />

@@ -197,7 +197,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <ServiceCTA
           title="Genug gelesen, Zeit für Ergebnisse?"
-          sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in eurem Account das Wachstum liegt."
         />
       </main>
       <Fusszeile />

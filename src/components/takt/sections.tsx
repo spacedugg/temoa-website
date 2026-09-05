@@ -1004,14 +1004,8 @@ export function Stimmen() {
  * Der Block liegt in `takt/Gespraech` und ist auf allen Seiten derselbe.
  * Hier steht nur noch die Formulierung fuer die Startseite.
  */
-export function Termin({
-  title,
-  sub,
-}: {
-  title?: React.ReactNode;
-  sub?: React.ReactNode;
-} = {}) {
-  return <Gespraech title={title} sub={sub} />;
+export function Termin({ title }: { title?: React.ReactNode } = {}) {
+  return <Gespraech title={title} />;
 }
 
 /* ============================================================

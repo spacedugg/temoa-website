@@ -103,7 +103,6 @@ export default function ErgebnissePage() {
         <RetentionBand />
         <ServiceCTA
           title="Was wäre bei euch möglich?"
-          sub="In der kostenlosen Potenzialanalyse rechnen wir das an euren Zahlen durch, nicht an fremden."
         />
       </main>
       <Fusszeile />

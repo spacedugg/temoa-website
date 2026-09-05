@@ -46,7 +46,6 @@ export default async function DesignBeispielePage({
         <DesignGallery data={references} />
         <ServiceCTA
           title="Und wie sieht euer Listing aus?"
-          sub="In der kostenlosen Potenzialanalyse sagen wir euch, welches Format bei euch zuerst überarbeitet gehört."
         />
       </main>
       <Fusszeile />

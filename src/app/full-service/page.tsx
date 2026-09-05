@@ -36,7 +36,6 @@ export default function FullServicePage() {
         <Onboarding />
         <Termin
           title="Welcher Bereich bremst euer Wachstum?"
-          sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
         />
       </main>
       <Fusszeile />

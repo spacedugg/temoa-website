@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
-import { useId } from "react";
-import { SectionHeading } from "../ui/SectionHeading";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useId, useRef, useState } from "react";
+import { Pille } from "../ui/SectionHeading";
 
 /* ============================================================
    Der Globus auf der Internationalisierungsseite.
@@ -141,46 +141,48 @@ function Flagge({ code }: { code: string }) {
  * (0 bis 1000 in beide Richtungen), `y` die Hoehe des Schildes am Rand.
  * Die Schilder stehen aussen, damit sich in Europa nichts ueberlagert und
  * nichts vom Rand abgeschnitten wird.
+ *
+ * Neun Schilder, nicht elf: die Grafik steht jetzt in einer Spalte neben dem
+ * Text, und in einer halben Seitenbreite muss die Schrift auf den Schildern
+ * noch lesbar sein. Der Rest steht in der Zeile darunter.
  */
 type Markt = { code: string; name: string; punkt: [number, number]; y: number; seite: "links" | "rechts" };
 
 const MAERKTE: Markt[] = [
-  { code: "SE", name: "Schweden", punkt: [640, 200], y: 118, seite: "rechts" },
-  { code: "PL", name: "Polen", punkt: [640, 300], y: 230, seite: "rechts" },
-  { code: "NL", name: "Niederlande", punkt: [563, 300], y: 342, seite: "rechts" },
-  { code: "DE", name: "Deutschland", punkt: [595, 307], y: 454, seite: "rechts" },
-  { code: "UK", name: "Großbritannien", punkt: [505, 265], y: 566, seite: "rechts" },
-  { code: "FR", name: "Frankreich", punkt: [550, 342], y: 678, seite: "rechts" },
-  { code: "IT", name: "Italien", punkt: [620, 385], y: 790, seite: "rechts" },
-  { code: "ES", name: "Spanien", punkt: [505, 385], y: 902, seite: "rechts" },
+  { code: "NL", name: "Niederlande", punkt: [563, 300], y: 110, seite: "rechts" },
+  { code: "DE", name: "Deutschland", punkt: [595, 307], y: 278, seite: "rechts" },
+  { code: "UK", name: "Großbritannien", punkt: [505, 265], y: 446, seite: "rechts" },
+  { code: "FR", name: "Frankreich", punkt: [550, 342], y: 614, seite: "rechts" },
+  { code: "IT", name: "Italien", punkt: [620, 385], y: 782, seite: "rechts" },
+  { code: "ES", name: "Spanien", punkt: [505, 385], y: 950, seite: "rechts" },
   { code: "CA", name: "Kanada", punkt: [230, 250], y: 250, seite: "links" },
-  { code: "US", name: "USA", punkt: [215, 360], y: 430, seite: "links" },
-  { code: "MX", name: "Mexiko", punkt: [140, 455], y: 610, seite: "links" },
+  { code: "US", name: "USA", punkt: [215, 360], y: 520, seite: "links" },
+  { code: "MX", name: "Mexiko", punkt: [140, 455], y: 790, seite: "links" },
 ];
 
-const SCHILD_H = 62;
+const SCHILD_H = 84;
 const RAND_RECHTS = 1030;
 const RAND_LINKS = -30;
 
 /** Breite eines Schildes: Flaggenscheibe, Text, Innenabstaende. */
 function breite(name: string) {
-  return 96 + name.length * 15.5;
+  return 132 + name.length * 22.5;
 }
 
-function Schild({ m, id, index, reduce }: { m: Markt; id: string; index: number; reduce: boolean }) {
+function Schild({ m, id, index, an, reduce }: { m: Markt; id: string; index: number; an: boolean; reduce: boolean }) {
   const w = breite(m.name);
   const x = m.seite === "rechts" ? RAND_RECHTS : RAND_LINKS - w;
   const [px, py] = m.punkt;
   const start = m.seite === "rechts" ? RAND_RECHTS : RAND_LINKS;
   const griff = m.seite === "rechts" ? start - 150 : start + 150;
-  const verzoegerung = 0.35 + index * 0.07;
+  const verzoegerung = 0.3 + index * 0.08;
 
-  const linie = {
-    initial: reduce ? undefined : { pathLength: 0, opacity: 0 },
-    whileInView: reduce ? undefined : { pathLength: 1, opacity: 1 },
-    viewport: { once: true, margin: "-15% 0px" } as const,
-    transition: { duration: 0.6, delay: verzoegerung, ease: EASE },
-  };
+  /* Die Bewegung haengt am Zustand der Huelle, nicht an `whileInView`.
+     `whileInView` beobachtet das Element selbst, und ein Element im SVG hat
+     keine eigene Box: in manchen Browsern loest der Beobachter dort nie aus,
+     dann blieb die ganze Grafik auf Deckkraft null stehen und die Sektion war
+     leer. Genau das ist passiert. */
+  const zustand = reduce || an;
 
   return (
     <g>
@@ -189,29 +191,29 @@ function Schild({ m, id, index, reduce }: { m: Markt; id: string; index: number;
         d={`M${start},${m.y} C${griff},${m.y} ${(griff + px) / 2},${py} ${px},${py}`}
         fill="none"
         stroke="rgba(255,153,0,0.55)"
-        strokeWidth="2.4"
+        strokeWidth="2.6"
         strokeLinecap="round"
-        {...linie}
+        initial={false}
+        animate={{ pathLength: zustand ? 1 : 0, opacity: zustand ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: verzoegerung, ease: EASE }}
       />
 
       {/* Punkt auf der Kugel. */}
       <motion.g
-        initial={reduce ? undefined : { opacity: 0, scale: 0.2 }}
-        whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-15% 0px" }}
-        transition={{ type: "spring", stiffness: 300, damping: 16, delay: verzoegerung + 0.35 }}
+        initial={false}
+        animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.2 }}
+        transition={{ type: "spring", stiffness: 300, damping: 16, delay: verzoegerung + 0.3 }}
         style={{ transformOrigin: `${px}px ${py}px` }}
       >
-        <circle cx={px} cy={py} r={13} fill="rgba(255,153,0,0.28)" />
-        <circle cx={px} cy={py} r={6.5} fill="#FF9900" style={{ filter: "drop-shadow(0 0 8px rgba(255,153,0,0.9))" }} />
+        <circle cx={px} cy={py} r={14} fill="rgba(255,153,0,0.28)" />
+        <circle cx={px} cy={py} r={7} fill="#FF9900" style={{ filter: "drop-shadow(0 0 8px rgba(255,153,0,0.9))" }} />
       </motion.g>
 
       {/* Das Schild: weisse Platte, Flagge, Name. */}
       <motion.g
-        initial={reduce ? undefined : { opacity: 0, x: m.seite === "rechts" ? 18 : -18 }}
-        whileInView={reduce ? undefined : { opacity: 1, x: 0 }}
-        viewport={{ once: true, margin: "-15% 0px" }}
-        transition={{ duration: 0.5, delay: verzoegerung + 0.1, ease: EASE }}
+        initial={false}
+        animate={{ opacity: zustand ? 1 : 0, x: zustand ? 0 : m.seite === "rechts" ? 20 : -20 }}
+        transition={{ duration: 0.5, delay: verzoegerung + 0.08, ease: EASE }}
       >
         <rect
           x={x}
@@ -222,19 +224,19 @@ function Schild({ m, id, index, reduce }: { m: Markt; id: string; index: number;
           fill="#ffffff"
           stroke="rgba(11,31,52,0.08)"
           strokeWidth="2"
-          style={{ filter: "drop-shadow(0 10px 20px rgba(11,31,52,0.14))" }}
+          style={{ filter: "drop-shadow(0 12px 22px rgba(11,31,52,0.16))" }}
         />
-        <g transform={`translate(${x + 34} ${m.y}) scale(1.55)`}>
+        <g transform={`translate(${x + 46} ${m.y}) scale(2.1)`}>
           <g clipPath={`url(#${id}-flagge)`}>
             <Flagge code={m.code} />
           </g>
           <circle r={9} fill="none" stroke="rgba(11,31,52,0.18)" strokeWidth="1.1" />
         </g>
         <text
-          x={x + 62}
-          y={m.y + 10}
+          x={x + 84}
+          y={m.y + 14}
           fill="#0A1E2B"
-          fontSize="29"
+          fontSize="40"
           fontWeight="700"
           style={{ letterSpacing: "-0.01em" }}
         >
@@ -248,12 +250,24 @@ function Schild({ m, id, index, reduce }: { m: Markt; id: string; index: number;
 export function Marktkarte() {
   const reduce = useReducedMotion();
   const id = useId().replace(/:/g, "");
+  const huelle = useRef<HTMLDivElement>(null);
+  const imBild = useInView(huelle, { once: true, margin: "-10% 0px" });
+  const [an, setAn] = useState(false);
+
+  /* Sicherheitsnetz: falls der Beobachter in einem Browser gar nicht ausloest,
+     ist die Grafik nach zwei Sekunden trotzdem da. Eine leere Flaeche ist der
+     schlimmste Fehler, den eine Animation machen kann. */
+  useEffect(() => {
+    if (imBild) setAn(true);
+    const t = setTimeout(() => setAn(true), 2000);
+    return () => clearTimeout(t);
+  }, [imBild]);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={huelle}>
       <span
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[70px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[70px]"
         style={{ background: "radial-gradient(circle, rgba(255,153,0,0.26), transparent 68%)" }}
       />
 
@@ -268,7 +282,7 @@ export function Marktkarte() {
           width={1024}
           height={1024}
           loading="lazy"
-          className="relative mx-auto w-full max-w-[20rem]"
+          className="relative mx-auto w-full max-w-[18rem]"
         />
         <ul className="relative mt-6 grid grid-cols-2 gap-2.5">
           {MAERKTE.map((m) => (
@@ -299,7 +313,7 @@ export function Marktkarte() {
       </div>
 
       <svg
-        viewBox="-360 -40 1760 1080"
+        viewBox="-320 -60 1830 1180"
         className="relative hidden w-full md:block"
         role="img"
         aria-label={`Eine Erdkugel mit den Amazon-Marktplätzen: ${MAERKTE.map((m) => m.name).join(", ")} und weitere.`}
@@ -317,20 +331,17 @@ export function Marktkarte() {
           y={0}
           width={1000}
           height={1000}
-          initial={reduce ? undefined : { opacity: 0, scale: 0.92 }}
-          whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-15% 0px" }}
+          initial={false}
+          animate={{ opacity: reduce || an ? 1 : 0, scale: reduce || an ? 1 : 0.94 }}
           transition={{ duration: 0.8, ease: EASE }}
           style={{ transformOrigin: "500px 500px" }}
         />
 
         {MAERKTE.map((m, i) => (
-          <Schild key={m.code} m={m} id={id} index={i} reduce={!!reduce} />
+          <Schild key={m.code} m={m} id={id} index={i} an={an} reduce={!!reduce} />
         ))}
 
-        {/* Was nicht aufs Bild passt, steht als Zeile darunter, nicht als
-            zweite Liste in Kachelform. */}
-        <text x={500} y={1035} textAnchor="middle" fill="rgba(10,30,43,0.55)" fontSize="27" fontWeight="700">
+        <text x={500} y={1100} textAnchor="middle" fill="rgba(10,30,43,0.55)" fontSize="36" fontWeight="700">
           und weitere Amazon-Marktplätze weltweit
         </text>
       </svg>
@@ -341,9 +352,10 @@ export function Marktkarte() {
 /**
  * Die Sektion um den Globus.
  *
- * Vorher lag die Grafik als schmale Beistellspalte neben einem Textblock. Eine
- * Weltkarte mit elf beschrifteten Marktplaetzen braucht die volle Breite,
- * sonst ist die Schrift auf den Schildern nicht mehr zu lesen.
+ * Erst lag die Grafik als schmale Beistellspalte neben einem Textblock, dann
+ * ueber die volle Breite unter einer zentrierten Ueberschrift: dadurch wurde
+ * die Sektion sehr hoch fuer sehr wenig Aussage. Jetzt links die Grafik,
+ * rechts der Text, beide auf gleicher Hoehe.
  */
 export function MarktSektion({
   eyebrow,
@@ -357,9 +369,15 @@ export function MarktSektion({
   return (
     <section className="ground-tint relative isolate py-20 md:py-24">
       <div className="container-x">
-        <SectionHeading eyebrow={eyebrow} size="compact" title={title} description={text} />
-        <div className="mx-auto mt-10 max-w-5xl">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <Marktkarte />
+          <div>
+            {eyebrow && <Pille>{eyebrow}</Pille>}
+            <h2 className="title mt-6 max-w-[18ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-ink">
+              {title}
+            </h2>
+            {text && <p className="mt-5 max-w-[42ch] text-pretty text-lead text-ink-muted">{text}</p>}
+          </div>
         </div>
       </div>
     </section>

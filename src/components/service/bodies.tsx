@@ -109,7 +109,6 @@ export function StrategieBody() {
       />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
-        sub="In der kostenlosen Potenzialanalyse werten wir eure Berichte aus und zeigen, welche drei Schritte zuerst kommen."
       />
     </>
   );
@@ -179,7 +178,6 @@ export function ContentBody() {
       />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
-        sub="In der kostenlosen Potenzialanalyse gehen wir eure Listings durch und zeigen, an welcher Stelle Besucher abspringen."
       />
     </>
   );
@@ -267,7 +265,6 @@ export function AdvertisingBody() {
       />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
-        sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
       />
     </>
   );
@@ -360,7 +357,6 @@ export function AccountBody() {
       />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
-        sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
       />
     </>
   );
@@ -462,7 +458,6 @@ export function InternationalisierungBody() {
       />
       <ServiceCTA
         title="Welcher Markt ist euer nächster?"
-        sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."
       />
     </>
   );

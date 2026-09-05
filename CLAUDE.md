@@ -162,6 +162,32 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   (`takt/Icons`). Aus dem allgemeinen Strich-Satz (`ui/Icon`) kommt nichts
   Neues mehr dazu.
 
+## Fuenfte Feedbackrunde (verbindlich)
+
+- **Rot nur fuer Probleme.** `.ground-signal` steht ausschliesslich dort, wo
+  es um Fehler und Missstaende geht. Der Abschluss-CTA und die Sektion
+  „Was ihr danach in der Hand habt" (`Lieferung`) sind raus aus dem Rot: der
+  CTA liegt als dunkle Karte auf hellem Grund, `Lieferung` ist eine helle
+  Sektion mit zwei weissen Platten.
+- **Der Abschluss-CTA traegt nur das Noetigste**: Ueberschrift, Knopf, zwei
+  Zusagen. Kein Absatz unter der Ueberschrift, keine Vorstellungszeile im
+  Text. Wer spricht, steht am Bild, ohne Platte darunter, nur mit Schatten
+  unter der Schrift.
+- **Der handgezeichnete Pfeil ist geloescht.** Drei Fassungen, dreimal
+  danebengegangen. Er kommt nicht zurueck.
+- **Rundungen gehoeren auch an die Bildspalte.** Ein Bild mit `filter`
+  bricht in manchen Browsern aus dem `overflow-hidden` der Karte aus, dadurch
+  stand unten links eine eckige Ecke an einer sonst runden Karte.
+- **`whileInView` niemals auf Elementen im SVG.** Ein Element im SVG hat keine
+  eigene Box, der Beobachter loest dort in manchen Browsern nie aus, und die
+  Grafik bleibt auf Deckkraft null stehen: die Sektion ist dann leer. Der
+  Zustand haengt an der Huelle (`useInView` auf einem `div`) und wird nach
+  hoechstens zwei Sekunden ohnehin gesetzt. Eine leere Flaeche ist der
+  schlimmste Fehler, den eine Animation machen kann.
+- **Die Globus-Sektion ist zweispaltig**: links die Grafik, rechts der Text.
+  Grafik oben und Text darunter machte aus einer kurzen Aussage eine sehr
+  hohe Sektion.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.

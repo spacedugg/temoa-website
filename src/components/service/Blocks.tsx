@@ -736,8 +736,8 @@ export function ResultBlock({
  * Unterseiten wirklich denselben Block zeigen. Vorher waren es zwei Fassungen,
  * und jede Aenderung musste man zweimal machen, was man den Seiten ansah.
  */
-export function ServiceCTA({ title, sub, zusagen }: { title: string; sub: string; zusagen?: string[] }) {
-  return <Gespraech title={title} sub={sub} zusagen={zusagen} />;
+export function ServiceCTA({ title, zusagen }: { title: string; zusagen?: string[] }) {
+  return <Gespraech title={title} zusagen={zusagen} />;
 }
 
 /* ---------------- Lieferung: was am Ende in der Hand liegt ---------------- */
@@ -750,9 +750,10 @@ export function ServiceCTA({ title, sub, zusagen }: { title: string; sub: string
  * kein Ergebnis. Wer eine Analyse kauft, will wissen, was danach auf dem
  * Tisch liegt: welches Dokument, mit welchem Inhalt.
  *
- * Die Sektion steht auf der roten Markenflaeche, weil sie die Antwort auf
- * das Problem weiter oben ist, und weisse Schrift darauf ist lesbar; das
- * fruehere Orange mit dunkler Schrift war es nicht.
+ * Danach lag die Sektion auf der roten Flaeche. Rot heisst auf dieser Website
+ * aber „hier laeuft etwas schief", und hier geht es um das, was am Ende in der
+ * Hand liegt. Jetzt heller Grund mit zwei weissen Platten und einer oranger
+ * Lichtkante oben, die Haken tragen die Farbe.
  */
 export function Lieferung({
   eyebrow,
@@ -764,30 +765,35 @@ export function Lieferung({
   stuecke: { kicker: string; title: string; punkte: string[] }[];
 }) {
   return (
-    <section className="on-signal ground-signal relative overflow-hidden py-16 md:py-24">
+    <section className="ground-tint relative isolate overflow-hidden py-16 md:py-24">
       <div className="container-x relative">
-        {eyebrow && (
-          <Reveal>
-            <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.14] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]">
-              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-400" />
-              {eyebrow}
-            </span>
-          </Reveal>
-        )}
+        {eyebrow && <Pille>{eyebrow}</Pille>}
         <Reveal delay={0.06}>
-          <h2 className="title mt-6 max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.2vw,3.2rem)]">
+          <h2 className="title mt-6 max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.2vw,3.2rem)] text-ink">
             {title}
           </h2>
         </Reveal>
 
         <RevealGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:gap-6" stagger={0.08}>
-          {stuecke.map((d) => (
+          {stuecke.map((d, i) => (
             <RevealItem key={d.title} className="h-full">
-              <div className="panel-signal flex h-full flex-col p-7 md:p-8">
-                <span className="text-label font-bold uppercase tracking-[0.14em] text-white/70">
-                  {d.kicker}
+              {/* Kein farbiger Strich oben auf der Kachel: dieses Muster stand
+                  auf der halben Website und hat alle Kacheln gleich aussehen
+                  lassen. Die Reihenfolge traegt eine Ziffer. */}
+              <div className="panel panel-lift relative flex h-full flex-col p-7 md:p-8">
+                <span className="flex items-center gap-3">
+                  <span
+                    aria-hidden
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-[0.7rem] text-[0.85rem] font-extrabold"
+                    style={{ background: "rgba(255,153,0,0.14)", color: "#0A1E2B" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="text-label font-bold uppercase tracking-[0.14em] text-ink-faint">
+                    {d.kicker}
+                  </span>
                 </span>
-                <h3 className="mt-3 text-[1.3rem] font-bold leading-snug text-white md:text-[1.5rem]">
+                <h3 className="mt-3 text-[1.3rem] font-bold leading-snug text-ink md:text-[1.5rem]">
                   {d.title}
                 </h3>
                 <ul className="mt-5 space-y-3">
@@ -795,13 +801,13 @@ export function Lieferung({
                     <li key={t} className="flex items-start gap-3">
                       <span
                         aria-hidden
-                        className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500 text-[#7a1109]"
+                        className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500 text-navy"
                       >
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                           <path d="M5 12.5l4.5 4.5L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </span>
-                      <span className="text-small leading-relaxed text-white">{t}</span>
+                      <span className="text-small leading-relaxed text-ink-muted">{t}</span>
                     </li>
                   ))}
                 </ul>
