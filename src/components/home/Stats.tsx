@@ -29,29 +29,43 @@ const stats: { to: number; prefix?: string; suffix: string; label: string; wachs
  * ein Block statt vier blasser Kaesten, die Zahlen weiss, der Trendpfeil
  * gruen.
  */
-export function Stats({ tone = "blue" }: { tone?: "blue" | "white" }) {
+/**
+ * Kennzahlenband, ueber die volle Breite.
+ *
+ * Vorher lagen die vier Zahlen als Navy-Kasten in einer hellen Sektion: eine
+ * Box in einer Sektion, die selbst schon eine andere Farbe hatte, und der
+ * Inhalt lief nicht ueber die Breite. Jetzt traegt die Sektion das Navy
+ * selbst, die Zahlen stehen frei darauf.
+ *
+ * `tone` bleibt in der Signatur, damit die Aufrufe unveraendert laufen.
+ */
+export function Stats({ tone }: { tone?: "blue" | "white" }) {
+  void tone;
   return (
-    <section className={`section-y-sm relative ${tone === "blue" ? "ground-tint" : "ground"}`}>
-      <div className="container-x">
+    <section className="on-dark ground-deep relative isolate overflow-hidden py-12 md:py-16">
+      <span
+        aria-hidden
+        className="pointer-events-none absolute right-[-8%] top-[-40%] h-[26rem] w-[26rem] rounded-full opacity-70 blur-[80px]"
+        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.22), transparent 68%)" }}
+      />
+      <div className="container-x relative">
         <RevealGroup
-          className="grid grid-cols-2 gap-y-7 overflow-hidden rounded-[1.75rem] p-6 md:grid-cols-4 md:gap-y-0 md:p-8 md:divide-x md:divide-white/[0.08]"
+          className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/[0.1]"
           stagger={0.08}
-          style={{
-            background:
-              "radial-gradient(110% 90% at 88% -20%, rgba(255,153,0,0.22), transparent 58%), linear-gradient(150deg, #10314a 0%, #0a2035 100%)",
-            boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.07), 0 30px 70px -40px rgba(4,20,34,0.8)",
-          }}
         >
           {stats.map((s, i) => (
-            <RevealItem key={s.label} className={i === 0 ? "md:pr-6" : i === stats.length - 1 ? "md:pl-6" : "md:px-6"}>
+            <RevealItem
+              key={s.label}
+              className={i === 0 ? "md:pr-8" : i === stats.length - 1 ? "md:pl-8" : "md:px-8"}
+            >
               <div className="flex h-full flex-col justify-between gap-3">
                 <span
-                  className="num text-[clamp(1.9rem,1.3rem+1.5vw,2.6rem)] leading-none"
+                  className="num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none"
                   style={s.wachstum ? { color: "#6EE7A0" } : { color: "#ffffff" }}
                 >
                   <Counter to={s.to} prefix={s.prefix} suffix={s.suffix} />
                 </span>
-                <p className="text-[0.82rem] leading-snug text-chalk-muted">{s.label}</p>
+                <p className="text-[0.85rem] leading-snug text-chalk-muted">{s.label}</p>
               </div>
             </RevealItem>
           ))}

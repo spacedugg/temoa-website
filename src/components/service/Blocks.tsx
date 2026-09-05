@@ -6,6 +6,8 @@ import { Ambient } from "../ui/Ambient";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 import { Logo } from "../Logo";
+import { motion } from "framer-motion";
+import { KachelVerlaufDefs, Piktogramm, type PiktogrammName } from "./Piktogramme";
 import { ZahlText } from "../takt/Zahl";
 import { Gespraech } from "../takt/Gespraech";
 
@@ -36,6 +38,7 @@ const accent = (i: number) => ACCENTS[i % ACCENTS.length];
 function Shell({ children, id, tone = "white" }: { children: ReactNode; id?: string; tone?: Tone }) {
   return (
     <section id={id} className={`relative isolate ${toneBg[tone]} py-20 md:py-24`}>
+      <KachelVerlaufDefs />
       {tone === "white" && <Ambient />}
       <div className="container-x">{children}</div>
     </section>
@@ -223,6 +226,12 @@ export type Card = {
   bullets?: string[];
   /** Zeichen ueber der Ueberschrift. Macht auf einen Blick klar, worum es geht. */
   icon?: IconName;
+  /**
+   * Bewegtes Piktogramm ueber der Ueberschrift. Vorzugsweise dieses statt
+   * `icon`: der allgemeine Strich-Satz sagt zu wenig, und weisse Kacheln ohne
+   * jedes Zeichen sehen leer aus.
+   */
+  piktogramm?: PiktogrammName;
 };
 
 export function Cards({
@@ -254,7 +263,18 @@ export function Cards({
                   der Website und hat sie alle gleich aussehen lassen. Er ist
                   raus. Die Reihenfolge tragen jetzt Ziffern in der Ecke, die
                   Farbe sitzt auf den Aufzaehlungszeichen. */}
-              <div className="panel panel-lift flex h-full flex-col p-6 md:p-7">
+              <motion.div
+                className="panel panel-lift flex h-full flex-col p-6 md:p-7"
+                initial="ruhe"
+                whileInView="an"
+                whileHover="zeig"
+                viewport={{ once: true, margin: "-10% 0px" }}
+              >
+                {it.piktogramm && (
+                  <span className="mb-5 inline-flex">
+                    <Piktogramm name={it.piktogramm} />
+                  </span>
+                )}
                 {(it.n || it.kicker || it.icon) && (
                   <div className="flex items-center justify-between gap-3">
                     {it.icon ? (
@@ -288,7 +308,7 @@ export function Cards({
                     ))}
                   </ul>
                 )}
-              </div>
+              </motion.div>
             </Reveal>
           );
         })}

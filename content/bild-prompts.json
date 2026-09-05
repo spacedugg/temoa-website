@@ -444,6 +444,15 @@
       "stil": "szene3d",
       "prompt": "A single soft 3D globe of planet Earth, three-quarter view, tilted slightly, with Europe, North Africa and the North Atlantic facing the viewer and North America visible at the left edge. The oceans are a smooth matte deep navy surface, the continents sit slightly raised above them and are rendered as a fine regular dot pattern in light slate blue and pale grey. A soft warm orange rim light runs along the upper right edge of the sphere, the lower left falls into shadow. Exactly this one sphere in the frame and nothing else: no pins, no markers, no flags, no cards, no arcs, no orbit rings, no stars, no clouds, no atmosphere halo.",
       "transparent": true
+    },
+    {
+      "kennung": "h-wachstum",
+      "seite": "Startseite: Hero-Grafik Wachstum",
+      "size": "1536x1152",
+      "motiv": "Wachsende Balken, Aufwaertspfeil, Paket und Einkaufswagen",
+      "stil": "szene3d",
+      "prompt": "A soft 3D scene on a low rounded navy platform: four rounded matte navy bars of increasing height standing in a row, the tallest one on the right slightly brighter. A thick glowing orange arrow rises over the bars from bottom left to top right and ends in an arrow head above the tallest bar. Beside the platform a small matte navy parcel box with a light seam, and floating slightly above the platform a rounded shopping cart glyph in light grey with an orange handle. Exactly this one arrangement in the frame, nothing else.",
+      "transparent": true
     }
   ],
   "stilblocks": {

@@ -1,32 +1,34 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
-import { Zahl } from "./Zahl";
 import { Neigung } from "./Neigung";
+import { testimonials } from "@/lib/testimonials";
 
-/**
- * Hero der Startseite.
- *
- * Frühere Fassung: „00 · Der Auftrag" in einer eigenen Spalte, daneben eine
- * abstrakte Drahtgitter-Grafik. Ein Besucher hat daran in den ersten Sekunden
- * nicht erkannt, dass es um Amazon geht, und die Grafik hat kein Produkt
- * gezeigt.
- *
- * Jetzt steht Amazon in der ersten Zeile, und rechts liegt ein Listing, wie
- * temoa es baut. Die Produktaufnahmen kommen aus Bilddateien, die gesamte
- * Beschriftung zeichnet der Code. Deshalb ist die Schrift scharf und richtig
- * gesetzt, statt von einem Bildmodell verunglückt zu werden.
- */
+/* ============================================================
+   Hero der Startseite.
 
-/* Die Werte laufen beim Sichtbarwerden auf. Vorher stand die fertige Zahl da
-   und wurde ueberflogen. `vor` und `nach` bleiben Text, nur die Zahl zaehlt. */
-const readings: { bis: number; vor?: string; nach?: string; label: string; note: string }[] = [
-  { bis: 30, vor: "Ø +", nach: " %", label: "Profitabilität", note: "im Durchschnitt" },
-  { bis: 21, nach: " Mio. €", label: "Jahresumsatz", note: "in Betreuung" },
-  { bis: 98, nach: " %", label: "Kundenbindung", note: "Verlängerung nach Performance" },
-];
+   Drei Fassungen liegen dahinter. Erst „00 · Der Auftrag" neben einer
+   abstrakten Drahtgitter-Grafik: ein Besucher hat in den ersten Sekunden nicht
+   erkannt, dass es um Amazon geht. Dann ein Listing-Nachbau mit Produktbildern
+   und darunter drei Kennzahlkarten auf dunklen Podesten.
+
+   Der Kunde hat beides verworfen: der Nachbau zeigt ein Produkt statt eines
+   Ergebnisses, und die drei dunklen Karten setzten drei weitere Farbakzente
+   neben den Knopf, der eigentlich der einzige Blickfang sein soll.
+
+   Jetzt: rechts eine Wachstumsszene im Bildstil der Website, freigestellt und
+   in leichter Bewegung. Links unter dem Knopf sozialer Beleg statt Kennzahlen:
+   echte Gesichter aus den Kundenstimmen, fuenf Sterne, eine Zeile. Wer neu auf
+   die Seite kommt, sieht damit zuerst, dass es echte Kunden gibt.
+   ============================================================ */
+
+const EASE = [0.32, 0.72, 0, 1] as const;
+
+/* Die Gesichter kommen aus den echten Kundenstimmen weiter unten auf der
+   Seite, nicht aus einer Bilddatenbank. Nur echte Portraits: zwei der
+   hinterlegten Bilder sind Buchstabenkacheln, die als Gesicht nichts taugen. */
+const GESICHTER = testimonials.filter((t) => t.image && t.art === "person").slice(0, 5);
 
 export function Auftrag() {
   const reduce = useReducedMotion();
@@ -36,7 +38,7 @@ export function Auftrag() {
       : {
           initial: { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.85, delay, ease: [0.32, 0.72, 0, 1] as const },
+          transition: { duration: 0.85, delay, ease: EASE },
         };
 
   return (
@@ -76,217 +78,83 @@ export function Auftrag() {
               </a>
             </motion.div>
 
-            {/* Kennzahlen als eigene Karten. Vorher weiss auf hellem Grund und
-                still: drei blasse Kaesten, die niemand ansieht. Jetzt dunkle
-                Podeste mit einer Kurve, die von allein laeuft. */}
-            <motion.div {...rise(0.3)} className="mt-12 grid max-w-[38rem] gap-3 sm:grid-cols-3">
-              {readings.map((r, i) => (
-                <KennzahlKarte key={r.label} {...r} index={i} reduce={!!reduce} />
-              ))}
+            {/* Sozialer Beleg statt Kennzahlkarten: Gesichter, Sterne, eine
+                Zeile. Ohne Kachel, damit der Knopf darueber der einzige
+                farbige Punkt bleibt. */}
+            <motion.div {...rise(0.3)} className="mt-11 flex flex-wrap items-center gap-x-5 gap-y-4">
+              <div className="flex -space-x-3">
+                {GESICHTER.map((t, i) => (
+                  <motion.span
+                    key={t.name}
+                    className="relative inline-block"
+                    initial={reduce ? undefined : { opacity: 0, scale: 0.6, x: -8 }}
+                    animate={reduce ? undefined : { opacity: 1, scale: 1, x: 0 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 20, delay: 0.42 + i * 0.07 }}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      width={96}
+                      height={96}
+                      className="h-11 w-11 rounded-full object-cover ring-[3px] ring-canvas"
+                      style={{ boxShadow: "0 6px 16px -8px rgba(11,31,52,0.6)" }}
+                    />
+                  </motion.span>
+                ))}
+              </div>
+
+              <div className="min-w-0">
+                <span className="flex items-center gap-1.5">
+                  <span className="flex gap-0.5" aria-hidden>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <motion.svg
+                        key={i}
+                        width="15"
+                        height="15"
+                        viewBox="0 0 24 24"
+                        fill="#FF9900"
+                        initial={reduce ? undefined : { opacity: 0, scale: 0.4 }}
+                        animate={reduce ? undefined : { opacity: 1, scale: 1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 18, delay: 0.62 + i * 0.06 }}
+                      >
+                        <path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.2 6.8L12 17.4 6 20.7l1.2-6.8-5-4.8 6.9-.8L12 2z" />
+                      </motion.svg>
+                    ))}
+                  </span>
+                  <span className="text-small font-bold text-ink">60+ Marken</span>
+                </span>
+                <p className="mt-0.5 text-small text-ink-muted">
+                  arbeiten mit uns an ihrem Amazon-Geschäft.
+                </p>
+              </div>
             </motion.div>
           </div>
 
-          {/* Der Listing-Nachbau kippt leicht zum Zeiger. Deutet an, dass die
-              Platte im Raum steht, ohne albern zu wirken. */}
-          <motion.div {...rise(0.16)} className="min-w-0">
+          {/* Die Wachstumsszene. Freigestellt, ohne Platte, mit einem warmen
+              Lichtkern dahinter. Sie hebt und senkt sich leise und kippt zum
+              Zeiger: Bewegung ohne Zutun, aber nichts, was blinkt. */}
+          <motion.div {...rise(0.16)} className="relative min-w-0">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-[70px]"
+              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.3), transparent 68%)" }}
+            />
             <Neigung>
-              <ListingKarte />
+              <motion.img
+                src="/bilder/h-wachstum.webp"
+                alt="Wachsende Balken, ein Aufwärtspfeil, ein Einkaufswagen und ein Paket"
+                width={1536}
+                height={1152}
+                className="relative mx-auto w-full max-w-[34rem]"
+                animate={reduce ? undefined : { y: [0, -12, 0] }}
+                transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
+                style={{ filter: "drop-shadow(0 30px 50px rgba(11,31,52,0.22))" }}
+              />
             </Neigung>
           </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-/**
- * Eine Kennzahl auf dunklem Podest, mit einer Kurve, die sich immer wieder
- * neu zeichnet.
- *
- * Der Kunde wollte, dass sich im Hero etwas bewegt, ohne dass man mit dem
- * Zeiger darueberfahren muss. Die drei Karten laufen versetzt, damit es ein
- * Takt wird und kein Flackern. Bei prefers-reduced-motion steht die Kurve
- * fertig da.
- */
-function KennzahlKarte({
-  bis,
-  vor,
-  nach,
-  label,
-  note,
-  index,
-  reduce,
-}: {
-  bis: number;
-  vor?: string;
-  nach?: string;
-  label: string;
-  note: string;
-  index: number;
-  reduce: boolean;
-}) {
-  const kurven = [
-    "M2 26 L14 22 L26 24 L38 15 L50 11 L62 4",
-    "M2 24 L14 25 L26 18 L38 19 L50 10 L62 6",
-    "M2 27 L14 20 L26 21 L38 13 L50 12 L62 3",
-  ];
-  return (
-    <div className="panel-navy on-dark min-w-0 p-5">
-      <div className="flex items-baseline gap-1.5">
-        <span className="num text-[clamp(1.35rem,1rem+1.1vw,1.9rem)] text-white">
-          <Zahl bis={bis} vor={vor} nach={nach} />
-        </span>
-      </div>
-
-      <svg
-        viewBox="0 0 64 30"
-        aria-hidden
-        className="mt-3 h-7 w-full overflow-visible"
-        preserveAspectRatio="none"
-      >
-        <motion.path
-          d={kurven[index % kurven.length]}
-          fill="none"
-          stroke="#FF9900"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
-          animate={reduce ? { pathLength: 1 } : { pathLength: [0, 1, 1, 0] }}
-          transition={
-            reduce
-              ? undefined
-              : { duration: 7, times: [0, 0.45, 0.85, 1], repeat: Infinity, delay: index * 0.5, ease: "easeInOut" }
-          }
-          style={{ filter: "drop-shadow(0 0 6px rgba(255,153,0,0.45))" }}
-        />
-      </svg>
-
-      <div className="mt-3 text-[0.75rem] font-bold leading-tight text-white">{label}</div>
-      <div className="mt-1 text-[0.7rem] leading-tight text-chalk-faint">{note}</div>
-    </div>
-  );
-}
-
-/**
- * Produktdetailseite als Nachbau: Bildstrecke links, Kaufbereich rechts.
- *
- * Kein Amazon-Logo und keine Amazon-Oberfläche, nur der Aufbau einer
- * Produktseite. Auch keine erfundenen Leistungszahlen im Bild, die belegten
- * Kennzahlen stehen im Textblock daneben.
- */
-function ListingKarte() {
-  /* Eigenes Produkt fuer den Hero. Vorher lag hier dieselbe Flasche wie in
-     den Designbeispielen weiter unten; ein Bild soll auf der Seite nur an
-     einer Stelle vorkommen. */
-  const bilder = [
-    { src: "/bilder/h-haupt.webp", alt: "Hauptbild eines Listings: Bratpfanne in Navy mit Holzgriff" },
-    { src: "/bilder/h-detail.webp", alt: "Listingbild: Übergang von Griff zu Pfannenkörper" },
-    { src: "/bilder/h-szene.webp", alt: "Listingbild: Pfanne auf einem Kochfeld" },
-    { src: "/bilder/h-gruppe.webp", alt: "Listingbild: drei Größen nebeneinander" },
-  ];
-  const reduce = useReducedMotion();
-  const [aktiv, setAktiv] = useState(0);
-
-  /* Die Bildstrecke wechselt von allein. Der Kunde wollte Bewegung, ohne dass
-     man den Zeiger bemuehen muss. */
-  useEffect(() => {
-    if (reduce) return;
-    const t = setInterval(() => setAktiv((i) => (i + 1) % bilder.length), 3200);
-    return () => clearInterval(t);
-  }, [reduce, bilder.length]);
-
-  return (
-    <div className="relative">
-      <div className="panel p-5 md:p-6">
-        <div className="grid gap-5 sm:grid-cols-[1.05fr_1fr] md:gap-6">
-          {/* Bildstrecke */}
-          <div className="min-w-0">
-            <div className="relative aspect-square overflow-hidden rounded-[1.25rem] bg-canvas-tint/50">
-              {bilder.map((b, i) => (
-                <motion.img
-                  key={b.src}
-                  src={b.src}
-                  alt={i === 0 ? b.alt : ""}
-                  width={1024}
-                  height={1024}
-                  className="absolute inset-0 h-full w-full object-cover"
-                  animate={{ opacity: i === aktiv ? 1 : 0 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-              ))}
-            </div>
-            <div className="mt-3 grid grid-cols-4 gap-2.5">
-              {bilder.map((b, i) => (
-                <button
-                  key={b.src}
-                  type="button"
-                  onClick={() => setAktiv(i)}
-                  aria-label={b.alt}
-                  className={`overflow-hidden rounded-[0.75rem] bg-canvas-tint/50 transition-shadow ${
-                    i === aktiv
-                      ? "shadow-[inset_0_0_0_2px_#FF9900]"
-                      : "shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
-                  }`}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={b.src} alt="" width={1024} height={1024} className="aspect-square w-full object-cover" />
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Kaufbereich */}
-          <div className="flex min-w-0 flex-col">
-            <span className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink-faint">Marke</span>
-            <p className="mt-2 text-[1.05rem] font-bold leading-snug text-ink">
-              Bratpfanne 28 cm, antihaftbeschichtet, für Induktion
-            </p>
-
-            <div className="mt-3 flex items-center gap-2">
-              <span className="flex gap-0.5" aria-hidden>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#FF9900">
-                    <path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.2 6.8L12 17.4 6 20.7l1.2-6.8-5-4.8 6.9-.8L12 2z" />
-                  </svg>
-                ))}
-              </span>
-              <span className="text-[0.7rem] text-ink-faint">1.284 Bewertungen</span>
-            </div>
-
-            <div className="mt-5 border-t border-ink/[0.08] pt-5">
-              <div className="flex items-baseline gap-2">
-                <span className="num text-[1.9rem] text-ink">34,90 €</span>
-                <span className="text-[0.7rem] text-ink-faint">inkl. MwSt.</span>
-              </div>
-              <p className="mt-1.5 text-[0.75rem] font-bold text-signal-pos">Auf Lager</p>
-            </div>
-
-            {/* Die Bausteine, die temoa an so einem Listing tatsächlich baut */}
-            <ul className="mt-5 space-y-2.5 border-t border-ink/[0.08] pt-5">
-              {["Hauptbild und 6 Listingbilder", "Titel, Bullets und Backend-Felder", "A+ Content und Brand Store"].map(
-                (t) => (
-                  <li key={t} className="flex gap-2.5">
-                    <span aria-hidden className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                    <span className="text-[0.8rem] leading-snug text-ink-muted">{t}</span>
-                  </li>
-                )
-              )}
-            </ul>
-
-            <div
-              aria-hidden
-              className="mt-6 grid min-h-[2.5rem] place-items-center rounded-[0.625rem] bg-brand-500 text-[0.8rem] font-bold text-navy"
-            >
-              In den Einkaufswagen
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p className="mt-4 text-center text-[0.7rem] text-ink-faint">
-        Beispiel-Listing aus unserer Produktion, Produkt und Preis frei erfunden.
-      </p>
-    </div>
   );
 }

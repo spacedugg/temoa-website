@@ -19,12 +19,14 @@ export const testimonials: Testimonial[] = [
     name: "Andrea Hoffmann",
     role: "CMO Vita-World GmbH",
     image: "/clients/Andrea.jpeg.avif",
+    art: "person",
   },
   {
     quote: "Dank temoa konnten wir innerhalb von 6 Monaten unseren Umsatz verdoppeln!",
     name: "Roland Pladeck",
     role: "GF Greenfood Natural Products BV",
     image: "/clients/Roland.jpg.avif",
+    art: "person",
   },
   {
     quote:
@@ -32,6 +34,7 @@ export const testimonials: Testimonial[] = [
     name: "Laurenz Elbers",
     role: "GF Bachgold AG",
     image: "/clients/Laurenz.jpeg.avif",
+    art: "person",
   },
   {
     quote:
@@ -46,6 +49,7 @@ export const testimonials: Testimonial[] = [
     name: "Gianluca G.",
     role: "GF P+G E-Com GbR",
     image: "/clients/Gianluca.png.webp",
+    art: "logo",
   },
   {
     quote:
@@ -60,6 +64,7 @@ export const testimonials: Testimonial[] = [
     name: "Markus Bieletzki",
     role: "Gründer badSTARK",
     image: "/clients/Markus.png.webp",
+    art: "logo",
   },
 ];
 

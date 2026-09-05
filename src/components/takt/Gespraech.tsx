@@ -54,8 +54,12 @@ export function Gespraech({
 }) {
   const reduce = useReducedMotion();
 
+  /* Mehr Luft nach oben und unten, damit niemand versehentlich vorbeiscrollt.
+     Die Karte selbst bleibt so hoch, dass Bild, Ueberschrift, Knopf und
+     Zusagen zusammen in einen Bildschirm passen, auf dem Telefon wie am
+     Rechner. */
   return (
-    <section className="ground-tint relative py-16 md:py-20">
+    <section className="ground-tint relative py-20 md:py-28">
       <div className="container-x relative">
         <motion.div
           className="panel-navy on-dark relative grid overflow-hidden md:grid-cols-[0.72fr_1.28fr]"
@@ -70,7 +74,7 @@ export function Gespraech({
               Karte aus, dadurch stand unten links eine eckige Ecke an einer
               sonst runden Karte. */}
           <div
-            className="relative min-h-[17rem] overflow-hidden rounded-t-[1.75rem] sm:min-h-[20rem] md:min-h-[23rem] md:rounded-t-none md:rounded-l-[1.75rem]"
+            className="relative min-h-[15rem] overflow-hidden rounded-t-[1.75rem] sm:min-h-[20rem] md:min-h-[25rem] md:rounded-t-none md:rounded-l-[1.75rem]"
             style={{
               background:
                 "radial-gradient(120% 95% at 50% 108%, rgba(255,153,0,0.3), transparent 58%), radial-gradient(90% 70% at 50% 6%, rgba(112,178,214,0.3), transparent 62%), linear-gradient(170deg, #17405d 0%, #0d2540 100%)",

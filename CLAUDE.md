@@ -188,6 +188,36 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   Grafik oben und Text darunter machte aus einer kurzen Aussage eine sehr
   hohe Sektion.
 
+## Sechste Feedbackrunde (verbindlich)
+
+- **Die Marktplatzkarte ist eine echte Landkarte.** Umrisse aus Natural Earth,
+  `node scripts/europa-karte.mjs` rechnet sie in eine Lambert-Projektion und
+  schreibt `src/components/service/europa-geo.ts`. Ausschnitt Portugal bis
+  Polen, kein Globus und keine Weltansicht. Gezeigt werden die Pan-EU-Maerkte
+  (DE, FR, IT, ES, NL, BE, PL, SE), dazu Grossbritannien und ein Verweis auf
+  die USA. Kein Kanada, kein Mexiko. Jede Flagge sitzt auf ihrem Land, von
+  Deutschland laufen Lichtpunkte dauerhaft in die anderen Maerkte.
+- **Keine Kasten-in-Kasten-Sektionen.** Wenn eine Sektion eine eigene Farbe
+  traegt, laeuft der Inhalt ueber die Breite und liegt nicht noch einmal in
+  einer Box darin. Das Kennzahlenband ist deshalb eine Navy-Sektion ohne
+  Innenkarte.
+- **Der Abschluss-CTA darf hoch sein**, aber Bild, Ueberschrift, Knopf und
+  Zusagen muessen zusammen in einen Bildschirm passen, am Telefon wie am
+  Rechner.
+- **Weisse Kacheln tragen ein bewegtes Piktogramm** aus
+  `service/Piktogramme.tsx`, keine leeren Kacheln und nichts aus dem
+  allgemeinen Strich-Satz. Auf der Startseite und der Full-Service-Seite
+  bleiben die bestehenden Grafiken, dort sind die Zeichen schon eigene
+  Zeichnungen.
+- **Der Hero zeigt Wachstum, kein Produkt.** Rechts die freigestellte
+  Wachstumsszene (`bilder/h-wachstum.webp`), die leise schwebt und zum Zeiger
+  kippt. Der Listing-Nachbau ist raus.
+- **Im Hero steht sozialer Beleg, keine Kennzahlkarten.** Drei echte
+  Kundengesichter aus den Kundenstimmen, fuenf Sterne, eine Zeile. Die drei
+  dunklen Kennzahlkarten sind weg: sie setzten drei weitere Farbakzente neben
+  den Knopf, der der einzige Blickfang sein soll. Portraits sind nur die
+  Bilder mit `art: "person"`, zwei der Kundenbilder sind Buchstabenkacheln.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.

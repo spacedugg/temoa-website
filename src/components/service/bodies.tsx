@@ -50,6 +50,7 @@ export function StrategieBody() {
         cols={2}
         items={[
           {
+            piktogramm: "analyse",
             title: "Analyse",
             subtitle: "Was in den Berichten steht",
             bullets: [
@@ -60,6 +61,7 @@ export function StrategieBody() {
             ],
           },
           {
+            piktogramm: "fahrplan",
             title: "Strategie & Fahrplan",
             subtitle: "Was daraus folgt",
             bullets: [
@@ -227,26 +229,32 @@ export function AdvertisingBody() {
         cols={3}
         items={[
           {
+            piktogramm: "marge",
             title: "Erst rechnen, dann skalieren",
             body: "Mehr Budget bekommt nur, was nach allen Kosten Gewinn bringt.",
           },
           {
+            piktogramm: "struktur",
             title: "Kampagnen sauber aufgebaut",
             body: "Jede Kampagne hat eine Aufgabe. Keine bietet gegen die andere.",
           },
           {
+            piktogramm: "marke",
             title: "Eure Marke verteidigt",
             body: "Wer nach eurem Namen sucht, landet bei euch, nicht beim Wettbewerb.",
           },
           {
+            piktogramm: "suche",
             title: "Neue Suchbegriffe laufend gesucht",
             body: "Was verkauft, wandert in die eigene Kampagne. Was nicht, fliegt raus.",
           },
           {
+            piktogramm: "pricing",
             title: "Gebote täglich nachgezogen",
             body: "Angepasst an Wettbewerb, Saison und Platzierung, nicht einmal im Monat.",
           },
           {
+            piktogramm: "ranking",
             title: "Werbung, die das Ranking mitzieht",
             body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
           },
@@ -396,21 +404,25 @@ export function InternationalisierungBody() {
         cols={2}
         items={[
           {
+            piktogramm: "sprache",
             title: "Eigene Keyword-Recherche",
             subtitle: "Jeder Markt sucht anders",
             body: "Für jeden Marktplatz recherchieren wir die Suchbegriffe neu, statt sie aus dem Startmarkt zu übersetzen.",
           },
           {
+            piktogramm: "seite",
             title: "Lokalisierter Content",
             subtitle: "Geschrieben für den Markt",
             body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz neu erstellt, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
           },
           {
+            piktogramm: "kampagne",
             title: "Eigene Kampagnen",
             subtitle: "Lokal gesteuert",
             body: "Sponsored Products, Brands und Display je Marktplatz neu aufgesetzt und über den lokalen TACoS gesteuert.",
           },
           {
+            piktogramm: "wiederholen",
             title: "Markt für Markt",
             subtitle: "Der gleiche volle Aufwand",
             body: "Die komplette Arbeit, die ein Marktplatz bekommt, bekommt auch der nächste. Ohne Abkürzung.",
