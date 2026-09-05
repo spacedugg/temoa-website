@@ -338,6 +338,41 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
   Wortschatz ist gefaehrlich, weil man ihn beim naechsten Mal
   wiederverwendet.
 
+## Siebte Feedbackrunde (verbindlich)
+
+- **Die Marktplatzgrafik ist ein Ausschnitt einer Kugel, keine Scheibe.**
+  Die Kugel ist groesser als der Rahmen und deckt ihn ab: oben, unten und
+  links laeuft sie hinaus, es gibt keinen sichtbaren Rand und keine
+  Lichtkante. Ein Rechteck im aeussersten Ton des Verlaufs liegt hinter der
+  Kugel, damit in den Ecken kein Stueck helle Seite steht.
+- **Der Ausschnitt reicht bis an den Bildschirmrand**, ohne dass etwas
+  abgeschnitten wird: der negative Rand links ist genau der Rand des
+  Containers (`-ml-[calc(max(2rem,(100vw-80rem)/2+2rem))]`). Ein glatter
+  `-ml-[18vw]` sieht auf einem Bildschirm richtig aus und schneidet auf dem
+  naechsten die USA ab.
+- **Weiche Kanten statt harter.** Die Grafik laeuft oben, unten und zum Text
+  hin ueber eine Maske aus. Zwei verschachtelte Huellen, weil ein Element nur
+  eine Maske traegt: aussen senkrecht, innen waagerecht. `mask-composite`
+  kann nicht jeder Browser.
+- **In einem Ausschnitt liegen die Schilder auf der Kugel**, nicht daneben:
+  neben der Woelbung waere kein Platz, ohne dass die Kugel wieder klein wird.
+  Die neun europaeischen Schilder stehen als Spalte ueber dem Atlantik, die
+  USA tragen ihres neben dem Punkt. Leitlinien sind hell, nicht dunkel: sie
+  laufen ueber dunkles Blau.
+- **Ringe, die groesstenteils hinter dem Horizont liegen, fallen weg.** Punkte
+  auf der Rueckseite werden auf den Rand gezogen, damit Kuesten nicht
+  abreissen. Aus einer Inselkette hinter dem Horizont wird dadurch ein
+  Schmierstreifen am Rand, wenn ein einziger sichtbarer Punkt schon reicht.
+- **Kein dunkles Zeichen auf oranger Flaeche, nirgends.** Betroffen waren die
+  Schrittmarke `.schritt-orange` (dunkle Ziffer auf Orange, jetzt Navy mit
+  weisser Ziffer und orangem Ring), die Bruecke und die Haken in
+  `Lieferung`, das Kennzahlenband, der Einkaufswagen im Hero und die Scheiben
+  der Knoepfe. Geprueft wird das nicht per Auge, sondern indem man jede Seite
+  im Browser nach Elementen mit oranger Flaeche durchgeht und deren Text-,
+  `stroke`- und `fill`-Farbe auf Helligkeit prueft.
+- **Ausgenommen ist der Textmarker `.mark`**: der orange Balken sitzt unter
+  der Grundlinie, die Schrift steht nicht darauf.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.

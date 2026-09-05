@@ -93,7 +93,7 @@ function SchedulerPlaceholder() {
               <div className="text-xs font-semibold text-ink-faint">{d}</div>
               <div
                 className={`mt-1.5 grid h-11 place-items-center rounded-xl text-sm font-bold ring-1 ${
-                  i === 2 ? "bg-brand-500/10 text-brand-600 ring-brand-200" : "text-ink ring-black/[0.06]"
+                  i === 2 ? "bg-brand-500/10 text-ink ring-brand-200" : "text-ink ring-black/[0.06]"
                 }`}
               >
                 {12 + i}
@@ -114,7 +114,7 @@ function SchedulerPlaceholder() {
             <div
               key={s}
               className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold ring-1 transition ${
-                i === 1 ? "bg-brand-500/10 text-brand-700 ring-brand-200" : "text-ink-muted ring-black/[0.07]"
+                i === 1 ? "bg-brand-500/10 text-ink ring-brand-200" : "text-ink-muted ring-black/[0.07]"
               }`}
             >
               {s}

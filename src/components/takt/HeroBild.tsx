@@ -102,11 +102,11 @@ function Produktseite({ reduce }: { reduce: boolean }) {
       <div className="flex items-center gap-3 rounded-[0.9rem] bg-navy px-3.5 py-2.5">
         <span aria-hidden className="h-2 w-14 rounded-full bg-white/25" />
         <span aria-hidden className="h-6 flex-1 rounded-md bg-white/90" />
-        <span aria-hidden className="grid h-6 w-6 place-items-center rounded-md bg-brand-500">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0A1E2B" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+        <span aria-hidden className="grid h-6 w-6 place-items-center rounded-md bg-white/15">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FF9900" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 6h15l-1.5 9h-12z" />
-            <circle cx="9" cy="20" r="1.4" fill="#0A1E2B" />
-            <circle cx="18" cy="20" r="1.4" fill="#0A1E2B" />
+            <circle cx="9" cy="20" r="1.4" fill="#FF9900" />
+            <circle cx="18" cy="20" r="1.4" fill="#FF9900" />
           </svg>
         </span>
       </div>
@@ -171,7 +171,7 @@ function Produktseite({ reduce }: { reduce: boolean }) {
           {/* Der Kaufknopf. Orange als Flaeche ist hier richtig: das ist der
               Nachbau einer Produktseite, nicht ein Knopf dieser Website. */}
           <motion.div
-            className="mt-4 grid min-h-[2.4rem] place-items-center rounded-full bg-brand-500 text-[0.8rem] font-bold text-navy"
+            className="mt-4 grid min-h-[2.4rem] place-items-center rounded-full bg-navy text-[0.8rem] font-bold text-white"
             initial={reduce ? undefined : { opacity: 0, y: 8 }}
             animate={reduce ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6, ease: EASE }}

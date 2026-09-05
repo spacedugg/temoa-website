@@ -290,7 +290,7 @@ export function Verfahren() {
               <div className="flex items-start justify-between gap-3">
                 <span className="num text-[1.7rem] text-ink/20">{String(i + 1).padStart(2, "0")}</span>
                 {s.signal && (
-                  <span className="rounded-full bg-brand-500 px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-navy">
+                  <span className="rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-brand-400">
                     Ranking-Signal
                   </span>
                 )}
@@ -305,7 +305,7 @@ export function Verfahren() {
       {/* Scharnier zwischen den beiden Bloecken. */}
       <motion.div
         {...auf(0.12)}
-        className="relative mx-auto -mt-3 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-brand-500 px-7 py-4 text-navy shadow-[0_14px_34px_-10px_rgba(255,153,0,0.7)]"
+        className="relative mx-auto -mt-3 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-navy px-7 py-4 text-white shadow-[0_14px_34px_-10px_rgba(255,153,0,0.55)]"
       >
         <span className="text-label font-bold uppercase">Ergebnis</span>
         <span className="text-center text-[1.05rem] font-extrabold leading-snug">
@@ -361,7 +361,7 @@ export function Verfahren() {
           <ul className="relative mt-6 space-y-4">
             {gegenueber.map((r) => (
               <li key={r.neu} className="flex gap-3.5">
-                <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500 text-navy">
+                <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-navy text-brand-500">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                     <path d="M5 13l4.5 4.5L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>

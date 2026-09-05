@@ -505,10 +505,17 @@ footer :where(a, button):focus-visible,
     color: #fff;
     box-shadow: 0 8px 18px -8px rgba(13, 36, 57, 0.6);
   }
+  /* Die zweite Schrittmarke war eine orange Scheibe mit dunkler Ziffer. Das
+     ist der Fall, den es auf dieser Website nicht mehr geben soll: dunkles
+     Zeichen auf oranger Fläche. Jetzt trägt Navy die weiße Ziffer, das Orange
+     sitzt als Ring und Lichthof darum und unterscheidet den Schritt trotzdem
+     vom ersten. */
   .schritt-orange {
-    background: #ff9900;
-    color: #0b1f34;
-    box-shadow: 0 8px 18px -8px rgba(255, 153, 0, 0.8);
+    background: #0e2740;
+    color: #fff;
+    box-shadow:
+      0 0 0 3px rgba(255, 153, 0, 0.95),
+      0 8px 18px -8px rgba(255, 153, 0, 0.8);
   }
 
   /* KPI-Karte mit Trendrichtung, nach der Referenz mit den drei Kennzahlen. */
@@ -548,9 +555,12 @@ footer :where(a, button):focus-visible,
   .btn-primary:active {
     transform: translateY(0);
   }
-  /* Scheibe im Button, wandert beim Hover nach rechts. */
+  /* Scheibe im Button, wandert beim Hover nach rechts.
+     Sie war orange mit dunklem Pfeil. Dunkle Zeichen auf Orange sind auf
+     dieser Website raus, deshalb jetzt eine helle Scheibe mit Navy-Pfeil und
+     das Orange nur noch als Lichthof darum. */
   .btn-primary .disc {
-    @apply grid h-10 w-10 shrink-0 place-items-center rounded-[0.8rem] bg-brand-500 text-navy transition-transform duration-300;
+    @apply grid h-10 w-10 shrink-0 place-items-center rounded-[0.8rem] bg-white text-navy transition-transform duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
     box-shadow: 0 0 18px -2px rgba(255, 153, 0, 0.75);
   }
@@ -571,8 +581,10 @@ footer :where(a, button):focus-visible,
   .btn-on-dark:active {
     transform: translateY(0);
   }
+  /* Auf hellem Knopf: Navy-Scheibe mit weissem Pfeil. Vorher orange mit
+     dunklem Pfeil. */
   .btn-on-dark .disc {
-    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-brand-500 text-navy transition-transform duration-300;
+    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-navy text-white transition-transform duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
   }
   .btn-on-dark:hover .disc {
@@ -627,8 +639,10 @@ footer :where(a, button):focus-visible,
       background-color 0.35s ease;
   }
   .btn-kopf:hover .disc {
-    background-color: #ff9900;
+    /* Kein Umschlag auf Orange mehr: der Pfeil darin ist dunkel, und dunkle
+       Zeichen auf Orange sind raus. Die Scheibe bleibt hell und wandert. */
     transform: translateX(3px);
+    box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.28);
   }
 
   /* Zweite Aktion: Textlink mit Unterkante, keine zweite Pille. */

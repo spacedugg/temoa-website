@@ -57,9 +57,18 @@ const UMGEBUNG = [
 const RAD = Math.PI / 180;
 const MITTE_LON = -26 * RAD;
 const MITTE_LAT = 45 * RAD;
-const R = 460;
-const CX = 500;
-const CY = 500;
+/* Ein Ausschnitt, keine Scheibe: die Kugel ist groesser als der Rahmen und
+   deckt ihn vollstaendig ab, an allen vier Seiten laeuft sie hinaus. Keine
+   Woelbung im Bild, kein Kreis auf heller Flaeche.
+   Der Rahmen beginnt am linken Rand des Bildschirms: die Grafik ragt genau um
+   den Rand des Containers nach links heraus, nichts davon wird abgeschnitten.
+   Rechts laeuft sie unter dem Text weich aus, deshalb liegt Europa bei rund
+   drei Vierteln der Breite und nicht am Rand. */
+const R = 910;
+const CX = 754;
+const CY = 560;
+const BREITE = 1520;
+const HOEHE = 960;
 
 /** Kosinus des Winkelabstands zum Mittelpunkt der sichtbaren Halbkugel. */
 function kosinus(lon, lat) {
@@ -89,9 +98,13 @@ function auf([lon, lat]) {
   return [CX + R * x, CY - R * y];
 }
 
-/* Ringe, die komplett auf der Rueckseite liegen, fliegen raus. */
+/* Ringe, die groesstenteils auf der Rueckseite liegen, fliegen raus. Ein
+   einziger sichtbarer Punkt reicht nicht: die uebrigen werden auf den Rand der
+   Kugel gezogen, und aus einer Inselkette hinter dem Horizont wird dann ein
+   breiter Schmierstreifen am Rand. */
 function ringSichtbar(ring) {
-  return ring.some(([lon, lat]) => kosinus(lon, lat) > 0.02);
+  const sichtbar = ring.filter(([lon, lat]) => kosinus(lon, lat) > 0.02).length;
+  return sichtbar / ring.length > 0.45;
 }
 
 /* Douglas-Peucker: Punkte, die auf der Verbindung ihrer Nachbarn liegen,
@@ -216,8 +229,8 @@ const inhalt = `/* Erzeugt von scripts/europa-karte.mjs. Nicht von Hand aendern.
    orthografische Projektion mit Blick auf den Nordatlantik: Europa rechts,
    Nordamerika links. */
 
-export const KARTE_BREITE = 1000;
-export const KARTE_HOEHE = 1000;
+export const KARTE_BREITE = ${BREITE};
+export const KARTE_HOEHE = ${HOEHE};
 export const KUGEL = { cx: ${CX}, cy: ${CY}, r: ${R} };
 
 export type Land = { name: string; code: string | null; d: string };
