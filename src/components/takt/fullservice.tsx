@@ -449,7 +449,7 @@ const onboarding: { schritt: string; title: string; body: string; icon: IconName
   {
     schritt: "Tag 0",
     title: "Das Gespräch",
-    body: "45 Minuten mit Clemens. Wir schauen in eure Berichte und sagen, was wir sehen.",
+    body: "25 Minuten mit Clemens zum Kennenlernen. Passt es, folgt ein zweiter Termin mit euren Zahlen.",
     icon: "kompass",
   },
   {

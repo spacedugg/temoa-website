@@ -10,7 +10,7 @@ import {
   Lieferung,
   Ergebnis,
 } from "./Blocks";
-import { Marktkarte } from "./Karte";
+import { MarktSektion } from "./Karte";
 import { Aufgaben } from "./Aufgaben";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
@@ -421,12 +421,10 @@ export function InternationalisierungBody() {
           },
         ]}
       />
-      <TextMedia
-        tone="blue"
+      <MarktSektion
         eyebrow="Wie es aussieht"
         title="Ein Konto, jedes Land für sich aufgebaut."
         text="Der Startmarkt bleibt der Startmarkt. Jedes weitere Land bekommt die komplette Arbeit noch einmal, statt eine Übersetzung des ersten."
-        aside={<Marktkarte />}
       />
       <Ergebnis
         eyebrow="Aus der Praxis"

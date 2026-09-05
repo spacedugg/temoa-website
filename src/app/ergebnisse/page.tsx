@@ -104,10 +104,6 @@ export default function ErgebnissePage() {
         <ServiceCTA
           title="Was wäre bei euch möglich?"
           sub="In der kostenlosen Potenzialanalyse rechnen wir das an euren Zahlen durch, nicht an fremden."
-          zusagen={[
-            "30 Minuten, danach kennt ihr die Zahl, die euer Sortiment noch hergibt",
-            "Die Auswertung bleibt bei euch, auch wenn wir nicht zusammenarbeiten",
-          ]}
         />
       </main>
       <Fusszeile />

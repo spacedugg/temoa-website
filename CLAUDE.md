@@ -131,6 +131,37 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   optisch vor der naechsten. Jetzt traegt die Steigerung die Farbe (gruen),
   die drei Bestandszahlen bleiben weiss, dazwischen feine Trennlinien.
 
+## Vierte Feedbackrunde (verbindlich)
+
+- **Die Signalfarbe ist das Logo-Rot #FF3131.** Zwei Vorfassungen waren zu
+  dunkel: erst ein Rot mit Stich ins Braune, dann ein tiefes Weinrot. Beide
+  waren kontraststark und trotzdem nicht die Farbe der Marke. `.ground-signal`
+  laeuft jetzt von #FF3131 oben rechts nach #BD0D19 unten links, die Textzone
+  liegt in der tieferen Ecke.
+- **Nichts liegt als Kachel auf einem Gesicht.** Die Glasplatte mit „Hi, ich
+  bin Clemens." ist vom Foto verschwunden. Die Zeile steht im Text, wo sie
+  Kontrast hat, auf der Buchungsseite unter dem Bild.
+- **Der handgezeichnete Pfeil endet auf dem Knopf**, nicht auf einem Kinn. Er
+  haengt am Knopf (`absolute` im Knopf-Wrapper) und ragt nach links ueber das
+  Bild hinaus, dadurch sitzt er auf jeder Seite richtig, egal wie lang die
+  Ueberschrift ist.
+- **Der Globus ist ein 3D-Bild plus Code.** Die Kugel kommt freigestellt aus
+  `bilder/s-international-globus.webp`, die Marktplaetze zeichnet der Code als
+  Flaggenschilder mit Leitlinie auf den Punkt. Kein Ring, nichts wird
+  angeschnitten, und die Laenderliste unter der Grafik entfaellt: der Name
+  steht am Land. Auf dem Telefon steht die Kugel allein, darunter die Flaggen
+  mit Namen, weil Schrift in der Grafik dort fuenf Pixel gross waere.
+- **Der Ablauf des Erstgespraechs stimmt jetzt.** 25 Minuten zum
+  Kennenlernen, kein Blick in den Account vorab. Erst wenn es fuer beide
+  Seiten passt, folgt ein zweiter Termin mit aufbereiteten Zahlen. „45
+  Minuten", „30 Minuten" und „wir schauen vorab in eure Listings" sind
+  ueberall raus.
+- **Bewegte Piktogramme** (`service/Aufgaben`) sind das Vorbild fuer Icons in
+  Kacheln. Auf der Startseite und der Full-Service-Seite bleiben die
+  bestehenden Grafiken, dort sind die Icons bereits eigene Zeichnungen
+  (`takt/Icons`). Aus dem allgemeinen Strich-Satz (`ui/Icon`) kommt nichts
+  Neues mehr dazu.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.

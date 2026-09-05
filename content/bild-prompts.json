@@ -435,6 +435,15 @@
       "stil": "produkt",
       "rahmen": false,
       "prompt": "The product is a matte deep navy blue stainless steel insulated drinking bottle, roughly 750 ml: a straight cylindrical body, a gently tapered shoulder, and a brushed stainless steel screw cap with a small integrated carrying loop. The entire surface is completely smooth, unbranded and unlabelled. Wide horizontal macro of the screw cap resting beside the open bottle neck on a plain warm sand surface, the brushed steel thread and the silicone seal clearly readable, generous empty space on the right half of the frame."
+    },
+    {
+      "kennung": "s-international-globus",
+      "seite": "Internationalisierung: Globus",
+      "size": "1024x1024",
+      "motiv": "Weiche 3D-Erdkugel, Europa und Nordatlantik zum Betrachter",
+      "stil": "szene3d",
+      "prompt": "A single soft 3D globe of planet Earth, three-quarter view, tilted slightly, with Europe, North Africa and the North Atlantic facing the viewer and North America visible at the left edge. The oceans are a smooth matte deep navy surface, the continents sit slightly raised above them and are rendered as a fine regular dot pattern in light slate blue and pale grey. A soft warm orange rim light runs along the upper right edge of the sphere, the lower left falls into shadow. Exactly this one sphere in the frame and nothing else: no pins, no markers, no flags, no cards, no arcs, no orbit rings, no stars, no clouds, no atmosphere halo.",
+      "transparent": true
     }
   ],
   "stilblocks": {

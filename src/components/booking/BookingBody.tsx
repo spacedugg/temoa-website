@@ -1,6 +1,8 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
+import { Icon, type IconName } from "../takt/Icons";
 import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Stimmen } from "../takt/sections";
 import { ZahlText } from "../takt/Zahl";
@@ -47,6 +49,95 @@ function Cross() {
   );
 }
 
+/* Der Ablauf, wie er wirklich laeuft: erst ein kurzes Kennenlernen, dann ein
+   zweiter Termin mit vorbereiteten Zahlen, dann die Entscheidung. Vorher stand
+   auf dieser Seite, wir wuerden vorab in Listings und Kampagnen schauen und im
+   Termin 45 Minuten den Bildschirm teilen. */
+const ablauf: { schritt: string; title: string; body: string; icon: IconName }[] = [
+  {
+    schritt: "Schritt 1",
+    title: "Erstgespräch, 25 Minuten",
+    body: "Wir hören, wo ihr steht: Sortiment, Ziele, was gerade klemmt. Ihr hört, wie wir arbeiten.",
+  icon: "kompass",
+  },
+  {
+    schritt: "Schritt 2",
+    title: "Zweiter Termin mit euren Zahlen",
+    body: "Passt es für beide Seiten, bereiten wir eure Zahlen auf und gehen sie mit euch durch.",
+    icon: "lupe",
+  },
+  {
+    schritt: "Schritt 3",
+    title: "Ihr entscheidet",
+    body: "Ihr wisst, welche Schritte zuerst kommen und was sie bringen sollen. Alles Weitere entscheidet ihr.",
+    icon: "stufen",
+  },
+];
+
+const EASE = [0.32, 0.72, 0, 1] as const;
+
+function Ablauf() {
+  const reduce = useReducedMotion();
+
+  return (
+    <section className="ground relative py-20 md:py-24">
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Ablauf"
+          size="compact"
+          title={
+            <>
+              Vom ersten Termin bis <span className="text-gradient">zur Entscheidung.</span>
+            </>
+          }
+        />
+
+        <div className="relative mt-14">
+          {/* Die Bahn zeichnet sich von links nach rechts, bevor die Schritte
+              einlaufen. Dieselbe Bewegung wie beim Onboarding auf der
+              Full-Service-Seite, damit beide Seiten dieselbe Sprache sprechen. */}
+          <motion.span
+            aria-hidden
+            className="absolute left-0 top-[2.05rem] hidden h-[2px] w-full origin-left md:block"
+            style={{
+              background: "linear-gradient(90deg, rgba(255,153,0,0.15), #FF9900 45%, rgba(255,153,0,0.15))",
+              boxShadow: "0 0 14px rgba(255,153,0,0.45)",
+            }}
+            initial={reduce ? undefined : { scaleX: 0 }}
+            whileInView={reduce ? undefined : { scaleX: 1 }}
+            viewport={{ once: true, margin: "-15% 0px" }}
+            transition={{ duration: 1.1, ease: EASE }}
+          />
+
+          <div className="grid gap-8 md:grid-cols-3 md:gap-6">
+            {ablauf.map((a, i) => (
+              <motion.div
+                key={a.schritt}
+                initial={reduce ? undefined : { opacity: 0, y: 20 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-12% 0px" }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.16, ease: EASE }}
+                className="relative flex flex-col"
+              >
+                <span className="relative z-10 grid h-[4.1rem] w-[4.1rem] place-items-center rounded-[1.3rem] bg-navy text-brand-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_0_0_6px_rgba(244,248,251,1)]">
+                  <Icon name={a.icon} className="h-8 w-8" />
+                </span>
+                <span className="mt-6 text-label font-bold uppercase tracking-[0.14em] text-ink-faint">
+                  {a.schritt}
+                </span>
+                <span className="mt-2 text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem]">
+                  {a.title}
+                </span>
+                <p className="mt-2.5 text-small leading-relaxed text-ink-muted">{a.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function BookingBody() {
   return (
     <>
@@ -63,24 +154,26 @@ export function BookingBody() {
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="mx-auto mt-6 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
-                Erst schauen wir in euren Account, <span className="text-gradient">dann reden wir.</span>
+                Erst lernen wir uns kennen, <span className="text-gradient">dann die Zahlen.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
-                Vor dem Termin sehen wir uns eure Listings und Kampagnen an. Im Gespräch bekommt ihr
-                konkrete Beobachtungen und eine Einschätzung, keine Präsentation.
+                Ein kurzes erstes Gespräch, in dem wir eure Lage verstehen und ihr uns kennenlernt.
               </p>
             </Reveal>
 
-            {/* Was in den 45 Minuten passiert. Vorher stand das nirgends, und
-                wer nicht weiss, was ihn erwartet, bucht nicht. */}
+            {/* Was im ersten Gespraech passiert. Vorher stand hier, dass wir
+                vorab in Listings und Kampagnen schauen und 45 Minuten den
+                Bildschirm teilen: so laeuft es nicht. Das erste Gespraech
+                dauert 25 Minuten und dient dem Kennenlernen, die
+                vorbereitete Auswertung kommt im zweiten Termin. */}
             <Reveal delay={0.16}>
               <ul className="mx-auto mt-8 grid max-w-lg gap-3 text-left lg:mx-0">
                 {[
-                  "45 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
-                  "Wir zeigen den Bildschirm und gehen eure Zahlen durch",
-                  "Am Ende wisst ihr, welche drei Schritte zuerst kommen",
+                  "25 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
+                  "Wir fragen nach Sortiment, Zielen und dem, was gerade klemmt",
+                  "Am Ende wisst ihr, ob es passt und wie der nächste Schritt aussieht",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
                     <CheckGreen />
@@ -127,27 +220,20 @@ export function BookingBody() {
                   className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
                   style={{ filter: "drop-shadow(0 22px 40px rgba(4,16,28,0.55))" }}
                 />
-                <figcaption
-                  className="absolute inset-x-4 bottom-4 rounded-[1.1rem] px-4 py-3 md:inset-x-5 md:bottom-5"
-                  style={{
-                    background: "rgba(6,24,38,0.66)",
-                    boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.16)",
-                    backdropFilter: "blur(8px)",
-                  }}
-                >
-                  <span className="flex gap-0.5" aria-hidden>
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900">
-                        <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                      </svg>
-                    ))}
-                  </span>
-                  <div className="mt-2 text-[0.95rem] font-bold text-white">Hi, ich bin Clemens.</div>
-                  <div className="mt-0.5 text-small text-chalk-faint">
-                    Founder. Ich führe das Gespräch selbst.
-                  </div>
-                </figcaption>
               </div>
+              {/* Die Angaben stehen unter dem Bild, nicht als Kachel darauf.
+                  Eine Platte auf einem Gesicht sieht nach Aufkleber aus. */}
+              <figcaption className="mt-5">
+                <span className="flex gap-0.5" aria-hidden>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#FF9900">
+                      <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
+                    </svg>
+                  ))}
+                </span>
+                <div className="mt-2 text-[1rem] font-bold text-ink">Hi, ich bin Clemens.</div>
+                <div className="mt-0.5 text-small text-ink-muted">Founder. Ich führe das Gespräch selbst.</div>
+              </figcaption>
             </figure>
           </Reveal>
         </div>
@@ -194,6 +280,8 @@ export function BookingBody() {
           </Reveal>
         </div>
       </section>
+
+      <Ablauf />
 
       {/* Passt / Passt nicht */}
       <section className="ground-tint relative py-20 md:py-24">
@@ -279,12 +367,12 @@ export function BookingBody() {
         <div className="container-x relative">
           <Reveal>
             <h2 className="title mx-auto max-w-[24ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
-              Nehmt euch die 30 Minuten.
+              Nehmt euch die 25 Minuten.
             </h2>
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mt-5 max-w-[50ch] text-pretty text-lead text-chalk-muted">
-              Der Termin ist kostenlos und unverbindlich. Danach wisst ihr, was in eurem Konto liegt.
+              Danach wisst ihr, ob wir zueinander passen. Alles Weitere entscheidet ihr danach.
             </p>
           </Reveal>
           <Reveal delay={0.14}>

@@ -4,11 +4,14 @@ import { useState } from "react";
 import { ZahlText } from "../takt/Zahl";
 import { cases, type CaseStudy, type CaseStat, type CaseBadge } from "@/lib/cases";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
-import { Icon, type IconName } from "../ui/Icon";
+import { Icon, type IconName } from "../takt/Icons";
 import { CaseChart } from "./CaseChart";
 
-/* Icon je Story-Schritt: Ausgangslage -> Vorgehen -> Ergebnis. */
-const STEP_ICONS: IconName[] = ["search", "strategy", "rocket"];
+/* Icon je Story-Schritt: Ausgangslage, Vorgehen, Ergebnis. Die Zeichen kommen
+   aus dem Satz der Website (`takt/Icons`), nicht aus dem allgemeinen
+   Strich-Satz: Lupe, Kompass, Stufen sagen etwas ueber den Schritt, eine
+   Rakete sagt nichts. */
+const STEP_ICONS: IconName[] = ["lupe", "kompass", "stufen"];
 
 /** Brand logo in a white chip, overlaid on the case thumbnail. Renders
  *  nothing for anonymised brands and hides itself until the logo loads,
@@ -144,7 +147,7 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
               <div className="relative flex h-full flex-col rounded-3xl bg-white p-6 shadow-soft ring-1 ring-black/[0.05]">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: `${c.accent}14`, color: c.accent }}>
-                    <Icon name={STEP_ICONS[i % STEP_ICONS.length]} size={20} />
+                    <Icon name={STEP_ICONS[i % STEP_ICONS.length]} className="h-5 w-5" />
                   </span>
                   <span className="text-sm font-extrabold" style={{ color: c.accent }}>{String(i + 1).padStart(2, "0")}</span>
                 </div>
