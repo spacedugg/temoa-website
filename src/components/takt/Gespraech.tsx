@@ -99,7 +99,7 @@ export function Gespraech({
           {/* Portraetspalte. Der Schein sitzt hinter dem Kopf, damit die dunkle
               Jacke nicht im dunklen Rot verschwindet. */}
           <div
-            className="relative min-h-[16rem] overflow-hidden sm:min-h-[19rem] md:min-h-[22rem]"
+            className="relative min-h-[18.5rem] overflow-hidden sm:min-h-[20rem] md:min-h-[22rem]"
             style={{
               background:
                 "radial-gradient(110% 80% at 50% 18%, rgba(255,158,96,0.45), transparent 62%), rgba(74,6,10,0.4)",
