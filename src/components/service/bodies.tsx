@@ -325,17 +325,17 @@ export function AccountBody() {
       <Cards
         tone="blue"
         eyebrow="Was wir übernehmen"
-        title="Acht Aufgaben, die euch keiner mehr abnimmt."
+        title="Acht Aufgaben weniger auf eurem Tisch."
         cols={3}
         items={[
-          { title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
-          { title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
-          { title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
-          { title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
-          { title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
-          { title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
-          { title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
+          { icon: "target", title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
+          { icon: "layers", title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
+          { icon: "shield", title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
+          { icon: "content", title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
+          { icon: "account", title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
+          { icon: "spark", title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
+          { icon: "margin", title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
+          { icon: "chart", title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
         ]}
       />
       <ResultBlock

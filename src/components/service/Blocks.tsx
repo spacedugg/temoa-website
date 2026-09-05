@@ -220,6 +220,8 @@ export type Card = {
   subtitle?: string;
   body?: string;
   bullets?: string[];
+  /** Zeichen ueber der Ueberschrift. Macht auf einen Blick klar, worum es geht. */
+  icon?: IconName;
 };
 
 export function Cards({
@@ -252,9 +254,13 @@ export function Cards({
                   raus. Die Reihenfolge tragen jetzt Ziffern in der Ecke, die
                   Farbe sitzt auf den Aufzaehlungszeichen. */}
               <div className="panel panel-lift flex h-full flex-col p-6 md:p-7">
-                {(it.n || it.kicker) && (
+                {(it.n || it.kicker || it.icon) && (
                   <div className="flex items-center justify-between gap-3">
-                    {it.kicker ? (
+                    {it.icon ? (
+                      <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-[1.05rem] ${a.text}`} style={{ background: "rgba(10,30,43,0.04)", boxShadow: "inset 0 0 0 1px rgba(10,30,43,0.06)" }}>
+                        <Icon name={it.icon} size={30} />
+                      </span>
+                    ) : it.kicker ? (
                       <span className="text-label font-bold uppercase tracking-[0.14em] text-ink-soft">
                         {it.kicker}
                       </span>
@@ -265,7 +271,7 @@ export function Cards({
                   </div>
                 )}
                 {it.title && (
-                  <h3 className={`text-balance text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem] ${it.n || it.kicker ? "mt-4" : ""}`}>
+                  <h3 className={`text-balance text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem] ${it.n || it.kicker || it.icon ? "mt-5" : ""}`}>
                     {it.title}
                   </h3>
                 )}
@@ -396,9 +402,9 @@ export function Points({
   aside?: ReactNode;
 }) {
   const liste = (
-    <div className={`grid gap-3.5 ${aside ? "mt-9" : "mt-10 sm:grid-cols-2 sm:gap-4"}`}>
+    <div className="mt-10 grid gap-3.5 sm:grid-cols-2 sm:gap-4">
       {points.map((p, i) => {
-        const allein = !aside && points.length % 2 === 1 && i === points.length - 1;
+        const allein = points.length % 2 === 1 && i === points.length - 1;
         return (
           <Reveal key={p} delay={i * 0.05} className={allein ? "sm:col-span-2" : ""}>
             <div className="panel-dark flex h-full items-center gap-4 p-5 md:gap-5 md:p-6">
@@ -420,9 +426,7 @@ export function Points({
   const schluss = bridge && (
     <Reveal delay={0.1}>
       <div
-        className={`flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7 ${
-          aside ? "mt-8" : "mt-10"
-        }`}
+        className="mt-10 flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7"
         style={{
           background: "rgba(255,153,0,0.12)",
           boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)",
@@ -442,17 +446,22 @@ export function Points({
     <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#C0241A" }} />
       <div className="container-x relative">
+        {/* Mit Diagramm: Kopf und Diagramm stehen nebeneinander, die Punkte
+            laufen darunter ueber die volle Breite in zwei Spalten. Vorher lag
+            das Diagramm rechts neben der kompletten Liste; weil die Liste
+            fuenf Punkte hat und das Diagramm kurz ist, stand rechts unten
+            eine halbe Bildschirmhoehe Leerraum. */}
         {aside ? (
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
-            <div>
+          <>
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
               <ProblemKopf eyebrow={eyebrow} title={title} />
-              {liste}
-              {schluss}
+              <Reveal direction="left" delay={0.08}>
+                {aside}
+              </Reveal>
             </div>
-            <Reveal direction="left" delay={0.08} className="lg:sticky lg:top-28">
-              {aside}
-            </Reveal>
-          </div>
+            {liste}
+            {schluss}
+          </>
         ) : (
           <>
             <ProblemKopf eyebrow={eyebrow} title={title} />
@@ -468,7 +477,7 @@ export function Points({
 /** Kopf der Problem-Sektion. Die Pille ist hier rot statt orange. */
 function ProblemKopf({ eyebrow, title }: { eyebrow?: string; title: ReactNode }) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-[34ch]">
       {eyebrow && (
         <Reveal>
           <span

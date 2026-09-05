@@ -268,16 +268,19 @@ footer :where(a, button):focus-visible,
      #FF9900 kommt auf 6:1, das ist messbar in Ordnung und trotzdem flimmert es,
      weil beide Töne fast gleich hell sind.
 
-     Jetzt ein tiefes Rot aus dem Logo mit weißer Schrift, 7,4:1. Damit ist die
-     Fläche lesbar, und die Logo-Farbe kommt endlich vor: bisher lief die ganze
-     Seite auf Navy und Orange, das Rot lag brach. Orange bleibt der Akzent
+     Zweite Fassung lag bei #b81f14 und war dem Kunden zu braun. Der Grund war
+     der Farbton: #b81f14 hat einen Buntton von etwa 4 Grad und zieht damit ins
+     Orange, das Logo-Rot #FF3131 liegt bei 0 Grad. Jetzt läuft die Fläche von
+     #b5121a nach #820a11, also im Buntton des Logos, nur abgedunkelt: #FF3131
+     selbst trägt weiße Schrift nur mit 3,7:1 und ist als Fläche unbrauchbar.
+     So kommen 6,9:1 oben und 10,5:1 unten heraus. Orange bleibt der Akzent
      darauf, für Leuchtkanten und Punkte, nie als Schriftfarbe. */
   .ground-signal {
     position: relative;
     background:
-      radial-gradient(85% 120% at 88% -10%, rgba(255, 153, 0, 0.42), transparent 58%),
-      radial-gradient(75% 110% at 2% 108%, rgba(120, 12, 8, 0.55), transparent 62%),
-      linear-gradient(148deg, #b81f14 0%, #a51a12 52%, #8f150f 100%);
+      radial-gradient(85% 120% at 88% -10%, rgba(255, 153, 0, 0.28), transparent 58%),
+      radial-gradient(75% 110% at 2% 108%, rgba(90, 4, 10, 0.55), transparent 62%),
+      linear-gradient(155deg, #b5121a 0%, #9c0e16 50%, #820a11 100%);
   }
   .on-signal {
     color: #ffffff;

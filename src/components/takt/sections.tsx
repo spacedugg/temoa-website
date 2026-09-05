@@ -998,18 +998,59 @@ export function Stimmen() {
    ============================================================ */
 
 /**
+ * Handgezeichneter Pfeil vom Satz zum Knopf.
+ *
+ * Bewusst krumm: eine gerade Linie waere ein Diagramm, dieser Bogen ist eine
+ * Geste. Er zeichnet sich, wenn die Sektion ins Bild kommt, und zeigt genau
+ * auf die Stelle, an der geklickt werden soll.
+ */
+function HandPfeil({ reduce }: { reduce: boolean }) {
+  const strich = {
+    fill: "none" as const,
+    stroke: "rgba(255,255,255,0.75)",
+    strokeWidth: 3,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+  const zeichnen = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { pathLength: 0, opacity: 0 },
+          whileInView: { pathLength: 1, opacity: 1 },
+          viewport: { once: true, margin: "-15% 0px" },
+          transition: { duration: 0.7, delay, ease: "easeInOut" as const },
+        };
+
+  return (
+    <svg
+      viewBox="0 0 110 78"
+      aria-hidden
+      className="pointer-events-none absolute -top-1 left-[11.5rem] hidden w-[8.5rem] md:block"
+    >
+      {/* Der Bogen holt nach rechts aus und kommt von rechts oben auf den
+          Knopf zu. Krumm gezeichnet, damit er als Geste liest und nicht als
+          Verbindungslinie in einem Diagramm. */}
+      <motion.path d="M4 9C42 1 98 14 92 40c-3 13-18 21-33 24" {...strich} {...zeichnen(0.25)} />
+      <motion.path d="M58 64l16 1M59 64l11 10" {...strich} {...zeichnen(0.9)} />
+    </svg>
+  );
+}
+
+/**
  * Abschluss-CTA der Startseite.
  *
- * Zwei Fehler steckten in der alten Fassung. Erstens lag sie auf demselben
- * Navy wie die Fusszeile direkt darunter, dadurch war nicht zu sehen, wo die
- * Seite aufhoert und der Fuss anfaengt. Zweitens stand rechts eine Platte mit
- * drei Zeilen Risk-Reversal, unter anderem „Die Analyse selbst kostet euch
- * nichts ausser der Zeit". Das ist keine Zusage, das ist eine Selbstverstaend-
- * lichkeit, und in dieser Groesse hat es niemand gelesen.
+ * Drei Fassungen liegen dahinter. Die erste lag auf demselben Navy wie die
+ * Fusszeile direkt darunter, dadurch war nicht zu sehen, wo die Seite endet.
+ * Die zweite stand auf einer roten Flaeche, die dem Kunden zu braun war, und
+ * zeigte Clemens als rechteckiges Foto mit einer dunkelblauen Platte darueber:
+ * ein Kasten auf einer Flaeche, genau der Fehler, den dieses Theme sonst
+ * ueberall abgestellt hat.
  *
- * Jetzt steht der wichtigste Block der Seite auf der Markenflaeche, und rechts
- * sitzt das Gesicht, mit dem das Gespraech stattfindet. Aus einer Aufforderung
- * wird eine Verabredung.
+ * Jetzt ist Clemens freigestellt und steht ohne Rahmen auf der Flaeche, mit
+ * einem weichen Schein dahinter, damit die dunkle Jacke nicht im dunklen Rot
+ * verschwindet. Er spricht selbst, und ein gezeichneter Pfeil zeigt auf den
+ * Knopf.
  */
 export function Termin({
   title,
@@ -1018,11 +1059,13 @@ export function Termin({
   title?: React.ReactNode;
   sub?: React.ReactNode;
 } = {}) {
+  const reduce = useReducedMotion();
+
   return (
     <section className="on-signal ground-signal relative overflow-hidden">
       <div className="container-x">
-        <div className="grid items-center gap-y-12 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-x-16">
-          <div className="min-w-0">
+        <div className="grid items-end gap-y-10 pt-20 md:pt-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-x-12">
+          <div className="min-w-0 pb-16 md:pb-24">
             <h2 className="title max-w-[20ch] text-balance text-[clamp(2.1rem,1.3rem+2.4vw,3.5rem)]">
               {title ?? "Wie viel Umsatz lässt euer Listing liegen?"}
             </h2>
@@ -1030,15 +1073,22 @@ export function Termin({
               {sub ??
                 "In der kostenlosen Potenzialanalyse lesen wir die Berichte aus eurem Konto und zeigen euch, was euer Sortiment noch hergibt."}
             </p>
-            <div className="mt-10">
-              <a href="/gespraech-vereinbaren" className="btn-on-dark">
-                Potenzialanalyse buchen
-                <span className="disc" aria-hidden>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </a>
+
+            {/* Die Sprechzeile steht ueber dem Knopf, der Pfeil verbindet
+                beide. Zusammen lesen sie sich als eine Geste. */}
+            <div className="relative mt-10">
+              <p className="text-[1.05rem] font-bold text-white/90">Hi, ich bin Clemens.</p>
+              <HandPfeil reduce={!!reduce} />
+              <div className="mt-4">
+                <a href="/gespraech-vereinbaren" className="btn-on-dark">
+                  Potenzialanalyse buchen
+                  <span className="disc" aria-hidden>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
             </div>
 
             {/* Zwei Zusagen, die etwas wert sind. Die dritte Zeile von vorher
@@ -1054,27 +1104,35 @@ export function Termin({
             </div>
           </div>
 
-          <figure className="relative mx-auto w-full max-w-[23rem] lg:mx-0 lg:ml-auto">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/team/Clemens.webp"
-              alt="Clemens, Founder und Sales bei temoa"
-              loading="lazy"
-              className="w-full rounded-[1.75rem] object-cover shadow-[0_34px_80px_-34px_rgba(60,6,3,0.8)]"
+          {/* Freigestellt, ohne Platte, sitzt auf der Grundlinie der Sektion.
+              Der Schein dahinter hebt die dunkle Jacke vom dunklen Rot ab. */}
+          <div className="relative flex justify-center self-end">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute bottom-4 left-1/2 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full opacity-80 blur-[70px]"
+              style={{ background: "radial-gradient(circle, rgba(255,150,90,0.45), transparent 68%)" }}
             />
-            <figcaption
-              className="absolute -bottom-6 left-4 right-4 rounded-[1.1rem] px-5 py-4"
+            {/* Die Aufnahme zeigt Kopf und Schultern. Ohne Ausblendung bricht
+                sie an der Brust hart ab und sieht aus wie ein Fehler; die
+                Maske laesst sie in die Flaeche auslaufen. */}
+            <motion.img
+              src="/team/clemens-frei.webp"
+              alt="Clemens, Founder und Sales bei temoa"
+              width={900}
+              height={855}
+              loading="lazy"
+              className="relative w-[17rem] max-w-full sm:w-[20rem] lg:w-[23rem]"
               style={{
-                background: "#0d2439",
-                boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 44px -22px rgba(0,0,0,0.8)",
+                filter: "drop-shadow(0 20px 36px rgba(70,4,8,0.4))",
+                WebkitMaskImage: "linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.55) 84%, transparent 100%)",
+                maskImage: "linear-gradient(to bottom, #000 66%, rgba(0,0,0,0.55) 84%, transparent 100%)",
               }}
-            >
-              <div className="text-[0.95rem] font-bold text-white">Clemens</div>
-              <div className="mt-0.5 text-small text-chalk-faint">
-                Founder &amp; Sales. Er führt das Gespräch selbst.
-              </div>
-            </figcaption>
-          </figure>
+              initial={reduce ? undefined : { opacity: 0, y: 26 }}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-12% 0px" }}
+              transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            />
+          </div>
         </div>
       </div>
     </section>
