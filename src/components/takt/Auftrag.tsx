@@ -4,7 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { Neigung } from "./Neigung";
 import { HeroBild } from "./HeroBild";
-import { testimonials } from "@/lib/testimonials";
 
 /* ============================================================
    Hero der Startseite.
@@ -19,18 +18,15 @@ import { testimonials } from "@/lib/testimonials";
    neben den Knopf, der eigentlich der einzige Blickfang sein soll.
 
    Jetzt: rechts die Hero-Grafik aus `HeroBild`, eine Produktseite mit zwei
-   belegten Kennzahlen und der Wachstumsszene dahinter. Links unter dem Knopf
-   sozialer Beleg statt Kennzahlkarten:
-   echte Gesichter aus den Kundenstimmen, fuenf Sterne, eine Zeile. Wer neu auf
-   die Seite kommt, sieht damit zuerst, dass es echte Kunden gibt.
+   belegten Kennzahlen und der Wachstumsszene dahinter. Links nur Ueberschrift,
+   ein Satz und die beiden Knoepfe.
+
+   Unter dem Knopf stand zwischendurch sozialer Beleg mit Kundengesichtern und
+   Sternen. Der Kunde hat ihn wieder gestrichen: der Hero bleibt knapp, die
+   Kundenlogos kommen direkt darunter im Kundenband.
    ============================================================ */
 
 const EASE = [0.32, 0.72, 0, 1] as const;
-
-/* Die Gesichter kommen aus den echten Kundenstimmen weiter unten auf der
-   Seite, nicht aus einer Bilddatenbank. Nur echte Portraits: zwei der
-   hinterlegten Bilder sind Buchstabenkacheln, die als Gesicht nichts taugen. */
-const GESICHTER = testimonials.filter((t) => t.image && t.art === "person").slice(0, 5);
 
 export function Auftrag() {
   const reduce = useReducedMotion();
@@ -80,57 +76,6 @@ export function Auftrag() {
               </a>
             </motion.div>
 
-            {/* Sozialer Beleg statt Kennzahlkarten: Gesichter, Sterne, eine
-                Zeile. Ohne Kachel, damit der Knopf darueber der einzige
-                farbige Punkt bleibt. */}
-            <motion.div {...rise(0.3)} className="mt-11 flex flex-wrap items-center gap-x-5 gap-y-4">
-              <div className="flex -space-x-3">
-                {GESICHTER.map((t, i) => (
-                  <motion.span
-                    key={t.name}
-                    className="relative inline-block"
-                    initial={reduce ? undefined : { opacity: 0, scale: 0.6, x: -8 }}
-                    animate={reduce ? undefined : { opacity: 1, scale: 1, x: 0 }}
-                    transition={{ type: "spring", stiffness: 320, damping: 20, delay: 0.42 + i * 0.07 }}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      width={96}
-                      height={96}
-                      className="h-11 w-11 rounded-full object-cover ring-[3px] ring-canvas"
-                      style={{ boxShadow: "0 6px 16px -8px rgba(11,31,52,0.6)" }}
-                    />
-                  </motion.span>
-                ))}
-              </div>
-
-              <div className="min-w-0">
-                <span className="flex items-center gap-1.5">
-                  <span className="flex gap-0.5" aria-hidden>
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <motion.svg
-                        key={i}
-                        width="15"
-                        height="15"
-                        viewBox="0 0 24 24"
-                        fill="#FF9900"
-                        initial={reduce ? undefined : { opacity: 0, scale: 0.4 }}
-                        animate={reduce ? undefined : { opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 18, delay: 0.62 + i * 0.06 }}
-                      >
-                        <path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.2 6.8L12 17.4 6 20.7l1.2-6.8-5-4.8 6.9-.8L12 2z" />
-                      </motion.svg>
-                    ))}
-                  </span>
-                  <span className="text-small font-bold text-ink">60+ Marken</span>
-                </span>
-                <p className="mt-0.5 text-small text-ink-muted">
-                  arbeiten mit uns an ihrem Amazon-Geschäft.
-                </p>
-              </div>
-            </motion.div>
           </div>
 
           {/* Die Hero-Grafik liegt in `HeroBild`: Produktseite, zwei belegte
