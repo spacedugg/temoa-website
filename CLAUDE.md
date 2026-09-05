@@ -139,9 +139,14 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
   auf dem Telefon gestapelt).
 - **Alte Sektionen sind geloescht.** `components/home` und
   `components/sections` enthielten 37 Vorfassungen, auf die keine Seite
-  mehr zeigte. Sie kommen nicht zurueck; erhalten bleiben
-  `sections/Blocks`, `ComingSoon`, `Listing3D`, `Mocks`, `SocialProof`
-  und `home/Stats`.
+  mehr zeigte. Sie kommen nicht zurueck; erhalten bleiben nur
+  `sections/ComingSoon`, `sections/SocialProof` und `home/Stats`.
+  Im zweiten Durchgang sind auch `lib/copy.ts`, `sections/Blocks`,
+  `sections/Mocks`, `sections/Listing3D` und `ui/MockKit` gefallen: sie
+  zeigten nur noch aufeinander, und `copy.ts` war voller verbotener
+  Woerter (Hebel, erprobt, Gedankenstriche). Toter Code mit falschem
+  Wortschatz ist gefaehrlich, weil man ihn beim naechsten Mal
+  wiederverwendet.
 
 ## Branch
 
