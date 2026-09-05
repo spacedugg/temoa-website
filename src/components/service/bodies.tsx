@@ -11,6 +11,7 @@ import {
   Ergebnis,
 } from "./Blocks";
 import { Marktkarte } from "./Karte";
+import { Aufgaben } from "./Aufgaben";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
@@ -322,20 +323,18 @@ export function AccountBody() {
           },
         ]}
       />
-      <Cards
-        tone="blue"
+      <Aufgaben
         eyebrow="Was wir übernehmen"
         title="Acht Aufgaben weniger auf eurem Tisch."
-        cols={3}
         items={[
-          { icon: "target", title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
-          { icon: "layers", title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { icon: "shield", title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
-          { icon: "content", title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
-          { icon: "account", title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
-          { icon: "spark", title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
-          { icon: "margin", title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
-          { icon: "chart", title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
+          { name: "buybox", title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
+          { name: "bestand", title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
+          { name: "ticket", title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
+          { name: "katalog", title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
+          { name: "richtlinie", title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
+          { name: "test", title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
+          { name: "pricing", title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
+          { name: "termin", title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
         ]}
       />
       <ResultBlock

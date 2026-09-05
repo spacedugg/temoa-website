@@ -13,5 +13,5 @@ next-env.d.ts
 # Projektverzeichnis, weil Playwright dort installiert ist, und gehoeren
 # nicht ins Repo.
 /*.png
-/.shot.mjs
+/.shot*.mjs
 /.err.mjs

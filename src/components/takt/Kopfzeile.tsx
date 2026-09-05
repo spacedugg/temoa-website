@@ -116,26 +116,12 @@ export function Kopfzeile() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Der Knopf war Navy auf einer Seite, die ueberall Navy benutzt:
-                Kopfzeile, Karten, Fusszeile. Er ist dadurch nicht mehr als
-                Aktion aufgefallen. Jetzt traegt er die Markenflaeche und die
-                Pfeilscheibe in Navy, damit er in der Zeile der einzige farbige
-                Punkt ist. Dunkler Text auf Orange bleibt aussen vor: die
-                Flaeche ist das tiefe Rot, die Schrift weiss. */}
-            <a
-              href="/gespraech-vereinbaren"
-              className="group hidden min-h-[2.9rem] items-center gap-3 rounded-[0.9rem] py-1.5 pl-5 pr-1.5 text-small font-extrabold text-white transition-all duration-300 hover:-translate-y-0.5 md:inline-flex"
-              style={{
-                background: "linear-gradient(148deg, #c02416, #a01a11)",
-                boxShadow:
-                  "inset 0 1px 0 rgba(255,255,255,0.18), 0 10px 22px -8px rgba(192,36,22,0.75), 0 16px 34px -18px rgba(11,31,52,0.6)",
-              }}
-            >
+            {/* Warum dieser Knopf so aussieht, steht bei `.btn-kopf` in
+                globals.css. Kurz: Navy mit Lichthof und Bewegung beim Hover,
+                Rot ist auf dieser Website die Farbe fuer Probleme. */}
+            <a href="/gespraech-vereinbaren" className="group hidden md:inline-flex btn-kopf">
               Potenzialanalyse buchen
-              <span
-                aria-hidden
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-[0.65rem] bg-brand-500 text-navy transition-transform duration-300 group-hover:translate-x-0.5"
-              >
+              <span className="disc" aria-hidden>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -199,7 +185,10 @@ export function Kopfzeile() {
                 href="/gespraech-vereinbaren"
                 onClick={() => setOpen(false)}
                 className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] text-base font-bold text-white"
-                style={{ background: "linear-gradient(148deg, #c02416, #a01a11)" }}
+                style={{
+                  background: "linear-gradient(150deg, #14425f, #0b2438)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 26px -14px rgba(255,153,0,0.7)",
+                }}
               >
                 Potenzialanalyse buchen
               </a>

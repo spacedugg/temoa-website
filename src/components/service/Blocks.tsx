@@ -7,6 +7,7 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../ui/Icon";
 import { Logo } from "../Logo";
 import { ZahlText } from "../takt/Zahl";
+import { Gespraech } from "../takt/Gespraech";
 
 /* ---------------- palette / tones ---------------- */
 
@@ -401,10 +402,10 @@ export function Points({
   /** Optionales Diagramm neben der Liste. */
   aside?: ReactNode;
 }) {
-  const liste = (
-    <div className="mt-10 grid gap-3.5 sm:grid-cols-2 sm:gap-4">
+  const liste = (spalten: 1 | 2) => (
+    <div className={spalten === 2 ? "mt-10 grid gap-3.5 sm:grid-cols-2 sm:gap-4" : "grid gap-3.5 sm:gap-4"}>
       {points.map((p, i) => {
-        const allein = points.length % 2 === 1 && i === points.length - 1;
+        const allein = spalten === 2 && points.length % 2 === 1 && i === points.length - 1;
         return (
           <Reveal key={p} delay={i * 0.05} className={allein ? "sm:col-span-2" : ""}>
             <div className="panel-dark flex h-full items-center gap-4 p-5 md:gap-5 md:p-6">
@@ -426,7 +427,7 @@ export function Points({
   const schluss = bridge && (
     <Reveal delay={0.1}>
       <div
-        className="mt-10 flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7"
+        className="flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7"
         style={{
           background: "rgba(255,153,0,0.12)",
           boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)",
@@ -453,31 +454,62 @@ export function Points({
             eine halbe Bildschirmhoehe Leerraum. */}
         {aside ? (
           <>
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
-              <ProblemKopf eyebrow={eyebrow} title={title} />
+            {/* Kopf und Schlusszeile tragen die linke Spalte, das Diagramm
+                steht daneben. Vorher stand der Kopf allein neben einem hohen
+                Diagramm und darunter blieb eine halbe Bildschirmhoehe leer. */}
+            <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
+              <div className="flex flex-col gap-9">
+                <ProblemKopf eyebrow={eyebrow} title={title} schmal />
+                {schluss}
+              </div>
               <Reveal direction="left" delay={0.08}>
                 {aside}
               </Reveal>
             </div>
-            {liste}
-            {schluss}
+            {liste(2)}
           </>
         ) : (
-          <>
-            <ProblemKopf eyebrow={eyebrow} title={title} />
-            {liste}
-            {schluss}
-          </>
+          /* Ohne Diagramm stand der Kopf allein ueber der Sektion und rechts
+             daneben blieb die halbe Breite leer. Jetzt tragen Kopf und
+             Schlusszeile die linke Spalte, die Punkte laufen rechts
+             untereinander: gleiche Menge Inhalt, keine tote Flaeche. */
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
+            <div className="flex flex-col justify-between gap-8">
+              <ProblemKopf eyebrow={eyebrow} title={title} schmal kompakt />
+              {schluss}
+            </div>
+            {liste(1)}
+          </div>
         )}
       </div>
     </section>
   );
 }
 
-/** Kopf der Problem-Sektion. Die Pille ist hier rot statt orange. */
-function ProblemKopf({ eyebrow, title }: { eyebrow?: string; title: ReactNode }) {
+/**
+ * Kopf der Problem-Sektion. Die Pille ist hier rot statt orange.
+ *
+ * `schmal` gilt nur, wenn rechts daneben ein Diagramm steht. Ohne Diagramm
+ * lief die Ueberschrift vorher trotzdem gegen dieselbe schmale Grenze und
+ * brach in vier kurze Zeilen; das sah aus wie ein Umbruchfehler.
+ */
+function ProblemKopf({
+  eyebrow,
+  title,
+  schmal,
+  kompakt,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  schmal?: boolean;
+  kompakt?: boolean;
+}) {
+  /* Die Breitengrenze gehoert an die Ueberschrift, nicht an die Huelle:
+     `ch` rechnet mit der Schrift des Elements, und die Huelle traegt die
+     Grundschrift. `max-w-[30ch]` ergab dort 240 Pixel, dadurch brach jede
+     Ueberschrift in vier kurze Zeilen. */
   return (
-    <div className="max-w-[34ch]">
+    <div>
       {eyebrow && (
         <Reveal>
           <span
@@ -494,7 +526,17 @@ function ProblemKopf({ eyebrow, title }: { eyebrow?: string; title: ReactNode })
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h2 className="mt-5 text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] font-bold leading-tight tracking-tight text-white">
+        {/* In der schmalen Spalte ohne Ausgleich umbrechen: `text-balance`
+            macht dort aus zwei vollen Zeilen vier kurze Fetzen. */}
+        <h2
+          className={
+            kompakt
+              ? "mt-5 max-w-[26ch] text-[clamp(1.75rem,1.2rem+1.3vw,2.4rem)] font-bold leading-tight tracking-tight text-white"
+              : `mt-5 text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] font-bold leading-tight tracking-tight text-white ${
+                  schmal ? "max-w-[20ch]" : "max-w-[26ch]"
+                }`
+          }
+        >
           {title}
         </h2>
       </Reveal>
@@ -688,86 +730,14 @@ export function ResultBlock({
  * Pfeilscheibe.
  */
 /**
- * Abschluss-CTA.
+ * Abschluss-CTA jeder Unterseite.
  *
- * Vorher stand hier nur zentrierter Text auf dunklem Grund: dieselbe Form wie
- * jede andere Sektion, nur dunkler. Der Kunde hat zu Recht gesagt, dass der
- * wichtigste Block der Seite dann untergeht. Jetzt steht links die Aussage mit
- * dem Knopf, rechts das Gesicht, mit dem das Gespraech stattfindet. Ein Foto
- * an dieser Stelle macht aus einer Aufforderung eine Verabredung.
+ * Die Sektion selbst liegt in `takt/Gespraech`, damit Startseite und
+ * Unterseiten wirklich denselben Block zeigen. Vorher waren es zwei Fassungen,
+ * und jede Aenderung musste man zweimal machen, was man den Seiten ansah.
  */
-export function ServiceCTA({ title, sub, chips }: { title: string; sub: string; chips?: string[] }) {
-  return (
-    <section className="on-dark ground-deep relative overflow-hidden py-20 md:py-28">
-      <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
-      {/* Lichtkern hinter dem Portraet, damit die rechte Seite Gewicht bekommt. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute right-[-6%] top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full opacity-70 blur-[80px]"
-        style={{ background: "radial-gradient(circle, rgba(255,153,0,0.34), transparent 68%)" }}
-      />
-      <div className="container-x relative">
-        <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16">
-          <div>
-            <Reveal>
-              <h2 className="title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2vw,3.1rem)] text-white">
-                {title}
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="mt-5 max-w-[48ch] text-pretty text-lead text-chalk-muted">{sub}</p>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <div className="mt-9">
-                <a href="/gespraech-vereinbaren" className="btn-on-dark">
-                  Potenzialanalyse buchen
-                  <Pfeil />
-                </a>
-              </div>
-            </Reveal>
-            {chips && (
-              <Reveal delay={0.2}>
-                <div className="mt-9 grid gap-3 sm:grid-cols-3">
-                  {chips.map((c) => (
-                    <span
-                      key={c}
-                      className="panel-dark flex items-center gap-2.5 px-4 py-3.5 text-small font-bold text-chalk"
-                    >
-                      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </Reveal>
-            )}
-          </div>
-
-          <Reveal delay={0.12}>
-            <figure className="relative mx-auto max-w-[22rem] md:mx-0 md:ml-auto">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/team/Clemens.webp"
-                alt="Clemens, Founder und Sales bei temoa"
-                loading="lazy"
-                className="w-full rounded-[1.75rem] object-cover shadow-[0_30px_70px_-30px_rgba(0,0,0,0.75)]"
-              />
-              {/* Die Bildunterschrift liegt auf dem Foto. Halbtransparent wird
-                  sie darauf schmutzig, deshalb eine gedeckte Flaeche. */}
-              <figcaption
-                className="absolute -bottom-6 left-4 right-4 rounded-[1.1rem] px-5 py-4 shadow-[0_18px_40px_-20px_rgba(0,0,0,0.8)]"
-                style={{ background: "#0d2439", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.09), 0 18px 40px -20px rgba(0,0,0,0.8)" }}
-              >
-                <div className="text-[0.95rem] font-bold text-white">Clemens</div>
-                <div className="mt-0.5 text-small text-chalk-faint">
-                  Founder &amp; Sales. Er führt das Gespräch selbst.
-                </div>
-              </figcaption>
-            </figure>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  );
+export function ServiceCTA({ title, sub, zusagen }: { title: string; sub: string; zusagen?: string[] }) {
+  return <Gespraech title={title} sub={sub} zusagen={zusagen} />;
 }
 
 /* ---------------- Lieferung: was am Ende in der Hand liegt ---------------- */

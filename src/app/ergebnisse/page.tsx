@@ -42,8 +42,12 @@ function RetentionBand() {
             <p className="mt-5 max-w-[26ch] text-lead font-bold text-white">
               der Marken verlängern nach Performance.
             </p>
+            {/* Vorher stand hier „Es gibt keine lange Laufzeit." Das ist eine
+                Aussage ueber den Vertrag, und ohne den Vertrag daneben weiss
+                niemand, was gemeint ist. Jetzt sagt der Satz nur, woran die
+                Verlaengerung haengt. */}
             <p className="mt-3 max-w-[34ch] text-small text-chalk-muted">
-              Es gibt keine lange Laufzeit. Wer bleibt, bleibt wegen der Zahlen.
+              Verlängert wird, wenn die Zahlen dafür sprechen.
             </p>
           </div>
 
@@ -100,7 +104,10 @@ export default function ErgebnissePage() {
         <ServiceCTA
           title="Was wäre bei euch möglich?"
           sub="In der kostenlosen Potenzialanalyse rechnen wir das an euren Zahlen durch, nicht an fremden."
-          chips={["Ohne lange Laufzeit", "Kostenlos und unverbindlich"]}
+          zusagen={[
+            "30 Minuten, danach kennt ihr die Zahl, die euer Sortiment noch hergibt",
+            "Die Auswertung bleibt bei euch, auch wenn wir nicht zusammenarbeiten",
+          ]}
         />
       </main>
       <Fusszeile />

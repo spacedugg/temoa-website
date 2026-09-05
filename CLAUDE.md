@@ -85,6 +85,52 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   `Ergebnis` in `service/Blocks`), verlinkt auf die zugehoerige Case Study.
   Die Zahlen stammen aus `src/lib/cases.ts`, nicht aus der Fantasie.
 
+## Bausteine der dritten Feedbackrunde
+
+- **Es gibt genau einen Abschluss-CTA**, die Komponente `takt/Gespraech`.
+  Startseite (`Termin`) und Unterseiten (`ServiceCTA`) sind nur noch Huellen
+  darum. Zwei Fassungen bedeuteten, dass jede Aenderung doppelt gemacht
+  werden musste und die Seiten trotzdem verschieden aussahen.
+- **Der CTA ist eine Karte, keine hohe Sektion.** Links Clemens freigestellt,
+  formatfuellend bis an die Unterkante, mit einer Glasplatte „Hi, ich bin
+  Clemens." und einem handgezeichneten Pfeil zum Gesicht. Rechts Aussage,
+  Knopf und zwei Zusagen. Vorher stand er klein in der Ecke einer sehr hohen
+  Flaeche.
+- **Keine Chips wie „Ohne lange Laufzeit" oder „Kostenlos und
+  unverbindlich".** Der Platz traegt Zusagen mit Inhalt: was in den 30 Minuten
+  passiert, was danach bei der Marke bleibt. Aussagen ueber Vertragslaufzeiten
+  stehen nirgends, solange der Vertrag nicht danebenliegt.
+- **`framer-motion` ueberschreibt Tailwind-Transforms.** Ein `motion.img` mit
+  `-translate-x-1/2` sitzt eine halbe Breite zu weit rechts, weil das Element
+  beim Einlaufen ein eigenes `transform` bekommt. Mittig wird ueber
+  `inset-x-0 mx-auto` gesetzt.
+- **`max-w-[NNch]` gehoert an das Textelement, nicht an die Huelle.** `ch`
+  rechnet mit der Schrift des Elements; an einem `div` mit Grundschrift ergibt
+  `30ch` rund 240 Pixel, und jede Ueberschrift brach in vier kurze Zeilen.
+- **Die Problem-Sektion fuellt beide Spalten.** Ohne Diagramm: links Kopf und
+  Schlusszeile, rechts die Punkte untereinander. Mit Diagramm: links Kopf und
+  Schlusszeile, rechts das Diagramm, die Punkte darunter in zwei Spalten.
+  `text-balance` bleibt in schmalen Spalten aus, es macht aus zwei vollen
+  Zeilen vier Fetzen.
+- **Icons zeigen die Sache selbst.** Fuer die acht Aufgaben im
+  Account-Management gibt es eigene Piktogramme (`service/Aufgaben`):
+  Navy-Kachel, helle Formen, ein oranges Detail, das sich beim Zeigen bewegt.
+  Allgemeine Strich-Icons (Zielscheibe, Schild, Sternchen) sind dort raus, sie
+  passten zum Teil gar nicht zum Text.
+- **Der Globus dreht sich und traegt Flaggen** (`service/Karte`). Die
+  Marktplaetze laufen als Ring um die Kugel, vorne gross und hell, hinten
+  klein und blass. Flaggen sitzen bewusst nicht auf Laendern: genau das war
+  der Fehler in der Referenz, dort standen Flaggen auf den falschen Laendern.
+  Alles gezeichnet, kein Bildmodell.
+- **Der Knopf in der Kopfzeile ist wieder Navy** (`.btn-kopf`), mit orangem
+  Lichthof, einem Lichtsweep beim Hover und einer Scheibe, die von Weiss auf
+  Orange umschlaegt. Rot ist auf dieser Website die Farbe fuer Probleme, nicht
+  fuer die wichtigste Aktion.
+- **Trendpfeile nur, wenn alle Zahlen einer Reihe einen haben.** Im
+  Kennzahlenband stand der gruene Pfeil an einer von vier Zahlen und sass
+  optisch vor der naechsten. Jetzt traegt die Steigerung die Farbe (gruen),
+  die drei Bestandszahlen bleiben weiss, dazwischen feine Trennlinien.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.

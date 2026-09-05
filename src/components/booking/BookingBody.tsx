@@ -104,26 +104,37 @@ export function BookingBody() {
             </Reveal>
           </div>
 
-          {/* Das Portrait war quadratisch beschnitten und hat den Kopf oben
-              abgeschnitten. Ein Hochformat zeigt die Aufnahme, wie sie ist. */}
+          {/* Vorher lag hier ein rechteckiges Foto mit einer dunkelblauen
+              Platte darauf, dieselbe Form, die im Abschluss-CTA schon
+              ersetzt wurde. Jetzt steht Clemens freigestellt in einer
+              eigenen Flaeche, die Angaben liegen als Glasplatte davor. */}
           <Reveal direction="left" delay={0.12}>
             <figure className="relative mx-auto w-full max-w-[26rem] lg:mx-0 lg:ml-auto">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/[0.06]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/team/Clemens.webp"
-                  alt="Clemens, euer Ansprechpartner bei temoa"
-                  className="absolute inset-0 h-full w-full object-cover object-top"
-                />
-              </div>
-              <figcaption
-                className="absolute -bottom-5 left-5 right-5 rounded-[1.1rem] px-5 py-4"
+              <div
+                className="relative h-[24rem] overflow-hidden rounded-[1.75rem] sm:h-[27rem]"
                 style={{
-                  background: "#0d2439",
-                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 44px -22px rgba(0,0,0,0.7)",
+                  background:
+                    "radial-gradient(110% 80% at 50% 16%, rgba(255,158,96,0.4), transparent 62%), linear-gradient(160deg, #10314a 0%, #0a2035 100%)",
+                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08), 0 30px 70px -40px rgba(4,20,34,0.8)",
                 }}
               >
-                <div className="flex items-center gap-2.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/team/clemens-frei.webp"
+                  alt="Clemens, euer Ansprechpartner bei temoa"
+                  width={900}
+                  height={855}
+                  className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
+                  style={{ filter: "drop-shadow(0 22px 40px rgba(4,16,28,0.55))" }}
+                />
+                <figcaption
+                  className="absolute inset-x-4 bottom-4 rounded-[1.1rem] px-4 py-3 md:inset-x-5 md:bottom-5"
+                  style={{
+                    background: "rgba(6,24,38,0.66)",
+                    boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.16)",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
                   <span className="flex gap-0.5" aria-hidden>
                     {Array.from({ length: 5 }).map((_, i) => (
                       <svg key={i} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900">
@@ -131,12 +142,12 @@ export function BookingBody() {
                       </svg>
                     ))}
                   </span>
-                </div>
-                <div className="mt-2 text-[0.95rem] font-bold text-white">Clemens</div>
-                <div className="mt-0.5 text-small text-chalk-faint">
-                  Founder &amp; Sales. Er führt das Gespräch selbst.
-                </div>
-              </figcaption>
+                  <div className="mt-2 text-[0.95rem] font-bold text-white">Hi, ich bin Clemens.</div>
+                  <div className="mt-0.5 text-small text-chalk-faint">
+                    Founder. Ich führe das Gespräch selbst.
+                  </div>
+                </figcaption>
+              </div>
             </figure>
           </Reveal>
         </div>
