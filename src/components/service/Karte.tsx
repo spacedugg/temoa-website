@@ -6,31 +6,35 @@ import { Pille } from "../ui/SectionHeading";
 import { GITTER, KUGEL, LAENDER, NADELN } from "./europa-geo";
 
 /* ============================================================
-   Die Marktplatzkarte auf der Internationalisierungsseite.
+   Die Marktplatzgrafik auf der Internationalisierungsseite.
 
-   Fuenf Fassungen liegen dahinter, und jede hatte denselben Kern: die Grafik
-   hat behauptet, eine Landkarte zu sein, ohne eine zu sein. Ein gezeichneter
-   Umriss Westeuropas aus zwanzig Stuetzpunkten sah aus wie ein Klecks. Eine
-   Punktkugel hatte keine Laender. Ein Flaggenring behauptete gar keine
-   Geografie mehr. Eine Weltkugel aus dem Bildmodell war so weit weg, dass man
-   die Laender nicht erkannte.
+   Sieben Fassungen liegen dahinter, und die Fehler waren immer dieselben zwei:
+   entweder war die Geografie falsch (gezeichnete Umrisse, Flaggen auf den
+   falschen Laendern, ein Ring ohne Karte), oder die Darstellung war ein Kasten
+   auf der Seite (eine Scheibe mitten im Weissraum, zuletzt ein rechteckiger
+   Ausschnitt mit weichem Auslauf, der wie ein schlecht freigestelltes Bild
+   aussah).
 
-   Jetzt eine echte Karte: die Umrisse kommen aus Natural Earth
-   (`scripts/europa-karte.mjs` rechnet sie in eine Lambert-Projektion und
-   schreibt `europa-geo.ts`), der Ausschnitt geht von Portugal bis Polen. Jedes
-   Land liegt dort, wo es hingehoert, und jede Flagge auf dem richtigen Land.
-   Genau das war der Fehler in der Referenz des Kunden.
+   Diese Fassung:
 
-   Bewegung: von Deutschland aus laufen Lichtpunkte in die anderen
-   Marktplaetze, dauerhaft und leise. Beim Zeigen hebt sich das Land.
+   - Eine Kugel, nah an Europa herangefahren. Der Radius ist ein Vielfaches des
+     sichtbaren Kreises, dadurch sind die Laender gross. Gitternetz, Lichtkante
+     und Schattenseite machen daraus eine Kugel und keine Landkarte.
+   - Der Kreis steht ohne Rahmen, ohne Platte und ohne Maske auf dem Grund der
+     Seite, mit einem Schatten darunter. Nichts laeuft aus, nichts hat eine
+     Kante.
+   - Die Flagge steckt im Land, nicht in einer Pille am Bildrand. Keine
+     Leitlinien mehr. Wo zwei Laender zu klein und zu nah beieinander liegen
+     (Niederlande und Belgien), sitzt die Flagge daneben statt darin.
+   - Die USA liegen bei diesem Zoom hinter dem Horizont. Sie stehen als eigener
+     Punkt unterhalb der Kugel, ein Bogen laeuft vom westlichen Rand dorthin.
+     Das ist eine Route ueber den Atlantik, keine Beschriftungslinie.
+
+   Die Umrisse kommen aus Natural Earth, `scripts/europa-karte.mjs` rechnet die
+   Projektion und schreibt `europa-geo.ts`. Jede Flagge liegt auf ihrem Land.
    ============================================================ */
 
 const EASE = [0.32, 0.72, 0, 1] as const;
-
-/* Wo die Grafik ausläuft. Senkrecht großzügig, waagerecht nur am rechten Rand
-   zum Text hin: links liegt die Kante ohnehin außerhalb des Bildschirms. */
-const FADE_Y = "linear-gradient(to bottom, transparent 0%, #000 11%, #000 88%, transparent 100%)";
-const FADE_X = "linear-gradient(to right, #000 0%, #000 86%, transparent 100%)";
 
 /* ---------------- Flaggen ---------------- */
 
@@ -121,53 +125,57 @@ function Flagge({ code }: { code: string }) {
 
 /* ---------------- Marktplätze ---------------- */
 
-/**
- * Ein Schild mit Flagge und Name, dazu eine feine Linie auf den Punkt im Land.
- * Auf der Kugel selbst ist Europa zu klein fuer neun Beschriftungen, sie
- * wuerden sich ueberlagern.
- *
- * `kante` ist die Stelle, an der die Leitlinie das Schild verlaesst.
- * `richtung` sagt, auf welcher Seite davon das Schild steht: „links" heisst,
- * das Schild liegt links der Kante und die Linie laeuft nach rechts.
- */
-type Ziel = { code: string; name: string; y: number; richtung: "links" | "rechts" };
+type Markt = {
+  code: string;
+  name: string;
+  /* Verschiebung gegenüber dem Punkt im Land, in Einheiten des Bildes.
+     Nur dort gesetzt, wo zwei Länder zu nah beieinander liegen, als dass zwei
+     Flaggen nebeneinander passen: die Niederlande rücken in die Nordsee,
+     Belgien an den Ärmelkanal. */
+  ab?: [number, number];
+};
 
-/* Die neun europaeischen Schilder stehen als Spalte ueber dem Atlantik, links
-   von Europa. Neben Europa ist kein Platz mehr: die Kugel fuellt den Rahmen,
-   und Europa liegt am rechten Rand. Die Reihenfolge folgt der Lage der Punkte
-   von Nord nach Sued, sonst kreuzen sich die Leitlinien. Die USA tragen ihr
-   Schild direkt neben dem Punkt. */
-const KANTE_EU = 880;
-const KANTE_US = 205;
-
-const ZIELE: Ziel[] = [
-  { code: "SE", name: "Schweden", y: 160, richtung: "links" },
-  { code: "PL", name: "Polen", y: 240, richtung: "links" },
-  { code: "DE", name: "Deutschland", y: 320, richtung: "links" },
-  { code: "NL", name: "Niederlande", y: 400, richtung: "links" },
-  { code: "UK", name: "Großbritannien", y: 480, richtung: "links" },
-  { code: "BE", name: "Belgien", y: 560, richtung: "links" },
-  { code: "FR", name: "Frankreich", y: 640, richtung: "links" },
-  { code: "IT", name: "Italien", y: 720, richtung: "links" },
-  { code: "ES", name: "Spanien", y: 800, richtung: "links" },
-  { code: "US", name: "USA", y: 390, richtung: "rechts" },
+const MAERKTE: Markt[] = [
+  { code: "DE", name: "Deutschland" },
+  { code: "FR", name: "Frankreich" },
+  { code: "IT", name: "Italien" },
+  { code: "ES", name: "Spanien" },
+  { code: "NL", name: "Niederlande", ab: [-30, -34] },
+  { code: "BE", name: "Belgien", ab: [-26, 10] },
+  { code: "PL", name: "Polen" },
+  { code: "SE", name: "Schweden" },
+  { code: "UK", name: "Großbritannien", ab: [-16, 0] },
 ];
 
-const SCHILD_H = 60;
+const BREITE = 1000;
+const HOEHE = 1080;
+/* Die Kugel sitzt oben, unter ihr bleibt Platz für den Punkt USA. */
+const MITTE: [number, number] = [KUGEL.cx, KUGEL.cy - 40];
+const RADIUS = KUGEL.r;
+const FLAGGE_R = 34;
 
-/** Breite eines Schildes: Flaggenscheibe, Text, Innenabstaende. */
-function breite(name: string) {
-  return 92 + name.length * 17;
+/** Wo eine Flagge steht: Punkt im Land plus die gesetzte Verschiebung. */
+function stelle(m: Markt): [number, number] {
+  const [x, y] = NADELN[m.code];
+  const [dx, dy] = m.ab ?? [0, 0];
+  return [x + dx, y - 40 + dy];
 }
+
+/* Der Punkt USA, unterhalb der Kugel. Er liegt bewusst außerhalb des Kreises:
+   bei diesem Zoom liegt Amerika hinter dem Horizont, und eine Flagge im
+   Atlantik wäre schlicht falsch. */
+const USA: [number, number] = [176, 990];
+/* Wo der Bogen die Kugel verlässt: am westlichen Rand, auf Höhe der Biskaya. */
+const ATLANTIK: [number, number] = [MITTE[0] - RADIUS * 0.93, MITTE[1] + RADIUS * 0.36];
 
 const START = NADELN.DE;
 
 /**
- * Ein Bogen ueber die Kugel. Die Woelbung waechst mit der Entfernung, dadurch
- * sieht die Verbindung nach Amerika aus wie ein Sprung ueber den Atlantik und
- * nicht wie ein Strich auf einer Scheibe.
+ * Ein Bogen von Deutschland in einen anderen Markt. Die Wölbung wächst mit der
+ * Entfernung, dadurch sieht die Verbindung nach Amerika aus wie ein Sprung über
+ * den Atlantik und nicht wie ein Strich auf einer Fläche.
  */
-function bogen(von: [number, number], nach: [number, number]) {
+function bogen(von: [number, number], nach: [number, number], staerke = 0.22) {
   const [x1, y1] = von;
   const [x2, y2] = nach;
   const mx = (x1 + x2) / 2;
@@ -175,109 +183,14 @@ function bogen(von: [number, number], nach: [number, number]) {
   const dx = x2 - x1;
   const dy = y2 - y1;
   const laenge = Math.hypot(dx, dy) || 1;
-  const hebung = Math.min(0.3, 0.14 + laenge / 3200);
-  const nx = (-dy / laenge) * laenge * hebung;
-  const ny = (dx / laenge) * laenge * hebung;
-  /* Immer nach oben ausweichen: so kreuzen sich die Bogen weniger. */
+  const nx = -dy * staerke;
+  const ny = dx * staerke;
+  /* Immer nach oben ausweichen, sonst kreuzen sich die Bogen. */
   const richtung = ny > 0 ? -1 : 1;
-  return `M${x1},${y1} Q${mx + nx * richtung},${my + ny * richtung} ${x2},${y2}`;
+  return { d: `M${x1},${y1} Q${mx + nx * richtung},${my + ny * richtung} ${x2},${y2}`, laenge };
 }
 
-function Schild({
-  ziel,
-  aktiv,
-  setAktiv,
-  an,
-  index,
-  reduce,
-}: {
-  ziel: Ziel;
-  aktiv: string | null;
-  setAktiv: (c: string | null) => void;
-  an: boolean;
-  index: number;
-  reduce: boolean;
-}) {
-  const w = breite(ziel.name);
-  const nachRechts = ziel.richtung === "links";
-  const kante = nachRechts ? KANTE_EU : KANTE_US;
-  /* Die Kante bleibt fest, das Schild waechst nach hinten weg: so steht die
-     Spalte buendig, egal wie lang der Name ist. */
-  const x = nachRechts ? kante - w : kante;
-  const [px, py] = NADELN[ziel.code];
-  const gezeigt = aktiv === ziel.code;
-  const zustand = reduce || an;
-  const verzoegerung = 0.35 + index * 0.06;
-
-  return (
-    <motion.g
-      onMouseEnter={() => setAktiv(ziel.code)}
-      onMouseLeave={() => setAktiv(null)}
-      style={{ cursor: "default" }}
-      initial={false}
-      animate={{ opacity: zustand ? 1 : 0 }}
-      transition={{ duration: 0.5, delay: verzoegerung }}
-    >
-      {/* Leitlinie vom Schild auf den Punkt. */}
-      <motion.path
-        d={`M${kante},${ziel.y} C${nachRechts ? kante + 120 : kante - 120},${ziel.y} ${(kante + px) / 2},${py} ${px},${py}`}
-        fill="none"
-        /* Hell, nicht dunkel: die Linie läuft über die dunkle Kugel. */
-        stroke={gezeigt ? "rgba(255,153,0,0.95)" : "rgba(214,236,250,0.32)"}
-        strokeWidth={gezeigt ? 2.6 : 1.8}
-        strokeLinecap="round"
-        initial={false}
-        animate={{ pathLength: zustand ? 1 : 0 }}
-        transition={{ duration: 0.6, delay: verzoegerung, ease: EASE }}
-      />
-
-      {/* Punkt auf dem Land. */}
-      <motion.g
-        initial={false}
-        animate={{ opacity: zustand ? 1 : 0, scale: zustand ? (gezeigt ? 1.25 : 1) : 0.3 }}
-        transition={{ type: "spring", stiffness: 300, damping: 18, delay: verzoegerung + 0.2 }}
-        style={{ transformOrigin: `${px}px ${py}px` }}
-      >
-        <circle cx={px} cy={py} r={13} fill="rgba(255,153,0,0.25)" />
-        <circle cx={px} cy={py} r={6.5} fill="#FF9900" style={{ filter: "drop-shadow(0 0 7px rgba(255,153,0,0.95))" }} />
-      </motion.g>
-
-      {/* Das Schild. */}
-      <motion.g
-        animate={{ y: gezeigt && !reduce ? -3 : 0 }}
-        transition={{ type: "spring", stiffness: 400, damping: 22 }}
-      >
-        <rect
-          x={x}
-          y={ziel.y - SCHILD_H / 2}
-          width={w}
-          height={SCHILD_H}
-          rx={SCHILD_H / 2}
-          fill="#ffffff"
-          stroke={gezeigt ? "rgba(255,153,0,0.8)" : "rgba(11,31,52,0.09)"}
-          strokeWidth="2"
-          style={{ filter: "drop-shadow(0 10px 20px rgba(11,31,52,0.16))" }}
-        />
-        <g transform={`translate(${x + 34} ${ziel.y}) scale(1.6)`}>
-          <g clipPath="url(#karte-flagge)">
-            <Flagge code={ziel.code} />
-          </g>
-          <circle r={9} fill="none" stroke="rgba(11,31,52,0.2)" strokeWidth="1.2" />
-        </g>
-        <text
-          x={x + 60}
-          y={ziel.y + 10}
-          fill="#0A1E2B"
-          fontSize="30"
-          fontWeight="700"
-          style={{ letterSpacing: "-0.01em" }}
-        >
-          {ziel.name}
-        </text>
-      </motion.g>
-    </motion.g>
-  );
-}
+/* ---------------- Die Kugel ---------------- */
 
 export function EuropaKarte() {
   const reduce = useReducedMotion();
@@ -286,9 +199,9 @@ export function EuropaKarte() {
   const [an, setAn] = useState(false);
   const [aktiv, setAktiv] = useState<string | null>(null);
 
-  /* Sicherheitsnetz: falls der Beobachter in einem Browser nicht ausloest, ist
-     die Kugel nach zwei Sekunden trotzdem da. Eine leere Flaeche ist der
-     schlimmste Fehler, den eine Animation machen kann. */
+  /* Sicherheitsnetz: löst der Beobachter in einem Browser nicht aus, ist die
+     Kugel nach zwei Sekunden trotzdem da. Eine leere Fläche ist der schlimmste
+     Fehler, den eine Animation machen kann. */
   useEffect(() => {
     if (imBild) setAn(true);
     const t = setTimeout(() => setAn(true), 2000);
@@ -296,223 +209,257 @@ export function EuropaKarte() {
   }, [imBild]);
 
   const zustand = reduce || an;
-  const verbindungen = ZIELE.filter((z) => z.code !== "DE").map((z) => ({
-    code: z.code,
-    d: bogen(START, NADELN[z.code]),
+  const start: [number, number] = [START[0], START[1] - 40];
+
+  const verbindungen = MAERKTE.filter((m) => m.code !== "DE").map((m) => ({
+    code: m.code,
+    ...bogen(start, stelle(m), 0.18),
   }));
+  const nachUsa = bogen(start, USA, 0.16);
 
   return (
-    <div className="relative" ref={huelle}>
-      {/* Der weiche Auslauf. Ohne ihn steht die dunkle Kugel als Kasten auf der
-          hellen Fläche, mit ihm läuft sie oben, unten und zum Text hin aus der
-          Sektion heraus und sitzt in der Seite statt darauf.
-
-          Zwei verschachtelte Hüllen, weil ein Element nur eine Maske trägt:
-          außen senkrecht, innen waagerecht. `mask-composite` würde beides in
-          einem Element schaffen, kann aber nicht jeder Browser. */}
-      <div
-        /* Auf dem Telefon reicht die Grafik über den Innenabstand der Seite
-           hinaus bis an beide Ränder, die Flaggenliste darunter nicht. */
-        className="relative -mx-6 md:-mx-8 lg:mx-0"
-        style={{
-          maskImage: FADE_Y,
-          WebkitMaskImage: FADE_Y,
-        }}
-      >
-      <div style={{ maskImage: FADE_X, WebkitMaskImage: FADE_X }}>
+    /* Das leise Schweben liegt auf der ganzen Grafik, nicht auf der Kugel
+       allein: sonst wandert die Kugel unter den Flaggen weg. */
+    <motion.div
+      className="relative"
+      ref={huelle}
+      animate={reduce ? undefined : { y: [0, -10, 0] }}
+      transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+    >
       <svg
-        viewBox="0 0 1520 960"
-        className="relative w-full"
+        viewBox={`0 0 ${BREITE} ${HOEHE}`}
+        className="w-full overflow-visible"
         role="img"
-        aria-label="Eine Weltkugel mit Blick auf den Nordatlantik. Markiert sind die Amazon-Marktplätze Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen, Schweden, Großbritannien und die USA."
+        aria-label="Eine Weltkugel mit Blick auf Europa. Auf ihren Ländern stehen die Flaggen der Amazon-Marktplätze Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen, Schweden und Großbritannien, unterhalb der Kugel die der USA."
       >
         <defs>
           <clipPath id="karte-flagge">
             <circle r={9} />
           </clipPath>
-          {/* Das Licht auf der Kugel. Der Kern liegt über dem Atlantik, links
-              oberhalb von Europa, nicht in der Ecke des Rahmens: die Kugel ist
-              viel größer als der Ausschnitt, ein Kern in Bruchteilen ihrer
-              Fläche säße sonst irgendwo im Nichts. Angaben in Nutzerkoordinaten
-              (`gradientUnits`), damit sie sich auf den Rahmen beziehen. */}
-          <radialGradient
-            id="kugel-flaeche"
-            gradientUnits="userSpaceOnUse"
-            cx={640}
-            cy={210}
-            r={880}
-          >
-            <stop offset="0%" stopColor="#235E8C" />
-            <stop offset="45%" stopColor="#123B5C" />
-            <stop offset="100%" stopColor="#071726" />
-          </radialGradient>
           <clipPath id="kugel-clip">
-            <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} />
+            <circle cx={MITTE[0]} cy={MITTE[1]} r={RADIUS} />
           </clipPath>
+          {/* Das Meer. Licht von oben links, Schatten zur unteren rechten
+              Kante: das macht aus dem Kreis eine Kugel. */}
+          <radialGradient id="kugel-flaeche" cx="34%" cy="26%" r="78%">
+            <stop offset="0%" stopColor="#2A6B9C" />
+            <stop offset="52%" stopColor="#123B5C" />
+            <stop offset="100%" stopColor="#06182A" />
+          </radialGradient>
+          {/* Die Schattenseite: ein Ring, der nur am Rand liegt. */}
+          <radialGradient id="kugel-tiefe" cx="50%" cy="50%" r="50%">
+            <stop offset="62%" stopColor="rgba(3,10,20,0)" />
+            <stop offset="100%" stopColor="rgba(3,10,20,0.62)" />
+          </radialGradient>
         </defs>
 
         <motion.g
           initial={false}
-          animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.94 }}
+          animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.95 }}
           transition={{ duration: 0.8, ease: EASE }}
-          style={{ transformOrigin: `${KUGEL.cx}px ${KUGEL.cy}px` }}
+          style={{ transformOrigin: `${MITTE[0]}px ${MITTE[1]}px` }}
         >
-          {/* Der Grund. Die Kugel ist größer als der Rahmen, in den Ecken
-              reicht sie trotzdem nicht ganz heran. Ein Rechteck im äußersten
-              Ton des Verlaufs schließt sie, sonst stünde dort ein Stück heller
-              Seite und man sähe den Rand einer Kugel, die keinen haben darf. */}
-          <rect width={1520} height={960} fill="#071726" />
-          <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} fill="url(#kugel-flaeche)" />
+          {/* Schatten unter der Kugel, damit sie auf der Seite steht statt auf
+              ihr zu kleben. */}
+          <ellipse
+            cx={MITTE[0]}
+            cy={MITTE[1] + RADIUS * 0.99}
+            rx={RADIUS * 0.78}
+            ry={RADIUS * 0.1}
+            fill="rgba(11,31,52,0.22)"
+            style={{ filter: "blur(26px)" }}
+          />
+
+          <circle cx={MITTE[0]} cy={MITTE[1]} r={RADIUS} fill="url(#kugel-flaeche)" />
 
           <g clipPath="url(#kugel-clip)">
-            {/* Gitternetz zuerst, danach die Laender darueber. */}
+            {/* Gitternetz zuerst, die Länder darüber. */}
             {GITTER.map((d, i) => (
-              <path key={i} d={d} fill="none" stroke="rgba(190,222,240,0.14)" strokeWidth="1.4" />
+              <path
+                key={i}
+                d={d}
+                fill="none"
+                stroke="rgba(190,222,240,0.13)"
+                strokeWidth="1.3"
+                transform="translate(0 -40)"
+              />
             ))}
 
-            {LAENDER.map((l) => {
-              const markt = Boolean(l.code);
-              const gezeigt = aktiv !== null && aktiv === l.code;
-              return (
-                <motion.path
-                  key={l.name}
-                  d={l.d}
-                  stroke="rgba(255,255,255,0.22)"
-                  strokeWidth={markt ? 1.6 : 1}
-                  strokeLinejoin="round"
-                  initial={false}
-                  animate={{ fill: gezeigt ? "#5CA6D8" : markt ? "#3D86BC" : "#1B4A6E" }}
-                  transition={{ duration: 0.4, ease: EASE }}
-                  onMouseEnter={markt ? () => setAktiv(l.code) : undefined}
-                  onMouseLeave={markt ? () => setAktiv(null) : undefined}
-                />
-              );
-            })}
+            <g transform="translate(0 -40)">
+              {LAENDER.map((l) => {
+                const markt = Boolean(l.code);
+                const gezeigt = aktiv !== null && aktiv === l.code;
+                return (
+                  <motion.path
+                    key={l.name}
+                    d={l.d}
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth={markt ? 1.4 : 0.9}
+                    strokeLinejoin="round"
+                    initial={false}
+                    animate={{ fill: gezeigt ? "#5CA6D8" : markt ? "#387DB0" : "#1A4767" }}
+                    transition={{ duration: 0.4, ease: EASE }}
+                    onMouseEnter={markt ? () => setAktiv(l.code) : undefined}
+                    onMouseLeave={markt ? () => setAktiv(null) : undefined}
+                  />
+                );
+              })}
+            </g>
 
-            {/* Schatten zur unteren rechten Ecke: das gibt der Fläche Tiefe.
-                Eine Lichtkante am Rand der Kugel gibt es nicht mehr, der Rand
-                liegt außerhalb des Ausschnitts. */}
-            <ellipse
-              cx={KUGEL.cx + KUGEL.r * 0.5}
-              cy={KUGEL.cy + KUGEL.r * 0.55}
-              rx={KUGEL.r * 0.95}
-              ry={KUGEL.r * 0.9}
-              fill="rgba(4,14,24,0.42)"
-              style={{ filter: "blur(60px)" }}
+            {/* Die Bogen von Deutschland in die anderen Märkte. Sie liegen
+                unter den Flaggen und bleiben leise. */}
+            {verbindungen.map((v, i) => (
+              <g key={v.code}>
+                <path d={v.d} fill="none" stroke="rgba(255,153,0,0.3)" strokeWidth="2" strokeLinecap="round" />
+                {!reduce && zustand && (
+                  <motion.path
+                    d={v.d}
+                    fill="none"
+                    stroke="#FFB65C"
+                    strokeWidth="3.4"
+                    strokeLinecap="round"
+                    strokeDasharray={`26 ${Math.round(v.laenge * 1.4)}`}
+                    initial={{ strokeDashoffset: 0, opacity: 0 }}
+                    animate={{ strokeDashoffset: [0, -Math.round(v.laenge * 1.4 + 26)], opacity: [0, 1, 1, 0] }}
+                    transition={{
+                      duration: 2.6,
+                      delay: 1 + i * 0.35,
+                      repeat: Infinity,
+                      repeatDelay: 2.6,
+                      ease: "easeInOut",
+                      times: [0, 0.12, 0.85, 1],
+                    }}
+                  />
+                )}
+              </g>
+            ))}
+
+            {/* Die Schattenseite ganz oben, damit sie über Land und Meer
+                liegt. */}
+            <circle
+              cx={MITTE[0]}
+              cy={MITTE[1]}
+              r={RADIUS}
+              fill="url(#kugel-tiefe)"
+              style={{ pointerEvents: "none" }}
             />
           </g>
+
+          {/* Die Lichtkante der Kugel. */}
+          <circle
+            cx={MITTE[0]}
+            cy={MITTE[1]}
+            r={RADIUS - 1}
+            fill="none"
+            stroke="rgba(214,236,250,0.4)"
+            strokeWidth="2"
+            style={{ pointerEvents: "none" }}
+          />
+
+          {/* Der Weg über den Atlantik zu den USA. Er verlässt die Kugel am
+              westlichen Rand: Amerika liegt bei diesem Zoom hinter dem
+              Horizont. */}
+          <path
+            d={`M${ATLANTIK[0]},${ATLANTIK[1]} Q${ATLANTIK[0] - 150},${ATLANTIK[1] + 190} ${USA[0] + FLAGGE_R + 6},${USA[1] - 10}`}
+            fill="none"
+            stroke="rgba(255,153,0,0.55)"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeDasharray="7 9"
+          />
+          {!reduce && zustand && (
+            <motion.circle
+              r={5}
+              fill="#FF9900"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
+              style={{ offsetPath: `path("${nachUsa.d}")` } as React.CSSProperties}
+            />
+          )}
         </motion.g>
 
-        {/* Verbindungen von Deutschland aus, mit einem Lichtpunkt, der immer
-            wieder darueber laeuft. */}
-        <g clipPath="url(#kugel-clip)">
-          {verbindungen.map((v, i) => (
-            <g key={v.code}>
-              <motion.path
-                d={v.d}
-                fill="none"
-                stroke="rgba(255,153,0,0.5)"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                initial={false}
-                animate={{ pathLength: zustand ? 1 : 0, opacity: zustand ? 1 : 0 }}
-                transition={{ duration: 0.7, delay: 0.3 + i * 0.06, ease: EASE }}
+        {/* Die Flaggen. Sie stehen im Land, nicht am Bildrand. */}
+        {MAERKTE.map((m, i) => {
+          const [x, y] = stelle(m);
+          const gezeigt = aktiv === m.code;
+          return (
+            <motion.g
+              key={m.code}
+              onMouseEnter={() => setAktiv(m.code)}
+              onMouseLeave={() => setAktiv(null)}
+              initial={false}
+              animate={{ opacity: zustand ? 1 : 0, scale: zustand ? (gezeigt ? 1.12 : 1) : 0.4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.4 + i * 0.07 }}
+              style={{ transformOrigin: `${x}px ${y}px`, cursor: "default" }}
+            >
+              <title>{m.name}</title>
+              <circle
+                cx={x}
+                cy={y}
+                r={FLAGGE_R}
+                fill="#FFFFFF"
+                style={{ filter: "drop-shadow(0 8px 14px rgba(3,12,22,0.55))" }}
               />
-              {!reduce && (
-                <motion.path
-                  d={v.d}
-                  fill="none"
-                  stroke="#FFB347"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                  strokeDasharray="24 1400"
-                  style={{ filter: "drop-shadow(0 0 6px rgba(255,153,0,0.9))" }}
-                  initial={{ strokeDashoffset: 0, opacity: 0 }}
-                  animate={zustand ? { strokeDashoffset: [0, -1424], opacity: [0, 1, 1, 0] } : {}}
-                  transition={{
-                    duration: 2.8,
-                    delay: 1.1 + i * 0.4,
-                    repeat: Infinity,
-                    repeatDelay: 2.2,
-                    ease: "easeInOut",
-                    times: [0, 0.1, 0.85, 1],
-                  }}
-                />
-              )}
-            </g>
-          ))}
-        </g>
+              <g transform={`translate(${x} ${y}) scale(${(FLAGGE_R - 5) / 9})`}>
+                <g clipPath="url(#karte-flagge)">
+                  <Flagge code={m.code} />
+                </g>
+                <circle r={9} fill="none" stroke="rgba(11,31,52,0.18)" strokeWidth="1" />
+              </g>
+              {/* Beim Zeigen steht der Name über der Flagge. */}
+              <motion.text
+                x={x}
+                y={y - FLAGGE_R - 16}
+                textAnchor="middle"
+                fill="#FFFFFF"
+                fontSize="30"
+                fontWeight="700"
+                initial={false}
+                animate={{ opacity: gezeigt ? 1 : 0 }}
+                transition={{ duration: 0.2 }}
+                style={{ letterSpacing: "-0.01em", filter: "drop-shadow(0 2px 6px rgba(3,12,22,0.9))" }}
+              >
+                {m.name}
+              </motion.text>
+            </motion.g>
+          );
+        })}
 
-        {/* Der Startmarkt pulst leise weiter. */}
-        {!reduce && zustand && (
-          <motion.circle
-            cx={START[0]}
-            cy={START[1]}
-            r={11}
-            fill="none"
-            stroke="#FF9900"
-            strokeWidth="3"
-            initial={{ scale: 0.5, opacity: 0.9 }}
-            animate={{ scale: 2.8, opacity: 0 }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
-            style={{ transformOrigin: `${START[0]}px ${START[1]}px` }}
+        {/* Der Punkt USA unter der Kugel. */}
+        <motion.g
+          initial={false}
+          animate={{ opacity: zustand ? 1 : 0, scale: zustand ? 1 : 0.4 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20, delay: 1.1 }}
+          style={{ transformOrigin: `${USA[0]}px ${USA[1]}px` }}
+        >
+          <title>USA</title>
+          <circle
+            cx={USA[0]}
+            cy={USA[1]}
+            r={FLAGGE_R}
+            fill="#FFFFFF"
+            style={{ filter: "drop-shadow(0 8px 16px rgba(11,31,52,0.3))" }}
           />
-        )}
-
-        {/* Auf dem Telefon wäre die Schrift in den Schildern fünf Pixel groß.
-            Dort steht die Kugel allein, die Namen kommen darunter als Liste. */}
-        <g className="hidden md:inline">
-          {ZIELE.map((z, i) => (
-            <Schild
-              key={z.code}
-              ziel={z}
-              aktiv={aktiv}
-              setAktiv={setAktiv}
-              an={an}
-              index={i}
-              reduce={!!reduce}
-            />
-          ))}
-        </g>
-
-        {/* Auf dem Telefon nur die Punkte auf den Ländern. */}
-        <g className="md:hidden">
-          {ZIELE.map((z) => {
-            const [px, py] = NADELN[z.code];
-            return (
-              <g key={z.code}>
-                <circle cx={px} cy={py} r={16} fill="rgba(255,153,0,0.25)" />
-                <circle
-                  cx={px}
-                  cy={py}
-                  r={8}
-                  fill="#FF9900"
-                  style={{ filter: "drop-shadow(0 0 8px rgba(255,153,0,0.95))" }}
-                />
-              </g>
-            );
-          })}
-        </g>
-      </svg>
-      </div>
-      </div>
-
-      <ul className="mt-6 flex flex-wrap gap-2 md:hidden">
-        {ZIELE.map((z) => (
-          <li
-            key={z.code}
-            className="flex items-center gap-2 rounded-full bg-white px-3 py-1.5 shadow-[0_6px_16px_-10px_rgba(11,31,52,0.5)] ring-1 ring-navy/[0.08]"
+          <g transform={`translate(${USA[0]} ${USA[1]}) scale(${(FLAGGE_R - 5) / 9})`}>
+            <g clipPath="url(#karte-flagge)">
+              <Flagge code="US" />
+            </g>
+            <circle r={9} fill="none" stroke="rgba(11,31,52,0.18)" strokeWidth="1" />
+          </g>
+          <text
+            x={USA[0] + FLAGGE_R + 18}
+            y={USA[1] + 11}
+            fill="#0A1E2B"
+            fontSize="32"
+            fontWeight="700"
+            style={{ letterSpacing: "-0.01em" }}
           >
-            <svg width="18" height="18" viewBox="-9 -9 18 18" aria-hidden className="shrink-0 rounded-full">
-              <g clipPath="url(#karte-flagge)">
-                <Flagge code={z.code} />
-              </g>
-            </svg>
-            <span className="text-[0.8rem] font-bold text-ink">{z.name}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+            USA
+          </text>
+        </motion.g>
+      </svg>
+    </motion.div>
   );
 }
 
@@ -529,17 +476,10 @@ export function MarktSektion({
   text?: string;
 }) {
   return (
-    /* `overflow-hidden`, weil die Grafik links aus dem Container und oben und
-       unten aus der Sektion läuft. Genau das soll sie: ein Ausschnitt, der
-       weitergeht, keine Scheibe, die mittig auf der Fläche liegt. */
-    <section className="ground-tint relative isolate overflow-hidden py-16 md:py-24">
+    <section className="ground-tint relative isolate py-16 md:py-24">
       <div className="container-x">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-4">
-          {/* Der negative Rand links ist genau der Rand des Containers: die
-              Grafik reicht bis an den Bildschirmrand, und trotzdem wird nichts
-              von ihr abgeschnitten. `max()` fängt schmale Fenster ab, dort ist
-              es nur der Innenabstand. */}
-          <div className="min-w-0 lg:-my-16 lg:-ml-[calc(max(2rem,(100vw-80rem)/2+2rem))]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
+          <div className="mx-auto w-full min-w-0 max-w-[41rem]">
             <EuropaKarte />
           </div>
           <div>

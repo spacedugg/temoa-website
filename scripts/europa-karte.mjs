@@ -20,10 +20,10 @@ const welt = JSON.parse(
 );
 const laender = topojson.feature(welt, welt.objects.countries).features;
 
-/* Die Amazon-Marktplätze, die gezeigt werden: Pan-EU, Großbritannien und die
-   USA. Kein Kanada und kein Mexiko, die stehen nur als Umgebung auf der Kugel. */
+/* Die Amazon-Marktplätze auf der Kugel: Pan-EU und Großbritannien. Die USA
+   liegen bei diesem Zoom hinter dem Horizont, ihre Flagge sitzt im Bauteil
+   neben der Kugel. */
 const MARKT = {
-  "United States of America": "US",
   Germany: "DE",
   France: "FR",
   Italy: "IT",
@@ -35,40 +35,36 @@ const MARKT = {
   "United Kingdom": "UK",
 };
 
-/* Umgebung, damit die Kugel bewohnt aussieht und Europa als Europa lesbar ist. */
+/* Umgebung, damit Europa als Europa lesbar ist und der Rand der Sicht nicht
+   leer bleibt. */
 const UMGEBUNG = [
   "Ireland", "Portugal", "Switzerland", "Austria", "Czechia", "Slovakia", "Hungary",
   "Slovenia", "Croatia", "Bosnia and Herz.", "Serbia", "Montenegro", "Kosovo",
   "Albania", "North Macedonia", "Greece", "Bulgaria", "Romania", "Moldova",
   "Ukraine", "Belarus", "Lithuania", "Latvia", "Estonia", "Finland", "Norway",
-  "Denmark", "Luxembourg", "Turkey", "Iceland",
-  "Morocco", "Algeria", "Tunisia", "Libya", "Egypt", "W. Sahara", "Mauritania",
-  "Mali", "Niger", "Senegal", "Guinea", "Nigeria", "Chad", "Sudan",
-  "Canada", "Greenland", "Mexico", "Cuba", "Bahamas", "Haiti", "Dominican Rep.",
-  "Jamaica", "Guatemala", "Honduras", "Nicaragua", "Costa Rica", "Panama",
-  "Venezuela", "Colombia", "Brazil", "Guyana", "Suriname",
+  "Denmark", "Luxembourg", "Turkey", "Iceland", "Russia",
+  "Morocco", "Algeria", "Tunisia", "Libya", "W. Sahara", "Mauritania", "Mali",
+  "Niger", "Egypt", "Syria", "Iraq", "Iran", "Jordan", "Israel", "Lebanon",
+  "Saudi Arabia", "Cyprus", "Malta", "Georgia", "Armenia", "Azerbaijan",
+  "Kazakhstan", "Greenland",
 ];
 
 /* Orthografische Projektion: der Blick auf eine Kugel aus grosser Entfernung.
-   Damit sieht die Grafik aus wie ein Globus und nicht wie ein gestrecktes
-   Rechteck, und der Bogen ueber den Atlantik in die USA ergibt geografisch
-   Sinn. Der Mittelpunkt liegt im Nordatlantik, dadurch sind Europa und die
-   Ostkueste Nordamerikas gleichzeitig zu sehen. */
+   Anders als bisher steht die Kugel nicht als ganze Scheibe im Bild, sondern
+   der Blick geht nah an Europa heran: der Radius ist ein Vielfaches des
+   sichtbaren Kreises, dadurch sind Deutschland, Frankreich und Italien gross
+   genug, dass eine Flagge im Land stehen kann. Woelbung und Gitternetz bleiben
+   sichtbar, deshalb liest es sich weiter als Kugel und nicht als Landkarte. */
 const RAD = Math.PI / 180;
-const MITTE_LON = -26 * RAD;
-const MITTE_LAT = 45 * RAD;
-/* Ein Ausschnitt, keine Scheibe: die Kugel ist groesser als der Rahmen und
-   deckt ihn vollstaendig ab, an allen vier Seiten laeuft sie hinaus. Keine
-   Woelbung im Bild, kein Kreis auf heller Flaeche.
-   Der Rahmen beginnt am linken Rand des Bildschirms: die Grafik ragt genau um
-   den Rand des Containers nach links heraus, nichts davon wird abgeschnitten.
-   Rechts laeuft sie unter dem Text weich aus, deshalb liegt Europa bei rund
-   drei Vierteln der Breite und nicht am Rand. */
-const R = 910;
-const CX = 754;
-const CY = 560;
-const BREITE = 1520;
-const HOEHE = 960;
+const MITTE_LON = 8 * RAD;
+const MITTE_LAT = 50 * RAD;
+const R = 1750;
+const CX = 500;
+const CY = 500;
+const BREITE = 1000;
+const HOEHE = 1000;
+/* Der sichtbare Kreis. Alles ausserhalb schneidet die Maske im Bauteil ab. */
+const SICHT = 470;
 
 /** Kosinus des Winkelabstands zum Mittelpunkt der sichtbaren Halbkugel. */
 function kosinus(lon, lat) {
@@ -80,11 +76,6 @@ function kosinus(lon, lat) {
   );
 }
 
-/**
- * Punkte auf der Rueckseite werden auf den Rand der Kugel gezogen, statt sie
- * wegzulassen: sonst reisst eine Kueste, die ueber den Rand laeuft, mitten im
- * Land ab.
- */
 function auf([lon, lat]) {
   const phi = lat * RAD;
   const lam = lon * RAD;
@@ -98,18 +89,14 @@ function auf([lon, lat]) {
   return [CX + R * x, CY - R * y];
 }
 
-/* Ringe, die groesstenteils auf der Rueckseite liegen, fliegen raus. Ein
-   einziger sichtbarer Punkt reicht nicht: die uebrigen werden auf den Rand der
-   Kugel gezogen, und aus einer Inselkette hinter dem Horizont wird dann ein
-   breiter Schmierstreifen am Rand. */
-function ringSichtbar(ring) {
-  const sichtbar = ring.filter(([lon, lat]) => kosinus(lon, lat) > 0.02).length;
-  return sichtbar / ring.length > 0.45;
+/** Liegt der Punkt nah genug am sichtbaren Kreis, um zu zaehlen? */
+function nah([x, y], rand) {
+  return Math.hypot(x - CX, y - CY) < rand;
 }
 
 /* Douglas-Peucker: Punkte, die auf der Verbindung ihrer Nachbarn liegen,
-   fallen weg. Bei 1,2 Einheiten Toleranz auf 1000 Breite sieht man den
-   Unterschied nicht, die Datei wird aber weniger als halb so gross. */
+   fallen weg. Bei diesem Zoom ist die Toleranz kleiner als frueher, sonst
+   verliert eine Kueste bei zehnfacher Vergroesserung ihre Form. */
 function vereinfache(punkte, toleranz) {
   if (punkte.length < 3) return punkte;
   const [a] = punkte;
@@ -146,12 +133,21 @@ function ringPfad(ring) {
     const bisher = Math.hypot(roh[fern][0] - roh[0][0], roh[fern][1] - roh[0][1]);
     if (d > bisher) fern = i;
   }
-  const vorne = vereinfache(roh.slice(0, fern + 1), 1.2);
-  const hinten = vereinfache(roh.slice(fern), 1.2);
+  const vorne = vereinfache(roh.slice(0, fern + 1), 0.7);
+  const hinten = vereinfache(roh.slice(fern), 0.7);
   const knapp = [...vorne.slice(0, -1), ...hinten].map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`);
   const ohneDoppel = knapp.filter((p, i) => i === 0 || p !== knapp[i - 1]);
   if (ohneDoppel.length < 4) return "";
   return `M${ohneDoppel.join("L")}Z`;
+}
+
+/* Ringe zaehlen nur, wenn sie den sichtbaren Kreis beruehren. Bei diesem Zoom
+   liegt der groesste Teil der Welt weit ausserhalb; ohne diesen Filter waere
+   die Datei ein Vielfaches gross und der Browser zeichnet Umrisse, die niemand
+   sieht. Etwas Rand ueber den Kreis hinaus bleibt stehen, damit an der Kante
+   kein Land mitten im Nichts anfaengt. */
+function ringSichtbar(ring) {
+  return ring.some((p) => kosinus(p[0], p[1]) > 0 && nah(auf(p), SICHT + 260));
 }
 
 function pfad(geometrie) {
@@ -172,66 +168,67 @@ for (const f of laender) {
   raus.push({ name, code: code ?? null, d });
 }
 
-/* Wo die Nadel steht. Bewusst nicht der Flaechenschwerpunkt: der liegt bei
+/* Wo die Flagge steht. Bewusst nicht der Flaechenschwerpunkt: der liegt bei
    Frankreich mitten im Zentralmassiv und bei Italien im Meer. */
 const NADELN = {
-  US: [-88, 39],
-  DE: [10.2, 51.2],
-  FR: [2.2, 47.0],
-  IT: [12.4, 43.0],
-  ES: [-3.7, 40.3],
-  NL: [5.6, 52.3],
-  BE: [4.6, 50.6],
-  PL: [19.4, 52.0],
-  SE: [15.2, 59.3],
-  UK: [-1.8, 52.8],
+  DE: [10.4, 51.3],
+  FR: [2.2, 46.9],
+  IT: [12.3, 42.4],
+  ES: [-2.6, 40.3],
+  NL: [5.5, 52.4],
+  BE: [4.5, 50.5],
+  PL: [19.3, 52.1],
+  SE: [15.0, 60.0],
+  UK: [-2.0, 53.2],
 };
 
 const nadeln = Object.fromEntries(
   Object.entries(NADELN).map(([k, v]) => [k, auf(v).map((z) => Math.round(z * 10) / 10)])
 );
 
-/* Gitternetz: Laengen- und Breitenkreise. Sie machen aus einer Scheibe eine
-   Kugel, weil sie sich zum Rand hin zusammenschieben. */
+/* Gitternetz: Laengen- und Breitenkreise. Sie machen aus einer Flaeche eine
+   Kugel, weil sie sich zum Rand hin kruemmen. Bei diesem Zoom in feineren
+   Schritten als bei einer ganzen Kugel, sonst laeuft nur eine Linie durchs
+   Bild. */
 const gitter = [];
 function linie(punkte) {
   if (punkte.length > 1) gitter.push(`M${punkte.join("L")}`);
 }
-for (let lon = -180; lon < 180; lon += 20) {
+for (let lon = -40; lon <= 60; lon += 10) {
   let punkte = [];
-  for (let lat = -80; lat <= 80; lat += 2) {
-    if (kosinus(lon, lat) <= 0.02) {
+  for (let lat = 20; lat <= 80; lat += 1) {
+    const p = auf([lon, lat]);
+    if (kosinus(lon, lat) <= 0 || !nah(p, SICHT + 60)) {
       linie(punkte);
       punkte = [];
       continue;
     }
-    const [x, y] = auf([lon, lat]);
-    punkte.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+    punkte.push(`${p[0].toFixed(1)},${p[1].toFixed(1)}`);
   }
   linie(punkte);
 }
-for (let lat = -60; lat <= 80; lat += 20) {
+for (let lat = 25; lat <= 75; lat += 5) {
   let punkte = [];
-  for (let lon = -180; lon <= 180; lon += 2) {
-    if (kosinus(lon, lat) <= 0.02) {
+  for (let lon = -60; lon <= 80; lon += 1) {
+    const p = auf([lon, lat]);
+    if (kosinus(lon, lat) <= 0 || !nah(p, SICHT + 60)) {
       linie(punkte);
       punkte = [];
       continue;
     }
-    const [x, y] = auf([lon, lat]);
-    punkte.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+    punkte.push(`${p[0].toFixed(1)},${p[1].toFixed(1)}`);
   }
   linie(punkte);
 }
 
 const inhalt = `/* Erzeugt von scripts/europa-karte.mjs. Nicht von Hand aendern.
    Quelle der Umrisse: Natural Earth ueber world-atlas (Public Domain),
-   orthografische Projektion mit Blick auf den Nordatlantik: Europa rechts,
-   Nordamerika links. */
+   orthografische Projektion, nah an Europa herangefahren: die Kugel ist ein
+   Vielfaches groesser als der sichtbare Kreis. */
 
 export const KARTE_BREITE = ${BREITE};
 export const KARTE_HOEHE = ${HOEHE};
-export const KUGEL = { cx: ${CX}, cy: ${CY}, r: ${R} };
+export const KUGEL = { cx: ${CX}, cy: ${CY}, r: ${SICHT} };
 
 export type Land = { name: string; code: string | null; d: string };
 
@@ -247,3 +244,4 @@ fs.writeFileSync(ziel, inhalt);
 console.log(
   `${raus.length} Laender, ${gitter.length} Gitterlinien, ${(inhalt.length / 1024).toFixed(0)} kB -> ${path.relative(ROOT, ziel)}`
 );
+console.log(nadeln);

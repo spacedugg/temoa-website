@@ -373,6 +373,28 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
 - **Ausgenommen ist der Textmarker `.mark`**: der orange Balken sitzt unter
   der Grundlinie, die Schrift steht nicht darauf.
 
+## Achte Feedbackrunde (verbindlich, ersetzt die Ausschnitt-Regeln)
+
+- **Die Marktplatzgrafik ist eine runde Kugel auf dem Grund der Seite.** Kein
+  rechteckiger Ausschnitt, keine Maske, kein weiches Auslaufen an den Kanten.
+  Der Kunde hat den Ausschnitt mit Auslauf verworfen: er sah aus wie ein
+  schlecht freigestelltes Bild. Der Kreis steht mit einem Schatten darunter
+  frei auf der Flaeche, sonst nichts.
+- **Die Kugel ist nah an Europa herangefahren.** Der Radius (1750) ist ein
+  Vielfaches des sichtbaren Kreises (470), dadurch sind Deutschland,
+  Frankreich, Spanien und Italien gross genug, dass eine Flagge im Land
+  stehen kann. Gitternetz, Lichtkante und Schattenseite machen daraus eine
+  Kugel und keine Landkarte.
+- **Die Flagge steckt im Land.** Keine Pillen am Bildrand, keine Leitlinien
+  vom Schild auf ein Land. Wo zwei Laender zu klein und zu nah beieinander
+  liegen (Niederlande, Belgien), sitzt die Flagge daneben, ohne Linie. Der
+  Name erscheint beim Zeigen ueber der Flagge.
+- **Die USA stehen als eigener Punkt unter der Kugel**, mit einem gestrichelten
+  Bogen vom westlichen Rand dorthin. Bei diesem Zoom liegt Amerika hinter dem
+  Horizont; eine Flagge im Atlantik waere schlicht falsch.
+- **Das Schweben liegt auf der ganzen Grafik**, nicht auf der Kugel allein:
+  sonst wandert die Kugel unter den Flaggen weg.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
