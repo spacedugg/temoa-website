@@ -97,7 +97,7 @@ export function Zusammenlauf() {
             animate={zeigen ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.8 + i * 0.09, ease: EASE }}
           >
-            <span className="block text-[0.66rem] font-bold leading-tight text-ink [hyphens:auto] break-words">{b}</span>
+            <span className="block text-[0.72rem] font-bold leading-tight text-ink [hyphens:auto] break-words">{b}</span>
           </motion.div>
         ))}
       </div>
@@ -125,7 +125,7 @@ export function Zusammenlauf() {
         />
         <span className="min-w-0">
           <span className="block text-[0.72rem] font-bold leading-tight text-white">Account Management</span>
-          <span className="mt-0.5 block text-[0.62rem] font-bold uppercase tracking-[0.1em] text-chalk-muted">
+          <span className="mt-0.5 block text-[0.68rem] font-bold uppercase tracking-[0.08em] text-chalk-muted">
             Jeden Tag, vom ersten bis zum letzten
           </span>
         </span>

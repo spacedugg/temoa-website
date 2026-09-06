@@ -54,7 +54,7 @@ export function Auftrag() {
 
             <motion.h1
               {...rise(0.06)}
-              className="display max-w-[24ch] text-balance text-[clamp(2.3rem,1.5rem+2.5vw,3.5rem)] text-ink"
+              className="display max-w-[24ch] text-balance text-[clamp(2rem,1.4rem+2.6vw,3.5rem)] text-ink"
             >
               <span className="em mark">Profitables Wachstum</span> für deine Amazon Brand
             </motion.h1>

@@ -318,7 +318,7 @@ export function Verfahren() {
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                       <span className="text-[1.02rem] font-bold leading-snug text-ink">{s.name}</span>
                       {s.signal && (
-                        <span className="rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-brand-400">
+                        <span className="rounded-full bg-navy px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-brand-400">
                           Ranking-Signal
                         </span>
                       )}
@@ -433,7 +433,7 @@ export function Verfahren() {
               Kante. Das Uebliche liegt unter der Oberflaeche. */}
           <motion.div
             {...auf(0.06)}
-            className="flex flex-col rounded-[1.6rem] border border-dashed border-ink/[0.18] bg-ink/[0.035] p-7 md:p-8"
+            className="flex flex-col rounded-[1.6rem] border border-dashed border-ink/[0.18] bg-ink/[0.035] p-5 sm:p-7 md:p-8"
           >
             <span className="text-label font-bold uppercase text-ink-faint">Wie es meistens läuft</span>
             <ul className="mt-6 space-y-4">
@@ -527,7 +527,7 @@ export function Leistungen() {
             key={l.title}
             {...auf(i * 0.06)}
             href={l.href}
-            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden p-7 transition-transform duration-500 ease-temoa hover:-translate-y-1 md:p-8"
+            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden p-5 transition-transform duration-500 ease-temoa hover:-translate-y-1 md:p-8"
           >
             {/* Der Lichthof zieht beim Zeigen an, damit die Karte reagiert,
                 ohne dass sich das Layout bewegt. */}
@@ -536,19 +536,29 @@ export function Leistungen() {
               className="pointer-events-none absolute -right-10 -top-16 h-44 w-44 rounded-full opacity-60 blur-[50px] transition-opacity duration-500 group-hover:opacity-100"
               style={{ background: "radial-gradient(circle, rgba(255,153,0,0.5), transparent 70%)" }}
             />
-            <div className="relative flex items-start justify-between gap-4">
-              <span className="tile-dark">
+            {/* Die Ziffer steht in beiden Fassungen oben rechts, deshalb
+                absolut und nicht in der Reihe neben der Kachel. */}
+            <span
+              aria-hidden
+              className="num absolute right-5 top-4 text-[1.4rem] leading-none text-white/20 md:right-8 md:top-7 md:text-[1.6rem]"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            {/* Auf dem Telefon steht das Symbol neben dem Text. Gestapelt
+                war jede der fuenf Karten rund 265 Pixel hoch, zusammen mehr
+                als anderthalb Bildschirme fuer fuenf Zeilen Inhalt. */}
+            <div className="relative flex items-start gap-4 md:block">
+              <span className="tile-dark shrink-0">
                 <Icon name={l.icon} className="h-8 w-8" />
               </span>
-              <span className="num text-[1.6rem] leading-none text-white/20">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+              <div className="min-w-0 flex-1 md:mt-6">
+                <div className="pr-9 text-[1.1rem] font-bold leading-snug tracking-[-0.015em] text-white md:pr-10 md:text-[1.4rem]">
+                  {l.title}
+                </div>
+                <div className="mt-2 text-small leading-relaxed text-chalk-muted md:mt-2.5">{l.body}</div>
+              </div>
             </div>
-            <div className="relative mt-6 text-[1.25rem] font-bold leading-snug tracking-[-0.015em] text-white md:text-[1.4rem]">
-              {l.title}
-            </div>
-            <div className="relative mt-2.5 text-small leading-relaxed text-chalk-muted">{l.body}</div>
-            <span className="relative mt-auto inline-flex items-center gap-1.5 pt-6 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+            <span className="relative mt-4 inline-flex items-center gap-1.5 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1 md:mt-auto md:pt-6">
               Mehr dazu
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -567,7 +577,7 @@ export function Leistungen() {
             width={1408}
             height={1408}
             loading="lazy"
-            className="relative w-full max-w-[19rem]"
+            className="relative w-full max-w-[14rem] sm:max-w-[19rem]"
           />
         </motion.div>
       </div>
@@ -945,7 +955,9 @@ function BereichsKopf({ label, note, dunkel = false }: { label: string; note: st
  */
 function Stimme({ t }: { t: (typeof testimonials)[number] }) {
   return (
-    <figure className="panel m-0 flex w-[19rem] shrink-0 flex-col p-6 md:w-[22rem]">
+    /* Auf dem Telefon so breit wie der Container, damit eine Stimme ganz im
+       Bild steht statt zur Haelfte hinter dem Rand. */
+    <figure className="panel m-0 flex w-[calc(100vw-3rem)] shrink-0 snap-center flex-col p-5 sm:w-[19rem] sm:p-6 md:w-[22rem]">
       <div className="flex gap-0.5" aria-label="5 von 5 Sternen">
         {Array.from({ length: 5 }).map((_, s) => (
           <svg key={s} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
@@ -997,11 +1009,20 @@ function Stimme({ t }: { t: (typeof testimonials)[number] }) {
  * horizontal scrollbar ist, kann man auch selbst durchwischen. Bei
  * prefers-reduced-motion steht das Band still, siehe globals.css.
  */
+/**
+ * Ein Band mit Kundenstimmen.
+ *
+ * Auf dem Rechner laeuft es von allein und haelt an, sobald der Zeiger
+ * darauf liegt. Auf dem Telefon gibt es keinen Zeiger: dort lief der Text
+ * einfach weiter, und wer eine Stimme zu Ende lesen wollte, kam nicht
+ * hinterher. Ab `md` laeuft es, darunter steht es still und wird gewischt,
+ * mit Einrastpunkten, damit immer eine ganze Karte im Bild steht.
+ */
 function StimmenBand({ liste, dauer, rueckwaerts }: { liste: typeof testimonials; dauer: number; rueckwaerts?: boolean }) {
   return (
-    <div className="group relative overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="group relative snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div
-        className="flex w-max animate-marquee items-stretch gap-4 group-hover:[animation-play-state:paused]"
+        className="flex w-max items-stretch gap-4 md:animate-marquee md:group-hover:[animation-play-state:paused]"
         style={{ animationDuration: `${dauer}s`, animationDirection: rueckwaerts ? "reverse" : "normal" }}
       >
         {[...liste, ...liste].map((t, i) => (

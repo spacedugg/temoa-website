@@ -84,15 +84,18 @@ footer :where(a, button):focus-visible,
 
   /* ---------- Vertikaler Rhythmus ----------
      Drei Abstände statt der bisher acht ad-hoc Kombinationen.
-     Unten jeweils etwas mehr als oben, weil das optisch ausgeglichen wirkt. */
+     Unten jeweils etwas mehr als oben, weil das optisch ausgeglichen wirkt.
+     Auf dem Telefon rund ein Drittel weniger: 80 Pixel Luft über und unter
+     jeder Sektion sind auf 390 Pixel Breite ein Viertel Bildschirm, und die
+     Startseite hatte damit neunzehn Bildschirme. */
   .section-y {
-    @apply pt-20 pb-24 md:pt-24 md:pb-28;
+    @apply pt-14 pb-16 md:pt-24 md:pb-28;
   }
   .section-y-sm {
-    @apply pt-12 pb-14 md:pt-14 md:pb-16;
+    @apply pt-10 pb-11 md:pt-14 md:pb-16;
   }
   .section-y-lg {
-    @apply pt-28 pb-32 md:pt-32 md:pb-36;
+    @apply pt-20 pb-20 md:pt-32 md:pb-36;
   }
 
   /* Typografische Textur.

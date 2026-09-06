@@ -123,7 +123,7 @@ export function ContentResultBand() {
         <RevealGroup className="mx-auto mt-12 grid max-w-5xl items-stretch gap-4 md:grid-cols-3 md:gap-5" stagger={0.08}>
           {items.map((it, i) => (
             <RevealItem key={it.title} className="h-full">
-              <div className="panel-dark relative flex h-full flex-col p-7 md:p-8">
+              <div className="panel-dark relative flex h-full flex-col p-5 sm:p-7 md:p-8">
                 <span className="text-label font-bold uppercase tracking-[0.14em] text-chalk-faint">
                   {`0${i + 1}`}
                 </span>

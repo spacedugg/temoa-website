@@ -48,7 +48,9 @@ export function Station({
   return (
     <section id={id} className={clsx("relative scroll-mt-24", grounds[tone], className)}>
       <div className="container-x">
-        <div className="py-20 md:py-28">
+        {/* Auf dem Telefon weniger Luft: 80 Pixel oben und unten sind
+            dort ein Viertel Bildschirm. */}
+        <div className="py-14 md:py-28">
           {label && <Eyebrow label={label} dark={dark} signal={signal} />}
           <div className="min-w-0">{children}</div>
         </div>
@@ -117,7 +119,10 @@ export function StationTitle({
   as?: "h1" | "h2";
 }) {
   return (
-    <As className={clsx("title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)]", className)}>
+    /* Untergrenze 1,75 rem statt 2 rem: auf 390 Pixel Breite stand die
+       Überschrift mit 32 Pixeln da und brauchte vier Zeilen für einen
+       Halbsatz. */
+    <As className={clsx("title max-w-[22ch] text-balance text-[clamp(1.75rem,1.2rem+2.3vw,3.25rem)]", className)}>
       {children}
     </As>
   );
@@ -213,36 +218,50 @@ export function Karte({
 }) {
   const dark = tone === "dark";
   const nurTitel = !body;
+
+  /* Auf dem Telefon steht das Icon neben dem Text, nicht darueber.
+     Gestapelt kostet eine Karte mit Icon, Ueberschrift, einem Satz und einer
+     Linkzeile rund 260 Pixel; vier davon untereinander sind mehr als ein
+     Bildschirm, und der Blick sieht dabei viermal dasselbe leere Feld links
+     oben. Nebeneinander ist dieselbe Karte rund hundert Pixel flacher.
+
+     Die Fassung ohne Text bleibt gestapelt: dort ist das grosse Icon der
+     Punkt der Karte, und die Ueberschrift traegt die Aussage allein. */
   const inner = (
     <>
-      <span
-        className={clsx(
-          dark ? "tile-dark" : "tile",
-          nurTitel ? "mb-6 !h-[4.5rem] !w-[4.5rem] !rounded-[1.4rem]" : "mb-5"
-        )}
-      >
-        <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-8 w-8"} />
-      </span>
-      <span
-        className={clsx(
-          "block font-bold leading-snug tracking-[-0.015em]",
-          nurTitel
-            ? "text-[1.2rem] md:text-[1.35rem]"
-            : "text-[1.1rem] md:text-[1.2rem]",
-          dark ? "text-white" : "text-ink"
-        )}
-      >
-        {title}
-      </span>
-      {body && (
-        <span className={clsx("mt-2.5 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
-          {body}
+      <span className={clsx(nurTitel ? "block" : "flex gap-4 md:block")}>
+        <span
+          className={clsx(
+            dark ? "tile-dark" : "tile",
+            "shrink-0",
+            nurTitel ? "mb-6 !h-[4.5rem] !w-[4.5rem] !rounded-[1.4rem]" : "md:mb-5"
+          )}
+        >
+          <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-8 w-8"} />
         </span>
-      )}
+        <span className={clsx(nurTitel ? "block" : "min-w-0 flex-1")}>
+          <span
+            className={clsx(
+              "block font-bold leading-snug tracking-[-0.015em]",
+              nurTitel
+                ? "text-[1.2rem] md:text-[1.35rem]"
+                : "text-[1.05rem] md:text-[1.2rem]",
+              dark ? "text-white" : "text-ink"
+            )}
+          >
+            {title}
+          </span>
+          {body && (
+            <span className={clsx("mt-2 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
+              {body}
+            </span>
+          )}
+        </span>
+      </span>
       {href && (
         <span
           className={clsx(
-            "mt-5 inline-flex items-center gap-1.5 text-[0.8rem] font-bold transition-transform duration-300 group-hover:translate-x-1",
+            "mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold transition-transform duration-300 group-hover:translate-x-1 md:mt-5",
             dark ? "text-brand-400" : "text-navy"
           )}
         >
@@ -256,7 +275,7 @@ export function Karte({
   );
 
   const shared = clsx(
-    "group flex h-full flex-col p-7 md:p-8",
+    "group flex h-full flex-col p-5 md:p-8",
     dark ? "panel-dark" : "panel panel-lift",
     className
   );

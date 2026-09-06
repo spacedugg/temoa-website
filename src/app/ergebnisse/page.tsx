@@ -37,7 +37,7 @@ function RetentionBand() {
       <div className="container-x relative">
         <div className="grid items-center gap-12 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
           <div>
-            <div className="num text-[clamp(3.5rem,2rem+6vw,6.5rem)] leading-none text-white">
+            <div className="num text-[clamp(2.9rem,1.8rem+5.6vw,6.5rem)] leading-none text-white">
               <Counter to={98} suffix=" %" />
             </div>
             <p className="mt-5 max-w-[26ch] text-lead font-bold text-white">

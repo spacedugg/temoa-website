@@ -153,7 +153,7 @@ export function BookingBody() {
               <Pille>Kostenlose Potenzialanalyse</Pille>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mx-auto mt-6 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
+              <h1 className="mx-auto mt-6 max-w-xl text-balance text-[1.95rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-[1.08] lg:mx-0">
                 Erst lernen wir uns kennen, <span className="text-gradient">dann die Zahlen.</span>
               </h1>
             </Reveal>

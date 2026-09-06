@@ -63,7 +63,7 @@ export function OtherCases({ slug }: { slug: string }) {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="relative z-10">
                 <div className="text-2xl font-extrabold leading-none text-white">{c.preview.value}</div>
-                <div className="mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-white/70">{c.preview.label}</div>
+                <div className="mt-1 text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-white/75">{c.preview.label}</div>
               </div>
             </a>
           ))}

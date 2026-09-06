@@ -257,7 +257,7 @@ function SeoViz() {
 
       {/* Backend: die Felder, die kein Kaeufer sieht. Deshalb dunkel abgesetzt. */}
       <div className="mt-4 rounded-[0.7rem] bg-navy p-3">
-        <span className="text-[0.6rem] font-bold uppercase tracking-[0.16em] text-white/55">
+        <span className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white/60">
           Backend
         </span>
         <div className="mt-2 flex flex-wrap gap-1.5">

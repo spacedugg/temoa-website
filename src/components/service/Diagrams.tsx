@@ -99,7 +99,7 @@ function Track({
 
 export function BudgetSplitDiagram() {
   return (
-    <div className="panel p-7 md:p-8">
+    <div className="panel p-5 sm:p-7 md:p-8">
       <Pille>Wohin dasselbe Budget fließt</Pille>
       <div className="mt-7 space-y-8">
         <Track
@@ -152,7 +152,7 @@ export function MargenDiagramm() {
   const inView = useInView(ref, { once: true, margin: "-12% 0px" });
 
   return (
-    <div ref={ref} className="panel p-7 md:p-8">
+    <div ref={ref} className="panel p-5 sm:p-7 md:p-8">
       <Pille>Was von einem Verkauf übrig bleibt</Pille>
 
       <div className="mt-7 flex h-16 w-full gap-1.5">
@@ -181,13 +181,17 @@ export function MargenDiagramm() {
         {entscheidung.map((e, i) => (
           <motion.div
             key={e.produkt}
-            className="flex items-center gap-4 rounded-[1rem] bg-navy/[0.035] px-4 py-3.5 ring-1 ring-navy/[0.06]"
+            /* `flex-wrap` und `basis-full`: auf 320 Pixel Breite passen
+               Produktname, Balken und Urteil nicht in eine Zeile, und weil
+               `body` waagerecht abschneidet, verschwand das Urteil einfach
+               am Rand. Ab `sm` steht wieder alles nebeneinander. */
+            className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-[1rem] bg-navy/[0.035] px-4 py-3.5 ring-1 ring-navy/[0.06]"
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.7 + i * 0.14 }}
           >
             <span className="w-24 shrink-0 text-small font-bold text-ink">{e.produkt}</span>
-            <span className="h-2.5 flex-1 overflow-hidden rounded-full bg-navy/10">
+            <span className="h-2.5 min-w-[3.5rem] flex-1 overflow-hidden rounded-full bg-navy/10">
               <motion.span
                 className="block h-full rounded-full"
                 style={{ background: e.stark ? "#FF9900" : "#9FB4C4" }}
@@ -197,7 +201,7 @@ export function MargenDiagramm() {
               />
             </span>
             <span
-              className={`shrink-0 text-small font-bold ${e.stark ? "text-ink" : "text-ink-faint"}`}
+              className={`shrink-0 basis-full text-small font-bold sm:basis-auto ${e.stark ? "text-ink" : "text-ink-faint"}`}
             >
               {e.urteil}
             </span>

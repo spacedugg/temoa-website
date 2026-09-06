@@ -117,7 +117,7 @@ export function FullServiceKopf() {
 
           <div className="grid min-w-0 items-center gap-y-12 lg:grid-cols-[1fr_0.8fr] lg:gap-x-16">
             <div className="min-w-0">
-              <motion.h1 {...rise(0.08)} className="display max-w-full text-balance text-[clamp(2.1rem,1.4rem+2.2vw,3.25rem)] text-ink">
+              <motion.h1 {...rise(0.08)} className="display max-w-full text-balance text-[clamp(1.95rem,1.35rem+2.3vw,3.25rem)] text-ink">
                 Ein eingespieltes Team für euren{" "}
                 <span className="em mark">kompletten Amazon-Account.</span>
               </motion.h1>

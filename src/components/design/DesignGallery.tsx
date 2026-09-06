@@ -625,7 +625,7 @@ export function DesignGallery({ data }: { data: RefData }) {
                 key={t.key}
                 type="button"
                 onClick={() => setActive(t.key)}
-                className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
+                className={`inline-flex min-h-[2.75rem] items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all ${
                   active === t.key ? "bg-navy text-white shadow-soft" : "text-ink-muted hover:bg-navy/[0.04] hover:text-ink"
                 }`}
               >

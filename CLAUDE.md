@@ -746,3 +746,42 @@ Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
 - **Weiche Trennzeichen statt `hyphens: auto`** in sehr schmalen Kacheln.
   In `Zusammenlauf` sind die Kacheln auf dem Telefon rund achtzig Pixel breit;
   dort stand „Produktbil" ueber „der", ohne Bindestrich.
+
+## Neunzehnte Feedbackrunde (verbindlich, Mobil)
+
+Gemessen wurde nicht nach Gefuehl, sondern im Browser: je Seite die
+Schriftgroessen aller Textelemente, die Hoehe jeder Sektion in Bildschirmen,
+jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
+40 Pixeln. Geprueft auf 320, 390, 430 und 768 Pixeln.
+
+- **Auf dem Telefon steht das Symbol neben dem Text, nicht darueber.** Eine
+  Karte mit Icon, Ueberschrift, einem Satz und einer Linkzeile war gestapelt
+  rund 260 Pixel hoch; vier davon untereinander sind mehr als ein Bildschirm
+  fuer vier Zeilen Inhalt. Betrifft `takt/Station` (`Karte`) und die fuenf
+  Leistungen der Startseite. Ab `md` steht wieder alles gestapelt. Ausgenommen
+  ist die Fassung ohne Text: dort ist das grosse Icon der Punkt der Karte.
+- **Sektionsluft auf dem Telefon rund ein Drittel weniger.** `Station` traegt
+  `py-14 md:py-28`, `.section-y` und die beiden Geschwister sind entsprechend
+  gekuerzt. 80 Pixel ueber und unter jeder Sektion sind auf 390 Pixel Breite
+  ein Viertel Bildschirm.
+- **Ueberschriften auf dem Telefon: h1 rund 31 bis 33 Pixel, h2 rund 28.**
+  Vorher 36 bis 37 beziehungsweise 32. Die Untergrenzen der `clamp`-Angaben
+  sind gesenkt, die Obergrenzen bleiben, am Rechner aendert sich nichts.
+- **Nichts unter elf Pixeln.** Betroffen waren das Schild „Ranking-Signal"
+  (9,3), die Backend-Zeile in der Content-Sektion (9,6), die Zeile unter
+  „Account Management" in `Zusammenlauf` (9,9) und die Kacheln daneben (10,6).
+- **Kundenstimmen laufen auf dem Telefon nicht von allein.** Ein Band, das
+  sich bewegt, haelt am Rechner an, sobald der Zeiger darauf liegt. Auf dem
+  Telefon gibt es keinen Zeiger, der Text lief einfach weiter, und die Karte
+  stand zur Haelfte hinter dem Rand. Jetzt: `md:animate-marquee`, darunter
+  still, Karten so breit wie der Container, mit Einrastpunkten zum Wischen.
+- **`body` mit `overflow-x: clip` versteckt Fehler, statt sie zu zeigen.** Auf
+  320 Pixeln stand in `service/Diagrams` das Urteil „bekommt mehr Budget" 36
+  Pixel ausserhalb des Bildschirms und war damit unsichtbar, ohne dass
+  waagerechtes Scrollen darauf hingewiesen haette. Die Zeile bricht jetzt
+  (`flex-wrap` plus `basis-full`, ab `sm` wieder nebeneinander). Deshalb wird
+  nicht `window.scrollX` geprueft, sondern jedes Element mit `right > vw`.
+- **Ein Element, das waehrend des Einlaufens ueber den Rand ragt, ist kein
+  Fehler.** `Reveal direction="left"` schiebt sein Kind beim Einlaufen zur
+  Seite; wer in dem Moment misst, findet eine zu breite Seite, die es nach der
+  Animation nicht mehr gibt.

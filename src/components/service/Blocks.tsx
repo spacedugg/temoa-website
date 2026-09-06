@@ -185,7 +185,7 @@ export function ServiceHero({
             <Pille>{eyebrow}</Pille>
           </Reveal>
           <Reveal delay={0.06}>
-            <h1 className="mt-6 text-balance pb-1 text-3xl font-extrabold leading-[1.12] tracking-tight text-ink sm:text-4xl lg:text-5xl">
+            <h1 className="mt-6 text-balance pb-1 text-[1.95rem] font-extrabold leading-[1.14] tracking-tight text-ink sm:text-4xl sm:leading-[1.12] lg:text-5xl">
               {title}
             </h1>
           </Reveal>
@@ -801,7 +801,7 @@ export function Lieferung({
               {/* Kein farbiger Strich oben auf der Kachel: dieses Muster stand
                   auf der halben Website und hat alle Kacheln gleich aussehen
                   lassen. Die Reihenfolge traegt eine Ziffer. */}
-              <div className="panel panel-lift relative flex h-full flex-col p-7 md:p-8">
+              <div className="panel panel-lift relative flex h-full flex-col p-5 sm:p-7 md:p-8">
                 <span className="flex items-center gap-3">
                   <span
                     aria-hidden
