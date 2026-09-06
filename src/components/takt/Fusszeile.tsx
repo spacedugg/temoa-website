@@ -18,10 +18,6 @@ const cols = [
     links: [
       { label: "Case Studies", href: "/ergebnisse" },
       { label: "Designbeispiele", href: "/design-beispiele" },
-      /* Die Team-Seite steht bewusst nicht in der Kopfzeile: sie ist ein
-         Beleg, keine Leistung. Zu finden ist sie hier und ueber die
-         Team-Sektion der Startseite. */
-      { label: "Team", href: "/team" },
       { label: "Blog", href: "/blog" },
     ],
   },

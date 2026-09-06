@@ -10,7 +10,6 @@ import { Gespraech } from "./Gespraech";
 import { Stempel } from "./Stempel";
 import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
-import { candids } from "@/lib/team";
 import { testimonials, initials } from "@/lib/testimonials";
 
 /* ============================================================
@@ -1088,26 +1087,23 @@ export function Mannschaft() {
             Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig,
             jeder in seinem Bereich, mit denselben Zahlen vor sich.
           </StationLead>
-
-          <a href="/team" className="btn-text mt-9">
-            Das Team ansehen
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
         </div>
 
         <motion.div {...auf(0.08)} className="relative">
           <div className="overflow-hidden rounded-[1.5rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_34px_60px_-32px_rgba(13,36,57,0.45)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={candids[0]}
+              src="/team/Main.webp"
               alt="Die Gründer von temoa"
               loading="lazy"
               className="aspect-[16/10] w-full object-cover"
             />
           </div>
-          <Stempel className="absolute -bottom-9 -left-9 h-[7.5rem] w-[7.5rem] md:-bottom-10 md:-left-10 md:h-[9rem] md:w-[9rem]" />
+          {/* Auf dem Telefon genau bis an den Rand des Containers und nicht
+              darueber hinaus: `px-6` sind 1,5 rem, ein groesserer negativer
+              Rand schiebt den Stempel aus dem Bildschirm, und der Body
+              schneidet ihn dann ab. */}
+          <Stempel className="absolute -bottom-8 -left-6 h-[6.5rem] w-[6.5rem] md:-bottom-10 md:-left-10 md:h-[9rem] md:w-[9rem]" />
         </motion.div>
       </div>
     </Station>

@@ -3,17 +3,38 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 /* ============================================================
-   Der Stempel: eine rote Scheibe mit dem Logo darin, die sich langsam dreht.
-   Sie sitzt halb auf dem Bild und halb auf dem Grund und ist das einzige
+   Der Stempel: ein Ring aus umlaufender Schrift, der sich langsam dreht.
+   Er sitzt halb auf dem Bild und halb auf dem Grund und ist das einzige
    bewegte Element der Sektion.
 
-   Vorher: Navy mit umlaufender Schrift „temoa · Amazon Full Service". Der
-   Kunde will das Rot aus dem Logo und die vier Formen statt der Schrift.
+   Zwei Fassungen liegen dahinter. Erst Navy mit Schrift, dann eine gefuellte
+   rote Scheibe mit dem Logo darin. Beide waren zu schwer: eine Scheibe deckt
+   das Bild darunter zu, und das Logo steht ohnehin in der Kopfzeile.
 
-   Das Rot ist das Logo-Rot #FF3131. Damit die rote Kreisform des Logos auf der
-   roten Scheibe nicht verschwindet, liegt das Zeichen auf einer weissen
-   Innenscheibe. Bei „Bewegung reduzieren" steht der Stempel still.
+   Jetzt gar keine Flaeche mehr. Der Grund bleibt frei, die Schrift steht halb
+   durchsichtig darauf, dazu zwei feine Ringe.
+
+   Die Schrift laeuft ueber zwei sehr verschiedene Gruende: den hellen Ton der
+   Sektion und das Foto, auf dem an dieser Stelle ein fast schwarzer Pullover
+   liegt. Dunkle Schrift allein verschwindet darin. Deshalb liegt hinter jedem
+   Buchstaben eine weisse Kontur (`paint-order: stroke`), dazu ein weicher
+   weisser Schein fuer die Ringe. Auf dem hellen Grund ist beides unsichtbar,
+   auf dem Foto traegt es die Schrift.
+
+   Der Text laeuft zweimal um den Ring und wird ueber `textLength` genau auf
+   den Umfang gerechnet. Ohne das laeuft der zweite Durchlauf in den ersten.
+
+   Bei „Bewegung reduzieren" steht der Stempel still.
    ============================================================ */
+
+/* Radius der Schriftlinie und der daraus folgende Umfang. */
+const R = 48;
+const UMFANG = 2 * Math.PI * R;
+
+/* Am Ende ein geschuetztes Leerzeichen zusaetzlich: an der Nahtstelle,
+   wo der Text in sich selbst laeuft, stiess sonst der Punkt direkt an das
+   naechste Wort. Zwei normale Leerzeichen zieht SVG zu einem zusammen. */
+const TEXT = "TEMOA · AMAZON FULL SERVICE · TEMOA · AMAZON FULL SERVICE · \u00A0";
 
 export function Stempel({ className }: { className?: string }) {
   const reduce = useReducedMotion();
@@ -23,29 +44,37 @@ export function Stempel({ className }: { className?: string }) {
       aria-hidden
       className={`pointer-events-none select-none ${className ?? ""}`}
       animate={reduce ? undefined : { rotate: 360 }}
-      transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+      transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
+      style={{ filter: "drop-shadow(0 0 7px rgba(255,255,255,0.75))" }}
     >
       <svg viewBox="0 0 120 120" className="h-full w-full">
-        {/* Die Scheibe im Logo-Rot, mit einem feinen Ring nach innen. */}
-        <circle cx="60" cy="60" r="58" fill="#FF3131" />
-        <circle cx="60" cy="60" r="58" fill="none" stroke="#ffffff" strokeWidth="1.5" opacity="0.55" />
-        <circle cx="60" cy="60" r="44" fill="#ffffff" />
+        <defs>
+          {/* Beginnt links und laeuft ueber oben nach rechts. */}
+          <path id="stempel-ring" fill="none" d={`M 60 60 m -${R} 0 a ${R} ${R} 0 1 1 ${R * 2} 0 a ${R} ${R} 0 1 1 -${R * 2} 0`} />
+        </defs>
 
-        {/* Die vier Formen des Zeichens, aus public/logo/logo-icon.svg.
-            Das Zeichen ist 228 breit und 254 hoch, deshalb erst in die Mitte
-            schieben, dann skalieren. */}
-        <g transform="translate(60 60) scale(0.235) translate(-114 -127)">
-          <rect x="0" y="0" width="108" height="108" rx="2" fill="#FF9900" />
-          <circle cx="174" cy="54" r="54" fill="#FF3131" />
-          <path
-            d="M2.25,121.7 L107.6,121.7 C108.8,121.7 109.8,122.7 109.8,123.9 L109.8,200.6 C109.5,223.9 94.6,243.7 74.1,251.2 C68.6,253.1 62.3,254.1 56,254.1 C49.7,254.1 43.8,253 38.3,251.2 C17.6,243.8 2.7,224 2.4,200.6 L2.4,123.9 C2.4,122.7 3.4,121.7 2.25,121.7 Z"
-            fill="#023047"
-          />
-          <path
-            d="M176.3,122.9 L226.2,153.6 C227.4,154.3 228.1,155.6 228.1,157 L228.1,218.7 C228.1,220.1 227.4,221.4 226.2,222.1 L176.3,252.9 C175.1,253.6 173.6,253.6 172.5,252.9 L122.6,222.1 C121.4,221.4 120.7,220.1 120.7,218.7 L120.7,157 C120.7,155.6 121.4,154.3 122.6,153.6 L172.5,122.9 C173.6,122.1 175.1,122.1 176.3,122.9 Z"
-            fill="#7FC4E8"
-          />
-        </g>
+        <circle cx="60" cy="60" r="57" fill="none" stroke="#0D2439" strokeWidth="0.9" opacity="0.22" />
+        <circle cx="60" cy="60" r="39" fill="none" stroke="#0D2439" strokeWidth="0.9" opacity="0.22" />
+
+        <text
+          fill="#0D2439"
+          stroke="#ffffff"
+          strokeWidth="1.9"
+          strokeLinejoin="round"
+          paintOrder="stroke"
+          opacity="0.62"
+          fontSize="7.8"
+          fontWeight="700"
+          letterSpacing="0.3"
+        >
+          <textPath href="#stempel-ring" textLength={UMFANG} lengthAdjust="spacingAndGlyphs">
+            {TEXT}
+          </textPath>
+        </text>
+
+        {/* Ein kleiner oranger Punkt in der Mitte, damit der Ring nicht leer
+            wirkt. */}
+        <circle cx="60" cy="60" r="2.6" fill="#FF9900" opacity="0.75" />
       </svg>
     </motion.div>
   );

@@ -656,3 +656,41 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
+
+## Siebzehnte Feedbackrunde (verbindlich)
+
+- **Das Hero-Bild liefert der Kunde.** `bilder/h-listing.webp`, freigestellt,
+  ohne Platte und ohne Rahmen, mit einem warmen Lichthof dahinter. Kein
+  Schweben, kein Kippen zum Zeiger: die Grafik laeuft einmal ein und steht
+  danach still. Damit sind zehn Fassungen erledigt, darunter fuenf
+  3D-Entwuerfe, ein erzeugtes Produkt und die Komposition aus dem
+  Miganeo-Listing (`takt/HeroBuehne`, alte Fassung in der Geschichte).
+- **Ausnahme mit Ansage: in diesem Bild steht Amazon-Oberflaeche.**
+  Amazon-Schriftzug, Suchleiste, „Add to Cart" und ein erfundener Preis von
+  299 Dollar an einem erfundenen Produkt. Das widerspricht zwei Regeln dieser
+  Datei (keine Amazon-Oberflaeche, keine erfundenen Preise). Es steht so da,
+  weil der Kunde genau dieses Bild vorgegeben hat. Nicht eigenmaechtig
+  zurueckbauen, aber auch nicht als Vorbild fuer weitere Bilder nehmen.
+- **Der Stempel ist ein Ring aus Schrift ohne Flaeche.** Zwei Vorfassungen
+  hatten eine gefuellte Scheibe, zuletzt rot mit dem Logo darin. Beide waren
+  zu schwer: eine Scheibe deckt das Bild darunter zu, und das Logo steht
+  ohnehin in der Kopfzeile. Jetzt bleibt der Grund frei, die Schrift laeuft
+  halb durchsichtig um zwei feine Ringe.
+- **Schrift, die ueber Foto und Grund zugleich laeuft, braucht eine Kontur.**
+  Der Stempel sitzt halb auf einem fast schwarzen Pullover. Dunkle Schrift
+  allein verschwindet darin, ein weicher Schein dahinter reicht nicht. Hinter
+  jedem Buchstaben liegt deshalb eine weisse Kontur (`paint-order: stroke`):
+  auf dem hellen Grund unsichtbar, auf dem Foto traegt sie die Schrift.
+- **An der Nahtstelle des Rings steht ein geschuetztes Leerzeichen.** Wo der
+  Text in sich selbst laeuft, stiess der Punkt sonst direkt an das naechste
+  Wort. Zwei normale Leerzeichen zieht SVG zu einem zusammen.
+- **Negative Raender auf dem Telefon nie groesser als der Container-Rand.**
+  `px-6` sind 1,5 rem; bei `-left-9` stand der Stempel halb ausserhalb des
+  Bildschirms, und weil `body` mit `overflow-x: clip` abschneidet, faellt das
+  nicht als waagerechtes Scrollen auf, sondern nur im Bild.
+- **Die Team-Seite ist ersatzlos gestrichen.** Mit ihr `src/app/team`,
+  `components/team/TeamBody` und `src/lib/team.ts`; der Verweis in der
+  Fusszeile und der Link aus der Team-Sektion der Startseite sind weg. Die
+  kurze Sektion auf der Startseite bleibt, sie zeigt jetzt nur noch
+  Ueberschrift, Absatz und das Bild der Gruender. Die Portraits unter
+  `public/team` bleiben liegen, Clemens wird im Abschluss-CTA gebraucht.
