@@ -591,12 +591,15 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 
 ## Fuenfzehnte Feedbackrunde (verbindlich)
 
-- **Der Hero traegt ein Foto, keinen Effekt.** Sieben gebaute Fassungen sind
-  gescheitert, die letzte war eine Komposition aus echtem Listing,
-  Telefonrahmen und Zahlkarten. Der Kunde: lieber kein Effekt, dafuer ein
-  Bild, das steht. Jetzt `bilder/h-f2.webp`, fotorealistisch, ohne Bewegung.
-  Die Schrift auf dem Telefon im Bild ist ein Balken: aus einem Bildmodell
-  kommt keine Schrift.
+- **Im Hero steht ausgelieferte Arbeit, kein erzeugtes Produkt.** Acht
+  Fassungen sind gescheitert, darunter drei erzeugte Bilder. Das letzte zeigte
+  eine erfundene Trinkflasche, und genau das will der Kunde nicht. Jetzt eine
+  Fusion seiner drei Referenzen, gebaut aus dem Miganeo-Listing: links das
+  Telefon mit der Produktseite, rechts die sechs Listingbilder als Raster,
+  darauf zwei Schilder und die belegte Zahl aus der Case Study. Kein
+  Bildmodell, keine Bewegung ausser dem einmaligen Einlaufen.
+- **Wenn ein Bild gebraucht wird, kommt es aus der Galerie des Kunden.**
+  Erfundene Produkte aus dem Bildmodell sind fuer Produktdarstellungen raus.
 - **Ueberschrift und Versprechen kommen vom Kunden**: „Profitables Wachstum
   fuer eure Amazon-Marke." und „Mehr Umsatz ist keine Frage des Werbebudgets.
   Es ist eine Frage der Umsetzung." Aus dem Entwurf sind zwei Saetze geworden,

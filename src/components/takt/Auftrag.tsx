@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
+import { HeroBuehne } from "./HeroBuehne";
 
 
 /* ============================================================
@@ -83,25 +84,11 @@ export function Auftrag() {
 
           </div>
 
-          {/* Die Hero-Grafik. Ein Bild, kein Effekt.
-
-              Sieben Fassungen liegen dahinter: ein Drahtgitter, ein
-              Listing-Nachbau, derselbe aus Code, eine weiche 3D-Szene, fuenf
-              Entwuerfe im Rendering-Stil und zuletzt eine Komposition aus
-              echtem Listing, Telefonrahmen und Zahlkarten. Der Kunde hat
-              zuletzt gesagt: lieber kein Effekt, dafuer ein Bild, das steht.
-              Also ein fotorealistisches Bild, ohne Bewegung, ohne Schraeglage,
-              ohne schwebende Karten. Die Schrift auf dem Telefon ist bewusst
-              nur ein Balken: aus einem Bildmodell kommt keine Schrift. */}
+          {/* Die Hero-Grafik: das ausgelieferte Listing fuer Miganeo, links
+              auf dem Telefon, rechts als Bildstrecke, dazu zwei Schilder und
+              eine belegte Zahl. Siehe takt/HeroBuehne. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/bilder/h-f2.webp"
-              alt="Ein Telefon zeigt eine Produktseite, darum herum die weiteren Bilder desselben Produkts."
-              width={1536}
-              height={1152}
-              className="w-full rounded-[1.75rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_40px_70px_-38px_rgba(13,36,57,0.45)]"
-            />
+            <HeroBuehne />
           </motion.div>
         </div>
       </div>
