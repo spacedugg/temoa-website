@@ -57,7 +57,7 @@ function quader(i: number, unten: number, oben: number) {
 /* Anteile, keine Zahlen. Das Werbeband bleibt gleich, das organische Wachstum
    zieht an. */
 const WERBUNG = 34;
-const ORGANISCH = [5, 8, 13, 19, 27, 38, 51, 67, 86];
+const ORGANISCH = [4, 6, 9, 14, 20, 28, 38, 51, 67, 88];
 
 /* Die Seitenflaechen sind die Farbe im Schatten, der Deckel die Farbe im
    Licht. Zu dunkle Seiten machen aus Orange ein Braun. */
@@ -146,10 +146,10 @@ export function Verlauf() {
       />
 
       <svg
-        viewBox="0 0 590 214"
+        viewBox="0 0 578 214"
         className="relative w-full"
         role="img"
-        aria-label="Neun Säulen nebeneinander, räumlich dargestellt. Der untere Teil jeder Säule steht für den Umsatz über Werbung und ist überall gleich hoch. Der obere Teil steht für den Umsatz ohne Werbung und wächst nach rechts deutlich."
+        aria-label="Zehn Säulen nebeneinander, räumlich dargestellt. Der untere Teil jeder Säule steht für den Umsatz über Werbung und ist überall gleich hoch. Der obere Teil steht für den Umsatz ohne Werbung und wächst nach rechts deutlich."
       >
         <defs>
           <linearGradient id={`${id}-boden`} x1="0" y1="0" x2="1" y2="0">
