@@ -3,23 +3,25 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { Neigung } from "./Neigung";
-import { HeroBild } from "./HeroBild";
 
 /* ============================================================
    Hero der Startseite.
 
-   Drei Fassungen liegen dahinter. Erst „00 · Der Auftrag" neben einer
+   Vier Fassungen liegen dahinter. Erst „00 · Der Auftrag" neben einer
    abstrakten Drahtgitter-Grafik: ein Besucher hat in den ersten Sekunden nicht
    erkannt, dass es um Amazon geht. Dann ein Listing-Nachbau mit Produktbildern
-   und darunter drei Kennzahlkarten auf dunklen Podesten.
+   und drei Kennzahlkarten auf dunklen Podesten. Dann derselbe Nachbau als
+   Komposition aus Code, mit zwei schwebenden Kennzahlkarten.
 
-   Der Kunde hat beides verworfen: der Nachbau zeigt ein Produkt statt eines
-   Ergebnisses, und die drei dunklen Karten setzten drei weitere Farbakzente
-   neben den Knopf, der eigentlich der einzige Blickfang sein soll.
+   Der Kunde hat den Nachbau verworfen: eine weisse Karte auf hellem Grund
+   steht nicht im Bild, sie faellt hinein. Er sah zu weit weg aus und wie
+   nichts Bestimmtes.
 
-   Jetzt: rechts die Hero-Grafik aus `HeroBild`, eine Produktseite mit zwei
-   belegten Kennzahlen und der Wachstumsszene dahinter. Links nur Ueberschrift,
-   ein Satz und die beiden Knoepfe.
+   Jetzt eine freigestellte 3D-Szene im Stil der uebrigen Bilder der Website:
+   die Produktseite als Platte, davor der Einkaufswagen, dahinter die
+   steigenden Balken, verbunden durch eine gluehende orange Linie. Dunkle
+   Koerper auf hellem Grund, dadurch steht sie. Bewegung macht der Code: die
+   Szene schwebt, kippt zum Zeiger und traegt einen Lichthof, der leise atmet.
 
    Unter dem Knopf stand zwischendurch sozialer Beleg mit Kundengesichtern und
    Sternen. Der Kunde hat ihn wieder gestrichen: der Hero bleibt knapp, die
@@ -78,12 +80,27 @@ export function Auftrag() {
 
           </div>
 
-          {/* Die Hero-Grafik liegt in `HeroBild`: Produktseite, zwei belegte
-              Kennzahlen und die Wachstumsszene dahinter. Vorher stand hier nur
-              die Wachstumsszene allein, das war dem Kunden zu duenn. */}
+          {/* Die Hero-Grafik. Ein Bild, das der Code bewegt: schweben,
+              kippen, ein Lichthof, der atmet. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
+            <motion.span
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px]"
+              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.3), transparent 68%)" }}
+              animate={reduce ? undefined : { opacity: [0.55, 0.9, 0.55], scale: [0.96, 1.04, 0.96] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            />
             <Neigung>
-              <HeroBild />
+              <motion.img
+                src="/bilder/h-buehne.webp"
+                alt="Eine Produktseite als Platte, davor ein Einkaufswagen, dahinter steigende Balken, verbunden durch eine leuchtende Linie."
+                width={1280}
+                height={960}
+                className="relative w-full"
+                animate={reduce ? undefined : { y: [0, -14, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                style={{ filter: "drop-shadow(0 34px 46px rgba(11,31,52,0.22))" }}
+              />
             </Neigung>
           </motion.div>
         </div>

@@ -241,79 +241,116 @@ export function Verfahren() {
         zuerst das Listing, dann die Kampagne.
       </StationLead>
 
-      {/* Der Verlauf laeuft ueber die ganze Breite. Vorher stand links ein
-          Bild und rechts eine quadratische Platte: eine Kurve in einem
-          Quadrat ist keine Kurve, sie sieht gestaucht aus, und das Bild
-          daneben hat nichts damit zu tun gehabt. Die Kette Suche, Klick,
-          Kauf steht jetzt in der Platte darunter, wo sie hingehoert. */}
-      <motion.div {...auf(0.1)} className="mt-10">
-        <Verlauf />
-      </motion.div>
+      {/* Aussage links, Bild rechts. Vorher lief der Verlauf ueber die ganze
+          Breite und war sehr hoch, sehr flach und hat fuer den Platz kaum
+          etwas gesagt. Jetzt steht die Aussage neben dem Bild, und das Bild
+          ist ein raeumlicher Stapel auf dunklem Grund statt einer flachen
+          Flaeche auf Weiss. */}
+      <div className="mt-10 grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <motion.div {...auf(0.05)}>
+          <span className="inline-flex items-center gap-2.5">
+            <span aria-hidden className="node-glow" />
+            <span className="text-label font-bold uppercase text-ink-soft">Was sich verschiebt</span>
+          </span>
+          <p className="mt-4 text-balance text-[1.35rem] font-bold leading-snug text-ink md:text-[1.65rem]">
+            Das Werbebudget bleibt gleich. Alles, was darüber wächst, verkauft ihr ohne Werbung.
+          </p>
+          <p className="mt-4 max-w-[38ch] text-small leading-relaxed text-ink-muted">
+            Werbung kauft Sichtbarkeit für den Moment, in dem sie läuft. Was organisch rankt, verkauft
+            weiter, auch wenn kein Budget dahinter steht.
+          </p>
+        </motion.div>
+        <motion.div {...auf(0.12)}>
+          <Verlauf />
+        </motion.div>
+      </div>
 
-      {/* Erster Block: kuehle Platte. Zweiter Block: Navy. Dazwischen das orange
+      {/* Erster Block: kuehle Platte. Zweiter Block: Navy. Dazwischen das
           Ergebnisband als Scharnier. Drei verschiedene Werte, damit die
-          Reihenfolge zu sehen ist. Vorher war es weiss, orange, weiss, dann
-          sprang das Auge aufs Orange und die Folge ging verloren. */}
-      <motion.div {...auf(0.05)} className="panel-cool mt-12 p-6 md:p-8">
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
-          <div className="flex min-w-0 flex-1 items-center gap-3.5">
-            <span className="schritt schritt-navy">1</span>
-            <div className="min-w-0">
-              <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
-              <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+          Reihenfolge zu sehen ist. */}
+      <motion.div {...auf(0.05)} className="panel-cool mt-14 p-6 md:p-8">
+        <div className="grid gap-7 md:grid-cols-[1.12fr_0.88fr] md:items-center md:gap-10">
+          <div className="min-w-0">
+            <div className="flex items-center gap-3.5">
+              <span className="schritt schritt-navy">1</span>
+              <div className="min-w-0">
+                <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
+                <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+              </div>
+            </div>
+
+            {/* Die drei Stufen stehen untereinander statt nebeneinander: so
+                bleibt rechts Platz fuer das Bild in einer Groesse, in der man
+                es auch sieht. */}
+            <div className="mt-6 space-y-3">
+              {stufen.map((s, i) => (
+                <div
+                  key={s.name}
+                  className={clsx(
+                    "flex items-start gap-4 rounded-[1.1rem] bg-white p-4 md:p-5",
+                    s.signal
+                      ? "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.5),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-16px_rgba(13,36,57,0.2)]"
+                      : "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-18px_rgba(13,36,57,0.2)]"
+                  )}
+                >
+                  <span className="num shrink-0 text-[1.5rem] leading-none text-ink/20">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <span className="text-[1.02rem] font-bold leading-snug text-ink">{s.name}</span>
+                      {s.signal && (
+                        <span className="rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-brand-400">
+                          Ranking-Signal
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-1 text-small text-ink-muted">{s.meaning}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          {/* Die Kette Suche, Klick, Kauf steht neben der Ueberschrift, zu der
-              sie gehoert, statt als eigenes Bild in einer eigenen Spalte. */}
+
+          {/* Das Bild stand vorher klein in der Ecke neben der Ueberschrift.
+              Jetzt traegt es eine eigene Spalte. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <motion.img
             src="/bilder/n-organic.webp"
             alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf."
             width={1600}
             height={896}
             loading="lazy"
-            className="hidden w-[15rem] shrink-0 md:block lg:w-[19rem]"
+            className="mx-auto w-full max-w-[28rem] md:max-w-none"
+            animate={reduce ? undefined : { y: [0, -9, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
           />
-        </div>
-
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {stufen.map((s, i) => (
-            <div
-              key={s.name}
-              className={clsx(
-                "relative rounded-[1.25rem] bg-white p-5 md:p-6",
-                s.signal
-                  ? "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.5),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-16px_rgba(13,36,57,0.2)]"
-                  : "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-18px_rgba(13,36,57,0.2)]"
-              )}
-            >
-              <div className="flex items-start justify-between gap-3">
-                <span className="num text-[1.7rem] text-ink/20">{String(i + 1).padStart(2, "0")}</span>
-                {s.signal && (
-                  <span className="rounded-full bg-navy px-2.5 py-1 text-[0.58rem] font-bold uppercase tracking-[0.1em] text-brand-400">
-                    Ranking-Signal
-                  </span>
-                )}
-              </div>
-              <div className="mt-2.5 text-[1.05rem] font-bold leading-snug text-ink">{s.name}</div>
-              <div className="mt-1.5 text-small text-ink-muted">{s.meaning}</div>
-            </div>
-          ))}
         </div>
       </motion.div>
 
-      {/* Scharnier zwischen den beiden Bloecken. */}
+      {/* Das Scharnier zwischen den beiden Bloecken.
+
+          Vorher war es eine Navy-Pille und lag damit auf derselben Farbe wie
+          die Navy-Platte darunter: sie war nicht zu sehen. Davor war es Orange
+          mit dunkler Schrift, das ist auf dieser Website raus. Jetzt eine
+          weisse Karte mit orangem Ring und orangem Lichthof: sie hebt sich von
+          der hellblauen Platte darueber und von der Navy-Platte darunter ab,
+          und die Schrift steht dunkel auf Weiss. `z-10`, damit sie nicht mehr
+          hinter der Platte darunter verschwindet. */}
       <motion.div
         {...auf(0.12)}
-        className="relative mx-auto -mt-3 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-navy px-7 py-4 text-white shadow-[0_14px_34px_-10px_rgba(255,153,0,0.55)]"
+        className="relative z-10 mx-auto -mt-4 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-white px-7 py-4 shadow-[0_0_0_2px_rgba(255,153,0,0.85),0_18px_40px_-12px_rgba(255,153,0,0.55)]"
       >
-        <span className="text-label font-bold uppercase">Ergebnis</span>
-        <span className="text-center text-[1.05rem] font-extrabold leading-snug">
+        <span className="inline-flex items-center gap-2.5">
+          <span aria-hidden className="node-glow" />
+          <span className="text-label font-bold uppercase text-ink-soft">Ergebnis</span>
+        </span>
+        <span className="text-center text-[1.05rem] font-extrabold leading-snug text-ink">
           Das Listing verkauft ohne Werbung.
         </span>
       </motion.div>
 
-      <motion.div {...auf(0.05)} className="on-dark panel-navy -mt-3 p-6 md:p-8">
+      <motion.div {...auf(0.05)} className="on-dark panel-navy relative -mt-4 p-6 pt-9 md:p-8 md:pt-11">
         <div className="flex items-center gap-3.5">
           <span className="schritt schritt-orange">2</span>
           <div className="min-w-0">
@@ -333,44 +370,66 @@ export function Verfahren() {
         </div>
       </motion.div>
 
-      {/* Gegenüberstellung als zwei Karten. Die frühere Tabelle mit
-          Durchstreichung war schwer zu lesen und trug pro Blick kaum etwas. */}
-      <div className="mt-14 grid gap-5 lg:grid-cols-2 lg:gap-6">
-        <motion.div {...auf(0)} className="panel p-7 md:p-8">
-          <span className="text-label font-bold uppercase text-ink-faint">Wie es meistens läuft</span>
-          <ul className="mt-6 space-y-4">
-            {gegenueber.map((r) => (
-              <li key={r.alt} className="flex gap-3.5">
-                <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink/[0.06] text-ink-faint">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
-                  </svg>
-                </span>
-                <span className="text-small leading-snug text-ink-faint">{r.alt}</span>
-              </li>
-            ))}
-          </ul>
+      {/* Gegenueberstellung als zwei Karten.
+
+          Vorher standen die beiden Karten ohne Ueberschrift unter der
+          Navy-Platte und gingen unter: zwei weisse Flaechen auf hellem Grund,
+          ohne Ansage, worum es geht. Jetzt tragen sie eine eigene Zeile
+          darueber, und die rechte Karte ist die betonte: oranger Lichtsaum,
+          kraeftigerer Schatten, dunkle Schrift.
+
+          Die Haken waren orange auf Navy in einem Kreis von 20 Pixeln. In der
+          Groesse ist ein oranges Zeichen auf dunklem Grund nur ein Fleck. Jetzt
+          traegt der Kreis Navy und der Haken Weiss, das ist auch klein noch
+          eindeutig. */}
+      <div className="mt-16">
+        <motion.div {...auf(0)} className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
+          <span className="inline-flex items-center gap-2.5">
+            <span aria-hidden className="node-glow" />
+            <span className="text-label font-bold uppercase text-ink-soft">Der Unterschied</span>
+          </span>
+          <h3 className="title text-[1.35rem] text-ink md:text-[1.6rem]">
+            Vier Punkte, an denen sich die Arbeit trennt.
+          </h3>
         </motion.div>
 
-        <motion.div
-          {...auf(0.1)}
-          className="panel relative overflow-hidden p-7 md:p-8"
-        >
-          <span aria-hidden className="halo -right-20 -top-24 h-[18rem] w-[18rem] opacity-80" />
-          <span className="relative text-label font-bold uppercase text-ink-soft">Wie temoa arbeitet</span>
-          <ul className="relative mt-6 space-y-4">
-            {gegenueber.map((r) => (
-              <li key={r.neu} className="flex gap-3.5">
-                <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-navy text-brand-500">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                    <path d="M5 13l4.5 4.5L19 7" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="text-small font-bold leading-snug text-ink">{r.neu}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <div className="mt-7 grid gap-5 lg:grid-cols-2 lg:gap-6">
+          <motion.div {...auf(0.06)} className="panel flex flex-col p-7 md:p-8">
+            <span className="text-label font-bold uppercase text-ink-faint">Wie es meistens läuft</span>
+            <ul className="mt-6 space-y-4">
+              {gegenueber.map((r) => (
+                <li key={r.alt} className="flex gap-3.5">
+                  <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink/[0.07] text-ink-faint">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+                      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                  <span className="text-small leading-snug text-ink-faint">{r.alt}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            {...auf(0.12)}
+            className="panel relative flex flex-col overflow-hidden p-7 shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.55),0_1px_2px_rgba(13,36,57,0.05),0_26px_50px_-24px_rgba(13,36,57,0.35)] md:p-8"
+          >
+            <span aria-hidden className="halo -right-20 -top-24 h-[18rem] w-[18rem] opacity-80" />
+            <span className="relative text-label font-bold uppercase text-ink-soft">Wie temoa arbeitet</span>
+            <ul className="relative mt-6 space-y-4">
+              {gegenueber.map((r) => (
+                <li key={r.neu} className="flex gap-3.5">
+                  <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-navy text-white">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
+                      <path d="M5 13l4.5 4.5L19 7" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="text-small font-bold leading-snug text-ink">{r.neu}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
       </div>
     </Station>
   );

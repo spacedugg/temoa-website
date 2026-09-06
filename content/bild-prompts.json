@@ -453,6 +453,15 @@
       "stil": "szene3d",
       "prompt": "A soft 3D scene on a low rounded navy platform: four rounded matte navy bars of increasing height standing in a row, the tallest one on the right slightly brighter. A thick glowing orange arrow rises over the bars from bottom left to top right and ends in an arrow head above the tallest bar. Beside the platform a small matte navy parcel box with a light seam, and floating slightly above the platform a rounded shopping cart glyph in light grey with an orange handle. Exactly this one arrangement in the frame, nothing else.",
       "transparent": true
+    },
+    {
+      "kennung": "h-buehne",
+      "seite": "Startseite: Hero",
+      "size": "1536x1152",
+      "motiv": "Hero: Produktseite auf einem Podest, dahinter die Treppe nach oben",
+      "stil": "szene3d",
+      "prompt": "An isometric arrangement of simple objects, floating and cut out. In the centre, tilted slightly, a large rounded rectangular panel in white with a soft bevel, standing for a product detail page: on its left half one big rounded square tile showing a simple matte navy kitchen pot shape, on its right half three plain rounded horizontal bars of different lengths in light cool grey and below them one solid amazon orange rounded pill shape. Behind the panel and to the right, a staircase of five navy blocks rising from low at the left to tall at the right, each block with a glowing amazon orange top edge. A small matte navy shopping cart floats in front of the lower left corner of the panel. Three small rounded orange star shapes float above the panel. One thin glowing orange line curves from the orange pill on the panel up to the top of the tallest block. Everything strictly without any writing.",
+      "transparent": true
     }
   ],
   "stilblocks": {

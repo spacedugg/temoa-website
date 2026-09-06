@@ -395,6 +395,35 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
 - **Das Schweben liegt auf der ganzen Grafik**, nicht auf der Kugel allein:
   sonst wandert die Kugel unter den Flaggen weg.
 
+## Neunte Feedbackrunde (verbindlich)
+
+- **Der Hero traegt ein freigestelltes 3D-Bild, keinen Nachbau aus Code.**
+  Der Listing-Nachbau war eine weisse Karte auf hellem Grund: er stand nicht im
+  Bild, er fiel hinein, und die Sektion darunter ist ebenfalls hell. Jetzt
+  `bilder/h-buehne.webp` im Stil der uebrigen Bilder, dunkle Koerper auf hellem
+  Grund. Die beiden schwebenden Kennzahlkarten sind ersatzlos raus.
+- **Bewegung macht der Code, nicht das Bild**: schweben, zum Zeiger kippen
+  (`Neigung`), ein Lichthof, der leise atmet.
+- **Generierte Bilder brauchen `"transparent": true`** in
+  `content/bild-prompts.json`. Ohne das Feld malt das Modell das Karomuster als
+  Hintergrund ins Bild, und auf der Seite steht ein Schachbrett.
+- **Der Verlauf ist ein isometrischer Stapel auf dunklem Grund**, nicht eine
+  flache Flaeche ueber die ganze Breite. Er steht neben der Aussage, nicht
+  darunter. Unten der Umsatz ueber Werbung, ueberall gleich hoch, darueber der
+  organische Umsatz, der waechst, dazu eine waagerechte Hoehenlinie hinter den
+  Saeulen. Kein Zeitstrahl, keine Werte.
+- **Das Ergebnisband zwischen den beiden Schritten ist weiss mit orangem Ring
+  und orangem Lichthof**, dazu `z-10`. Vorher war es Navy und lag damit auf
+  derselben Farbe wie die Platte darunter, davor Orange mit dunkler Schrift.
+- **Kleine Haken sind weiss auf Navy.** Ein oranges Zeichen in einem Kreis von
+  20 Pixeln auf dunklem Grund ist nur ein Fleck. Orange bleibt Akzent auf
+  Flaechen und Ringen, nicht auf kleinen Zeichen.
+- **Gegenueberstellungen tragen eine eigene Ueberschrift.** Zwei weisse Karten
+  ohne Ansage auf hellem Grund gehen unter. Die temoa-Karte ist die betonte:
+  oranger Lichtsaum und kraeftigerer Schatten.
+- **Bilder in Kacheln bekommen eine eigene Spalte**, wenn sie etwas zeigen
+  sollen. In der Ecke neben einer Ueberschrift sind sie Dekoration.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
