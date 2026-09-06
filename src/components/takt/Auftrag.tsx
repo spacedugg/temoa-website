@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
-import { Neigung } from "./Neigung";
+import { HeroBuehne } from "./HeroBuehne";
 
 /* ============================================================
    Hero der Startseite.
@@ -55,11 +55,12 @@ export function Auftrag() {
               {...rise(0.06)}
               className="display max-w-[24ch] text-balance text-[clamp(2.3rem,1.5rem+2.5vw,3.5rem)] text-ink"
             >
-              Erst verkauft euer <span className="em mark">Listing.</span> Dann skaliert die Werbung.
+              Auf Amazon <span className="em mark">profitabel skalieren.</span>
             </motion.h1>
 
             <motion.p {...rise(0.14)} className="mt-7 max-w-[46ch] text-pretty text-lead text-ink-muted">
-              Listing und Content, Advertising, Tagesgeschäft und neue Marktplätze. Aus einer Hand.
+              Wir bringen euer Listing dahin, dass es ohne Werbung verkauft, und steuern die
+              Kampagnen am TACoS. Wachstum zählt erst, wenn die Marge steht.
             </motion.p>
 
             <motion.div {...rise(0.22)} className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -78,28 +79,10 @@ export function Auftrag() {
 
           </div>
 
-          {/* Die Hero-Grafik. Ein Bild, das der Code bewegt: schweben,
-              kippen, ein Lichthof, der atmet. */}
+          {/* Die Hero-Grafik: echtes Listing, echte Zahlen, alles aus Code
+              zusammengesetzt. Siehe takt/HeroBuehne. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
-            <motion.span
-              aria-hidden
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px]"
-              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.3), transparent 68%)" }}
-              animate={reduce ? undefined : { opacity: [0.55, 0.9, 0.55], scale: [0.96, 1.04, 0.96] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <Neigung>
-              <motion.img
-                src="/bilder/h-buehne.webp"
-                alt="Eine Produktseite als Platte, davor ein Einkaufswagen, dahinter steigende Balken, verbunden durch eine leuchtende Linie."
-                width={1280}
-                height={960}
-                className="relative w-full"
-                animate={reduce ? undefined : { y: [0, -14, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                style={{ filter: "drop-shadow(0 34px 46px rgba(11,31,52,0.22))" }}
-              />
-            </Neigung>
+            <HeroBuehne />
           </motion.div>
         </div>
       </div>

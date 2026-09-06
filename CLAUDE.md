@@ -556,6 +556,39 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
   gibt keine Datei dazu. Wenn ein Bild eingebaut werden soll: als Anhang
   anfordern, nicht raten und nicht nachbauen.
 
+## Vierzehnte Feedbackrunde (verbindlich)
+
+- **Der Hero traegt eine Komposition aus echter Arbeit, kein erzeugtes Bild.**
+  Fuenf 3D-Entwuerfe im Stil teurer Produktrenderings hat der Kunde als
+  „kindlich" verworfen und Referenzen geschickt: ein echtes Listing auf einem
+  Telefon, Listingbilder daneben, schwebende Karten mit Zahlen. `takt/HeroBuehne`
+  baut das aus dem Miganeo-Listing, einem Telefonrahmen aus Code und zwei
+  belegten Zahlen aus der zugehoerigen Case Study, mit Link dorthin.
+- **Kein Amazon-Logo und keine Amazon-Oberflaeche**, auch wenn die Referenzen
+  sie zeigen. Der Aufbau einer Produktseite reicht.
+- **Keine erfundenen Preise.** Im Listing-Nachbau ist der Preis ein Balken.
+  Eine Zahl daraus zu machen hiesse, einen Preis fuer das Produkt eines Kunden
+  zu erfinden.
+- **„Profitabel skalieren" steht im Hero.** Skalieren kann jeder behaupten, der
+  Unterschied liegt in der Marge. Ueberschrift: „Auf Amazon profitabel
+  skalieren."
+- **`useReducedMotion` darf nie dazu fuehren, dass Animationsangaben
+  verschwinden.** Der Wert ist beim ersten Rendern false, framer-motion setzt
+  die Deckkraft auf 0, danach wird er wahr, die Angaben fallen weg und das
+  Element bleibt unsichtbar stehen. `whileInView` bleibt deshalb immer gesetzt,
+  nur der Startwert wechselt.
+- **`body` traegt `overflow-x: clip`, nicht `hidden`.** `hidden` macht aus dem
+  Body einen Scroll-Container, und darin haelt kein `position: sticky`.
+- **Die Designbeispiele sind eine Scroll-Geschichte**: links bleibt der Text
+  stehen, rechts laeuft das Listing durch. Die A+ Spalte wird auf die Hoehe der
+  Bildstrecke gezogen und teilt sie unter ihren sechs Modulen auf, dadurch enden
+  beide Spalten immer gleich. Eine gerechnete Spaltenbreite geht nie genau auf,
+  weil die Abstaende feste Pixel sind und die Bilder nicht.
+- **Die Team-Sektion der Startseite ist kurz**: drei Aufnahmen, die Bereiche im
+  Haus, ein Link auf `/team`. Dort stehen die Gruender, das Team, weitere
+  Aufnahmen und eine eigene Grafik. Die Seite steht in der Fusszeile, nicht in
+  der Kopfzeile.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
