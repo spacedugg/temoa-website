@@ -626,6 +626,33 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
   derselben Farbe. Das bringt Individualitaet in die Seite, ohne die Marke zu
   wiederholen.
 
+## Sechzehnte Feedbackrunde (verbindlich)
+
+- **Hero-Copy steht wortgleich so, wie der Kunde sie vorgibt.** „Profitables
+  Wachstum fuer deine Amazon Brand", die ersten beiden Woerter fett und mit dem
+  Textmarker. Darunter: „Mehr Umsatz ist keine Frage des Werbebudgets durch
+  Profi-Umsetzung in Content, Ads, Account Betreuung & Co." Die Anrede weicht
+  hier bewusst von der uebrigen Website ab, das ist zweimal bestaetigt.
+- **Rahmen liegen als eigene Ebene ueber dem Bild.** Ein `outline` am Element
+  selbst wird vom Foto darin verdeckt, deshalb sah man beim Zeigen nur die
+  Ecken aufblitzen. Der Rahmen der Fall-Streifen ist jetzt ein eigenes
+  `absolute inset-0` mit `border-2`, immer sichtbar, und wechselt beim Zeigen
+  von Weiss auf Orange.
+- **Die Bewegung der Fall-Streifen laeuft ueber 700 ms** mit
+  `cubic-bezier(0.22,0.61,0.24,1)`, Bild und Text folgen derselben Kurve.
+- **Der Stempel traegt das Logo, keine Schrift.** Rote Scheibe im Logo-Rot
+  #FF3131, darin eine weisse Innenscheibe mit den vier Formen des Zeichens.
+  Die rote Kreisform des Logos wuerde auf der roten Scheibe verschwinden,
+  deshalb die weisse Innenflaeche.
+- **Auf der Team-Seite traegt die Karte die Farbe**, nicht nur die Rolle. Die
+  Farbe wird mit Weiss aufgehellt (86 Prozent), damit die Schrift darauf
+  lesbar bleibt.
+- **Die Team-Seite hat eine Sektion.** Bezeichnung „12 Amazon-Spezialisten",
+  keine Ueberschrift, links die drei Gruender, rechts die vier Aufnahmen aus
+  dem Buero, darunter die neun im Team. Das Band mit den Bereichen und die
+  Sektion „Bei uns" sind gestrichen: die Bereiche stehen schon auf der
+  Startseite.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.

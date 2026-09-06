@@ -56,16 +56,16 @@ export function Auftrag() {
               {...rise(0.06)}
               className="display max-w-[24ch] text-balance text-[clamp(2.3rem,1.5rem+2.5vw,3.5rem)] text-ink"
             >
-              Profitables Wachstum für eure <span className="em mark">Amazon-Marke.</span>
+              <span className="em mark">Profitables Wachstum</span> für deine Amazon Brand
             </motion.h1>
 
-            {/* Der zweite Satz stand im Entwurf des Kunden als ein Satz mit
-                „durch Profi-Umsetzung". Zwei Saetze daraus, weil der Anschluss
-                sonst grammatisch nicht traegt, und ohne „Profi": was wir
-                koennen, zeigen die Faelle darunter. */}
+            {/* Ueberschrift und Versprechen stehen wortgleich so, wie der Kunde
+                sie vorgegeben hat. Die Anrede weicht hier bewusst von der
+                Website ab („deine" statt „eure"): das ist seine Entscheidung,
+                zweimal bestaetigt. */}
             <motion.p {...rise(0.14)} className="mt-7 max-w-[46ch] text-pretty text-lead text-ink-muted">
-              Mehr Umsatz ist keine Frage des Werbebudgets. Es ist eine Frage der Umsetzung: Content,
-              Ads, Account-Betreuung und neue Marktplätze.
+              Mehr Umsatz ist keine Frage des Werbebudgets durch Profi-Umsetzung in Content, Ads,
+              Account Betreuung &amp; Co.
             </motion.p>
 
             <motion.div {...rise(0.22)} className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">

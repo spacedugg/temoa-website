@@ -466,12 +466,13 @@
     },
     {
       "kennung": "n-haus",
-      "seite": "Team: alles im Haus",
+      "seite": "Team: abgeloest, die Sektion ist gestrichen",
       "size": "1536x1152",
       "motiv": "Ein offener Kasten mit fuenf Faechern, in jedem ein Werkzeug, alle mit einer Mitte verbunden",
       "stil": "szene3d",
       "prompt": "An open box divided into five equal compartments, seen at a three-quarter isometric angle from slightly above. The box is deep navy with light cool grey inner walls. Each compartment holds exactly one small white object with a single orange detail: a compass, a framed picture, a target disc, a shield and a globe, in that order from left to right. Thin glowing orange lines rise from each compartment and meet in one small orange sphere hovering above the centre of the box. Exactly this one arrangement in the frame, nothing else.",
-      "transparent": true
+      "transparent": true,
+      "aktiv": false
     },
     {
       "kennung": "h-f1",

@@ -649,18 +649,23 @@ export function Nachweis() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.6, delay: i * 0.07, ease: [0.32, 0.72, 0, 1] }}
-            /* Kein heller Ring: auf dem dunklen Grund der Sektion las sich die
-                 helle Innenkante an den unteren Ecken als weisser Fleck. Die
-                 Kante ist jetzt dunkel und liegt aussen, dadurch geht der
-                 Streifen an den Rundungen in den Grund ueber. */
-            className="group relative block overflow-hidden rounded-[1.4rem] shadow-[0_0_0_1px_rgba(3,12,22,0.55),0_24px_50px_-30px_rgba(4,16,28,0.9)] transition-[flex-grow,box-shadow] duration-[550ms] ease-temoa md:min-w-0 md:basis-0 md:grow md:hover:grow-[2.6] md:hover:shadow-[0_0_0_1px_rgba(255,153,0,0.5),0_30px_60px_-28px_rgba(4,16,28,1)]"
+            /* Der Rahmen liegt als `outline` mit negativem Versatz innen und
+                 folgt damit der Rundung sauber. Er ist immer da, nur die Farbe
+                 wechselt: das erspart die hellen Ecken, die entstehen, wenn
+                 erst beim Zeigen ein Ring dazukommt. Zwei Pixel, sonst sieht er
+                 nach Zufall aus.
+
+                 Die Breite laeuft ueber 700 ms mit einer weichen Kurve, damit
+                 das Auseinandergehen nicht springt. */
+            style={{ backgroundColor: "#08192b" }}
+            className="group relative block overflow-hidden rounded-[1.4rem] shadow-[0_24px_50px_-30px_rgba(4,16,28,0.9)] transition-[flex-grow,box-shadow] duration-700 ease-[cubic-bezier(0.22,0.61,0.24,1)] md:min-w-0 md:basis-0 md:grow md:hover:grow-[2.6] md:hover:shadow-[0_30px_60px_-28px_rgba(4,16,28,1)]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.bgImage}
               alt=""
               loading={i < 2 ? undefined : "lazy"}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-temoa group-hover:scale-[1.06]"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.24,1)] group-hover:scale-[1.05]"
             />
             {/* Zwei Schichten: der Farbschimmer der Marke oben, darunter der
                 Verlauf, der die Schrift traegt. Ohne den Verlauf steht weisse
@@ -700,7 +705,7 @@ export function Nachweis() {
 
               {/* Die Ueberschrift des Falls kommt im breiten Streifen dazu.
                   Auf dem Telefon steht sie immer da. */}
-              <span className="mt-3 block overflow-hidden text-small leading-snug text-white/75 transition-all duration-500 ease-temoa md:max-h-0 md:opacity-0 md:group-hover:max-h-28 md:group-hover:opacity-100">
+              <span className="mt-3 block overflow-hidden text-small leading-snug text-white/75 transition-all duration-700 ease-[cubic-bezier(0.22,0.61,0.24,1)] md:max-h-0 md:opacity-0 md:group-hover:max-h-28 md:group-hover:opacity-100">
                 {c.headline}
               </span>
 
@@ -711,6 +716,15 @@ export function Nachweis() {
                 </svg>
               </span>
             </div>
+
+            {/* Der Rahmen liegt als eigene Ebene ueber den Bildern. Als
+                `outline` am Streifen selbst waere er unter dem Foto und damit
+                unsichtbar. Er ist immer da, nur die Farbe wechselt: sonst
+                blitzen beim Zeigen die Ecken auf. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 z-30 rounded-[1.4rem] border-2 border-white/[0.12] transition-colors duration-700 ease-[cubic-bezier(0.22,0.61,0.24,1)] group-hover:border-[#FF9900]"
+            />
           </motion.a>
         ))}
       </div>
