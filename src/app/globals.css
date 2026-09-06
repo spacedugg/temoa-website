@@ -31,7 +31,12 @@ body {
      weiße Platten sollen darauf stehen und nicht mit ihm verschmelzen. */
   background-color: #f6f9fd;
   color: #0A1E2B;
+  /* `hidden` macht aus dem Body einen Scroll-Container, und darin bleibt kein
+     `position: sticky` mehr stehen. `clip` schneidet genauso ab, ohne einen
+     Scroll-Container zu erzeugen. Die erste Zeile bleibt als Rueckfall fuer
+     Browser, die `clip` nicht kennen. */
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {

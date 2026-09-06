@@ -103,8 +103,8 @@ function Ablauf() {
               background: "linear-gradient(90deg, rgba(255,153,0,0.15), #FF9900 45%, rgba(255,153,0,0.15))",
               boxShadow: "0 0 14px rgba(255,153,0,0.45)",
             }}
-            initial={reduce ? undefined : { scaleX: 0 }}
-            whileInView={reduce ? undefined : { scaleX: 1 }}
+            initial={reduce ? { scaleX: 1 } : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true, margin: "-15% 0px" }}
             transition={{ duration: 1.1, ease: EASE }}
           />
@@ -113,8 +113,8 @@ function Ablauf() {
             {ablauf.map((a, i) => (
               <motion.div
                 key={a.schritt}
-                initial={reduce ? undefined : { opacity: 0, y: 20 }}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-12% 0px" }}
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.16, ease: EASE }}
                 className="relative flex flex-col"

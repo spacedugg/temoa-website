@@ -33,13 +33,11 @@ const EASE = [0.32, 0.72, 0, 1] as const;
 export function Auftrag() {
   const reduce = useReducedMotion();
   const rise = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 20 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
           animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.85, delay, ease: EASE },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.85, delay, ease: EASE },
+        });
 
   return (
     <section id="top" className="ground relative overflow-hidden">

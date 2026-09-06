@@ -77,8 +77,8 @@ export function Eyebrow({
   const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={reduce ? undefined : { opacity: 0, y: 8 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-15% 0px" }}
       transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
       className={clsx(

@@ -104,7 +104,7 @@ const unterschied: { icon: IconName; title: string }[] = [
 export function FullServiceKopf() {
   const reduce = useReducedMotion();
   const rise = (delay: number) =>
-    reduce ? {} : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.85, delay, ease: EASE } };
+    ({ initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: reduce ? { duration: 0 } : { duration: 0.85, delay, ease: EASE } });
 
   return (
     <section className="ground relative overflow-hidden">
@@ -202,8 +202,8 @@ export function Bereiche() {
         {bereiche.map((b, i) => (
           <motion.div
             key={b.n}
-            initial={reduce ? undefined : { opacity: 0, y: 16 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.7, delay: i * 0.05, ease: EASE }}
             className="grid grid-cols-1 gap-y-5 border-t border-white/10 py-10 md:grid-cols-[3.5rem_1fr_1fr] md:gap-x-10"
@@ -250,14 +250,12 @@ export function Bereiche() {
 export function Reporting() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 16 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-12% 0px" },
-          transition: { duration: 0.6, delay, ease: EASE },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.6, delay, ease: EASE },
+        });
 
   /* Die drei Zeilen hier sagten dreimal dasselbe: Zahlen je Produkt, Gewinn
      je Artikel, Plaetze je Suchbegriff. Alles Rueckblick, alles eine Ebene.
@@ -339,8 +337,8 @@ export function Unterschied() {
           {unterschied.map((u, i) => (
             <motion.li
               key={u.title}
-              initial={reduce ? undefined : { opacity: 0, y: 12 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.6, delay: i * 0.07, ease: EASE }}
               className="panel panel-lift flex h-full items-center gap-5 p-5 md:p-6"
@@ -409,8 +407,8 @@ export function NichtFuerWen() {
         {nichtFuerWen.map((n, i) => (
           <motion.div
             key={n.title}
-            initial={reduce ? undefined : { opacity: 0, y: 14 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
             className="panel flex h-full items-start gap-5 p-6 md:p-7"
@@ -495,8 +493,8 @@ export function Onboarding() {
             background: "linear-gradient(90deg, rgba(255,153,0,0.15), #FF9900 45%, rgba(255,153,0,0.15))",
             boxShadow: "0 0 14px rgba(255,153,0,0.5)",
           }}
-          initial={reduce ? undefined : { scaleX: 0 }}
-          whileInView={reduce ? undefined : { scaleX: 1 }}
+          initial={reduce ? { scaleX: 1 } : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: "-15% 0px" }}
           transition={{ duration: 1.1, ease: EASE }}
         />
@@ -505,8 +503,8 @@ export function Onboarding() {
           {onboarding.map((o, i) => (
             <motion.div
               key={o.schritt}
-              initial={reduce ? undefined : { opacity: 0, y: 20 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.6, delay: 0.35 + i * 0.16, ease: EASE }}
               className="relative flex flex-col"

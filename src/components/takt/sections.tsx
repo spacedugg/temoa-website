@@ -9,6 +9,7 @@ import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
 import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
+import { candids, imHaus } from "@/lib/team";
 import { testimonials, initials } from "@/lib/testimonials";
 
 /* ============================================================
@@ -142,14 +143,12 @@ const befunde: { icon: IconName; title: string; body: string }[] = [
 export function Befund() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 16 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-12% 0px" },
-          transition: { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
+        });
 
   return (
     <Station label="Ausgangslage" tone="paper">
@@ -246,14 +245,12 @@ const ppc = [
 export function Verfahren() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 14 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-12% 0px" },
-          transition: { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
+        });
 
   return (
     <Station label="Unser Vorgehen" tone="warm">
@@ -501,14 +498,12 @@ const leistungen: { icon: IconName; title: string; body: string; href: string }[
 export function Leistungen() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 16 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-12% 0px" },
-          transition: { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.6, delay, ease: [0.32, 0.72, 0, 1] as const },
+        });
 
   return (
     <Station label="Leistungen" tone="tint">
@@ -636,24 +631,28 @@ export function Nachweis() {
   const reduce = useReducedMotion();
 
   return (
-    <Station label="Ergebnisse" tone="dark" id="nachweis">
+    <Station label="Case Studies" tone="dark" id="nachweis">
+      {/* „Fuenf Marken, fuenf Ausgangslagen" sagte nichts: es zaehlte, was
+          darunter ohnehin steht. Die Ueberschrift traegt jetzt die Aussage,
+          auf die es ankommt, und die Unterzeile entfaellt. */}
       <StationTitle>
-        Fünf Marken, <span className="em text-brand-400">fünf Ausgangslagen.</span>
+        Jede Zahl kommt aus einem <span className="em text-brand-400">Konto, das wir betreuen.</span>
       </StationTitle>
-      <StationLead tone="dark">
-        Jede Zahl kommt aus einem Konto, das wir betreuen.
-      </StationLead>
 
       <div className="mt-12 flex flex-col gap-4 md:h-[27rem] md:flex-row md:gap-3">
         {cases.map((c, i) => (
           <motion.a
             key={c.slug}
             href={`/ergebnisse/${c.slug}`}
-            initial={reduce ? undefined : { opacity: 0, y: 18 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.6, delay: i * 0.07, ease: [0.32, 0.72, 0, 1] }}
-            className="group relative block overflow-hidden rounded-[1.4rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09),0_24px_50px_-30px_rgba(4,16,28,0.9)] transition-[flex-grow,box-shadow] duration-[550ms] ease-temoa md:min-w-0 md:basis-0 md:grow md:hover:grow-[2.6] md:hover:shadow-[inset_0_0_0_1px_rgba(255,153,0,0.45),0_30px_60px_-28px_rgba(4,16,28,1)]"
+            /* Kein heller Ring: auf dem dunklen Grund der Sektion las sich die
+                 helle Innenkante an den unteren Ecken als weisser Fleck. Die
+                 Kante ist jetzt dunkel und liegt aussen, dadurch geht der
+                 Streifen an den Rundungen in den Grund ueber. */
+            className="group relative block overflow-hidden rounded-[1.4rem] shadow-[0_0_0_1px_rgba(3,12,22,0.55),0_24px_50px_-30px_rgba(4,16,28,0.9)] transition-[flex-grow,box-shadow] duration-[550ms] ease-temoa md:min-w-0 md:basis-0 md:grow md:hover:grow-[2.6] md:hover:shadow-[0_0_0_1px_rgba(255,153,0,0.5),0_30px_60px_-28px_rgba(4,16,28,1)]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -675,7 +674,7 @@ export function Nachweis() {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(5,18,30,0.99) 0%, rgba(5,18,30,0.94) 26%, rgba(5,18,30,0.6) 58%, rgba(5,18,30,0.2) 82%, rgba(5,18,30,0.08) 100%)",
+                  "linear-gradient(to top, rgba(6,22,36,0.94) 0%, rgba(6,22,36,0.88) 28%, rgba(6,22,36,0.58) 58%, rgba(6,22,36,0.2) 82%, rgba(6,22,36,0.08) 100%)",
               }}
             />
 
@@ -716,7 +715,7 @@ export function Nachweis() {
       </div>
 
       <a href="/ergebnisse" className="btn-text-hell mt-10">
-        Alle Ergebnisse ansehen
+        Alle Case Studies ansehen
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -773,99 +772,118 @@ const aplus = [1, 2, 3, 4, 5, 6].map((n) => ({
 export function Arbeiten() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 12 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-10% 0px" },
-          transition: { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
+        });
 
   const [haupt, ...weitere] = bildstrecke;
 
   return (
     <Station label="Designbeispiele" tone="dark">
-      <StationTitle>
-        So sieht <span className="em text-brand-400">Retail Ready</span> aus.
-      </StationTitle>
-      <StationLead tone="dark">
-        Ein komplettes Listing aus unserer Produktion für Miganeo: sieben Bilder und sechs Module
-        Premium A+ Content, in dieser Form auf Amazon veröffentlicht.
-      </StationLead>
+      {/* Der Text bleibt stehen, die Arbeit laeuft daran vorbei.
 
-      {/* Die Sektion ist dunkel, und das ist der Grund dafür: die Listingbilder
-          haben weissen Hintergrund. Auf einer hellen Seite laufen sie in den
-          Grund und sind als Bilder nicht zu erkennen. Auf Navy stehen sie als
-          Bilder da.
+          Vorher stand die Ueberschrift oben und darunter zwei sehr hohe
+          Bildspalten: die Sektion bot viel Platz und der Inhalt lief trotzdem
+          weit nach unten weg. Jetzt haengt die linke Spalte fest, solange die
+          Sektion im Bild ist, rechts scrollt das Listing durch. Ist es
+          durchgelaufen, geht die ganze Sektion mit. */}
+      <div className="grid gap-10 lg:grid-cols-[0.52fr_1.48fr] lg:items-start lg:gap-12">
+        <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <StationTitle className="!max-w-none">
+            So sieht
+            <br />
+            <span className="em text-brand-400">Retail Ready</span> aus.
+          </StationTitle>
+          <p className="mt-6 max-w-[34ch] text-pretty text-lead text-chalk-muted">
+            Ein komplettes Listing aus unserer Produktion für Miganeo.
+            <br />
+            Sieben Bilder und sechs Module Premium A+ Content, in dieser Form auf Amazon
+            veröffentlicht.
+          </p>
 
-          Die Breite ist begrenzt. Vorher lief das Listing über die ganzen
-          1216 Pixel, das Hauptbild allein war damit 700 Pixel hoch und man
-          musste dreimal scrollen, bis man es ganz gesehen hatte. */}
-      <div className="mx-auto mt-12 grid max-w-[44rem] items-start gap-5 lg:grid-cols-[0.884fr_1fr] lg:gap-6">
-        {/* Bildstrecke im Aufbau der Produktseite */}
-        <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="Listing" note="1 + 6 Bilder" dunkel />
-
-          <motion.figure {...auf(0)} className="listing-kachel m-0 mt-3.5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={haupt.src}
-              alt={haupt.alt}
-              width={1200}
-              height={1500}
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </motion.figure>
-
-          <div className="mt-3 grid grid-cols-2 gap-3">
-            {weitere.map((b, i) => (
-              <motion.figure key={b.src} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={b.src}
-                  alt={b.alt}
-                  width={700}
-                  height={700}
-                  loading="lazy"
-                  className="aspect-square w-full object-cover"
-                />
-              </motion.figure>
+          {/* Zwei Zahlen, eine Zeile. Drei brachen in der schmalen Spalte um,
+              und jede Zeile hier kostet Weg, den der Text stehen bleibt. */}
+          <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 border-t border-white/[0.12] pt-6">
+            {[
+              ["7", "Bilder"],
+              ["6", "Module Premium A+"],
+            ].map(([zahl, text]) => (
+              <div key={text}>
+                <dt className="num text-[1.6rem] leading-none text-brand-400">{zahl}</dt>
+                <dd className="mt-1 text-[0.75rem] leading-snug text-chalk-muted">{text}</dd>
+              </div>
             ))}
+          </dl>
+
+          <a href="/design-beispiele" className="btn-text-hell mt-8">
+            Mehr Designbeispiele
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        {/* Rechts das Listing. Beide Spalten enden auf derselben Hoehe: die
+            Bildstrecke gibt die Hoehe vor, die A+ Spalte wird darauf gezogen
+            und teilt sie unter ihren sechs Modulen auf. Der Rest, den `cover`
+            dabei abschneidet, liegt bei rund einem Prozent. Ueber eine
+            gerechnete Spaltenbreite allein ging es nie genau auf, weil die
+            Abstaende feste Pixel sind und die Bilder nicht. */}
+        <div className="grid min-w-0 items-stretch gap-4 sm:grid-cols-[0.884fr_1fr]">
+          <div className="flex min-w-0 flex-col">
+            <BereichsKopf label="Listing" note="1 + 6 Bilder" dunkel />
+
+            <motion.figure {...auf(0)} className="listing-kachel m-0 mt-3.5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={haupt.src}
+                alt={haupt.alt}
+                width={1200}
+                height={1500}
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </motion.figure>
+
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {weitere.map((b, i) => (
+                <motion.figure key={b.src} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={b.src}
+                    alt={b.alt}
+                    width={700}
+                    height={700}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover"
+                  />
+                </motion.figure>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex min-w-0 flex-col">
+            <BereichsKopf label="Premium A+ Content" note="6 Module" dunkel />
+
+            <motion.div {...auf(0.08)} className="listing-kachel mt-3.5 flex flex-1 flex-col">
+              {aplus.map((m) => (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  key={m.src}
+                  src={m.src}
+                  alt={m.alt}
+                  width={1400}
+                  height={574}
+                  loading="lazy"
+                  className="block w-full sm:min-h-0 sm:flex-1 sm:object-cover"
+                />
+              ))}
+            </motion.div>
           </div>
         </div>
-
-        {/* Premium A+ Content: sechs Module, nahtlos untereinander */}
-        <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="Premium A+ Content" note="6 Module" dunkel />
-
-          <motion.div {...auf(0.08)} className="listing-kachel mt-3.5">
-            {aplus.map((m) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={m.src}
-                src={m.src}
-                alt={m.alt}
-                width={1400}
-                height={574}
-                loading="lazy"
-                className="block w-full"
-              />
-            ))}
-          </motion.div>
-        </div>
       </div>
-
-      {/* Die Platte „Was an diesem Listing gemacht wurde" ist raus. Sie stand
-          unter den Bildern, zaehlte auf, was man an den Bildern sieht, und
-          brachte niemanden weiter. */}
-
-      <a href="/design-beispiele" className="btn-text-hell mt-10">
-        Mehr Designbeispiele
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
     </Station>
   );
 }
@@ -1021,93 +1039,24 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
    ============================================================ */
 
 /**
- * Die drei Aufnahmen ueber den Portraits. Reihenfolge: Gruppe, Paar,
- * Arbeitsplatz. Vorher stand in der Mitte ein einzelnes Portrait zwischen zwei
- * Gruppenbildern und las sich als versprengter Kopf.
- */
-const candids = ["/team/Main.webp", "/team/DSCF2526.webp", "/team/DSCF2749.webp"];
-
-/**
- * Das Team, wie es der Kunde zugeordnet hat.
+ * Team auf der Startseite.
  *
- * Zwei Ebenen, weil sie zwei verschiedene Dinge sagen: die drei Gruender
- * stehen fuer die Zusammenarbeit selbst und sind die Ansprechpartner, die
- * neun im Team stehen fuer die Bereiche, die im Haus liegen. Ein Raster aus
- * zwoelf gleichen Kacheln haette diesen Unterschied verschluckt.
+ * Vorher standen hier drei Aufnahmen, drei Gruender-Karten und neun
+ * Team-Karten, zusammen fuenfzehn Bilder am Fuss einer langen Seite. Das war
+ * eine eigene Seite mitten in der Startseite.
  *
- * `linkedin` fehlt noch. Erfundene Profil-Adressen wuerden ins Nichts oder auf
- * fremde Profile fuehren, deshalb faellt das Symbol weg, solange die Adresse
- * nicht vorliegt.
- */
-type Person = { src: string; name: string; rolle: string; linkedin?: string };
-
-const gruender: Person[] = [
-  { src: "/team/Clemens.webp", name: "Clemens", rolle: "Founder & Sales" },
-  { src: "/team/Christoph.webp", name: "Christoph", rolle: "Founder & Client Success" },
-  { src: "/team/Eddie.webp", name: "Eddie", rolle: "Founder & Operations" },
-];
-
-const members: Person[] = [
-  { src: "/team/Ole.webp", name: "Ole", rolle: "Content Manager" },
-  { src: "/team/Jonas.webp", name: "Jonas", rolle: "Content Manager" },
-  { src: "/team/Marvin.webp", name: "Marvin", rolle: "Marketplace Consultant" },
-  { src: "/team/Anzelika.webp", name: "Anzelika", rolle: "Marketplace Consultant" },
-  { src: "/team/Vadim.webp", name: "Vadim", rolle: "Graphic Designer" },
-  { src: "/team/Marina.webp", name: "Marina", rolle: "Graphic Designer" },
-  { src: "/team/Dias.webp", name: "Dias", rolle: "3D Artist" },
-  { src: "/team/Burak.webp", name: "Burak", rolle: "Marketplace Growth Associate" },
-  { src: "/team/Noor.webp", name: "Noor", rolle: "Marketplace Growth Associate" },
-];
-
-/** Die Bereiche, die im Haus liegen. Deckungsgleich mit den Leistungen. */
-const imHaus = [
-  "Strategie",
-  "Produktbilder & SEO",
-  "PPC Advertising",
-  "Account Management",
-  "Internationalisierung",
-];
-
-/** LinkedIn-Symbol. Nur gezeichnet, wenn eine Adresse vorliegt. */
-function LinkedIn({ href, name }: { href: string; name: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`${name} auf LinkedIn`}
-      className="grid h-9 w-9 place-items-center rounded-[0.7rem] bg-canvas-tint text-navy transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy hover:text-white"
-    >
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-        <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.1 8.65 22 10.9 22 14v7h-4v-6.2c0-1.5-.03-3.4-2.1-3.4-2.05 0-2.36 1.6-2.36 3.3V21h-3.9z" />
-      </svg>
-    </a>
-  );
-}
-
-/**
- * Team.
- *
- * Vorher: Portraits in Schwarzweiss, darunter nur der Vorname, und am Ende ein
- * Satz („Menschen, kein Tool ...") der frei auf der Flaeche lag und nichts
- * trug. Der Satz ist geloescht.
- *
- * Jetzt zwei Ebenen. Die drei Gruender gross, mit rundem Portrait, Rolle und
- * Platz fuer LinkedIn: sie sind die Ansprechpartner. Darunter das Team in
- * neun Karten mit Rolle. Ein Raster aus zwoelf gleichen Kacheln hat den
- * Unterschied verschluckt und ohne Rollen stand dort nur ein Vorname.
+ * Jetzt nur noch die drei Aufnahmen, die Bereiche, die im Haus liegen, und der
+ * Weg zur Team-Seite. Wer wissen will, wer dahintersteht, klickt.
  */
 export function Mannschaft() {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 14 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-10% 0px" },
-          transition: { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
+        });
 
   return (
     <Station label="Team" tone="warm" id="team">
@@ -1150,58 +1099,12 @@ export function Mannschaft() {
         ))}
       </div>
 
-      {/* Die drei Gruender. Rundes Portrait, damit sie sich von den
-          quadratischen Team-Karten unterscheiden. */}
-      <div className="mt-4 grid gap-4 sm:grid-cols-3">
-        {gruender.map((g, i) => (
-          <motion.div
-            key={g.src}
-            {...auf(0.04 + i * 0.05)}
-            className="panel panel-lift flex flex-col items-center px-6 py-7 text-center"
-          >
-            <span className="relative">
-              <span aria-hidden className="halo -left-3 -top-3 h-[7.5rem] w-[7.5rem] opacity-70" />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={g.src}
-                alt={g.name}
-                loading="lazy"
-                className="relative h-[5.5rem] w-[5.5rem] rounded-full object-cover shadow-[0_1px_2px_rgba(13,36,57,0.06),0_14px_28px_-14px_rgba(13,36,57,0.4)]"
-              />
-            </span>
-            <p className="mt-5 text-[1.35rem] font-extrabold leading-tight tracking-tight text-ink">{g.name}</p>
-            <p className="mt-1.5 text-small text-ink-muted">{g.rolle}</p>
-            {g.linkedin && (
-              <div className="mt-5">
-                <LinkedIn href={g.linkedin} name={g.name} />
-              </div>
-            )}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Das Team. Die Karte hebt sich beim Zeigen an, Name und Rolle bleiben lesbar. */}
-      <motion.p {...auf(0.06)} className="mt-10 flex items-center gap-2.5">
-        <span aria-hidden className="node-glow" />
-        <span className="text-label font-bold uppercase text-ink-soft">Team</span>
-      </motion.p>
-      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-        {members.map((m, i) => (
-          <motion.div key={m.src} {...auf(0.04 + i * 0.025)} className="panel panel-lift overflow-hidden p-3">
-            <div className="overflow-hidden rounded-[0.85rem]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.src} alt={m.name} loading="lazy" className="aspect-square w-full object-cover" />
-            </div>
-            <p className="mt-3 px-0.5 text-[0.85rem] font-bold leading-tight text-ink">{m.name}</p>
-            <p className="mt-1 px-0.5 text-[0.72rem] leading-snug text-ink-faint">{m.rolle}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Hier standen noch einmal 60+, 5+ und 98 %. Dieselben drei Zahlen
-          stehen schon im Kopf der Seite, im Kundenband und im Abschluss.
-          Viermal dieselbe Zahl auf einer Seite ueberzeugt nicht, sie nutzt
-          sich ab. */}
+      <a href="/team" className="btn-text mt-10">
+        Das Team ansehen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
     </Station>
   );
 }

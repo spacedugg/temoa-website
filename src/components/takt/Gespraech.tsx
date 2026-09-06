@@ -63,8 +63,8 @@ export function Gespraech({
       <div className="container-x relative">
         <motion.div
           className="panel-navy on-dark relative grid overflow-hidden md:grid-cols-[0.72fr_1.28fr]"
-          initial={reduce ? undefined : { opacity: 0, y: 22 }}
-          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+          initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-12% 0px" }}
           transition={{ duration: 0.7, ease: EASE }}
         >
@@ -99,8 +99,8 @@ export function Gespraech({
               /* Ein warmer Schatten unter dem Freisteller, sonst klebt er
                  auf der orangen Flaeche. */
               style={{ filter: "drop-shadow(0 24px 38px rgba(122,52,0,0.45))" }}
-              initial={reduce ? undefined : { opacity: 0, y: 20 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             />
