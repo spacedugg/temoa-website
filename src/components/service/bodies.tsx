@@ -10,7 +10,7 @@ import {
   Lieferung,
   Ergebnis,
 } from "./Blocks";
-import { MarktSektion } from "./Karte";
+import { MarktSektion } from "./Weltkugel";
 import { Aufgaben } from "./Aufgaben";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";

@@ -424,6 +424,35 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
 - **Bilder in Kacheln bekommen eine eigene Spalte**, wenn sie etwas zeigen
   sollen. In der Ecke neben einer Ueberschrift sind sie Dekoration.
 
+## Zehnte Feedbackrunde (verbindlich, ersetzt alle Globus-Regeln davor)
+
+Der Kunde hat neun Fassungen der Marktplatzgrafik verworfen und dann eine
+Referenz geschickt. Der Fehler in allen neun war derselbe: die Kugel war
+dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
+
+- **Die Kugel ist hell**, matt, auf hellem Grund: Verlauf von fast Weiss oben
+  links nach gedaempftem Blaugrau unten rechts. Kein dunkles Blau, kein Glas,
+  kein Glanzpunkt. Das Land ist eine helle Silhouette mit feinem Punktraster,
+  das gibt der Flaeche Material, ohne dass eine zweite Farbe dazukommt.
+- **Keine Bewegung.** Die Grafik steht still. Ohne Animation sieht sie besser
+  aus, und sie muss nichts vorfuehren.
+- **Der Blick geht weit in den Atlantik hinaus** (Mitte 50 Grad West, 36 Grad
+  Nord). Dadurch liegt Europa rechts am Rand und Nordamerika in der Mitte,
+  beides ist gleichzeitig zu sehen, und der Bogen ueber den Atlantik ergibt
+  Sinn. Europa ist dabei stark verkuerzt, das gehoert zu dieser Ansicht.
+- **Die ganze Kugel steht im Bild**, mit einem weichen Schatten darunter. Kein
+  Ausschnitt, keine Maske, kein Rahmen, keine Platte.
+- **Die Schilder tragen Flagge und Laenderkuerzel**, nicht den ganzen Namen:
+  neun Namen um ein kleines Europa herum sind eine Wand aus Schrift. Sie
+  stehen im Kranz um Europa und zeigen mit einem kurzen hellen Stiel auf ihren
+  Punkt. Der Punkt ist ein oranger Leuchtpunkt auf dem Land.
+- **Auf dem Telefon entfallen die Schilder**: darin waere die Schrift acht
+  Pixel gross. Dort tragen Punkte die Kugel und die Namen stehen als Liste
+  darunter.
+- **Erzeugt wird die Geometrie von `scripts/welt-karte.mjs`** nach
+  `src/components/service/welt-geo.ts`. Marktplaetze werden feiner
+  vereinfacht als die Umgebung, damit ihre Form stimmt.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
