@@ -69,6 +69,10 @@ export function Gespraech({
           transition={{ duration: 0.7, ease: EASE }}
         >
           {/* Portraetspalte.
+              Der Grund ist orange, nicht blau: die Karte ist dunkelblau, und
+              ein blaues Feld darin hebt das Portraet nicht heraus. Orange
+              neben Navy ist der staerkste Kontrast, den die Marke hat.
+
               Die Rundung sitzt auch auf dieser Spalte selbst: ein Bild mit
               `filter` bricht in manchen Browsern aus dem `overflow-hidden` der
               Karte aus, dadurch stand unten links eine eckige Ecke an einer
@@ -77,7 +81,7 @@ export function Gespraech({
             className="relative min-h-[15rem] overflow-hidden rounded-t-[1.75rem] sm:min-h-[20rem] md:min-h-[25rem] md:rounded-t-none md:rounded-l-[1.75rem]"
             style={{
               background:
-                "radial-gradient(120% 95% at 50% 108%, rgba(255,153,0,0.3), transparent 58%), radial-gradient(90% 70% at 50% 6%, rgba(112,178,214,0.3), transparent 62%), linear-gradient(170deg, #17405d 0%, #0d2540 100%)",
+                "radial-gradient(95% 62% at 50% 14%, #FFC77E 0%, rgba(255,199,126,0) 62%), linear-gradient(168deg, #FFA51F 0%, #FF8A00 46%, #E06A00 100%)",
             }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -91,24 +95,40 @@ export function Gespraech({
                  `-translate-x-1/2`: framer-motion schreibt beim Einlaufen ein
                  eigenes `transform` und wirft die Verschiebung aus der Klasse
                  weg. */
-              className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
+              className="absolute inset-x-0 bottom-0 mx-auto h-[94%] w-auto max-w-none object-contain object-bottom"
+              /* Ein warmer Schatten unter dem Freisteller, sonst klebt er
+                 auf der orangen Flaeche. */
+              style={{ filter: "drop-shadow(0 24px 38px rgba(122,52,0,0.45))" }}
               initial={reduce ? undefined : { opacity: 0, y: 20 }}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-12% 0px" }}
               transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
             />
 
-            {/* Wer spricht, steht am Bild. Ohne Platte darunter: eine Kachel
-                auf einem Gesicht sieht nach Aufkleber aus, ein Schatten unter
-                der Schrift reicht. */}
-            <div
-              className="absolute inset-x-5 bottom-5"
-              style={{ textShadow: "0 2px 10px rgba(6,20,34,0.85), 0 1px 2px rgba(6,20,34,0.9)" }}
-            >
-              <p className="text-[1rem] font-bold leading-tight text-white">Hi, ich bin Clemens.</p>
-              <p className="mt-0.5 text-small leading-snug text-white/80">
-                Founder. Ich führe das Gespräch selbst.
+            {/* Der Fuss der Spalte laeuft ins Dunkle aus. Vorher stand die
+                Zeile mit einem Schatten frei auf dem Foto, das sah nach
+                Notloesung aus: eine Platte darauf ist verboten, ein Schatten
+                allein traegt nicht. Ein Verlauf ist beides nicht, er gibt der
+                Schrift einen Grund, ohne eine Kante ins Bild zu setzen.
+                Weiss auf Orange waere zu schwach, deshalb laeuft der Verlauf
+                ins Dunkelbraun und nicht ins Navy: auf einer orangen Flaeche
+                liest sich Braun als ihr eigener Schatten, Navy als zweite
+                Farbe. */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[36%]"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(48,17,0,0.96) 0%, rgba(58,21,0,0.86) 24%, rgba(72,27,0,0.45) 58%, rgba(90,34,0,0) 100%)",
+              }}
+            />
+
+            {/* Wer spricht, steht am Bild, nicht im Text. */}
+            <div className="absolute inset-x-6 bottom-6">
+              <p className="text-[1.15rem] font-extrabold leading-tight tracking-[-0.01em] text-white">
+                Hi, ich bin Clemens.
               </p>
+              <p className="mt-1 text-small leading-snug text-white/85">Founder. Ihr sprecht mit mir.</p>
             </div>
           </div>
 

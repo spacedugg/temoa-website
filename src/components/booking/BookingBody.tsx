@@ -205,10 +205,12 @@ export function BookingBody() {
             <figure className="relative mx-auto w-full max-w-[26rem] lg:mx-0 lg:ml-auto">
               <div
                 className="relative h-[24rem] overflow-hidden rounded-[1.75rem] sm:h-[27rem]"
+                /* Derselbe orange Grund wie im Abschluss-CTA. Clemens steht
+                   auf jeder Seite vor derselben Flaeche. */
                 style={{
                   background:
-                    "radial-gradient(110% 80% at 50% 16%, rgba(255,158,96,0.4), transparent 62%), linear-gradient(160deg, #10314a 0%, #0a2035 100%)",
-                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08), 0 30px 70px -40px rgba(4,20,34,0.8)",
+                    "radial-gradient(95% 62% at 50% 14%, #FFC77E 0%, rgba(255,199,126,0) 62%), linear-gradient(168deg, #FFA51F 0%, #FF8A00 46%, #E06A00 100%)",
+                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18), 0 30px 70px -40px rgba(122,52,0,0.75)",
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -218,7 +220,7 @@ export function BookingBody() {
                   width={900}
                   height={855}
                   className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
-                  style={{ filter: "drop-shadow(0 22px 40px rgba(4,16,28,0.55))" }}
+                  style={{ filter: "drop-shadow(0 22px 40px rgba(122,52,0,0.5))" }}
                 />
               </div>
               {/* Die Angaben stehen unter dem Bild, nicht als Kachel darauf.
@@ -232,7 +234,7 @@ export function BookingBody() {
                   ))}
                 </span>
                 <div className="mt-2 text-[1rem] font-bold text-ink">Hi, ich bin Clemens.</div>
-                <div className="mt-0.5 text-small text-ink-muted">Founder. Ich führe das Gespräch selbst.</div>
+                <div className="mt-0.5 text-small text-ink-muted">Founder. Ihr sprecht mit mir.</div>
               </figcaption>
             </figure>
           </Reveal>
