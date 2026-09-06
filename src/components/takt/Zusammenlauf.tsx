@@ -18,7 +18,7 @@ const EASE = [0.32, 0.72, 0, 1] as const;
 
 /* "Märkte" war unklar. Gemeint sind weitere Amazon-Laender, deshalb steht
    dort jetzt das Wort, das der Bereich auf der Seite auch traegt. */
-const bereiche = ["Strategie", "Content", "Advertising", "Account", "Länder"];
+const bereiche = ["Strategie", "Produktbilder", "PPC", "Account", "Länder"];
 
 /** Die kleinen Balken im Kopf der Platte. Anteile, keine Werte. */
 const balken = [0.34, 0.42, 0.38, 0.55, 0.62, 0.58, 0.74, 0.88];
@@ -88,7 +88,7 @@ export function Zusammenlauf() {
             animate={zeigen ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.45, delay: 0.8 + i * 0.09, ease: EASE }}
           >
-            <span className="block text-[0.66rem] font-bold leading-tight text-ink">{b}</span>
+            <span className="block text-[0.66rem] font-bold leading-tight text-ink [hyphens:auto] break-words">{b}</span>
           </motion.div>
         ))}
       </div>

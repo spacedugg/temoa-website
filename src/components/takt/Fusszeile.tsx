@@ -6,10 +6,10 @@ const cols = [
   {
     title: "Leistungen",
     links: [
-      { label: "Strategie & Analyse", href: "/leistungen/strategie" },
-      { label: "Content & Listings", href: "/leistungen/listing-seo" },
-      { label: "Advertising / PPC", href: "/leistungen/ppc-advertising" },
-      { label: "Account-Management", href: "/leistungen/account-management" },
+      { label: "Strategie", href: "/leistungen/strategie" },
+      { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
+      { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
+      { label: "Account Management", href: "/leistungen/account-management" },
       { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
     ],
   },

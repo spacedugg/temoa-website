@@ -34,7 +34,7 @@ const ausgangslage: { icon: IconName; title: string; body: string }[] = [
 const bereiche = [
   {
     n: "01",
-    bereich: "Strategie & Analyse",
+    bereich: "Strategie",
     title: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
     line: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
     bullets: [
@@ -45,7 +45,7 @@ const bereiche = [
   },
   {
     n: "02",
-    bereich: "Content & Listings",
+    bereich: "Produktbilder & SEO",
     title: "Ein Listing, das auch ohne Werbung verkauft.",
     line: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
     bullets: [
@@ -56,7 +56,7 @@ const bereiche = [
   },
   {
     n: "03",
-    bereich: "Advertising / PPC",
+    bereich: "PPC Advertising",
     title: "Saubere Kampagnen, gesteuert am TACoS.",
     line: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
     bullets: [
@@ -67,7 +67,7 @@ const bereiche = [
   },
   {
     n: "04",
-    bereich: "Account-Management",
+    bereich: "Account Management",
     title: "Stabiler Betrieb, geschützte Rankings.",
     line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
     bullets: [

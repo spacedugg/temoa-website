@@ -121,7 +121,7 @@ export function ContentBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Content & Listings"
+        eyebrow="Produktbilder & SEO"
         title={
           <>
             Content, der aus Klicks <span className="text-gradient">Käufer macht.</span>
@@ -190,7 +190,7 @@ export function AdvertisingBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Advertising / PPC"
+        eyebrow="PPC Advertising"
         title={
           <>
             Skalieren, ohne die <span className="text-gradient">Marge zu verlieren.</span>
@@ -283,7 +283,7 @@ export function AccountBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Account-Management"
+        eyebrow="Account Management"
         title={
           <>
             Ihr baut die Marke. Das{" "}

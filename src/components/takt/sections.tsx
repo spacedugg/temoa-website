@@ -1,6 +1,5 @@
 "use client";
 
-import { Fragment } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
@@ -440,10 +439,10 @@ export function Verfahren() {
    ============================================================ */
 
 const leistungen: { icon: IconName; title: string; body: string; href: string }[] = [
-  { icon: "kompass", title: "Strategie & Analyse", body: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
-  { icon: "lupe", title: "Content & Listings", body: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
-  { icon: "ziel", title: "Advertising", body: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
-  { icon: "schild", title: "Account-Management", body: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
+  { icon: "kompass", title: "Strategie", body: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
+  { icon: "lupe", title: "Produktbilder & SEO", body: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
+  { icon: "ziel", title: "PPC Advertising", body: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
+  { icon: "schild", title: "Account Management", body: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
   { icon: "globus", title: "Internationalisierung", body: "Lokalisieren statt übersetzen.", href: "/leistungen/internationalisierung" },
 ];
 
@@ -716,25 +715,46 @@ export function Nachweis() {
    05 · Arbeiten (Designbeispiele)
    ============================================================ */
 
-/* Ein komplettes Listing: sieben Bilder plus vier A+ Module.
-   Die Bilder liegen als Datei vor, jede Beschriftung zeichnet der Code. */
+/* Ein komplettes Listing aus der Produktion fuer Miganeo: sieben Bilder und
+   sechs Module Premium A+ Content. Bis hierher stand an dieser Stelle ein
+   erfundenes Produkt, weil noch keine freigegebene Arbeit vorlag. Jetzt liegt
+   sie vor, und dann hat ein erfundenes Beispiel hier nichts mehr zu suchen.
+
+   Die Bilder tragen ihre Beschriftung selbst: sie sind so an Amazon
+   ausgeliefert worden. Die Regel, dass Schrift nie ins Bild gehoert, gilt fuer
+   erzeugte Grafiken, nicht fuer ausgelieferte Arbeit. */
 const bildstrecke = [
-  { src: "/bilder/p-haupt.webp", rolle: "Hauptbild", alt: "Hauptbild: Isolierflasche freigestellt auf weißem Grund" },
-  { src: "/bilder/p-detail.webp", rolle: "Verschluss", alt: "Detailbild: Schraubverschluss aus gebürstetem Stahl" },
-  { src: "/bilder/p-szene.webp", rolle: "Anwendung", alt: "Anwendungsbild: Flasche auf einer Küchenarbeitsplatte" },
-  { src: "/bilder/p-gruppe.webp", rolle: "Varianten", alt: "Varianten: drei Farben nebeneinander" },
-  { src: "/bilder/p-material.webp", rolle: "Material", alt: "Makrobild: matte Oberfläche und gebürsteter Stahl" },
-  { src: "/bilder/p-offen.webp", rolle: "Geöffnet", alt: "Flasche mit abgeschraubtem Verschluss" },
-  { src: "/bilder/p-unterwegs.webp", rolle: "Unterwegs", alt: "Flasche in der Seitentasche eines Rucksacks" },
+  { src: "/bilder/miganeo/l-1.webp", alt: "Hauptbild: die Poolabdeckung freigestellt, gefaltet und ausgelegt" },
+  { src: "/bilder/miganeo/l-2.webp", alt: "Bis zu 8 Grad wärmeres Wasser, Pool zur Hälfte abgedeckt" },
+  { src: "/bilder/miganeo/l-3.webp", alt: "Die Wärme im Pool behalten, Durchmesser 457 Zentimeter" },
+  { src: "/bilder/miganeo/l-4.webp", alt: "Handhabung in vier Schritten" },
+  { src: "/bilder/miganeo/l-5.webp", alt: "Bis zu 70 Prozent weniger Heizkosten" },
+  { src: "/bilder/miganeo/l-6.webp", alt: "Hält groben Schmutz vom Wasser fern" },
+  { src: "/bilder/miganeo/l-7.webp", alt: "Familie am Pool, Abdeckung wird abgezogen" },
 ];
+
+/* Die sechs Module des Premium A+ Contents. Sie sitzen ohne Abstand
+   untereinander in einer Kachel: auf der Produktseite laufen sie ebenfalls
+   nahtlos ineinander, und mit Luft dazwischen fielen der Kopf und das erste
+   Bild auseinander. */
+const aplus = [1, 2, 3, 4, 5, 6].map((n) => ({
+  src: `/bilder/miganeo/a-${n}.webp`,
+  alt: `Premium A+ Modul ${n} von 6`,
+}));
 
 /**
  * Designbeispiele.
  *
  * Das Layout folgt dem Aufbau eines echten Listings, nicht einem freien
  * Bildraster: links das Hauptbild gross, darunter die sechs weiteren Bilder in
- * zwei Spalten und drei Zeilen. Rechts der A+ Content, vertikal gestapelt,
- * jedes Modul selbst im Querformat.
+ * zwei Spalten und drei Zeilen. Rechts der Premium A+ Content, sechs Module
+ * ohne Abstand untereinander.
+ *
+ * Die Spaltenbreite ist gerechnet, nicht geschaetzt, damit beide Spalten unten
+ * auf derselben Hoehe enden: links ergibt sich die Hoehe aus 1,25 Breiten fuer
+ * das Hauptbild (4:5) und drei halben Breiten fuer die sechs Quadrate, rechts
+ * aus sechs Modulen im Verhaeltnis 1400:574. Gleichgesetzt fuehrt das auf
+ * 0,884 zu 1.
  */
 export function Arbeiten() {
   const reduce = useReducedMotion();
@@ -756,165 +776,95 @@ export function Arbeiten() {
         So sieht <span className="em mark">Retail Ready</span> aus.
       </StationTitle>
       <StationLead>
-        Ein komplettes Listing aus unserer Produktion: sieben Bilder und fünf A+ Module. Produkt und
-        Marke sind frei erfunden, die Arbeit ist echt.
+        Ein komplettes Listing aus unserer Produktion für Miganeo: sieben Bilder und sechs Module
+        Premium A+ Content, in dieser Form auf Amazon veröffentlicht.
       </StationLead>
 
-      {/* Beide Spalten schliessen unten auf derselben Hoehe ab.
-          Vorher war das ueber die Spaltenbreite geschaetzt, das konnte nie
-          genau aufgehen. Jetzt bestimmt die Bildstrecke die Hoehe (ihre Bilder
-          haben feste Seitenverhaeltnisse) und die letzte Platte der rechten
-          Spalte fuellt den Rest. Die Breite ist so gesetzt, dass links immer
-          etwas mehr Hoehe entsteht als rechts an Inhalt braucht. */}
-      <div className="mt-12 grid items-stretch gap-6 lg:grid-cols-[0.84fr_1fr] lg:gap-8">
+      {/* Beide Spalten enden unten auf derselben Höhe. Die Breite dafür ist
+          gerechnet, siehe Kommentar über der Funktion. */}
+      <div className="mt-12 grid items-start gap-6 lg:grid-cols-[0.884fr_1fr] lg:gap-8">
         {/* Bildstrecke im Aufbau der Produktseite */}
         <div className="flex min-w-0 flex-col">
           <BereichsKopf label="Listing" note="1 Hauptbild + 6 Listingbilder" />
 
           <motion.figure {...auf(0)} className="listing-kachel m-0 mt-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={haupt.src} alt={haupt.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
-            <Rolle text={haupt.rolle} />
+            <img
+              src={haupt.src}
+              alt={haupt.alt}
+              width={1200}
+              height={1500}
+              className="aspect-[4/5] w-full object-cover"
+            />
           </motion.figure>
 
           <div className="mt-3 grid grid-cols-2 gap-3">
             {weitere.map((b, i) => (
               <motion.figure key={b.src} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.src} alt={b.alt} width={1024} height={1024} className="aspect-square w-full object-cover" />
-                <Rolle text={b.rolle} />
+                <img
+                  src={b.src}
+                  alt={b.alt}
+                  width={700}
+                  height={700}
+                  loading="lazy"
+                  className="aspect-square w-full object-cover"
+                />
               </motion.figure>
             ))}
           </div>
         </div>
 
-        {/* A+ Content: vertikal gestapelt, jedes Modul im Querformat */}
+        {/* Premium A+ Content: sechs Module, nahtlos untereinander */}
         <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="A+ Content" note="5 Module, untereinander" />
+          <BereichsKopf label="Premium A+ Content" note="6 Module, untereinander" />
 
-          <div className="mt-4 flex flex-1 flex-col gap-3">
-            <motion.div {...auf(0.05)} className="listing-kachel relative">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/bilder/a-hero.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
-              <div className="absolute inset-y-0 left-0 flex w-[58%] flex-col justify-center px-5 md:px-7">
-                <p className="text-[clamp(0.9rem,0.5rem+0.9vw,1.3rem)] font-extrabold leading-tight text-navy">
-                  24 Stunden kalt.
-                  <br />
-                  12 Stunden heiß.
-                </p>
-                <p className="mt-1.5 text-[0.72rem] leading-snug text-navy/70">Doppelwandig, vakuumisoliert</p>
-              </div>
-            </motion.div>
-
-            {[
-              { src: "/bilder/a-nutzen.webp", t: "Hält die Kälte", b: "Auch nach einem Tag im Rucksack.", w: 1024, h: 768, ar: "aspect-[4/3]" },
-              { src: "/bilder/a-anwendung.webp", t: "Passt in den Alltag", b: "Schreibtisch, Küche, Tasche.", w: 1024, h: 768, ar: "aspect-[4/3]" },
-            ].map((m, i) => (
-              <motion.div key={m.src} {...auf(0.1 + i * 0.05)} className="listing-kachel flex items-stretch">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={m.src} alt="" width={m.w} height={m.h} className="w-[46%] shrink-0 object-cover" />
-                <div className="flex min-w-0 flex-col justify-center px-4 py-3 md:px-5">
-                  <p className="text-[0.9rem] font-bold leading-snug text-ink">{m.t}</p>
-                  <p className="mt-1 text-[0.75rem] leading-snug text-ink-muted">{m.b}</p>
-                </div>
-              </motion.div>
+          <motion.div {...auf(0.08)} className="listing-kachel mt-4">
+            {aplus.map((m) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={m.src}
+                src={m.src}
+                alt={m.alt}
+                width={1400}
+                height={574}
+                loading="lazy"
+                className="block w-full"
+              />
             ))}
-
-            <motion.div {...auf(0.2)} className="listing-kachel">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/bilder/a-vergleich.webp" alt="" width={1600} height={608} className="aspect-[1600/608] w-full object-cover" />
-              <div className="flex items-baseline justify-between gap-3 px-4 py-3">
-                <p className="text-[0.85rem] font-bold text-ink">Fünf Farben, eine Form</p>
-                <p className="text-[0.7rem] text-ink-faint">Modul: Varianten</p>
-              </div>
-            </motion.div>
-
-            {/* Fuenftes Modul: die Vergleichstabelle. Die steht in fast jeder
-                Premium-A+-Seite und braucht kein Foto, sie wird gezeichnet.
-                Schrift kommt nie aus einem Bildmodell, deshalb sind die
-                Zeilen Balken und die Haken echte Zeichen. */}
-            <motion.div {...auf(0.23)} className="listing-kachel p-4 md:p-5">
-              <div className="flex items-baseline justify-between gap-3">
-                <p className="text-[0.85rem] font-bold text-ink">Welche Größe passt?</p>
-                <p className="text-[0.7rem] text-ink-faint">Modul: Vergleich</p>
-              </div>
-              <div className="mt-3.5 grid grid-cols-[1.4fr_repeat(3,1fr)] gap-x-2 gap-y-2.5">
-                {[0, 1, 2, 3].map((sp) => (
-                  <div key={`kopf-${sp}`} className="flex items-center">
-                    {sp === 0 ? (
-                      <span className="block h-1.5 w-10 rounded-full bg-navy/20" />
-                    ) : (
-                      <span
-                        className={clsx(
-                          "block aspect-square w-7 rounded-[0.4rem] bg-canvas-tint",
-                          sp === 2 && "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.55)]"
-                        )}
-                      />
-                    )}
-                  </div>
-                ))}
-                {[0, 1, 2, 3].map((z) => (
-                  <Fragment key={`zeile-${z}`}>
-                    <span className="self-center">
-                      <span
-                        className="block h-1.5 rounded-full bg-navy/20"
-                        style={{ width: `${78 - z * 11}%` }}
-                      />
-                    </span>
-                    {[0, 1, 2].map((sp) => {
-                      const ja = sp === 1 || z < 2 || (sp === 2 && z === 2);
-                      return (
-                        <span key={sp} className="flex justify-center self-center">
-                          {ja ? (
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden>
-                              <path
-                                d="M5 12.5l4.5 4.5L19 7"
-                                stroke={sp === 1 ? "#16A34A" : "#0A1E2B"}
-                                strokeOpacity={sp === 1 ? 1 : 0.35}
-                                strokeWidth="2.6"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          ) : (
-                            <span aria-hidden className="block h-1 w-3 rounded-full bg-navy/15" />
-                          )}
-                        </span>
-                      );
-                    })}
-                  </Fragment>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Die rechte Spalte war unten leer. Statt Luft steht dort, was an so
-                einem Listing gearbeitet wird. */}
-            {/* Diese Platte fuellt den Rest der Spalte, damit beide Spalten
-                unten auf derselben Hoehe enden. */}
-            <motion.div {...auf(0.26)} className="on-dark panel-navy flex flex-1 flex-col justify-center p-6 md:p-7">
-              <div className="text-[1rem] font-extrabold leading-snug text-white">
-                Was an diesem Listing gemacht wurde
-              </div>
-              <div className="mt-5 grid gap-4 sm:grid-cols-3">
-                {[
-                  ["7", "Bilder, jedes mit eigener Aufgabe"],
-                  ["5", "A+ Module, aufeinander aufgebaut"],
-                  ["1", "Bildsprache über alle Varianten"],
-                ].map(([zahl, text]) => (
-                  <div key={text} className="min-w-0">
-                    <div className="num text-[1.9rem] text-brand-500">{zahl}</div>
-                    <div className="mt-1.5 text-[0.75rem] leading-snug text-chalk-muted">{text}</div>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-5 border-t border-white/10 pt-4 text-[0.78rem] leading-relaxed text-chalk-muted">
-                Titel, Bullets und Backend-Felder gehören dazu, sind hier aber nicht abgebildet: sie
-                stehen im Text der Produktseite, nicht im Bild.
-              </p>
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Was an dem Listing gearbeitet wurde. Die Zeile lag vorher in der
+          rechten Spalte und musste dort die Höhe auffüllen. Über die volle
+          Breite schließt sie die Sektion ab, ohne eine Spalte zu strecken. */}
+      <motion.div
+        {...auf(0.14)}
+        className="on-dark panel-navy mt-6 grid gap-7 p-6 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-10 md:p-8"
+      >
+        <div className="min-w-0">
+          <div className="text-[1.05rem] font-extrabold leading-snug text-white">
+            Was an diesem Listing gemacht wurde
+          </div>
+          <p className="mt-3 text-[0.82rem] leading-relaxed text-chalk-muted">
+            Titel, Bullets und die Felder im Hintergrund gehören dazu, sind hier aber nicht
+            abgebildet: sie stehen im Text der Produktseite, nicht im Bild.
+          </p>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-3">
+          {[
+            ["7", "Bilder, jedes mit eigener Aufgabe"],
+            ["6", "Module Premium A+ Content"],
+            ["10", "Größen im selben Aufbau"],
+          ].map(([zahl, text]) => (
+            <div key={text} className="min-w-0">
+              <div className="num text-[1.9rem] text-brand-500">{zahl}</div>
+              <div className="mt-1.5 text-[0.75rem] leading-snug text-chalk-muted">{text}</div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
       <a href="/design-beispiele" className="btn-text mt-10">
         Mehr Designbeispiele
@@ -933,15 +883,6 @@ function BereichsKopf({ label, note }: { label: string; note: string }) {
       <span className="text-label font-bold uppercase text-ink-soft">{label}</span>
       <span className="text-[0.7rem] text-ink-faint">{note}</span>
     </div>
-  );
-}
-
-/** Rolle eines Listingbildes, unten in der Kachel. */
-function Rolle({ text }: { text: string }) {
-  return (
-    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy/75 to-transparent px-3 pb-2 pt-7">
-      <span className="text-[0.62rem] font-bold uppercase tracking-[0.1em] text-white">{text}</span>
-    </figcaption>
   );
 }
 
@@ -1119,10 +1060,10 @@ const members: Person[] = [
 
 /** Die Bereiche, die im Haus liegen. Deckungsgleich mit den Leistungen. */
 const imHaus = [
-  "Strategie & Analyse",
-  "Content & Listings",
-  "Advertising",
-  "Account-Management",
+  "Strategie",
+  "Produktbilder & SEO",
+  "PPC Advertising",
+  "Account Management",
   "Internationalisierung",
 ];
 

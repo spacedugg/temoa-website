@@ -16,7 +16,7 @@ import { Termin } from "@/components/takt/sections";
 export const metadata: Metadata = {
   title: "Full Service · temoa",
   description:
-    "Strategie, Content, Advertising, Account-Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
+    "Strategie, Content, Advertising, Account Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
 };
 
 export default function FullServicePage() {

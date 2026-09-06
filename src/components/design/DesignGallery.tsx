@@ -501,9 +501,9 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
 /* ----------------------------------------------------------------------------
  * Rueckfall, solange die Referenz-Bibliothek fuer eine Kategorie nichts
  * liefert. Vorher stand hier ein grauer Satz („noch keine Beispiele ...
- * verbunden"), also Entwicklersprache auf einer Kundenseite. Jetzt zeigt die
- * Seite denselben Aufbau an einem erfundenen Produkt, sichtbar als solches
- * gekennzeichnet, damit die Anordnung lesbar bleibt.
+ * verbunden"), also Entwicklersprache auf einer Kundenseite. Danach ein
+ * erfundenes Produkt, weil noch keine freigegebene Arbeit vorlag. Jetzt steht
+ * hier das Listing fuer Miganeo, so wie es auf Amazon veroeffentlicht ist.
  * -------------------------------------------------------------------------- */
 const bild = (url: string, order: number, width: number, height: number): RefImage => ({
   url,
@@ -517,40 +517,37 @@ const bild = (url: string, order: number, width: number, height: number): RefIma
 const BEISPIEL: Partial<Record<RefCategory, RefListing[]>> = {
   main_images: [
     {
-      id: "beispiel-listing",
+      id: "miganeo-listing",
       title: null,
       category: "main_images",
       layout: "listing_grid",
       images: [
-        bild("/bilder/p-haupt.webp", 0, 1024, 1024),
-        bild("/bilder/p-detail.webp", 1, 1024, 1024),
-        bild("/bilder/p-szene.webp", 2, 1024, 1024),
-        bild("/bilder/p-gruppe.webp", 3, 1024, 1024),
-        bild("/bilder/p-material.webp", 4, 1024, 1024),
-        bild("/bilder/p-offen.webp", 5, 1024, 1024),
-        bild("/bilder/p-unterwegs.webp", 6, 1024, 1024),
+        bild("/bilder/miganeo/l-1.webp", 0, 1200, 1500),
+        bild("/bilder/miganeo/l-2.webp", 1, 700, 700),
+        bild("/bilder/miganeo/l-3.webp", 2, 700, 700),
+        bild("/bilder/miganeo/l-4.webp", 3, 700, 700),
+        bild("/bilder/miganeo/l-5.webp", 4, 700, 700),
+        bild("/bilder/miganeo/l-6.webp", 5, 700, 700),
+        bild("/bilder/miganeo/l-7.webp", 6, 700, 700),
       ],
     },
   ],
   a_plus: [
     {
-      id: "beispiel-aplus",
+      id: "miganeo-aplus",
       title: null,
       category: "a_plus",
-      layout: "ebc_gapped",
-      images: [
-        bild("/bilder/a-hero.webp", 0, 1600, 608),
-        bild("/bilder/a-nutzen.webp", 1, 1024, 768),
-        bild("/bilder/a-vergleich.webp", 2, 1600, 608),
-        bild("/bilder/a-anwendung.webp", 3, 1024, 768),
-      ],
+      /* Die sechs Module laufen ohne Abstand ineinander, so wie sie auf der
+         Produktseite stehen. */
+      layout: "ebc_seamless",
+      images: [1, 2, 3, 4, 5, 6].map((n) => bild(`/bilder/miganeo/a-${n}.webp`, n - 1, 1400, 574)),
     },
   ],
 };
 
 const HINWEIS: Record<RefCategory, string> = {
-  main_images: "Hauptbild und sechs Listingbilder an einem erfundenen Produkt. Kein Kundenlisting.",
-  a_plus: "A+ Module an einem erfundenen Produkt. Kein Kundenlisting.",
+  main_images: "Hauptbild und sechs Listingbilder aus unserer Produktion für Miganeo.",
+  a_plus: "Sechs Module Premium A+ Content aus unserer Produktion für Miganeo.",
   brand_store: "Brand Stores zeigen wir im Gespräch am Konto, nicht als Screenshot.",
   brand_story: "Brand Stories zeigen wir im Gespräch am Konto, nicht als Screenshot.",
 };

@@ -453,6 +453,40 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
   `src/components/service/welt-geo.ts`. Marktplaetze werden feiner
   vereinfacht als die Umgebung, damit ihre Form stimmt.
 
+## Elfte Feedbackrunde (verbindlich)
+
+- **Die fuenf Leistungen heissen ueberall gleich**: Strategie, Produktbilder &
+  SEO, PPC Advertising, Account Management, Internationalisierung. Alte Namen
+  („Strategie & Analyse", „Content & Listings", „Advertising / PPC",
+  „Account-Management") sind raus, in Kopfzeile, Fusszeile, Startseite,
+  Full-Service-Seite, Leistungsseiten und deren Metadaten. Die Adressen der
+  Seiten bleiben unveraendert (`/leistungen/listing-seo`,
+  `/leistungen/ppc-advertising`), sonst brechen Verweise und Suchergebnisse.
+  Ausgenommen sind die Schrittmarken der Grafik `takt/Zusammenlauf`: fuenf
+  Kacheln von rund achtzig Pixeln tragen dort weiter Kurzformen.
+- **In den Designbeispielen steht echte Arbeit, kein erfundenes Produkt.** Das
+  Listing fuer Miganeo (sieben Bilder, sechs Module Premium A+ Content) liegt
+  unter `public/bilder/miganeo`. Sobald freigegebene Arbeit vorliegt, hat ein
+  erfundenes Beispiel auf der Seite nichts mehr zu suchen. Betroffen sind die
+  Startseite (`takt/sections`, `Arbeiten`) und der Rueckfall der Seite
+  Designbeispiele (`design/DesignGallery`).
+- **Die Bilder tragen ihre Beschriftung selbst.** Die Regel „Schrift gehoert
+  nie ins Bild" gilt fuer erzeugte Grafiken. Ausgelieferte Kundenarbeit wird
+  gezeigt, wie sie auf Amazon steht.
+- **Die Spaltenbreite der Designbeispiele ist gerechnet, nicht geschaetzt.**
+  Links ergibt sich die Hoehe aus 1,25 Breiten fuers Hauptbild (4:5) und drei
+  halben Breiten fuer die sechs Quadrate, rechts aus sechs Modulen im
+  Verhaeltnis 1400:574. Gleichgesetzt fuehrt das auf 0,884 zu 1, und beide
+  Spalten enden auf derselben Hoehe. Vorher fuellte eine Platte in der rechten
+  Spalte den Rest auf; die Platte steht jetzt ueber die volle Breite unter
+  beiden Spalten.
+- **A+ Module liegen ohne Abstand untereinander.** Auf der Produktseite laufen
+  sie ineinander; mit Luft dazwischen fallen der Kopf und das erste Bild
+  auseinander.
+- **Kundenbilder kommen als WebP in Anzeigegroesse ins Repo**, nicht in
+  Kameragroesse: 1200 px fuers Hauptbild, 700 px fuer die Listingbilder,
+  1400 px fuer die A+ Module. Aus 45 MB JPG werden so 1,5 MB.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
