@@ -483,6 +483,17 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 - **A+ Module liegen ohne Abstand untereinander.** Auf der Produktseite laufen
   sie ineinander; mit Luft dazwischen fallen der Kopf und das erste Bild
   auseinander.
+- **Clemens steht auf Orange, nicht auf Blau.** Die Portraetspalte des
+  Abschluss-CTA lag als dunkelblaues Feld in einer dunkelblauen Karte, damit
+  hob sich das Portrait nicht ab. Der Grund ist jetzt orange, im CTA
+  (`takt/Gespraech`) und auf der Buchungsseite (`booking/BookingBody`)
+  derselbe Verlauf.
+- **Die Zeile am Bild bekommt einen Grund, keine Platte.** „Hi, ich bin
+  Clemens." stand mit einem Schatten frei auf dem Foto. Der Fuss der Spalte
+  laeuft jetzt ueber die unteren 36 Prozent ins Dunkelbraun aus. Braun und
+  nicht Navy: auf einer orangen Flaeche liest sich Braun als ihr eigener
+  Schatten, Navy als zweite Farbe. Eine Kachel auf dem Gesicht bleibt
+  verboten.
 - **Kundenbilder kommen als WebP in Anzeigegroesse ins Repo**, nicht in
   Kameragroesse: 1200 px fuers Hauptbild, 700 px fuer die Listingbilder,
   1400 px fuer die A+ Module. Aus 45 MB JPG werden so 1,5 MB.
