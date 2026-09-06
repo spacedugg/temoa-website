@@ -5,44 +5,55 @@ import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Station, StationTitle, StationLead, Karte } from "./Station";
 import { Icon, type IconName } from "./Icons";
-import { Bildfeld } from "./Bildfeld";
 import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
 import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
 import { testimonials, initials } from "@/lib/testimonials";
-import type { PostMeta } from "@/lib/blog";
-import { BlogCover } from "../blog/BlogCover";
 
 /* ============================================================
    Kundenband. Zwei dünne Bänder von vorher zu einem verschmolzen:
    Logos und die beiden verbliebenen Kennzahlen.
    ============================================================ */
 
-const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
+/* Zwei der vierzehn Logos sind „Knockout": der Schriftzug ist in eine
+   gefuellte Flaeche gestanzt, das Bild ist also fast durchgehend deckend. Als
+   weisse Silhouette wird daraus ein weisser Klecks. Diese beiden bleiben in
+   ihrer Farbe, sie sind ohnehin hell auf dunkel. Alle anderen sind dunkle
+   Schriftzuege auf transparentem Grund und werden zu weissen Silhouetten. */
+const KNOCKOUT = new Set([1, 2]);
+const logos = Array.from({ length: 14 }, (_, i) => ({
+  src: `/clients/${i + 1}.webp`,
+  knockout: KNOCKOUT.has(i + 1),
+}));
 const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
 
-function LogoRow({ row, duration, reverse }: { row: string[]; duration: number; reverse?: boolean }) {
+type Logo = (typeof logos)[number];
+
+function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; reverse?: boolean }) {
+  /* Die Kanten laufen ueber eine Maske aus, nicht ueber zwei Verlaufsflaechen
+     in der Farbe des Grundes. Der Grund ist ein Verlauf: eine einzelne Farbe
+     daruebergelegt trifft ihn nie genau und zeichnet eine Kante. */
+  const maske =
+    "linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%)";
   return (
-    <div className="relative overflow-hidden">
-      {/* Die Verläufe an den Kanten müssen den Sektionsgrund treffen, sonst
-          zeichnet sich eine Kante ab. Das Band liegt jetzt direkt auf `.ground`,
-          nicht mehr auf einer weissen Platte. */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 md:w-24"
-        style={{ background: "linear-gradient(to right, #fafcfe, rgba(250,252,254,0))" }}
-      />
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 md:w-24"
-        style={{ background: "linear-gradient(to left, #fafcfe, rgba(250,252,254,0))" }}
-      />
+    <div
+      className="relative overflow-hidden"
+      style={{ maskImage: maske, WebkitMaskImage: maske }}
+    >
       <div
         className="flex w-max animate-marquee items-center gap-14 md:gap-20"
         style={{ animationDuration: `${duration}s`, animationDirection: reverse ? "reverse" : "normal" }}
       >
-        {[...row, ...row].map((src, i) => (
-          <div key={`${src}-${i}`} className="relative h-9 w-28 shrink-0 opacity-55 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 md:h-10 md:w-32">
-            <Image src={src} alt="" fill sizes="128px" className="object-contain" />
+        {[...row, ...row].map((l, i) => (
+          <div
+            key={`${l.src}-${i}`}
+            className={clsx(
+              "relative h-9 w-28 shrink-0 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
+              l.knockout ? "opacity-90" : "opacity-70 brightness-0 invert"
+            )}
+          >
+            <Image src={l.src} alt="" fill sizes="128px" className="object-contain" />
           </div>
         ))}
       </div>
@@ -53,28 +64,42 @@ function LogoRow({ row, duration, reverse }: { row: string[]; duration: number; 
 /**
  * Kundenband.
  *
- * Drei Fassungen: erst eine weisse Bahn zwischen zwei Haarlinien, dann eine
- * weisse Platte auf getoentem Grund. Die Platte war wieder ein Kasten in einer
- * Sektion, die selbst schon eine andere Farbe hatte. Jetzt laeuft das Band
- * ueber die volle Breite auf hellem Grund, die Logos brauchen keine eigene
- * Flaeche darunter.
+ * Vier Fassungen: eine weisse Bahn zwischen zwei Haarlinien, dann eine weisse
+ * Platte auf getoentem Grund, dann derselbe helle Ton wie der Hero darueber.
+ * Der letzte Fehler war der schwerste: Hero und Kundenband gingen ineinander
+ * ueber, der Hero hatte damit keine Unterkante. Jetzt traegt das Band Navy.
+ * Damit endet der Hero sichtbar, und die Logos stehen als weisse Silhouetten
+ * darauf.
+ *
+ * Rot waere der noch staerkere Kontrast, ist hier aber falsch: Rot ist auf
+ * dieser Website die Farbe fuer Probleme, und das hier sind die Kunden.
  */
 export function Kundenband() {
   return (
-    <section className="ground relative">
-      <div className="container-x py-12 md:py-16">
+    <section className="on-dark ground-deep relative overflow-hidden">
+      {/* Feine Lichtkante oben, damit die Sektion nicht wie ein
+          abgeschnittener Block unter dem Hero sitzt. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(255,153,0,0.55) 30%, rgba(255,153,0,0.55) 70%, transparent)",
+        }}
+      />
+      <div className="container-x py-12 md:py-14">
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className="inline-flex items-center gap-2.5">
             <span aria-hidden className="node-glow" />
-            <span className="text-label font-bold uppercase text-ink-soft">
+            <span className="text-label font-bold uppercase text-chalk-muted">
               Täglich in unserer Verantwortung
             </span>
           </span>
-          <span className="text-small font-bold text-ink">
+          <span className="text-small font-bold text-white">
             <Zahl bis={60} nach="+" /> Marken
           </span>
-          <span aria-hidden className="h-1 w-1 rounded-full bg-ink-line" />
-          <span className="text-small font-bold text-ink">
+          <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
+          <span className="text-small font-bold text-white">
             <Zahl bis={5} nach="+" /> Marktplätze
           </span>
         </div>
@@ -232,33 +257,23 @@ export function Verfahren() {
 
   return (
     <Station label="Unser Vorgehen" tone="warm">
-      <StationTitle>
-        Organic First, <span className="em mark">PPC Second.</span>
-      </StationTitle>
-      <StationLead>
-        Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt bei uns
-        zuerst das Listing, dann die Kampagne.
-      </StationLead>
-
-      {/* Aussage links, Bild rechts. Vorher lief der Verlauf ueber die ganze
-          Breite und war sehr hoch, sehr flach und hat fuer den Platz kaum
-          etwas gesagt. Jetzt steht die Aussage neben dem Bild, und das Bild
-          ist ein raeumlicher Stapel auf dunklem Grund statt einer flachen
-          Flaeche auf Weiss. */}
-      <div className="mt-10 grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
-        <motion.div {...auf(0.05)}>
-          <span className="inline-flex items-center gap-2.5">
-            <span aria-hidden className="node-glow" />
-            <span className="text-label font-bold uppercase text-ink-soft">Was sich verschiebt</span>
-          </span>
-          <p className="mt-4 text-balance text-[1.35rem] font-bold leading-snug text-ink md:text-[1.65rem]">
-            Das Werbebudget bleibt gleich. Alles, was darüber wächst, verkauft ihr ohne Werbung.
+      {/* Ueberschrift und Einleitung links, das Diagramm rechts daneben.
+          Vorher stand die Ueberschrift ueber die ganze Breite, darunter ein
+          zweiter Block „Was sich verschiebt" mit drei Zeilen Text, und erst
+          rechts daneben das Diagramm. Das war ein Absatz zu viel: das
+          Diagramm sagt dasselbe, und zwar in einem Blick. */}
+      <div className="grid items-center gap-9 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+        <div className="min-w-0">
+          <StationTitle className="!max-w-none">
+            Organic First,
+            <br />
+            <span className="em mark">PPC Second.</span>
+          </StationTitle>
+          <p className="mt-6 max-w-[30ch] text-pretty text-lead text-ink-muted">
+            Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt zuerst
+            das Listing, dann die Kampagne.
           </p>
-          <p className="mt-4 max-w-[38ch] text-small leading-relaxed text-ink-muted">
-            Werbung kauft Sichtbarkeit für den Moment, in dem sie läuft. Was organisch rankt, verkauft
-            weiter, auch wenn kein Budget dahinter steht.
-          </p>
-        </motion.div>
+        </div>
         <motion.div {...auf(0.12)}>
           <Verlauf />
         </motion.div>
@@ -329,22 +344,33 @@ export function Verfahren() {
 
       {/* Das Scharnier zwischen den beiden Bloecken.
 
-          Vorher war es eine Navy-Pille und lag damit auf derselben Farbe wie
-          die Navy-Platte darunter: sie war nicht zu sehen. Davor war es Orange
-          mit dunkler Schrift, das ist auf dieser Website raus. Jetzt eine
-          weisse Karte mit orangem Ring und orangem Lichthof: sie hebt sich von
-          der hellblauen Platte darueber und von der Navy-Platte darunter ab,
-          und die Schrift steht dunkel auf Weiss. `z-10`, damit sie nicht mehr
-          hinter der Platte darunter verschwindet. */}
+          Vier Fassungen: Orange mit dunkler Schrift, dann eine Navy-Pille auf
+          der Navy-Platte (unsichtbar), dann Weiss mit orangem Ring. Weiss war
+          zu leise: die Platte darueber ist hell und der Grund ist hell, ein
+          weisses Band dazwischen ist nur eine weitere helle Flaeche.
+
+          Jetzt gruen. Das ist auf dieser Website die Farbe fuer Ergebnisse,
+          und genau das steht darauf. Weisse Schrift auf dem tiefen Gruen kommt
+          auf 5,4:1, ein oranger Ring waere hier eine dritte Farbe und ist
+          deshalb weg. */}
       <motion.div
         {...auf(0.12)}
-        className="relative z-10 mx-auto -mt-4 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full bg-white px-7 py-4 shadow-[0_0_0_2px_rgba(255,153,0,0.85),0_18px_40px_-12px_rgba(255,153,0,0.55)]"
+        className="relative z-10 mx-auto -mt-5 flex w-fit max-w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-full px-8 py-4"
+        style={{
+          background: "linear-gradient(135deg, #17A55B 0%, #0B6B3C 100%)",
+          boxShadow:
+            "inset 0 0 0 1.5px rgba(180,255,213,0.5), 0 0 0 6px rgba(22,163,74,0.16), 0 22px 44px -16px rgba(11,107,60,0.75)",
+        }}
       >
         <span className="inline-flex items-center gap-2.5">
-          <span aria-hidden className="node-glow" />
-          <span className="text-label font-bold uppercase text-ink-soft">Ergebnis</span>
+          <span
+            aria-hidden
+            className="h-2 w-2 rounded-full bg-white"
+            style={{ boxShadow: "0 0 0 4px rgba(255,255,255,0.22)" }}
+          />
+          <span className="text-label font-bold uppercase text-white/80">Ergebnis</span>
         </span>
-        <span className="text-center text-[1.05rem] font-extrabold leading-snug text-ink">
+        <span className="text-center text-[1.05rem] font-extrabold leading-snug text-white md:text-[1.15rem]">
           Das Listing verkauft ohne Werbung.
         </span>
       </motion.div>
@@ -381,24 +407,35 @@ export function Verfahren() {
           Groesse ist ein oranges Zeichen auf dunklem Grund nur ein Fleck. Jetzt
           traegt der Kreis Navy und der Haken Weiss, das ist auch klein noch
           eindeutig. */}
-      <div className="mt-16">
-        <motion.div {...auf(0)} className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
-          <span className="inline-flex items-center gap-2.5">
+      {/* Die Gegenueberstellung stand mit `mt-16` direkt unter der
+          Navy-Platte und las sich als deren Fortsetzung. Jetzt liegt ein
+          deutlicher Abstand dazwischen, und die beiden Karten sind nicht mehr
+          gleich gebaut: links eine eingelassene Flaeche ohne Schatten, rechts
+          eine weisse Platte, die aufliegt. Der Unterschied ist damit auch ohne
+          Lesen zu sehen. */}
+      <div className="mt-24 md:mt-28">
+        <motion.div {...auf(0)} className="mx-auto max-w-[44ch] text-center">
+          <span className="inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_10px_20px_-14px_rgba(13,36,57,0.3)]">
             <span aria-hidden className="node-glow" />
             <span className="text-label font-bold uppercase text-ink-soft">Der Unterschied</span>
           </span>
-          <h3 className="title text-[1.35rem] text-ink md:text-[1.6rem]">
+          <h3 className="title mt-5 text-[1.5rem] text-ink md:text-[1.9rem]">
             Vier Punkte, an denen sich die Arbeit trennt.
           </h3>
         </motion.div>
 
-        <div className="mt-7 grid gap-5 lg:grid-cols-2 lg:gap-6">
-          <motion.div {...auf(0.06)} className="panel flex flex-col p-7 md:p-8">
+        <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-[1fr_1.08fr] lg:gap-5">
+          {/* Links: eingelassen. Kein Weiss, kein Schatten, gestrichelte
+              Kante. Das Uebliche liegt unter der Oberflaeche. */}
+          <motion.div
+            {...auf(0.06)}
+            className="flex flex-col rounded-[1.6rem] border border-dashed border-ink/[0.18] bg-ink/[0.035] p-7 md:p-8"
+          >
             <span className="text-label font-bold uppercase text-ink-faint">Wie es meistens läuft</span>
             <ul className="mt-6 space-y-4">
               {gegenueber.map((r) => (
                 <li key={r.alt} className="flex gap-3.5">
-                  <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink/[0.07] text-ink-faint">
+                  <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink/[0.08] text-ink-faint">
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
                       <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                     </svg>
@@ -409,12 +446,16 @@ export function Verfahren() {
             </ul>
           </motion.div>
 
+          {/* Rechts: liegt auf. Weiss, oranger Saum, kraeftiger Schatten, und
+              die Zeilen stehen fett. */}
           <motion.div
             {...auf(0.12)}
-            className="panel relative flex flex-col overflow-hidden p-7 shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.55),0_1px_2px_rgba(13,36,57,0.05),0_26px_50px_-24px_rgba(13,36,57,0.35)] md:p-8"
+            className="panel relative flex flex-col overflow-hidden p-7 shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.6),0_1px_2px_rgba(13,36,57,0.05),0_34px_60px_-26px_rgba(13,36,57,0.42)] md:p-9"
           >
             <span aria-hidden className="halo -right-20 -top-24 h-[18rem] w-[18rem] opacity-80" />
-            <span className="relative text-label font-bold uppercase text-ink-soft">Wie temoa arbeitet</span>
+            <span className="relative inline-flex w-fit items-center rounded-full bg-navy px-3.5 py-1.5 text-label font-bold uppercase tracking-[0.12em] text-white">
+              Wie temoa arbeitet
+            </span>
             <ul className="relative mt-6 space-y-4">
               {gegenueber.map((r) => (
                 <li key={r.neu} className="flex gap-3.5">
@@ -451,10 +492,11 @@ const leistungen: { icon: IconName; title: string; body: string; href: string }[
  *
  * Vorher fuenf weisse Karten in einem Raster, die aussahen wie jede andere
  * Kartenreihe der Seite. Der Kunde hat gesagt, die fuenf Bereiche gehen unter,
- * obwohl sie das Angebot sind. Zwei Sachen sind deshalb anders: die Sektion
- * steht jetzt direkt hinter der Ausgangslage statt an fuenfter Stelle, und die
- * Karten sind dunkel. Fuenf Navy-Platten auf hellem Grund sind ein Block, den
- * man nicht ueberliest, ohne dass eine neue Farbe dazukommt.
+ * obwohl sie das Angebot sind. Zwei Sachen sind deshalb anders: die Karten
+ * sind dunkel, fuenf Navy-Platten auf hellem Grund sind ein Block, den man
+ * nicht ueberliest, und die Sektion steht jetzt an erster Stelle nach dem
+ * Kundenband. Wer auf der Seite landet, liest zuerst, was wir machen, und
+ * nicht, was bei ihm schiefliegt.
  */
 export function Leistungen() {
   const reduce = useReducedMotion();
@@ -473,10 +515,9 @@ export function Leistungen() {
       <StationTitle>
         Fünf Leistungen, in der <span className="em mark">richtigen Reihenfolge.</span>
       </StationTitle>
-      <StationLead>
-        Jeder Bereich hat jemanden, der ihn hauptberuflich macht. Gesteuert wird alles aus einer
-        Analyse.
-      </StationLead>
+      {/* Ohne Unterzeile. „Jeder Bereich hat jemanden, der ihn hauptberuflich
+          macht" stand hier und sagte nichts, was die fuenf Karten darunter
+          nicht schon sagen. */}
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {leistungen.map((l, i) => (
@@ -550,14 +591,17 @@ export function Leistungen() {
  * `runter` heisst: der Wert soll sinken. Eine gefallene ACoS ist ein gutes
  * Ergebnis, deshalb bleibt der Pfeil auch dann gruen, er zeigt nur nach unten.
  */
-function TrendPfeil({ runter = false }: { runter?: boolean }) {
+function TrendPfeil({ runter = false, klein = false }: { runter?: boolean; klein?: boolean }) {
   return (
     <span
       aria-hidden
-      className="grid h-7 w-7 shrink-0 place-items-center rounded-[0.6rem]"
+      className={clsx(
+        "grid shrink-0 place-items-center rounded-[0.6rem]",
+        klein ? "h-6 w-6" : "h-7 w-7"
+      )}
       style={{ background: "rgba(34,197,94,0.22)", color: "#6EE7A0" }}
     >
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+      <svg width={klein ? 13 : 15} height={klein ? 13 : 15} viewBox="0 0 24 24" fill="none">
         <path
           d={runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
           stroke="currentColor"
@@ -570,143 +614,113 @@ function TrendPfeil({ runter = false }: { runter?: boolean }) {
   );
 }
 
+/**
+ * Case Studies.
+ *
+ * Drei Fassungen. Erst Zeilen zwischen Haarlinien mit einem kleinen Bild
+ * links. Dann fuenf grosse Karten in zwei Spalten, eine davon ueber die volle
+ * Breite: die Sektion war damit ueber zweitausend Pixel hoch und der Besucher
+ * scrollte an fuenf fast gleichen Kacheln vorbei.
+ *
+ * Jetzt ein Band: fuenf Streifen, die sich die Breite teilen. Wer mit der Maus
+ * ueber einen faehrt, bekommt ihn breiter, die anderen weichen zurueck, und im
+ * breiten Streifen kommt die Ueberschrift des Falls dazu. Ohne Maus sind alle
+ * gleich. Auf dem Telefon stehen sie untereinander, dort gibt es kein Hover
+ * und der Text steht ohnehin sichtbar.
+ *
+ * Bewegt wird `flex-grow`. Eine Breite in Prozent zu animieren rechnet der
+ * Browser gegen die Elternbreite, dadurch springen die Nachbarn; `flex-grow`
+ * verteilt den Platz und alle fuenf laufen gemeinsam.
+ */
 export function Nachweis() {
+  const reduce = useReducedMotion();
+
   return (
     <Station label="Ergebnisse" tone="dark" id="nachweis">
       <StationTitle>
         Fünf Marken, <span className="em text-brand-400">fünf Ausgangslagen.</span>
       </StationTitle>
       <StationLead tone="dark">
-        Ausgangslage, Vorgehen, Ergebnis. Jede Zahl auf dieser Seite kommt aus einem Konto, das wir
-        betreuen.
+        Jede Zahl kommt aus einem Konto, das wir betreuen.
       </StationLead>
 
-      {/* Die Fälle als Karten. Vorher waren es Zeilen zwischen Haarlinien:
-          das Bild klein links, der Text daneben, viel Leerraum rechts. */}
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:gap-6">
-        {cases.map((c, i) => {
-          /* Fuenf Faelle gehen in zwei Spalten nicht auf, der letzte bliebe
-             allein stehen. Der neueste Fall laeuft deshalb ueber die ganze
-             Breite: Bild links, Text rechts. */
-          const breit = i === 0;
-          return (
-          <a
+      <div className="mt-12 flex flex-col gap-4 md:h-[27rem] md:flex-row md:gap-3">
+        {cases.map((c, i) => (
+          <motion.a
             key={c.slug}
             href={`/ergebnisse/${c.slug}`}
-            className={clsx(
-              "panel-dark group overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1",
-              breit ? "flex flex-col sm:col-span-2 md:flex-row" : "flex flex-col"
-            )}
+            initial={reduce ? undefined : { opacity: 0, y: 18 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12% 0px" }}
+            transition={{ duration: 0.6, delay: i * 0.07, ease: [0.32, 0.72, 0, 1] }}
+            className="group relative block overflow-hidden rounded-[1.4rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09),0_24px_50px_-30px_rgba(4,16,28,0.9)] transition-[flex-grow,box-shadow] duration-[550ms] ease-temoa md:min-w-0 md:basis-0 md:grow md:hover:grow-[2.6] md:hover:shadow-[inset_0_0_0_1px_rgba(255,153,0,0.45),0_30px_60px_-28px_rgba(4,16,28,1)]"
           >
-            {/* Liegt kein Foto vor, steht statt eines leeren Kastens ein
-                Farbfeld in der Akzentfarbe der Marke. */}
-            <div
-              className={clsx(
-                "relative w-full overflow-hidden",
-                breit ? "aspect-[16/9] md:aspect-auto md:w-[46%]" : "aspect-[16/9]"
-              )}
-              style={
-                c.bgImage
-                  ? undefined
-                  : {
-                      backgroundImage: `radial-gradient(120% 130% at 18% 0%, ${c.accent} 0%, ${c.accent}00 58%), radial-gradient(110% 120% at 100% 100%, ${c.accent}55 0%, transparent 60%), linear-gradient(155deg, #10314a 30%, #0a2035 100%)`,
-                    }
-              }
-            >
-              {c.bgImage && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={c.bgImage}
-                  alt=""
-                  loading={i === 0 ? undefined : "lazy"}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.05]"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={c.bgImage}
+              alt=""
+              loading={i < 2 ? undefined : "lazy"}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-temoa group-hover:scale-[1.06]"
+            />
+            {/* Zwei Schichten: der Farbschimmer der Marke oben, darunter der
+                Verlauf, der die Schrift traegt. Ohne den Verlauf steht weisse
+                Schrift auf hellen Fotos. */}
+            <span
+              aria-hidden
+              className="absolute inset-0"
+              style={{ background: `radial-gradient(120% 80% at 50% 0%, ${c.accent}55, transparent 62%)` }}
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to top, rgba(5,18,30,0.99) 0%, rgba(5,18,30,0.94) 26%, rgba(5,18,30,0.6) 58%, rgba(5,18,30,0.2) 82%, rgba(5,18,30,0.08) 100%)",
+              }}
+            />
+
+            <div className="relative flex h-full min-h-[15rem] flex-col justify-end p-5">
+              <span className="truncate text-label font-bold uppercase tracking-[0.12em] text-white/55">
+                {c.displayName}
+              </span>
+
+              <span className="mt-2 flex items-center gap-2">
+                {/* `whitespace-nowrap` und eine kleinere Groesse: im schmalen
+                    Streifen brach „+37,3 %" sonst hinter dem Komma um und das
+                    Prozentzeichen stand allein in der zweiten Zeile. */}
+                <ZahlText
+                  text={c.preview.value}
+                  className="num block whitespace-nowrap text-[1.65rem] leading-none text-[#6EE7A0] md:text-[1.8rem]"
                 />
-              )}
-              {!c.bgImage && (
-                <span className="absolute inset-0 flex items-center justify-center text-[3.5rem] font-extrabold leading-none text-white/25">
-                  {c.mono}
-                </span>
-              )}
-              <span
-                aria-hidden
-                className={clsx(
-                  "absolute bg-gradient-to-t from-[#0d2439] to-transparent",
-                  breit
-                    ? "inset-x-0 bottom-0 h-24 md:inset-y-0 md:left-auto md:right-0 md:h-full md:w-24 md:bg-gradient-to-l"
-                    : "inset-x-0 bottom-0 h-24"
-                )}
-              />
-            </div>
+                <TrendPfeil runter={c.preview.trend === "down"} klein />
+              </span>
+              <span className="mt-2 block text-[0.82rem] font-bold leading-tight text-white">
+                {c.preview.label}
+              </span>
 
-            <div className="flex min-w-0 flex-1 flex-col p-6 md:p-7">
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-label font-bold uppercase text-chalk-faint">
-                <span>{c.industry}</span>
-                <span aria-hidden>·</span>
-                <span>{c.marketplaces.join(" ")}</span>
-                <span aria-hidden>·</span>
-                <span>{c.timeframe}</span>
-              </div>
-              <h3 className="mt-3 text-balance text-[1.15rem] font-bold leading-snug tracking-[-0.01em] text-white md:text-[1.3rem]">
+              {/* Die Ueberschrift des Falls kommt im breiten Streifen dazu.
+                  Auf dem Telefon steht sie immer da. */}
+              <span className="mt-3 block overflow-hidden text-small leading-snug text-white/75 transition-all duration-500 ease-temoa md:max-h-0 md:opacity-0 md:group-hover:max-h-28 md:group-hover:opacity-100">
                 {c.headline}
-              </h3>
+              </span>
 
-              {/* Kennzahlen als eigene Kacheln. Die wichtigste steht gross und
-                  allein, die beiden anderen daneben.
-
-                  Weiss auf Navy war zu leise: das sind Ergebnisse, und
-                  Ergebnisse sind gruen. Die Kachel bekommt einen gruenen
-                  Grund, die Zahl leuchtet, der Pfeil sagt die Richtung. */}
-              <div className="mt-auto grid gap-2.5 pt-5">
-                {c.heroStats.slice(0, 1).map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-[1.1rem] px-4 py-4"
-                    style={{
-                      background: "linear-gradient(150deg, rgba(34,197,94,0.22), rgba(34,197,94,0.08))",
-                      boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.35), 0 12px 30px -18px rgba(34,197,94,0.7)",
-                    }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <ZahlText
-                        text={s.value}
-                        className="num block text-[clamp(2.1rem,1.4rem+1.8vw,2.9rem)] leading-none text-[#6EE7A0]"
-                      />
-                      <TrendPfeil runter={s.trend === "down"} />
-                    </div>
-                    <div className="mt-2 text-[0.82rem] font-bold leading-tight text-white">{s.label}</div>
-                    {s.sublabel && (
-                      <div className="mt-0.5 text-[0.72rem] leading-tight text-white/60">{s.sublabel}</div>
-                    )}
-                  </div>
-                ))}
-                <div className="grid grid-cols-2 gap-2.5">
-                  {c.heroStats.slice(1, 3).map((s) => (
-                    <div
-                      key={s.label}
-                      className="rounded-[0.9rem] px-3.5 py-3"
-                      style={{
-                        background: "rgba(34,197,94,0.1)",
-                        boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.24)",
-                      }}
-                    >
-                      <ZahlText text={s.value} className="num block text-[1.4rem] leading-none text-[#6EE7A0]" />
-                      <div className="mt-1.5 text-[0.72rem] leading-tight text-white/70">{s.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <span className="mt-6 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
-                Case Study lesen
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-[0.78rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+                Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
             </div>
-          </a>
-          );
-        })}
+          </motion.a>
+        ))}
       </div>
+
+      <a href="/ergebnisse" className="btn-text-hell mt-10">
+        Alle Ergebnisse ansehen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
     </Station>
   );
 }
@@ -771,23 +785,29 @@ export function Arbeiten() {
   const [haupt, ...weitere] = bildstrecke;
 
   return (
-    <Station label="Designbeispiele" tone="paper">
+    <Station label="Designbeispiele" tone="dark">
       <StationTitle>
-        So sieht <span className="em mark">Retail Ready</span> aus.
+        So sieht <span className="em text-brand-400">Retail Ready</span> aus.
       </StationTitle>
-      <StationLead>
+      <StationLead tone="dark">
         Ein komplettes Listing aus unserer Produktion für Miganeo: sieben Bilder und sechs Module
         Premium A+ Content, in dieser Form auf Amazon veröffentlicht.
       </StationLead>
 
-      {/* Beide Spalten enden unten auf derselben Höhe. Die Breite dafür ist
-          gerechnet, siehe Kommentar über der Funktion. */}
-      <div className="mt-12 grid items-start gap-6 lg:grid-cols-[0.884fr_1fr] lg:gap-8">
+      {/* Die Sektion ist dunkel, und das ist der Grund dafür: die Listingbilder
+          haben weissen Hintergrund. Auf einer hellen Seite laufen sie in den
+          Grund und sind als Bilder nicht zu erkennen. Auf Navy stehen sie als
+          Bilder da.
+
+          Die Breite ist begrenzt. Vorher lief das Listing über die ganzen
+          1216 Pixel, das Hauptbild allein war damit 700 Pixel hoch und man
+          musste dreimal scrollen, bis man es ganz gesehen hatte. */}
+      <div className="mx-auto mt-12 grid max-w-[44rem] items-start gap-5 lg:grid-cols-[0.884fr_1fr] lg:gap-6">
         {/* Bildstrecke im Aufbau der Produktseite */}
         <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="Listing" note="1 Hauptbild + 6 Listingbilder" />
+          <BereichsKopf label="Listing" note="1 + 6 Bilder" dunkel />
 
-          <motion.figure {...auf(0)} className="listing-kachel m-0 mt-4">
+          <motion.figure {...auf(0)} className="listing-kachel m-0 mt-3.5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={haupt.src}
@@ -817,9 +837,9 @@ export function Arbeiten() {
 
         {/* Premium A+ Content: sechs Module, nahtlos untereinander */}
         <div className="flex min-w-0 flex-col">
-          <BereichsKopf label="Premium A+ Content" note="6 Module, untereinander" />
+          <BereichsKopf label="Premium A+ Content" note="6 Module" dunkel />
 
-          <motion.div {...auf(0.08)} className="listing-kachel mt-4">
+          <motion.div {...auf(0.08)} className="listing-kachel mt-3.5">
             {aplus.map((m) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -836,37 +856,11 @@ export function Arbeiten() {
         </div>
       </div>
 
-      {/* Was an dem Listing gearbeitet wurde. Die Zeile lag vorher in der
-          rechten Spalte und musste dort die Höhe auffüllen. Über die volle
-          Breite schließt sie die Sektion ab, ohne eine Spalte zu strecken. */}
-      <motion.div
-        {...auf(0.14)}
-        className="on-dark panel-navy mt-6 grid gap-7 p-6 md:grid-cols-[1fr_1.1fr] md:items-center md:gap-10 md:p-8"
-      >
-        <div className="min-w-0">
-          <div className="text-[1.05rem] font-extrabold leading-snug text-white">
-            Was an diesem Listing gemacht wurde
-          </div>
-          <p className="mt-3 text-[0.82rem] leading-relaxed text-chalk-muted">
-            Titel, Bullets und die Felder im Hintergrund gehören dazu, sind hier aber nicht
-            abgebildet: sie stehen im Text der Produktseite, nicht im Bild.
-          </p>
-        </div>
-        <div className="grid gap-5 sm:grid-cols-3">
-          {[
-            ["7", "Bilder, jedes mit eigener Aufgabe"],
-            ["6", "Module Premium A+ Content"],
-            ["10", "Größen im selben Aufbau"],
-          ].map(([zahl, text]) => (
-            <div key={text} className="min-w-0">
-              <div className="num text-[1.9rem] text-brand-500">{zahl}</div>
-              <div className="mt-1.5 text-[0.75rem] leading-snug text-chalk-muted">{text}</div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+      {/* Die Platte „Was an diesem Listing gemacht wurde" ist raus. Sie stand
+          unter den Bildern, zaehlte auf, was man an den Bildern sieht, und
+          brachte niemanden weiter. */}
 
-      <a href="/design-beispiele" className="btn-text mt-10">
+      <a href="/design-beispiele" className="btn-text-hell mt-10">
         Mehr Designbeispiele
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -877,11 +871,18 @@ export function Arbeiten() {
 }
 
 /** Kopf eines der beiden Bereiche: Bezeichnung links, Umfang rechts. */
-function BereichsKopf({ label, note }: { label: string; note: string }) {
+function BereichsKopf({ label, note, dunkel = false }: { label: string; note: string; dunkel?: boolean }) {
   return (
-    <div className="flex items-baseline justify-between gap-4 border-b border-ink/[0.09] pb-2.5">
-      <span className="text-label font-bold uppercase text-ink-soft">{label}</span>
-      <span className="text-[0.7rem] text-ink-faint">{note}</span>
+    <div
+      className={clsx(
+        "flex items-baseline justify-between gap-4 border-b pb-2.5",
+        dunkel ? "border-white/15" : "border-ink/[0.09]"
+      )}
+    >
+      <span className={clsx("text-label font-bold uppercase", dunkel ? "text-chalk" : "text-ink-soft")}>
+        {label}
+      </span>
+      <span className={clsx("text-[0.7rem]", dunkel ? "text-chalk-faint" : "text-ink-faint")}>{note}</span>
     </div>
   );
 }
@@ -1204,57 +1205,3 @@ export function Mannschaft() {
     </Station>
   );
 }
-
-/* ============================================================
-   09 · Wissen
-   ============================================================ */
-
-export function Wissen({ posts }: { posts: PostMeta[] }) {
-  /* Vorher eine Liste zwischen Haarlinien, genau die Form, die dieses Theme
-     ueberall sonst abgeloest hat: Nummer, Titel, Pfeil, auf weissem Grund.
-     Jetzt drei Karten mit dem Titelbild des Beitrags. */
-  return (
-    <Station label="Blog" tone="paper">
-      <StationTitle>Klartext zu Amazon.</StationTitle>
-
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        {posts.slice(0, 3).map((p) => (
-          <a
-            key={p.slug}
-            href={`/blog/${p.slug}`}
-            className="panel panel-lift group flex h-full flex-col overflow-hidden"
-          >
-            <BlogCover
-              accent={p.accent}
-              icon={p.categoryIcon}
-              seed={p.slug}
-              label={p.categoryShort}
-              image={p.image}
-              className="aspect-[16/10] w-full"
-            />
-            <div className="flex flex-1 flex-col p-6">
-              <h3 className="text-balance text-[1.05rem] font-bold leading-snug text-ink md:text-[1.15rem]">
-                {p.title}
-              </h3>
-              <p className="mt-2.5 line-clamp-2 text-small leading-relaxed text-ink-muted">{p.description}</p>
-              <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.8rem] font-bold text-navy transition-transform duration-300 group-hover:translate-x-1">
-                Lesen
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <a href="/blog" className="btn-text mt-10">
-        Alle Beiträge
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
-    </Station>
-  );
-}
-

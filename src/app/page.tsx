@@ -11,30 +11,35 @@ import {
   Stimmen,
   Termin,
   Mannschaft,
-  Wissen,
 } from "@/components/takt/sections";
-import { getFeaturedPosts } from "@/lib/blog";
 
+/**
+ * Startseite.
+ *
+ * Reihenfolge nach der zwoelften Feedbackrunde: erst das Angebot, dann der
+ * Beleg, dann die Begruendung. Vorher stand die Ausgangslage vor den
+ * Leistungen, ein Besucher las also zuerst, was bei ihm schiefliegt, und
+ * erfuhr erst danach, was wir tun.
+ *
+ * Der Blog-Streifen ist raus. Vier Beitragskacheln am Fuss der Startseite
+ * haben niemanden zum Gespraech gebracht, den Blog gibt es weiter unter
+ * /blog und in der Kopfzeile.
+ */
 export default function Home() {
-  const featured = getFeaturedPosts(4);
   return (
     <>
       <Kopfzeile />
       <main id="inhalt">
         <Auftrag />
         <Kundenband />
-        <Befund />
-        {/* Die fuenf Leistungen standen an fuenfter Stelle und gingen unter.
-            Jetzt kommen sie direkt nach der Ausgangslage: erst das Problem,
-            dann was wir abdecken, dann wie wir vorgehen, dann der Nachweis. */}
         <Leistungen />
-        <Verfahren />
         <Nachweis />
+        <Befund />
+        <Verfahren />
         <Arbeiten />
         <Stimmen />
         <Termin />
         <Mannschaft />
-        <Wissen posts={featured} />
       </main>
       <Fusszeile />
     </>

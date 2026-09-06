@@ -498,6 +498,47 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
   Kameragroesse: 1200 px fuers Hauptbild, 700 px fuer die Listingbilder,
   1400 px fuer die A+ Module. Aus 45 MB JPG werden so 1,5 MB.
 
+## Zwoelfte Feedbackrunde (verbindlich, Startseite)
+
+- **Die Reihenfolge der Startseite ist: Hero, Kundenband, Leistungen, Case
+  Studies, Ausgangslage mit Ursache, Unser Vorgehen, Designbeispiele,
+  Kundenstimmen, Abschluss-CTA, Team.** Vorher stand die Ausgangslage vor den
+  Leistungen: ein Besucher las zuerst, was bei ihm schiefliegt, und erfuhr
+  erst danach, was wir tun. Der Blog-Streifen am Fuss ist ersatzlos raus, mit
+  ihm die Komponente `Wissen`.
+- **Das Kundenband traegt Navy.** Es lag im selben hellen Ton wie der Hero,
+  damit hatte der Hero keine Unterkante. Die Logos sind weisse Silhouetten
+  (`brightness-0 invert`). Zwei der vierzehn Dateien sind „Knockout", der
+  Schriftzug ist in eine gefuellte Flaeche gestanzt: als Silhouette werden sie
+  zu einem weissen Klecks, deshalb bleiben sie in ihrer Farbe (`KNOCKOUT` in
+  `takt/sections`). Rot waere hier falsch, Rot ist die Farbe fuer Probleme.
+- **Die Case Studies sind ein Band aus fuenf Streifen**, die sich die Breite
+  teilen. Beim Zeigen wird einer breit, die anderen weichen zurueck, und im
+  breiten Streifen kommt die Ueberschrift des Falls dazu. Bewegt wird
+  `flex-grow`, keine Breite in Prozent: die rechnet der Browser gegen die
+  Elternbreite und die Nachbarn springen. Vorher waren es fuenf grosse Karten
+  in zwei Spalten, die Sektion war ueber zweitausend Pixel hoch.
+- **Zahlen in schmalen Spalten brauchen `whitespace-nowrap`.** „+37,3 %" brach
+  sonst hinter dem Komma um und das Prozentzeichen stand allein in der
+  zweiten Zeile.
+- **Im Vorgehen steht die Ueberschrift zweizeilig links, das Diagramm rechts
+  daneben.** Der Block „Was sich verschiebt" mit Ueberschrift und Absatz ist
+  raus: das Diagramm sagt dasselbe in einem Blick.
+- **Das Ergebnisband ist gruen.** Weiss mit orangem Ring war zu leise
+  zwischen zwei hellen Flaechen. Gruen ist auf dieser Website die Farbe fuer
+  Ergebnisse, und genau das steht darauf.
+- **Die Gegenueberstellung ist nicht mehr zweimal dieselbe Karte**: links eine
+  eingelassene Flaeche mit gestrichelter Kante ohne Schatten, rechts eine
+  weisse Platte mit orangem Saum, die aufliegt. Dazu deutlich Abstand nach
+  oben und eine eigene, mittig stehende Ueberschrift.
+- **Die Designbeispiele sind eine dunkle Sektion und deutlich kleiner**
+  (`max-w-[44rem]`). Die Listingbilder haben weissen Hintergrund, auf einer
+  hellen Seite sind sie nicht als Bilder zu erkennen. Vorher lief das Listing
+  ueber die volle Breite, das Hauptbild allein war siebenhundert Pixel hoch.
+  Die Platte „Was an diesem Listing gemacht wurde" ist raus.
+- **`.btn-text-hell` ist der Textlink auf dunklem Grund.** `.btn-text` faerbt
+  sich beim Zeigen dunkel und ist auf Navy dann verschwunden.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.

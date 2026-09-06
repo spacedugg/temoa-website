@@ -15,3 +15,7 @@ next-env.d.ts
 /*.png
 /.shot*.mjs
 /.err.mjs
+
+# TypeScript-Zwischenstand. Ein Cache, der bei jedem Typcheck neu
+# geschrieben wird und im Repo nur Rauschen erzeugt.
+tsconfig.tsbuildinfo
