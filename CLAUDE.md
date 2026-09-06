@@ -539,30 +539,22 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 - **`.btn-text-hell` ist der Textlink auf dunklem Grund.** `.btn-text` faerbt
   sich beim Zeigen dunkel und ist auf Navy dann verschwunden.
 
-## Dreizehnte Feedbackrunde (verbindlich, ersetzt die Schilder-Regeln)
+## Dreizehnte Feedbackrunde (verbindlich, ersetzt alle Globus-Regeln)
 
-Der Kunde hat die Referenz fuer die Marktplatzgrafik direkt in den Chat
-gesetzt. Bilder aus dem Chat liegen nicht auf der Platte, nur Anhaenge
-(`/root/.claude/uploads`). Sichtbar ist die Referenz trotzdem, deshalb ist sie
-in Code nachgebaut, nicht eingebunden.
-
-- **Die Kugel ist hell und unten angeschnitten.** Ozean als heller
-  Blauverlauf, Land fast weiss mit feinen Grenzen und einem Schlagschatten,
-  dadurch liegt es wie eine Platte auf dem Wasser. Die Kugel ist groesser als
-  der Rahmen (viewBox 1660 zu 930, Mittelpunkt 830/830, Radius 795).
-- **Die Marktplaetze sind Navy gefuellt.** Blick von 17 Grad West und 25 Grad
-  Nord: Europa liegt rechts der Mitte und gross genug fuer zehn Nadeln, die
-  USA links, dazwischen der Atlantik.
-- **Die Nadeln sind Tropfen mit runder Fahne.** Der Kopf steht im Kranz um
-  Europa, die Spitze sitzt im Land. Der Tropfen wird aus den Tangenten an
-  einen Kreis gebaut; als Radius dafuer dient nicht der Kopf (sonst wird aus
-  einem langen Stiel ein breiter Keil), sondern ein schmaler Wert.
-- **Die Verbindungen leuchten in zwei Lagen**: breit und weich als Glut,
-  darauf die feine Linie. Ein Filter ueber die ganze Grafik waere teurer und
-  wuerde auch das Land weichzeichnen.
-- **Keine Bewegung**, wie in der zehnten Runde beschlossen.
-- **Erzeugt wird die Geometrie von `scripts/welt-karte.mjs`.** Die Toleranz
-  der Vereinfachung ist in Bildpunkten, sie waechst also mit dem Radius mit.
+- **Die Marktplatzgrafik ist ein Bild, keine Zeichnung.** Nach elf gezeichneten
+  Fassungen hat der Kunde das Bild geliefert:
+  `public/bilder/s-international-kugel.webp`, freigestellt, im Stil der uebrigen
+  3D-Bilder. Es liegt ohne Platte und ohne Rahmen auf dem Grund und bewegt sich
+  nicht. Damit sind `service/welt-geo.ts` und `scripts/welt-karte.mjs`
+  geloescht; die gezeichnete Fassung steht in der Geschichte unter
+  „Marktplatzgrafik nach der Referenz des Kunden neu gebaut".
+- **Neun Maerkte, kein Grossbritannien.** Das Bild zeigt DE, FR, IT, ES, NL, BE,
+  PL, SE und die USA. Die Liste auf dem Telefon fuehrt genau diese neun: eine
+  Fahne in der Liste, die im Bild fehlt, faellt sofort auf.
+- **Bilder aus dem Chat kommen nicht auf der Platte an.** Nur Anhaenge landen in
+  `/root/.claude/uploads`. Ein Bild, das im Chat steht, ist sichtbar, aber es
+  gibt keine Datei dazu. Wenn ein Bild eingebaut werden soll: als Anhang
+  anfordern, nicht raten und nicht nachbauen.
 
 ## Branch
 
