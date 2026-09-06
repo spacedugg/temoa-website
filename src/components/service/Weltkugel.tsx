@@ -1,58 +1,79 @@
 "use client";
 
 import { Pille } from "../ui/SectionHeading";
-import { KUGEL, LAENDER, NADELN } from "./welt-geo";
+import { KARTE_BREITE, KARTE_HOEHE, KUGEL, LAENDER, NADELN } from "./welt-geo";
 
 /* ============================================================
    Die Marktplatzgrafik: eine helle Weltkugel mit Blick auf den Atlantik.
 
-   Acht Fassungen liegen dahinter, und der Fehler war jedes Mal derselbe: die
-   Kugel war dunkel und damit eine andere Bildfamilie als die uebrigen
-   Illustrationen der Website. Der Kunde hat eine Referenz geschickt, und die
-   ist hell: eine matte, helle Kugel auf hellem Grund, das Land als Silhouette
-   mit feiner Struktur, kleine weisse Schilder mit Flagge und Laenderkuerzel
-   direkt am Punkt, dazu leuchtende Bogen vom Startmarkt zu den anderen.
+   Zehn Fassungen liegen dahinter. Der Fehler war lange derselbe: die Kugel war
+   dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
+   Dann kam eine Referenz vom Kunden, und die ist hell.
 
-   - Kein dunkler Grund, keine Platte, kein Rahmen, keine Maske.
-   - Keine Bewegung. Der Kunde will hier keine Animation.
-   - Der ganze sichtbare Halbrund: links Nordamerika, rechts Europa und
-     Afrika. Dadurch stimmt das Verhaeltnis von Land zu Kugel, und der Bogen
-     ueber den Atlantik ergibt Sinn.
-   - Die Schilder tragen das Kuerzel, nicht den Namen: neun Namen um ein
-     kleines Europa herum sind eine Wand aus Schrift. Der ganze Name steht im
-     Titel des Schildes fuer Screenreader.
+   Diese Fassung baut die Referenz nach:
+   - Der Ozean ist ein heller Blauverlauf, das Land eine fast weisse Silhouette
+     mit feinen Grenzen und einem Schlagschatten, dadurch steht es wie eine
+     aufgelegte Platte auf der Kugel.
+   - Die Marktplaetze sind Navy gefuellt. Wo eine Fahne steckt, sieht man auch
+     ohne Fahne, dass das Land gemeint ist.
+   - Die Nadeln sind Tropfen mit runder Fahne. Die Spitze sitzt auf dem Land,
+     der Kopf daneben, damit sich Deutschland, die Niederlande, Belgien und
+     Grossbritannien nicht gegenseitig verdecken.
+   - Von Deutschland laufen leuchtende Bogen zu jedem Markt und ueber den
+     Atlantik in die USA.
+   - Die Kugel ist groesser als der Rahmen und unten angeschnitten. Kein
+     Rahmen, keine Platte, keine Maske.
+   - Keine Bewegung. Der Kunde will hier keine Animation, und die Grafik muss
+     nichts vorfuehren.
    ============================================================ */
 
-const MITTE: [number, number] = [KUGEL.cx, KUGEL.cy];
-const R = KUGEL.r;
+type Markt = {
+  code: string;
+  name: string;
+  /** Verschiebung des Kopfes gegenueber dem Punkt im Land. */
+  ab: [number, number];
+};
 
-/* Schild und Punkt. `ab` ist die Verschiebung des Schildes gegenueber seinem
-   Punkt: Europa ist auf einer ganzen Kugel klein, die Schilder liegen deshalb
-   im Kranz darum und zeigen mit einem kurzen Stiel auf ihr Land. */
-type Markt = { code: string; name: string; ab: [number, number] };
-
+/* Die Verschiebungen sind von Hand gesetzt und nachgerechnet: die Koepfe
+   haben einen Durchmesser von 40 und liegen alle mindestens 68 auseinander.
+   In Europa liegen die Punkte so dicht beieinander, dass ein Kopf senkrecht
+   ueber seinem Punkt den Nachbarn verdecken wuerde. Sie stehen deshalb im
+   Kranz um Europa herum, jeder nach aussen gerueckt, und der Tropfen zeigt
+   zurueck auf sein Land. */
 const MAERKTE: Markt[] = [
-  { code: "SE", name: "Schweden", ab: [-91, -54] },
-  { code: "NL", name: "Niederlande", ab: [-136, -62] },
-  { code: "PL", name: "Polen", ab: [110, -50] },
-  { code: "UK", name: "Großbritannien", ab: [-169, -20] },
-  { code: "DE", name: "Deutschland", ab: [144, -7] },
-  { code: "BE", name: "Belgien", ab: [-183, 44] },
-  { code: "IT", name: "Italien", ab: [105, 23] },
-  { code: "FR", name: "Frankreich", ab: [-154, 82] },
-  { code: "ES", name: "Spanien", ab: [41, 70] },
-  { code: "US", name: "USA", ab: [0, -66] },
+  { code: "US", name: "USA", ab: [0, -70] },
+  { code: "UK", name: "Großbritannien", ab: [-104, -70] },
+  { code: "SE", name: "Schweden", ab: [10, -85] },
+  { code: "NL", name: "Niederlande", ab: [-52, -120] },
+  { code: "BE", name: "Belgien", ab: [-88, 20] },
+  { code: "PL", name: "Polen", ab: [78, -48] },
+  { code: "DE", name: "Deutschland", ab: [58, -74] },
+  { code: "FR", name: "Frankreich", ab: [-72, 44] },
+  { code: "IT", name: "Italien", ab: [72, 40] },
+  { code: "ES", name: "Spanien", ab: [-56, 58] },
 ];
 
-const SCHILD_H = 40;
-const SCHILD_B = 96;
+const KOPF = 20; /* Radius des Nadelkopfes */
+/* Die Breite des Stiels am Kopf. Der Tropfen wird aus den Tangenten an einen
+   Kreis gebaut; nimmt man dafuer den Kopfradius, wird aus einem 120 Pixel
+   langen Stiel ein breiter Keil. Mit einem kleineren Radius bleibt er ein
+   Stiel, der sich zur Spitze verjuengt. */
+const STIEL = 8;
 
-function stelle(m: Markt): [number, number] {
-  const [x, y] = NADELN[m.code];
+function punkt(code: string): [number, number] {
+  const [x, y] = NADELN[code];
+  return [x, y];
+}
+
+function kopf(m: Markt): [number, number] {
+  const [x, y] = punkt(m.code);
   return [x + m.ab[0], y + m.ab[1]];
 }
 
-/* ---------------- Flaggen ---------------- */
+/* ---------------- Flaggen ----------------
+   Alle Fahnen sind auf den Nullpunkt zentriert und `b` breit, `h` hoch. Sie
+   werden in einen Kreis geschnitten, links und rechts faellt also etwas weg.
+   Keine Schrift, keine Wappen: bei 40 Pixeln zaehlt nur das Farbmuster. */
 
 function Waagerecht({ farben, b, h }: { farben: string[]; b: number; h: number }) {
   const s = h / farben.length;
@@ -109,8 +130,16 @@ function Flagge({ code, b = 26, h = 18 }: { code: string; b?: number; h?: number
       return (
         <>
           <rect x={-b / 2} y={-h / 2} width={b} height={h} fill="#012169" />
-          <path d={`M${-b / 2} ${-h / 2}L${b / 2} ${h / 2}M${b / 2} ${-h / 2}L${-b / 2} ${h / 2}`} stroke="#FFFFFF" strokeWidth={h * 0.24} />
-          <path d={`M${-b / 2} ${-h / 2}L${b / 2} ${h / 2}M${b / 2} ${-h / 2}L${-b / 2} ${h / 2}`} stroke="#C8102E" strokeWidth={h * 0.11} />
+          <path
+            d={`M${-b / 2} ${-h / 2}L${b / 2} ${h / 2}M${b / 2} ${-h / 2}L${-b / 2} ${h / 2}`}
+            stroke="#FFFFFF"
+            strokeWidth={h * 0.24}
+          />
+          <path
+            d={`M${-b / 2} ${-h / 2}L${b / 2} ${h / 2}M${b / 2} ${-h / 2}L${-b / 2} ${h / 2}`}
+            stroke="#C8102E"
+            strokeWidth={h * 0.11}
+          />
           <path d={`M0 ${-h / 2}V${h / 2}M${-b / 2} 0H${b / 2}`} stroke="#FFFFFF" strokeWidth={h * 0.36} />
           <path d={`M0 ${-h / 2}V${h / 2}M${-b / 2} 0H${b / 2}`} stroke="#C8102E" strokeWidth={h * 0.2} />
         </>
@@ -120,7 +149,14 @@ function Flagge({ code, b = 26, h = 18 }: { code: string; b?: number; h?: number
         <>
           <rect x={-b / 2} y={-h / 2} width={b} height={h} fill="#FFFFFF" />
           {[0, 2, 4, 6, 8, 10, 12].map((i) => (
-            <rect key={i} x={-b / 2} y={-h / 2 + i * (h / 13)} width={b} height={h / 13} fill="#B31942" />
+            <rect
+              key={i}
+              x={-b / 2}
+              y={-h / 2 + i * (h / 13)}
+              width={b}
+              height={h / 13}
+              fill="#B31942"
+            />
           ))}
           <rect x={-b / 2} y={-h / 2} width={b * 0.42} height={h * 0.54} fill="#0A3161" />
         </>
@@ -128,6 +164,25 @@ function Flagge({ code, b = 26, h = 18 }: { code: string; b?: number; h?: number
     default:
       return <rect x={-b / 2} y={-h / 2} width={b} height={h} fill="#123A55" />;
   }
+}
+
+/* ---------------- Tropfen ----------------
+   Die Nadel ist ein Kreis mit einer Spitze. Beide Tangenten vom Punkt an den
+   Kreis bilden die Flanken, dazwischen laeuft der grosse Bogen des Kreises.
+   Damit stimmt die Form auch dann, wenn der Kopf seitlich neben seinem Punkt
+   sitzt, was in Europa bei jeder zweiten Nadel so ist. */
+function tropfen(cx: number, cy: number, r: number, tx: number, ty: number) {
+  const dx = tx - cx;
+  const dy = ty - cy;
+  const d = Math.hypot(dx, dy);
+  if (d <= r * 1.05) return "";
+  const winkel = Math.atan2(dy, dx);
+  const beta = Math.acos(r / d);
+  const p1 = [cx + r * Math.cos(winkel + beta), cy + r * Math.sin(winkel + beta)];
+  const p2 = [cx + r * Math.cos(winkel - beta), cy + r * Math.sin(winkel - beta)];
+  /* Von der Spitze zur einen Flanke, aussen um den Kreis herum, zurueck zur
+     Spitze. `1 1` ist der grosse Bogen im Uhrzeigersinn. */
+  return `M${tx.toFixed(1)} ${ty.toFixed(1)}L${p1[0].toFixed(1)} ${p1[1].toFixed(1)}A${r} ${r} 0 1 1 ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}Z`;
 }
 
 /* ---------------- Bogen ---------------- */
@@ -138,153 +193,137 @@ function bogen(von: [number, number], nach: [number, number], staerke: number) {
   const [x2, y2] = nach;
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
-  const dx = x2 - x1;
-  const dy = y2 - y1;
-  const nx = -dy * staerke;
-  const ny = dx * staerke;
-  const richtung = ny > 0 ? -1 : 1;
-  return `M${x1},${y1} Q${mx + nx * richtung},${my + ny * richtung} ${x2},${y2}`;
+  /* Nach aussen woelben, also weg vom Mittelpunkt der Kugel. */
+  const rx = mx - KUGEL.cx;
+  const ry = my - KUGEL.cy;
+  const laenge = Math.hypot(rx, ry) || 1;
+  const weite = Math.hypot(x2 - x1, y2 - y1);
+  const s = staerke * weite;
+  return `M${x1.toFixed(1)} ${y1.toFixed(1)}Q${(mx + (rx / laenge) * s).toFixed(1)} ${(my + (ry / laenge) * s).toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
 }
 
-const START = NADELN.DE;
+/* ---------------- Die Kugel ---------------- */
+
+const MARKT_CODES = new Set(MAERKTE.map((m) => m.code));
 
 export function Weltkugel() {
+  const start = punkt("DE");
+
   return (
     <svg
-      viewBox="0 0 1000 1030"
+      viewBox={`0 0 ${KARTE_BREITE} ${KARTE_HOEHE}`}
       className="w-full"
       role="img"
-      aria-label="Eine Weltkugel mit Blick auf den Atlantik. Auf Europa sind die Amazon-Marktplätze Deutschland, Frankreich, Italien, Spanien, Niederlande, Belgien, Polen, Schweden und Großbritannien markiert, links auf Nordamerika die USA. Von Deutschland laufen Verbindungen in alle anderen Märkte."
+      aria-label="Eine Weltkugel mit Blick über den Atlantik. In Deutschland, Frankreich, Italien, Spanien, den Niederlanden, Belgien, Polen, Schweden, Großbritannien und den USA steckt je eine Fahne. Von Deutschland laufen leuchtende Linien zu allen anderen Märkten."
     >
       <defs>
+        <radialGradient id="wk-ozean" cx="30%" cy="16%" r="92%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="34%" stopColor="#e3eef8" />
+          <stop offset="72%" stopColor="#c2daee" />
+          <stop offset="100%" stopColor="#a3c2de" />
+        </radialGradient>
+
+        {/* Die Schattenseite. Innen nichts, zum Rand hin ein kuehler Ton: das
+            macht aus der Scheibe eine Kugel. */}
+        <radialGradient id="wk-woelbung" cx="34%" cy="20%" r="86%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0)" />
+          <stop offset="62%" stopColor="rgba(120,160,196,0)" />
+          <stop offset="88%" stopColor="rgba(96,138,180,0.22)" />
+          <stop offset="100%" stopColor="rgba(70,112,156,0.42)" />
+        </radialGradient>
+
+        <linearGradient id="wk-nadel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFB43C" />
+          <stop offset="100%" stopColor="#EF7C00" />
+        </linearGradient>
+
         <clipPath id="wk-kugel">
-          <circle cx={MITTE[0]} cy={MITTE[1]} r={R} />
+          <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} />
         </clipPath>
-        {/* Matte, helle Kugel: Licht von oben links, die Tiefe sitzt unten
-            rechts. Kein Glanzpunkt, das waere Glas. */}
-        <radialGradient id="wk-flaeche" cx="32%" cy="24%" r="86%">
-          <stop offset="0%" stopColor="#FBFDFF" />
-          <stop offset="42%" stopColor="#D8E4F1" />
-          <stop offset="100%" stopColor="#86A0BE" />
-        </radialGradient>
-        <radialGradient id="wk-tiefe" cx="50%" cy="50%" r="50%">
-          <stop offset="62%" stopColor="rgba(60,90,125,0)" />
-          <stop offset="100%" stopColor="rgba(60,90,125,0.35)" />
-        </radialGradient>
-        {/* Feines Punktraster auf dem Land: das gibt der Flaeche Material,
-            ohne dass eine zweite Farbe dazukommt. */}
-        <pattern id="wk-raster" width="7" height="7" patternUnits="userSpaceOnUse">
-          <circle cx="1.6" cy="1.6" r="1.35" fill="#A9BFD6" />
-        </pattern>
-        <filter id="wk-schein" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="5" result="weich" />
-          <feMerge>
-            <feMergeNode in="weich" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
+
+        {/* Das Land liegt als Platte auf dem Wasser. */}
+        <filter id="wk-relief" x="-4%" y="-4%" width="108%" height="108%">
+          <feDropShadow dx="0" dy="3" stdDeviation="3" floodColor="#3d6690" floodOpacity="0.28" />
         </filter>
+
+        <filter id="wk-glut" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" />
+        </filter>
+
+        <filter id="wk-kopfschatten" x="-60%" y="-60%" width="220%" height="220%">
+          <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="#8a4a00" floodOpacity="0.35" />
+        </filter>
+
+        {MAERKTE.map((m) => {
+          const [kx, ky] = kopf(m);
+          return (
+            <clipPath key={m.code} id={`wk-f-${m.code}`}>
+              <circle cx={kx} cy={ky} r={KOPF - 6} />
+            </clipPath>
+          );
+        })}
       </defs>
 
-      {/* Schatten unter der Kugel. */}
-      <ellipse
-        cx={MITTE[0]}
-        cy={MITTE[1] + R + 36}
-        rx={R * 0.66}
-        ry={R * 0.075}
-        fill="rgba(60,90,125,0.22)"
-        style={{ filter: "blur(18px)" }}
-      />
+      {/* Der Ozean */}
+      <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} fill="url(#wk-ozean)" />
 
-      <circle cx={MITTE[0]} cy={MITTE[1]} r={R} fill="url(#wk-flaeche)" />
-
+      {/* Das Land */}
       <g clipPath="url(#wk-kugel)">
-        {LAENDER.map((l) => (
-          <g key={l.name}>
-            <path d={l.d} fill="#F1F6FB" />
-            <path d={l.d} fill="url(#wk-raster)" opacity="0.75" />
-            <path d={l.d} fill="none" stroke="rgba(94,124,158,0.35)" strokeWidth="0.9" strokeLinejoin="round" />
-          </g>
-        ))}
-        <circle cx={MITTE[0]} cy={MITTE[1]} r={R} fill="url(#wk-tiefe)" />
-
-        {/* Die Verbindungen vom Startmarkt. Sie liegen auf der Kugel, deshalb
-            werden sie mit ihr beschnitten. */}
-        {MAERKTE.filter((m) => m.code !== "DE").map((m) => (
-          <path
-            key={m.code}
-            d={bogen(START, NADELN[m.code], m.code === "US" ? 0.16 : 0.24)}
-            fill="none"
-            stroke="rgba(255,255,255,0.95)"
-            strokeWidth={m.code === "US" ? 3 : 1.8}
-            strokeLinecap="round"
-            style={{
-              filter:
-                m.code === "US"
-                  ? "drop-shadow(0 0 7px rgba(255,153,0,0.95))"
-                  : "drop-shadow(0 0 4px rgba(255,153,0,0.75))",
-            }}
-          />
-        ))}
+        <g filter="url(#wk-relief)">
+          {LAENDER.map((l, i) => {
+            const markt = l.code && MARKT_CODES.has(l.code);
+            return (
+              <path
+                key={`${l.name}-${i}`}
+                d={l.d}
+                fill={markt ? "#2C4E79" : "#F4F8FC"}
+                stroke={markt ? "#22406B" : "#D2E0EE"}
+                strokeWidth={markt ? 1.2 : 1}
+                strokeLinejoin="round"
+              />
+            );
+          })}
+        </g>
+        <circle cx={KUGEL.cx} cy={KUGEL.cy} r={KUGEL.r} fill="url(#wk-woelbung)" />
       </g>
 
-      {/* Die Lichtkante der Kugel. */}
-      <circle cx={MITTE[0]} cy={MITTE[1]} r={R} fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="2" />
-      <circle cx={MITTE[0]} cy={MITTE[1]} r={R + 1} fill="none" stroke="rgba(94,124,158,0.28)" strokeWidth="1.5" />
+      {/* Die Verbindungen. Erst breit und weich als Glut, darauf die feine
+          Linie: das leuchtet, ohne dass ein Filter ueber die ganze Grafik
+          laufen muss. */}
+      <g fill="none" strokeLinecap="round">
+        <g stroke="#FF9900" strokeWidth="6" opacity="0.3" filter="url(#wk-glut)">
+          {MAERKTE.filter((m) => m.code !== "DE").map((m) => (
+            <path key={m.code} d={bogen(start, punkt(m.code), m.code === "US" ? 0.1 : 0.17)} />
+          ))}
+        </g>
+        <g stroke="#FFA51F" strokeWidth="2.6">
+          {MAERKTE.filter((m) => m.code !== "DE").map((m) => (
+            <path key={m.code} d={bogen(start, punkt(m.code), m.code === "US" ? 0.1 : 0.17)} />
+          ))}
+        </g>
+      </g>
 
-      {/* Punkte und Schilder. Der Punkt steht immer, das Schild nur ab
-          Tablet: auf dem Telefon waere die Schrift darin acht Pixel gross.
-          Dort stehen die Namen unter der Kugel. */}
+      {/* Die Nadeln */}
       {MAERKTE.map((m) => {
-        const [px, py] = NADELN[m.code];
-        const [sx, sy] = stelle(m);
-        const links = m.ab[0] < 0;
+        const [px, py] = punkt(m.code);
+        const [kx, ky] = kopf(m);
         return (
           <g key={m.code}>
             <title>{m.name}</title>
-            <g className="hidden md:inline">
-              {/* Stiel vom Schild auf den Punkt. */}
-              <line
-                x1={sx + (links ? SCHILD_B / 2 - 6 : -SCHILD_B / 2 + 6)}
-                y1={sy}
-                x2={px}
-                y2={py}
-                stroke="rgba(255,255,255,0.95)"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                style={{ filter: "drop-shadow(0 0 4px rgba(255,153,0,0.85))" }}
-              />
+            {/* Der Punkt im Land, mit Lichthof. */}
+            <circle cx={px} cy={py} r="9" fill="#FF9900" opacity="0.4" filter="url(#wk-glut)" />
+            <circle cx={px} cy={py} r="4.5" fill="#FFC46B" />
+
+            <g filter="url(#wk-kopfschatten)">
+              <path d={tropfen(kx, ky, STIEL, px, py)} fill="url(#wk-nadel)" />
+              <circle cx={kx} cy={ky} r={KOPF} fill="url(#wk-nadel)" />
+              <circle cx={kx} cy={ky} r={KOPF - 5.5} fill="#ffffff" />
             </g>
-            {/* Der Punkt auf dem Land. */}
-            <g style={{ filter: "url(#wk-schein)" }}>
-              <circle cx={px} cy={py} r={11} fill="rgba(255,153,0,0.32)" />
-              <circle cx={px} cy={py} r={6} fill="#FF9900" />
-              <circle cx={px} cy={py} r={2.4} fill="#FFF6E8" />
-            </g>
-            {/* Das Schild. */}
-            <g className="hidden md:inline">
-              <rect
-                x={sx - SCHILD_B / 2}
-                y={sy - SCHILD_H / 2}
-                width={SCHILD_B}
-                height={SCHILD_H}
-                rx={12}
-                fill="#FFFFFF"
-                style={{ filter: "drop-shadow(0 6px 12px rgba(60,90,125,0.28))" }}
-              />
-              <g transform={`translate(${sx - SCHILD_B / 2 + 26} ${sy})`}>
-                <Flagge code={m.code} />
-                <rect x={-13} y={-9} width={26} height={18} rx={3} fill="none" stroke="rgba(11,31,52,0.18)" strokeWidth="1.2" />
+            <g clipPath={`url(#wk-f-${m.code})`}>
+              <g transform={`translate(${kx} ${ky})`}>
+                <Flagge code={m.code} b={KOPF * 2.5} h={KOPF * 1.66} />
               </g>
-              <text
-                x={sx - SCHILD_B / 2 + 48}
-                y={sy + 8}
-                fill="#0A1E2B"
-                fontSize="23"
-                fontWeight="700"
-                style={{ letterSpacing: "0.01em" }}
-              >
-                {m.code}
-              </text>
             </g>
           </g>
         );
@@ -294,7 +333,10 @@ export function Weltkugel() {
 }
 
 /**
- * Die Sektion um die Kugel: links die Grafik, rechts der Text.
+ * Sektion um die Kugel: links die Grafik, rechts der Text.
+ *
+ * Grafik oben und Text darunter machte aus einer kurzen Aussage eine sehr hohe
+ * Sektion.
  */
 export function MarktSektion({
   eyebrow,
@@ -309,10 +351,11 @@ export function MarktSektion({
     <section className="ground-tint relative isolate py-16 md:py-24">
       <div className="container-x">
         <div className="grid items-center gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10">
-          <div className="mx-auto w-full min-w-0 max-w-[42rem]">
+          <div className="mx-auto w-full min-w-0 max-w-[46rem]">
             <Weltkugel />
-            {/* Auf dem Telefon tragen die Namen die Grafik, nicht die
-                Schilder: darin waere die Schrift acht Pixel gross. */}
+            {/* Auf dem Telefon ist die Grafik rund dreihundert Pixel breit, eine
+                Fahne darin waere sieben Pixel gross. Deshalb stehen die Namen
+                dort noch einmal als Liste darunter. */}
             <ul className="mt-6 flex flex-wrap justify-center gap-2 md:hidden">
               {MAERKTE.map((m) => (
                 <li

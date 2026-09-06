@@ -539,6 +539,31 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 - **`.btn-text-hell` ist der Textlink auf dunklem Grund.** `.btn-text` faerbt
   sich beim Zeigen dunkel und ist auf Navy dann verschwunden.
 
+## Dreizehnte Feedbackrunde (verbindlich, ersetzt die Schilder-Regeln)
+
+Der Kunde hat die Referenz fuer die Marktplatzgrafik direkt in den Chat
+gesetzt. Bilder aus dem Chat liegen nicht auf der Platte, nur Anhaenge
+(`/root/.claude/uploads`). Sichtbar ist die Referenz trotzdem, deshalb ist sie
+in Code nachgebaut, nicht eingebunden.
+
+- **Die Kugel ist hell und unten angeschnitten.** Ozean als heller
+  Blauverlauf, Land fast weiss mit feinen Grenzen und einem Schlagschatten,
+  dadurch liegt es wie eine Platte auf dem Wasser. Die Kugel ist groesser als
+  der Rahmen (viewBox 1660 zu 930, Mittelpunkt 830/830, Radius 795).
+- **Die Marktplaetze sind Navy gefuellt.** Blick von 17 Grad West und 25 Grad
+  Nord: Europa liegt rechts der Mitte und gross genug fuer zehn Nadeln, die
+  USA links, dazwischen der Atlantik.
+- **Die Nadeln sind Tropfen mit runder Fahne.** Der Kopf steht im Kranz um
+  Europa, die Spitze sitzt im Land. Der Tropfen wird aus den Tangenten an
+  einen Kreis gebaut; als Radius dafuer dient nicht der Kopf (sonst wird aus
+  einem langen Stiel ein breiter Keil), sondern ein schmaler Wert.
+- **Die Verbindungen leuchten in zwei Lagen**: breit und weich als Glut,
+  darauf die feine Linie. Ein Filter ueber die ganze Grafik waere teurer und
+  wuerde auch das Land weichzeichnen.
+- **Keine Bewegung**, wie in der zehnten Runde beschlossen.
+- **Erzeugt wird die Geometrie von `scripts/welt-karte.mjs`.** Die Toleranz
+  der Vereinfachung ist in Bildpunkten, sie waechst also mit dem Radius mit.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.

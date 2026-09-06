@@ -1,11 +1,17 @@
-// Erzeugt die Weltkugel fuer die Internationalisierungsseite.
+// Erzeugt die Weltkugel fuer die Internationalisierung.
 //
-// Blick auf den Atlantik: links Nordamerika, rechts Europa und Afrika. Damit
-// sind der Startmarkt, die europaeischen Marktplaetze und die USA gleichzeitig
-// zu sehen, und der Bogen ueber den Atlantik ergibt geografisch Sinn.
+// Blick auf den Atlantik: links Nordamerika, rechts Europa, unten Nordafrika.
+// Damit sind der Startmarkt, die europaeischen Marktplaetze und die USA
+// gleichzeitig zu sehen, und der Bogen ueber den Atlantik ergibt geografisch
+// Sinn.
+//
+// Die Werte sind auf die Referenz des Kunden gerechnet: die Kugel ist groesser
+// als der Rahmen und unten angeschnitten, Europa liegt rechts der Mitte, die
+// USA links. Deutschland landet dadurch bei (1060, 450) und ist gross genug,
+// dass eine Fahne darin steckt.
 //
 // Die Umrisse kommen aus Natural Earth (world-atlas, Public Domain). Eine von
-// Hand gezeichnete Karte sieht aus wie ein Klecks, und Flaggen landen auf den
+// Hand gezeichnete Karte sieht aus wie ein Klecks, und Fahnen landen auf den
 // falschen Laendern.
 //
 // Aufruf: node scripts/welt-karte.mjs
@@ -21,7 +27,7 @@ const welt = JSON.parse(
 );
 const laender = topojson.feature(welt, welt.objects.countries).features;
 
-/* Die Amazon-Marktplaetze. */
+/* Die Amazon-Marktplaetze, die wir betreuen. */
 const MARKT = {
   Germany: "DE",
   France: "FR",
@@ -36,16 +42,13 @@ const MARKT = {
 };
 
 const RAD = Math.PI / 180;
-/* Mitte weit draussen im Atlantik: dadurch liegt Europa rechts am Rand und
-   Nordamerika kommt in die Mitte, so wie in der Referenz des Kunden. Europa
-   ist dabei stark verkuerzt, das gehoert zu dieser Ansicht. */
-const MITTE_LON = -50 * RAD;
-const MITTE_LAT = 36 * RAD;
-const R = 470;
-const CX = 500;
-const CY = 500;
-const BREITE = 1000;
-const HOEHE = 1000;
+const MITTE_LON = -17 * RAD;
+const MITTE_LAT = 25 * RAD;
+const R = 795;
+const CX = 830;
+const CY = 830;
+const BREITE = 1660;
+const HOEHE = 930;
 
 function kosinus(lon, lat) {
   const phi = lat * RAD;
@@ -60,8 +63,12 @@ function auf([lon, lat]) {
   const phi = lat * RAD;
   const lam = lon * RAD;
   let x = Math.cos(phi) * Math.sin(lam - MITTE_LON);
-  let y = Math.cos(MITTE_LAT) * Math.sin(phi) - Math.sin(MITTE_LAT) * Math.cos(phi) * Math.cos(lam - MITTE_LON);
+  let y =
+    Math.cos(MITTE_LAT) * Math.sin(phi) -
+    Math.sin(MITTE_LAT) * Math.cos(phi) * Math.cos(lam - MITTE_LON);
   if (kosinus(lon, lat) < 0) {
+    /* Hinter dem Horizont: auf den Rand ziehen, damit keine Linie quer durch
+       die Kugel laeuft. */
     const laenge = Math.hypot(x, y) || 1;
     x /= laenge;
     y /= laenge;
@@ -69,8 +76,8 @@ function auf([lon, lat]) {
   return [CX + R * x, CY - R * y];
 }
 
-/* Douglas-Peucker. Bei dieser Groesse reicht eine grobe Toleranz: die
-   Landflaechen sind Silhouetten, keine Seekarte. */
+/* Douglas-Peucker. Die Toleranz ist in Bildpunkten, sie waechst also mit dem
+   Radius mit. */
 function vereinfache(punkte, toleranz) {
   if (punkte.length < 3) return punkte;
   const [a] = punkte;
@@ -105,7 +112,9 @@ function ringPfad(ring, toleranz) {
   }
   const vorne = vereinfache(roh.slice(0, fern + 1), toleranz);
   const hinten = vereinfache(roh.slice(fern), toleranz);
-  const knapp = [...vorne.slice(0, -1), ...hinten].map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`);
+  const knapp = [...vorne.slice(0, -1), ...hinten].map(
+    ([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`
+  );
   const ohneDoppel = knapp.filter((p, i) => i === 0 || p !== knapp[i - 1]);
   if (ohneDoppel.length < 4) return "";
   return `M${ohneDoppel.join("L")}Z`;
@@ -130,30 +139,30 @@ function pfad(geometrie, toleranz) {
     .join("");
 }
 
-/* Marktplaetze feiner, alles andere grober: die Laender, auf denen eine
-   Flagge steht, sollen ihre Form behalten. */
+/* Marktplaetze feiner, alles andere grober: die Laender, in denen eine Fahne
+   steckt, sollen ihre Form behalten. */
 const raus = [];
 for (const f of laender) {
   const name = f.properties.name;
   const code = MARKT[name] ?? null;
-  const d = pfad(f.geometry, code ? 0.6 : 1.3);
+  const d = pfad(f.geometry, code ? 0.7 : 1.6);
   if (!d) continue;
   raus.push({ name, code, d });
 }
 
-/* Wo der Punkt sitzt. Bewusst nicht der Flaechenschwerpunkt: der liegt bei
+/* Wo die Nadel steckt. Bewusst nicht der Flaechenschwerpunkt: der liegt bei
    Frankreich mitten im Zentralmassiv und bei Italien im Meer. */
 const NADELN = {
-  DE: [10.4, 51.3],
-  FR: [2.2, 46.9],
-  IT: [12.5, 42.6],
-  ES: [-3.7, 40.3],
-  NL: [5.5, 52.4],
-  BE: [4.5, 50.6],
-  PL: [19.3, 52.1],
-  SE: [15.5, 60.5],
-  UK: [-2.0, 53.2],
-  US: [-95, 39],
+  DE: [10.4, 51.2],
+  FR: [2.4, 46.6],
+  IT: [12.5, 42.4],
+  ES: [-3.7, 40.2],
+  NL: [5.6, 52.3],
+  BE: [4.6, 50.6],
+  PL: [19.4, 52.0],
+  SE: [15.4, 60.3],
+  UK: [-1.9, 52.8],
+  US: [-96, 39.5],
 };
 
 const nadeln = Object.fromEntries(
@@ -162,7 +171,7 @@ const nadeln = Object.fromEntries(
 
 const inhalt = `/* Erzeugt von scripts/welt-karte.mjs. Nicht von Hand aendern.
    Quelle der Umrisse: Natural Earth ueber world-atlas (Public Domain),
-   orthografische Projektion mit Blick auf den Nordatlantik. */
+   orthografische Projektion mit Blick auf den Atlantik. */
 
 export const KARTE_BREITE = ${BREITE};
 export const KARTE_HOEHE = ${HOEHE};
