@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
-import { Station, StationTitle, StationLead, Karte } from "./Station";
+import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
 import { Icon, type IconName } from "./Icons";
 import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
+import { Stempel } from "./Stempel";
 import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
-import { candids, imHaus } from "@/lib/team";
+import { candids } from "@/lib/team";
 import { testimonials, initials } from "@/lib/testimonials";
 
 /* ============================================================
@@ -782,7 +783,10 @@ export function Arbeiten() {
   const [haupt, ...weitere] = bildstrecke;
 
   return (
-    <Station label="Designbeispiele" tone="dark">
+    /* Ohne `label`: die Bezeichnung steht in der linken Spalte und bleibt
+       damit zusammen mit dem Text stehen. Ueber der Sektion waere sie beim
+       ersten Scrollen weg. */
+    <Station tone="dark">
       {/* Der Text bleibt stehen, die Arbeit laeuft daran vorbei.
 
           Vorher stand die Ueberschrift oben und darunter zwei sehr hohe
@@ -792,10 +796,12 @@ export function Arbeiten() {
           durchgelaufen, geht die ganze Sektion mit. */}
       <div className="grid gap-10 lg:grid-cols-[0.52fr_1.48fr] lg:items-start lg:gap-12">
         <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
+          <Eyebrow label="Designbeispiele" dark />
           <StationTitle className="!max-w-none">
             So sieht
             <br />
-            <span className="em text-brand-400">Retail Ready</span> aus.
+            {/* Die beiden Woerter gehoeren in eine Zeile. */}
+            <span className="em whitespace-nowrap text-brand-400">Retail Ready</span> aus.
           </StationTitle>
           <p className="mt-6 max-w-[34ch] text-pretty text-lead text-chalk-muted">
             Ein komplettes Listing aus unserer Produktion für Miganeo.
@@ -1041,70 +1047,55 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
 /**
  * Team auf der Startseite.
  *
- * Vorher standen hier drei Aufnahmen, drei Gruender-Karten und neun
- * Team-Karten, zusammen fuenfzehn Bilder am Fuss einer langen Seite. Das war
- * eine eigene Seite mitten in der Startseite.
+ * Drei Fassungen. Erst fuenfzehn Bilder: drei Aufnahmen, drei Gruender, neun
+ * Portraits. Dann drei Aufnahmen und eine weisse Platte mit den Bereichen im
+ * Haus. Beides war zu viel fuer den Fuss einer langen Seite, und die Platte
+ * sagte nichts, was nicht schon oben stand.
  *
- * Jetzt nur noch die drei Aufnahmen, die Bereiche, die im Haus liegen, und der
- * Weg zur Team-Seite. Wer wissen will, wer dahintersteht, klickt.
+ * Jetzt: links Bezeichnung, Ueberschrift, drei Zeilen und der Weg zur
+ * Team-Seite, rechts das Bild der drei Gruender. Darauf sitzt der Stempel,
+ * halb auf dem Foto und halb auf dem Grund.
  */
 export function Mannschaft() {
   const reduce = useReducedMotion();
-  const auf = (delay: number) =>
-    ({
-          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, margin: "-10% 0px" },
-          transition: reduce ? { duration: 0 } : { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
-        });
+  const auf = (delay: number) => ({
+    initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-10% 0px" },
+    transition: reduce ? { duration: 0 } : { duration: 0.55, delay, ease: [0.32, 0.72, 0, 1] as const },
+  });
 
   return (
     <Station label="Team" tone="warm" id="team">
-      <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end lg:gap-14">
+      <div className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
         <div className="min-w-0">
           <StationTitle>Das Team hinter temoa.</StationTitle>
           <StationLead>
             Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig,
             jeder in seinem Bereich, mit denselben Zahlen vor sich.
           </StationLead>
+
+          <a href="/team" className="btn-text mt-9">
+            Das Team ansehen
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
 
-        {/* Die Bereiche, die nicht eingekauft werden. */}
-        <motion.div {...auf(0.06)} className="panel p-6 md:p-7">
-          <span className="text-label font-bold uppercase text-ink-soft">Alles im Haus</span>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {imHaus.map((b) => (
-              <span
-                key={b}
-                className="rounded-full bg-canvas-tint px-3 py-1.5 text-[0.75rem] font-bold text-ink shadow-[inset_0_0_0_1px_rgba(13,36,57,0.06)]"
-              >
-                {b}
-              </span>
-            ))}
+        <motion.div {...auf(0.08)} className="relative">
+          <div className="overflow-hidden rounded-[1.5rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_34px_60px_-32px_rgba(13,36,57,0.45)]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={candids[0]}
+              alt="Die Gründer von temoa"
+              loading="lazy"
+              className="aspect-[16/10] w-full object-cover"
+            />
           </div>
+          <Stempel className="absolute -bottom-9 -left-9 h-[7.5rem] w-[7.5rem] md:-bottom-10 md:-left-10 md:h-[9rem] md:w-[9rem]" />
         </motion.div>
       </div>
-
-      {/* Drei Teamszenen, in Farbe. Schwarzweiss wirkte trist. */}
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {candids.slice(0, 3).map((src, i) => (
-          <motion.div
-            key={src}
-            {...auf(i * 0.06)}
-            className="overflow-hidden rounded-[1.25rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_20px_38px_-22px_rgba(13,36,57,0.34)]"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover" />
-          </motion.div>
-        ))}
-      </div>
-
-      <a href="/team" className="btn-text mt-10">
-        Das Team ansehen
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
     </Station>
   );
 }

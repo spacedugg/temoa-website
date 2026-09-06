@@ -472,6 +472,36 @@
       "stil": "szene3d",
       "prompt": "An open box divided into five equal compartments, seen at a three-quarter isometric angle from slightly above. The box is deep navy with light cool grey inner walls. Each compartment holds exactly one small white object with a single orange detail: a compass, a framed picture, a target disc, a shield and a globe, in that order from left to right. Thin glowing orange lines rise from each compartment and meet in one small orange sphere hovering above the centre of the box. Exactly this one arrangement in the frame, nothing else.",
       "transparent": true
+    },
+    {
+      "kennung": "h-f1",
+      "seite": "Startseite: Hero, Entwurf",
+      "size": "1536x1152",
+      "motiv": "Hand haelt Telefon mit Produktseite, Kacheln dahinter",
+      "stil": "heroFoto",
+      "prompt": "A hand holds a modern dark smartphone upright in the centre of the frame, seen from slightly above. The screen shows a product page layout: a large photograph of a plain matte navy water bottle filling the upper two thirds, below it three plain rounded grey bars and one solid orange rounded button. Behind the phone, three square product photo cards float at slight angles with soft drop shadows, each showing the same bottle from a different side. Nothing else in the frame.",
+      "transparent": false,
+      "aktiv": false
+    },
+    {
+      "kennung": "h-f2",
+      "seite": "Startseite: Hero, Entwurf",
+      "size": "1536x1152",
+      "motiv": "Telefon schwebend mit aufgefaecherten Listingbildern",
+      "stil": "heroFoto",
+      "prompt": "A modern dark smartphone floats upright at a slight three-quarter angle, casting a soft shadow. The screen shows a product page layout: a large photograph of a plain matte navy water bottle in the upper two thirds, below it three plain rounded grey bars and one solid orange rounded button. Four square product photo cards are fanned out behind and beside the phone at different depths, slightly rotated, each showing the bottle in another setting. Nothing else in the frame.",
+      "transparent": false,
+      "aktiv": false
+    },
+    {
+      "kennung": "h-f3",
+      "seite": "Startseite: Hero, Entwurf",
+      "size": "1536x1152",
+      "motiv": "Produkt vorne, Telefon dahinter",
+      "stil": "heroFoto",
+      "prompt": "A plain matte navy water bottle stands in the foreground on a seamless very light surface, tack sharp. Behind it and slightly out of focus, a modern dark smartphone leans upright, its screen showing a product page layout with a large photograph of the same bottle, three plain rounded grey bars and one solid orange rounded button. A single soft orange light accent falls across the background. Nothing else in the frame.",
+      "transparent": false,
+      "aktiv": false
     }
   ],
   "stilblocks": {
@@ -479,6 +509,7 @@
     "produkt": "Photorealistic e-commerce product photography of a premium consumer brand. Clean even studio lighting, soft natural shadow under the product, no harsh reflections. Tack sharp focus, very high detail, shot straight on at product height with a normal lens, no wide-angle distortion. Absolutely no text, no letters, no numbers, no logos, no printed labels, no engraving and no branding of any kind, neither on the product nor anywhere in the scene. No people, no faces, no hands, no body parts. Calm neutral colour world. Nothing else in the frame that competes with the product.",
     "szene3d": "Soft 3D render in a clean premium product-illustration style, the look of a high-end SaaS website illustration. Matte plastic surfaces with generously rounded corners and soft bevels. Colour palette: deep navy blue (#243B55) and a lighter slate blue for depth, amazon orange (#FF9900) as the single bright accent, white and very light cool grey. No other bright colours. Soft diffuse studio light from above, one gentle contact shadow directly beneath each object, no harsh highlights, no reflections. Thin glowing orange connector lines where elements relate to each other. THE SUBJECT IS COMPLETELY ISOLATED ON A FULLY TRANSPARENT BACKGROUND: no backdrop, no studio sweep, no ground plane, no floor, no horizon, no vignette, nothing behind or around the objects. Three-quarter isometric view. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. Crisp, calm, high detail.",
     "foto": "Photorealistic editorial lifestyle photography, shot on a full-frame camera with a 35 mm lens at a shallow depth of field. Natural available light, true-to-life colour, gentle contrast, no HDR look and no heavy grading. Calm, uncluttered composition with generous negative space. Absolutely no text, no letters, no numbers, no logos, no printed labels and no branding of any kind anywhere in the frame. No recognisable faces. Nothing that looks like a studio backdrop: this is a real place.",
-    "buehne3d": "Premium 3D render in a mature, editorial style, the look of a high-end brand campaign image. Real materials: brushed dark metal, smoked glass, matte ceramic, paper and cardboard. Crisp precise edges and exact geometry. Explicitly NOT the soft toy look: no thick rounded plastic bevels, no cute cartoon icons, no glossy candy surfaces, no stars, no smiling shapes. Cinematic studio lighting with one soft key light and a cool rim light, deep soft shadows, a shallow depth of field with the front element tack sharp. Colour palette strictly deep navy (#0E2438), slate blue, warm off-white and a single amazon orange (#FF9900) accent used sparingly as light, edge or one small surface. THE SUBJECT IS COMPLETELY ISOLATED ON A FULLY TRANSPARENT BACKGROUND: no backdrop, no studio sweep, no floor, no horizon, no vignette. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, expensive, restrained."
+    "buehne3d": "Premium 3D render in a mature, editorial style, the look of a high-end brand campaign image. Real materials: brushed dark metal, smoked glass, matte ceramic, paper and cardboard. Crisp precise edges and exact geometry. Explicitly NOT the soft toy look: no thick rounded plastic bevels, no cute cartoon icons, no glossy candy surfaces, no stars, no smiling shapes. Cinematic studio lighting with one soft key light and a cool rim light, deep soft shadows, a shallow depth of field with the front element tack sharp. Colour palette strictly deep navy (#0E2438), slate blue, warm off-white and a single amazon orange (#FF9900) accent used sparingly as light, edge or one small surface. THE SUBJECT IS COMPLETELY ISOLATED ON A FULLY TRANSPARENT BACKGROUND: no backdrop, no studio sweep, no floor, no horizon, no vignette. Absolutely no text, no letters, no numbers, no logos, no labels and no interface copy anywhere. No people, no faces, no hands. No Amazon logo and no Amazon interface. Calm, expensive, restrained.",
+    "heroFoto": "Photorealistic premium e-commerce still life, the look of a high-end brand campaign. Shot on a full-frame camera with an 85 mm lens, shallow depth of field, tack sharp on the front element. Soft daylight studio lighting from the upper left, gentle natural shadows, no harsh reflections and no lens flare. Clean, very light warm grey background that fades to white, nothing else in the room. Colour world: deep navy blue, warm off-white, light grey, with a single amazon orange (#FF9900) accent. ABSOLUTELY NO TEXT ANYWHERE: no letters, no numbers, no words, no logos, no brand names, no watermarks, no interface labels and no writing on any screen, box or surface. Where text would normally sit, there are only plain rounded grey bars. No Amazon logo and no Amazon interface. Calm, expensive, uncluttered."
   }
 }

@@ -589,6 +589,40 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
   Aufnahmen und eine eigene Grafik. Die Seite steht in der Fusszeile, nicht in
   der Kopfzeile.
 
+## Fuenfzehnte Feedbackrunde (verbindlich)
+
+- **Der Hero traegt ein Foto, keinen Effekt.** Sieben gebaute Fassungen sind
+  gescheitert, die letzte war eine Komposition aus echtem Listing,
+  Telefonrahmen und Zahlkarten. Der Kunde: lieber kein Effekt, dafuer ein
+  Bild, das steht. Jetzt `bilder/h-f2.webp`, fotorealistisch, ohne Bewegung.
+  Die Schrift auf dem Telefon im Bild ist ein Balken: aus einem Bildmodell
+  kommt keine Schrift.
+- **Ueberschrift und Versprechen kommen vom Kunden**: „Profitables Wachstum
+  fuer eure Amazon-Marke." und „Mehr Umsatz ist keine Frage des Werbebudgets.
+  Es ist eine Frage der Umsetzung." Aus dem Entwurf sind zwei Saetze geworden,
+  weil der Anschluss mit „durch Profi-Umsetzung" grammatisch nicht trug, und
+  „Profi" ist raus: was wir koennen, zeigen die Faelle darunter. Die Anrede
+  bleibt „ihr/euch", auch wenn der Entwurf „deine" sagte.
+- **Die Bezeichnung gehoert in die haftende Spalte.** In den Designbeispielen
+  steht sie in der linken Spalte und bleibt mit dem Text stehen. Ueber der
+  Sektion waere sie beim ersten Scrollen weg. „Retail Ready" traegt
+  `whitespace-nowrap`, die beiden Woerter gehoeren in eine Zeile.
+- **Die Team-Sektion der Startseite ist ein Block**: Bezeichnung, Ueberschrift,
+  drei Zeilen, Link, daneben das Bild der drei Gruender. Die weisse Platte mit
+  den Bereichen ist raus, die drei Aufnahmen auch. Auf dem Bild sitzt der
+  Stempel (`takt/Stempel`): eine drehende Scheibe mit umlaufender Schrift, halb
+  auf dem Foto und halb auf dem Grund. Die Schrift wird auf den Umfang
+  gestreckt, sonst laeuft der zweite Durchlauf in den ersten.
+- **Die Team-Seite ist eine Aufstellung, keine Inszenierung.** „Wer bei euch am
+  Konto sitzt" ist raus: an einem Konto sitzt niemand. Die Trennung in „die,
+  mit denen ihr sprecht" und „die, die am Konto arbeiten" ist raus, die
+  Gruender arbeiten genauso daran. Die Sektion „Fuenf Bereiche, ein Konto" ist
+  ersatzlos gestrichen, sie sagte dasselbe wie die Startseite.
+- **Jede Person hat eine eigene Farbe**, bewusst keine Markenfarbe: ein weicher
+  Farbfleck hinter dem Portrait, ein farbiger Rand am Bild und die Rolle in
+  derselben Farbe. Das bringt Individualitaet in die Seite, ohne die Marke zu
+  wiederholen.
+
 ## Branch
 
 Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.

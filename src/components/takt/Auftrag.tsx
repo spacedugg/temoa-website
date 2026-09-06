@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
-import { HeroBuehne } from "./HeroBuehne";
+
 
 /* ============================================================
    Hero der Startseite.
@@ -55,12 +55,16 @@ export function Auftrag() {
               {...rise(0.06)}
               className="display max-w-[24ch] text-balance text-[clamp(2.3rem,1.5rem+2.5vw,3.5rem)] text-ink"
             >
-              Auf Amazon <span className="em mark">profitabel skalieren.</span>
+              Profitables Wachstum für eure <span className="em mark">Amazon-Marke.</span>
             </motion.h1>
 
+            {/* Der zweite Satz stand im Entwurf des Kunden als ein Satz mit
+                „durch Profi-Umsetzung". Zwei Saetze daraus, weil der Anschluss
+                sonst grammatisch nicht traegt, und ohne „Profi": was wir
+                koennen, zeigen die Faelle darunter. */}
             <motion.p {...rise(0.14)} className="mt-7 max-w-[46ch] text-pretty text-lead text-ink-muted">
-              Wir bringen euer Listing dahin, dass es ohne Werbung verkauft, und steuern die
-              Kampagnen am TACoS. Wachstum zählt erst, wenn die Marge steht.
+              Mehr Umsatz ist keine Frage des Werbebudgets. Es ist eine Frage der Umsetzung: Content,
+              Ads, Account-Betreuung und neue Marktplätze.
             </motion.p>
 
             <motion.div {...rise(0.22)} className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -79,10 +83,25 @@ export function Auftrag() {
 
           </div>
 
-          {/* Die Hero-Grafik: echtes Listing, echte Zahlen, alles aus Code
-              zusammengesetzt. Siehe takt/HeroBuehne. */}
+          {/* Die Hero-Grafik. Ein Bild, kein Effekt.
+
+              Sieben Fassungen liegen dahinter: ein Drahtgitter, ein
+              Listing-Nachbau, derselbe aus Code, eine weiche 3D-Szene, fuenf
+              Entwuerfe im Rendering-Stil und zuletzt eine Komposition aus
+              echtem Listing, Telefonrahmen und Zahlkarten. Der Kunde hat
+              zuletzt gesagt: lieber kein Effekt, dafuer ein Bild, das steht.
+              Also ein fotorealistisches Bild, ohne Bewegung, ohne Schraeglage,
+              ohne schwebende Karten. Die Schrift auf dem Telefon ist bewusst
+              nur ein Balken: aus einem Bildmodell kommt keine Schrift. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
-            <HeroBuehne />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/bilder/h-f2.webp"
+              alt="Ein Telefon zeigt eine Produktseite, darum herum die weiteren Bilder desselben Produkts."
+              width={1536}
+              height={1152}
+              className="w-full rounded-[1.75rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_40px_70px_-38px_rgba(13,36,57,0.45)]"
+            />
           </motion.div>
         </div>
       </div>
