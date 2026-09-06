@@ -19,22 +19,23 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
  *  niemand.
  * ============================================================ */
 
-/* Eigenes Beispielprodukt fuer diese Seite. Vorher lief hier dieselbe
-   Isolierflasche wie in den Designbeispielen der Startseite, in jeder der
-   sechs Kacheln. Ein Bild soll nur an einer Stelle vorkommen, und wenn
-   ueberall dasselbe Produkt steht, sieht die Sektion aus wie eine Kachel,
-   die sechsmal gedruckt wurde. */
-const B = {
-  haupt: "/bilder/c-haupt.webp",
-  detail: "/bilder/c-detail.webp",
-  szene: "/bilder/c-szene.webp",
-  gruppe: "/bilder/c-gruppe.webp",
-  material: "/bilder/c-material.webp",
-  offen: "/bilder/c-offen.webp",
-  raum: "/bilder/c-raum.webp",
-  aHero: "/bilder/ca-hero.webp",
-  aNutzen: "/bilder/ca-nutzen.webp",
-  aAnwendung: "/bilder/ca-anwendung.webp",
+/* Hier stand ein erfundenes Produkt aus dem Bildmodell: eine Isolierflasche
+   in zehn Ansichten. Auf einer Seite, die erklaert, was wir an einem Listing
+   machen, ist das die falsche Wahl. Jetzt steht dort ausgelieferte Arbeit,
+   das Listing fuer Miganeo: sieben Bilder und sechs Module Premium A+
+   Content, so wie sie auf Amazon stehen.
+
+   Es ist bewusst ueberall dasselbe Listing. Freigegeben liegt bislang nur
+   dieses eine vor, und die Kacheln zeigen ohnehin verschiedene Stellen
+   derselben Produktseite: erst der Treffer im Suchergebnis, dann die
+   Bildstrecke, dann der Teil darunter. Sobald weitere Listings vorliegen,
+   bekommt jede Kachel ein eigenes. */
+const M = {
+  haupt: "/bilder/miganeo/l-1.webp",
+  /* Die sechs weiteren Listingbilder in ihrer Reihenfolge. */
+  strecke: ["l-2", "l-3", "l-4", "l-5", "l-6", "l-7"].map((n) => `/bilder/miganeo/${n}.webp`),
+  /* Die ersten vier Module des Premium A+ Contents. */
+  aplus: ["a-1", "a-2", "a-3", "a-4"].map((n) => `/bilder/miganeo/${n}.webp`),
 };
 
 /* --- kleine Bausteine ------------------------------------------------- */
@@ -107,7 +108,7 @@ function SucheViz() {
               transition={unser ? { duration: 3.2, repeat: Infinity, ease: "easeInOut" } : undefined}
             >
               {unser ? (
-                <Bild src={B.haupt} className="aspect-square" />
+                <Bild src={M.haupt} className="aspect-square" />
               ) : (
                 <div className="aspect-square rounded-[0.6rem] bg-navy/[0.07]" />
               )}
@@ -128,16 +129,19 @@ function SucheViz() {
  * Der Aufbau, den jeder von Amazon kennt, ohne Amazon-Oberflaeche.
  */
 function ListingViz() {
-  const spalte = [B.detail, B.szene, B.gruppe, B.material, B.offen, B.raum];
   return (
+    /* `items-start`: das Hauptbild ist 4:5, die Spalte daneben sind sechs
+       Quadrate. Beide sind fast gleich hoch, aber nicht auf das Pixel; ohne
+       das zieht der Browser das kuerzere auf die Hoehe des laengeren und
+       verzerrt es. */
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
-      <div className="flex gap-2.5">
-        <div className="flex w-[13%] shrink-0 flex-col gap-1.5">
-          {spalte.map((s, i) => (
+      <div className="flex items-start gap-2.5">
+        <div className="flex w-[12%] shrink-0 flex-col gap-1.5">
+          {M.strecke.map((s, i) => (
             <Bild key={s} src={s} className={`aspect-square ${i === 0 ? "ring-2 ring-brand-500" : ""}`} fit="cover" />
           ))}
         </div>
-        <Bild src={B.haupt} className="aspect-square flex-1" />
+        <Bild src={M.haupt} className="aspect-[4/5] flex-1" />
         <div className="flex w-[30%] shrink-0 flex-col gap-2 pt-1">
           <Zeile w="100%" stark />
           <Zeile w="72%" stark />
@@ -161,55 +165,67 @@ function ListingViz() {
   );
 }
 
-/** A+ Content: liegende Module, vertikal gestapelt. Genau der Aufbau, den
- *  auch die Startseite zeigt. */
+/**
+ * A+ Content: die ersten vier Module, liegend und ohne Abstand untereinander.
+ *
+ * Vorher lagen hier drei Kaesten mit einem Bild links und nachgebauten
+ * Textzeilen rechts. Das ist ueberfluessig, seit hier echte Module stehen:
+ * die tragen ihre Ueberschriften und ihre Bilder selbst. Ohne Abstand, weil
+ * sie auf der Produktseite auch ineinander laufen.
+ */
 function APlusViz() {
-  const module: { src: string; links: boolean }[] = [
-    { src: B.aHero, links: true },
-    { src: B.aNutzen, links: false },
-    { src: B.szene, links: true },
-  ];
   return (
-    <div className="space-y-2.5 rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
-      {module.map((m, i) => (
-        <div key={m.src} className="flex items-center gap-2.5 rounded-[0.7rem] bg-[#F7F9FB] p-2">
-          {m.links && <Bild src={m.src} className="aspect-[16/9] w-[46%] shrink-0" fit="cover" />}
-          <div className="flex-1 space-y-1.5 px-1">
-            <Zeile w="64%" stark />
-            <Zeile w="100%" />
-            <Zeile w="88%" />
-            {i < 2 && <Zeile w="72%" />}
-          </div>
-          {!m.links && <Bild src={m.src} className="aspect-[16/9] w-[46%] shrink-0" fit="cover" />}
-        </div>
-      ))}
+    <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      {/* Feste Hoehe mit weichem Auslauf. Ein A+ Modul ist 2,4 mal so breit
+          wie hoch; vier davon untereinander sind hoeher als die beiden
+          Nachbarkacheln, und weil das Raster die Zeile auf die hoechste
+          Kachel zieht, stand unter den anderen beiden eine leere Flaeche.
+          Der Auslauf sagt ausserdem das Richtige: auf der Produktseite geht
+          es an dieser Stelle weiter. */}
+      <div className="relative h-[19rem] overflow-hidden rounded-[0.7rem]">
+        {M.aplus.map((src) => (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+        ))}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-20"
+          style={{ background: "linear-gradient(to top, #ffffff 12%, rgba(255,255,255,0))" }}
+        />
+      </div>
     </div>
   );
 }
 
-/** Brand Story: das breite Band ueber der Detailseite, Bild links, darunter
- *  die Kartenreihe, durch die gewischt wird. */
+/**
+ * Brand Story: das breite Band ueber der Detailseite, darunter die Kartenreihe,
+ * durch die gewischt wird.
+ *
+ * Eine freigegebene Brand Story liegt noch nicht vor. Der Aufbau ist deshalb
+ * mit Bildern aus demselben Listing gestellt: das Band traegt die
+ * Anwendungsaufnahme, die Karten stehen fuer die weiteren Artikel der Marke.
+ * Ueber die Karten laeuft eine Wischleiste, weil das die Stelle ist, an der
+ * ein Kaeufer von einem Produkt zum naechsten kommt.
+ */
 function BrandStoryViz() {
+  const karten = [M.strecke[1], M.strecke[3], M.strecke[4]];
   return (
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
-      <div className="relative overflow-hidden rounded-[0.7rem]">
-        <Bild src={B.aAnwendung} className="aspect-[16/7]" fit="cover" />
-        <div className="absolute inset-y-0 left-0 flex w-1/2 flex-col justify-center gap-1.5 bg-gradient-to-r from-white/95 to-white/0 p-3">
-          <span aria-hidden className="h-5 w-5 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
-          <Zeile w="82%" stark />
-          <Zeile w="60%" />
-        </div>
-      </div>
+      <Bild src={M.strecke[5]} className="aspect-[16/7] rounded-[0.7rem]" fit="cover" />
       <div className="mt-2.5 grid grid-cols-3 gap-2">
-        {[B.raum, B.material, B.offen].map((s) => (
-          <div key={s} className="rounded-[0.6rem] bg-[#F7F9FB] p-1.5">
-            <Bild src={s} className="aspect-[4/3]" fit="cover" />
-            <div className="mt-1.5 space-y-1 px-0.5">
-              <Zeile w="88%" />
-              <Zeile w="56%" />
-            </div>
-          </div>
+        {karten.map((s) => (
+          <Bild key={s} src={s} className="aspect-square rounded-[0.6rem]" fit="cover" />
         ))}
+      </div>
+      {/* Die Wischleiste unter der Kartenreihe. */}
+      <div className="mt-2.5 flex justify-center">
+        <span aria-hidden className="relative block h-1 w-16 overflow-hidden rounded-full bg-navy/10">
+          <motion.span
+            className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-brand-500"
+            animate={{ x: ["0%", "100%", "0%"] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </span>
       </div>
     </div>
   );

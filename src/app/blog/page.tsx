@@ -14,6 +14,36 @@ export const metadata: Metadata = {
     "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
 };
 
+/**
+ * Eine Themenfarbe auf das Navy der Themen-Sektion umrechnen.
+ *
+ * Mit Weiss mischen reicht nicht: zwei der acht Farben sind #023047 und
+ * #0B4D6B, und wer die so weit aufhellt, dass sie auf dunklem Grund zu sehen
+ * sind, bekommt ein Blaugrau ohne Farbe. Deshalb ueber HSL: der Farbton
+ * bleibt, die Helligkeit wird auf einen Wert gesetzt, der auf Navy traegt, und
+ * die Saettigung bekommt eine Untergrenze.
+ */
+function fuerDunkel(hex: string) {
+  const n = parseInt(hex.slice(1), 16);
+  const r = ((n >> 16) & 255) / 255;
+  const g = ((n >> 8) & 255) / 255;
+  const b = (n & 255) / 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0;
+  let sat = 0;
+  if (max !== min) {
+    const d = max - min;
+    sat = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    if (max === r) h = (g - b) / d + (g < b ? 6 : 0);
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+  }
+  return `hsl(${Math.round(h)} ${Math.round(Math.max(sat, 0.6) * 100)}% 64%)`;
+}
+
 export default function BlogPage() {
   const counts = categoryCounts();
   const featured = getFeaturedPosts(6);
@@ -33,39 +63,49 @@ export default function BlogPage() {
         />
 
         {/* Themen.
-            Vorher acht weisse Kacheln mit Icon, Ueberschrift, Beschreibungssatz
-            und einer Linkzeile. Acht Absaetze, bevor der erste Beitrag kommt.
-            Jetzt nur noch Icon, Thema und Anzahl: das Icon gross und in der
-            Themenfarbe, die Kachel selbst getoent. */}
-        <section className="relative ground pb-10 pt-4">
+            Drei Fassungen. Erst acht weisse Kacheln mit Icon, Ueberschrift,
+            Beschreibungssatz und einer Linkzeile: acht Absaetze, bevor der
+            erste Beitrag kommt. Dann nur noch Icon, Thema und Anzahl, aber
+            weiter auf hellem Grund. Damit lagen drei helle Flaechen
+            uebereinander, Kopf, Themen und empfohlene Beitraege, und die
+            Sektion hatte weder oben noch unten eine Kante.
+
+            Jetzt Navy. Die Themenfarben werden dafuer mit Weiss aufgehellt:
+            zwei der acht sind dunkelblau und dunkles Petrol, die waeren auf
+            Navy nicht zu sehen. Rot waere der staerkere Kontrast, ist hier
+            aber falsch: Rot ist auf dieser Website die Farbe fuer Probleme. */}
+        <section className="on-dark ground-deep relative py-14 md:py-16">
           <div className="container-x">
             <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
-              {categories.map((c) => (
-                <RevealItem key={c.slug} className="h-full">
-                  <a
-                    href={`/blog/kategorie/${c.slug}`}
-                    className="panel panel-lift group relative flex h-full items-center gap-4 overflow-hidden p-5"
-                  >
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-0 bottom-0 h-1 opacity-80"
-                      style={{ background: c.accent }}
-                    />
-                    <span
-                      className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.1rem] transition-transform duration-300 group-hover:scale-105"
-                      style={{ color: c.accent, background: `${c.accent}18` }}
+              {categories.map((c) => {
+                const farbe = fuerDunkel(c.accent);
+                return (
+                  <RevealItem key={c.slug} className="h-full">
+                    <a
+                      href={`/blog/kategorie/${c.slug}`}
+                      className="panel-dark group relative flex h-full items-center gap-4 overflow-hidden p-5 transition-transform duration-300 ease-temoa hover:-translate-y-1"
                     >
-                      <Icon name={c.icon} size={30} />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-[1.02rem] font-bold leading-snug text-ink">{c.label}</span>
-                      <span className="mt-1 block text-small text-ink-faint">
-                        {counts[c.slug] === 1 ? "1 Beitrag" : `${counts[c.slug] ?? 0} Beiträge`}
+                      <span
+                        aria-hidden
+                        className="absolute inset-x-0 bottom-0 h-1 opacity-90"
+                        style={{ background: farbe }}
+                      />
+                      <span
+                        className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.1rem] transition-transform duration-300 group-hover:scale-105"
+                        style={{ color: farbe, background: farbe.replace("hsl(", "hsla(").replace(")", " / 0.15)") }}
+                      >
+                        <Icon name={c.icon} size={30} />
                       </span>
-                    </span>
-                  </a>
-                </RevealItem>
-              ))}
+                      <span className="min-w-0">
+                        <span className="block text-[1.02rem] font-bold leading-snug text-white">{c.label}</span>
+                        <span className="mt-1 block text-small text-chalk-muted">
+                          {counts[c.slug] === 1 ? "1 Beitrag" : `${counts[c.slug] ?? 0} Beiträge`}
+                        </span>
+                      </span>
+                    </a>
+                  </RevealItem>
+                );
+              })}
             </RevealGroup>
           </div>
         </section>

@@ -12,7 +12,7 @@ import { testimonials } from "@/lib/testimonials";
 export const metadata: Metadata = {
   title: "Case Studies · temoa",
   description:
-    "Fünf Amazon-Konten mit Ausgangslage, Vorgehen und Ergebnis: profitables Wachstum, weniger PPC-Abhängigkeit, ein Launch von null und vier Marktplätze parallel.",
+    "Fünf Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut und vier Marktplätze parallel.",
 };
 
 /**
@@ -89,10 +89,14 @@ export default function ErgebnissePage() {
           eyebrow="Case Studies"
           title={
             <>
-              Fünf Konten, <span className="text-gradient">vollständig nachgerechnet.</span>
+              Fünf Marken, die <span className="text-gradient">profitabel gewachsen sind.</span>
             </>
           }
-          description="Ausgangslage, Vorgehen und Ergebnis je Marke, mit Zeitraum und den Zahlen aus dem Konto. Auch dort, wo es zwischendurch nicht rund lief."
+          /* Vorher: „Fünf Konten, vollständig nachgerechnet." Nachrechnen ist
+             das, was ein Steuerberater tut, und es sagt nichts darüber, was
+             passiert ist. Der Untertitel sagt jetzt, was wir erreicht haben,
+             statt darauf hinzuweisen, wo es nicht rund lief. */
+          description="Marken aus verschiedenen Kategorien. Wir haben ihren Umsatz profitabel ausgebaut, neue Produkte eingeführt und weitere Länder erschlossen. Je Fall mit Zeitraum und den Zahlen aus dem Konto."
         />
         <Stats tone="white" />
         <ProofStrip tone="blue" bare />

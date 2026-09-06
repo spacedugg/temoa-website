@@ -459,11 +459,11 @@ const onboarding: { schritt: string; title: string; body: string; icon: IconName
   {
     schritt: "Woche 1",
     title: "Die Analyse",
-    body: "Wir rechnen jedes Produkt durch und legen die Reihenfolge fest. Ihr bekommt sie als Fahrplan, nicht als Datei.",
+    body: "Wir rechnen jedes Produkt durch und legen die Reihenfolge fest. Je nach Größe des Sortiments dauert das bis zu zwei Wochen. Ihr bekommt das Ergebnis als Fahrplan, nicht als Datei.",
     icon: "bericht",
   },
   {
-    schritt: "Woche 2",
+    schritt: "Woche 2 bis 3",
     title: "Die Arbeit läuft",
     body: "Content-Sprint für die ersten Artikel, Kampagnen werden umgebaut. Ab hier seht ihr jede Woche, was passiert ist.",
     icon: "ziel",
@@ -474,9 +474,9 @@ export function Onboarding() {
   const reduce = useReducedMotion();
 
   return (
-    <Station label="Die ersten zwei Wochen" tone="dark">
+    <Station label="Die ersten drei Wochen" tone="dark">
       <StationTitle>
-        Vom Gespräch bis <span className="em text-brand-400">zur ersten Änderung.</span>
+        Vom Gespräch bis <span className="em text-brand-400">zur ersten Optimierung.</span>
       </StationTitle>
       <StationLead tone="dark">
         Kein Kickoff-Workshop über drei Tage. Ihr gebt uns Zugang, wir fangen an.

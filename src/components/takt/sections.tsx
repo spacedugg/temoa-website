@@ -17,16 +17,23 @@ import { testimonials, initials } from "@/lib/testimonials";
    Logos und die beiden verbliebenen Kennzahlen.
    ============================================================ */
 
-/* Zwei der vierzehn Logos sind „Knockout": der Schriftzug ist in eine
-   gefuellte Flaeche gestanzt, das Bild ist also fast durchgehend deckend. Als
-   weisse Silhouette wird daraus ein weisser Klecks. Diese beiden bleiben in
-   ihrer Farbe, sie sind ohnehin hell auf dunkel. Alle anderen sind dunkle
-   Schriftzuege auf transparentem Grund und werden zu weissen Silhouetten. */
+/* Alle vierzehn Logos stehen als weisse Silhouetten auf dem Navy. Zwoelf sind
+   dunkle Schriftzuege auf transparentem Grund, bei denen `brightness-0 invert`
+   genau das ergibt.
+
+   Zwei sind „Knockout": der Schriftzug steht weiss in einer gefuellten
+   farbigen Flaeche (Kijimea in einem Rechteck, Nicotinell in einer Ellipse).
+   Dasselbe Rezept macht daraus einen weissen Klecks, und in ihrer eigenen
+   Farbe stehen zu lassen ist auch keine Loesung: dann sind zwei von vierzehn
+   blau. `scripts/logos-knockout.mjs` dreht sie um, die Helligkeit wird zur
+   Deckkraft, und liefert `1-weiss.webp` und `2-weiss.webp`. Die kommen fertig
+   weiss aus der Datei und brauchen keinen Filter. */
 const KNOCKOUT = new Set([1, 2]);
-const logos = Array.from({ length: 14 }, (_, i) => ({
-  src: `/clients/${i + 1}.webp`,
-  knockout: KNOCKOUT.has(i + 1),
-}));
+const logos = Array.from({ length: 14 }, (_, i) => {
+  const n = i + 1;
+  const knockout = KNOCKOUT.has(n);
+  return { src: `/clients/${knockout ? `${n}-weiss` : n}.webp`, knockout };
+});
 const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
 
 type Logo = (typeof logos)[number];
@@ -51,7 +58,7 @@ function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; re
             key={`${l.src}-${i}`}
             className={clsx(
               "relative h-9 w-28 shrink-0 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
-              l.knockout ? "opacity-90" : "opacity-70 brightness-0 invert"
+              l.knockout ? "opacity-70" : "opacity-70 brightness-0 invert"
             )}
           >
             <Image src={l.src} alt="" fill sizes="128px" className="object-contain" />
@@ -70,7 +77,7 @@ function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; re
  * Der letzte Fehler war der schwerste: Hero und Kundenband gingen ineinander
  * ueber, der Hero hatte damit keine Unterkante. Jetzt traegt das Band Navy.
  * Damit endet der Hero sichtbar, und die Logos stehen als weisse Silhouetten
- * darauf.
+ * darauf, alle vierzehn im selben Ton.
  *
  * Rot waere der noch staerkere Kontrast, ist hier aber falsch: Rot ist auf
  * dieser Website die Farbe fuer Probleme, und das hier sind die Kunden.

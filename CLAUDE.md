@@ -694,3 +694,55 @@ Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
   kurze Sektion auf der Startseite bleibt, sie zeigt jetzt nur noch
   Ueberschrift, Absatz und das Bild der Gruender. Die Portraits unter
   `public/team` bleiben liegen, Clemens wird im Abschluss-CTA gebraucht.
+
+## Achtzehnte Feedbackrunde (verbindlich)
+
+- **Alle vierzehn Kundenlogos stehen im selben Ton.** Zwei Dateien sind
+  „Knockout": der Schriftzug steht weiss in einer gefuellten farbigen Flaeche
+  (Kijimea in einem Rechteck, Nicotinell in einer Ellipse). Als weisse
+  Silhouette werden sie zu einem Klecks, in ihrer eigenen Farbe sind zwei von
+  vierzehn blau. `node scripts/logos-knockout.mjs` dreht sie um: die Helligkeit
+  wird zur Deckkraft, die Farbe faellt weg, uebrig bleibt der weisse
+  Schriftzug. Bei Nicotinell gatet zusaetzlich die Deckkraft der Quelle den
+  weissen Schein um die Ellipse weg, sonst steht dort ein grauer Nebel.
+- **Kleine Haken sind weiss, nie orange.** Ein oranges Zeichen in einem Kreis
+  von 20 Pixeln auf Navy ist nur ein Fleck, die Form ist nicht mehr zu
+  erkennen. Betroffen waren die Leistungslisten in `service/Blocks`
+  (`Lieferung`), die Bruecke derselben Datei und die beiden Zusagen im
+  Abschluss-CTA. Orange bleibt Akzent auf Flaechen, Ringen und Kanten.
+- **Account Management ist kein vierter Schritt.** In `takt/Zusammenlauf`
+  standen fuenf gleich grosse Kacheln nebeneinander, Account Management an
+  vierter Stelle. Die anderen vier sind Arbeiten mit Anfang und Ende, das
+  Account Management laeuft vom ersten Tag bis zum letzten. Es steht deshalb
+  als durchgehendes Band unter den vier Kacheln, mit einem Strich, der von
+  links nach rechts durchlaeuft.
+- **Der Ablauf der ersten Wochen ist korrigiert.** Ueberschrift „Vom Gespräch
+  bis zur ersten Optimierung.", Bezeichnung „Die ersten drei Wochen". Die
+  Analyse dauert je nach Sortiment bis zu zwei Wochen, die Arbeit laeuft
+  ab Woche 2 bis 3.
+- **In der Content-Sektion der Seite Produktbilder & SEO steht echte Arbeit.**
+  Das erfundene Produkt aus dem Bildmodell ist raus, es zeigt das Listing fuer
+  Miganeo: Hauptbild im Suchergebnis, die sieben Bilder in der Bildstrecke, die
+  ersten Module Premium A+ Content und der Aufbau der Brand Story. Mit dem
+  Produkt sind die sechzehn nicht mehr benutzten Bilder gefallen (`c-*`,
+  `ca-*`, `h-haupt`, `h-detail`, `h-gruppe`, `h-szene`, `h-wachstum`, `b-02`,
+  `s-international-globus`).
+- **Vier A+ Module untereinander sind hoeher als eine Nachbarkachel.** Ein
+  Modul ist 2,4 mal so breit wie hoch; das Raster zieht die Zeile auf die
+  hoechste Kachel, und unter den beiden anderen stand eine leere Flaeche. Die
+  Kachel hat deshalb eine feste Hoehe mit weichem Auslauf nach unten. Das sagt
+  ausserdem das Richtige: auf der Produktseite geht es dort weiter.
+- **Die Case-Studies-Seite sagt, was passiert ist.** „Fünf Konten, vollständig
+  nachgerechnet." ist raus: nachrechnen ist, was ein Steuerberater tut, und es
+  sagt nichts ueber das Ergebnis. Jetzt „Fünf Marken, die profitabel gewachsen
+  sind." Der Untertitel nennt Umsatz, neue Produkte und weitere Laender und
+  weist nicht mehr darauf hin, wo es nicht rund lief.
+- **Die Themen-Sektion des Blogs traegt Navy.** Kopf, Themen und empfohlene
+  Beitraege lagen als drei helle Flaechen uebereinander, die Sektion hatte
+  weder oben noch unten eine Kante. Die acht Themenfarben werden dafuer ueber
+  HSL umgerechnet und nicht mit Weiss gemischt: zwei davon sind #023047 und
+  #0B4D6B, aufgehellt waeren sie ein Blaugrau ohne Farbe. Der Farbton bleibt,
+  die Helligkeit geht auf 64 Prozent, die Saettigung hat eine Untergrenze.
+- **Weiche Trennzeichen statt `hyphens: auto`** in sehr schmalen Kacheln.
+  In `Zusammenlauf` sind die Kacheln auf dem Telefon rund achtzig Pixel breit;
+  dort stand „Produktbil" ueber „der", ohne Bindestrich.

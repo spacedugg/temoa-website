@@ -4,21 +4,30 @@ import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 
 /* ============================================================
-   Zusammenlauf: fuenf Bereiche, eine Quelle.
+   Zusammenlauf: eine Auswertung, vier Bereiche, ein Fundament.
 
    Stand vorher als leeres Bildfeld auf der Full-Service-Seite. Ein
    generiertes Bild ginge auch, aber die Aussage ist ein Zusammenhang, und
-   Zusammenhaenge zeichnet dieses Theme, statt sie zu bebildern. Dazu
-   bewegt sich hier etwas: die Verbindungen leuchten nacheinander auf.
+   Zusammenhaenge zeichnet dieses Theme, statt sie zu bebildern.
+
+   Zweite Fassung. Vorher hingen alle fuenf Bereiche als gleich grosse
+   Kacheln nebeneinander, Account Management an vierter Stelle. Das ist
+   falsch: die anderen vier sind Arbeiten mit Anfang und Ende, das Account
+   Management laeuft vom ersten Tag bis zum letzten durch. Es steht deshalb
+   als durchgehendes Band unter den vier Kacheln und nicht mehr neben ihnen.
 
    Bei prefers-reduced-motion steht alles sofort im Endzustand.
    ============================================================ */
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-/* "Märkte" war unklar. Gemeint sind weitere Amazon-Laender, deshalb steht
-   dort jetzt das Wort, das der Bereich auf der Seite auch traegt. */
-const bereiche = ["Strategie", "Produktbilder", "PPC", "Account", "Länder"];
+/* Vier Bereiche mit Anfang und Ende. „Märkte" war unklar, gemeint sind
+   weitere Amazon-Laender. Kurzformen, weil die Kacheln rund achtzig Pixel
+   breit sind; der fuenfte Bereich traegt unten seinen vollen Namen. */
+/* Weiches Trennzeichen in „Produktbilder": auf dem Telefon sind die
+   Kacheln rund achtzig Pixel breit, dort bricht das Wort. Ohne das
+   Zeichen steht „Produktbil" und „der" untereinander, ohne Bindestrich. */
+const bereiche = ["Strategie", "Produkt\u00ADbilder", "PPC", "Länder"];
 
 /** Die kleinen Balken im Kopf der Platte. Anteile, keine Werte. */
 const balken = [0.34, 0.42, 0.38, 0.55, 0.62, 0.58, 0.74, 0.88];
@@ -63,7 +72,7 @@ export function Zusammenlauf() {
       </div>
 
       {/* Die Verbindungen: leuchten nacheinander auf, von der Quelle nach unten */}
-      <div className="relative mt-1 grid grid-cols-5 gap-2">
+      <div className="relative mt-1 grid grid-cols-4 gap-2">
         {bereiche.map((_, i) => (
           <div key={i} className="flex justify-center">
             <motion.span
@@ -78,8 +87,8 @@ export function Zusammenlauf() {
         ))}
       </div>
 
-      {/* Die fuenf Bereiche */}
-      <div className="relative grid grid-cols-5 gap-2">
+      {/* Die vier Bereiche mit Anfang und Ende */}
+      <div className="relative grid grid-cols-4 gap-2">
         {bereiche.map((b, i) => (
           <motion.div
             key={b}
@@ -93,6 +102,45 @@ export function Zusammenlauf() {
         ))}
       </div>
 
+      {/* Das Fundament: laeuft unter allen vieren durch, vom ersten Tag an.
+          Deshalb eine durchgehende Flaeche ueber die volle Breite und keine
+          fuenfte Kachel: eine Kachel neben den anderen sagt „danach kommt
+          noch das", und genau das stimmt nicht. */}
+      <motion.div
+        className="relative mt-2.5 flex items-center justify-between gap-3 overflow-hidden rounded-[0.9rem] px-3.5 py-3"
+        style={{ background: "linear-gradient(100deg, #0D2439 0%, #17405F 100%)" }}
+        initial={reduce ? undefined : { opacity: 0, y: 8 }}
+        animate={zeigen ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 1.2, ease: EASE }}
+      >
+        {/* Ein Strich, der von links nach rechts durchlaeuft: das Band hat
+            keinen Anfang und kein Ende in der Grafik. */}
+        <motion.span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left"
+          style={{ background: "linear-gradient(90deg, rgba(255,153,0,0), #FF9900 30%, #FF9900 70%, rgba(255,153,0,0))" }}
+          initial={reduce ? undefined : { scaleX: 0 }}
+          animate={zeigen ? { scaleX: 1 } : {}}
+          transition={{ duration: 0.9, delay: 1.35, ease: EASE }}
+        />
+        <span className="min-w-0">
+          <span className="block text-[0.72rem] font-bold leading-tight text-white">Account Management</span>
+          <span className="mt-0.5 block text-[0.62rem] font-bold uppercase tracking-[0.1em] text-chalk-muted">
+            Jeden Tag, vom ersten bis zum letzten
+          </span>
+        </span>
+        <span aria-hidden className="shrink-0 text-brand-400">
+          <svg width="34" height="10" viewBox="0 0 34 10" fill="none">
+            <path
+              d="M1 5h28m0 0l-4-3.5M29 5l-4 3.5"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+      </motion.div>
     </div>
   );
 }

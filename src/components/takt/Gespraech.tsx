@@ -151,15 +151,17 @@ export function Gespraech({
                   <span
                     aria-hidden
                     className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full"
-                    /* Die Scheibe bleibt gedämpft, der Haken ist das Helle
-                       darauf. Umgekehrt liest sich ein Haken als dunkles
-                       Zeichen auf oranger Fläche. */
+                    /* Die Scheibe bleibt gedämpft, der Haken ist weiß
+                       darauf. Ein oranger Haken in einem Kreis von 20 Pixeln
+                       ist auf dunklem Grund nur ein Fleck; ein dunkler wäre
+                       ein dunkles Zeichen auf oranger Fläche. Weiß ist das
+                       Einzige, was hier trägt. */
                     style={{ background: "rgba(255,153,0,0.13)" }}
                   >
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
                       <path
                         d="M4 12.5l5.5 5.5L20 7"
-                        stroke="#FFB65C"
+                        stroke="#ffffff"
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
