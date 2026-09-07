@@ -935,12 +935,19 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
 - **Hauptbildvarianten sind eine eigene Reihe.** Fuer ein Produkt entstehen
   mehrere Hauptbilder, welches bleibt, entscheidet die Klickrate. Das ist eine
   Aussage ueber die Arbeitsweise und geht in einem Listing-Raster unter.
-- **A+ Module werden auf einer Modulkante abgeschnitten**, nicht auf einer
-  festen Hoehe in rem. Die Hoehe kommt aus dem Seitenverhaeltnis eines Moduls
-  (`aspect-ratio`, Amazon liefert 2,44 zu 1). Vorher lag der Schnitt mitten in
-  einer Zeile Schrift und sah aus wie ein Fehler, und der weisse Auslauf
-  darunter war auf weissen Modulen ohnehin nicht zu sehen. Ein Knopf macht den
-  Rahmen auf.
+- **A+ Module stehen vollstaendig da.** Kein Rahmen mit begrenzter Hoehe, kein
+  Knopf, der ihn aufmacht: der Kunde will den Content sehen. Zwei Vorfassungen
+  hatten einen Deckel, erst auf einer festen Hoehe in rem (Schnitt mitten in
+  einer Zeile Schrift, sah aus wie ein Fehler), dann auf einer Modulkante
+  gerechnet. Beide sind raus.
+- **In die Reihe der A+ Module gehoert je Modul genau eine Bahn.** Kommen
+  mehrere Fassungen desselben Moduls (dieselbe Aufnahme, andere Aussage), darf
+  nur eine davon hinein. Bei Vitaworld lagen vier solche Fassungen in der
+  Lieferung; untereinander gestapelt stand dort viermal dieselbe Flasche, und
+  das liest sich als Fehler.
+- **Die Hauptbildvarianten stehen in der linken Spalte** unter dem Listing,
+  nicht als eigene Reihe darunter. Die A+ Spalte ist offen deutlich hoeher als
+  das Listing, sonst bliebe darunter eine leere Flaeche.
 - **Die Breite des Bildstreifens ist gerechnet, nicht geschaetzt.** Bei fuenf
   Bildern 15 Prozent, bei sechs 13: `min(17, 92 / (Anzahl + 1))`. Sonst steht
   der Streifen unter dem quadratischen Hauptbild hinaus.

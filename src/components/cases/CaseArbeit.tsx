@@ -19,10 +19,10 @@ import { Reveal } from "../ui/Reveal";
    2. Die Hauptbildvarianten. Fuer ein Produkt entstehen mehrere Hauptbilder,
       welches bleibt, entscheidet die Klickrate. Das ist eine Aussage ueber die
       Arbeitsweise und braucht deshalb eine eigene Reihe.
-   3. Die A+ Module. Sie sind 2,44 mal so breit wie hoch; sechs davon
-      untereinander sind hoeher als der ganze Rest der Sektion. Deshalb ein
-      Rahmen, der genau zwei Module hoch ist, dazu ein Knopf, der ihn
-      aufmacht.
+   3. Die A+ Module. Sie stehen vollstaendig da, ohne Rahmen mit begrenzter
+      Hoehe und ohne Knopf: der Kunde will den Content sehen. Ohne Abstand
+      untereinander, wie auf der Produktseite, sonst reissen die Module mitten
+      im Bild auseinander.
 
    Kein Bild zweimal: welche Datei welche Rolle hat, steht in `lib/cases.ts`
    und in `scripts/case-arbeit-bilder.mjs`. Eine Komponente soll nicht raten
@@ -97,64 +97,43 @@ function Teil({ label, titel, hinweis }: { label: string; titel: string; hinweis
 }
 
 /**
- * Die A+ Module in einem Rahmen mit begrenzter Hoehe.
+ * Die A+ Module, vollstaendig und ohne Abstand untereinander.
  *
- * Der Rahmen ist genau zwei Module hoch, gerechnet aus dem Seitenverhaeltnis
- * eines Moduls (`aspect-ratio`), damit der Schnitt auf einer Modulkante sitzt.
- * Vorher stand dort eine feste Hoehe in rem: der Schnitt lag mitten in einer
- * Zeile Schrift und sah aus wie ein Fehler, und der weisse Auslauf darunter
- * war auf weissen Modulen ohnehin nicht zu sehen.
+ * Zwei Vorfassungen hatten einen Rahmen mit begrenzter Hoehe und einen Knopf
+ * darunter. Beide sind raus: der Schnitt lag mitten in einer Bahn und sah aus
+ * wie ein Fehler, und ein Knopf zwischen dem Besucher und der Arbeit hat
+ * keinen Zweck.
  *
- * Ohne Abstand untereinander, wie auf der Produktseite: mit Luft dazwischen
- * reissen die Module mitten im Bild auseinander.
+ * Ohne Luft zwischen den Bahnen, wie auf der Produktseite: die Grafiken laufen
+ * ineinander, mit Abstand reisst sie mitten im Bild auseinander.
  */
-function APlus({
-  module: bahnen,
-  verhaeltnis,
-  offen,
-  aufmachen,
-}: {
-  module: string[];
-  verhaeltnis: number;
-  offen: boolean;
-  aufmachen: () => void;
-}) {
-  const sichtbar = Math.min(2, bahnen.length);
+function APlus({ module: bahnen }: { module: string[] }) {
   return (
-    <div>
-      <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
-        <div
-          className="overflow-hidden rounded-[0.7rem]"
-          style={offen ? undefined : { aspectRatio: `${verhaeltnis} / ${sichtbar}` }}
-        >
-          {bahnen.map((src) => (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
-          ))}
-        </div>
+    <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
+      <div className="overflow-hidden rounded-[0.7rem]">
+        {bahnen.map((src) => (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+        ))}
       </div>
-      {!offen && bahnen.length > sichtbar && (
-        <button type="button" onClick={aufmachen} className="btn-text mt-3">
-          Alle {bahnen.length} Module zeigen
-        </button>
-      )}
     </div>
   );
 }
 
 export function CaseArbeitView({ c }: { c: CaseStudy }) {
   const [gross, setGross] = useState<string | null>(null);
-  const [aplusOffen, setAplusOffen] = useState(false);
   const arbeit = c.arbeit;
   if (!arbeit) return null;
   const { listing, varianten, aplus } = arbeit;
 
   return (
-    <div className="mx-auto mt-6 max-w-5xl space-y-8">
-      {/* Listing links, A+ Module rechts: beide zeigen dieselbe Produktseite,
-          einmal oben und einmal unter den Bullets. */}
-      {(listing || aplus) && (
-        <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
+    <div className="mx-auto mt-6 max-w-5xl">
+      {/* Links das Listing und darunter die Hauptbildvarianten, rechts die A+
+          Module in voller Laenge. Die Varianten stehen in der linken Spalte,
+          weil die A+ Spalte offen deutlich hoeher ist als das Listing: sonst
+          bliebe darunter eine leere Flaeche. */}
+      <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
+        <div className="space-y-7">
           {listing && (
             <Reveal>
               <div>
@@ -183,38 +162,33 @@ export function CaseArbeitView({ c }: { c: CaseStudy }) {
             </Reveal>
           )}
 
-          {aplus && (
-            <Reveal delay={0.08}>
-              <div>
-                <Teil label={aplus.titel} titel={`${aplus.module.length} Module`} hinweis={aplus.hinweis} />
-                <div className="mt-4">
-                  <APlus
-                    module={aplus.module}
-                    verhaeltnis={aplus.verhaeltnis ?? 2.44}
-                    offen={aplusOffen}
-                    aufmachen={() => setAplusOffen(true)}
-                  />
+          {/* Die Hauptbildvarianten sagen etwas ueber die Arbeitsweise, nicht
+              ueber das Produkt, und stehen deshalb in einer eigenen Flaeche. */}
+          {varianten && varianten.bilder.length > 0 && (
+            <Reveal delay={0.1}>
+              <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
+                <Teil label="Hauptbild" titel={varianten.titel} hinweis={varianten.hinweis} />
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  {varianten.bilder.map((src) => (
+                    <Kachel key={src} src={src} onClick={() => setGross(src)} className="aspect-square" />
+                  ))}
                 </div>
               </div>
             </Reveal>
           )}
         </div>
-      )}
 
-      {/* Die Hauptbildvarianten in einer Reihe. Sie sagen etwas ueber die
-          Arbeitsweise, nicht ueber das Produkt, und stehen deshalb fuer sich. */}
-      {varianten && varianten.bilder.length > 0 && (
-        <Reveal delay={0.1}>
-          <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)] md:p-6">
-            <Teil label="Hauptbild" titel={varianten.titel} hinweis={varianten.hinweis} />
-            <div className="mt-4 grid grid-cols-3 gap-3">
-              {varianten.bilder.map((src) => (
-                <Kachel key={src} src={src} onClick={() => setGross(src)} className="aspect-square" />
-              ))}
+        {aplus && (
+          <Reveal delay={0.08}>
+            <div>
+              <Teil label={aplus.titel} titel={`${aplus.module.length} Module`} hinweis={aplus.hinweis} />
+              <div className="mt-4">
+                <APlus module={aplus.module} />
+              </div>
             </div>
-          </div>
-        </Reveal>
-      )}
+          </Reveal>
+        )}
+      </div>
 
       {gross && <Lupe src={gross} onClose={() => setGross(null)} />}
     </div>

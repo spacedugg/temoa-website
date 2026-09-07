@@ -67,13 +67,15 @@ export type CaseArbeit = {
   /** Hauptbildvarianten desselben Produkts, aus denen nach Leistung gewaehlt wird. */
   varianten?: { titel: string; hinweis: string; bilder: string[] };
   /**
-   * A+ oder Premium A+ Module, liegende Bahnen von oben nach unten.
+   * A+ oder Premium A+ Module, liegende Bahnen von oben nach unten. Sie stehen
+   * immer vollstaendig da, ohne Rahmen mit begrenzter Hoehe: der Kunde will
+   * den Content sehen, nicht einen Knopf, der ihn aufmacht.
    *
-   * `verhaeltnis` ist Breite zu Hoehe eines Moduls. Die Darstellung schneidet
-   * den Rahmen damit auf einer Modulkante ab, statt mitten in einer Zeile.
-   * Amazon liefert die Module in 2,44 zu 1, das ist der Standardwert.
+   * Hier gehoert je Modul genau eine Bahn hinein. Kommen mehrere Fassungen
+   * desselben Moduls (dieselbe Aufnahme, andere Aussage), darf nur eine davon
+   * in die Reihe: untereinander gestapelt liest sich das als Doppelung.
    */
-  aplus?: { titel: string; hinweis: string; module: string[]; verhaeltnis?: number };
+  aplus?: { titel: string; hinweis: string; module: string[] };
 };
 
 export type CaseStudy = {
@@ -303,10 +305,14 @@ export const cases: CaseStudy[] = [
         haupt: "/case_studies/vitaworld/l-haupt.webp",
         strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/l-${n}.webp`),
       },
+      /* Die Lieferung enthielt sieben Dateien, davon vier (2a bis 2d) dieselbe
+         Aufnahme mit vier verschiedenen Aussagen. Untereinander gestapelt sah
+         das aus wie ein Fehler: viermal dieselbe Flasche. In der Reihe steht
+         deshalb eine davon. */
       aplus: {
         titel: "Premium A+ Content",
-        hinweis: "Sieben Module für Taurin 850 mg. Derselbe Aufbau läuft über die weiteren Artikel.",
-        module: [1, 2, 3, 4, 5, 6, 7].map((n) => `/case_studies/vitaworld/aplus-${n}.webp`),
+        hinweis: "Der Aufbau für Taurin 850 mg. Dieselbe Vorlage läuft über die weiteren Artikel.",
+        module: [1, 2, 6, 7].map((n) => `/case_studies/vitaworld/aplus-${n}.webp`),
       },
     },
     anonymized: false,
