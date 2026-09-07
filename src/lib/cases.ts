@@ -23,22 +23,6 @@ export type ChartPoint = {
 export type CaseBadge = { label: string; icon: "trophy" | "award" | "shield" };
 
 /**
- * Ausgelieferte Listings als Bildstrecke: ein grosses Hauptbild, die weiteren
- * Bilder kleiner daneben, so wie sie auf der Produktseite stehen. `zweiter`
- * traegt eine zweite Groesse desselben Produkts.
- *
- * Das ersetzt das frueher gleichmaessige Raster aus `images`: darin sahen alle
- * Bilder gleich wichtig aus, und ein Hauptbild ist nicht dasselbe wie ein
- * Bild aus der Strecke.
- */
-export type CaseListing = {
-  titel: string;
-  haupt: string;
-  strecke: string[];
-  zweiter?: { titel: string; haupt: string; strecke: string[] };
-};
-
-/**
  * Die Kennzahlen, an denen sich Amazon-Arbeit messen laesst: Klickrate,
  * Conversion Rate, ACoS, TACoS. Sie stehen in einem eigenen Band, mit dem
  * Kuerzel zuerst und dem Wert danach, weil ein Besucher aus dieser Branche
@@ -61,13 +45,44 @@ export type CaseMetric = {
   trend: Trend;
 };
 
+/**
+ * Ein ausgeliefertes Listing: das Hauptbild, das im Suchergebnis steht, und
+ * die weiteren Bilder in ihrer Reihenfolge auf der Produktseite.
+ */
+export type CaseListing = { titel: string; haupt: string; strecke: string[] };
+
+/**
+ * Die ausgelieferte Arbeit eines Falls.
+ *
+ * Jede Marke liefert anderes Material: bei einer gibt es drei
+ * Hauptbildvarianten zu einem Produkt, bei der naechsten ein Hauptbild je
+ * Bundle-Groesse, bei der dritten sieben A+ Module. Deshalb ist jeder Teil
+ * einzeln zu haben und die Darstellung laesst weg, was fehlt.
+ *
+ * Fuer die anonymisierte Marke aus Gartenzubehoer bleibt das Feld leer: Bilder
+ * wuerden die Marke verraten.
+ */
+export type CaseArbeit = {
+  listing?: CaseListing;
+  /** Hauptbildvarianten desselben Produkts, aus denen nach Leistung gewaehlt wird. */
+  varianten?: { titel: string; hinweis: string; bilder: string[] };
+  /**
+   * A+ oder Premium A+ Module, liegende Bahnen von oben nach unten.
+   *
+   * `verhaeltnis` ist Breite zu Hoehe eines Moduls. Die Darstellung schneidet
+   * den Rahmen damit auf einer Modulkante ab, statt mitten in einer Zeile.
+   * Amazon liefert die Module in 2,44 zu 1, das ist der Standardwert.
+   */
+  aplus?: { titel: string; hinweis: string; module: string[]; verhaeltnis?: number };
+};
+
 export type CaseStudy = {
   slug: string;
   displayName: string;
   mono: string; // short brand monogram for the logo badge
   bgImage?: string; // case preview background image
   images?: string[]; // optional extra images shown on the case detail page
-  listing?: CaseListing; // ausgeliefertes Listing, oben auf der Fallseite
+  arbeit?: CaseArbeit; // ausgelieferte Arbeit, oben auf der Fallseite
   logo?: string; // brand logo for the preview (omitted for anonymised brands)
   anonymized: boolean;
   industry: string;
@@ -179,17 +194,29 @@ export const cases: CaseStudy[] = [
     mono: "B",
     bgImage: "/case_studies/bachgold.webp",
     logo: "/case_studies/bachgold-logo.webp",
-    /* Die neun Dateien sind zwei Listings, nicht neun Bilder. Bild 8 ist die
-       gleiche Aufnahme wie Bild 2 mit der schwarzen Flasche, es faellt weg:
-       dasselbe Bild zweimal auf einer Seite ist ein Fehler, kein Beleg. */
-    listing: {
-      titel: "500 ml",
-      haupt: "/case_studies/bachgold/1.webp",
-      strecke: [2, 3, 4, 5, 6].map((n) => `/case_studies/bachgold/${n}.webp`),
-      zweiter: {
-        titel: "800 ml",
-        haupt: "/case_studies/bachgold/7.webp",
-        strecke: ["/case_studies/bachgold/9.webp"],
+    /* Nur die vom Kunden gelieferten Dateien in voller Aufloesung. Die neun
+       Bilder, die vorher aus dem PDF der Fallstudie geholt waren, sind
+       geloescht: drei davon sind dieselben Aufnahmen wie hier, nur 600 Pixel
+       gross, und dasselbe Bild zweimal auf einer Seite ist ein Fehler.
+
+       Gezeigt wird deshalb die XL-Groesse. Dass es die 500-ml-Variante mit
+       eigenem Content gibt, steht als Angabe unter den Kennzahlen. */
+    arbeit: {
+      listing: {
+        titel: "Wasserfilter XL, 800 ml",
+        haupt: "/case_studies/bachgold/l-haupt.webp",
+        strecke: [1, 2, 3, 4, 5].map((n) => `/case_studies/bachgold/l-${n}.webp`),
+      },
+      varianten: {
+        titel: "Drei Varianten des Hauptbilds",
+        hinweis:
+          "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.",
+        bilder: [1, 2, 3].map((n) => `/case_studies/bachgold/haupt-${n}.webp`),
+      },
+      aplus: {
+        titel: "Premium A+ Content",
+        hinweis: "Sechs Module, eines unter dem anderen, unter den Bullets der Produktseite.",
+        module: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/bachgold/aplus-${n}.webp`),
       },
     },
     anonymized: false,
@@ -266,6 +293,22 @@ export const cases: CaseStudy[] = [
     mono: "V",
     bgImage: "/case_studies/vitaworld.webp",
     logo: "/case_studies/vitaworld-logo.webp",
+    /* Listing und A+ zeigen zwei verschiedene Artikel derselben Marke. Das ist
+       Absicht: bei Vitaworld laeuft derselbe Aufbau ueber die ganze
+       Produktpalette, und genau das soll man sehen. Die Hauptbilder der
+       Bundle-Groessen liegen noch nicht vor, `varianten` bleibt deshalb leer. */
+    arbeit: {
+      listing: {
+        titel: "PEA 600 mg",
+        haupt: "/case_studies/vitaworld/l-haupt.webp",
+        strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/l-${n}.webp`),
+      },
+      aplus: {
+        titel: "Premium A+ Content",
+        hinweis: "Sieben Module für Taurin 850 mg. Derselbe Aufbau läuft über die weiteren Artikel.",
+        module: [1, 2, 3, 4, 5, 6, 7].map((n) => `/case_studies/vitaworld/aplus-${n}.webp`),
+      },
+    },
     anonymized: false,
     industry: "Nahrungsergänzung",
     marketplaces: ["DE"],

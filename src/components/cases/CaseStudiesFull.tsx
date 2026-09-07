@@ -7,7 +7,7 @@ import { Flaggenreihe } from "../ui/Flagge";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
 import { CaseChart } from "./CaseChart";
-import { CaseListingView } from "./CaseListingView";
+import { CaseArbeitView } from "./CaseArbeit";
 
 /* Icon je Story-Schritt: Ausgangslage, Vorgehen, Ergebnis. Die Zeichen kommen
    aus dem Satz der Website (`takt/Icons`), nicht aus dem allgemeinen
@@ -214,7 +214,7 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
 
         {/* Die ausgelieferte Arbeit direkt unter den Zahlen: erst sehen, dann
             lesen. */}
-        <CaseListingView c={c} />
+        <CaseArbeitView c={c} />
 
         {/* chart */}
         {c.chart && (

@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { cases, type CaseStudy } from "@/lib/cases";
 import { Reveal } from "../ui/Reveal";
-import { Kachel, Lupe } from "./CaseListingView";
+import { Kachel, Lupe } from "./CaseArbeit";
 
 /* Das einfache Raster fuer Faelle, zu denen einzelne Aufnahmen vorliegen,
-   aber kein vollstaendiges Listing. Wo ein Listing vorliegt, steht es weiter
-   oben im Fall (`CaseListingView`), und diese Sektion entfaellt. */
+   aber kein vollstaendiges Listing. Wo ausgelieferte Arbeit vorliegt, steht
+   sie weiter oben im Fall (`CaseArbeitView`), und diese Sektion entfaellt. */
 export function CaseGallery({ c }: { c: CaseStudy }) {
   const [offen, setOffen] = useState<string | null>(null);
-  if (c.listing || !c.images || c.images.length === 0) return null;
+  if (c.arbeit || !c.images || c.images.length === 0) return null;
   return (
     <section className="relative ground py-12 md:py-16">
       <div className="container-x">

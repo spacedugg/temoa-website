@@ -925,3 +925,38 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Elemente ausserhalb des Fensters bleiben auf Deckkraft null, in der Aufnahme
   steht dort eine leere Flaeche. Zum Pruefen an die Stelle scrollen und das
   Fenster aufnehmen, nicht die ganze Seite.
+
+## Dreiundzwanzigste Feedbackrunde (verbindlich)
+
+- **Jeder Fall zeigt die ausgelieferte Arbeit** (`cases/CaseArbeit`), direkt
+  unter dem Kennzahlenband und vor der Geschichte: erst sehen, dann lesen.
+  Drei Teile, jeder einzeln zu haben, weil jede Marke anderes Material
+  liefert: das Listing, die Hauptbildvarianten, die A+ Module.
+- **Hauptbildvarianten sind eine eigene Reihe.** Fuer ein Produkt entstehen
+  mehrere Hauptbilder, welches bleibt, entscheidet die Klickrate. Das ist eine
+  Aussage ueber die Arbeitsweise und geht in einem Listing-Raster unter.
+- **A+ Module werden auf einer Modulkante abgeschnitten**, nicht auf einer
+  festen Hoehe in rem. Die Hoehe kommt aus dem Seitenverhaeltnis eines Moduls
+  (`aspect-ratio`, Amazon liefert 2,44 zu 1). Vorher lag der Schnitt mitten in
+  einer Zeile Schrift und sah aus wie ein Fehler, und der weisse Auslauf
+  darunter war auf weissen Modulen ohnehin nicht zu sehen. Ein Knopf macht den
+  Rahmen auf.
+- **Die Breite des Bildstreifens ist gerechnet, nicht geschaetzt.** Bei fuenf
+  Bildern 15 Prozent, bei sechs 13: `min(17, 92 / (Anzahl + 1))`. Sonst steht
+  der Streifen unter dem quadratischen Hauptbild hinaus.
+- **Die Zuordnung Datei zu Rolle steht in `scripts/case-arbeit-bilder.mjs`.**
+  Die Dateinamen der Marken folgen keinem gemeinsamen Muster
+  (`Bachgold_WasserfilterXL_Schwarz_01C.jpg`, `B0DPN5KD2P.PT04.jpg`,
+  `Sektion5_4.jpg`). Raten waere hier falsch. Das Skript rechnet auf
+  Anzeigegroesse herunter: Hauptbild 1200, Bildstrecke und Varianten 700,
+  A+ Module 1400 Pixel. Aus 46 MB Amazon-Uploads werden 1,8 MB.
+- **Die neun Bachgold-Bilder aus dem PDF sind geloescht.** Drei davon sind
+  dieselben Aufnahmen wie in den gelieferten Dateien, nur 600 Pixel gross.
+  Gezeigt wird die XL-Groesse; dass es die 500-ml-Variante mit eigenem Content
+  gibt, steht als Angabe unter den Kennzahlen.
+- **Fuer die Marke aus Gartenzubehoer gibt es keine Bilder.** Sie ist
+  anonymisiert, jedes Produktbild wuerde sie verraten. `arbeit` bleibt dort
+  leer, und die Darstellung laesst weg, was fehlt.
+- **Listing und A+ duerfen zwei verschiedene Artikel derselben Marke zeigen.**
+  Bei Vitaworld ist das Absicht: derselbe Aufbau laeuft ueber die ganze
+  Produktpalette, und genau das soll man sehen.
