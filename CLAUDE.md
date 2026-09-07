@@ -983,3 +983,47 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
 - **Listing und A+ duerfen zwei verschiedene Artikel derselben Marke zeigen.**
   Bei Vitaworld ist das Absicht: derselbe Aufbau laeuft ueber die ganze
   Produktpalette, und genau das soll man sehen.
+
+## Vierundzwanzigste Feedbackrunde (verbindlich)
+
+### Zahlen
+
+- **Nur relative Zahlen, keine absoluten.** „ACoS um 30 Prozent gesenkt" steht
+  da, „von 30,9 auf 21,6 Prozent" nicht. Umsaetze, Bestellzahlen und
+  Stueckzahlen stehen gar nicht da. Betroffen waren die Kennzahlenbaender und
+  die Kennzahlkarten von Vitaworld, HaA und Futum, deren Punktlisten und die
+  `Ergebnis`-Bloecke der Leistungsseiten.
+- **Ausgenommen ist Miganeo.** Dort bleiben die konkreten Zahlen so stehen, wie
+  sie sind, auf der Fallseite und auf der Seite Internationalisierung.
+- **Wo eine Kennzahl nur absolut vorliegt, faellt sie weg.** Bei HaA gab es zum
+  ACoS nur den Stand (13,5 %) und keinen Ausgangswert, die Zeile ist deshalb
+  aus dem Band heraus. Eine Kennzahl ohne Zahl ist keine Kennzahl.
+- **Zwei Stellen bleiben absichtlich stehen und brauchen eine Entscheidung**:
+  der Umsatz im Bachgold-Fall (1,68 Mio. €, vom Kunden ausdruecklich als
+  Ueberschrift gewuenscht) und die Kundenstimme von Vitaworld in
+  `lib/testimonials.ts`, die selbst Bestellzahlen und einen TACoS nennt. Ein
+  Zitat wird nicht eigenmaechtig umgeschrieben.
+
+### Ausgelieferte Arbeit
+
+- **`palette` ist nicht `varianten`.** `varianten` sind mehrere Fassungen eines
+  Hauptbilds fuer ein Produkt, `palette` ist ein Hauptbild je Artikel derselben
+  Marke im selben Bildstil. Bei Vitaworld sind das sechs weitere Artikel, bei
+  HaA sechs Bundle-Groessen desselben Artikels (die stehen als `varianten`).
+- **Ohne A+ Content rueckt die Variantenreihe in die rechte Spalte.** Beim
+  Silberfischspray von Futum liegt kein A+ vor; vorher stand rechts eine leere
+  Flaeche.
+- **Videos laufen mit `poster` und `preload="none"`.** Ohne das laedt jede
+  Fallseite vier Megabyte, die die meisten Besucher nie abspielen. Das
+  Standbild kommt mit `ffmpeg` aus dem Video selbst (Sekunde 1).
+- **Videos werden auf 1280 Pixel und CRF 27 gerechnet** (H.264, `+faststart`).
+  Aus 18,5 MB werden 4,2 MB, aus 4,0 MB werden 1,9 MB. `ffmpeg` ist in dieser
+  Umgebung nicht vorinstalliert und muss per `apt-get install ffmpeg` dazu.
+- **Bilder mit `effort: 6` und `smartSubsample`**, dazu A+ Module und A+ Seiten
+  auf 900 statt 1400 Pixel: sie stehen in einer Spalte von rund 430 Pixeln und
+  werden nie in der Lupe geoeffnet. Zusammen rund ein Drittel weniger Bytes.
+- **macOS legt Umlaute zerlegt ab (NFD).** Ein Pfad mit „Wühlmaus" aus einer
+  Quelldatei (NFC) findet die Datei im entpackten Zip nicht. `loese()` in
+  `scripts/case-arbeit-bilder.mjs` vergleicht jeden Pfadteil normalisiert.
+- **Das Trampolin in der Miganeo-Arbeit traegt die Marke TERENA.** Das ist so
+  geliefert; wenn es nicht als Miganeo-Arbeit erscheinen soll, muss es raus.

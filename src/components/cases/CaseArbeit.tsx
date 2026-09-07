@@ -27,6 +27,9 @@ import { Reveal } from "../ui/Reveal";
    3. Der A+ Content, vollstaendig und ohne Abstand zwischen den Bahnen. Kein
       Rahmen mit begrenzter Hoehe und kein Knopf: der Kunde will den Content
       sehen.
+   4. Das Listing-Video, wo eines vorliegt. Mit Standbild und `preload="none"`
+      laedt die Seite davon kein Byte, bis jemand auf Abspielen drueckt: das
+      Video ist die mit Abstand groesste Datei einer Fallseite.
 
    Kein Bild zweimal: welche Datei welche Rolle hat, steht in `lib/cases.ts`
    und in `scripts/case-arbeit-bilder.mjs`. Eine Komponente soll nicht raten
@@ -35,6 +38,9 @@ import { Reveal } from "../ui/Reveal";
 
 const VARIANTEN_HINWEIS =
   "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.";
+
+const PALETTE_HINWEIS =
+  "Ein Hauptbild je Artikel, alle im selben Aufbau. So bleibt die Marke im Suchergebnis wiedererkennbar, egal welches Produkt jemand findet.";
 
 /**
  * Ein Produktbild in einer Kachel.
@@ -135,6 +141,30 @@ function APlus({ bahnen }: { bahnen: string[] }) {
   );
 }
 
+/**
+ * Das Listing-Video.
+ *
+ * `preload="none"` und ein Standbild aus dem Video selbst: ohne das wuerden
+ * beim Aufruf der Seite vier Megabyte geladen, die die meisten Besucher nie
+ * abspielen. `playsInline` verhindert, dass iOS die Wiedergabe in den
+ * Vollbildmodus reisst.
+ */
+function Video({ quelle, poster }: { quelle: string; poster: string }) {
+  return (
+    <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
+      <video
+        className="block w-full rounded-[0.7rem] bg-navy-deep"
+        controls
+        preload="none"
+        poster={poster}
+        playsInline
+      >
+        <source src={quelle} type="video/mp4" />
+      </video>
+    </div>
+  );
+}
+
 function Produkt({
   p,
   mitHinweis,
@@ -144,65 +174,115 @@ function Produkt({
   mitHinweis: boolean;
   oeffne: (src: string) => void;
 }) {
+  const hatVarianten = (p.varianten?.length ?? 0) > 0;
+
+  const listing = (
+    <Reveal>
+      <div>
+        <Teil label="Listing" titel={p.titel} />
+        <div className="mt-4 flex items-stretch gap-2.5">
+          {/* Der Streifen ist so breit, dass seine Quadrate zusammen knapp
+              unter der Hoehe des quadratischen Hauptbilds bleiben. Bei fuenf
+              Bildern sind das 15 Prozent, bei sieben 11,5: rechnet man das
+              nicht, steht der Streifen darunter hinaus. */}
+          <div
+            className="flex shrink-0 flex-col justify-between gap-2"
+            style={{ width: `${Math.min(17, 92 / (p.strecke.length + 1))}%` }}
+          >
+            {p.strecke.map((src) => (
+              <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+            ))}
+          </div>
+          <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square flex-1" />
+        </div>
+      </div>
+    </Reveal>
+  );
+
+  const video = p.video && (
+    <Reveal delay={0.12}>
+      <div>
+        <Teil label="Video" titel="Das Listing-Video" />
+        <div className="mt-4">
+          <Video quelle={p.video.quelle} poster={p.video.poster} />
+        </div>
+      </div>
+    </Reveal>
+  );
+
+  const palette = p.palette && p.palette.length > 0 && (
+    <Reveal delay={0.14}>
+      <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
+        <Teil
+          label="Produktpalette"
+          titel={`${p.palette.length} weitere Artikel im selben Bildstil`}
+          hinweis={PALETTE_HINWEIS}
+        />
+        <div className="mt-4 grid grid-cols-3 gap-3">
+          {p.palette.map((src) => (
+            <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+
+  const varianten = hatVarianten && p.varianten && (
+    <Reveal delay={0.1}>
+      <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
+        <Teil
+          label="Hauptbild"
+          titel={`${p.varianten.length} Varianten des Hauptbilds`}
+          hinweis={mitHinweis ? VARIANTEN_HINWEIS : undefined}
+        />
+        {/* Zwei Varianten in zwei Spalten, drei und mehr in drei: bei festen
+            drei Spalten stand neben zwei Bildern eine leere Zelle und beide
+            waren schmaler als noetig. */}
+        <div className={`mt-4 grid gap-3 ${p.varianten.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+          {p.varianten.map((src) => (
+            <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+
+  /* Ohne A+ Content waere die rechte Spalte leer. Dann rueckt stattdessen die
+     Variantenreihe dorthin, und das Listing steht allein links. */
+  if (!p.aplus) {
+    return (
+      <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
+        <div className="space-y-6">
+          {listing}
+          {video}
+        </div>
+        <div className="space-y-6">
+          {varianten}
+          {palette}
+        </div>
+      </div>
+    );
+  }
+
+  /* Links das Listing, Video und die Varianten, rechts der A+ Content in
+     voller Laenge. Die Varianten stehen links, weil die A+ Spalte deutlich
+     hoeher ist als das Listing: sonst bliebe darunter eine leere Flaeche. */
   return (
-    /* Links das Listing und darunter die Hauptbildvarianten, rechts der A+
-       Content in voller Laenge. Die Varianten stehen in der linken Spalte,
-       weil die A+ Spalte offen deutlich hoeher ist als das Listing: sonst
-       bliebe darunter eine leere Flaeche. */
     <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
       <div className="space-y-6">
-        <Reveal>
-          <div>
-            <Teil label="Listing" titel={p.titel} />
-            <div className="mt-4 flex items-stretch gap-2.5">
-              {/* Der Streifen ist so breit, dass seine Quadrate zusammen knapp
-                  unter der Hoehe des quadratischen Hauptbilds bleiben. Bei
-                  fuenf Bildern sind das 15 Prozent, bei sechs 13: rechnet man
-                  das nicht, steht der Streifen darunter hinaus. */}
-              <div
-                className="flex shrink-0 flex-col justify-between gap-2"
-                style={{ width: `${Math.min(17, 92 / (p.strecke.length + 1))}%` }}
-              >
-                {p.strecke.map((src) => (
-                  <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
-                ))}
-              </div>
-              <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square flex-1" />
-            </div>
-          </div>
-        </Reveal>
-
-        {p.varianten && p.varianten.length > 0 && (
-          <Reveal delay={0.1}>
-            <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
-              <Teil
-                label="Hauptbild"
-                titel={`${p.varianten.length} Varianten des Hauptbilds`}
-                hinweis={mitHinweis ? VARIANTEN_HINWEIS : undefined}
-              />
-              {/* Zwei Varianten in zwei Spalten, drei oder mehr in drei: bei
-                  festen drei Spalten stand neben zwei Bildern eine leere
-                  Zelle und beide waren schmaler als noetig. */}
-              <div className={`mt-4 grid gap-3 ${p.varianten.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
-                {p.varianten.map((src) => (
-                  <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        )}
+        {listing}
+        {video}
+        {varianten}
+        {palette}
       </div>
-
-      {p.aplus && (
-        <Reveal delay={0.08}>
-          <div>
-            <Teil label="Premium A+ Content" titel={p.aplus.titel} />
-            <div className="mt-4">
-              <APlus bahnen={p.aplus.bahnen} />
-            </div>
+      <Reveal delay={0.08}>
+        <div>
+          <Teil label="Premium A+ Content" titel={p.aplus.titel} />
+          <div className="mt-4">
+            <APlus bahnen={p.aplus.bahnen} />
           </div>
-        </Reveal>
-      )}
+        </div>
+      </Reveal>
     </div>
   );
 }

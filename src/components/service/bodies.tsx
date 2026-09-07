@@ -101,11 +101,11 @@ export function StrategieBody() {
       <Ergebnis
         eyebrow="Aus der Praxis"
         title="Vitaworld, Q1 2025 auf Q1 2026"
-        zeile="Erst durchgerechnet, dann skaliert: der Adspend stieg um 39 %, der Umsatz um 147 %."
+        zeile="Erst durchgerechnet, dann skaliert: das Werbebudget stieg um 39 %, der Umsatz um 147 %."
         werte={[
-          { wert: "+147 %", label: "Umsatz", sub: "131k € auf 326k € pro Quartal" },
-          { wert: "−44 %", label: "TACoS", sub: "von 10,4 % auf 5,8 %", runter: true },
-          { wert: "−19,4 %", label: "PPC-Anteil am Umsatz", sub: "von 36 % auf 29 %", runter: true },
+          { wert: "+147 %", label: "Umsatz", sub: "im Vergleich der beiden Quartale" },
+          { wert: "−44 %", label: "TACoS", sub: "bei wachsendem Umsatz", runter: true },
+          { wert: "−19,4 %", label: "Anteil der Werbung am Umsatz", sub: "das Wachstum kommt organisch", runter: true },
         ]}
         href="/ergebnisse/vitaworld"
       />
@@ -172,8 +172,8 @@ export function ContentBody() {
         title="HaA, Launch über 17 Wochen"
         zeile="Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget."
         werte={[
-          { wert: "32,5 %", label: "Conversion Rate", sub: "von 5,5 % in der Launch-Woche" },
-          { wert: "13,5 %", label: "ACoS", sub: "trotz laufender Skalierung", runter: true },
+          { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
+          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
           { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
         ]}
         href="/ergebnisse/haa"
@@ -267,7 +267,7 @@ export function AdvertisingBody() {
         werte={[
           { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung", runter: true },
           { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
-          { wert: "392.327 €", label: "Umsatz 2025", sub: "bei 17.042 Bestellungen" },
+          { wert: "+37,3 %", label: "Conversion Rate", sub: "auf Ebene des ganzen Kontos" },
         ]}
         href="/ergebnisse/futum"
       />

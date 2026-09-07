@@ -1,4 +1,10 @@
 /**
+ * Regel fuer alle Zahlen auf dieser Seite: nur relative Werte, keine
+ * absoluten. „ACoS um 30 Prozent gesenkt" steht da, „von 30,9 auf 21,6
+ * Prozent" nicht, und Umsaetze, Bestellzahlen und Stueckzahlen stehen gar
+ * nicht da. Ausgenommen ist Miganeo, dort bleiben die konkreten Zahlen so
+ * stehen, wie sie sind.
+ *
  * Echte Case-Study-Daten (6 Marken). Zahlen und Struktur stammen aus den
  * vom Kunden freigegebenen Fällen. Einzelne Formulierungen wurden an die
  * Stilregeln angepasst (keine verbotenen Begriffe), Zahlen bleiben unverändert.
@@ -57,13 +63,23 @@ export type CaseMetric = {
  * 2,44 zu 1) oder die ganze A+ Seite als ein hohes Bild. Beides kommt vor,
  * weil der Kunde beides liefert, und beides laeuft gleich: ohne Abstand
  * untereinander, in voller Laenge.
+ *
+ * `palette` sind Hauptbilder weiterer Artikel derselben Marke im selben
+ * Bildstil. Das ist etwas anderes als `varianten`: dort mehrere Fassungen
+ * eines Hauptbilds, hier ein Hauptbild je Artikel.
+ *
+ * `video` ist das Listing-Video. `poster` ist Pflicht: mit Standbild und
+ * `preload="none"` laedt die Seite vom Video kein Byte, bis jemand auf
+ * Abspielen drueckt.
  */
 export type CaseProdukt = {
   titel: string;
   haupt: string;
   strecke: string[];
   varianten?: string[];
+  palette?: string[];
   aplus?: { titel: string; bahnen: string[] };
+  video?: { quelle: string; poster: string };
 };
 
 /**
@@ -331,6 +347,7 @@ export const cases: CaseStudy[] = [
           titel: "PEA 600 mg",
           haupt: "/case_studies/vitaworld/p1-haupt.webp",
           strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/p1-${n}.webp`),
+          palette: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/p1-pal-${n}.webp`),
           aplus: {
             titel: "Vier Module für Taurin 850 mg",
             bahnen: [1, 2, 3, 4].map((n) => `/case_studies/vitaworld/p1-aplus-${n}.webp`),
@@ -352,7 +369,7 @@ export const cases: CaseStudy[] = [
         body: "Ein solider Account auf Amazon DE, der am Werbedruck hing.",
         punkte: [
           "Wachstum nur mit proportional steigenden Werbekosten",
-          "36 % des Gesamtumsatzes kamen über Werbung",
+          "Ein gutes Drittel des Umsatzes kam über Werbung",
           "FR, IT, ES und NL noch nicht gestartet",
         ],
       },
@@ -369,22 +386,22 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Vitaworld wächst heute überproportional organisch.",
         punkte: [
-          "Anteil der Werbung am Gesamtumsatz von 36 % auf 29 %",
+          "Anteil der Werbung am Gesamtumsatz um 19 % gesunken",
           "Marke und Produktdetailseiten treiben das Wachstum",
           "FR, IT, ES und NL stehen in den Startlöchern",
         ],
       },
     ],
     heroStats: [
-      { value: "+147 %", label: "Umsatz", sublabel: "131k € auf 326k € pro Quartal", trend: "up" },
-      { value: "×3,2", label: "Bestellungen", sublabel: "5.019 auf 16.073 pro Quartal", trend: "up" },
-      { value: "−19,4 %", label: "PPC-Anteil am Gesamtumsatz", sublabel: "von 36 % auf 29 %", trend: "down" },
+      { value: "+147 %", label: "Umsatz", sublabel: "im Vergleich der beiden Quartale", trend: "up" },
+      { value: "×3,2", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
+      { value: "−19,4 %", label: "Anteil der Werbung am Umsatz", sublabel: "das Wachstum kommt organisch", trend: "down" },
     ],
     kennzahlen: [
-      { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+52 %", von: "0,44 %", nach: "0,67 %", trend: "up" },
-      { kuerzel: "CVR", name: "Conversion Rate", wert: "+50 %", von: "18,6 %", nach: "27,9 %", trend: "up" },
-      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "−30 %", von: "30,9 %", nach: "21,6 %", trend: "down" },
-      { kuerzel: "TACoS", name: "Total Advertising Cost of Sales", wert: "−44 %", von: "10,4 %", nach: "5,8 %", trend: "down" },
+      { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+52 %", hinweis: "nach neuen Hauptbildern und Titeln", trend: "up" },
+      { kuerzel: "CVR", name: "Conversion Rate", wert: "+50 %", trend: "up" },
+      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "−30 %", trend: "down" },
+      { kuerzel: "TACoS", name: "Total Advertising Cost of Sales", wert: "−44 %", trend: "down" },
     ],
     subStats: [],
     badges: [],
@@ -412,6 +429,21 @@ export const cases: CaseStudy[] = [
     mono: "H",
     bgImage: "/case_studies/HaA.webp",
     logo: "/case_studies/haa-logo.webp",
+    /* Ein Produkt, aber sechs Hauptbilder: eines je Bundle-Groesse von einem
+       bis dreissig Liter. Derselbe Bildstil laeuft ueber die ganze Staffelung,
+       und genau das soll die Reihe zeigen. */
+    arbeit: {
+      produkte: [
+        {
+          titel: "Bio-Ethanol, 1 bis 30 Liter",
+          haupt: "/case_studies/haa/p1-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6, 7].map((n) => `/case_studies/haa/p1-${n}.webp`),
+          varianten: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/haa/p1-var-${n}.webp`),
+          aplus: { titel: "Premium A+, die ganze Seite", bahnen: ["/case_studies/haa/p1-aplus.webp"] },
+          video: { quelle: "/case_studies/haa/p1-video.mp4", poster: "/case_studies/haa/p1-video.webp" },
+        },
+      ],
+    },
     anonymized: false,
     industry: "Küche und Haushalt",
     marketplaces: ["DE"],
@@ -443,21 +475,20 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Nach 17 Wochen eine Conversion Rate, die etablierte Marken selten sehen.",
         punkte: [
-          "Conversion Rate von 5,5 % auf 32,5 %",
+          "Conversion Rate mehr als verfünffacht",
           "Wöchentliche Bestellungen ver-14-facht",
           "Die Accountsperrung in KW 10 war nach zwei Wochen erledigt",
         ],
       },
     ],
     heroStats: [
-      { value: "×14", label: "Bestellungen pro Woche", sublabel: "28 auf 397", trend: "up" },
+      { value: "×14", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
       { value: "+900 %", label: "Klicks pro Woche", sublabel: "ohne großes Werbebudget", trend: "up" },
       { value: "17", label: "Wochen vom Launch zur Spitze", trend: "neutral" },
     ],
     kennzahlen: [
       { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+46 %", trend: "up" },
-      { kuerzel: "CVR", name: "Conversion Rate", wert: "+439 %", von: "5,5 %", nach: "32,5 %", trend: "up" },
-      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "13,5 %", hinweis: "trotz Launch aus dem Stand", trend: "down" },
+      { kuerzel: "CVR", name: "Conversion Rate", wert: "+439 %", hinweis: "Launch-Woche bis Spitze", trend: "up" },
     ],
     subStats: [],
     badges: [
@@ -471,6 +502,54 @@ export const cases: CaseStudy[] = [
     mono: "F",
     bgImage: "/case_studies/futum.webp",
     logo: "/case_studies/futum-logo.webp",
+    /* Vier Produkte, weil bei Futum genau das die Arbeit ist: derselbe Aufbau
+       ueber mehrere Artikel, je mit eigenen Hauptbildvarianten. Zum
+       Silberfischspray liegt kein A+ Content in der Lieferung, deshalb fehlt
+       er dort. */
+    arbeit: {
+      produkte: [
+        {
+          titel: "Maulwurfskugeln",
+          haupt: "/case_studies/futum/p1-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p1-${n}.webp`),
+          varianten: [1, 2, 3, 4].map((n) => `/case_studies/futum/p1-var-${n}.webp`),
+          aplus: {
+            titel: "Sechs Module",
+            bahnen: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p1-aplus-${n}.webp`),
+          },
+        },
+        {
+          titel: "Wühlmausgranulat",
+          haupt: "/case_studies/futum/p2-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p2-${n}.webp`),
+          varianten: [1, 2].map((n) => `/case_studies/futum/p2-var-${n}.webp`),
+          aplus: {
+            titel: "Sechs Module",
+            bahnen: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p2-aplus-${n}.webp`),
+          },
+        },
+        {
+          titel: "Spot-on für Hunde",
+          haupt: "/case_studies/futum/p3-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p3-${n}.webp`),
+          varianten: [1, 2].map((n) => `/case_studies/futum/p3-var-${n}.webp`),
+          aplus: {
+            titel: "Sechs Module",
+            bahnen: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p3-aplus-${n}.webp`),
+          },
+          video: {
+            quelle: "/case_studies/futum/p3-video.mp4",
+            poster: "/case_studies/futum/p3-video.webp",
+          },
+        },
+        {
+          titel: "Silberfischspray",
+          haupt: "/case_studies/futum/p4-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/futum/p4-${n}.webp`),
+          varianten: [1, 2].map((n) => `/case_studies/futum/p4-var-${n}.webp`),
+        },
+      ],
+    },
     anonymized: false,
     industry: "Schädlingsbekämpfung",
     marketplaces: ["DE"],
@@ -503,21 +582,21 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Das erste volle Amazon-Jahr 2025 lief profitabel.",
         punkte: [
-          "392.327 € Umsatz und 17.042 Bestellungen",
+          "Beide Produkte profitabel skaliert",
           "Organischer Anteil bis 80 %",
           "Bestseller- und Amazon's-Choice-Badge kamen dazu",
         ],
       },
     ],
     heroStats: [
-      { value: "392.327 €", label: "Umsatz 2025", sublabel: "erstes volles Jahr auf Amazon", trend: "up" },
-      { value: "17.042", label: "Bestellungen 2025", trend: "up" },
+      { value: "2", label: "Produktlaunches", sublabel: "beide profitabel skaliert", trend: "neutral" },
       { value: "80 %", label: "Organische Verkäufe", sublabel: "Spitzenanteil am Gesamtumsatz", trend: "up" },
+      { value: "4", label: "Produkte mit eigenem Content", sublabel: "Listing, A+ und Hauptbildvarianten", trend: "neutral" },
     ],
     kennzahlen: [
       { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+30 %", trend: "up" },
       { kuerzel: "CVR", name: "Conversion Rate", wert: "+37,3 %", hinweis: "auf Ebene des ganzen Kontos", trend: "up" },
-      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "−19,7 %", hinweis: "im Tief bei 19,99 %", trend: "down" },
+      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "−19,7 %", hinweis: "trotz Skalierung im Launch", trend: "down" },
     ],
     subStats: [],
     badges: [
