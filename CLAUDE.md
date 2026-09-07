@@ -863,3 +863,65 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Zugriff darauf liegt in `try/catch`: im privaten Fenster wirft der Speicher.
 - **Die Texte sind kein Rechtsrat.** Der Ablauf ist nach unserem Verstaendnis
   der DSGVO und des TDDDG gebaut, die juristische Pruefung liegt beim Kunden.
+
+## Zweiundzwanzigste Feedbackrunde (verbindlich)
+
+- **Das Cookie-Banner hat drei Wege**: „Nur notwendige", „Anpassen", „Alle
+  akzeptieren". Die beiden Entscheidungen tragen dieselbe weisse Flaeche,
+  dieselbe Groesse und dieselbe Schriftstaerke, „Anpassen" traegt nur eine
+  Kante, weil es keine Entscheidung ist, sondern ein Wechsel der Ansicht.
+- **Die Karte ist dunkel, dahinter liegt ein Schleier.** Vorher waren Karte
+  und Seite beides weiss, damit war der Hinweis kaum als eigene Ebene zu
+  erkennen. Der Schleier ist kein Klickziel: Wegdruecken ist keine
+  Entscheidung. Impressum und Datenschutz stehen in der Karte selbst, sie
+  bleiben also erreichbar.
+- **Beim Sperren des Scrollens nur die senkrechte Achse anfassen.**
+  `document.body.style.overflow = "hidden"` ueberschreibt das
+  `overflow-x: clip` aus dem Stylesheet, und `overflow: hidden` am Body macht
+  aus ihm einen Scroll-Container, in dem kein `position: sticky` mehr haelt.
+- **CTR, CVR, ACoS und TACoS stehen in einem eigenen Band**, direkt unter dem
+  Kopf des Falls: Kuerzel zuerst, Wert daneben, darunter der Weg („0,44 % auf
+  0,67 %"). Wer aus dieser Branche kommt, sucht nach genau diesen
+  Abkuerzungen. Damit keine Zahl zweimal auf der Seite steht, sind diese vier
+  Kennzahlen aus `heroStats` und `subStats` heraus: dort stehen jetzt nur
+  Umsatz, Bestellungen, Raenge und Marktplaetze.
+- **Gruen fuer alle vier Kennzahlen.** Eine gestiegene Klickrate und ein
+  gefallener ACoS sind dasselbe Ergebnis, der Pfeil zeigt die Richtung.
+  #6EE7A0 und nicht das dunkle Signalgruen: letzteres kommt auf Navy auf
+  2,4:1.
+- **Marktplaetze tragen Flaggen**, nicht Kuerzel in einer Zeile. Gezeichnet
+  in `ui/Flagge`, nicht als Emoji: 🇩🇪 wird unter Windows nicht als Fahne
+  gerendert, dort stehen dann die Buchstaben da. Die Formen lagen vorher
+  unerreichbar in `service/Weltkugel`, sie liegen jetzt in der gemeinsamen
+  Komponente.
+- **Bachgold steht fuer ein Produkt und nur Content.** 1,68 Mio. Euro sind
+  fuer sich genommen keine aussergewoehnliche Summe, aussergewoehnlich ist die
+  Grundlage. Ueberschrift „Ein Produkt, nur Content, 1,68 Mio. €". Die
+  Kennzahl „2 Groessen mit eigenem Content" ist aus dem Kopf raus, sie sagte
+  nichts; `kennzahlen` bleibt leer, weil das Kampagnenmanagement nicht bei uns
+  lag. Maerkte: DE, FR, IT, ES, NL und US.
+- **Kein Bild zweimal.** Von den neun Bachgold-Dateien sind zwei dieselbe
+  Aufnahme in zwei Farben. Die Doppelung wird in `lib/cases.ts` aussortiert,
+  nicht in der Komponente: eine Komponente soll nicht raten muessen, was
+  doppelt ist.
+- **Ausgeliefertes Material steht als Listing-Ansicht**, oben im Fall und
+  nicht am Fuss: grosses Hauptbild, die weiteren Bilder als Streifen daneben.
+  Erst sehen, dann lesen. Der Streifen ist 15 Prozent breit, nicht 17: bei 17
+  war er aus fuenf Quadraten hoeher als das quadratische Hauptbild und stand
+  darunter hinaus.
+- **Die drei Schritte eines Falls sind Aussage plus Punkte.** Vorher stand in
+  jeder Karte ein Absatz mit vier bis fuenf Saetzen; drei davon nebeneinander
+  liest niemand, und die Zahlen darin gehen unter. Jetzt ein fetter Satz, dann
+  zwei bis vier Punkte mit dem Aufzaehlungszeichen in der Fallfarbe.
+- **Die Brand-Story-Kachel zeigt eine Brand Story.** Zwei Bahnen aus der
+  Arbeit fuer Rainfactory, ohne Abstand untereinander. Vorher waren dort
+  Bilder aus dem Kemes-Listing gestellt, das hatte mit einer Brand Story
+  nichts zu tun.
+- **Ein voller Build braucht ein leeres `.next`**, wenn waehrend eines
+  laufenden Servers gebaut wurde. Sonst liefert der Server Chunks, die es
+  nicht mehr gibt (`ChunkLoadError`, 400 auf `_next/static/chunks/...`), und
+  die Seite bleibt leer, ohne dass ein Fehler im Build steht.
+- **Vollseiten-Aufnahmen im Browser zeigen `whileInView`-Inhalte nicht.**
+  Elemente ausserhalb des Fensters bleiben auf Deckkraft null, in der Aufnahme
+  steht dort eine leere Flaeche. Zum Pruefen an die Stelle scrollen und das
+  Fenster aufnehmen, nicht die ganze Seite.

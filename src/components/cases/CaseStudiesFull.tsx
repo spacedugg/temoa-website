@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { ZahlText } from "../takt/Zahl";
-import { cases, type CaseStudy, type CaseStat, type CaseBadge } from "@/lib/cases";
+import { cases, type CaseStudy, type CaseStat, type CaseBadge, type CaseMetric } from "@/lib/cases";
+import { Flaggenreihe } from "../ui/Flagge";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
 import { CaseChart } from "./CaseChart";
+import { CaseListingView } from "./CaseListingView";
 
 /* Icon je Story-Schritt: Ausgangslage, Vorgehen, Ergebnis. Die Zeichen kommen
    aus dem Satz der Website (`takt/Icons`), nicht aus dem allgemeinen
@@ -99,6 +101,68 @@ function SubStat({ stat, accent }: { stat: CaseStat; accent: string }) {
   );
 }
 
+/**
+ * Das Kennzahlenband: CTR, CVR, ACoS, TACoS.
+ *
+ * Das Kuerzel steht zuerst und gross, der Wert daneben. Wer aus dieser Branche
+ * kommt, sucht genau nach diesen vier Abkuerzungen, und findet sie in einer
+ * Reihe von Karten mit langen Beschriftungen nicht.
+ *
+ * Bei ACoS und TACoS zeigt der Pfeil nach unten und bleibt gruen: ein
+ * gefallener Wert ist dort das gute Ergebnis.
+ */
+/* Gruen fuer alle vier: eine gestiegene Klickrate und ein gefallener ACoS
+   sind dasselbe Ergebnis. #6EE7A0 und nicht das dunkle Signalgruen, auf Navy
+   kommt letzteres auf 2,4:1. */
+const GRUEN = "#6EE7A0";
+
+function Kennzahl({ m }: { m: CaseMetric }) {
+  return (
+    <div className="flex min-w-0 flex-1 flex-col gap-1 px-4 py-4 sm:px-5">
+      <div className="flex items-baseline gap-2">
+        <span className="text-[0.78rem] font-extrabold uppercase tracking-[0.12em] text-white/55">
+          {m.kuerzel}
+        </span>
+        <span
+          className="flex items-center gap-1 whitespace-nowrap text-[1.45rem] font-extrabold leading-none tracking-tight md:text-[1.7rem]"
+          style={{ color: GRUEN }}
+        >
+          <ZahlText text={m.wert} />
+          <TrendArrow trend={m.trend} />
+        </span>
+      </div>
+      <span className="text-[0.8rem] font-bold leading-snug text-white">{m.name}</span>
+      {(m.von || m.hinweis) && (
+        <span className="text-[0.75rem] leading-snug text-white/55">
+          {m.von && m.nach ? `${m.von} auf ${m.nach}` : m.hinweis}
+        </span>
+      )}
+    </div>
+  );
+}
+
+function Kennzahlenband({ metriken }: { metriken: CaseMetric[] }) {
+  if (metriken.length === 0) return null;
+  return (
+    <Reveal delay={0.06}>
+      <div
+        className="mx-auto mt-5 max-w-5xl overflow-hidden rounded-[1.4rem] shadow-[0_26px_60px_-40px_rgba(2,48,71,0.7)]"
+        style={{ background: "linear-gradient(120deg, #0B4D6B 0%, #023047 55%, #021C2B 100%)" }}
+      >
+        {/* Feine Trennlinien statt Kacheln in der Kachel: das Band ist eine
+            Flaeche, die Kennzahlen stehen darin nebeneinander. */}
+        <div className="flex flex-wrap divide-y divide-white/10 sm:divide-y-0 sm:divide-x">
+          {metriken.map((m, i) => (
+            <div key={`${m.kuerzel}-${i}`} className="flex w-full min-w-0 sm:w-auto sm:flex-1 sm:divide-white/10">
+              <Kennzahl m={m} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
 export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
   const tone = index % 2 === 1 ? "ground-tint" : "ground";
   return (
@@ -120,11 +184,12 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
                 </div>
               )}
 
-              {/* meta: industry + marketplaces (no brand name, no timeframe) */}
-              <div className="flex flex-wrap items-center justify-center gap-3 text-center">
+              {/* Branche und Marktplaetze. Die Laender tragen Fahnen: neun
+                  Kuerzel in einer Zeile sagen einem Besucher nichts, eine Reihe
+                  Fahnen zeigt auf einen Blick, wie breit die Marke steht. */}
+              <div className="flex flex-col items-center gap-3">
                 <span className="text-sm text-white/65">{c.industry}</span>
-                <span className="text-sm text-white/40">·</span>
-                <span className="text-sm text-white/65">{c.marketplaces.join(", ")}</span>
+                <Flaggenreihe codes={c.marketplaces} hell className="justify-center" />
               </div>
 
               <h2 className="mx-auto mt-5 max-w-3xl text-balance text-center text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl">
@@ -144,6 +209,12 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
             </div>
           </div>
         </Reveal>
+
+        <Kennzahlenband metriken={c.kennzahlen} />
+
+        {/* Die ausgelieferte Arbeit direkt unter den Zahlen: erst sehen, dann
+            lesen. */}
+        <CaseListingView c={c} />
 
         {/* chart */}
         {c.chart && (
@@ -166,7 +237,24 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
                   <span className="text-sm font-extrabold" style={{ color: c.accent }}>{String(i + 1).padStart(2, "0")}</span>
                 </div>
                 <h3 className="mt-3 text-base font-bold text-ink">{s.heading}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{s.body}</p>
+                <p className="mt-2 text-sm font-bold leading-relaxed text-ink">{s.body}</p>
+                {s.punkte && (
+                  <ul className="mt-3 space-y-2">
+                    {s.punkte.map((punkt) => (
+                      <li key={punkt} className="flex gap-2.5 text-sm leading-snug text-ink-muted">
+                        {/* Das Aufzaehlungszeichen traegt die Fallfarbe, der
+                            Text bleibt dunkel: farbige Schrift auf Weiss ist
+                            in dieser Groesse nicht lesbar. */}
+                        <span
+                          aria-hidden
+                          className="mt-[0.42rem] h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: c.accent }}
+                        />
+                        <span>{punkt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             </RevealItem>
           ))}

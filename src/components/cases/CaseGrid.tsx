@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cases, type CaseStudy } from "@/lib/cases";
+import { Flagge } from "../ui/Flagge";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 
 function mesh(accent: string) {
@@ -38,8 +39,12 @@ function CaseTile({ c }: { c: CaseStudy }) {
       <div className="relative z-10 flex h-full flex-col p-6 md:p-7">
         <div className="flex items-start justify-between gap-2">
           <LogoChip c={c} />
-          <span className="ml-auto rounded-full bg-black/30 px-2.5 py-1 text-[11px] font-semibold text-white/90 backdrop-blur-sm">
-            {c.marketplaces.join(" · ")}
+          {/* Fahnen statt Kuerzel. Auf dem Bild reicht die Fahne allein, der
+              Name steht auf der Fallseite. */}
+          <span className="ml-auto flex items-center gap-1 rounded-full bg-black/35 px-2 py-1.5 backdrop-blur-sm">
+            {c.marketplaces.map((code) => (
+              <Flagge key={code} code={code} className="h-3.5 w-[1.2rem] text-white" />
+            ))}
           </span>
         </div>
 

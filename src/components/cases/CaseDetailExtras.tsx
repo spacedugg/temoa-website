@@ -3,13 +3,14 @@
 import { useState } from "react";
 import { cases, type CaseStudy } from "@/lib/cases";
 import { Reveal } from "../ui/Reveal";
+import { Kachel, Lupe } from "./CaseListingView";
 
-/* Per-case image gallery. Images live under /public/case_studies/<slug>/…
- * and are listed in the case's `images` array. Click opens a simple
- * lightbox. */
+/* Das einfache Raster fuer Faelle, zu denen einzelne Aufnahmen vorliegen,
+   aber kein vollstaendiges Listing. Wo ein Listing vorliegt, steht es weiter
+   oben im Fall (`CaseListingView`), und diese Sektion entfaellt. */
 export function CaseGallery({ c }: { c: CaseStudy }) {
-  const [open, setOpen] = useState<string | null>(null);
-  if (!c.images || c.images.length === 0) return null;
+  const [offen, setOffen] = useState<string | null>(null);
+  if (c.listing || !c.images || c.images.length === 0) return null;
   return (
     <section className="relative ground py-12 md:py-16">
       <div className="container-x">
@@ -20,28 +21,11 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
         </Reveal>
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-3">
           {c.images.map((src) => (
-            <button
-              key={src}
-              type="button"
-              onClick={() => setOpen(src)}
-              className="group relative aspect-square overflow-hidden rounded-2xl bg-canvas-alt shadow-soft ring-1 ring-black/[0.05]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            </button>
+            <Kachel key={src} src={src} onClick={() => setOffen(src)} className="aspect-square rounded-2xl" />
           ))}
         </div>
       </div>
-
-      {open && (
-        <div className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-5 backdrop-blur-sm" onClick={() => setOpen(null)}>
-          <button type="button" aria-label="Schließen" className="fixed right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-white/95 text-ink shadow-lift" onClick={() => setOpen(null)}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6L6 18" /></svg>
-          </button>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={open} alt="" className="max-h-[88vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl" onClick={(e) => e.stopPropagation()} />
-        </div>
-      )}
+      {offen && <Lupe src={offen} onClose={() => setOffen(null)} />}
     </section>
   );
 }

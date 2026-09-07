@@ -39,6 +39,8 @@ const M = {
   strecke: ["l-2", "l-3", "l-4", "l-5", "l-6", "l-7"].map((n) => `/bilder/kemes/${n}.webp`),
   /* Die drei Bahnen des A+ Moduls, von oben nach unten. */
   aplus: ["a-1", "a-2", "a-3"].map((n) => `/bilder/futum/${n}.webp`),
+  /* Die zwei Bahnen der Brand Story, von oben nach unten. */
+  brandstory: ["bs-1", "bs-2"].map((n) => `/bilder/rainfactory/${n}.webp`),
 };
 
 /* --- kleine Bausteine ------------------------------------------------- */
@@ -203,31 +205,19 @@ function APlusViz() {
  * Brand Story: das breite Band ueber der Detailseite, darunter die Kartenreihe,
  * durch die gewischt wird.
  *
- * Eine freigegebene Brand Story liegt noch nicht vor. Der Aufbau ist deshalb
- * mit Bildern aus dem Kemes-Listing gestellt: das Band traegt die
- * Anwendungsaufnahme, die Karten stehen fuer die weiteren Artikel der Marke.
- * Ueber die Karten laeuft eine Wischleiste, weil das die Stelle ist, an der
- * ein Kaeufer von einem Produkt zum naechsten kommt.
+ * Die beiden Bahnen stammen aus der Brand Story fuer Rainfactory. Sie liegen
+ * ohne Abstand untereinander, wie auf der Produktseite: die zweite fuehrt die
+ * Kartenreihe der ersten fort, mit Luft dazwischen reisst die Grafik mitten
+ * im Bild auseinander.
  */
 function BrandStoryViz() {
-  const karten = [M.strecke[1], M.strecke[3], M.strecke[4]];
   return (
-    <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
-      <Bild src={M.strecke[5]} className="aspect-[16/7] rounded-[0.7rem]" fit="cover" />
-      <div className="mt-2.5 grid grid-cols-3 gap-2">
-        {karten.map((s) => (
-          <Bild key={s} src={s} className="aspect-square rounded-[0.6rem]" fit="cover" />
+    <div className="overflow-hidden rounded-[1.1rem] bg-white p-2.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      <div className="overflow-hidden rounded-[0.7rem]">
+        {M.brandstory.map((src) => (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
         ))}
-      </div>
-      {/* Die Wischleiste unter der Kartenreihe. */}
-      <div className="mt-2.5 flex justify-center">
-        <span aria-hidden className="relative block h-1 w-16 overflow-hidden rounded-full bg-navy/10">
-          <motion.span
-            className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-brand-500"
-            animate={{ x: ["0%", "100%", "0%"] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </span>
       </div>
     </div>
   );
