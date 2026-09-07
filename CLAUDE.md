@@ -805,3 +805,61 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Moduls**, die aufeinander aufbauen: Kopf mit der Aussage, Produkt im Rasen,
   erste Anwendung. Sie liegen ohne Abstand untereinander, sonst reisst die
   Grafik mitten im Bild auseinander.
+
+## Einundzwanzigste Feedbackrunde (verbindlich)
+
+### Case Study Bachgold
+
+- **Der Fall steht an zweiter Stelle**, direkt hinter Miganeo: 1.677.538 Euro
+  Umsatz und Bestseller-Rang 1 sind die groesste belegte Zahl der Sammlung.
+  Grundlage ist die vom Kunden gelieferte Fallstudie als PDF; Zahlen, Zitat und
+  die Bilder beider Listings stammen daraus.
+- **In diesem Fall lag das Kampagnenmanagement nicht bei uns.** Die Arbeit war
+  Markenauftritt und Content. Der Text sagt deshalb an keiner Stelle etwas
+  ueber Werbung, weder im Vorgehen noch im Ergebnis. Was wir nicht gemacht
+  haben, steht auch nicht da, auch nicht abgeschwaecht als „mitgewirkt".
+- **Lange Zahlen brechen nicht um.** „1.677.538 €" liess das Eurozeichen in die
+  zweite Zeile fallen und zog die Kennzahlkarte hoeher als ihre Nachbarn. Ab
+  neun Zeichen wird der Wert eine Stufe kleiner gesetzt und traegt
+  `whitespace-nowrap`.
+- **Bilder aus einem PDF holt man aus den Streams.** Die Textextraktion war
+  wertlos (Schrift ohne ToUnicode), die 21 eingebetteten JPEGs liegen dagegen
+  unkomprimiert im Datenstrom und beginnen mit `FF D8`.
+
+### Cookie-Banner und Einwilligung
+
+- **Die Kategorien stehen in `src/lib/consent.ts` und nur dort.** Banner und
+  Datenschutzerklaerung rendern dieselbe Liste, deshalb koennen sie nicht
+  auseinander laufen. Ein neuer Dienst kommt in dieses Verzeichnis und
+  erscheint an beiden Stellen.
+- **Es gibt genau zwei Kategorien: Notwendig und Externe Dienste.** Die Website
+  misst nichts, es gibt keine Analyse und kein Marketing-Pixel, die Schriften
+  liegen selbst auf dem Server. Ein Banner, das „Statistik" anbietet, wo nichts
+  gemessen wird, waere eine Behauptung. Kommt Analyse dazu, kommt die Kategorie
+  dazu und `VERSION` wird erhoeht: dann wird neu gefragt.
+- **Nichts von einem Dritten wird vor der Zustimmung geladen.** Der Ladecode
+  fuer Cal.com steckt in `CalInline`, und `ConsentGate` rendert sein Kind erst,
+  wenn die Kategorie erlaubt ist. Damit laeuft der Code auch wirklich erst
+  danach. Geprueft wird das nicht per Auge, sondern indem im Browser alle
+  Anfragen mitgeschrieben werden, die nicht an localhost gehen: vor der
+  Zustimmung null, danach eine.
+- **Ablehnen ist so leicht wie Zustimmen.** Beide Knoepfe sind gleich gross,
+  gleich fett und stehen nebeneinander. Ein grauer Textlink neben einem grossen
+  Knopf waere keine freie Entscheidung.
+- **Wer nicht zustimmt, kommt trotzdem zum Termin.** Statt des Kalenders steht
+  eine Platte mit dem Grund, einem Knopf zum Zulassen und dem Weg direkt zum
+  Anbieter. Ohne diesen Weg waere die Einwilligung an die Leistung gekoppelt.
+- **Der Widerruf steht in der Fusszeile** unter „Cookie-Einstellungen", auf
+  jeder Seite, neben Impressum und Datenschutz. Eine Einwilligung, die man
+  schwerer zurueckzieht als man sie gibt, ist keine.
+- **`pointer-events-none` an der Huelle des Banners.** Die Huelle liegt fest
+  ueber die volle Breite; ohne das fingen die leeren Streifen links und rechts
+  der Karte alle Klicks ab, und alles, was dort unten auf der Seite lag, war
+  nicht mehr anklickbar.
+- **Escape schliesst den Hinweis nicht.** Wegdruecken ist keine Entscheidung.
+  Escape geht nur aus den Einstellungen zurueck.
+- **Die Entscheidung liegt im lokalen Speicher, nicht in einem Cookie**, mit
+  Zeitpunkt und Fassungsnummer als Nachweis nach Art. 7 Abs. 1 DSGVO. Jeder
+  Zugriff darauf liegt in `try/catch`: im privaten Fenster wirft der Speicher.
+- **Die Texte sind kein Rechtsrat.** Der Ablauf ist nach unserem Verstaendnis
+  der DSGVO und des TDDDG gebaut, die juristische Pruefung liegt beim Kunden.

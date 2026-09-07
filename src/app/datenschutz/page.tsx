@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
+import { DienstTabelle } from "@/components/consent/DienstTabelle";
 
 export const metadata: Metadata = {
   title: "Datenschutz · TEMOA",
@@ -51,8 +52,19 @@ export default function DatenschutzPage() {
                 </p>
               </div>
               <div>
-                <h2 className="text-lg font-bold text-ink">4. Cookies & Reichweitenmessung</h2>
-                <p className="mt-2">[Angaben zu eingesetzten Cookies und Analyse-/Marketing-Tools ergänzen.]</p>
+                <h2 className="text-lg font-bold text-ink">4. Cookies und externe Dienste</h2>
+                <p className="mt-2">
+                  Diese Website setzt für sich selbst keine Cookies zur Messung und bindet keine
+                  Analyse- oder Marketing-Werkzeuge ein. Es gibt keine Reichweitenmessung. Auch die
+                  Schriften liegen auf unserem eigenen Server, es wird also keine Schrift von einem
+                  Dritten nachgeladen.
+                </p>
+                <p className="mt-2">
+                  Ein einziger Dienst kommt von außen: der Terminkalender für das Erstgespräch. Er
+                  wird erst geladen, nachdem ihr zugestimmt habt. Vorher geht keine Verbindung
+                  dorthin und es wird kein Cookie gesetzt.
+                </p>
+                <DienstTabelle />
               </div>
               <div>
                 <h2 className="text-lg font-bold text-ink">5. Eure Rechte</h2>

@@ -1,13 +1,41 @@
 "use client";
 
 import { useEffect } from "react";
+import { ConsentGate } from "../consent/ConsentGate";
 
 /* Cal.com inline embed. Set the real booking link in CAL_LINK (e.g.
    "temoa/potenzialanalyse"); until then a styled scheduler placeholder
    is shown so the page is complete and on-brand. */
 const CAL_LINK = "temoa-clemens/temoa-strategiegesprach";
 
+/**
+ * Der Kalender, hinter der Einwilligung.
+ *
+ * `ConsentGate` rendert sein Kind erst, wenn die Kategorie „Externe Dienste"
+ * zugelassen ist. Weil der Ladecode in `CalInline` steckt und nicht hier,
+ * laeuft er dann auch wirklich erst danach: kein Skript von app.cal.com, keine
+ * Verbindung, kein Cookie, solange nicht zugestimmt wurde.
+ *
+ * Wer nicht zustimmen will, bekommt den Weg direkt zum Anbieter. Ein
+ * Einwilligungsbanner, das ohne Zustimmung keinen Weg zum Termin laesst, waere
+ * eine Kopplung.
+ */
 export function CalEmbed() {
+  if (!CAL_LINK) return <SchedulerPlaceholder />;
+  return (
+    <ConsentGate
+      kategorie="extern"
+      titel="Der Terminkalender liegt bei Cal.com"
+      grund="Damit ihr die freien Zeiten hier direkt sehen könnt, laden wir den Kalender von Cal.com. Dabei geht eine Verbindung dorthin, und Cal.com setzt eigene Cookies. Ohne eure Zustimmung passiert das nicht."
+      ausweichLabel="Termin direkt bei Cal.com buchen"
+      ausweichHref={`https://cal.com/${CAL_LINK}`}
+    >
+      <CalInline />
+    </ConsentGate>
+  );
+}
+
+function CalInline() {
   useEffect(() => {
     if (!CAL_LINK) return;
     // Official Cal.com embed loader.
@@ -43,9 +71,8 @@ export function CalEmbed() {
     window.Cal("inline", { elementOrSelector: "#cal-inline", calLink: CAL_LINK });
   }, []);
 
-  if (CAL_LINK) {
-    return (
-      <div>
+  return (
+    <div>
         {/* Kein overflow-hidden und keine feste Hoehe: der Cal-Rahmen waechst
             mit der Terminauswahl, vorher war er bei 540 px abgeschnitten. */}
         <div className="relative rounded-3xl ring-1 ring-black/[0.06]">
@@ -66,10 +93,7 @@ export function CalEmbed() {
           </a>
         </p>
       </div>
-    );
-  }
-
-  return <SchedulerPlaceholder />;
+  );
 }
 
 const days = ["Mo", "Di", "Mi", "Do", "Fr"];

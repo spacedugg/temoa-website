@@ -1,5 +1,5 @@
 /**
- * Echte Case-Study-Daten (4 Marken). Zahlen und Struktur stammen aus den
+ * Echte Case-Study-Daten (6 Marken). Zahlen und Struktur stammen aus den
  * vom Kunden freigegebenen Fällen. Einzelne Formulierungen wurden an die
  * Stilregeln angepasst (keine verbotenen Begriffe), Zahlen bleiben unverändert.
  */
@@ -90,6 +90,71 @@ export const cases: CaseStudy[] = [
       { value: "+24,7 %", label: "Conversion Rate Sandfilteranlagen", sublabel: "nach neuen Produktbildern", trend: "up" },
     ],
     badges: [{ label: "Effizienzziel des Kunden übertroffen", icon: "trophy" }],
+  },
+  {
+    /* Bachgold.
+       Grundlage ist die vom Kunden gelieferte Fallstudie als PDF: Zahlen,
+       Zitat und die Bilder beider Listings stammen daraus.
+
+       In diesem Fall lag das Kampagnenmanagement nicht bei uns, die Arbeit war
+       Markenauftritt und Content. Der Text sagt deshalb nichts ueber Werbung,
+       weder im Vorgehen noch im Ergebnis: was wir nicht gemacht haben, steht
+       hier auch nicht. */
+    slug: "bachgold",
+    displayName: "BACHGOLD",
+    mono: "B",
+    bgImage: "/case_studies/bachgold.webp",
+    logo: "/case_studies/bachgold-logo.webp",
+    images: [1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => `/case_studies/bachgold/${n}.webp`),
+    anonymized: false,
+    industry: "Outdoor-Wasserfilter",
+    marketplaces: ["DE"],
+    timeframe: "15 Monate",
+    accent: "#2C7A5E",
+    headline: "Erst die Marke, dann der Bestseller-Rang",
+    subheadline:
+      "Produktbilder, Premium A+ Content und Brand Story neu aufgebaut. In 15 Monaten 1.677.538 € Umsatz in der Nische Wasserfilter.",
+    preview: { value: "1,68 Mio. €", label: "Umsatz in 15 Monaten", trend: "up" },
+    sections: [
+      {
+        heading: "Ausgangslage",
+        body: "Ein Outdoor-Wasserfilter, in der Schweiz entwickelt und patentiert, stand auf Amazon wie beliebige Ware. Was fehlte, war ein Auftritt, an dem ein Käufer die Marke wiedererkennt und der beides zugleich zeigt: den Outdoor-Charakter und den praktischen Nutzen der Filter.",
+      },
+      {
+        heading: "Unser Vorgehen",
+        body: "Zuerst die Markenidentität, dann der Content darauf. Für beide Größen entstanden Hauptbild, Listingbilder, Premium A+ Content und Brand Story neu, dazu der Brand Store als Einstieg in das Sortiment. Angelegt so, dass sich der Auftritt auf weitere Länder übertragen lässt.",
+      },
+      {
+        heading: "Ergebnis",
+        body: "Produktbilder, Content und Verpackung zeigen heute dieselbe Marke. In der Nische Wasserfilter steht sie auf Bestseller-Rang 1 und hat in 15 Monaten 1.677.538 € Umsatz erreicht. Zwei weitere Produkte und der erste Schritt nach Amazon US sind in Vorbereitung.",
+      },
+    ],
+    heroStats: [
+      { value: "1.677.538 €", label: "Umsatz", sublabel: "in 15 Monaten", trend: "up" },
+      { value: "Rang 1", label: "Bestseller Wasserfilter", sublabel: "Nische dauerhaft besetzt", trend: "up" },
+      { value: "2", label: "Größen mit eigenem Content", sublabel: "500 ml und 800 ml", trend: "neutral" },
+    ],
+    subStats: [
+      {
+        value: "Premium A+",
+        label: "Content-Stufe für beide Größen",
+        sublabel: "dazu die Brand Story",
+        trend: "neutral",
+      },
+      {
+        value: "Brand Store",
+        label: "neu aufgebaut",
+        sublabel: "Einstieg in das gesamte Sortiment",
+        trend: "neutral",
+      },
+      {
+        value: "US",
+        label: "Nächster Marktplatz",
+        sublabel: "erstes Produkt in Vorbereitung",
+        trend: "neutral",
+      },
+    ],
+    badges: [{ label: "Bestseller-Rang 1 Wasserfilter", icon: "trophy" }],
   },
   {
     slug: "vitaworld",

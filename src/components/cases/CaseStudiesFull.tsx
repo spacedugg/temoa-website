@@ -62,8 +62,17 @@ function BadgeIcon({ icon }: { icon: CaseBadge["icon"] }) {
 function HeroStat({ stat }: { stat: CaseStat }) {
   return (
     <div className="rounded-2xl bg-white/[0.08] p-5 ring-1 ring-white/12 backdrop-blur">
-      <div className="flex items-center gap-1.5 text-white">
-        <ZahlText text={stat.value} className="text-3xl font-extrabold leading-none tracking-tight md:text-4xl" />
+      {/* `min-w-0` an der Reihe und `whitespace-nowrap` an der Zahl: ein
+          langer Wert wie „1.677.538 €" brach sonst vor dem Eurozeichen um und
+          zog die Karte hoeher als ihre Nachbarn. Statt umzubrechen wird die
+          Zahl jetzt eine Stufe kleiner gesetzt, wenn sie lang ist. */}
+      <div className="flex min-w-0 items-center gap-1.5 text-white">
+        <ZahlText
+          text={stat.value}
+          className={`whitespace-nowrap font-extrabold leading-none tracking-tight ${
+            stat.value.length > 9 ? "text-[1.6rem] md:text-[2rem]" : "text-3xl md:text-4xl"
+          }`}
+        />
         <TrendArrow trend={stat.trend} light />
       </div>
       <div className="mt-2 text-sm font-bold text-white">{stat.label}</div>
@@ -75,8 +84,13 @@ function HeroStat({ stat }: { stat: CaseStat }) {
 function SubStat({ stat, accent }: { stat: CaseStat; accent: string }) {
   return (
     <div className="surface flex h-full flex-col p-5 text-center">
-      <div className="flex items-center justify-center gap-1.5" style={{ color: accent }}>
-        <ZahlText text={stat.value} className="text-2xl font-extrabold leading-none tracking-tight" />
+      <div className="flex min-w-0 items-center justify-center gap-1.5" style={{ color: accent }}>
+        <ZahlText
+          text={stat.value}
+          className={`whitespace-nowrap font-extrabold leading-none tracking-tight ${
+            stat.value.length > 9 ? "text-[1.35rem]" : "text-2xl"
+          }`}
+        />
         <TrendArrow trend={stat.trend} />
       </div>
       <div className="mt-2 text-sm font-bold text-ink">{stat.label}</div>

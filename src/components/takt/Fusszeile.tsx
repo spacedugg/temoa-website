@@ -1,4 +1,5 @@
 import { Logo } from "../Logo";
+import { CookieEinstellungen } from "../consent/CookieEinstellungen";
 
 /** Fußzeile als Planfuß: Kennung links, Spalten rechts, alles auf Hairlines. */
 
@@ -58,6 +59,13 @@ export function Fusszeile() {
                     </a>
                   </li>
                 ))}
+                {/* Der Widerruf gehoert dorthin, wo Impressum und Datenschutz
+                    stehen, nicht in eine eigene Ecke. */}
+                {c.title === "Rechtliches" && (
+                  <li>
+                    <CookieEinstellungen className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500" />
+                  </li>
+                )}
               </ul>
             </div>
           ))}

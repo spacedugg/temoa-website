@@ -12,7 +12,7 @@ import { testimonials } from "@/lib/testimonials";
 export const metadata: Metadata = {
   title: "Case Studies · temoa",
   description:
-    "Fünf Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut und vier Marktplätze parallel.",
+    "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang und vier Marktplätze parallel.",
 };
 
 /**
@@ -89,7 +89,7 @@ export default function ErgebnissePage() {
           eyebrow="Case Studies"
           title={
             <>
-              Fünf Marken, die <span className="text-gradient">profitabel gewachsen sind.</span>
+              Sechs Marken, die <span className="text-gradient">profitabel gewachsen sind.</span>
             </>
           }
           /* Vorher: „Fünf Konten, vollständig nachgerechnet." Nachrechnen ist
