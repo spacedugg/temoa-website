@@ -27,6 +27,9 @@ const cols = [
     links: [
       { label: "Impressum", href: "/impressum" },
       { label: "Datenschutz", href: "/datenschutz" },
+      /* Die AGB standen bewusst nicht hier, solange die Seite eine Vorlage
+         mit Platzhaltern war. Der Text des Kunden liegt jetzt vor. */
+      { label: "AGB", href: "/agb" },
     ],
   },
 ];
@@ -74,10 +77,10 @@ export function Fusszeile() {
         <div className="flex flex-col items-start justify-between gap-2 border-t border-white/10 py-6 text-small text-chalk-faint md:flex-row md:items-center">
           <span className="[font-variant-numeric:tabular-nums]">© {new Date().getFullYear()} temoa</span>
           <a
-            href="mailto:kontakt@temoa.de"
+            href="mailto:info@temoa.de"
             className="flex min-h-[2.75rem] items-center transition-colors hover:text-brand-500"
           >
-            kontakt@temoa.de
+            info@temoa.de
           </a>
         </div>
       </div>

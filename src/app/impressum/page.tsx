@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
+import { Rechtstext } from "@/components/legal/Rechtstext";
+import { IMPRESSUM } from "@/lib/recht/impressum";
 
 export const metadata: Metadata = {
-  title: "Impressum · TEMOA",
-  description: "Impressum und Anbieterkennzeichnung von TEMOA.",
+  title: "Impressum · temoa",
+  description: "Anbieterkennzeichnung der Temoa GmbH, Am Brink 2, 23883 Seedorf.",
 };
 
 export default function ImpressumPage() {
@@ -18,56 +20,7 @@ export default function ImpressumPage() {
           title={<>Impressum</>}
           description="Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)."
         />
-        <section className="relative py-12 md:py-20">
-          <div className="container-x">
-            <div className="mx-auto max-w-2xl space-y-8 leading-relaxed text-ink-muted">
-              <div className="rounded-2xl border border-brand-200 bg-brand-50/60 p-4 text-sm">
-                <strong className="font-semibold text-ink">Hinweis:</strong> Diese Seite ist ein Platzhalter.
-                Vor dem Go-Live sind die mit [eckigen Klammern] markierten Angaben durch die
-                rechtsverbindlichen Daten von TEMOA zu ersetzen (rechtliche Prüfung empfohlen).
-              </div>
-
-              <div>
-                <h2 className="text-lg font-bold text-ink">Anbieter</h2>
-                <p className="mt-2">[Firmenname / Rechtsform]<br />[Straße und Hausnummer]<br />[PLZ und Ort]</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">Vertreten durch</h2>
-                <p className="mt-2">[Vertretungsberechtigte Person(en) / Geschäftsführung]</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">Kontakt</h2>
-                <p className="mt-2">
-                  E-Mail: <a className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2 hover:decoration-navy" href="mailto:tools@temoa.de">tools@temoa.de</a>
-                  <br />Telefon: [Telefonnummer]
-                </p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">Registereintrag</h2>
-                <p className="mt-2">[Registergericht] · [Registernummer, z. B. HRB …]</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">Umsatzsteuer-ID</h2>
-                <p className="mt-2">Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: [USt-IdNr.]</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-                <p className="mt-2">[Name]<br />[Anschrift wie oben]</p>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-ink">EU-Streitschlichtung</h2>
-                <p className="mt-2">
-                  Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-                  <a className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2 hover:decoration-navy" href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noreferrer">
-                    ec.europa.eu/consumers/odr
-                  </a>
-                  . Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer
-                  Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Rechtstext quelle={IMPRESSUM} />
       </main>
       <Fusszeile />
     </>

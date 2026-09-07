@@ -1027,3 +1027,80 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   `scripts/case-arbeit-bilder.mjs` vergleicht jeden Pfadteil normalisiert.
 - **Das Trampolin in der Miganeo-Arbeit traegt die Marke TERENA.** Das ist so
   geliefert; wenn es nicht als Miganeo-Arbeit erscheinen soll, muss es raus.
+
+## Fuenfundzwanzigste Feedbackrunde (verbindlich)
+
+### Zahlen, Korrektur der vorigen Runde
+
+- **Relativ gilt nur fuer CTR, CVR, ACoS und TACoS.** Die vorige Runde hat die
+  Regel zu weit gefasst und auch Umsaetze, Bestellzahlen und Stueckzahlen
+  herausgenommen. Die stehen wieder konkret da: 392.327 EUR und 17.042
+  Bestellungen bei Futum, 131k auf 326k EUR und 5.019 auf 16.073 Bestellungen
+  bei Vitaworld, 28 auf 397 Bestellungen pro Woche bei HaA. Was nicht dasteht,
+  ist der Weg einer Rate von X auf Y: das ist die Zahl, die ein Wettbewerber
+  mitliest, und sie sagt einem Besucher ohne Marge und Sortiment nichts.
+- **Der Anteil der Werbung am Umsatz ist eine Rate**, kein Umsatz. Er bleibt
+  relativ (minus 19,4 Prozent), auch wenn er in Euro gerechnet wird.
+- **Bei HaA fehlt die ACoS-Zeile weiter.** Dort liegt nur der Stand vor
+  (13,5 %) und kein Ausgangswert; eine Kennzahl ohne Veraenderung ist unter
+  dieser Regel keine.
+- **Die Kundenstimme von Vitaworld bleibt, wie sie ist.** Sie nennt selbst
+  Bestellzahlen und einen TACoS. Ein Zitat wird nicht umgeschrieben.
+
+### Aufbau einer Fallseite
+
+- **Erst lesen, dann sehen.** Reihenfolge: Kopf, Kennzahlenband, Diagramm,
+  die drei Schritte (Ausgangslage, Vorgehen, Ergebnis), Kennzahlen darunter,
+  Auszeichnungen, und ganz am Schluss die ausgelieferte Arbeit. Vorher stand
+  die Arbeit direkt unter den Zahlen: wer bei drei Produkten mit Listing,
+  Varianten und A+ ankam, hatte ueber tausend Pixel Bilder hinter sich, bevor
+  ein Wort darueber stand, was gemacht wurde.
+- **Der Kopf eines Falls ist eine helle Karte.** Die Vorfassung war eine fast
+  schwarze Flaeche mit einem dunkel abgedeckten Foto darin, weisser Schrift
+  und drei Glaskacheln, direkt ueber dem ebenfalls dunklen Kennzahlenband:
+  zwei schwere Bloecke uebereinander in einer hellen Seite. Jetzt links Logo,
+  Ueberschrift, Fahnen und Zeitraum, rechts das Foto ohne Schleier, darunter
+  die drei Zahlen als Fuss der Karte, getrennt durch feine Linien. Die
+  Fallfarbe kommt nur noch als Lichtkern hinter der Ecke vor. Das Dunkle
+  traegt das Kennzahlenband danach.
+- **Die Zahlen im Kopf stehen in Navy, nicht in der Fallfarbe.** Zwei der
+  sechs Fallfarben sind #FF9900 und #FF3131.
+- **Der Bildstreifen des Listings laeuft in zwei Spalten.** In einer Spalte
+  muss die Summe der Quadrate unter der Hoehe des quadratischen Hauptbilds
+  bleiben, das ergibt bei sechs Bildern 14 Prozent Breite: Briefmarken neben
+  einem sehr grossen Hauptbild. In zwei Spalten halbiert sich die Zahl der
+  Zeilen, und die Breite folgt daraus: Zeilen ist n/2 aufgerundet, der
+  Streifen ist 2/(2+Zeilen). Bei sechs Bildern also 40 zu 60 statt 14 zu 86.
+  Bei ungerader Anzahl steht das letzte Bild mittig ueber beide Spalten, sonst
+  bleibt rechts eine Luecke.
+- **Die Arbeit steht auf `max-w-6xl`**, breiter als der uebrige Fall: dort
+  liegen Listing, Varianten und A+ nebeneinander, und die Bilder sind der
+  Inhalt.
+
+### Rechtstexte
+
+- **Impressum, Datenschutzerklaerung und AGB stehen wortgleich so da, wie der
+  Kunde sie geliefert hat.** Sie liegen als einfacher Text in `src/lib/recht`
+  und werden von `components/legal/Rechtstext` gesetzt. Kein
+  Markdown-Paket dafuer: erkannt wird nur, was in diesen drei Texten
+  vorkommt (zwei Ueberschriftstufen, Aufzaehlung, Kasten, Links, fett).
+- **An einem Rechtstext wird nicht getextet.** Der AGB-Text nennt die
+  Vertragspartnerin durchgaengig „Agentur", obwohl das Wort in der
+  Website-Copy verboten ist: es ist die Legaldefinition aus Ziffer 1.1.
+- **Die Liste der eingebundenen Dienste steht nur an einer Stelle.** In der
+  Datenschutzerklaerung markiert `[[DIENSTE]]` unter Ziffer 10.2 die Stelle,
+  an der `consent/DienstTabelle` gerendert wird. Quelle bleibt
+  `lib/consent.ts`, damit Banner und Erklaerung nicht auseinanderlaufen
+  koennen.
+- **Die AGB stehen jetzt in der Fusszeile.** Sie waren bewusst unverlinkt,
+  solange die Seite eine Vorlage mit Platzhaltern war.
+- **Die Adresse ist info@temoa.de.** Die Fusszeile trug kontakt@temoa.de, das
+  Impressum tools@temoa.de. Beide sind raus, die richtige steht in Ziffer 1.2
+  der Datenschutzerklaerung.
+- **Zwei Stellen brauchen eine Entscheidung des Kunden.** Der gelieferte
+  Impressumstext liess das Feld nach § 18 Abs. 2 MStV leer, dort stehen jetzt
+  die drei Geschaeftsfuehrer mit der Anschrift des Hauses. Und die
+  Datenschutzerklaerung beschreibt Dienste, die diese Website nicht einbindet
+  (Google Analytics, Meta Pixel, Google Ads, YouTube, Trusted Shops,
+  Typeform, Google Forms, ein Bewerbungsformular). Zutreffend sind Cal.com,
+  das Einwilligungswerkzeug und die Abschnitte zu Hosting und Kontakt.

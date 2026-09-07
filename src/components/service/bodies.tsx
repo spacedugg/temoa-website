@@ -103,7 +103,7 @@ export function StrategieBody() {
         title="Vitaworld, Q1 2025 auf Q1 2026"
         zeile="Erst durchgerechnet, dann skaliert: das Werbebudget stieg um 39 %, der Umsatz um 147 %."
         werte={[
-          { wert: "+147 %", label: "Umsatz", sub: "im Vergleich der beiden Quartale" },
+          { wert: "+147 %", label: "Umsatz", sub: "131k € auf 326k € pro Quartal" },
           { wert: "−44 %", label: "TACoS", sub: "bei wachsendem Umsatz", runter: true },
           { wert: "−19,4 %", label: "Anteil der Werbung am Umsatz", sub: "das Wachstum kommt organisch", runter: true },
         ]}
@@ -173,7 +173,7 @@ export function ContentBody() {
         zeile="Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget."
         werte={[
           { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
-          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
+          { wert: "×14", label: "Bestellungen pro Woche", sub: "28 auf 397" },
           { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
         ]}
         href="/ergebnisse/haa"
@@ -267,7 +267,7 @@ export function AdvertisingBody() {
         werte={[
           { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung", runter: true },
           { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
-          { wert: "+37,3 %", label: "Conversion Rate", sub: "auf Ebene des ganzen Kontos" },
+          { wert: "392.327 €", label: "Umsatz 2025", sub: "bei 17.042 Bestellungen" },
         ]}
         href="/ergebnisse/futum"
       />

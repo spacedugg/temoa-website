@@ -7,8 +7,10 @@ import { Reveal } from "../ui/Reveal";
 /* ============================================================
    Die ausgelieferte Arbeit auf der Fallseite.
 
-   Sie steht direkt unter dem Kennzahlenband und damit vor der Geschichte:
-   ein Besucher soll die Arbeit sehen, bevor er darueber liest.
+   Sie steht am Schluss des Falls, hinter Kennzahlen und Geschichte. Vorher
+   lag sie direkt unter dem Kennzahlenband: wer bei drei Produkten mit
+   Listing, Varianten und A+ ankam, hatte ueber tausend Pixel Bilder hinter
+   sich, bevor ein Wort darueber stand, was gemacht wurde.
 
    Ein Block je Produkt, weil jede Marke anderes Material hat: bei Bachgold ein
    Produkt mit drei Hauptbildvarianten und sechs A+ Modulen, bei Miganeo drei
@@ -180,20 +182,43 @@ function Produkt({
     <Reveal>
       <div>
         <Teil label="Listing" titel={p.titel} />
-        <div className="mt-4 flex items-stretch gap-2.5">
-          {/* Der Streifen ist so breit, dass seine Quadrate zusammen knapp
-              unter der Hoehe des quadratischen Hauptbilds bleiben. Bei fuenf
-              Bildern sind das 15 Prozent, bei sieben 11,5: rechnet man das
-              nicht, steht der Streifen darunter hinaus. */}
+        <div className="mt-4 flex items-start gap-3">
+          {/* Der Streifen laeuft in zwei Spalten, nicht in einer.
+
+              In einer Spalte muss die Summe der Quadrate unter der Hoehe des
+              quadratischen Hauptbilds bleiben, das ergibt bei sechs Bildern
+              14 Prozent Breite: die Listingbilder waren Briefmarken neben
+              einem sehr grossen Hauptbild. In zwei Spalten halbiert sich die
+              Zahl der Zeilen, und die Breite folgt daraus:
+
+                Zeilen  = aufgerundet n/2
+                Streifen = 2 / (2 + Zeilen)
+
+              Bei sechs Bildern sind das 40 Prozent Streifen zu 60 Prozent
+              Hauptbild, jedes Listingbild also 20 statt 14 Prozent breit.
+              Beide Spalten enden auf derselben Hoehe. */}
           <div
-            className="flex shrink-0 flex-col justify-between gap-2"
-            style={{ width: `${Math.min(17, 92 / (p.strecke.length + 1))}%` }}
+            className="grid shrink-0 grid-cols-2 gap-3"
+            style={{ width: `${(200 / (2 + Math.ceil(p.strecke.length / 2))).toFixed(2)}%` }}
           >
-            {p.strecke.map((src) => (
-              <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+            {p.strecke.map((src, i) => (
+              <Kachel
+                key={src}
+                src={src}
+                onClick={() => oeffne(src)}
+                /* Bei ungerader Anzahl bliebe in der letzten Zeile eine
+                   Luecke rechts. Das letzte Bild laeuft deshalb ueber beide
+                   Spalten und steht mittig in seiner Zeile, in derselben
+                   Groesse wie die anderen. */
+                className={
+                  p.strecke.length % 2 === 1 && i === p.strecke.length - 1
+                    ? "col-span-2 mx-auto aspect-square w-[calc(50%-0.375rem)]"
+                    : "aspect-square"
+                }
+              />
             ))}
           </div>
-          <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square flex-1" />
+          <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square min-w-0 flex-1" />
         </div>
       </div>
     </Reveal>
@@ -297,7 +322,9 @@ export function CaseArbeitView({ c }: { c: CaseStudy }) {
   const erstesMitVarianten = produkte.findIndex((p) => (p.varianten?.length ?? 0) > 0);
 
   return (
-    <div className="mx-auto mt-6 max-w-5xl">
+    /* Breiter als der uebrige Fall: in dieser Spalte stehen Listing,
+       Varianten und A+ nebeneinander, und die Bilder sind der Inhalt. */
+    <div className="mx-auto mt-10 max-w-6xl">
       {produkte.map((p, i) => (
         <div
           key={p.titel}

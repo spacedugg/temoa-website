@@ -1,9 +1,13 @@
 /**
- * Regel fuer alle Zahlen auf dieser Seite: nur relative Werte, keine
- * absoluten. „ACoS um 30 Prozent gesenkt" steht da, „von 30,9 auf 21,6
- * Prozent" nicht, und Umsaetze, Bestellzahlen und Stueckzahlen stehen gar
- * nicht da. Ausgenommen ist Miganeo, dort bleiben die konkreten Zahlen so
- * stehen, wie sie sind.
+ * Regel fuer die Kennzahlen auf dieser Seite: CTR, CVR, ACoS und TACoS stehen
+ * nur relativ da. „ACoS um 30 Prozent gesenkt" steht da, „von 30,9 auf 21,6
+ * Prozent" nicht. Der Weg von X auf Y ist die Zahl, die ein Wettbewerber
+ * mitliest, und sie sagt einem Besucher nichts, weil sie ohne Marge und
+ * Sortiment nicht einzuordnen ist.
+ *
+ * Umsaetze, Bestellzahlen, Raenge und Stueckzahlen bleiben dagegen konkret:
+ * das ist die Groesse, an der sich ein Fall messen laesst. Miganeo steht in
+ * allem so, wie es ist.
  *
  * Echte Case-Study-Daten (6 Marken). Zahlen und Struktur stammen aus den
  * vom Kunden freigegebenen Fällen. Einzelne Formulierungen wurden an die
@@ -393,8 +397,8 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "+147 %", label: "Umsatz", sublabel: "im Vergleich der beiden Quartale", trend: "up" },
-      { value: "×3,2", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
+      { value: "+147 %", label: "Umsatz", sublabel: "131k € auf 326k € pro Quartal", trend: "up" },
+      { value: "×3,2", label: "Bestellungen", sublabel: "5.019 auf 16.073 pro Quartal", trend: "up" },
       { value: "−19,4 %", label: "Anteil der Werbung am Umsatz", sublabel: "das Wachstum kommt organisch", trend: "down" },
     ],
     kennzahlen: [
@@ -482,7 +486,7 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "×14", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
+      { value: "×14", label: "Bestellungen pro Woche", sublabel: "28 auf 397", trend: "up" },
       { value: "+900 %", label: "Klicks pro Woche", sublabel: "ohne großes Werbebudget", trend: "up" },
       { value: "17", label: "Wochen vom Launch zur Spitze", trend: "neutral" },
     ],
@@ -582,16 +586,16 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Das erste volle Amazon-Jahr 2025 lief profitabel.",
         punkte: [
-          "Beide Produkte profitabel skaliert",
+          "392.327 € Umsatz und 17.042 Bestellungen",
           "Organischer Anteil bis 80 %",
           "Bestseller- und Amazon's-Choice-Badge kamen dazu",
         ],
       },
     ],
     heroStats: [
-      { value: "2", label: "Produktlaunches", sublabel: "beide profitabel skaliert", trend: "neutral" },
+      { value: "392.327 €", label: "Umsatz 2025", sublabel: "erstes volles Jahr auf Amazon", trend: "up" },
+      { value: "17.042", label: "Bestellungen 2025", trend: "up" },
       { value: "80 %", label: "Organische Verkäufe", sublabel: "Spitzenanteil am Gesamtumsatz", trend: "up" },
-      { value: "4", label: "Produkte mit eigenem Content", sublabel: "Listing, A+ und Hauptbildvarianten", trend: "neutral" },
     ],
     kennzahlen: [
       { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+30 %", trend: "up" },
