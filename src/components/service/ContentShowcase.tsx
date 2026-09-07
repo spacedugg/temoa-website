@@ -19,23 +19,26 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
  *  niemand.
  * ============================================================ */
 
-/* Hier stand ein erfundenes Produkt aus dem Bildmodell: eine Isolierflasche
-   in zehn Ansichten. Auf einer Seite, die erklaert, was wir an einem Listing
-   machen, ist das die falsche Wahl. Jetzt steht dort ausgelieferte Arbeit,
-   das Listing fuer Miganeo: sieben Bilder und sechs Module Premium A+
-   Content, so wie sie auf Amazon stehen.
+/* Zwei Fassungen liegen dahinter. Erst ein erfundenes Produkt aus dem
+   Bildmodell, eine Isolierflasche in zehn Ansichten: auf einer Seite, die
+   erklaert, was wir an einem Listing machen, die falsche Wahl. Dann das
+   Miganeo-Listing, das aber schon die Designbeispiele der Startseite traegt.
 
-   Es ist bewusst ueberall dasselbe Listing. Freigegeben liegt bislang nur
-   dieses eine vor, und die Kacheln zeigen ohnehin verschiedene Stellen
-   derselben Produktseite: erst der Treffer im Suchergebnis, dann die
-   Bildstrecke, dann der Teil darunter. Sobald weitere Listings vorliegen,
-   bekommt jede Kachel ein eigenes. */
+   Jetzt eigene Arbeit fuer diese Seite: das Listing fuer Kemes und ein Modul
+   Premium A+ Content fuer Futum. Damit steht auf jeder Seite anderes Material,
+   und wer von der Startseite hierher kommt, sieht nicht dasselbe Produkt zum
+   zweiten Mal.
+
+   Die drei A+ Dateien sind keine drei Module, sondern drei Bahnen eines
+   Moduls, die aufeinander aufbauen: Kopf mit Aussage, Produkt im Rasen, erste
+   Anwendung. Sie liegen deshalb ohne Abstand untereinander, wie auf der
+   Produktseite. */
 const M = {
-  haupt: "/bilder/miganeo/l-1.webp",
+  haupt: "/bilder/kemes/l-1.webp",
   /* Die sechs weiteren Listingbilder in ihrer Reihenfolge. */
-  strecke: ["l-2", "l-3", "l-4", "l-5", "l-6", "l-7"].map((n) => `/bilder/miganeo/${n}.webp`),
-  /* Die ersten vier Module des Premium A+ Contents. */
-  aplus: ["a-1", "a-2", "a-3", "a-4"].map((n) => `/bilder/miganeo/${n}.webp`),
+  strecke: ["l-2", "l-3", "l-4", "l-5", "l-6", "l-7"].map((n) => `/bilder/kemes/${n}.webp`),
+  /* Die drei Bahnen des A+ Moduls, von oben nach unten. */
+  aplus: ["a-1", "a-2", "a-3"].map((n) => `/bilder/futum/${n}.webp`),
 };
 
 /* --- kleine Bausteine ------------------------------------------------- */
@@ -166,18 +169,17 @@ function ListingViz() {
 }
 
 /**
- * A+ Content: die ersten vier Module, liegend und ohne Abstand untereinander.
+ * A+ Content: das Modul, liegend und ohne Abstand zwischen den Bahnen.
  *
  * Vorher lagen hier drei Kaesten mit einem Bild links und nachgebauten
- * Textzeilen rechts. Das ist ueberfluessig, seit hier echte Module stehen:
- * die tragen ihre Ueberschriften und ihre Bilder selbst. Ohne Abstand, weil
- * sie auf der Produktseite auch ineinander laufen.
+ * Textzeilen rechts. Das ist ueberfluessig, seit hier echte Arbeit steht:
+ * die traegt ihre Ueberschriften und ihre Bilder selbst.
  */
 function APlusViz() {
   return (
     <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
-      {/* Feste Hoehe mit weichem Auslauf. Ein A+ Modul ist 2,4 mal so breit
-          wie hoch; vier davon untereinander sind hoeher als die beiden
+      {/* Feste Hoehe mit weichem Auslauf. Eine Bahn ist 2,4 mal so breit wie
+          hoch; drei davon untereinander sind hoeher als die beiden
           Nachbarkacheln, und weil das Raster die Zeile auf die hoechste
           Kachel zieht, stand unter den anderen beiden eine leere Flaeche.
           Der Auslauf sagt ausserdem das Richtige: auf der Produktseite geht
@@ -202,7 +204,7 @@ function APlusViz() {
  * durch die gewischt wird.
  *
  * Eine freigegebene Brand Story liegt noch nicht vor. Der Aufbau ist deshalb
- * mit Bildern aus demselben Listing gestellt: das Band traegt die
+ * mit Bildern aus dem Kemes-Listing gestellt: das Band traegt die
  * Anwendungsaufnahme, die Karten stehen fuer die weiteren Artikel der Marke.
  * Ueber die Karten laeuft eine Wischleiste, weil das die Stelle ist, an der
  * ein Kaeufer von einem Produkt zum naechsten kommt.

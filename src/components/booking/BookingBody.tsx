@@ -56,7 +56,7 @@ function Cross() {
 const ablauf: { schritt: string; title: string; body: string; icon: IconName }[] = [
   {
     schritt: "Schritt 1",
-    title: "Erstgespräch, 25 Minuten",
+    title: "Erstgespräch, 30 Minuten",
     body: "Wir hören, wo ihr steht: Sortiment, Ziele, was gerade klemmt. Ihr hört, wie wir arbeiten.",
   icon: "kompass",
   },
@@ -166,12 +166,12 @@ export function BookingBody() {
             {/* Was im ersten Gespraech passiert. Vorher stand hier, dass wir
                 vorab in Listings und Kampagnen schauen und 45 Minuten den
                 Bildschirm teilen: so laeuft es nicht. Das erste Gespraech
-                dauert 25 Minuten und dient dem Kennenlernen, die
+                dauert 30 Minuten und dient dem Kennenlernen, die
                 vorbereitete Auswertung kommt im zweiten Termin. */}
             <Reveal delay={0.16}>
               <ul className="mx-auto mt-8 grid max-w-lg gap-3 text-left lg:mx-0">
                 {[
-                  "25 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
+                  "30 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
                   "Wir fragen nach Sortiment, Zielen und dem, was gerade klemmt",
                   "Am Ende wisst ihr, ob es passt und wie der nächste Schritt aussieht",
                 ].map((t) => (
@@ -377,7 +377,7 @@ export function BookingBody() {
         <div className="container-x relative">
           <Reveal>
             <h2 className="title mx-auto max-w-[24ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
-              Nehmt euch die 25 Minuten.
+              Nehmt euch die 30 Minuten.
             </h2>
           </Reveal>
           <Reveal delay={0.08}>

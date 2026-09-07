@@ -151,11 +151,11 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   angeschnitten, und die Laenderliste unter der Grafik entfaellt: der Name
   steht am Land. Auf dem Telefon steht die Kugel allein, darunter die Flaggen
   mit Namen, weil Schrift in der Grafik dort fuenf Pixel gross waere.
-- **Der Ablauf des Erstgespraechs stimmt jetzt.** 25 Minuten zum
-  Kennenlernen, kein Blick in den Account vorab. Erst wenn es fuer beide
-  Seiten passt, folgt ein zweiter Termin mit aufbereiteten Zahlen. „45
-  Minuten", „30 Minuten" und „wir schauen vorab in eure Listings" sind
-  ueberall raus.
+- **Der Ablauf des Erstgespraechs stimmt jetzt.** Kein Blick in den Account
+  vorab. Erst wenn es fuer beide Seiten passt, folgt ein zweiter Termin mit
+  aufbereiteten Zahlen. „45 Minuten" und „wir schauen vorab in eure Listings"
+  sind ueberall raus. Zur Dauer siehe die zwanzigste Runde: sie steht jetzt
+  bei 30 Minuten.
 - **Bewegte Piktogramme** (`service/Aufgaben`) sind das Vorbild fuer Icons in
   Kacheln. Auf der Startseite und der Full-Service-Seite bleiben die
   bestehenden Grafiken, dort sind die Icons bereits eigene Zeichnungen
@@ -785,3 +785,23 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Fehler.** `Reveal direction="left"` schiebt sein Kind beim Einlaufen zur
   Seite; wer in dem Moment misst, findet eine zu breite Seite, die es nach der
   Animation nicht mehr gibt.
+
+## Zwanzigste Feedbackrunde (verbindlich)
+
+- **Das Erstgespraech dauert 30 Minuten.** Vorher standen dort 25. Die Zahl
+  steht an acht Stellen in sechs Dateien: Ablauf und Zusagen der
+  Buchungsseite, deren Abschlusszeile, die FAQ, der Abschluss-CTA
+  (`takt/Gespraech`), der Onboarding-Schritt „Tag 0" auf der Full-Service-Seite
+  und die Metadaten der Buchungsseite. Wer die Dauer aendert, sucht nach
+  „25 Minuten" beziehungsweise „30 Minuten" und geht alle durch; die
+  Kalender-Attrappe in `booking/CalEmbed` traegt sie ebenfalls.
+- **Die Content-Sektion der Seite Produktbilder & SEO hat ihr eigenes
+  Material.** Vorher lief dort das Miganeo-Listing, dasselbe, das die
+  Designbeispiele der Startseite traegt. Jetzt das Listing fuer Kemes
+  (`public/bilder/kemes`, Hauptbild plus sechs Bilder) und ein Modul Premium A+
+  Content fuer Futum (`public/bilder/futum`). Wer von der Startseite hierher
+  kommt, sieht damit nicht dasselbe Produkt zum zweiten Mal.
+- **Die drei Futum-Dateien sind keine drei Module, sondern drei Bahnen eines
+  Moduls**, die aufeinander aufbauen: Kopf mit der Aussage, Produkt im Rasen,
+  erste Anwendung. Sie liegen ohne Abstand untereinander, sonst reisst die
+  Grafik mitten im Bild auseinander.

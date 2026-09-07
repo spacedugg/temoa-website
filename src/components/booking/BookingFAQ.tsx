@@ -10,7 +10,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Wie lange dauert das Gespräch?",
-    a: "Das erste Gespräch dauert etwa 25 Minuten und dient dem Kennenlernen. Passt es für beide Seiten, folgt ein zweiter Termin, für den wir eure Zahlen aufbereiten.",
+    a: "Das erste Gespräch dauert etwa 30 Minuten und dient dem Kennenlernen. Passt es für beide Seiten, folgt ein zweiter Termin, für den wir eure Zahlen aufbereiten.",
   },
   {
     q: "Was braucht ihr von uns?",

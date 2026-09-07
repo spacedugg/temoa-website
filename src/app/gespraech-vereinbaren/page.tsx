@@ -6,7 +6,7 @@ import { BookingBody } from "@/components/booking/BookingBody";
 export const metadata: Metadata = {
   title: "Potenzialanalyse buchen · temoa",
   description:
-    "Kostenlose Potenzialanalyse: 25 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
+    "Kostenlose Potenzialanalyse: 30 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
 };
 
 export default function GespraechBuchenPage() {

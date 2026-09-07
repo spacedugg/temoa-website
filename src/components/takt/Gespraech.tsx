@@ -41,7 +41,7 @@ function Pfeilscheibe() {
  * erstes Gespraech zum Kennenlernen, die vorbereitete Auswertung erst danach.
  */
 const ZUSAGEN = [
-  "25 Minuten, in denen wir eure Lage verstehen und ihr uns kennenlernt",
+  "30 Minuten, in denen wir eure Lage verstehen und ihr uns kennenlernt",
   "Passt es, folgt ein zweites Gespräch, für das wir eure Zahlen vorbereiten",
 ];
 
