@@ -1104,3 +1104,28 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   (Google Analytics, Meta Pixel, Google Ads, YouTube, Trusted Shops,
   Typeform, Google Forms, ein Bewerbungsformular). Zutreffend sind Cal.com,
   das Einwilligungswerkzeug und die Abschnitte zu Hosting und Kontakt.
+
+## Sechsundzwanzigste Feedbackrunde (verbindlich, ersetzt die Zahlenregel)
+
+- **Keine absoluten Zahlen.** Die fuenfundzwanzigste Runde hatte Umsaetze und
+  Bestellzahlen wieder eingesetzt, das war falsch. Weder „392.327 € Umsatz"
+  noch „17.042 Bestellungen" noch „131k € auf 326k €" stehen da. Genannt wird
+  die Veraenderung, nicht der Stand und nicht der Weg von X auf Y.
+- **Zwei Faelle bleiben ausgenommen**, beide auf ausdruecklichen Wunsch:
+  Miganeo steht in allem so, wie es ist, und bei Bachgold bleibt der Umsatz
+  von 1,68 Mio. Euro, weil er die Aussage des Falls traegt.
+- **Die Kundenstimme von Vitaworld ist die letzte offene Stelle.** Sie nennt
+  selbst „von 5k auf über 16k Bestellungen" und einen TACoS von 5,8 %. Ein
+  Zitat wird nicht eigenmaechtig umgeschrieben, dafuer braucht es die
+  Freigabe des Kunden.
+- **Amazon-Abzeichen werden gezeichnet, wie Amazon sie zeichnet.** „Bestseller"
+  weiss auf Orange (#C7511F), „Amazons Tipp" weiss auf Schwarz (#131A22),
+  kleine Rundung, fette Schrift, daneben in derselben Pille das Produkt.
+  Vorher stand dort ein Trophaeen-Zeichen mit einer Umschreibung. Das Orange
+  ist das von Amazon und nicht die Markenfarbe der Website: das Abzeichen ist
+  ein Zitat, keine Auszeichnung, die temoa vergibt. Fuer alles, was Amazon
+  nicht vergibt, bleibt die Pille mit Zeichen (`art: "hinweis"`).
+- **Die ausgelieferte Arbeit ist ausdruecklich ein Ausschnitt.** Ueber den
+  Bildern steht „Ein Einblick, nicht das ganze Sortiment." mit einem Satz
+  dazu. Ohne den liest sich die Reihe wie das vollstaendige Sortiment einer
+  Marke, und dann sieht die Arbeit kleiner aus, als sie ist.

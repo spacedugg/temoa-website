@@ -312,6 +312,34 @@ function Produkt({
   );
 }
 
+/**
+ * Der Kopf der Sektion.
+ *
+ * Er sagt ausdruecklich, dass die Bilder ein Ausschnitt sind. Eine Marke wie
+ * Futum hat weit mehr Artikel, als hier stehen; ohne diesen Satz liest sich
+ * die Reihe wie das ganze Sortiment, und dann sieht die Arbeit kleiner aus,
+ * als sie ist.
+ */
+function Vorspann({ marke }: { marke: string }) {
+  return (
+    <Reveal>
+      <div className="mb-8 max-w-[52ch]">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink-soft shadow-[0_8px_20px_-14px_rgba(4,20,34,0.5)] ring-1 ring-navy/[0.08]">
+          <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+          Ausgelieferte Arbeit
+        </span>
+        <h3 className="mt-3 text-[1.35rem] font-extrabold leading-snug tracking-tight text-ink md:text-2xl">
+          Ein Einblick, nicht das ganze Sortiment.
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink-muted md:text-[0.95rem]">
+          Gezeigt sind einzelne Produkte aus der Arbeit für {marke}. Die Marke ist deutlich größer,
+          gearbeitet wurde an entsprechend mehr Artikeln.
+        </p>
+      </div>
+    </Reveal>
+  );
+}
+
 export function CaseArbeitView({ c }: { c: CaseStudy }) {
   const [gross, setGross] = useState<string | null>(null);
   const produkte = c.arbeit?.produkte;
@@ -325,6 +353,7 @@ export function CaseArbeitView({ c }: { c: CaseStudy }) {
     /* Breiter als der uebrige Fall: in dieser Spalte stehen Listing,
        Varianten und A+ nebeneinander, und die Bilder sind der Inhalt. */
     <div className="mx-auto mt-10 max-w-6xl">
+      <Vorspann marke={c.displayName} />
       {produkte.map((p, i) => (
         <div
           key={p.titel}

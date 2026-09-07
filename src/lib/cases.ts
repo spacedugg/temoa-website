@@ -1,13 +1,14 @@
 /**
- * Regel fuer die Kennzahlen auf dieser Seite: CTR, CVR, ACoS und TACoS stehen
- * nur relativ da. „ACoS um 30 Prozent gesenkt" steht da, „von 30,9 auf 21,6
- * Prozent" nicht. Der Weg von X auf Y ist die Zahl, die ein Wettbewerber
- * mitliest, und sie sagt einem Besucher nichts, weil sie ohne Marge und
- * Sortiment nicht einzuordnen ist.
+ * Regel fuer alle Zahlen auf dieser Seite: nur relative Werte, keine
+ * absoluten. „ACoS um 30 Prozent gesenkt" steht da, „von 30,9 auf 21,6
+ * Prozent" nicht, und Umsaetze und Bestellzahlen stehen gar nicht da: der
+ * Weg von X auf Y ist die Zahl, die ein Wettbewerber mitliest, und einem
+ * Besucher sagt sie ohne Marge und Sortiment nichts.
  *
- * Umsaetze, Bestellzahlen, Raenge und Stueckzahlen bleiben dagegen konkret:
- * das ist die Groesse, an der sich ein Fall messen laesst. Miganeo steht in
- * allem so, wie es ist.
+ * Zwei Faelle sind ausgenommen, beide auf ausdruecklichen Wunsch des Kunden:
+ * Miganeo steht in allem so, wie es ist, und bei Bachgold bleibt der Umsatz
+ * von 1,68 Mio. Euro, weil er die Aussage des Falls traegt (ein Produkt, nur
+ * Content).
  *
  * Echte Case-Study-Daten (6 Marken). Zahlen und Struktur stammen aus den
  * vom Kunden freigegebenen Fällen. Einzelne Formulierungen wurden an die
@@ -30,7 +31,21 @@ export type ChartPoint = {
   annotation?: string;
 };
 
-export type CaseBadge = { label: string; icon: "trophy" | "award" | "shield" };
+/**
+ * Eine Auszeichnung unter einem Fall.
+ *
+ * `bestseller` und `tipp` sind die beiden Abzeichen, die Amazon selbst
+ * vergibt. Sie werden gezeichnet, wie sie auf Amazon stehen: „Bestseller"
+ * weiss auf Orange, „Amazons Tipp" weiss auf Schwarz. Ein Trophaeen-Zeichen
+ * mit einer Umschreibung daneben war beides nicht, und wer die Abzeichen aus
+ * dem Suchergebnis kennt, erkennt sie sofort wieder.
+ *
+ * `hinweis` ist alles, was Amazon nicht vergibt. Dort bleibt die Pille mit
+ * einem Zeichen in der Fallfarbe.
+ */
+export type CaseBadge =
+  | { art: "bestseller" | "tipp"; label: string }
+  | { art: "hinweis"; label: string; icon: "trophy" | "award" | "shield" };
 
 /**
  * Die Kennzahlen, an denen sich Amazon-Arbeit messen laesst: Klickrate,
@@ -225,7 +240,7 @@ export const cases: CaseStudy[] = [
       { value: "+149,5 %", label: "Umsatz Trampolin-Zubehör", sublabel: "11.059 € auf 27.587 €", trend: "up" },
       { value: "+38,3 %", label: "Umsatz Bootsmotoren", sublabel: "269.759 € auf 372.998 €", trend: "up" },
     ],
-    badges: [{ label: "Effizienzziel des Kunden übertroffen", icon: "trophy" }],
+    badges: [{ art: "hinweis", label: "Effizienzziel des Kunden übertroffen", icon: "trophy" }],
   },
   {
     /* Bachgold.
@@ -333,7 +348,7 @@ export const cases: CaseStudy[] = [
         trend: "neutral",
       },
     ],
-    badges: [{ label: "Bestseller-Rang 1 Wasserfilter", icon: "trophy" }],
+    badges: [{ art: "bestseller", label: "Rang 1 in der Nische Wasserfilter" }],
   },
   {
     slug: "vitaworld",
@@ -397,8 +412,8 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "+147 %", label: "Umsatz", sublabel: "131k € auf 326k € pro Quartal", trend: "up" },
-      { value: "×3,2", label: "Bestellungen", sublabel: "5.019 auf 16.073 pro Quartal", trend: "up" },
+      { value: "+147 %", label: "Umsatz", sublabel: "im Vergleich der beiden Quartale", trend: "up" },
+      { value: "×3,2", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
       { value: "−19,4 %", label: "Anteil der Werbung am Umsatz", sublabel: "das Wachstum kommt organisch", trend: "down" },
     ],
     kennzahlen: [
@@ -486,7 +501,7 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "×14", label: "Bestellungen pro Woche", sublabel: "28 auf 397", trend: "up" },
+      { value: "×14", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
       { value: "+900 %", label: "Klicks pro Woche", sublabel: "ohne großes Werbebudget", trend: "up" },
       { value: "17", label: "Wochen vom Launch zur Spitze", trend: "neutral" },
     ],
@@ -496,8 +511,8 @@ export const cases: CaseStudy[] = [
     ],
     subStats: [],
     badges: [
-      { label: "Bestseller in der Nische", icon: "trophy" },
-      { label: "Recovery der Account-Sperrung in 2 Wochen", icon: "shield" },
+      { art: "bestseller", label: "Bio-Ethanol in seiner Nische" },
+      { art: "hinweis", label: "Recovery der Account-Sperrung in 2 Wochen", icon: "shield" },
     ],
   },
   {
@@ -586,16 +601,16 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Das erste volle Amazon-Jahr 2025 lief profitabel.",
         punkte: [
-          "392.327 € Umsatz und 17.042 Bestellungen",
+          "Beide Produkte profitabel skaliert",
           "Organischer Anteil bis 80 %",
           "Bestseller- und Amazon's-Choice-Badge kamen dazu",
         ],
       },
     ],
     heroStats: [
-      { value: "392.327 €", label: "Umsatz 2025", sublabel: "erstes volles Jahr auf Amazon", trend: "up" },
-      { value: "17.042", label: "Bestellungen 2025", trend: "up" },
+      { value: "2", label: "Produktlaunches", sublabel: "beide profitabel skaliert", trend: "neutral" },
       { value: "80 %", label: "Organische Verkäufe", sublabel: "Spitzenanteil am Gesamtumsatz", trend: "up" },
+      { value: "4", label: "Produkte mit eigenem Content", sublabel: "Listing, A+ und Hauptbildvarianten", trend: "neutral" },
     ],
     kennzahlen: [
       { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+30 %", trend: "up" },
@@ -604,8 +619,8 @@ export const cases: CaseStudy[] = [
     ],
     subStats: [],
     badges: [
-      { label: "FUTUM Maulwurfskugeln", icon: "trophy" },
-      { label: "FUTUM Holzwurm-Spray", icon: "award" },
+      { art: "bestseller", label: "Maulwurfskugeln" },
+      { art: "tipp", label: "Holzwurm-Spray" },
     ],
   },
   {

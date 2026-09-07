@@ -55,13 +55,39 @@ function TrendArrow({ trend, className = "" }: { trend: Trend; className?: strin
   );
 }
 
-function BadgeIcon({ icon }: { icon: CaseBadge["icon"] }) {
+function BadgeIcon({ icon }: { icon: "trophy" | "award" | "shield" }) {
   const common = { width: 15, height: 15, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
   if (icon === "shield")
     return (<svg {...common}><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3Z" /><path d="M9 12l2 2 4-4" /></svg>);
   if (icon === "award")
     return (<svg {...common}><circle cx="12" cy="9" r="5" /><path d="M9 13l-1.5 8L12 18l4.5 3L15 13" /></svg>);
   return (<svg {...common}><path d="M6 4h12v3a6 6 0 0 1-12 0V4Z" /><path d="M6 5H4v1a3 3 0 0 0 3 3M18 5h2v1a3 3 0 0 1-3 3M9 20h6M12 13v7" /></svg>);
+}
+
+/**
+ * Die beiden Abzeichen, die Amazon selbst vergibt, so gezeichnet, wie sie im
+ * Suchergebnis stehen: „Bestseller" weiss auf Orange, „Amazons Tipp" weiss
+ * auf Schwarz, kleine Rundung, fette Schrift.
+ *
+ * Beide Farben tragen weisse Schrift, das Orange kommt auf 5,0:1. Es ist das
+ * Orange von Amazon und nicht die Markenfarbe der Website: das Abzeichen soll
+ * wie ein Zitat aussehen, nicht wie eine Auszeichnung, die temoa vergibt.
+ */
+const AMAZON_ABZEICHEN = {
+  bestseller: { text: "Bestseller", grund: "#C7511F" },
+  tipp: { text: "Amazons Tipp", grund: "#131A22" },
+} as const;
+
+function AmazonAbzeichen({ art }: { art: "bestseller" | "tipp" }) {
+  const a = AMAZON_ABZEICHEN[art];
+  return (
+    <span
+      className="inline-flex items-center rounded-[0.3rem] px-2.5 py-[0.35rem] text-[0.74rem] font-bold leading-none text-white"
+      style={{ backgroundColor: a.grund }}
+    >
+      {a.text}
+    </span>
+  );
 }
 
 /**
@@ -333,8 +359,17 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
           <Reveal delay={0.08}>
             <div className="mx-auto mt-5 flex max-w-5xl flex-wrap justify-center gap-3">
               {c.badges.map((b) => (
-                <span key={b.label} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft ring-1 ring-black/[0.05]">
-                  <span style={{ color: c.accent }}><BadgeIcon icon={b.icon} /></span>
+                <span
+                  key={b.label}
+                  className="inline-flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-1.5 pr-4 text-sm font-semibold text-ink shadow-soft ring-1 ring-black/[0.05]"
+                >
+                  {b.art === "hinweis" ? (
+                    <span className="pl-2.5" style={{ color: c.accent }}>
+                      <BadgeIcon icon={b.icon} />
+                    </span>
+                  ) : (
+                    <AmazonAbzeichen art={b.art} />
+                  )}
                   {b.label}
                 </span>
               ))}
