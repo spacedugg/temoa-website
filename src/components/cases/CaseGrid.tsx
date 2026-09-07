@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { cases, type CaseStudy } from "@/lib/cases";
 import { Flagge } from "../ui/Flagge";
+import { Markenlogo } from "../ui/Markenlogo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 
 function mesh(accent: string) {
@@ -10,17 +10,6 @@ function mesh(accent: string) {
     backgroundColor: "#0A1E2B",
     backgroundImage: `radial-gradient(130% 120% at 12% 0%, ${accent} 0%, ${accent}00 48%), radial-gradient(120% 120% at 100% 100%, ${accent}55 0%, transparent 55%), linear-gradient(155deg, #0A1E2B 35%, #021C2B 100%)`,
   } as React.CSSProperties;
-}
-
-function LogoChip({ c }: { c: CaseStudy }) {
-  const [ok, setOk] = useState(false);
-  if (!c.logo) return null;
-  return (
-    <span className="inline-flex items-center rounded-lg bg-white/95 px-2.5 py-1.5 shadow-soft ring-1 ring-black/[0.05] backdrop-blur" style={{ display: ok ? undefined : "none" }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={c.logo} alt={c.displayName} className="h-6 w-auto object-contain" onLoad={() => setOk(true)} onError={() => setOk(false)} />
-    </span>
-  );
 }
 
 function CaseTile({ c }: { c: CaseStudy }) {
@@ -38,7 +27,13 @@ function CaseTile({ c }: { c: CaseStudy }) {
 
       <div className="relative z-10 flex h-full flex-col p-6 md:p-7">
         <div className="flex items-start justify-between gap-2">
-          <LogoChip c={c} />
+          {c.logo ? (
+            <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-9" />
+          ) : (
+            <span className="rounded-full bg-black/35 px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+              {c.displayName}
+            </span>
+          )}
           {/* Fahnen statt Kuerzel. Auf dem Bild reicht die Fahne allein, der
               Name steht auf der Fallseite. */}
           <span className="ml-auto flex items-center gap-1 rounded-full bg-black/35 px-2 py-1.5 backdrop-blur-sm">

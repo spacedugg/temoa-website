@@ -10,6 +10,7 @@ import { Gespraech } from "./Gespraech";
 import { Stempel } from "./Stempel";
 import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
+import { Markenlogo } from "../ui/Markenlogo";
 import { testimonials, initials } from "@/lib/testimonials";
 
 /* ============================================================
@@ -701,9 +702,16 @@ export function Nachweis() {
             />
 
             <div className="relative flex h-full min-h-[15rem] flex-col justify-end p-5">
-              <span className="truncate text-label font-bold uppercase tracking-[0.12em] text-white/55">
-                {c.displayName}
-              </span>
+              {/* Das Logo der Marke, auf einer weissen Kachel: die Logos sind
+                  dunkel und wuerden auf dem abgedunkelten Foto verschwinden.
+                  Wo keins vorliegt (anonymisierte Marke), steht der Name. */}
+              {c.logo ? (
+                <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-7" />
+              ) : (
+                <span className="truncate text-label font-bold uppercase tracking-[0.12em] text-white/55">
+                  {c.displayName}
+                </span>
+              )}
 
               <span className="mt-2 flex items-center gap-2">
                 {/* `whitespace-nowrap` und eine kleinere Groesse: im schmalen

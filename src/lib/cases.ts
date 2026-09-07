@@ -607,16 +607,18 @@ export const cases: CaseStudy[] = [
         ],
       },
     ],
+    /* Hier stehen die drei Kennzahlen oben in der Karte und nicht im Band
+       darunter. „Zwei Produktlaunches" und „vier Produkte mit eigenem
+       Content" standen vorher an den drei grossen Plaetzen und sagten nichts:
+       die Marke hat deutlich mehr Artikel, und die Zahl der Launches ist
+       keine Leistung. Das Band entfaellt dafuer, sonst stuende dieselbe Zahl
+       zweimal auf der Seite. */
     heroStats: [
-      { value: "2", label: "Produktlaunches", sublabel: "beide profitabel skaliert", trend: "neutral" },
-      { value: "80 %", label: "Organische Verkäufe", sublabel: "Spitzenanteil am Gesamtumsatz", trend: "up" },
-      { value: "4", label: "Produkte mit eigenem Content", sublabel: "Listing, A+ und Hauptbildvarianten", trend: "neutral" },
+      { value: "+30 %", label: "CTR", sublabel: "Klickrate in der Suche", trend: "up" },
+      { value: "+37,3 %", label: "CVR", sublabel: "Conversion Rate, ganzes Konto", trend: "up" },
+      { value: "−19,7 %", label: "ACoS", sublabel: "trotz Skalierung im Launch", trend: "down" },
     ],
-    kennzahlen: [
-      { kuerzel: "CTR", name: "Klickrate in der Suche", wert: "+30 %", trend: "up" },
-      { kuerzel: "CVR", name: "Conversion Rate", wert: "+37,3 %", hinweis: "auf Ebene des ganzen Kontos", trend: "up" },
-      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "−19,7 %", hinweis: "trotz Skalierung im Launch", trend: "down" },
-    ],
+    kennzahlen: [],
     subStats: [],
     badges: [
       { art: "bestseller", label: "Maulwurfskugeln" },

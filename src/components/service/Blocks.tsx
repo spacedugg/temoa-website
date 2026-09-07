@@ -9,6 +9,8 @@ import { Logo } from "../Logo";
 import { motion } from "framer-motion";
 import { KachelVerlaufDefs, Piktogramm, type PiktogrammName } from "./Piktogramme";
 import { ZahlText } from "../takt/Zahl";
+import { Markenlogo } from "../ui/Markenlogo";
+import { cases } from "@/lib/cases";
 import { Gespraech } from "../takt/Gespraech";
 
 /* ---------------- palette / tones ---------------- */
@@ -873,6 +875,9 @@ export function Ergebnis({
   werte: { wert: string; label: string; sub?: string; runter?: boolean }[];
   href: string;
 }) {
+  /* Der Fall zur Adresse. Das Logo aus den Falldaten zu holen ist sicherer,
+     als es an jeder Aufrufstelle noch einmal mitzugeben. */
+  const fall = cases.find((c) => `/ergebnisse/${c.slug}` === href);
   return (
     <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#22C55E" }} />
@@ -880,17 +885,23 @@ export function Ergebnis({
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
           <div>
             <Reveal>
-              <span
-                className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white"
-                style={{ background: "rgba(34,197,94,0.18)", boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.32)" }}
-              >
+              <div className="flex flex-wrap items-center gap-3">
                 <span
-                  aria-hidden
-                  className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: "#6EE7A0", boxShadow: "0 0 0 4px rgba(34,197,94,0.2)" }}
-                />
-                {eyebrow}
-              </span>
+                  className="inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-white"
+                  style={{ background: "rgba(34,197,94,0.18)", boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.32)" }}
+                >
+                  <span
+                    aria-hidden
+                    className="h-1.5 w-1.5 rounded-full"
+                    style={{ background: "#6EE7A0", boxShadow: "0 0 0 4px rgba(34,197,94,0.2)" }}
+                  />
+                  {eyebrow}
+                </span>
+                {/* Das Logo der Marke, aus dem Fall geholt, auf den der Knopf
+                    zeigt. So kann es nicht auseinanderlaufen: eine Adresse,
+                    ein Logo. */}
+                <Markenlogo logo={fall?.logo} name={fall?.displayName ?? ""} auf="dunkel" className="h-7" />
+              </div>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 text-balance text-[clamp(1.8rem,1.3rem+1.5vw,2.6rem)] font-bold leading-tight tracking-tight text-white">

@@ -1129,3 +1129,34 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Bildern steht „Ein Einblick, nicht das ganze Sortiment." mit einem Satz
   dazu. Ohne den liest sich die Reihe wie das vollstaendige Sortiment einer
   Marke, und dann sieht die Arbeit kleiner aus, als sie ist.
+
+## Siebenundzwanzigste Feedbackrunde (verbindlich)
+
+- **Die Markenlogos stehen ueberall, wo eine Case Study vorkommt**: im Kopf
+  der Fallseite, im Raster auf `/ergebnisse`, im Band der Startseite, unter
+  „Weitere Case Studies" und im Ergebnis-Block der Leistungsseiten. Es gibt
+  genau eine Komponente dafuer, `ui/Markenlogo`.
+- **Ein Logo darf nicht auf `display: none` warten.** Beide Vorfassungen
+  standen unsichtbar, bis `onLoad` feuerte. Ein Bild, das beim Aufbau der
+  Seite schon im Zwischenspeicher liegt, ist fertig, bevor React seinen
+  `onLoad` daranhaengt, der Aufruf kommt nie, und das Logo bleibt verborgen.
+  Sichtbar, bis das Laden fehlschlaegt, nie umgekehrt.
+- **Logos werden ueber Hoehe UND Breite begrenzt.** HaA ist ein rundes Siegel
+  (1200 zu 1200), Bachgold ein Schriftzug (400 zu 225). Bei gleicher Hoehe
+  waere das Siegel ein Punkt. Die Kachel traegt ausserdem `w-fit` und
+  `self-start`: in einer Spalte mit `flex` zog sie sich sonst als weisser
+  Streifen ueber das ganze Foto.
+- **Wo kein Logo vorliegt, steht der Name.** Zu Miganeo hat der Kunde keins
+  geliefert, die Marke aus Gartenzubehoer ist anonymisiert. Eine leere Stelle
+  sieht nach Fehler aus.
+- **Bei Futum stehen CTR, CVR und ACoS an den drei grossen Plaetzen** im Kopf
+  des Falls. Vorher standen dort „zwei Produktlaunches" und „vier Produkte mit
+  eigenem Content": die Marke hat deutlich mehr Artikel, und die Zahl der
+  Launches ist keine Leistung. Das Kennzahlenband entfaellt dort, sonst
+  stuende dieselbe Zahl zweimal auf der Seite.
+- **„Weitere Case Studies" ist eine dunkle Sektion**, in derselben Sprache
+  wie das Band der Startseite: Foto mit dem Farbschimmer der Marke, weisse
+  Kachel mit dem Logo, Fahnen, Kennzahl in Gruen, ein Rahmen, der beim Zeigen
+  von Weiss auf Orange wechselt. Vorher waren es fuenf gleiche Kacheln von
+  160 Pixeln auf hellem Grund. Bei genau fuenf Faellen stehen drei schmale
+  Karten oben und zwei breite darunter, damit keine Luecke bleibt.

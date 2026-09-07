@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { ZahlText } from "../takt/Zahl";
 import { cases, type CaseStudy, type CaseStat, type CaseBadge, type CaseMetric, type Trend } from "@/lib/cases";
 import { Flaggenreihe } from "../ui/Flagge";
+import { Markenlogo } from "../ui/Markenlogo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
 import { CaseChart } from "./CaseChart";
@@ -14,30 +14,6 @@ import { CaseArbeitView } from "./CaseArbeit";
    Strich-Satz: Lupe, Kompass, Stufen sagen etwas ueber den Schritt, eine
    Rakete sagt nichts. */
 const STEP_ICONS: IconName[] = ["lupe", "kompass", "stufen"];
-
-/**
- * Das Markenlogo. Es steht auf einer hellen Karte und braucht deshalb keine
- * weisse Kachel mehr darunter: alle vier Logos sind dunkel bis mittelhell.
- * Bis das Bild geladen ist, bleibt die Stelle leer, ein fehlendes Logo zeigt
- * nie ein kaputtes Bild.
- */
-function Markenlogo({ c }: { c: CaseStudy }) {
-  const [fehlt, setFehlt] = useState(false);
-  if (!c.logo || fehlt) return null;
-  /* Sichtbar, bis das Laden fehlschlaegt, und nicht umgekehrt: ein Bild, das
-     beim Aufbau der Seite schon im Zwischenspeicher liegt, ist fertig, bevor
-     React seinen `onLoad` daranhaengt. Der Aufruf kommt dann nie, und das
-     Logo blieb auf `display: none` stehen. */
-  return (
-    /* eslint-disable-next-line @next/next/no-img-element */
-    <img
-      src={c.logo}
-      alt={c.displayName}
-      className="h-7 w-auto max-w-[9rem] object-contain object-left md:h-8"
-      onError={() => setFehlt(true)}
-    />
-  );
-}
 
 /* Der Trendpfeil traegt die Richtung, nicht die Wertung: bei ACoS und TACoS
    zeigt er nach unten und bleibt trotzdem gruen. Auf hellem Grund ist Gruen
@@ -229,7 +205,16 @@ function Fallkopf({ c }: { c: CaseStudy }) {
         <div className="relative grid gap-8 p-6 sm:p-8 md:p-11 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Markenlogo c={c} />
+              {/* Liegt kein Logo vor (Miganeo hat keins geliefert, die Marke
+                  aus Gartenzubehoer ist anonymisiert), steht der Name. Eine
+                  leere Stelle ueber der Ueberschrift sieht nach Fehler aus. */}
+              {c.logo ? (
+                <Markenlogo logo={c.logo} name={c.displayName} className="h-10 md:h-12" />
+              ) : (
+                <span className="text-[0.82rem] font-extrabold uppercase tracking-[0.14em] text-ink">
+                  {c.displayName}
+                </span>
+              )}
               <span className="text-sm text-ink-muted">{c.industry}</span>
             </div>
             <h2 className="mt-5 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-3xl md:text-[2.4rem]">
