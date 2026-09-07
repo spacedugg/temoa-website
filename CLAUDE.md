@@ -951,6 +951,22 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
 - **Die Breite des Bildstreifens ist gerechnet, nicht geschaetzt.** Bei fuenf
   Bildern 15 Prozent, bei sechs 13: `min(17, 92 / (Anzahl + 1))`. Sonst steht
   der Streifen unter dem quadratischen Hauptbild hinaus.
+- **Ein Fall kann mehrere Produkte zeigen.** `arbeit.produkte` ist eine Liste,
+  je Produkt Hauptbild, Bildstrecke, Hauptbildvarianten und A+ Content. Bei
+  Miganeo sind das drei Produkte (Trampolin, Elektro-Bootsmotor, Solarfolie),
+  und genau das ist dort die Aussage: derselbe Aufbau ueber ein breites
+  Sortiment. Zwischen den Produkten liegt eine feine Linie, sonst laufen drei
+  Bloecke mit demselben Aufbau ineinander.
+- **A+ kommt als einzelne Module oder als ganze Seite.** Bachgold und
+  Vitaworld liefern die Module getrennt (2,44 zu 1), Miganeo die ganze Seite
+  als ein hohes Bild. `aplus.bahnen` traegt beides, die Darstellung ist
+  dieselbe: ohne Abstand untereinander, in voller Laenge.
+- **Der erklaerende Satz zu den Hauptbildvarianten steht nur am ersten
+  Produkt.** Dreimal derselbe Satz auf einer Seite liest niemand.
+- **Produktbilder laufen mit `object-contain`, nicht `cover`.** Die Hauptbilder
+  liegen teils quadratisch (3000 x 3000) und teils in 4 zu 5 vor (2000 x 2500).
+  Bei `cover` schneidet die quadratische Kachel einem hohen Bild oben und unten
+  je zehn Prozent ab, und dort steht bei diesen Bildern das Produkt.
 - **Die Zuordnung Datei zu Rolle steht in `scripts/case-arbeit-bilder.mjs`.**
   Die Dateinamen der Marken folgen keinem gemeinsamen Muster
   (`Bachgold_WasserfilterXL_Schwarz_01C.jpg`, `B0DPN5KD2P.PT04.jpg`,

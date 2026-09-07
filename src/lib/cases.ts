@@ -46,37 +46,38 @@ export type CaseMetric = {
 };
 
 /**
- * Ein ausgeliefertes Listing: das Hauptbild, das im Suchergebnis steht, und
- * die weiteren Bilder in ihrer Reihenfolge auf der Produktseite.
+ * Ein Produkt mit der Arbeit, die daran gemacht wurde.
+ *
+ * `haupt` ist das Bild, das im Suchergebnis steht, `strecke` sind die weiteren
+ * Bilder in ihrer Reihenfolge auf der Produktseite. `varianten` sind weitere
+ * Fassungen des Hauptbilds: fuer ein Produkt entstehen mehrere, welches bleibt,
+ * entscheidet die Klickrate.
+ *
+ * `aplus.bahnen` traegt entweder die Module einzeln (Amazon liefert sie in
+ * 2,44 zu 1) oder die ganze A+ Seite als ein hohes Bild. Beides kommt vor,
+ * weil der Kunde beides liefert, und beides laeuft gleich: ohne Abstand
+ * untereinander, in voller Laenge.
  */
-export type CaseListing = { titel: string; haupt: string; strecke: string[] };
+export type CaseProdukt = {
+  titel: string;
+  haupt: string;
+  strecke: string[];
+  varianten?: string[];
+  aplus?: { titel: string; bahnen: string[] };
+};
 
 /**
- * Die ausgelieferte Arbeit eines Falls.
+ * Die ausgelieferte Arbeit eines Falls: ein oder mehrere Produkte.
  *
- * Jede Marke liefert anderes Material: bei einer gibt es drei
- * Hauptbildvarianten zu einem Produkt, bei der naechsten ein Hauptbild je
- * Bundle-Groesse, bei der dritten sieben A+ Module. Deshalb ist jeder Teil
- * einzeln zu haben und die Darstellung laesst weg, was fehlt.
+ * Jede Marke liefert anderes Material: bei einer drei Hauptbildvarianten zu
+ * einem Produkt, bei der naechsten drei Produkte mit je eigener A+ Seite.
+ * Deshalb ist jeder Teil einzeln zu haben und die Darstellung laesst weg, was
+ * fehlt.
  *
- * Fuer die anonymisierte Marke aus Gartenzubehoer bleibt das Feld leer: Bilder
- * wuerden die Marke verraten.
+ * Fuer die anonymisierte Marke aus Gartenzubehoer bleibt das Feld leer: jedes
+ * Produktbild wuerde die Marke verraten.
  */
-export type CaseArbeit = {
-  listing?: CaseListing;
-  /** Hauptbildvarianten desselben Produkts, aus denen nach Leistung gewaehlt wird. */
-  varianten?: { titel: string; hinweis: string; bilder: string[] };
-  /**
-   * A+ oder Premium A+ Module, liegende Bahnen von oben nach unten. Sie stehen
-   * immer vollstaendig da, ohne Rahmen mit begrenzter Hoehe: der Kunde will
-   * den Content sehen, nicht einen Knopf, der ihn aufmacht.
-   *
-   * Hier gehoert je Modul genau eine Bahn hinein. Kommen mehrere Fassungen
-   * desselben Moduls (dieselbe Aufnahme, andere Aussage), darf nur eine davon
-   * in die Reihe: untereinander gestapelt liest sich das als Doppelung.
-   */
-  aplus?: { titel: string; hinweis: string; module: string[] };
-};
+export type CaseArbeit = { produkte: CaseProdukt[] };
 
 export type CaseStudy = {
   slug: string;
@@ -117,6 +118,35 @@ export const cases: CaseStudy[] = [
     displayName: "Miganeo",
     mono: "M",
     bgImage: "/case_studies/miganeo.webp",
+    /* Drei Produkte, weil bei Miganeo genau das die Arbeit war: derselbe
+       Aufbau ueber ein breites Sortiment. Jedes Produkt hat eigene
+       Hauptbildvarianten und eine eigene A+ Seite; die A+ Dateien liegen hier
+       als ganze Seite vor, nicht als einzelne Module. */
+    arbeit: {
+      produkte: [
+        {
+          titel: "Komplett-Trampolin",
+          haupt: "/case_studies/miganeo/p1-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/miganeo/p1-${n}.webp`),
+          varianten: [1, 2].map((n) => `/case_studies/miganeo/p1-var-${n}.webp`),
+          aplus: { titel: "Premium A+, die ganze Seite", bahnen: ["/case_studies/miganeo/p1-aplus.webp"] },
+        },
+        {
+          titel: "Elektro-Bootsmotor, 32 lbs",
+          haupt: "/case_studies/miganeo/p2-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/miganeo/p2-${n}.webp`),
+          varianten: [1, 2].map((n) => `/case_studies/miganeo/p2-var-${n}.webp`),
+          aplus: { titel: "Premium A+, die ganze Seite", bahnen: ["/case_studies/miganeo/p2-aplus.webp"] },
+        },
+        {
+          titel: "Solarfolie für runde Pools",
+          haupt: "/case_studies/miganeo/p3-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/miganeo/p3-${n}.webp`),
+          varianten: [1, 2, 3].map((n) => `/case_studies/miganeo/p3-var-${n}.webp`),
+          aplus: { titel: "Premium A+, die ganze Seite", bahnen: ["/case_studies/miganeo/p3-aplus.webp"] },
+        },
+      ],
+    },
     anonymized: false,
     industry: "Pool, Garten und Outdoor",
     marketplaces: ["DE", "FR", "IT", "ES", "NL", "BE"],
@@ -204,22 +234,18 @@ export const cases: CaseStudy[] = [
        Gezeigt wird deshalb die XL-Groesse. Dass es die 500-ml-Variante mit
        eigenem Content gibt, steht als Angabe unter den Kennzahlen. */
     arbeit: {
-      listing: {
-        titel: "Wasserfilter XL, 800 ml",
-        haupt: "/case_studies/bachgold/l-haupt.webp",
-        strecke: [1, 2, 3, 4, 5].map((n) => `/case_studies/bachgold/l-${n}.webp`),
-      },
-      varianten: {
-        titel: "Drei Varianten des Hauptbilds",
-        hinweis:
-          "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.",
-        bilder: [1, 2, 3].map((n) => `/case_studies/bachgold/haupt-${n}.webp`),
-      },
-      aplus: {
-        titel: "Premium A+ Content",
-        hinweis: "Sechs Module, eines unter dem anderen, unter den Bullets der Produktseite.",
-        module: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/bachgold/aplus-${n}.webp`),
-      },
+      produkte: [
+        {
+          titel: "Wasserfilter XL, 800 ml",
+          haupt: "/case_studies/bachgold/p1-haupt.webp",
+          strecke: [1, 2, 3, 4, 5].map((n) => `/case_studies/bachgold/p1-${n}.webp`),
+          varianten: [1, 2, 3].map((n) => `/case_studies/bachgold/p1-var-${n}.webp`),
+          aplus: {
+            titel: "Sechs Module",
+            bahnen: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/bachgold/p1-aplus-${n}.webp`),
+          },
+        },
+      ],
     },
     anonymized: false,
     industry: "Outdoor-Wasserfilter",
@@ -300,20 +326,17 @@ export const cases: CaseStudy[] = [
        Produktpalette, und genau das soll man sehen. Die Hauptbilder der
        Bundle-Groessen liegen noch nicht vor, `varianten` bleibt deshalb leer. */
     arbeit: {
-      listing: {
-        titel: "PEA 600 mg",
-        haupt: "/case_studies/vitaworld/l-haupt.webp",
-        strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/l-${n}.webp`),
-      },
-      /* Die Lieferung enthielt sieben Dateien, davon vier (2a bis 2d) dieselbe
-         Aufnahme mit vier verschiedenen Aussagen. Untereinander gestapelt sah
-         das aus wie ein Fehler: viermal dieselbe Flasche. In der Reihe steht
-         deshalb eine davon. */
-      aplus: {
-        titel: "Premium A+ Content",
-        hinweis: "Der Aufbau für Taurin 850 mg. Dieselbe Vorlage läuft über die weiteren Artikel.",
-        module: [1, 2, 6, 7].map((n) => `/case_studies/vitaworld/aplus-${n}.webp`),
-      },
+      produkte: [
+        {
+          titel: "PEA 600 mg",
+          haupt: "/case_studies/vitaworld/p1-haupt.webp",
+          strecke: [1, 2, 3, 4, 5, 6].map((n) => `/case_studies/vitaworld/p1-${n}.webp`),
+          aplus: {
+            titel: "Vier Module für Taurin 850 mg",
+            bahnen: [1, 2, 3, 4].map((n) => `/case_studies/vitaworld/p1-aplus-${n}.webp`),
+          },
+        },
+      ],
     },
     anonymized: false,
     industry: "Nahrungsergänzung",

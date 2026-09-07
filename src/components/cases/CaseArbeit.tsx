@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { CaseStudy } from "@/lib/cases";
+import type { CaseProdukt, CaseStudy } from "@/lib/cases";
 import { Reveal } from "../ui/Reveal";
 
 /* ============================================================
@@ -10,25 +10,40 @@ import { Reveal } from "../ui/Reveal";
    Sie steht direkt unter dem Kennzahlenband und damit vor der Geschichte:
    ein Besucher soll die Arbeit sehen, bevor er darueber liest.
 
-   Drei Teile, jeder einzeln zu haben, weil jede Marke anderes Material hat:
+   Ein Block je Produkt, weil jede Marke anderes Material hat: bei Bachgold ein
+   Produkt mit drei Hauptbildvarianten und sechs A+ Modulen, bei Miganeo drei
+   Produkte mit je eigener A+ Seite. Jeder Teil ist einzeln zu haben, und was
+   fehlt, wird weggelassen.
+
+   Ein Block hat drei Teile:
 
    1. Das Listing. Aufbau wie auf der Produktseite: grosses Hauptbild, die
       weiteren Bilder als Streifen daneben. Ein gleichmaessiges Raster liess
       alle Bilder gleich wichtig aussehen, und ein Hauptbild ist nicht dasselbe
       wie ein Bild aus der Strecke.
    2. Die Hauptbildvarianten. Fuer ein Produkt entstehen mehrere Hauptbilder,
-      welches bleibt, entscheidet die Klickrate. Das ist eine Aussage ueber die
-      Arbeitsweise und braucht deshalb eine eigene Reihe.
-   3. Die A+ Module. Sie stehen vollstaendig da, ohne Rahmen mit begrenzter
-      Hoehe und ohne Knopf: der Kunde will den Content sehen. Ohne Abstand
-      untereinander, wie auf der Produktseite, sonst reissen die Module mitten
-      im Bild auseinander.
+      welches bleibt, entscheidet die Klickrate. Die Erklaerung dazu steht nur
+      am ersten Produkt: dreimal derselbe Satz liest niemand.
+   3. Der A+ Content, vollstaendig und ohne Abstand zwischen den Bahnen. Kein
+      Rahmen mit begrenzter Hoehe und kein Knopf: der Kunde will den Content
+      sehen.
 
    Kein Bild zweimal: welche Datei welche Rolle hat, steht in `lib/cases.ts`
    und in `scripts/case-arbeit-bilder.mjs`. Eine Komponente soll nicht raten
    muessen, was doppelt ist.
    ============================================================ */
 
+const VARIANTEN_HINWEIS =
+  "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.";
+
+/**
+ * Ein Produktbild in einer Kachel.
+ *
+ * `object-contain` und nicht `cover`: die Hauptbilder liegen teils quadratisch
+ * und teils in 4 zu 5 vor. Bei `cover` schneidet die quadratische Kachel einem
+ * hohen Bild oben und unten je zehn Prozent ab, und dort steht bei diesen
+ * Bildern das Produkt.
+ */
 export function Kachel({
   src,
   onClick,
@@ -49,7 +64,7 @@ export function Kachel({
         src={src}
         alt=""
         loading="lazy"
-        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
       />
     </button>
   );
@@ -97,7 +112,7 @@ function Teil({ label, titel, hinweis }: { label: string; titel: string; hinweis
 }
 
 /**
- * Die A+ Module, vollstaendig und ohne Abstand untereinander.
+ * Der A+ Content, vollstaendig und ohne Abstand zwischen den Bahnen.
  *
  * Zwei Vorfassungen hatten einen Rahmen mit begrenzter Hoehe und einen Knopf
  * darunter. Beide sind raus: der Schnitt lag mitten in einer Bahn und sah aus
@@ -107,7 +122,7 @@ function Teil({ label, titel, hinweis }: { label: string; titel: string; hinweis
  * Ohne Luft zwischen den Bahnen, wie auf der Produktseite: die Grafiken laufen
  * ineinander, mit Abstand reisst sie mitten im Bild auseinander.
  */
-function APlus({ module: bahnen }: { module: string[] }) {
+function APlus({ bahnen }: { bahnen: string[] }) {
   return (
     <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
       <div className="overflow-hidden rounded-[0.7rem]">
@@ -120,75 +135,100 @@ function APlus({ module: bahnen }: { module: string[] }) {
   );
 }
 
-export function CaseArbeitView({ c }: { c: CaseStudy }) {
-  const [gross, setGross] = useState<string | null>(null);
-  const arbeit = c.arbeit;
-  if (!arbeit) return null;
-  const { listing, varianten, aplus } = arbeit;
-
+function Produkt({
+  p,
+  mitHinweis,
+  oeffne,
+}: {
+  p: CaseProdukt;
+  mitHinweis: boolean;
+  oeffne: (src: string) => void;
+}) {
   return (
-    <div className="mx-auto mt-6 max-w-5xl">
-      {/* Links das Listing und darunter die Hauptbildvarianten, rechts die A+
-          Module in voller Laenge. Die Varianten stehen in der linken Spalte,
-          weil die A+ Spalte offen deutlich hoeher ist als das Listing: sonst
-          bliebe darunter eine leere Flaeche. */}
-      <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
-        <div className="space-y-7">
-          {listing && (
-            <Reveal>
-              <div>
-                <Teil label="Listing" titel={listing.titel} />
-                <div className="mt-4 flex items-stretch gap-2.5">
-                  {/* Der Streifen ist so breit, dass seine Quadrate zusammen
-                      knapp unter der Hoehe des quadratischen Hauptbilds
-                      bleiben. Bei fuenf Bildern sind das 15 Prozent, bei sechs
-                      13: rechnet man das nicht, steht der Streifen unter dem
-                      Hauptbild hinaus. */}
-                  <div
-                    className="flex shrink-0 flex-col justify-between gap-2"
-                    style={{ width: `${Math.min(17, 92 / (listing.strecke.length + 1))}%` }}
-                  >
-                    {listing.strecke.map((src) => (
-                      <Kachel key={src} src={src} onClick={() => setGross(src)} className="aspect-square" />
-                    ))}
-                  </div>
-                  <Kachel
-                    src={listing.haupt}
-                    onClick={() => setGross(listing.haupt)}
-                    className="aspect-square flex-1"
-                  />
-                </div>
+    /* Links das Listing und darunter die Hauptbildvarianten, rechts der A+
+       Content in voller Laenge. Die Varianten stehen in der linken Spalte,
+       weil die A+ Spalte offen deutlich hoeher ist als das Listing: sonst
+       bliebe darunter eine leere Flaeche. */
+    <div className="grid items-start gap-7 lg:grid-cols-[1.3fr_1fr]">
+      <div className="space-y-6">
+        <Reveal>
+          <div>
+            <Teil label="Listing" titel={p.titel} />
+            <div className="mt-4 flex items-stretch gap-2.5">
+              {/* Der Streifen ist so breit, dass seine Quadrate zusammen knapp
+                  unter der Hoehe des quadratischen Hauptbilds bleiben. Bei
+                  fuenf Bildern sind das 15 Prozent, bei sechs 13: rechnet man
+                  das nicht, steht der Streifen darunter hinaus. */}
+              <div
+                className="flex shrink-0 flex-col justify-between gap-2"
+                style={{ width: `${Math.min(17, 92 / (p.strecke.length + 1))}%` }}
+              >
+                {p.strecke.map((src) => (
+                  <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+                ))}
               </div>
-            </Reveal>
-          )}
+              <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square flex-1" />
+            </div>
+          </div>
+        </Reveal>
 
-          {/* Die Hauptbildvarianten sagen etwas ueber die Arbeitsweise, nicht
-              ueber das Produkt, und stehen deshalb in einer eigenen Flaeche. */}
-          {varianten && varianten.bilder.length > 0 && (
-            <Reveal delay={0.1}>
-              <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
-                <Teil label="Hauptbild" titel={varianten.titel} hinweis={varianten.hinweis} />
-                <div className="mt-4 grid grid-cols-3 gap-3">
-                  {varianten.bilder.map((src) => (
-                    <Kachel key={src} src={src} onClick={() => setGross(src)} className="aspect-square" />
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          )}
-        </div>
-
-        {aplus && (
-          <Reveal delay={0.08}>
-            <div>
-              <Teil label={aplus.titel} titel={`${aplus.module.length} Module`} hinweis={aplus.hinweis} />
-              <div className="mt-4">
-                <APlus module={aplus.module} />
+        {p.varianten && p.varianten.length > 0 && (
+          <Reveal delay={0.1}>
+            <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
+              <Teil
+                label="Hauptbild"
+                titel={`${p.varianten.length} Varianten des Hauptbilds`}
+                hinweis={mitHinweis ? VARIANTEN_HINWEIS : undefined}
+              />
+              {/* Zwei Varianten in zwei Spalten, drei oder mehr in drei: bei
+                  festen drei Spalten stand neben zwei Bildern eine leere
+                  Zelle und beide waren schmaler als noetig. */}
+              <div className={`mt-4 grid gap-3 ${p.varianten.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
+                {p.varianten.map((src) => (
+                  <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+                ))}
               </div>
             </div>
           </Reveal>
         )}
       </div>
+
+      {p.aplus && (
+        <Reveal delay={0.08}>
+          <div>
+            <Teil label="Premium A+ Content" titel={p.aplus.titel} />
+            <div className="mt-4">
+              <APlus bahnen={p.aplus.bahnen} />
+            </div>
+          </div>
+        </Reveal>
+      )}
+    </div>
+  );
+}
+
+export function CaseArbeitView({ c }: { c: CaseStudy }) {
+  const [gross, setGross] = useState<string | null>(null);
+  const produkte = c.arbeit?.produkte;
+  if (!produkte || produkte.length === 0) return null;
+
+  /* Der erklaerende Satz zu den Varianten steht nur am ersten Produkt, das
+     welche hat. */
+  const erstesMitVarianten = produkte.findIndex((p) => (p.varianten?.length ?? 0) > 0);
+
+  return (
+    <div className="mx-auto mt-6 max-w-5xl">
+      {produkte.map((p, i) => (
+        <div
+          key={p.titel}
+          /* Eine feine Linie zwischen den Produkten. Ohne sie laufen drei
+             Bloecke mit demselben Aufbau ineinander, und man sieht nicht, wo
+             ein Produkt endet. */
+          className={i > 0 ? "mt-10 border-t border-navy/[0.09] pt-10" : ""}
+        >
+          <Produkt p={p} mitHinweis={i === erstesMitVarianten} oeffne={setGross} />
+        </div>
+      ))}
 
       {gross && <Lupe src={gross} onClose={() => setGross(null)} />}
     </div>
