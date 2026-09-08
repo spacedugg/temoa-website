@@ -1160,3 +1160,29 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   von Weiss auf Orange wechselt. Vorher waren es fuenf gleiche Kacheln von
   160 Pixeln auf hellem Grund. Bei genau fuenf Faellen stehen drei schmale
   Karten oben und zwei breite darunter, damit keine Luecke bleibt.
+
+## Achtundzwanzigste Feedbackrunde (verbindlich)
+
+- **Das Markenlogo liegt direkt auf der Kachel, nie auf einer weissen
+  Flaeche.** Die weisse Kachel darunter war die Vorfassung und sah nach
+  Aufkleber aus: ein heller Kasten auf einem Foto, der mit dem Bild nichts zu
+  tun hat. Statt Farbe traegt das Logo eine Silhouette, und der Grund
+  entscheidet die Richtung: auf dunklem Grund weiss mit einem weichen Schatten
+  dahinter, auf hellem Grund schwarz. Gerechnet wird das mit `filter`
+  (`brightness(0)` und `invert(1)`), nicht mit einer zweiten Datei je Marke.
+- **Die Logos sind deutlich groesser.** Im Kopf der Fallseite ein Kasten von
+  96 Pixeln Hoehe, in den Kacheln 56 bis 64, im Band der Startseite 44.
+- **Die Groesse ist ein Kasten aus Hoehe UND Breite, und die Hoehe wird
+  reichlich gesetzt.** HaA ist ein rundes Siegel (1 zu 1) mit umlaufender
+  Schrift, Miganeo ein Schriftzug (4 zu 1). Begrenzt man nur die Breite, ist
+  das Siegel so hoch wie der Schriftzug breit sein darf, und die Schrift darin
+  ist ein Fleck.
+- **Die Branche steht nicht mehr neben dem Logo.** Welche Marke es ist, sagt
+  das Logo, was sie verkauft, sagt die Ueberschrift.
+- **Ein Logo, das als weisser Schriftzug auf gefuellter Flaeche kommt, wird
+  freigestellt.** `node scripts/marke-freistellen.mjs <quelle> <ziel>` macht
+  die Helligkeit zur Deckkraft, wirft die Farbe weg und beschneidet auf den
+  Inhalt. Ohne das Beschneiden steht die Marke klein in der Mitte eines
+  leeren Rechtecks und laesst sich nicht auf eine Hoehe skalieren. So ist das
+  Logo von Miganeo entstanden, dasselbe Rezept wie
+  `scripts/logos-knockout.mjs` fuer zwei der vierzehn Kundenlogos.

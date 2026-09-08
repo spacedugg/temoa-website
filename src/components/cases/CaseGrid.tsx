@@ -28,7 +28,7 @@ function CaseTile({ c }: { c: CaseStudy }) {
       <div className="relative z-10 flex h-full flex-col p-6 md:p-7">
         <div className="flex items-start justify-between gap-2">
           {c.logo ? (
-            <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-9" />
+            <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-16 w-40" />
           ) : (
             <span className="rounded-full bg-black/35 px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
               {c.displayName}

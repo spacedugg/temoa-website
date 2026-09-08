@@ -204,19 +204,22 @@ function Fallkopf({ c }: { c: CaseStudy }) {
         />
         <div className="relative grid gap-8 p-6 sm:p-8 md:p-11 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              {/* Liegt kein Logo vor (Miganeo hat keins geliefert, die Marke
-                  aus Gartenzubehoer ist anonymisiert), steht der Name. Eine
-                  leere Stelle ueber der Ueberschrift sieht nach Fehler aus. */}
-              {c.logo ? (
-                <Markenlogo logo={c.logo} name={c.displayName} className="h-10 md:h-12" />
-              ) : (
-                <span className="text-[0.82rem] font-extrabold uppercase tracking-[0.14em] text-ink">
-                  {c.displayName}
-                </span>
-              )}
-              <span className="text-sm text-ink-muted">{c.industry}</span>
-            </div>
+            {/* Nur das Logo, und gross. Die Branche stand vorher daneben und
+                war die kleinste Information auf der Seite: welche Marke es
+                ist, sagt das Logo, was sie verkauft, sagt die Ueberschrift.
+                Wo kein Logo vorliegt (die Marke aus Gartenzubehoer ist
+                anonymisiert), steht der Name. */}
+            {c.logo ? (
+              <Markenlogo
+                logo={c.logo}
+                name={c.displayName}
+                className="h-16 w-[12rem] md:h-24 md:w-[15rem]"
+              />
+            ) : (
+              <span className="text-[0.95rem] font-extrabold uppercase tracking-[0.14em] text-ink">
+                {c.displayName}
+              </span>
+            )}
             <h2 className="mt-5 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-3xl md:text-[2.4rem]">
               {c.headline}
             </h2>

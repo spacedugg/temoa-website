@@ -900,7 +900,7 @@ export function Ergebnis({
                 {/* Das Logo der Marke, aus dem Fall geholt, auf den der Knopf
                     zeigt. So kann es nicht auseinanderlaufen: eine Adresse,
                     ein Logo. */}
-                <Markenlogo logo={fall?.logo} name={fall?.displayName ?? ""} auf="dunkel" className="h-7" />
+                <Markenlogo logo={fall?.logo} name={fall?.displayName ?? ""} auf="dunkel" className="h-12 w-32" />
               </div>
             </Reveal>
             <Reveal delay={0.05}>

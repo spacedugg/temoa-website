@@ -5,63 +5,68 @@ import { useState } from "react";
 /* ============================================================
    Das Logo einer Kundenmarke.
 
-   Eine Stelle fuer alle: das Logo steht auf der Fallseite, im Raster der
-   Case Studies, im Band der Startseite, unter „Weitere Case Studies" und im
-   Ergebnis-Block der Leistungsseiten. Vorher gab es zwei Fassungen mit
-   demselben Fehler, und beide waren unsichtbar.
+   Eine Stelle fuer alle: Kopf der Fallseite, Raster der Case Studies, Band der
+   Startseite, „Weitere Case Studies" und der Ergebnis-Block der
+   Leistungsseiten.
 
-   Der Fehler: das Element stand auf `display: none`, bis `onLoad` feuerte.
-   Ein Bild, das beim Aufbau der Seite schon im Zwischenspeicher liegt, ist
-   fertig, bevor React seinen `onLoad` daranhaengt. Der Aufruf kam dann nie,
-   und das Logo blieb verborgen. Jetzt umgekehrt: sichtbar, bis das Laden
-   fehlschlaegt.
+   Das Logo liegt direkt auf der Kachel, nicht auf einer weissen Flaeche. Die
+   weisse Kachel darunter war die Vorfassung und sah nach Aufkleber aus: ein
+   heller Kasten auf einem Foto, der mit dem Bild nichts zu tun hat. Statt
+   Farbe traegt das Logo jetzt eine Silhouette, und die Richtung entscheidet
+   der Grund:
 
-   Alle vier Kundenlogos sind dunkel bis mittelhell. Auf hellem Grund stehen
-   sie deshalb frei, auf dunklem Grund brauchen sie eine weisse Flaeche
-   darunter, sonst verschwinden sie im Foto.
+   - auf dunklem Grund weiss, mit einem weichen Schatten dahinter, damit es
+     auch ueber einer hellen Stelle des Fotos steht
+   - auf hellem Grund schwarz
 
-   Die Groesse wird ueber eine Hoehe UND eine Breite begrenzt, nie nur ueber
-   die Hoehe: HaA ist ein rundes Siegel mit umlaufender Schrift (1200 zu
-   1200), Bachgold ein Schriftzug (400 zu 225). Bei gleicher Hoehe waere das
-   Siegel ein Punkt von 24 Pixeln. Mit einem Kasten und `object-contain`
-   fuellt der Schriftzug die Breite und das Siegel die Hoehe.
+   Gerechnet wird das mit `filter`, nicht mit einer zweiten Datei je Marke:
+   `brightness(0)` macht jedes deckende Pixel schwarz, `invert(1)` daraus
+   weiss. Die Deckkraft der Datei bleibt erhalten, deshalb muessen die Logos
+   freigestellt vorliegen. Miganeo kam als weisser Schriftzug auf blauer
+   Flaeche; `scripts/marke-freistellen.mjs` macht daraus die freigestellte
+   Fassung.
+
+   Die Groesse ist ein Kasten aus Hoehe UND Breite, nie eine Hoehe allein: HaA
+   ist ein rundes Siegel (1 zu 1), Miganeo ein langer Schriftzug (4 zu 1). Bei
+   gleicher Hoehe waere das Siegel ein Punkt neben einem Plakat. Mit einem
+   Kasten und `object-contain` fuellt der Schriftzug die Breite und das Siegel
+   die Hoehe. Die Hoehe wird deshalb ueberall reichlich gesetzt und die Breite
+   begrenzt den langen Schriftzug, nicht umgekehrt: sonst ist das Siegel nur
+   so hoch wie ein Schriftzug breit sein darf, und das sind bei HaA 44 Pixel,
+   in denen die umlaufende Schrift ein Fleck ist.
    ============================================================ */
 
 export function Markenlogo({
   logo,
   name,
-  className = "h-7",
+  className = "h-10 w-32",
   auf = "hell",
 }: {
   logo?: string;
   name: string;
-  /** Hoehe des Logos, als Tailwind-Klasse. */
+  /** Der Kasten, in dem das Logo steht: Hoehe und Breite als Tailwind-Klassen. */
   className?: string;
-  /** Grund, auf dem es steht. Auf dunklem Grund kommt eine weisse Kachel dazu. */
   auf?: "hell" | "dunkel";
 }) {
   const [fehlt, setFehlt] = useState(false);
   if (!logo || fehlt) return null;
 
-  const bild = (
+  return (
     /* eslint-disable-next-line @next/next/no-img-element */
     <img
       src={logo}
       alt={name}
-      className={`max-w-[8.5rem] object-contain object-left ${className}`}
-      style={{ maxWidth: "100%" }}
+      className={`max-w-full self-start object-contain object-left ${className}`}
+      style={{
+        filter:
+          auf === "dunkel"
+            ? "brightness(0) invert(1) drop-shadow(0 2px 14px rgba(2,16,28,0.55))"
+            : "brightness(0)",
+      }}
+      /* Sichtbar, bis das Laden fehlschlaegt, und nicht umgekehrt: ein Bild,
+         das beim Aufbau der Seite schon im Zwischenspeicher liegt, ist fertig,
+         bevor React seinen `onLoad` daranhaengt. Der Aufruf kommt dann nie. */
       onError={() => setFehlt(true)}
     />
-  );
-
-  if (auf === "hell") return bild;
-
-  return (
-    /* `w-fit` und `self-start`: in einer Spalte mit `flex` zieht sich eine
-       Kachel sonst ueber die ganze Breite, und im Band der Startseite lag der
-       weisse Streifen quer ueber dem Foto. */
-    <span className="inline-flex w-fit max-w-full items-center self-start rounded-[0.6rem] bg-white/95 px-2.5 py-1.5 shadow-[0_10px_24px_-16px_rgba(4,16,28,0.9)] ring-1 ring-black/[0.06] backdrop-blur">
-      {bild}
-    </span>
   );
 }

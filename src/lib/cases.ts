@@ -153,6 +153,7 @@ export const cases: CaseStudy[] = [
     displayName: "Miganeo",
     mono: "M",
     bgImage: "/case_studies/miganeo.webp",
+    logo: "/case_studies/miganeo-logo.webp",
     /* Drei Produkte, weil bei Miganeo genau das die Arbeit war: derselbe
        Aufbau ueber ein breites Sortiment. Jedes Produkt hat eigene
        Hauptbildvarianten und eine eigene A+ Seite; die A+ Dateien liegen hier

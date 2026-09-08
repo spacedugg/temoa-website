@@ -85,7 +85,7 @@ function AndererFall({ c }: { c: CaseStudy }) {
       <div className="relative flex h-full flex-col p-5">
         <div className="flex items-start justify-between gap-2">
           {c.logo ? (
-            <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-9" />
+            <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-14 w-36" />
           ) : (
             <span className="text-label font-bold uppercase tracking-[0.12em] text-white/60">{c.displayName}</span>
           )}

@@ -706,7 +706,7 @@ export function Nachweis() {
                   dunkel und wuerden auf dem abgedunkelten Foto verschwinden.
                   Wo keins vorliegt (anonymisierte Marke), steht der Name. */}
               {c.logo ? (
-                <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-7" />
+                <Markenlogo logo={c.logo} name={c.displayName} auf="dunkel" className="h-11 w-28" />
               ) : (
                 <span className="truncate text-label font-bold uppercase tracking-[0.12em] text-white/55">
                   {c.displayName}
