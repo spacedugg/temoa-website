@@ -7,23 +7,36 @@ import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
 import { ServiceCTA } from "@/components/service/Blocks";
+import { istSprache, pfad, sprachAngaben, sprachen } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
 
+/* Je Sprache nur die Beitraege, die es dort gibt. Solange ein Beitrag nicht
+   uebersetzt ist, hat er unter `/en/blog` keine Seite und taucht auch in
+   keiner Liste auf. */
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return sprachen.flatMap((locale) =>
+    getAllPosts(locale).map((p) => ({ locale, slug: p.slug }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPost(slug);
-  if (!post) return { title: "Blog · temoa" };
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) return {};
+  const post = getPost(slug, locale);
+  if (!post) return { title: woerter(locale).blog.meta.beitragTitel };
   return {
     title: `${post.title} · temoa`,
     description: post.description,
     keywords: post.keywords,
+    /* `hreflang` nur, wenn es die andere Fassung wirklich gibt: eine Angabe
+       auf eine Seite, die 404 liefert, ist schlechter als keine. */
+    alternates: getPost(slug, locale === "de" ? "en" : "de")
+      ? sprachAngaben(locale, `/blog/${slug}`)
+      : undefined,
   };
 }
 
@@ -90,12 +103,18 @@ function withToc(html: string) {
   return { html: out, toc };
 }
 
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = getPost(slug);
+export default async function ArticlePage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) notFound();
+  const w = woerter(locale).blog;
+  const post = getPost(slug, locale);
   if (!post) notFound();
   const { html, toc } = withToc(post.html);
-  const related = getRelatedPosts(slug, 3);
+  const related = getRelatedPosts(slug, locale, 3);
 
   return (
     <>
@@ -110,10 +129,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <div className="container-x relative max-w-3xl">
             <Reveal>
               <nav className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
-                <a href="/blog" className="hover:text-ink">Blog</a>
+                <a href={pfad(locale, "/blog")} className="hover:text-ink">{w.kopf.eyebrow}</a>
                 <span className="text-ink-faint">/</span>
                 <a
-                  href={`/blog/kategorie/${post.categorySlug}`}
+                  href={pfad(locale, `/blog/kategorie/${post.categorySlug}`)}
                   className="font-semibold text-navy underline decoration-2 underline-offset-2 hover:decoration-navy"
                   style={{ textDecorationColor: post.accent }}
                 >
@@ -136,7 +155,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   {post.categoryShort}
                 </span>
                 <span className="h-1 w-1 rounded-full bg-ink-faint" />
-                <span>{post.readingMinutes} Min. Lesezeit</span>
+                <span>{w.lesezeit.replace("{n}", String(post.readingMinutes))}</span>
               </div>
             </Reveal>
           </div>
@@ -162,7 +181,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {toc.length > 2 && (
                 <aside className="hidden lg:block">
                   <div className="sticky top-28">
-                    <span className="text-xs font-bold uppercase tracking-[0.14em] text-ink-faint">Inhalt</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.14em] text-ink-faint">{w.inhalt}</span>
                     <ul className="mt-4 space-y-2.5 border-l border-black/[0.08] pl-4 text-sm">
                       {toc.map((t) => (
                         <li key={t.id}>
@@ -183,11 +202,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         {related.length > 0 && (
           <section className="ground-tint relative py-16 md:py-20">
             <div className="container-x">
-              <h2 className="text-2xl font-bold tracking-tight text-ink">Weiterlesen</h2>
+              <h2 className="text-2xl font-bold tracking-tight text-ink">{w.weiterlesen}</h2>
               <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
                 {related.map((p) => (
                   <RevealItem key={p.slug} className="h-full">
-                    <PostCard post={p} />
+                    <PostCard post={p} sprache={locale} w={w} />
                   </RevealItem>
                 ))}
               </RevealGroup>
@@ -196,7 +215,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         )}
 
         <ServiceCTA
-          title="Genug gelesen, Zeit für Ergebnisse?"
+          title={w.beitragCta}
         />
       </main>
       <Fusszeile />

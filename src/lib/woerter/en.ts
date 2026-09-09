@@ -1206,4 +1206,31 @@ export const en: Woerterbuch = {
     cta: "And what does your listing look like?",
   },
 
+  blog: {
+    meta: {
+      titel: "Blog · temoa",
+      beschreibung:
+        "Straight talk about Amazon: PPC, listing and SEO, FBA, brand protection and strategy. Sorted by topic.",
+      beitragTitel: "Blog · temoa",
+    },
+    kopf: {
+      eyebrow: "Blog",
+      titelVor: "Straight talk about ",
+      titelEm: "Amazon.",
+      lead: "Articles on advertising, listings, logistics and strategy. Sorted by topic, with no filler.",
+    },
+    einBeitrag: "1 article",
+    beitraege: "{n} articles",
+    empfohlen: "Recommended articles",
+    alleThemen: "All topics",
+    inhalt: "Contents",
+    weiterlesen: "Keep reading",
+    lesezeit: "{n} min read",
+    lesen: "Read",
+    cta: "Would you rather talk about your account directly?",
+    beitragCta: "Read enough? Time for results.",
+    teilweise:
+      "We are translating the articles one batch at a time. The full library is available in German.",
+  },
+
 };

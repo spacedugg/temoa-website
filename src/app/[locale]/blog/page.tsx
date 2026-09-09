@@ -5,14 +5,26 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
-import { categories, categoryCounts, getFeaturedPosts } from "@/lib/blog";
+import { kategorien, categoryCounts, getFeaturedPosts } from "@/lib/blog";
 import { ServiceCTA } from "@/components/service/Blocks";
+import { istSprache, pfad, sprachAngaben } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Blog · temoa",
-  description:
-    "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!istSprache(locale)) return {};
+  const m = woerter(locale).blog.meta;
+  return {
+    title: m.titel,
+    description: m.beschreibung,
+    alternates: sprachAngaben(locale, "/blog"),
+  };
+}
 
 /**
  * Eine Themenfarbe auf das Navy der Themen-Sektion umrechnen.
@@ -44,23 +56,36 @@ function fuerDunkel(hex: string) {
   return `hsl(${Math.round(h)} ${Math.round(Math.max(sat, 0.6) * 100)}% 64%)`;
 }
 
-export default function BlogPage() {
-  const counts = categoryCounts();
-  const featured = getFeaturedPosts(6);
+export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!istSprache(locale)) notFound();
+  const w = woerter(locale).blog;
+  const counts = categoryCounts(locale);
+  const featured = getFeaturedPosts(locale, 6);
+  const zahl = (n: number) => (n === 1 ? w.einBeitrag : w.beitraege.replace("{n}", String(n)));
 
   return (
     <>
       <Kopfzeile />
       <main>
         <PageHero
-          eyebrow="Blog"
+          eyebrow={w.kopf.eyebrow}
           title={
             <>
-              Klartext zu <span className="text-gradient">Amazon.</span>
+              {w.kopf.titelVor}
+              <span className="text-gradient">{w.kopf.titelEm}</span>
             </>
           }
-          description="Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext."
+          description={w.kopf.lead}
         />
+        {/* Solange nicht alle Beitraege uebersetzt sind, steht das hier und
+            nicht im Kleingedruckten: wer in der Liste weniger findet als
+            erwartet, soll wissen, warum. */}
+        {w.teilweise && (
+          <div className="container-x">
+            <p className="mx-auto max-w-[52ch] text-center text-small text-ink-muted">{w.teilweise}</p>
+          </div>
+        )}
 
         {/* Themen.
             Drei Fassungen. Erst acht weisse Kacheln mit Icon, Ueberschrift,
@@ -77,12 +102,12 @@ export default function BlogPage() {
         <section className="on-dark ground-deep relative py-14 md:py-16">
           <div className="container-x">
             <RevealGroup className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
-              {categories.map((c) => {
+              {kategorien(locale).map((c) => {
                 const farbe = fuerDunkel(c.accent);
                 return (
                   <RevealItem key={c.slug} className="h-full">
                     <a
-                      href={`/blog/kategorie/${c.slug}`}
+                      href={pfad(locale, `/blog/kategorie/${c.slug}`)}
                       className="panel-dark group relative flex h-full items-center gap-4 overflow-hidden p-5 transition-transform duration-300 ease-temoa hover:-translate-y-1"
                     >
                       <span
@@ -99,7 +124,7 @@ export default function BlogPage() {
                       <span className="min-w-0">
                         <span className="block text-[1.02rem] font-bold leading-snug text-white">{c.label}</span>
                         <span className="mt-1 block text-small text-chalk-muted">
-                          {counts[c.slug] === 1 ? "1 Beitrag" : `${counts[c.slug] ?? 0} Beiträge`}
+                          {zahl(counts[c.slug] ?? 0)}
                         </span>
                       </span>
                     </a>
@@ -115,22 +140,20 @@ export default function BlogPage() {
           <div className="container-x">
             <Reveal>
               <div className="flex items-end justify-between gap-4">
-                <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">Empfohlene Beiträge</h2>
+                <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{w.empfohlen}</h2>
               </div>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
               {featured.map((p) => (
                 <RevealItem key={p.slug} className="h-full">
-                  <PostCard post={p} />
+                  <PostCard post={p} sprache={locale} w={w} />
                 </RevealItem>
               ))}
             </RevealGroup>
           </div>
         </section>
 
-        <ServiceCTA
-          title="Lieber direkt über euren Account sprechen?"
-        />
+        <ServiceCTA title={w.cta} />
       </main>
       <Fusszeile />
     </>

@@ -1281,6 +1281,35 @@ export const de = {
     cta: "Und wie sieht euer Listing aus?",
   },
 
+  blog: {
+    meta: {
+      titel: "Blog · temoa",
+      beschreibung:
+        "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
+      beitragTitel: "Blog · temoa",
+    },
+    kopf: {
+      eyebrow: "Blog",
+      titelVor: "Klartext zu ",
+      titelEm: "Amazon.",
+      lead: "Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext.",
+    },
+    /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
+    einBeitrag: "1 Beitrag",
+    beitraege: "{n} Beiträge",
+    empfohlen: "Empfohlene Beiträge",
+    alleThemen: "Alle Themen",
+    inhalt: "Inhalt",
+    weiterlesen: "Weiterlesen",
+    lesezeit: "{n} Min. Lesezeit",
+    lesen: "Lesen",
+    cta: "Lieber direkt über euren Account sprechen?",
+    beitragCta: "Genug gelesen, Zeit für Ergebnisse?",
+    /* Steht auf der englischen Blogseite, solange nicht alle Beitraege
+       uebersetzt sind. Auf Deutsch ist die Zeile leer. */
+    teilweise: "",
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

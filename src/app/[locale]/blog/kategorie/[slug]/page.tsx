@@ -5,31 +5,45 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
-import { categories, getCategory, getPostsByCategory } from "@/lib/blog";
+import { kategorien, getCategory, getPostsByCategory } from "@/lib/blog";
+import { istSprache, pfad, sprachAngaben, sprachen, STANDARD } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
 
+/* Die Adressen der Kategorien sind in beiden Sprachen dieselben. */
 export function generateStaticParams() {
-  return categories.map((c) => ({ slug: c.slug }));
+  return sprachen.flatMap((locale) =>
+    kategorien(STANDARD).map((c) => ({ locale, slug: c.slug }))
+  );
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const cat = getCategory(slug);
-  if (!cat) return { title: "Blog · temoa" };
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) return {};
+  const w = woerter(locale).blog;
+  const cat = getCategory(slug, locale);
+  if (!cat) return { title: w.meta.titel };
   return {
     title: `${cat.label} · temoa Blog`,
     description: cat.blurb,
+    alternates: sprachAngaben(locale, `/blog/kategorie/${slug}`),
   };
 }
 
-export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const cat = getCategory(slug);
+export default async function CategoryPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) notFound();
+  const w = woerter(locale).blog;
+  const cat = getCategory(slug, locale);
   if (!cat) notFound();
-  const posts = getPostsByCategory(slug);
+  const posts = getPostsByCategory(slug, locale);
 
   return (
     <>
@@ -42,11 +56,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           />
           <div className="container-x relative">
             <Reveal>
-              <a href="/blog" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted hover:text-ink">
+              <a href={pfad(locale, "/blog")} className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted hover:text-ink">
                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                   <path d="M10 4l-4 4 4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Alle Themen
+                {w.alleThemen}
               </a>
             </Reveal>
             <Reveal delay={0.05}>
@@ -60,7 +74,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <div>
                   <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">{cat.label}</h1>
                   <p className="mt-1 text-sm font-medium text-ink-faint">
-                    {posts.length === 1 ? "1 Beitrag" : `${posts.length} Beiträge`}
+                    {posts.length === 1 ? w.einBeitrag : w.beitraege.replace("{n}", String(posts.length))}
                   </p>
                 </div>
               </div>
@@ -76,7 +90,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
               {posts.map((p) => (
                 <RevealItem key={p.slug} className="h-full">
-                  <PostCard post={p} />
+                  <PostCard post={p} sprache={locale} w={w} />
                 </RevealItem>
               ))}
             </RevealGroup>
