@@ -1250,6 +1250,37 @@ export const de = {
     },
   },
 
+  design: {
+    meta: {
+      titel: "Designbeispiele · temoa",
+      beschreibung:
+        "Amazon-Content von temoa: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
+    },
+    kopf: {
+      eyebrow: "Designbeispiele",
+      titelVor: "So sieht ",
+      titelEm: "Retail Ready",
+      titelNach: " aus.",
+      lead: "Vom Hauptbild bis zur Brand Story: jedes Format so aufgebaut, wie es auf Amazon konvertiert.",
+    },
+    /* Die vier Kategorien in der Reihenfolge der Reiter. „EBC Content" ist
+       der Begriff, den Amazon frueher fuer A+ benutzt hat und der in der
+       Branche haengengeblieben ist; er steht so im Original. */
+    reiter: ["Produktbilder", "EBC Content", "Brand Stores", "Brand Stories"],
+    hinweise: [
+      "Hauptbild und sechs Listingbilder aus unserer Produktion für Miganeo.",
+      "Sechs Module Premium A+ Content aus unserer Produktion für Miganeo.",
+      "Brand Stores zeigen wir im Gespräch am Konto, nicht als Screenshot.",
+      "Brand Stories zeigen wir im Gespräch am Konto, nicht als Screenshot.",
+    ],
+    vorher: "Vorherige Karten",
+    weiter: "Weitere Karten",
+    /* `{a}` ist die Zahl der gezeigten, `{b}` die aller Beispiele. */
+    zaehler: "{a} von {b} Beispielen",
+    mehrLaden: "Mehr laden",
+    cta: "Und wie sieht euer Listing aus?",
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

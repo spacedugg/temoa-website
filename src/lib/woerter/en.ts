@@ -1179,4 +1179,31 @@ export const en: Woerterbuch = {
     },
   },
 
+  design: {
+    meta: {
+      titel: "Our Work · temoa",
+      beschreibung:
+        "Amazon content by temoa: main image, image strip, A+ and Premium A+, brand store and brand story, each laid out the way it sells on Amazon.",
+    },
+    kopf: {
+      eyebrow: "Our Work",
+      titelVor: "This is what ",
+      titelEm: "Retail Ready",
+      titelNach: " looks like.",
+      lead: "From the main image to the brand story: every format built the way it converts on Amazon.",
+    },
+    reiter: ["Product images", "EBC content", "Brand stores", "Brand stories"],
+    hinweise: [
+      "Main image and six listing images from our production for Miganeo.",
+      "Six modules of Premium A+ content from our production for Miganeo.",
+      "We show brand stores in the call, on the account, not as a screenshot.",
+      "We show brand stories in the call, on the account, not as a screenshot.",
+    ],
+    vorher: "Previous cards",
+    weiter: "More cards",
+    zaehler: "{a} of {b} examples",
+    mehrLaden: "Load more",
+    cta: "And what does your listing look like?",
+  },
+
 };

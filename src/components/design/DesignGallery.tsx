@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "../ui/Reveal";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 import { ExpandedShell } from "./ExpandedShell";
 import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from "@/lib/references";
 
@@ -14,11 +17,12 @@ import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from
  * der Seite; nur das Vergrößern legt ein Overlay darüber.
  * ========================================================================== */
 
-const TABS: { key: RefCategory; label: string }[] = [
-  { key: "main_images", label: "Produktbilder" },
-  { key: "a_plus", label: "EBC Content" },
-  { key: "brand_store", label: "Brand Stores" },
-  { key: "brand_story", label: "Brand Stories" },
+/* Die vier Kategorien in der Reihenfolge der Reiter im Woerterbuch. */
+const TABS: { key: RefCategory }[] = [
+  { key: "main_images" },
+  { key: "a_plus" },
+  { key: "brand_store" },
+  { key: "brand_story" },
 ];
 
 const aspect = (im?: RefImage | null, fb = 1) =>
@@ -380,7 +384,21 @@ function StoryCardInner({ card }: { card: RefImage }) {
   return <img src={card.url} alt="" loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
 }
 
-function StoryFrame({ background, cards, onExpand, accent = 0 }: { background: RefImage | null; cards: RefImage[]; onExpand?: () => void; accent?: number }) {
+function StoryFrame({
+  background,
+  cards,
+  onExpand,
+  accent = 0,
+  w,
+}: {
+  background: RefImage | null;
+  cards: RefImage[];
+  onExpand?: () => void;
+  accent?: number;
+  /* Nur die beiden Beschriftungen der Pfeile, die ein Vorleseprogramm
+     ansagt. */
+  w: Pick<Woerterbuch["design"], "vorher" | "weiter">;
+}) {
   const [view, setView] = useState(1);
   const offsets = viewOffsets(cards.length);
   const totalViews = offsets.length;
@@ -429,12 +447,12 @@ function StoryFrame({ background, cards, onExpand, accent = 0 }: { background: R
         {onExpand && <MaximizeBadge onClick={(e) => { e.stopPropagation(); onExpand(); }} visible />}
 
         {view > 1 && (
-          <button type="button" aria-label="Vorherige Karten" onClick={(e) => { e.stopPropagation(); go(view - 1); }} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
+          <button type="button" aria-label={w.vorher} onClick={(e) => { e.stopPropagation(); go(view - 1); }} className="absolute left-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
           </button>
         )}
         {view < totalViews && (
-          <button type="button" aria-label="Weitere Karten" onClick={(e) => { e.stopPropagation(); go(view + 1); }} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
+          <button type="button" aria-label={w.weiter} onClick={(e) => { e.stopPropagation(); go(view + 1); }} className="absolute right-3 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-ink shadow-md transition hover:scale-105 md:h-11 md:w-11">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
           </button>
         )}
@@ -469,7 +487,7 @@ function splitStory(l: RefListing) {
   return { background, cards };
 }
 
-function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
+function BrandStoryGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
   return (
     <>
@@ -477,7 +495,7 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
         {listings.map((l, i) => {
           const { background, cards } = splitStory(l);
           if (!background) return <StorySnap key={l.id} cards={cards} />;
-          return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} />;
+          return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} w={w} />;
         })}
       </div>
       {p.idx != null &&
@@ -486,7 +504,7 @@ function BrandStoryGallery({ listings }: { listings: RefListing[] }) {
           return (
             <ExpandedShell onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
               <div style={{ width: "min(96vw, 1180px)" }}>
-                {background ? <StoryFrame background={background} cards={cards} /> : <StorySnap cards={cards} />}
+                {background ? <StoryFrame background={background} cards={cards} w={w} /> : <StorySnap cards={cards} />}
               </div>
             </ExpandedShell>
           );
@@ -545,13 +563,6 @@ const BEISPIEL: Partial<Record<RefCategory, RefListing[]>> = {
   ],
 };
 
-const HINWEIS: Record<RefCategory, string> = {
-  main_images: "Hauptbild und sechs Listingbilder aus unserer Produktion für Miganeo.",
-  a_plus: "Sechs Module Premium A+ Content aus unserer Produktion für Miganeo.",
-  brand_store: "Brand Stores zeigen wir im Gespräch am Konto, nicht als Screenshot.",
-  brand_story: "Brand Stories zeigen wir im Gespräch am Konto, nicht als Screenshot.",
-};
-
 function Hinweis({ text }: { text: string }) {
   return (
     <p className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2.5 text-center text-xs text-ink-faint">
@@ -561,20 +572,29 @@ function Hinweis({ text }: { text: string }) {
   );
 }
 
-function LeerePlatte({ text }: { text: string }) {
+function LeerePlatte({ text, knopf, href }: { text: string; knopf: string; href: string }) {
   return (
     <div className="panel mx-auto max-w-xl px-8 py-12 text-center">
       <span aria-hidden className="node-glow mx-auto block" />
       <p className="mt-5 text-pretty text-sm leading-relaxed text-ink-muted">{text}</p>
-      <a href="/gespraech-vereinbaren" className="btn-text mt-6">
-        Potenzialanalyse buchen
+      <a href={href} className="btn-text mt-6">
+        {knopf}
       </a>
     </div>
   );
 }
 
-export function DesignGallery({ data }: { data: RefData }) {
+export function DesignGallery({
+  data,
+  sprache,
+  w,
+}: {
+  data: RefData;
+  sprache: Sprache;
+  w: Woerterbuch["design"];
+}) {
   const [active, setActive] = useState<RefCategory>("main_images");
+  const nr = TABS.findIndex((t) => t.key === active);
   const [visible, setVisible] = useState(10);
   useEffect(() => setVisible(10), [active]);
   const echt = data[active];
@@ -585,7 +605,14 @@ export function DesignGallery({ data }: { data: RefData }) {
   const shown = paginated ? listings.slice(0, visible) : listings;
 
   const render = () => {
-    if (!listings.length) return <LeerePlatte text={HINWEIS[active]} />;
+    if (!listings.length)
+      return (
+        <LeerePlatte
+          text={w.hinweise[nr]}
+          knopf={rahmenWoerter[sprache].rahmen.cta}
+          href={pfad(sprache, "/gespraech-vereinbaren")}
+        />
+      );
     const galerie = (() => {
       switch (active) {
         case "main_images":
@@ -595,13 +622,13 @@ export function DesignGallery({ data }: { data: RefData }) {
         case "brand_store":
           return <BrandStoreGallery listings={shown} />;
         case "brand_story":
-          return <BrandStoryGallery listings={shown} />;
+          return <BrandStoryGallery listings={shown} w={w} />;
       }
     })();
     return (
       <>
         {galerie}
-        {rueckfall && <Hinweis text={HINWEIS[active]} />}
+        {rueckfall && <Hinweis text={w.hinweise[nr]} />}
       </>
     );
   };
@@ -620,7 +647,7 @@ export function DesignGallery({ data }: { data: RefData }) {
               vollrunde Pille um zwei Zeilen sieht falsch aus, deshalb dort
               ein normaler Radius. */}
           <div className="panel inline-flex flex-wrap justify-center gap-1 !rounded-[1.4rem] p-1.5 sm:!rounded-full">
-            {TABS.map((t) => (
+            {TABS.map((t, i) => (
               <button
                 key={t.key}
                 type="button"
@@ -630,7 +657,7 @@ export function DesignGallery({ data }: { data: RefData }) {
                 }`}
               >
                 {active === t.key && <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />}
-                {t.label}
+                {w.reiter[i]}
               </button>
             ))}
           </div>
@@ -642,10 +669,12 @@ export function DesignGallery({ data }: { data: RefData }) {
         {paginated && visible < listings.length && (
           <div className="mt-12 flex flex-col items-center gap-3">
             <span className="text-xs font-semibold text-ink-faint">
-              {Math.min(visible, listings.length)} von {listings.length} Beispielen
+              {w.zaehler
+                .replace("{a}", String(Math.min(visible, listings.length)))
+                .replace("{b}", String(listings.length))}
             </span>
             <button type="button" className="btn-primary" onClick={() => setVisible((v) => v + 10)}>
-              Mehr laden
+              {w.mehrLaden}
             </button>
           </div>
         )}
