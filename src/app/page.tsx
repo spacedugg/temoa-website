@@ -2,6 +2,7 @@ import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { TaktLine } from "@/components/takt/TaktLine";
 import { Auftrag } from "@/components/takt/Auftrag";
+import { Ablauf } from "@/components/takt/Ablauf";
 import {
   Kundenband,
   Befund,
@@ -31,9 +32,10 @@ export default function Home() {
           <Nachweis />
           <Arbeiten />
           <Stimmen />
-          <Termin />
-          <Mannschaft />
-          <Wissen posts={featured} />
+          <Ablauf n="07" />
+          <Termin n="08" />
+          <Mannschaft n="09" />
+          <Wissen posts={featured} n="10" />
         </main>
       </TaktLine>
       <Fusszeile />

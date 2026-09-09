@@ -512,9 +512,9 @@ const members = [
   { src: "/team/Noor.jpeg", name: "Noor" },
 ];
 
-export function Mannschaft() {
+export function Mannschaft({ n = "08" }: { n?: string } = {}) {
   return (
-    <Station n="08" label="Die Mannschaft" tone="paper" id="team">
+    <Station n={n} label="Die Mannschaft" tone="paper" id="team">
       <StationTitle>Das Team hinter temoa.</StationTitle>
       <StationLead>
         Strategie, Design, Advertising und Account-Management, alle im Haus.
@@ -552,9 +552,9 @@ export function Mannschaft() {
    09 · Wissen
    ============================================================ */
 
-export function Wissen({ posts }: { posts: PostMeta[] }) {
+export function Wissen({ posts, n = "09" }: { posts: PostMeta[]; n?: string }) {
   return (
-    <Station n="09" label="Das Wissen" tone="paper">
+    <Station n={n} label="Das Wissen" tone="paper">
       <StationTitle>Klartext zu Amazon.</StationTitle>
 
       <div className="mt-12">
