@@ -16,6 +16,20 @@ export const de = {
     ogBeschreibung:
       "Amazon Full Service: Erst verkauft euer Listing, dann skaliert die Werbung. Organic First, PPC Second.",
   },
+
+  start: {
+    /* Ueberschrift und Versprechen stehen wortgleich so, wie der Kunde sie
+       vorgegeben hat, inklusive der Anrede "deine" statt "eure". Zweimal
+       bestaetigt, also nicht anfassen. Die Ueberschrift ist geteilt, weil das
+       erste Stueck den Textmarker traegt. */
+    hero: {
+      eyebrow: "Amazon Full Service",
+      titelMark: "Profitables Wachstum",
+      titelRest: " für deine Amazon Brand",
+      lead: "Mehr Umsatz ist keine Frage des Werbebudgets durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co.",
+      ctaZweit: "Case Studies ansehen",
+    },
+  },
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine
