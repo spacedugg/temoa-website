@@ -45,6 +45,18 @@ type Rahmen = {
     account: string;
     international: string;
   };
+  /* Der Abschluss-CTA steht auf jeder Seite. Deshalb liegt seine Copy hier
+     und nicht im grossen Woerterbuch: `takt/Gespraech` erkennt die Sprache
+     selbst, wie Kopf- und Fusszeile, statt dass sie durch fuenfzehn Seiten
+     durchgereicht wird. Die Ueberschrift wird pro Seite ueberschrieben, hier
+     steht die der Startseite. */
+  gespraech: {
+    titel: string;
+    zusagen: [string, string];
+    portraetAlt: string;
+    portraetName: string;
+    portraetRolle: string;
+  };
   fusszeile: {
     beschreibung: string;
     spalteLeistungen: string;
@@ -84,6 +96,20 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       account: "Account Management",
       international: "Internationalisierung",
     },
+    gespraech: {
+      titel: "Wie viel Umsatz lässt euer Listing liegen?",
+      /* Der Ablauf, wie er wirklich ist: ein kurzes erstes Gespraech zum
+         Kennenlernen, die vorbereitete Auswertung erst danach. Kein Blick in
+         den Account vorab. Die Dauer steht an acht Stellen, siehe zwanzigste
+         Runde. */
+      zusagen: [
+        "30 Minuten, in denen wir eure Lage verstehen und ihr uns kennenlernt",
+        "Passt es, folgt ein zweites Gespräch, für das wir eure Zahlen vorbereiten",
+      ],
+      portraetAlt: "Clemens, Founder und Sales bei temoa",
+      portraetName: "Hi, ich bin Clemens.",
+      portraetRolle: "Founder. Ihr sprecht mit mir.",
+    },
     fusszeile: {
       beschreibung:
         "Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch verkauft, dann Werbung, die darauf aufbaut.",
@@ -120,6 +146,16 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       ppc: "PPC Advertising",
       account: "Account Management",
       international: "International Expansion",
+    },
+    gespraech: {
+      titel: "How much revenue is your listing leaving on the table?",
+      zusagen: [
+        "30 minutes for us to understand where you stand and for you to get to know us",
+        "If it fits, a second call follows, and we prepare your numbers for it",
+      ],
+      portraetAlt: "Clemens, founder and sales at temoa",
+      portraetName: "Hi, I am Clemens.",
+      portraetRolle: "Founder. You will be talking to me.",
     },
     fusszeile: {
       beschreibung:

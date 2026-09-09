@@ -5,6 +5,7 @@ import { Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
 import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Stimmen } from "../takt/sections";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Fahrplan } from "../takt/Fahrplan";
 import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
@@ -139,7 +140,10 @@ function Ablauf() {
   );
 }
 
-export function BookingBody() {
+/* Die uebrige Copy dieser Seite ist noch nicht im Woerterbuch. Die
+   Stimmen-Sektion teilt sie mit der Startseite, deshalb kommt sie hier schon
+   von aussen herein. */
+export function BookingBody({ stimmen }: { stimmen: Woerterbuch["start"]["stimmen"] }) {
   return (
     <>
       {/* Hero: copy left, booking card (with calendar) right */}
@@ -366,7 +370,7 @@ export function BookingBody() {
           passiert. */}
       <Fahrplan />
 
-      <Stimmen />
+      <Stimmen w={stimmen} />
 
       {/* FAQ */}
       <section className="ground-tint relative py-20 md:py-24">

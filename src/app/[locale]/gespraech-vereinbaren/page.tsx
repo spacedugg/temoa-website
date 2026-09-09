@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { BookingBody } from "@/components/booking/BookingBody";
+import { istSprache } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
 
 export const metadata: Metadata = {
   title: "Potenzialanalyse buchen · temoa",
@@ -9,12 +12,20 @@ export const metadata: Metadata = {
     "Kostenlose Potenzialanalyse: 30 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
 };
 
-export default function GespraechBuchenPage() {
+export default async function GespraechBuchenPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!istSprache(locale)) notFound();
+  const w = woerter(locale);
+
   return (
     <>
       <Kopfzeile />
       <main>
-        <BookingBody />
+        <BookingBody stimmen={w.start.stimmen} />
       </main>
       <Fusszeile />
     </>

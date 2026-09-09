@@ -105,7 +105,15 @@ function Saeule({
   );
 }
 
-export function Verlauf() {
+export function Verlauf({
+  bezahlt,
+  organisch,
+  beschreibung,
+}: {
+  bezahlt: string;
+  organisch: string;
+  beschreibung: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const drin = useInView(ref, { once: true, margin: "-15% 0px" });
   const reduce = useReducedMotion();
@@ -149,7 +157,7 @@ export function Verlauf() {
         viewBox="0 0 578 214"
         className="relative w-full"
         role="img"
-        aria-label="Zehn Säulen nebeneinander, räumlich dargestellt. Der untere Teil jeder Säule steht für den Umsatz über Werbung und ist überall gleich hoch. Der obere Teil steht für den Umsatz ohne Werbung und wächst nach rechts deutlich."
+        aria-label={beschreibung}
       >
         <defs>
           <linearGradient id={`${id}-boden`} x1="0" y1="0" x2="1" y2="0">
@@ -188,11 +196,11 @@ export function Verlauf() {
       <div className="relative mt-5 flex flex-wrap gap-x-7 gap-y-2 border-t border-white/[0.1] pt-5">
         <span className="inline-flex items-center gap-2.5 text-small font-bold text-white">
           <span aria-hidden className="h-3 w-3 rounded-[0.3rem]" style={{ background: "#FF9900" }} />
-          Umsatz über Werbung
+          {bezahlt}
         </span>
         <span className="inline-flex items-center gap-2.5 text-small font-bold text-white">
           <span aria-hidden className="h-3 w-3 rounded-[0.3rem]" style={{ background: "#22C55E" }} />
-          Umsatz ohne Werbung
+          {organisch}
         </span>
       </div>
     </div>

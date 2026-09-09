@@ -12,6 +12,17 @@ import { Zahl, ZahlText } from "./Zahl";
 import { cases } from "@/lib/cases";
 import { Markenlogo } from "../ui/Markenlogo";
 import { testimonials, initials } from "@/lib/testimonials";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
+
+/* Die Copy dieser Sektionen kommt aus dem Woerterbuch und wird von der Seite
+   als Prop uebergeben. Die Sektionen laufen im Browser; wuerden sie das
+   Woerterbuch selbst importieren, laege die Copy beider Sprachen im Bundle.
+   Was hier im Modul bleibt, ist alles, was keine Sprache hat: Dateipfade,
+   Symbole, Adressen, Reihenfolgen.
+
+   `W` ist der Zweig fuer die Startseite, jede Sektion nimmt ihren Ast daraus. */
+type W = Woerterbuch["start"];
 
 /* ============================================================
    Kundenband. Zwei dünne Bänder von vorher zu einem verschmolzen:
@@ -83,7 +94,7 @@ function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; re
  * Rot waere der noch staerkere Kontrast, ist hier aber falsch: Rot ist auf
  * dieser Website die Farbe fuer Probleme, und das hier sind die Kunden.
  */
-export function Kundenband() {
+export function Kundenband({ w }: { w: W["kundenband"] }) {
   return (
     <section className="on-dark ground-deep relative overflow-hidden">
       {/* Feine Lichtkante oben, damit die Sektion nicht wie ein
@@ -101,15 +112,15 @@ export function Kundenband() {
           <span className="inline-flex items-center gap-2.5">
             <span aria-hidden className="node-glow" />
             <span className="text-label font-bold uppercase text-chalk-muted">
-              Täglich in unserer Verantwortung
+              {w.label}
             </span>
           </span>
           <span className="text-small font-bold text-white">
-            <Zahl bis={60} nach="+" /> Marken
+            <Zahl bis={60} nach="+" /> {w.marken}
           </span>
           <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
           <span className="text-small font-bold text-white">
-            <Zahl bis={5} nach="+" /> Marktplätze
+            <Zahl bis={5} nach="+" /> {w.marktplaetze}
           </span>
         </div>
         <div className="mt-8 space-y-6">
@@ -125,30 +136,10 @@ export function Kundenband() {
    01 · Befund
    ============================================================ */
 
-const befunde: { icon: IconName; title: string; body: string }[] = [
-  {
-    icon: "uhr",
-    title: "Zu viele Produkte, zu wenig Zeit",
-    body: "Mehrere hundert Artikel liegen bei ein, zwei Leuten, die daneben zehn andere Dinge machen.",
-  },
-  {
-    icon: "bild",
-    title: "Seit dem Launch nichts verändert",
-    body: "Bilder, Titel und A+ Content stehen genau so da wie am ersten Tag.",
-  },
-  {
-    icon: "streuung",
-    title: "Kampagnen ohne Struktur",
-    body: "Auto, Phrase und Exact laufen nebeneinander und bieten gegeneinander.",
-  },
-  {
-    icon: "bericht",
-    title: "Berichte, die niemand auswertet",
-    body: "Search Query Bericht und Ads-Performance liegen im Konto und werden nicht gelesen.",
-  },
-];
+/* Die Symbole in der Reihenfolge der vier Karten im Woerterbuch. */
+const befundIcons: IconName[] = ["uhr", "bild", "streuung", "bericht"];
 
-export function Befund() {
+export function Befund({ w }: { w: W["befund"] }) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -159,13 +150,13 @@ export function Befund() {
         });
 
   return (
-    <Station label="Ausgangslage" tone="paper">
-      <StationTitle>Das Nötigste reicht auf Amazon nicht.</StationTitle>
+    <Station label={w.label} tone="paper">
+      <StationTitle>{w.titel}</StationTitle>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-        {befunde.map((b, i) => (
-          <motion.div key={b.title} {...auf(i * 0.07)} className="h-full">
-            <Karte icon={b.icon} title={b.title} body={b.body} />
+        {w.karten.map((b, i) => (
+          <motion.div key={b.titel} {...auf(i * 0.07)} className="h-full">
+            <Karte icon={befundIcons[i]} title={b.titel} body={b.text} />
           </motion.div>
         ))}
       </div>
@@ -180,21 +171,18 @@ export function Befund() {
           <div className="min-w-0">
             <span className="inline-flex items-center gap-2.5">
               <span aria-hidden className="node-glow" />
-              <span className="text-label font-bold uppercase text-ink-soft">Die Ursache</span>
+              <span className="text-label font-bold uppercase text-ink-soft">{w.ursacheLabel}</span>
             </span>
             <p className="mt-4 max-w-[46ch] text-balance text-[1.3rem] font-bold leading-[1.35] text-ink md:text-[1.6rem]">
-              Vier Symptome, eine Ursache: das Listing überzeugt zu wenige Besucher.
+              {w.ursacheSatz}
             </p>
-            <p className="mt-4 max-w-[50ch] text-body text-ink-muted">
-              Amazon rankt nach Klicks und Käufen. Wer dort zurückliegt, muss Sichtbarkeit dauerhaft
-              einkaufen.
-            </p>
+            <p className="mt-4 max-w-[50ch] text-body text-ink-muted">{w.ursacheText}</p>
           </div>
           <div className="relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/bilder/n-ursache.webp"
-              alt="Ein Trichter: viele Besucher laufen oben hinein, unten kommen nur zwei Käufe heraus."
+              alt={w.ursacheBildAlt}
               width={1600}
               height={1200}
               loading="lazy"
@@ -211,30 +199,9 @@ export function Befund() {
    02 · Verfahren
    ============================================================ */
 
-const stufen = [
-  { name: "Sichtbarkeit", meaning: "im Suchergebnis gefunden werden", signal: false },
-  { name: "Klickrate (CTR)", meaning: "der Klick auf euer Produkt", signal: true },
-  { name: "Conversion (CVR)", meaning: "der Kauf auf der Detailseite", signal: true },
-];
-
-const gegenueber = [
-  {
-    alt: "Listing einmal erstellt, danach nur noch Werbung",
-    neu: "Hauptbild, Titel und A+ nachgeschärft, bis die Conversion steht",
-  },
-  {
-    alt: "Content nach Gefühl, ohne Datenbasis",
-    neu: "Content aus Search Query Report, Wettbewerb und Bewertungen",
-  },
-  {
-    alt: "Sichtbarkeit über Gebote gekauft, Klickpreise steigen jedes Jahr",
-    neu: "Die Sichtbarkeit kommt organisch, Werbung legt sich obendrauf",
-  },
-  {
-    alt: "Umsatz um jeden Preis",
-    neu: "Jedes Produkt einzeln durchgerechnet, bevor Budget fließt",
-  },
-];
+/* Welche der drei Stufen ein Ranking-Signal ist. Die Namen stehen im
+   Woerterbuch, diese Angabe hat keine Sprache. */
+const stufenSignal = [false, true, true];
 
 /**
  * Organic First, PPC Second.
@@ -244,13 +211,7 @@ const gegenueber = [
  * Deshalb ist die Sektion hell. Dunkel bleiben die Ergebnisse und der Termin,
  * damit die Seite trotzdem ihren Wechsel behält.
  */
-const ppc = [
-  { title: "Skalieren, was konvertiert", body: "Budget geht auf Suchbegriffe, die auf der Detailseite kaufen." },
-  { title: "Platz halten", body: "Marke und Bestseller-Begriffe bleiben besetzt, auch gegen Wettbewerber." },
-  { title: "Auf Profit steuern", body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz." },
-];
-
-export function Verfahren() {
+export function Verfahren({ w }: { w: W["verfahren"] }) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -261,7 +222,7 @@ export function Verfahren() {
         });
 
   return (
-    <Station label="Unser Vorgehen" tone="warm">
+    <Station label={w.label} tone="warm">
       {/* Ueberschrift und Einleitung links, das Diagramm rechts daneben.
           Vorher stand die Ueberschrift ueber die ganze Breite, darunter ein
           zweiter Block „Was sich verschiebt" mit drei Zeilen Text, und erst
@@ -270,17 +231,18 @@ export function Verfahren() {
       <div className="grid items-center gap-9 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
         <div className="min-w-0">
           <StationTitle className="!max-w-none">
-            Organic First,
+            {w.titelZeile}
             <br />
-            <span className="em mark">PPC Second.</span>
+            <span className="em mark">{w.titelMark}</span>
           </StationTitle>
-          <p className="mt-6 max-w-[30ch] text-pretty text-lead text-ink-muted">
-            Klickrate und Conversion bestimmen, wo Amazon euer Produkt zeigt. Deshalb kommt zuerst
-            das Listing, dann die Kampagne.
-          </p>
+          <p className="mt-6 max-w-[30ch] text-pretty text-lead text-ink-muted">{w.lead}</p>
         </div>
         <motion.div {...auf(0.12)}>
-          <Verlauf />
+          <Verlauf
+            bezahlt={w.verlaufBezahlt}
+            organisch={w.verlaufOrganisch}
+            beschreibung={w.verlaufAlt}
+          />
         </motion.div>
       </div>
 
@@ -293,8 +255,8 @@ export function Verfahren() {
             <div className="flex items-center gap-3.5">
               <span className="schritt schritt-navy">1</span>
               <div className="min-w-0">
-                <div className="text-[1.05rem] font-extrabold leading-tight text-ink">Organic First</div>
-                <div className="text-small text-ink-muted">Das Listing bringen wir auf Klickrate und Conversion.</div>
+                <div className="text-[1.05rem] font-extrabold leading-tight text-ink">{w.schritt1}</div>
+                <div className="text-small text-ink-muted">{w.schritt1Text}</div>
               </div>
             </div>
 
@@ -302,12 +264,12 @@ export function Verfahren() {
                 bleibt rechts Platz fuer das Bild in einer Groesse, in der man
                 es auch sieht. */}
             <div className="mt-6 space-y-3">
-              {stufen.map((s, i) => (
+              {w.stufen.map((s, i) => (
                 <div
                   key={s.name}
                   className={clsx(
                     "flex items-start gap-4 rounded-[1.1rem] bg-white p-4 md:p-5",
-                    s.signal
+                    stufenSignal[i]
                       ? "shadow-[inset_0_0_0_1.5px_rgba(255,153,0,0.5),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-16px_rgba(13,36,57,0.2)]"
                       : "shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_14px_28px_-18px_rgba(13,36,57,0.2)]"
                   )}
@@ -318,13 +280,13 @@ export function Verfahren() {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                       <span className="text-[1.02rem] font-bold leading-snug text-ink">{s.name}</span>
-                      {s.signal && (
+                      {stufenSignal[i] && (
                         <span className="rounded-full bg-navy px-2.5 py-1 text-[0.7rem] font-bold uppercase tracking-[0.08em] text-brand-400">
-                          Ranking-Signal
+                          {w.rankingSignal}
                         </span>
                       )}
                     </div>
-                    <div className="mt-1 text-small text-ink-muted">{s.meaning}</div>
+                    <div className="mt-1 text-small text-ink-muted">{s.bedeutung}</div>
                   </div>
                 </div>
               ))}
@@ -336,7 +298,7 @@ export function Verfahren() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <motion.img
             src="/bilder/n-organic.webp"
-            alt="Drei Stufen, durch Pfeile verbunden: Suche, Klick, Kauf."
+            alt={w.stufenBildAlt}
             width={1600}
             height={896}
             loading="lazy"
@@ -373,10 +335,10 @@ export function Verfahren() {
             className="h-2 w-2 rounded-full bg-white"
             style={{ boxShadow: "0 0 0 4px rgba(255,255,255,0.22)" }}
           />
-          <span className="text-label font-bold uppercase text-white/80">Ergebnis</span>
+          <span className="text-label font-bold uppercase text-white/80">{w.ergebnisLabel}</span>
         </span>
         <span className="text-center text-[1.05rem] font-extrabold leading-snug text-white md:text-[1.15rem]">
-          Das Listing verkauft ohne Werbung.
+          {w.ergebnisSatz}
         </span>
       </motion.div>
 
@@ -384,17 +346,17 @@ export function Verfahren() {
         <div className="flex items-center gap-3.5">
           <span className="schritt schritt-orange">2</span>
           <div className="min-w-0">
-            <div className="text-[1.05rem] font-extrabold leading-tight text-white">PPC Second</div>
-            <div className="text-small text-chalk-muted">Werbung skaliert erst, was schon konvertiert.</div>
+            <div className="text-[1.05rem] font-extrabold leading-tight text-white">{w.schritt2}</div>
+            <div className="text-small text-chalk-muted">{w.schritt2Text}</div>
           </div>
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {ppc.map((p) => (
-            <div key={p.title} className="rounded-[1.25rem] bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_0_0_1px_rgba(255,255,255,0.07)] md:p-6">
+          {w.ppc.map((p) => (
+            <div key={p.titel} className="rounded-[1.25rem] bg-white/[0.07] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_0_0_1px_rgba(255,255,255,0.07)] md:p-6">
               <span aria-hidden className="node-glow block" />
-              <div className="mt-4 text-[1.05rem] font-bold leading-snug text-white">{p.title}</div>
-              <div className="mt-1.5 text-small text-chalk-muted">{p.body}</div>
+              <div className="mt-4 text-[1.05rem] font-bold leading-snug text-white">{p.titel}</div>
+              <div className="mt-1.5 text-small text-chalk-muted">{p.text}</div>
             </div>
           ))}
         </div>
@@ -422,11 +384,9 @@ export function Verfahren() {
         <motion.div {...auf(0)} className="mx-auto max-w-[44ch] text-center">
           <span className="inline-flex items-center gap-2.5 rounded-full bg-white px-4 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_10px_20px_-14px_rgba(13,36,57,0.3)]">
             <span aria-hidden className="node-glow" />
-            <span className="text-label font-bold uppercase text-ink-soft">Der Unterschied</span>
+            <span className="text-label font-bold uppercase text-ink-soft">{w.unterschiedLabel}</span>
           </span>
-          <h3 className="title mt-5 text-[1.5rem] text-ink md:text-[1.9rem]">
-            Vier Punkte, an denen sich die Arbeit trennt.
-          </h3>
+          <h3 className="title mt-5 text-[1.5rem] text-ink md:text-[1.9rem]">{w.unterschiedTitel}</h3>
         </motion.div>
 
         <div className="mt-10 grid items-stretch gap-4 lg:grid-cols-[1fr_1.08fr] lg:gap-5">
@@ -436,9 +396,9 @@ export function Verfahren() {
             {...auf(0.06)}
             className="flex flex-col rounded-[1.6rem] border border-dashed border-ink/[0.18] bg-ink/[0.035] p-5 sm:p-7 md:p-8"
           >
-            <span className="text-label font-bold uppercase text-ink-faint">Wie es meistens läuft</span>
+            <span className="text-label font-bold uppercase text-ink-faint">{w.spalteAlt}</span>
             <ul className="mt-6 space-y-4">
-              {gegenueber.map((r) => (
+              {w.gegenueber.map((r) => (
                 <li key={r.alt} className="flex gap-3.5">
                   <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-ink/[0.08] text-ink-faint">
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
@@ -459,10 +419,10 @@ export function Verfahren() {
           >
             <span aria-hidden className="halo -right-20 -top-24 h-[18rem] w-[18rem] opacity-80" />
             <span className="relative inline-flex w-fit items-center rounded-full bg-navy px-3.5 py-1.5 text-label font-bold uppercase tracking-[0.12em] text-white">
-              Wie temoa arbeitet
+              {w.spalteNeu}
             </span>
             <ul className="relative mt-6 space-y-4">
-              {gegenueber.map((r) => (
+              {w.gegenueber.map((r) => (
                 <li key={r.neu} className="flex gap-3.5">
                   <span aria-hidden className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-navy text-white">
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
@@ -484,12 +444,16 @@ export function Verfahren() {
    03 · Leistungen
    ============================================================ */
 
-const leistungen: { icon: IconName; title: string; body: string; href: string }[] = [
-  { icon: "kompass", title: "Strategie", body: "Erst die Daten, dann der Plan.", href: "/leistungen/strategie" },
-  { icon: "lupe", title: "Produktbilder & SEO", body: "Aus Klicks werden Käufe.", href: "/leistungen/listing-seo" },
-  { icon: "ziel", title: "PPC Advertising", body: "Profitabel skalieren.", href: "/leistungen/ppc-advertising" },
-  { icon: "schild", title: "Account Management", body: "Bestand, Buy-Box, Cases im Griff.", href: "/leistungen/account-management" },
-  { icon: "globus", title: "Internationalisierung", body: "Lokalisieren statt übersetzen.", href: "/leistungen/internationalisierung" },
+/* Symbol und Adresse der fuenf Leistungen, in der Reihenfolge des
+   Woerterbuchs. Die Adressen bleiben deutsch, auch auf der englischen Seite:
+   sie sind gesetzt, ein Wechsel bricht Verweise und Suchergebnisse. Die
+   Sprache steckt im Praefix, das `pfad` davorsetzt. */
+const leistungWege: { icon: IconName; href: string }[] = [
+  { icon: "kompass", href: "/leistungen/strategie" },
+  { icon: "lupe", href: "/leistungen/listing-seo" },
+  { icon: "ziel", href: "/leistungen/ppc-advertising" },
+  { icon: "schild", href: "/leistungen/account-management" },
+  { icon: "globus", href: "/leistungen/internationalisierung" },
 ];
 
 /**
@@ -503,7 +467,7 @@ const leistungen: { icon: IconName; title: string; body: string; href: string }[
  * Kundenband. Wer auf der Seite landet, liest zuerst, was wir machen, und
  * nicht, was bei ihm schiefliegt.
  */
-export function Leistungen() {
+export function Leistungen({ sprache, w }: { sprache: Sprache; w: W["leistungen"] }) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -514,20 +478,21 @@ export function Leistungen() {
         });
 
   return (
-    <Station label="Leistungen" tone="tint">
+    <Station label={w.label} tone="tint">
       <StationTitle>
-        Fünf Leistungen, in der <span className="em mark">richtigen Reihenfolge.</span>
+        {w.titelVor}
+        <span className="em mark">{w.titelMark}</span>
       </StationTitle>
       {/* Ohne Unterzeile. „Jeder Bereich hat jemanden, der ihn hauptberuflich
           macht" stand hier und sagte nichts, was die fuenf Karten darunter
           nicht schon sagen. */}
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-        {leistungen.map((l, i) => (
+        {w.liste.map((l, i) => (
           <motion.a
-            key={l.title}
+            key={l.titel}
             {...auf(i * 0.06)}
-            href={l.href}
+            href={pfad(sprache, leistungWege[i].href)}
             className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden p-5 transition-transform duration-500 ease-temoa hover:-translate-y-1 md:p-8"
           >
             {/* Der Lichthof zieht beim Zeigen an, damit die Karte reagiert,
@@ -550,17 +515,17 @@ export function Leistungen() {
                 als anderthalb Bildschirme fuer fuenf Zeilen Inhalt. */}
             <div className="relative flex items-start gap-4 md:block">
               <span className="tile-dark shrink-0">
-                <Icon name={l.icon} className="h-8 w-8" />
+                <Icon name={leistungWege[i].icon} className="h-8 w-8" />
               </span>
               <div className="min-w-0 flex-1 md:mt-6">
                 <div className="pr-9 text-[1.1rem] font-bold leading-snug tracking-[-0.015em] text-white md:pr-10 md:text-[1.4rem]">
-                  {l.title}
+                  {l.titel}
                 </div>
-                <div className="mt-2 text-small leading-relaxed text-chalk-muted md:mt-2.5">{l.body}</div>
+                <div className="mt-2 text-small leading-relaxed text-chalk-muted md:mt-2.5">{l.text}</div>
               </div>
             </div>
             <span className="relative mt-4 inline-flex items-center gap-1.5 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1 md:mt-auto md:pt-6">
-              Mehr dazu
+              {w.mehr}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -574,7 +539,7 @@ export function Leistungen() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/bilder/n-leistungen.webp"
-            alt="Fünf Bereiche liegen im Ring um eine gemeinsame Mitte und sind mit ihr verbunden."
+            alt={w.bildAlt}
             width={1408}
             height={1408}
             loading="lazy"
@@ -583,8 +548,8 @@ export function Leistungen() {
         </motion.div>
       </div>
 
-      <a href="/full-service" className="btn-text mt-10">
-        Alle Leistungen ansehen
+      <a href={pfad(sprache, "/full-service")} className="btn-text mt-10">
+        {w.alle}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -645,23 +610,24 @@ function TrendPfeil({ runter = false, klein = false }: { runter?: boolean; klein
  * Browser gegen die Elternbreite, dadurch springen die Nachbarn; `flex-grow`
  * verteilt den Platz und alle fuenf laufen gemeinsam.
  */
-export function Nachweis() {
+export function Nachweis({ sprache, w }: { sprache: Sprache; w: W["nachweis"] }) {
   const reduce = useReducedMotion();
 
   return (
-    <Station label="Case Studies" tone="dark" id="nachweis">
+    <Station label={w.label} tone="dark" id="nachweis">
       {/* „Fuenf Marken, fuenf Ausgangslagen" sagte nichts: es zaehlte, was
           darunter ohnehin steht. Die Ueberschrift traegt jetzt die Aussage,
           auf die es ankommt, und die Unterzeile entfaellt. */}
       <StationTitle>
-        Jede Zahl kommt aus einem <span className="em text-brand-400">Konto, das wir betreuen.</span>
+        {w.titelVor}
+        <span className="em text-brand-400">{w.titelEm}</span>
       </StationTitle>
 
       <div className="mt-12 flex flex-col gap-4 md:h-[27rem] md:flex-row md:gap-3">
         {cases.map((c, i) => (
           <motion.a
             key={c.slug}
-            href={`/ergebnisse/${c.slug}`}
+            href={pfad(sprache, `/ergebnisse/${c.slug}`)}
             initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
@@ -734,7 +700,7 @@ export function Nachweis() {
               </span>
 
               <span className="mt-4 inline-flex items-center gap-1.5 text-[0.78rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
-                Case Study
+                {w.caseStudy}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -753,8 +719,8 @@ export function Nachweis() {
         ))}
       </div>
 
-      <a href="/ergebnisse" className="btn-text-hell mt-10">
-        Alle Case Studies ansehen
+      <a href={pfad(sprache, "/ergebnisse")} className="btn-text-hell mt-10">
+        {w.alle}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -775,24 +741,13 @@ export function Nachweis() {
    Die Bilder tragen ihre Beschriftung selbst: sie sind so an Amazon
    ausgeliefert worden. Die Regel, dass Schrift nie ins Bild gehoert, gilt fuer
    erzeugte Grafiken, nicht fuer ausgelieferte Arbeit. */
-const bildstrecke = [
-  { src: "/bilder/miganeo/l-1.webp", alt: "Hauptbild: die Poolabdeckung freigestellt, gefaltet und ausgelegt" },
-  { src: "/bilder/miganeo/l-2.webp", alt: "Bis zu 8 Grad wärmeres Wasser, Pool zur Hälfte abgedeckt" },
-  { src: "/bilder/miganeo/l-3.webp", alt: "Die Wärme im Pool behalten, Durchmesser 457 Zentimeter" },
-  { src: "/bilder/miganeo/l-4.webp", alt: "Handhabung in vier Schritten" },
-  { src: "/bilder/miganeo/l-5.webp", alt: "Bis zu 70 Prozent weniger Heizkosten" },
-  { src: "/bilder/miganeo/l-6.webp", alt: "Hält groben Schmutz vom Wasser fern" },
-  { src: "/bilder/miganeo/l-7.webp", alt: "Familie am Pool, Abdeckung wird abgezogen" },
-];
+const bildstrecke = [1, 2, 3, 4, 5, 6, 7].map((n) => `/bilder/miganeo/l-${n}.webp`);
 
 /* Die sechs Module des Premium A+ Contents. Sie sitzen ohne Abstand
    untereinander in einer Kachel: auf der Produktseite laufen sie ebenfalls
    nahtlos ineinander, und mit Luft dazwischen fielen der Kopf und das erste
    Bild auseinander. */
-const aplus = [1, 2, 3, 4, 5, 6].map((n) => ({
-  src: `/bilder/miganeo/a-${n}.webp`,
-  alt: `Premium A+ Modul ${n} von 6`,
-}));
+const aplus = [1, 2, 3, 4, 5, 6].map((n) => `/bilder/miganeo/a-${n}.webp`);
 
 /**
  * Designbeispiele.
@@ -808,7 +763,7 @@ const aplus = [1, 2, 3, 4, 5, 6].map((n) => ({
  * aus sechs Modulen im Verhaeltnis 1400:574. Gleichgesetzt fuehrt das auf
  * 0,884 zu 1.
  */
-export function Arbeiten() {
+export function Arbeiten({ sprache, w }: { sprache: Sprache; w: W["arbeiten"] }) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -819,6 +774,7 @@ export function Arbeiten() {
         });
 
   const [haupt, ...weitere] = bildstrecke;
+  const [hauptAlt, ...weitereAlt] = w.bildAlt;
 
   return (
     /* Ohne `label`: die Bezeichnung steht in der linken Spalte und bleibt
@@ -834,26 +790,26 @@ export function Arbeiten() {
           durchgelaufen, geht die ganze Sektion mit. */}
       <div className="grid gap-10 lg:grid-cols-[0.52fr_1.48fr] lg:items-start lg:gap-12">
         <div className="min-w-0 lg:sticky lg:top-28 lg:self-start">
-          <Eyebrow label="Designbeispiele" dark />
+          <Eyebrow label={w.label} dark />
           <StationTitle className="!max-w-none">
-            So sieht
+            {w.titelVor}
             <br />
             {/* Die beiden Woerter gehoeren in eine Zeile. */}
-            <span className="em whitespace-nowrap text-brand-400">Retail Ready</span> aus.
+            <span className="em whitespace-nowrap text-brand-400">{w.titelEm}</span>
+            {w.titelNach}
           </StationTitle>
           <p className="mt-6 max-w-[34ch] text-pretty text-lead text-chalk-muted">
-            Ein komplettes Listing aus unserer Produktion für Miganeo.
+            {w.lead1}
             <br />
-            Sieben Bilder und sechs Module Premium A+ Content, in dieser Form auf Amazon
-            veröffentlicht.
+            {w.lead2}
           </p>
 
           {/* Zwei Zahlen, eine Zeile. Drei brachen in der schmalen Spalte um,
               und jede Zeile hier kostet Weg, den der Text stehen bleibt. */}
           <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 border-t border-white/[0.12] pt-6">
             {[
-              ["7", "Bilder"],
-              ["6", "Module Premium A+"],
+              ["7", w.zahlBilder],
+              ["6", w.zahlModule],
             ].map(([zahl, text]) => (
               <div key={text}>
                 <dt className="num text-[1.6rem] leading-none text-brand-400">{zahl}</dt>
@@ -862,8 +818,8 @@ export function Arbeiten() {
             ))}
           </dl>
 
-          <a href="/design-beispiele" className="btn-text-hell mt-8">
-            Mehr Designbeispiele
+          <a href={pfad(sprache, "/design-beispiele")} className="btn-text-hell mt-8">
+            {w.mehr}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
               <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -878,13 +834,13 @@ export function Arbeiten() {
             Abstaende feste Pixel sind und die Bilder nicht. */}
         <div className="grid min-w-0 items-stretch gap-4 sm:grid-cols-[0.884fr_1fr]">
           <div className="flex min-w-0 flex-col">
-            <BereichsKopf label="Listing" note="1 + 6 Bilder" dunkel />
+            <BereichsKopf label={w.kopfListing} note={w.kopfListingNote} dunkel />
 
             <motion.figure {...auf(0)} className="listing-kachel m-0 mt-3.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={haupt.src}
-                alt={haupt.alt}
+                src={haupt}
+                alt={hauptAlt}
                 width={1200}
                 height={1500}
                 className="aspect-[4/5] w-full object-cover"
@@ -893,11 +849,11 @@ export function Arbeiten() {
 
             <div className="mt-3 grid grid-cols-2 gap-3">
               {weitere.map((b, i) => (
-                <motion.figure key={b.src} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
+                <motion.figure key={b} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={b.src}
-                    alt={b.alt}
+                    src={b}
+                    alt={weitereAlt[i]}
                     width={700}
                     height={700}
                     loading="lazy"
@@ -909,15 +865,15 @@ export function Arbeiten() {
           </div>
 
           <div className="flex min-w-0 flex-col">
-            <BereichsKopf label="Premium A+ Content" note="6 Module" dunkel />
+            <BereichsKopf label={w.kopfAplus} note={w.kopfAplusNote} dunkel />
 
             <motion.div {...auf(0.08)} className="listing-kachel mt-3.5 flex flex-1 flex-col">
-              {aplus.map((m) => (
+              {aplus.map((m, i) => (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
-                  key={m.src}
-                  src={m.src}
-                  alt={m.alt}
+                  key={m}
+                  src={m}
+                  alt={w.aplusAlt.replace("{n}", String(i + 1))}
                   width={1400}
                   height={574}
                   loading="lazy"
@@ -961,12 +917,12 @@ function BereichsKopf({ label, note, dunkel = false }: { label: string; note: st
  * Karte allein und ihr Schatten sah aus wie ein Fehler. Jetzt haben alle
  * Karten dieselbe Breite und laufen in zwei Baendern.
  */
-function Stimme({ t }: { t: (typeof testimonials)[number] }) {
+function Stimme({ t, sterne }: { t: (typeof testimonials)[number]; sterne: string }) {
   return (
     /* Auf dem Telefon so breit wie der Container, damit eine Stimme ganz im
        Bild steht statt zur Haelfte hinter dem Rand. */
     <figure className="panel m-0 flex w-[calc(100vw-3rem)] shrink-0 snap-center flex-col p-5 sm:w-[19rem] sm:p-6 md:w-[22rem]">
-      <div className="flex gap-0.5" aria-label="5 von 5 Sternen">
+      <div className="flex gap-0.5" aria-label={sterne}>
         {Array.from({ length: 5 }).map((_, s) => (
           <svg key={s} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
             <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
@@ -1026,7 +982,17 @@ function Stimme({ t }: { t: (typeof testimonials)[number] }) {
  * hinterher. Ab `md` laeuft es, darunter steht es still und wird gewischt,
  * mit Einrastpunkten, damit immer eine ganze Karte im Bild steht.
  */
-function StimmenBand({ liste, dauer, rueckwaerts }: { liste: typeof testimonials; dauer: number; rueckwaerts?: boolean }) {
+function StimmenBand({
+  liste,
+  dauer,
+  rueckwaerts,
+  sterne,
+}: {
+  liste: typeof testimonials;
+  dauer: number;
+  rueckwaerts?: boolean;
+  sterne: string;
+}) {
   return (
     <div className="group relative snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       <div
@@ -1034,22 +1000,23 @@ function StimmenBand({ liste, dauer, rueckwaerts }: { liste: typeof testimonials
         style={{ animationDuration: `${dauer}s`, animationDirection: rueckwaerts ? "reverse" : "normal" }}
       >
         {[...liste, ...liste].map((t, i) => (
-          <Stimme key={`${t.name}-${i}`} t={t} />
+          <Stimme key={`${t.name}-${i}`} t={t} sterne={sterne} />
         ))}
       </div>
     </div>
   );
 }
 
-export function Stimmen() {
+export function Stimmen({ w }: { w: W["stimmen"] }) {
   const mitte = Math.ceil(testimonials.length / 2);
   const oben = testimonials.slice(0, mitte);
   const unten = testimonials.slice(mitte);
 
   return (
-    <Station label="Kundenstimmen" tone="tint">
+    <Station label={w.label} tone="tint">
       <StationTitle>
-        Im Wortlaut, <span className="em mark">mit Zahlen.</span>
+        {w.titelVor}
+        <span className="em mark">{w.titelMark}</span>
       </StationTitle>
 
       {/* Zwei Baender, gegenlaeufig. Der Verlauf an den Kanten muss den
@@ -1067,8 +1034,8 @@ export function Stimmen() {
           style={{ background: "linear-gradient(270deg, #eef4fb, rgba(238,244,251,0))" }}
         />
         <div className="space-y-4">
-          <StimmenBand liste={oben} dauer={72} />
-          <StimmenBand liste={unten} dauer={88} rueckwaerts />
+          <StimmenBand liste={oben} dauer={72} sterne={w.sterne} />
+          <StimmenBand liste={unten} dauer={88} rueckwaerts sterne={w.sterne} />
         </div>
       </div>
     </Station>
@@ -1105,7 +1072,7 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
  * Team-Seite, rechts das Bild der drei Gruender. Darauf sitzt der Stempel,
  * halb auf dem Foto und halb auf dem Grund.
  */
-export function Mannschaft() {
+export function Mannschaft({ w }: { w: W["mannschaft"] }) {
   const reduce = useReducedMotion();
   const auf = (delay: number) => ({
     initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 },
@@ -1115,14 +1082,11 @@ export function Mannschaft() {
   });
 
   return (
-    <Station label="Team" tone="warm" id="team">
+    <Station label={w.label} tone="warm" id="team">
       <div className="grid items-center gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
         <div className="min-w-0">
-          <StationTitle>Das Team hinter temoa.</StationTitle>
-          <StationLead>
-            Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig,
-            jeder in seinem Bereich, mit denselben Zahlen vor sich.
-          </StationLead>
+          <StationTitle>{w.titel}</StationTitle>
+          <StationLead>{w.lead}</StationLead>
         </div>
 
         <motion.div {...auf(0.08)} className="relative">
@@ -1130,7 +1094,7 @@ export function Mannschaft() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/team/Main.webp"
-              alt="Die Gründer von temoa"
+              alt={w.bildAlt}
               loading="lazy"
               className="aspect-[16/10] w-full object-cover"
             />

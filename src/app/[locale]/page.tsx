@@ -50,15 +50,15 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Kopfzeile />
       <main id="inhalt">
         <Auftrag sprache={locale} w={w.start.hero} />
-        <Kundenband />
-        <Leistungen />
-        <Nachweis />
-        <Befund />
-        <Verfahren />
-        <Arbeiten />
-        <Stimmen />
+        <Kundenband w={w.start.kundenband} />
+        <Leistungen sprache={locale} w={w.start.leistungen} />
+        <Nachweis sprache={locale} w={w.start.nachweis} />
+        <Befund w={w.start.befund} />
+        <Verfahren w={w.start.verfahren} />
+        <Arbeiten sprache={locale} w={w.start.arbeiten} />
+        <Stimmen w={w.start.stimmen} />
         <Termin />
-        <Mannschaft />
+        <Mannschaft w={w.start.mannschaft} />
       </main>
       <Fusszeile />
     </>
