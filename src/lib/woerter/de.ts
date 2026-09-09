@@ -185,6 +185,10 @@ export const de = {
       label: "Kundenstimmen",
       titelVor: "Im Wortlaut, ",
       titelMark: "mit Zahlen.",
+      /* Deutsche Anfuehrungszeichen unten und oben. Im Englischen stehen
+         beide oben und sehen anders aus. */
+      anfuehrungAuf: "„",
+      anfuehrungZu: "“",
       sterne: "5 von 5 Sternen",
     },
 

@@ -16,6 +16,8 @@ import {
 } from "@/components/takt/sections";
 import { istSprache, sprachAngaben } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
+import { stimmenFuer } from "@/lib/testimonials";
+import { vorschauFuer } from "@/lib/cases";
 
 /**
  * Startseite.
@@ -52,11 +54,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Auftrag sprache={locale} w={w.start.hero} />
         <Kundenband w={w.start.kundenband} />
         <Leistungen sprache={locale} w={w.start.leistungen} />
-        <Nachweis sprache={locale} w={w.start.nachweis} />
+        <Nachweis sprache={locale} w={w.start.nachweis} faelle={vorschauFuer(locale)} />
         <Befund w={w.start.befund} />
         <Verfahren w={w.start.verfahren} />
         <Arbeiten sprache={locale} w={w.start.arbeiten} />
-        <Stimmen w={w.start.stimmen} />
+        <Stimmen w={w.start.stimmen} liste={stimmenFuer(locale)} />
         <Termin />
         <Mannschaft w={w.start.mannschaft} />
       </main>

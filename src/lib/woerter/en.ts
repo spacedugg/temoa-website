@@ -191,6 +191,8 @@ export const en: Woerterbuch = {
       label: "Client Reviews",
       titelVor: "In their words, ",
       titelMark: "with the numbers.",
+      anfuehrungAuf: "“",
+      anfuehrungZu: "”",
       sterne: "5 out of 5 stars",
     },
 

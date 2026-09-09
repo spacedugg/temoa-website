@@ -9,9 +9,9 @@ import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
 import { Stempel } from "./Stempel";
 import { Zahl, ZahlText } from "./Zahl";
-import { cases } from "@/lib/cases";
+import type { FallVorschau } from "@/lib/cases";
 import { Markenlogo } from "../ui/Markenlogo";
-import { testimonials, initials } from "@/lib/testimonials";
+import { initials, type Testimonial } from "@/lib/testimonials";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 
@@ -610,7 +610,15 @@ function TrendPfeil({ runter = false, klein = false }: { runter?: boolean; klein
  * Browser gegen die Elternbreite, dadurch springen die Nachbarn; `flex-grow`
  * verteilt den Platz und alle fuenf laufen gemeinsam.
  */
-export function Nachweis({ sprache, w }: { sprache: Sprache; w: W["nachweis"] }) {
+export function Nachweis({
+  sprache,
+  w,
+  faelle,
+}: {
+  sprache: Sprache;
+  w: W["nachweis"];
+  faelle: FallVorschau[];
+}) {
   const reduce = useReducedMotion();
 
   return (
@@ -624,7 +632,7 @@ export function Nachweis({ sprache, w }: { sprache: Sprache; w: W["nachweis"] })
       </StationTitle>
 
       <div className="mt-12 flex flex-col gap-4 md:h-[27rem] md:flex-row md:gap-3">
-        {cases.map((c, i) => (
+        {faelle.map((c, i) => (
           <motion.a
             key={c.slug}
             href={pfad(sprache, `/ergebnisse/${c.slug}`)}
@@ -917,12 +925,12 @@ function BereichsKopf({ label, note, dunkel = false }: { label: string; note: st
  * Karte allein und ihr Schatten sah aus wie ein Fehler. Jetzt haben alle
  * Karten dieselbe Breite und laufen in zwei Baendern.
  */
-function Stimme({ t, sterne }: { t: (typeof testimonials)[number]; sterne: string }) {
+function Stimme({ t, w }: { t: Testimonial; w: W["stimmen"] }) {
   return (
     /* Auf dem Telefon so breit wie der Container, damit eine Stimme ganz im
        Bild steht statt zur Haelfte hinter dem Rand. */
     <figure className="panel m-0 flex w-[calc(100vw-3rem)] shrink-0 snap-center flex-col p-5 sm:w-[19rem] sm:p-6 md:w-[22rem]">
-      <div className="flex gap-0.5" aria-label={sterne}>
+      <div className="flex gap-0.5" aria-label={w.sterne}>
         {Array.from({ length: 5 }).map((_, s) => (
           <svg key={s} width="12" height="12" viewBox="0 0 24 24" fill="#FF9900" aria-hidden>
             <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
@@ -930,7 +938,9 @@ function Stimme({ t, sterne }: { t: (typeof testimonials)[number]; sterne: strin
         ))}
       </div>
       <blockquote className="mt-4 text-pretty text-[0.9rem] leading-relaxed text-ink">
-        „{t.quote}"
+        {w.anfuehrungAuf}
+        {t.quote}
+        {w.anfuehrungZu}
       </blockquote>
       <figcaption className="mt-auto flex items-center gap-3 pt-5">
         <span
@@ -986,12 +996,12 @@ function StimmenBand({
   liste,
   dauer,
   rueckwaerts,
-  sterne,
+  w,
 }: {
-  liste: typeof testimonials;
+  liste: Testimonial[];
   dauer: number;
   rueckwaerts?: boolean;
-  sterne: string;
+  w: W["stimmen"];
 }) {
   return (
     <div className="group relative snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -1000,17 +1010,17 @@ function StimmenBand({
         style={{ animationDuration: `${dauer}s`, animationDirection: rueckwaerts ? "reverse" : "normal" }}
       >
         {[...liste, ...liste].map((t, i) => (
-          <Stimme key={`${t.name}-${i}`} t={t} sterne={sterne} />
+          <Stimme key={`${t.name}-${i}`} t={t} w={w} />
         ))}
       </div>
     </div>
   );
 }
 
-export function Stimmen({ w }: { w: W["stimmen"] }) {
-  const mitte = Math.ceil(testimonials.length / 2);
-  const oben = testimonials.slice(0, mitte);
-  const unten = testimonials.slice(mitte);
+export function Stimmen({ w, liste }: { w: W["stimmen"]; liste: Testimonial[] }) {
+  const mitte = Math.ceil(liste.length / 2);
+  const oben = liste.slice(0, mitte);
+  const unten = liste.slice(mitte);
 
   return (
     <Station label={w.label} tone="tint">
@@ -1034,8 +1044,8 @@ export function Stimmen({ w }: { w: W["stimmen"] }) {
           style={{ background: "linear-gradient(270deg, #eef4fb, rgba(238,244,251,0))" }}
         />
         <div className="space-y-4">
-          <StimmenBand liste={oben} dauer={72} sterne={w.sterne} />
-          <StimmenBand liste={unten} dauer={88} rueckwaerts sterne={w.sterne} />
+          <StimmenBand liste={oben} dauer={72} w={w} />
+          <StimmenBand liste={unten} dauer={88} rueckwaerts w={w} />
         </div>
       </div>
     </Station>

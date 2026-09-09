@@ -6,6 +6,7 @@ import { Icon, type IconName } from "../takt/Icons";
 import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Stimmen } from "../takt/sections";
 import type { Woerterbuch } from "@/lib/woerter";
+import type { Testimonial } from "@/lib/testimonials";
 import { Fahrplan } from "../takt/Fahrplan";
 import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
@@ -143,7 +144,13 @@ function Ablauf() {
 /* Die uebrige Copy dieser Seite ist noch nicht im Woerterbuch. Die
    Stimmen-Sektion teilt sie mit der Startseite, deshalb kommt sie hier schon
    von aussen herein. */
-export function BookingBody({ stimmen }: { stimmen: Woerterbuch["start"]["stimmen"] }) {
+export function BookingBody({
+  stimmen,
+  stimmenListe,
+}: {
+  stimmen: Woerterbuch["start"]["stimmen"];
+  stimmenListe: Testimonial[];
+}) {
   return (
     <>
       {/* Hero: copy left, booking card (with calendar) right */}
@@ -370,7 +377,7 @@ export function BookingBody({ stimmen }: { stimmen: Woerterbuch["start"]["stimme
           passiert. */}
       <Fahrplan />
 
-      <Stimmen w={stimmen} />
+      <Stimmen w={stimmen} liste={stimmenListe} />
 
       {/* FAQ */}
       <section className="ground-tint relative py-20 md:py-24">

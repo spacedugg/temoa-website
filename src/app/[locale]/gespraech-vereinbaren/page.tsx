@@ -5,6 +5,7 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { BookingBody } from "@/components/booking/BookingBody";
 import { istSprache } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
+import { stimmenFuer } from "@/lib/testimonials";
 
 export const metadata: Metadata = {
   title: "Potenzialanalyse buchen · temoa",
@@ -25,7 +26,7 @@ export default async function GespraechBuchenPage({
     <>
       <Kopfzeile />
       <main>
-        <BookingBody stimmen={w.start.stimmen} />
+        <BookingBody stimmen={w.start.stimmen} stimmenListe={stimmenFuer(locale)} />
       </main>
       <Fusszeile />
     </>
