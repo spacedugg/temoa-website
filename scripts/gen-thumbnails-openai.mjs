@@ -1,4 +1,4 @@
-// Generate all blog covers via the OpenAI image API (gpt-image-1) and
+// Generate all blog covers via the OpenAI image API (gpt-image-2) and
 // save them to public/blog/covers/<slug>.png, where the site auto-detects them.
 //
 // Run (key must be in this environment, NOT only in Vercel):
@@ -39,7 +39,7 @@ async function gen(p, attempt = 1) {
     const res = await fetch("https://api.openai.com/v1/images/generations", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` },
-      body: JSON.stringify({ model: "gpt-image-1", prompt: p.prompt, size: "1536x1024", quality: QUALITY, n: 1 }),
+      body: JSON.stringify({ model: process.env.MODEL || "gpt-image-2", prompt: p.prompt, size: "1536x1024", quality: QUALITY, n: 1 }),
     });
     if (!res.ok) {
       const t = await res.text();

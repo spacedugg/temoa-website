@@ -25,7 +25,7 @@ Klassische Suchmaschinenoptimierung (SEO) zielt auf Keywords. Die neue Disziplin
 
 ## Wie du dein Listing fit machst
 
-Mehrere Hebel helfen, von KI-Discovery zu profitieren:
+Mehreres hilft, von KI-Discovery zu profitieren:
 
 - **Eindeutige, vollständige Produktangaben:** Material, Maße, Kompatibilität, Anwendungsfälle und Eigenschaften klar und korrekt angeben. Lücken kann eine KI nicht erraten.
 - **Käuferfragen direkt beantworten:** Strukturiere Bulletpoints und A+ Content so, dass sie die echten Fragen und Einwände der Kunden beantworten – genau die, die jemand einer KI stellen würde.

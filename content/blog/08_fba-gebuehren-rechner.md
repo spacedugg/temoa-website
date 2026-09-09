@@ -1,6 +1,6 @@
 ---
 title: "FBA-Gebühren richtig kalkulieren: So modellierst du echte Profitabilität vor dem Launch"
-meta_description: "Die meisten Seller rechnen FBA-Profitabilität falsch – weil ihre Gebührenliste unvollständig ist. Alle Kostenblöcke, die in dein Modell gehören."
+meta_description: "Die meisten Marken rechnen FBA-Profitabilität falsch – weil ihre Gebührenliste unvollständig ist. Alle Kostenblöcke, die in dein Modell gehören."
 keywords: ["FBA Gebühren", "FBA Rechner", "Amazon Profitabilität", "Amazon Kosten kalkulieren"]
 kategorie: "FBA, Logistik & Inventar"
 ---

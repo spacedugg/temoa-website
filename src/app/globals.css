@@ -7,6 +7,12 @@
   --brand-gradient: linear-gradient(110deg, #FF9900 0%, #FF6B1F 52%, #FF3131 100%);
   /* Dunkle Variante derselben Familie für große Flächen mit weißem Text (5.3:1 bis 7.5:1). */
   --brand-gradient-deep: linear-gradient(110deg, #C74A0B 0%, #B33314 55%, #A32318 100%);
+  /* Textmarker fuer betonte Woerter in Ueberschriften. Gezeichnete Flaeche
+     mit unruhigen Kanten, an den Enden auslaufend wie ein abgesetzter
+     Filzstift. Liegt als Variable hier, damit `.mark` und `.text-gradient`
+     dieselbe Datei benutzen statt sie viermal zu wiederholen. */
+  --marker-hell: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%2040%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27ga%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23FF9900%27%20stop-opacity%3D%27.45%27%2F%3E%3Cstop%20offset%3D%27.1%27%20stop-color%3D%27%23FF9900%27%2F%3E%3Cstop%20offset%3D%27.88%27%20stop-color%3D%27%23FF9900%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FF9900%27%20stop-opacity%3D%27.3%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%27url%28%23ga%29%27%20opacity%3D%27.92%27%20d%3D%27M2%209.4C26%206.2%2052%208.6%2078%207%20104%205.4%20131%208.2%20157%206.5%20172%205.6%20187%207.3%20198.5%206.3L198%2033.2C186%2035.3%20170%2032.7%20154%2034.4%20128%2037.1%20101%2034%2075%2035.5%2049%2037%2025%2034.3%202%2035.9Z%27%2F%3E%3Cpath%20fill%3D%27%23FF7A00%27%20opacity%3D%27.26%27%20d%3D%27M3%2011.6C30%209.5%2060%2012.3%2090%2010.4%20120%208.5%20150%2011.7%20196%209.9L196%2017.5C152%2019.3%20118%2016.2%2088%2018.1%2058%2020%2030%2017.3%203%2019.2Z%27%2F%3E%3Cpath%20fill%3D%27%23ffffff%27%20opacity%3D%27.15%27%20d%3D%27M14%2013.3C40%2012%2066%2014.1%2092%2012.7L92%2015.7C66%2017.1%2040%2015%2014%2016.3ZM112%2012.5C138%2011.3%20164%2013.3%20190%2012L190%2015C164%2016.3%20138%2014.3%20112%2015.5Z%27%2F%3E%3C%2Fsvg%3E");
+  --marker-dunkel: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20200%2040%27%20preserveAspectRatio%3D%27none%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27gb%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23FFB033%27%20stop-opacity%3D%27.45%27%2F%3E%3Cstop%20offset%3D%27.1%27%20stop-color%3D%27%23FFB033%27%2F%3E%3Cstop%20offset%3D%27.88%27%20stop-color%3D%27%23FFB033%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23FFB033%27%20stop-opacity%3D%27.3%27%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%27url%28%23gb%29%27%20opacity%3D%27.8%27%20d%3D%27M2%209.4C26%206.2%2052%208.6%2078%207%20104%205.4%20131%208.2%20157%206.5%20172%205.6%20187%207.3%20198.5%206.3L198%2033.2C186%2035.3%20170%2032.7%20154%2034.4%20128%2037.1%20101%2034%2075%2035.5%2049%2037%2025%2034.3%202%2035.9Z%27%2F%3E%3Cpath%20fill%3D%27%23FF9900%27%20opacity%3D%27.26%27%20d%3D%27M3%2011.6C30%209.5%2060%2012.3%2090%2010.4%20120%208.5%20150%2011.7%20196%209.9L196%2017.5C152%2019.3%20118%2016.2%2088%2018.1%2058%2020%2030%2017.3%203%2019.2Z%27%2F%3E%3Cpath%20fill%3D%27%23ffffff%27%20opacity%3D%27.15%27%20d%3D%27M14%2013.3C40%2012%2066%2014.1%2092%2012.7L92%2015.7C66%2017.1%2040%2015%2014%2016.3ZM112%2012.5C138%2011.3%20164%2013.3%20190%2012L190%2015C164%2016.3%20138%2014.3%20112%2015.5Z%27%2F%3E%3C%2Fsvg%3E");
   /* Fokus-Ring. Auf hellem Grund Ink, auf dunklem Grund wird er in .on-dark umgestellt. */
   --focus-ring: #0A1E2B;
 }
@@ -21,9 +27,16 @@ html {
 }
 
 body {
-  background-color: #FFFFFF;
+  /* Nicht reinweiß. Der Grund ist die erste Materialschicht des Themes,
+     weiße Platten sollen darauf stehen und nicht mit ihm verschmelzen. */
+  background-color: #f6f9fd;
   color: #0A1E2B;
+  /* `hidden` macht aus dem Body einen Scroll-Container, und darin bleibt kein
+     `position: sticky` mehr stehen. `clip` schneidet genauso ab, ohne einen
+     Scroll-Container zu erzeugen. Die erste Zeile bleibt als Rueckfall fuer
+     Browser, die `clip` nicht kennen. */
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 ::selection {
@@ -71,15 +84,18 @@ footer :where(a, button):focus-visible,
 
   /* ---------- Vertikaler Rhythmus ----------
      Drei Abstände statt der bisher acht ad-hoc Kombinationen.
-     Unten jeweils etwas mehr als oben, weil das optisch ausgeglichen wirkt. */
+     Unten jeweils etwas mehr als oben, weil das optisch ausgeglichen wirkt.
+     Auf dem Telefon rund ein Drittel weniger: 80 Pixel Luft über und unter
+     jeder Sektion sind auf 390 Pixel Breite ein Viertel Bildschirm, und die
+     Startseite hatte damit neunzehn Bildschirme. */
   .section-y {
-    @apply pt-20 pb-24 md:pt-24 md:pb-28;
+    @apply pt-14 pb-16 md:pt-24 md:pb-28;
   }
   .section-y-sm {
-    @apply pt-12 pb-14 md:pt-14 md:pb-16;
+    @apply pt-10 pb-11 md:pt-14 md:pb-16;
   }
   .section-y-lg {
-    @apply pt-28 pb-32 md:pt-32 md:pb-36;
+    @apply pt-20 pb-20 md:pt-32 md:pb-36;
   }
 
   /* Typografische Textur.
@@ -104,6 +120,36 @@ footer :where(a, button):focus-visible,
   .title .em {
     font-weight: 700;
   }
+  /* Betontes Wort in einer Ueberschrift.
+
+     Der Kunde wollte keinen geraden Strich, sondern einen Textmarker mit
+     Struktur. Ein gerader Balken bleibt gerade, egal wie dick, deshalb ist
+     der Strich jetzt eine gezeichnete Flaeche: unruhige Ober- und Unterkante,
+     an beiden Enden auslaufend wie ein abgesetzter Filzstift, darin eine
+     zweite Lage und zwei helle Schlieren.
+
+     `box-decoration-break: clone` sorgt dafuer, dass jede Zeile eines
+     umbrechenden Wortes ihren eigenen Strich bekommt. `multiply` laesst die
+     Schrift durch die Farbe kommen, statt sie zuzudecken. */
+  .mark {
+    font-weight: 700;
+    background-image: var(--marker-hell);
+    background-repeat: no-repeat;
+    background-size: 100% 0.72em;
+    background-position: 0 82%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.06em;
+    margin: 0 -0.06em;
+  }
+  /* Der Klassenname bleibt, damit die Fundstellen weiterlaufen. */
+  .mark-wrap {
+    white-space: normal;
+  }
+  .on-dark .mark {
+    background-image: var(--marker-dunkel);
+  }
+
   .num {
     font-weight: 300;
     font-variant-numeric: tabular-nums;
@@ -138,46 +184,473 @@ footer :where(a, button):focus-visible,
       0 36px 70px -28px rgba(2, 48, 71, 0.42);
   }
 
+  /* Bestandsklassen aus der Zeit vor dem Theme „Studio". Sie stecken noch in
+     den Unterseiten. Statt sie dort einzeln zu ersetzen, tragen sie hier den
+     Plattenlook des Themes: gestaffelter Schatten und Lichtkante oben. */
   .card {
-    @apply rounded-card bg-white shadow-soft;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 30px 54px -28px rgba(13, 36, 57, 0.2);
   }
 
   /* Solid premium card. Pops on tinted/grey section tones, lifts on hover. */
   /* Erhebung wird einmal erklaert: Schatten. Ein 1px-Rand unter einem weichen
      Schatten ergibt die typische Geisterkarte. */
   .surface {
-    @apply rounded-card bg-white shadow-lift transition-all duration-300;
+    @apply transition-all duration-300;
+    border-radius: 1.5rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 30px 54px -28px rgba(13, 36, 57, 0.2);
   }
   .surface-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow:
-      0 16px 30px -12px rgba(2, 48, 71, 0.18),
-      0 36px 70px -24px rgba(2, 48, 71, 0.28);
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 18px 32px -14px rgba(13, 36, 57, 0.16),
+      0 50px 84px -34px rgba(13, 36, 57, 0.3);
+  }
+
+  /* ================================================================
+     Theme „Studio"
+
+     Ersetzt die frühere Welt „Taktplan", die aus einer mitlaufenden Linie
+     am linken Rand, Stationsnummern und flachen weißen Sektionen bestand.
+     Diese Welt hier arbeitet mit drei Mitteln:
+
+       1. Der Grund ist nie reinweiß, sondern ein sehr heller kühler Verlauf
+          mit einem warmen Lichtkern. Dadurch stehen weiße Flächen darauf.
+       2. Inhalte liegen auf Platten mit gestaffeltem Schatten und einer
+          feinen Lichtkante oben. Nichts schwebt frei im Weißraum.
+       3. Zusammenhänge werden gezeichnet: glühende orange Verbindungen,
+          Podeste, Ringe. Nicht beschrieben.
+     ================================================================ */
+
+  /* Heller Sektionsgrund mit warmem Lichtkern. */
+  .ground {
+    position: relative;
+    background:
+      radial-gradient(120% 80% at 78% -10%, rgba(255, 153, 0, 0.09), transparent 60%),
+      radial-gradient(90% 70% at 8% 110%, rgba(43, 108, 176, 0.07), transparent 62%),
+      linear-gradient(180deg, #ffffff 0%, #f6f9fd 100%);
+  }
+  /* Zweite Stufe: etwas kräftiger getönt, für Sektionen die sich absetzen sollen. */
+  .ground-tint {
+    position: relative;
+    background:
+      radial-gradient(100% 70% at 15% -20%, rgba(255, 153, 0, 0.1), transparent 58%),
+      linear-gradient(180deg, #f4f8fd 0%, #eaf1f9 100%);
+  }
+  /* Dunkles Podest. Trägt weißen Text, deshalb immer zusammen mit .on-dark. */
+  .ground-deep {
+    position: relative;
+    background:
+      radial-gradient(110% 80% at 82% -15%, rgba(255, 153, 0, 0.2), transparent 58%),
+      radial-gradient(80% 60% at 6% 108%, rgba(255, 153, 0, 0.09), transparent 60%),
+      linear-gradient(165deg, #14344c 0%, #0d2439 55%, #0a1c2d 100%);
+  }
+
+  /* Warmer Grund. Dritte helle Stufe neben .ground und .ground-tint, damit
+     nicht jede zweite Sektion denselben kühlen Ton hat. Trägt normalen
+     dunklen Text, weiße Platten stehen darauf gut. */
+  .ground-warm {
+    position: relative;
+    background:
+      radial-gradient(100% 75% at 82% -12%, rgba(255, 153, 0, 0.16), transparent 62%),
+      radial-gradient(85% 60% at 6% 106%, rgba(255, 122, 0, 0.09), transparent 62%),
+      linear-gradient(180deg, #fff8ef 0%, #fdf0e2 100%);
+  }
+
+  /* Signalsektion: volle Markenfläche.
+
+     Erste Fassung war das Orange der Marke mit dunklem Text darauf. Der Kunde
+     hat das als anstrengend zu lesen zurückgewiesen, zu Recht: dunkelbraun auf
+     #FF9900 kommt auf 6:1, das ist messbar in Ordnung und trotzdem flimmert es,
+     weil beide Töne fast gleich hell sind.
+
+     Zweite Fassung lag bei #b81f14 und war dem Kunden zu braun. Der Grund war
+     der Farbton: #b81f14 hat einen Buntton von etwa 4 Grad und zieht damit ins
+     Orange, das Logo-Rot #FF3131 liegt bei 0 Grad. Jetzt läuft die Fläche von
+     #b5121a nach #820a11, also im Buntton des Logos, nur abgedunkelt: #FF3131
+     selbst trägt weiße Schrift nur mit 3,7:1 und ist als Fläche unbrauchbar.
+     So kommen 6,9:1 oben und 10,5:1 unten heraus. Orange bleibt der Akzent
+     darauf, für Leuchtkanten und Punkte, nie als Schriftfarbe. */
+  /* Die Signalfläche traegt das Rot aus dem Logo: #FF3131.
+     Zwei Fassungen davor waren zu dunkel. Die erste war ein gebrochenes Rot
+     mit einem Stich ins Braune, die zweite ein tiefes Weinrot: beide waren
+     kontraststark, aber es war nicht die Farbe der Marke. Jetzt beginnt der
+     Verlauf oben rechts auf dem Logo-Rot und laeuft nach unten links in eine
+     dunklere Fassung derselben Farbe, damit weisse Schrift ueberall traegt.
+     Der Farbeindruck ist das Logo-Rot, die Textzone die tiefere Ecke. */
+  .ground-signal {
+    position: relative;
+    background:
+      radial-gradient(70% 100% at 92% -8%, rgba(255, 153, 0, 0.36), transparent 60%),
+      radial-gradient(90% 120% at 8% 112%, rgba(150, 8, 18, 0.6), transparent 66%),
+      linear-gradient(152deg, #ff3131 0%, #e8161f 46%, #bd0d19 100%);
+  }
+  .on-signal {
+    color: #ffffff;
+  }
+  .on-signal .signal-leise {
+    color: rgba(255, 240, 236, 0.9);
+  }
+  /* Platte auf der Signalfläche: aufgehellt, damit sie sich abhebt, ohne
+     weiß zu werden und die Fläche zu zerschneiden. */
+  .panel-signal {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  /* Hauptplatte. Der gestaffelte Schatten erzeugt die Tiefe, die eine
+     einzelne Schattenstufe nicht hinbekommt. Die Lichtkante oben lässt die
+     Kante physisch wirken statt gezeichnet. */
+  .panel {
+    border-radius: 1.75rem;
+    background: #ffffff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 10px 20px -10px rgba(13, 36, 57, 0.1),
+      0 34px 60px -30px rgba(13, 36, 57, 0.22);
+  }
+  .panel-lift {
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.4s ease;
+  }
+  .panel-lift:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 18px 32px -14px rgba(13, 36, 57, 0.16),
+      0 52px 86px -34px rgba(13, 36, 57, 0.3);
+  }
+  /* Platte auf dunklem Grund. */
+  .panel-dark {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.055);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  /* Hervorgehobene Platte auf dunklem Grund, mit oranger Kante. */
+  .panel-dark-accent {
+    border-radius: 1.75rem;
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      inset 0 0 0 1px rgba(255, 153, 0, 0.35),
+      0 0 44px -14px rgba(255, 153, 0, 0.32);
+  }
+
+  /* Icon-Kachel, wie in den Referenzen: gerundetes Quadrat, weiß, Navy-Symbol. */
+  /* Die Icon-Kachel. Vorher 3,25 rem mit einem 24-px-Zeichen darin: auf einer
+     Karte mit Ueberschrift und Satz war das Zeichen der kleinste Teil und
+     wurde ueberlesen. Jetzt 4 rem. */
+  .tile {
+    @apply grid shrink-0 place-items-center text-navy;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1.15rem;
+    background: linear-gradient(155deg, #ffffff, #eef4fb);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.06),
+      0 10px 18px -10px rgba(13, 36, 57, 0.22);
+  }
+  .tile-lg {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1.25rem;
+  }
+  /* Kachel auf dunklem Grund. */
+  .tile-dark {
+    @apply grid shrink-0 place-items-center text-brand-500;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 1.15rem;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  /* Glühende orange Verbindung. Waagerecht und senkrecht, für Ketten und Ringe. */
+  .link-glow {
+    background: linear-gradient(90deg, rgba(255, 153, 0, 0), #ff9900 45%, rgba(255, 153, 0, 0));
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.75);
+    height: 2px;
+  }
+  .link-glow-v {
+    background: linear-gradient(180deg, rgba(255, 153, 0, 0), #ff9900 45%, rgba(255, 153, 0, 0));
+    box-shadow: 0 0 12px rgba(255, 153, 0, 0.75);
+    width: 2px;
+  }
+  /* Leuchtpunkt am Anschlusspunkt einer Verbindung. */
+  .node-glow {
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 999px;
+    background: #ff9900;
+    box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.16), 0 0 16px rgba(255, 153, 0, 0.8);
+  }
+
+  /* Warmer Lichtkern hinter einem Element. Immer aria-hidden und pointer-events-none. */
+  .halo {
+    position: absolute;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 153, 0, 0.34), transparent 66%);
+    filter: blur(46px);
+  }
+  .halo-cool {
+    background: radial-gradient(circle, rgba(43, 108, 176, 0.24), transparent 66%);
+  }
+
+  /* Kachel eines Listingbildes oder A+ Moduls.
+     Beim Zeigen kippt sie leicht nach vorne und hebt sich an. Das macht die
+     Designbeispiele greifbar, ohne dass eine Animation dauernd laeuft. */
+  .listing-kachel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.9rem;
+    background: #fff;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 12px 24px -16px rgba(13, 36, 57, 0.28);
+    transition: transform 0.45s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.45s ease;
+    transform-style: preserve-3d;
+  }
+  .listing-kachel:hover {
+    transform: perspective(900px) translateY(-6px) rotateX(3deg) scale(1.015);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 26px 48px -20px rgba(13, 36, 57, 0.4);
+    z-index: 2;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .listing-kachel,
+    .listing-kachel:hover {
+      transform: none;
+      transition: box-shadow 0.2s ease;
+    }
+  }
+
+  /* Aufbau einer Produktseite: links das Hauptbild, rechts die sechs
+     weiteren Bilder. Auf dem Telefon steht das Hauptbild oben und die
+     sechs darunter, sonst waere das Hauptbild rund 120 px breit.
+     --hero traegt das Seitenverhaeltnis des Hauptbilds. */
+  .listing-raster {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .listing-raster {
+      grid-template-columns: var(--hero, 1fr) 1.5fr;
+    }
+  }
+
+  /* Farbige Platten.
+     Zwei Dinge, die verschiedene Sachen sagen, sollen sich auch farblich
+     unterscheiden. Vorher war fast alles weiss, dadurch war zum Beispiel bei
+     „Organic First, PPC Second" nicht zu sehen, dass der eine Block vor dem
+     anderen kommt: weiss, orange, weiss. Das Auge sprang aufs Orange. */
+  .panel-navy {
+    border-radius: 1.75rem;
+    background: linear-gradient(165deg, #16374f 0%, #0e2740 60%, #0b1f34 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 1px 2px rgba(13, 36, 57, 0.1),
+      0 24px 48px -24px rgba(13, 36, 57, 0.5);
+  }
+  /* Warme Platte: gehoert zum Orange, ohne eine volle orange Flaeche zu sein. */
+  .panel-warm {
+    border-radius: 1.75rem;
+    background: linear-gradient(160deg, #fff8ee 0%, #ffeed6 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(255, 153, 0, 0.18),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 24px 46px -26px rgba(180, 100, 10, 0.32);
+  }
+  /* Kuehle Platte fuer die dritte Ebene. */
+  .panel-cool {
+    border-radius: 1.75rem;
+    background: linear-gradient(160deg, #f3f8fe 0%, #e6eff9 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 0 0 1px rgba(43, 108, 176, 0.12),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 24px 46px -26px rgba(13, 36, 57, 0.22);
+  }
+
+  /* Schrittmarke: grosse Zahl in einer Scheibe. Macht eine Reihenfolge
+     unmissverstaendlich, auch wenn die Bloecke untereinander liegen. */
+  .schritt {
+    @apply grid shrink-0 place-items-center rounded-full text-[0.95rem] font-extrabold;
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+  .schritt-navy {
+    background: #0e2740;
+    color: #fff;
+    box-shadow: 0 8px 18px -8px rgba(13, 36, 57, 0.6);
+  }
+  /* Die zweite Schrittmarke war eine orange Scheibe mit dunkler Ziffer. Das
+     ist der Fall, den es auf dieser Website nicht mehr geben soll: dunkles
+     Zeichen auf oranger Fläche. Jetzt trägt Navy die weiße Ziffer, das Orange
+     sitzt als Ring und Lichthof darum und unterscheidet den Schritt trotzdem
+     vom ersten. */
+  .schritt-orange {
+    background: #0e2740;
+    color: #fff;
+    box-shadow:
+      0 0 0 3px rgba(255, 153, 0, 0.95),
+      0 8px 18px -8px rgba(255, 153, 0, 0.8);
+  }
+
+  /* KPI-Karte mit Trendrichtung, nach der Referenz mit den drei Kennzahlen. */
+  .kpi {
+    border-radius: 1.25rem;
+    background: #ffffff;
+    padding: 1.1rem 1.25rem;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 1px 2px rgba(13, 36, 57, 0.05),
+      0 16px 30px -18px rgba(13, 36, 57, 0.22);
   }
 
   /* Primär-Aktion.
-     Neue Form: kein Pillen-Button mehr, sondern eine Platte mit weichem Radius
-     und einer eigenen Scheibe für den Pfeil. Dunkler Text auf Orange, 7,9:1. */
+     Navy-Fläche mit weißem Text (13,4:1). Orange bleibt Akzent auf der
+     Pfeilscheibe. Die frühere Fassung war Navy-Text auf oranger Fläche, das
+     sah stumpf aus und zog das Orange ins Bräunliche. */
+  /* Das ist DER Button der Seite. Er muss sofort auffallen, ohne dass Orange
+     zur Flaeche wird: Navy traegt den weissen Text, die orange Scheibe und ein
+     oranger Lichthof darunter machen ihn zum hellsten Punkt der Sektion. */
   .btn-primary {
-    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-brand-500 py-2 pl-6 pr-2 text-small font-bold text-ink transition-all duration-300;
+    @apply relative inline-flex min-h-[3.6rem] items-center gap-4 rounded-[1.1rem] bg-navy py-2.5 pl-7 pr-2.5 text-[0.95rem] font-extrabold text-white transition-all duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 12px 28px -14px rgba(255, 153, 0, 0.9);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.14),
+      0 10px 22px -8px rgba(255, 153, 0, 0.42),
+      0 20px 44px -18px rgba(11, 31, 52, 0.7);
   }
   .btn-primary:hover {
-    background-color: #FFA827;
-    transform: translateY(-2px);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 20px 40px -16px rgba(255, 153, 0, 0.95);
+    background-color: #14374f;
+    transform: translateY(-3px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 16px 32px -8px rgba(255, 153, 0, 0.62),
+      0 30px 60px -20px rgba(11, 31, 52, 0.75);
   }
   .btn-primary:active {
     transform: translateY(0);
   }
-  /* Scheibe im Button, wandert beim Hover nach rechts. */
+  /* Scheibe im Button, wandert beim Hover nach rechts.
+     Sie war orange mit dunklem Pfeil. Dunkle Zeichen auf Orange sind auf
+     dieser Website raus, deshalb jetzt eine helle Scheibe mit Navy-Pfeil und
+     das Orange nur noch als Lichthof darum. */
   .btn-primary .disc {
-    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-ink text-brand-500 transition-transform duration-300;
+    @apply grid h-10 w-10 shrink-0 place-items-center rounded-[0.8rem] bg-white text-navy transition-transform duration-300;
     transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 0 18px -2px rgba(255, 153, 0, 0.75);
   }
   .btn-primary:hover .disc {
+    transform: translateX(4px);
+  }
+
+  /* Primär-Aktion auf dunklem Grund. Der Navy-Button verschwindet dort, also
+     kehrt sich das Verhältnis um: weiße Fläche, Navy-Text, orange Scheibe. */
+  .btn-on-dark {
+    @apply relative inline-flex min-h-[3.25rem] items-center gap-4 rounded-[0.875rem] bg-white py-2 pl-6 pr-2 text-small font-bold text-navy transition-all duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-on-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.45);
+  }
+  .btn-on-dark:active {
+    transform: translateY(0);
+  }
+  /* Auf hellem Knopf: Navy-Scheibe mit weissem Pfeil. Vorher orange mit
+     dunklem Pfeil. */
+  .btn-on-dark .disc {
+    @apply grid h-9 w-9 shrink-0 place-items-center rounded-[0.625rem] bg-navy text-white transition-transform duration-300;
+    transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-on-dark:hover .disc {
     transform: translateX(3px);
+  }
+
+  /* Knopf in der Kopfzeile.
+     Erste Fassung war Navy und ist auf einer Seite voller Navy nicht als
+     Aktion aufgefallen. Zweite Fassung war rot: Rot bedeutet auf dieser
+     Website aber „hier laeuft etwas schief", nicht „hier geht es weiter".
+     Jetzt wieder Navy, dafuer mit einem orangen Lichthof, einem Lichtsweep
+     beim Hover und einer Scheibe, die von Weiss auf Orange umschlaegt und
+     nach rechts wandert. Aufmerksamkeit kommt aus der Bewegung, nicht aus
+     einer zweiten Signalfarbe. */
+  .btn-kopf {
+    @apply relative inline-flex min-h-[2.9rem] items-center gap-3 overflow-hidden rounded-[0.9rem] py-1.5 pl-5 pr-1.5 text-small font-extrabold text-white;
+    background: linear-gradient(150deg, #14425f 0%, #0b2438 68%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 10px 22px -12px rgba(255, 153, 0, 0.65),
+      0 14px 30px -16px rgba(11, 31, 52, 0.8);
+    transition:
+      transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+      box-shadow 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  /* Der Sweep laeuft einmal quer durch, wenn der Zeiger auf den Knopf kommt. */
+  .btn-kopf::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(112deg, transparent 22%, rgba(255, 153, 0, 0.42) 46%, transparent 72%);
+    transform: translateX(-115%);
+    transition: transform 0.85s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .btn-kopf:hover::before {
+    transform: translateX(115%);
+  }
+  .btn-kopf:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 16px 30px -10px rgba(255, 153, 0, 0.75),
+      0 22px 44px -18px rgba(11, 31, 52, 0.85);
+  }
+  .btn-kopf:active {
+    transform: translateY(0);
+  }
+  .btn-kopf .disc {
+    @apply relative grid h-8 w-8 shrink-0 place-items-center rounded-[0.65rem] bg-white text-navy;
+    transition:
+      transform 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+      background-color 0.35s ease;
+  }
+  .btn-kopf:hover .disc {
+    /* Kein Umschlag auf Orange mehr: der Pfeil darin ist dunkel, und dunkle
+       Zeichen auf Orange sind raus. Die Scheibe bleibt hell und wandert. */
+    transform: translateX(3px);
+    box-shadow: 0 0 0 4px rgba(255, 153, 0, 0.28);
   }
 
   /* Zweite Aktion: Textlink mit Unterkante, keine zweite Pille. */
@@ -186,8 +659,19 @@ footer :where(a, button):focus-visible,
     box-shadow: inset 0 -1px 0 rgba(10, 30, 43, 0.25);
   }
   .btn-text:hover {
-    color: #C96D00;
-    box-shadow: inset 0 -1px 0 #C96D00;
+    color: #023047;
+    box-shadow: inset 0 -2px 0 #FF9900;
+  }
+
+  /* Textlink auf dunklem Grund. `.btn-text` faerbt sich beim Zeigen dunkel,
+     auf Navy ist er dann weg. */
+  .btn-text-hell {
+    @apply inline-flex min-h-[3.25rem] items-center gap-2 text-small font-bold text-white transition-colors duration-300;
+    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.32);
+  }
+  .btn-text-hell:hover {
+    color: #ffb65c;
+    box-shadow: inset 0 -2px 0 #ff9900;
   }
 
   .btn-ghost {
@@ -205,15 +689,30 @@ footer :where(a, button):focus-visible,
      2.0:1 auf Weiß und ist der bekannteste Marker generierter Oberflächen.
      Jetzt Vollton #C96D00 mit 3.7:1, zulässig ab 24px Schriftgröße.
      Der Klassenname bleibt, damit die 52 Fundstellen unverändert weiterlaufen. */
+  /* Betontes Wort in einer Überschrift.
+     Hatte hart #C96D00, das las sich als Gold und wirkte schmutzig. Die Klasse
+     steckt an über fünfzig Stellen in Überschriften, deshalb wird sie hier
+     umdefiniert statt überall ersetzt: das Wort bleibt dunkel und bekommt den
+     orangen Balken unter der Grundlinie, wie `.mark`. */
+  /* Wie .mark, nur unter dem alten Klassennamen: er steht an ueber fuenfzig
+     Stellen. Damit sieht jede Auszeichnung auf der Seite gleich aus. */
   .text-gradient {
-    color: #C96D00;
-    background-image: none;
+    color: inherit;
+    background-color: transparent;
     -webkit-background-clip: border-box;
     background-clip: border-box;
+    font-weight: 700;
+    background-image: var(--marker-hell);
+    background-repeat: no-repeat;
+    background-size: 100% 0.72em;
+    background-position: 0 82%;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    padding: 0 0.06em;
+    margin: 0 -0.06em;
   }
-  /* Auf dunklem Grund braucht der Akzent die helle Variante. */
   .on-dark .text-gradient {
-    color: #FFB033;
+    background-image: var(--marker-dunkel);
   }
 
   .text-gradient-emerald {

@@ -1,241 +1,368 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 
 /* ============================================================
- *  Content showcase: every element of the product detail page,
- *  shown as wireframe SKETCHES (not real images) that get the
- *  real layout right: a main image on white, an image strip,
- *  A+ modules, Brand Store, Brand Story and SEO.
+ *  Content-Sektion: jedes Element der Produktdetailseite.
+ *
+ *  Vorher: sechs gleich grosse weisse Kacheln in einem Raster, in
+ *  jeder dieselbe Flasche, darunter zwei kleine Hinweiszeilen. Der
+ *  Kunde hat das zu Recht als zu weiss, zu eintoenig und zu
+ *  gleichfoermig beschrieben.
+ *
+ *  Jetzt: unterschiedlich grosse Kacheln, die erste dunkel und doppelt
+ *  so breit, und in jeder Kachel ein Nachbau der Stelle, um die es
+ *  geht. Der Brand Store ist raus, den muss man nicht zeigen. Der
+ *  Hinweis „erfundenes Produkt" ist raus, die Information braucht
+ *  niemand.
  * ============================================================ */
 
-const FRAME =
-  "relative w-full overflow-hidden rounded-2xl bg-white ring-1 ring-black/[0.06]";
+/* Zwei Fassungen liegen dahinter. Erst ein erfundenes Produkt aus dem
+   Bildmodell, eine Isolierflasche in zehn Ansichten: auf einer Seite, die
+   erklaert, was wir an einem Listing machen, die falsche Wahl. Dann das
+   Miganeo-Listing, das aber schon die Designbeispiele der Startseite traegt.
 
-/* --- sketch primitives ----------------------------------------------- */
+   Jetzt eigene Arbeit fuer diese Seite: das Listing fuer Kemes und ein Modul
+   Premium A+ Content fuer Futum. Damit steht auf jeder Seite anderes Material,
+   und wer von der Startseite hierher kommt, sieht nicht dasselbe Produkt zum
+   zweiten Mal.
 
-/* A picture placeholder: thin frame with a small image glyph. */
-function Photo({ className = "", active = false }: { className?: string; active?: boolean }) {
+   Die drei A+ Dateien sind keine drei Module, sondern drei Bahnen eines
+   Moduls, die aufeinander aufbauen: Kopf mit Aussage, Produkt im Rasen, erste
+   Anwendung. Sie liegen deshalb ohne Abstand untereinander, wie auf der
+   Produktseite. */
+const M = {
+  haupt: "/bilder/kemes/l-1.webp",
+  /* Die sechs weiteren Listingbilder in ihrer Reihenfolge. */
+  strecke: ["l-2", "l-3", "l-4", "l-5", "l-6", "l-7"].map((n) => `/bilder/kemes/${n}.webp`),
+  /* Die drei Bahnen des A+ Moduls, von oben nach unten. */
+  aplus: ["a-1", "a-2", "a-3"].map((n) => `/bilder/futum/${n}.webp`),
+  /* Die zwei Bahnen der Brand Story, von oben nach unten. */
+  brandstory: ["bs-1", "bs-2"].map((n) => `/bilder/rainfactory/${n}.webp`),
+};
+
+/* --- kleine Bausteine ------------------------------------------------- */
+
+function Bild({
+  src,
+  className = "",
+  fit = "contain",
+}: {
+  src: string;
+  className?: string;
+  fit?: "contain" | "cover";
+}) {
   return (
-    <div
-      className={`flex items-center justify-center rounded-lg bg-[#F7F9FB] ${
-        active ? "ring-2 ring-brand-500" : "ring-1 ring-black/[0.08]"
-      } ${className}`}
-    >
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-ink-faint/55">
-        <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.3" />
-        <circle cx="9" cy="10.5" r="1.5" stroke="currentColor" strokeWidth="1.3" />
-        <path d="M5 17l4.5-4 3 2.4L16 11l3 3.3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+    <div className={`relative overflow-hidden rounded-[0.6rem] bg-[#F5F8FA] ${className}`}>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt=""
+        loading="lazy"
+        className={`absolute inset-0 h-full w-full ${fit === "cover" ? "object-cover" : "object-contain p-1"}`}
+      />
     </div>
   );
 }
 
-/* A text line. */
-function Line({ w = "100%", strong = false }: { w?: string; strong?: boolean }) {
-  return <span className={`block h-1.5 rounded-full ${strong ? "bg-navy/25" : "bg-navy/12"}`} style={{ width: w }} />;
+/** Platzhalterzeile. Schrift wird nie in einen Nachbau gesetzt, die Zeilen
+ *  zeigen den Aufbau, ohne einen erfundenen Text zu behaupten. */
+function Zeile({ w = "100%", stark = false }: { w?: string; stark?: boolean }) {
+  return (
+    <span
+      className={`block rounded-full ${stark ? "h-2 bg-navy/45" : "h-1.5 bg-navy/20"}`}
+      style={{ width: w }}
+    />
+  );
 }
 
-/* --- one sketch per content element ---------------------------------- */
+/* --- Nachbauten ------------------------------------------------------- */
 
-/* Hauptbild: a single product image on a pure-white field (Amazon main-image
-   rule), with the index badge and a nod to its CTR job. */
-function MainImageViz() {
+/**
+ * Suchergebnis: vier Treffer nebeneinander, einer davon gewinnt den Klick.
+ *
+ * Das ist die Stelle, an der das Hauptbild entscheidet. Der eigene Treffer
+ * pulsiert dauerhaft, damit sich in der Sektion etwas bewegt, ohne dass man
+ * mit dem Zeiger darueberfahren muss.
+ */
+function SucheViz() {
   return (
-    <div className={`${FRAME} aspect-[4/3] flex items-center justify-center p-4`}>
-      <span className="absolute left-3 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full bg-ink text-xs font-extrabold text-white shadow-soft">
-        1
-      </span>
-      <Photo className="h-[72%] w-[46%]" />
-      <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-[10px] font-bold text-brand-600 shadow-soft ring-1 ring-black/[0.05]">
-        <svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-          <path d="M3 11l4-4 3 3 4-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <div className="rounded-[1.1rem] bg-white p-4 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] md:p-5">
+      <div className="flex items-center gap-2 rounded-full bg-[#F2F6F9] px-3 py-2">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="shrink-0 text-ink-faint">
+          <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.7" />
+          <path d="M14 14l-3.5-3.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
         </svg>
-        CTR
-      </span>
+        <Zeile w="42%" />
+      </div>
+
+      <div className="mt-4 grid grid-cols-4 gap-2.5">
+        {[0, 1, 2, 3].map((i) => {
+          const unser = i === 1;
+          return (
+            <motion.div
+              key={i}
+              className={`rounded-[0.75rem] p-2 ${
+                unser
+                  ? "bg-white shadow-[0_10px_28px_-14px_rgba(255,153,0,0.85)] ring-2 ring-brand-500"
+                  : "bg-[#F7F9FB] ring-1 ring-navy/[0.07]"
+              }`}
+              animate={unser ? { y: [0, -5, 0] } : undefined}
+              transition={unser ? { duration: 3.2, repeat: Infinity, ease: "easeInOut" } : undefined}
+            >
+              {unser ? (
+                <Bild src={M.haupt} className="aspect-square" />
+              ) : (
+                <div className="aspect-square rounded-[0.6rem] bg-navy/[0.07]" />
+              )}
+              <div className="mt-2 space-y-1 opacity-70">
+                <Zeile w="90%" />
+                <Zeile w="60%" />
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }
 
-/* Bilderstrecke: a hero shot plus a filmstrip of thumbnails. */
-function GalleryViz() {
+/**
+ * Produktseite: Bildspalte links, Hauptbild in der Mitte, Kaufbereich rechts.
+ * Der Aufbau, den jeder von Amazon kennt, ohne Amazon-Oberflaeche.
+ */
+function ListingViz() {
   return (
-    <div className={`${FRAME} aspect-[4/3] flex flex-col gap-2 p-3`}>
-      <Photo className="flex-1" />
-      <div className="grid grid-cols-5 gap-1.5">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Photo key={i} className="aspect-square" active={i === 0} />
+    /* `items-start`: das Hauptbild ist 4:5, die Spalte daneben sind sechs
+       Quadrate. Beide sind fast gleich hoch, aber nicht auf das Pixel; ohne
+       das zieht der Browser das kuerzere auf die Hoehe des laengeren und
+       verzerrt es. */
+    <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      <div className="flex items-start gap-2.5">
+        <div className="flex w-[12%] shrink-0 flex-col gap-1.5">
+          {M.strecke.map((s, i) => (
+            <Bild key={s} src={s} className={`aspect-square ${i === 0 ? "ring-2 ring-brand-500" : ""}`} fit="cover" />
+          ))}
+        </div>
+        <Bild src={M.haupt} className="aspect-[4/5] flex-1" />
+        <div className="flex w-[30%] shrink-0 flex-col gap-2 pt-1">
+          <Zeile w="100%" stark />
+          <Zeile w="72%" stark />
+          <span className="mt-1 flex gap-0.5" aria-hidden>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg key={i} width="9" height="9" viewBox="0 0 24 24" fill="#FF9900">
+                <path d="M12 2l2.9 6.3 6.9.8-5 4.8 1.2 6.8L12 17.4 6 20.7l1.2-6.8-5-4.8 6.9-.8L12 2z" />
+              </svg>
+            ))}
+          </span>
+          <span className="mt-2 block h-3.5 w-[62%] rounded bg-navy/60" />
+          <div className="mt-1 space-y-1.5">
+            <Zeile w="94%" />
+            <Zeile w="86%" />
+            <Zeile w="90%" />
+          </div>
+          <span className="mt-auto block h-5 rounded-full bg-brand-500" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * A+ Content: das Modul, liegend und ohne Abstand zwischen den Bahnen.
+ *
+ * Vorher lagen hier drei Kaesten mit einem Bild links und nachgebauten
+ * Textzeilen rechts. Das ist ueberfluessig, seit hier echte Arbeit steht:
+ * die traegt ihre Ueberschriften und ihre Bilder selbst.
+ */
+function APlusViz() {
+  return (
+    <div className="rounded-[1.1rem] bg-white p-3.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      {/* Feste Hoehe mit weichem Auslauf. Eine Bahn ist 2,4 mal so breit wie
+          hoch; drei davon untereinander sind hoeher als die beiden
+          Nachbarkacheln, und weil das Raster die Zeile auf die hoechste
+          Kachel zieht, stand unter den anderen beiden eine leere Flaeche.
+          Der Auslauf sagt ausserdem das Richtige: auf der Produktseite geht
+          es an dieser Stelle weiter. */}
+      <div className="relative h-[19rem] overflow-hidden rounded-[0.7rem]">
+        {M.aplus.map((src) => (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+        ))}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-20"
+          style={{ background: "linear-gradient(to top, #ffffff 12%, rgba(255,255,255,0))" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Brand Story: das breite Band ueber der Detailseite, darunter die Kartenreihe,
+ * durch die gewischt wird.
+ *
+ * Die beiden Bahnen stammen aus der Brand Story fuer Rainfactory. Sie liegen
+ * ohne Abstand untereinander, wie auf der Produktseite: die zweite fuehrt die
+ * Kartenreihe der ersten fort, mit Luft dazwischen reisst die Grafik mitten
+ * im Bild auseinander.
+ */
+function BrandStoryViz() {
+  return (
+    <div className="overflow-hidden rounded-[1.1rem] bg-white p-2.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      <div className="overflow-hidden rounded-[0.7rem]">
+        {M.brandstory.map((src) => (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
         ))}
       </div>
     </div>
   );
 }
 
-/* A+ / Premium A+: stacked content modules (image + copy). */
-function APlusViz() {
-  return (
-    <div className={`${FRAME} aspect-[4/3] flex flex-col gap-2 p-3`}>
-      <Photo className="h-[40%]" />
-      <div className="grid flex-1 grid-cols-2 gap-2">
-        <Photo />
-        <div className="flex flex-col justify-center gap-1.5 rounded-lg bg-[#F7F9FB] p-3 ring-1 ring-black/[0.08]">
-          <Line w="80%" strong />
-          <Line w="100%" />
-          <Line w="65%" />
-        </div>
-      </div>
-      <span className="absolute right-3 top-3 rounded-full bg-white px-2 py-0.5 text-[9px] font-bold text-red shadow-soft ring-1 ring-black/[0.05]">
-        Premium A+
-      </span>
-    </div>
-  );
-}
-
-/* Brand Store: nav bar, hero banner and a row of product tiles. */
-function BrandStoreViz() {
-  return (
-    <div className={`${FRAME} aspect-[4/3] flex flex-col gap-2 p-3`}>
-      <div className="flex items-center gap-1.5">
-        <span className="h-3 w-3 rounded-full" style={{ backgroundImage: "var(--brand-gradient)" }} />
-        <span className="h-1.5 w-12 rounded-full bg-navy/15" />
-        <span className="ml-auto h-1.5 w-8 rounded-full bg-navy/10" />
-      </div>
-      <Photo className="h-1/3" />
-      <div className="grid flex-1 grid-cols-3 gap-1.5">
-        <Photo />
-        <Photo />
-        <Photo />
-      </div>
-    </div>
-  );
-}
-
-/* Brand Story: one image with a headline and paragraph beneath. */
-function BrandStoryViz() {
-  return (
-    <div className={`${FRAME} aspect-[4/3] flex flex-col justify-center gap-3 p-4`}>
-      <Photo className="h-1/2" />
-      <div className="space-y-1.5">
-        <Line w="70%" strong />
-        <Line w="92%" />
-        <Line w="50%" />
-      </div>
-    </div>
-  );
-}
-
-/* SEO: search bar, title with highlighted keywords, bullet lines. */
+/** Titel, Bullets, Backend: was der Kaeufer liest und was nur Amazon sieht. */
 function SeoViz() {
   return (
-    <div className={`${FRAME} aspect-[4/3] flex flex-col gap-2 p-3`}>
-      <div className="flex items-center gap-1.5 rounded-full bg-[#F7F9FB] px-2.5 py-1.5 ring-1 ring-black/[0.08]">
-        <svg width="11" height="11" viewBox="0 0 16 16" fill="none" className="text-ink-faint">
-          <circle cx="7" cy="7" r="4.5" stroke="currentColor" strokeWidth="1.6" />
-          <path d="M14 14l-3.5-3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-        </svg>
-        <span className="h-1.5 w-16 rounded-full bg-navy/15" />
-        <span className="ml-auto rounded-full bg-brand-500/15 px-1.5 py-0.5 text-[8px] font-bold text-brand-600">#1</span>
+    <div className="rounded-[1.1rem] bg-white p-4 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
+      <div className="flex flex-wrap items-center gap-1.5">
+        <span className="h-3 w-16 rounded bg-navy/45" />
+        <span className="h-3 w-11 rounded bg-brand-500" />
+        <span className="h-3 w-20 rounded bg-navy/45" />
+        <span className="h-3 w-10 rounded bg-brand-500" />
+        <span className="h-3 w-14 rounded bg-navy/45" />
       </div>
-      <div className="flex flex-wrap gap-1">
-        <span className="h-2.5 w-10 rounded bg-navy/15" />
-        <span className="h-2.5 w-8 rounded bg-brand-500/30" />
-        <span className="h-2.5 w-12 rounded bg-navy/15" />
-        <span className="h-2.5 w-9 rounded bg-cyan/40" />
-      </div>
-      <div className="mt-auto space-y-1.5">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-500" />
-            <span className="h-1.5 rounded-full bg-navy/12" style={{ width: `${78 - i * 14}%` }} />
+
+      <div className="mt-4 space-y-2.5">
+        {[92, 84, 88, 76, 80].map((w, i) => (
+          <div key={i} className="flex items-start gap-2">
+            <span aria-hidden className="mt-[0.3rem] h-1.5 w-1.5 shrink-0 rounded-full bg-navy/50" />
+            <div className="flex-1 space-y-1">
+              <span className="block h-2 rounded-full bg-navy/40" style={{ width: `${w * 0.4}%` }} />
+              <Zeile w={`${w}%`} />
+            </div>
           </div>
         ))}
       </div>
+
+      {/* Backend: die Felder, die kein Kaeufer sieht. Deshalb dunkel abgesetzt. */}
+      <div className="mt-4 rounded-[0.7rem] bg-navy p-3">
+        <span className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white/60">
+          Backend
+        </span>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {[38, 26, 46, 30, 34, 22].map((w, i) => (
+            <span
+              key={i}
+              className="h-2.5 rounded-full"
+              style={{ width: w, background: i % 3 === 1 ? "#FF9900" : "rgba(255,255,255,0.28)" }}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
 
-type Tile = {
+/* --- Kacheln ---------------------------------------------------------- */
+
+type Kachel = {
   viz: () => React.ReactNode;
   kicker: string;
   title: string;
   desc: string;
-  accent: string;
+  span?: string;
+  dunkel?: boolean;
 };
 
-const tiles: Tile[] = [
+const kacheln: Kachel[] = [
   {
-    viz: MainImageViz,
-    kicker: "Produktbilder",
-    title: "Starkes Hauptbild",
-    desc: "Entscheidet über die Klickrate im Suchergebnis, noch bevor jemand das Listing öffnet.",
-    accent: "text-brand-600",
+    viz: SucheViz,
+    kicker: "Hauptbild",
+    title: "Der Klick fällt im Suchergebnis.",
+    desc: "Neben drei anderen Treffern habt ihr eine Sekunde. Das Hauptbild entscheidet, ob geklickt wird.",
+    span: "lg:col-span-2",
+    dunkel: true,
   },
   {
-    viz: GalleryViz,
-    kicker: "Produktbilder",
-    title: "Bilderstrecke",
-    desc: "Nutzen, Anwendung und Größe in Sekunden klar, statt aus dem Text erschlossen.",
-    accent: "text-red",
+    viz: ListingViz,
+    kicker: "Listing",
+    title: "Sieben Bilder, die zusammen erzählen.",
+    desc: "Größe, Anwendung, Material, Lieferumfang. Wer scrollt, hat danach keine Frage mehr offen.",
   },
   {
     viz: APlusViz,
-    kicker: "Markeninhalte",
-    title: "A+ und Premium A+",
-    desc: "Beantwortet die Fragen, die sonst zum Abbruch führen, mit Modulen und Vergleichen.",
-    accent: "text-cyan",
-  },
-  {
-    viz: BrandStoreViz,
-    kicker: "Markeninhalte",
-    title: "Brand Store",
-    desc: "Eure Markenwelt mit Cross-Selling über das ganze Sortiment.",
-    accent: "text-emerald",
+    kicker: "A+ und Premium A+",
+    title: "Der Teil unter den Bullets.",
+    desc: "Liegende Module, eines unter dem anderen. Hier beantwortet ihr, woran der Kauf sonst scheitert.",
   },
   {
     viz: BrandStoryViz,
-    kicker: "Markeninhalte",
-    title: "Brand Story",
-    desc: "Macht aus einem einzelnen Produkt eine Marke, die im Kopf bleibt.",
-    accent: "text-navy",
+    kicker: "Brand Story",
+    title: "Aus einem Produkt wird eine Marke.",
+    desc: "Das Band über der Detailseite führt zu euren anderen Produkten, statt zum nächsten Anbieter.",
   },
   {
     viz: SeoViz,
-    kicker: "SEO",
-    title: "Titel, Bullets, Backend",
-    desc: "Lesbar geschrieben und KI-ready für Rufus, COSMO und A10, statt Keywords zu stapeln.",
-    accent: "text-brand-600",
+    kicker: "Titel, Bullets, Backend",
+    title: "Gefunden werden, ohne Wortsalat.",
+    desc: "Lesbar für Menschen geschrieben, verständlich für Rufus, COSMO und A10.",
   },
 ];
 
 export function ContentShowcase() {
   return (
-    <section className="relative isolate bg-white py-20 md:py-24">
+    <section className="relative isolate ground-tint py-20 md:py-28">
       <div className="container-x">
         <SectionHeading
           eyebrow="Content"
           size="compact"
           title={
             <>
-              Produktbilder und <span className="text-gradient">SEO.</span>
+              Jedes Element eurer <span className="text-gradient">Produktseite.</span>
             </>
           }
-          description="Jedes Element eurer Detailseite, ausgerichtet auf Klickrate und Conversion. Hier als Sketch."
+          description="Vom ersten Bild im Suchergebnis bis zum Feld, das nur Amazon liest."
         />
 
-        <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-          {tiles.map((t) => {
-            const Viz = t.viz;
+        <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-3" stagger={0.06}>
+          {kacheln.map((k) => {
+            const Viz = k.viz;
             return (
-              <RevealItem key={t.title} className="h-full">
-                <div className="surface surface-hover flex h-full flex-col p-4">
+              <RevealItem key={k.title} className={`h-full ${k.span ?? ""}`}>
+                <div
+                  className={`${
+                    k.dunkel ? "panel-navy on-dark" : "panel panel-lift"
+                  } flex h-full flex-col p-5 md:p-6`}
+                >
                   <Viz />
-                  <div className="flex flex-1 flex-col px-1 pb-1 pt-4">
-                    <span className={`text-[0.7rem] font-bold uppercase tracking-[0.14em] ${t.accent}`}>
-                      {t.kicker}
+                  {/* Die Nachbauten sind unterschiedlich hoch. Der Text sitzt
+                      deshalb am Fuss der Kachel, sonst haengt unter den
+                      kuerzeren Kacheln eine leere Flaeche. */}
+                  <div className="mt-auto flex flex-col pt-6">
+                    <span
+                      className={`text-label font-bold uppercase tracking-[0.14em] ${
+                        k.dunkel ? "text-brand-400" : "text-ink-soft"
+                      }`}
+                    >
+                      {k.kicker}
                     </span>
-                    <h3 className="mt-1 text-base font-bold leading-snug text-ink">{t.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">{t.desc}</p>
+                    <h3
+                      className={`mt-2 text-balance text-[1.15rem] font-bold leading-snug md:text-[1.3rem] ${
+                        k.dunkel ? "text-white" : "text-ink"
+                      }`}
+                    >
+                      {k.title}
+                    </h3>
+                    <p
+                      className={`mt-2 text-small leading-relaxed ${
+                        k.dunkel ? "text-chalk-muted" : "text-ink-muted"
+                      }`}
+                    >
+                      {k.desc}
+                    </p>
                   </div>
                 </div>
               </RevealItem>
@@ -243,9 +370,11 @@ export function ContentShowcase() {
           })}
         </RevealGroup>
 
-        <Reveal delay={0.1}>
-          <p className="mx-auto mt-9 max-w-2xl text-balance text-center text-base font-semibold text-ink">
-            Erst wenn das Listing organisch verkauft, lohnt sich jeder Werbe-Euro.
+        {/* Der Merksatz der Sektion. Vorher stand er klein und grau unter dem
+            Raster und war nicht zu sehen. */}
+        <Reveal delay={0.12}>
+          <p className="title mx-auto mt-14 max-w-[24ch] text-balance text-center text-[clamp(1.6rem,1.1rem+1.6vw,2.5rem)] text-ink">
+            Solange das Listing nicht von allein verkauft, <span className="mark">verpufft jeder Euro Werbung.</span>
           </p>
         </Reveal>
       </div>

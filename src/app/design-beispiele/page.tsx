@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 import { DesignGallery } from "@/components/design/DesignGallery";
 import { getReferencesRaw } from "@/lib/references";
-import { Testimonials } from "@/components/home/Testimonials";
 import { ServiceCTA } from "@/components/service/Blocks";
 
 // Read the blob references at request time so the token is picked up
@@ -26,7 +25,7 @@ export default async function DesignBeispielePage({
   const showDebug = (await searchParams)?.debug != null;
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <PageHero
           eyebrow="Designbeispiele"
@@ -45,13 +44,11 @@ export default async function DesignBeispielePage({
           </div>
         )}
         <DesignGallery data={references} />
-        <Testimonials tone="blue" />
         <ServiceCTA
           title="Und wie sieht euer Listing aus?"
-          sub="In der kostenlosen Potenzialanalyse sagen wir euch, welches Format bei euch zuerst überarbeitet gehört."
         />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

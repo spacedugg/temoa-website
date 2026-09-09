@@ -1,4 +1,15 @@
-export type Testimonial = { quote: string; name: string; role: string; image?: string };
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  image?: string;
+  /**
+   * "logo" bei Firmenlogos im Querformat. Die wurden vorher wie ein Portrait
+   * behandelt und im runden Rahmen beschnitten, das sah nach einem Fehler aus.
+   * Logos werden jetzt eingepasst statt beschnitten.
+   */
+  art?: "person" | "logo";
+};
 
 /* Verbatim, echte Kundenzitate. Original-Wortlaut bleibt unverändert. */
 export const testimonials: Testimonial[] = [
@@ -8,12 +19,14 @@ export const testimonials: Testimonial[] = [
     name: "Andrea Hoffmann",
     role: "CMO Vita-World GmbH",
     image: "/clients/Andrea.jpeg.avif",
+    art: "person",
   },
   {
     quote: "Dank temoa konnten wir innerhalb von 6 Monaten unseren Umsatz verdoppeln!",
     name: "Roland Pladeck",
     role: "GF Greenfood Natural Products BV",
     image: "/clients/Roland.jpg.avif",
+    art: "person",
   },
   {
     quote:
@@ -21,6 +34,7 @@ export const testimonials: Testimonial[] = [
     name: "Laurenz Elbers",
     role: "GF Bachgold AG",
     image: "/clients/Laurenz.jpeg.avif",
+    art: "person",
   },
   {
     quote:
@@ -28,12 +42,14 @@ export const testimonials: Testimonial[] = [
     name: "Dennis Hoheusel",
     role: "GF FUTUM Handels GmbH",
     image: "/clients/Dennis.png.avif",
+    art: "logo",
   },
   {
     quote: "Die Performance der Ergebnisse war hervorragend, Branding und Design passen perfekt zusammen.",
     name: "Gianluca G.",
     role: "GF P+G E-Com GbR",
     image: "/clients/Gianluca.png.webp",
+    art: "logo",
   },
   {
     quote:
@@ -41,12 +57,14 @@ export const testimonials: Testimonial[] = [
     name: "Gilbert Baeumer",
     role: "GF Baeumer Online GmbH",
     image: "/clients/Gilbert.png.webp",
+    art: "logo",
   },
   {
     quote: "Ich war extrem zufrieden: kurzer Draht und top Ergebnisse.",
     name: "Markus Bieletzki",
     role: "Gründer badSTARK",
     image: "/clients/Markus.png.webp",
+    art: "logo",
   },
 ];
 

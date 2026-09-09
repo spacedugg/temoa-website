@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { CookieBanner } from "@/components/consent/CookieBanner";
 
 const caros = localFont({
   src: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "temoa · Amazon Full Service Wachstumspartner",
     description:
-      "Amazon-Wachstum ist keine Frage des Werbebudgets. Organic First, PPC Second.",
+      "Amazon Full Service: Erst verkauft euer Listing, dann skaliert die Werbung. Organic First, PPC Second.",
     type: "website",
     locale: "de_DE",
   },
@@ -41,6 +42,10 @@ export default function RootLayout({
           Zum Inhalt springen
         </a>
         {children}
+        {/* Liegt unter dem Inhalt im Markup und oben auf dem Bildschirm: so
+            liest ein Vorleseprogramm erst die Seite und dann den Hinweis, und
+            der Sprung zum Inhalt bleibt der erste Halt. */}
+        <CookieBanner />
       </body>
     </html>
   );

@@ -1,13 +1,13 @@
 ---
 title: "Amazon-Marketingstrategie: Der Gesamtüberblick, der alle Bausteine verbindet"
-meta_description: "Listing, PPC, Marke, Logistik, Daten: Wie die einzelnen Hebel auf Amazon zusammenwirken und wie du sie zu einer kohärenten Wachstumsstrategie verbindest."
+meta_description: "Listing, PPC, Marke, Logistik, Daten: Wie die einzelnen Bausteine auf Amazon zusammenwirken und wie du sie zu einer kohärenten Wachstumsstrategie verbindest."
 keywords: ["Amazon Marketingstrategie", "Amazon Strategie", "Amazon Wachstum", "Amazon Überblick"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---
 
 # Amazon-Marketingstrategie: Der Gesamtüberblick, der alle Bausteine verbindet
 
-Die meisten Inhalte über Amazon behandeln einzelne Hebel – Keywords hier, ACoS dort, A+ Content woanders. Das ist nützlich, verliert aber leicht das große Ganze aus dem Blick. Erfolg auf Amazon entsteht nicht aus einem einzelnen Trick, sondern aus dem Zusammenspiel vieler Bausteine zu einer kohärenten Strategie. Dieser Überblick verbindet die wichtigsten Teile zu einem Bild – als Orientierung, wie alles zusammenhängt.
+Die meisten Inhalte über Amazon behandeln einzelne Bausteine – Keywords hier, ACoS dort, A+ Content woanders. Das ist nützlich, verliert aber leicht das große Ganze aus dem Blick. Erfolg auf Amazon entsteht nicht aus einem einzelnen Trick, sondern aus dem Zusammenspiel vieler Bausteine zu einer kohärenten Strategie. Dieser Überblick verbindet die wichtigsten Teile zu einem Bild – als Orientierung, wie alles zusammenhängt.
 
 ## Das Fundament: Produkt und Positionierung
 
@@ -27,7 +27,7 @@ Wer eine echte Marke aufbaut, sollte sie schützen. Brand Registry, A+ Content, 
 
 ## Das Rückgrat: Logistik, Bestand und Cashflow
 
-Hinter den sichtbaren Hebeln steht der operative Unterbau: Verfügbarkeit (ein Ausverkauf bremst das Flywheel), gesunder Lagerbestand (IPI-Score), durchgerechnete Gebühren und – oft unterschätzt – der Cashflow. Wachstum bindet Kapital, bevor es Geld einbringt; wer das ignoriert, erstickt am eigenen Erfolg. Operative Exzellenz ist unspektakulär, aber sie trägt alles andere.
+Hinter den sichtbaren Bausteinen steht der operative Unterbau: Verfügbarkeit (ein Ausverkauf bremst das Flywheel), gesunder Lagerbestand (IPI-Score), durchgerechnete Gebühren und – oft unterschätzt – der Cashflow. Wachstum bindet Kapital, bevor es Geld einbringt; wer das ignoriert, erstickt am eigenen Erfolg. Operative Exzellenz ist unspektakulär, aber sie trägt alles andere.
 
 ## Die Steuerung: Daten und Kennzahlen
 
@@ -39,7 +39,7 @@ Reife Marken denken über den einen Kanal hinaus: weitere Marktplätze (in Europ
 
 ## Wie alles zusammenspielt
 
-Der entscheidende Gedanke: Diese Bausteine sind keine getrennten Projekte, sondern ein System. Ein besseres Listing senkt den ACoS; bessere Werbung stärkt das Ranking; Verfügbarkeit schützt beides; eine starke Marke trägt höhere Preise; gesunder Cashflow ermöglicht Wachstum. Wer an einer Stelle zieht, bewegt das ganze System. Strategie heißt, diese Zusammenhänge zu verstehen und die Hebel bewusst aufeinander abzustimmen – statt isoliert an Einzelteilen zu schrauben.
+Der entscheidende Gedanke: Diese Bausteine sind keine getrennten Projekte, sondern ein System. Ein besseres Listing senkt den ACoS; bessere Werbung stärkt das Ranking; Verfügbarkeit schützt beides; eine starke Marke trägt höhere Preise; gesunder Cashflow ermöglicht Wachstum. Wer an einer Stelle zieht, bewegt das ganze System. Strategie heißt, diese Zusammenhänge zu verstehen und die Bausteine bewusst aufeinander abzustimmen – statt isoliert an Einzelteilen zu schrauben.
 
 ## Fazit
 

@@ -52,11 +52,14 @@ export function Reveal({
 export function RevealGroup({
   children,
   className,
+  style,
   stagger = 0.09,
   once = true,
 }: {
   children: React.ReactNode;
   className?: string;
+  /** Fuer Faelle, in denen die Gruppe selbst die Platte ist. */
+  style?: React.CSSProperties;
   stagger?: number;
   once?: boolean;
 }) {
@@ -72,6 +75,7 @@ export function RevealGroup({
         show: { transition: { staggerChildren: stagger } },
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

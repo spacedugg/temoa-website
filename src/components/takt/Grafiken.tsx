@@ -23,24 +23,20 @@ export function ListingSzene() {
   const reduce = useReducedMotion();
 
   const draw = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { pathLength: 0, opacity: 0 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { pathLength: 0, opacity: 0 },
           whileInView: { pathLength: 1, opacity: 1 },
           viewport: { once: true, margin: "-10% 0px" },
-          transition: { duration: 1.4, delay, ease: EASE },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 1.4, delay, ease: EASE },
+        });
 
   const fade = (delay: number) =>
-    reduce
-      ? {}
-      : {
-          initial: { opacity: 0, y: 10 },
+    ({
+          initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 },
           whileInView: { opacity: 1, y: 0 },
           viewport: { once: true, margin: "-10% 0px" },
-          transition: { duration: 0.7, delay, ease: EASE },
-        };
+          transition: reduce ? { duration: 0 } : { duration: 0.7, delay, ease: EASE },
+        });
 
   return (
     <svg viewBox="0 0 500 400" className="h-auto w-full" role="img" aria-label="Ein Amazon-Listing mit steigender organischer Kurve">
@@ -135,8 +131,8 @@ export function TaktSzene() {
       {stops.map((s, i) => (
         <motion.g
           key={s.x}
-          initial={reduce ? undefined : { opacity: 0, y: 14 }}
-          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+          initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-12% 0px" }}
           transition={{ duration: 0.7, delay: 0.1 + i * 0.12, ease: EASE }}
         >
@@ -147,8 +143,8 @@ export function TaktSzene() {
 
       {/* durchlaufende Linie */}
       <motion.path
-        initial={reduce ? undefined : { pathLength: 0 }}
-        whileInView={reduce ? undefined : { pathLength: 1 }}
+        initial={reduce ? { pathLength: 1 } : { pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
         viewport={{ once: true, margin: "-12% 0px" }}
         transition={{ duration: 1.6, delay: 0.25, ease: EASE }}
         d="M120 200 L400 168 L680 128 L960 72 L1064 52"
@@ -161,8 +157,8 @@ export function TaktSzene() {
 
       {/* Pfeilspitze am Ende */}
       <motion.path
-        initial={reduce ? undefined : { opacity: 0 }}
-        whileInView={reduce ? undefined : { opacity: 1 }}
+        initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-12% 0px" }}
         transition={{ duration: 0.5, delay: 1.6 }}
         d="M1046 44 L1068 51 L1052 66"

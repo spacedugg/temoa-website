@@ -10,15 +10,15 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Wie lange dauert das Gespräch?",
-    a: "Etwa 30 Minuten. Wir schauen vorab in euren Account und kommen mit konkreten Beobachtungen ins Gespräch.",
+    a: "Das erste Gespräch dauert etwa 30 Minuten und dient dem Kennenlernen. Passt es für beide Seiten, folgt ein zweiter Termin, für den wir eure Zahlen aufbereiten.",
   },
   {
     q: "Was braucht ihr von uns?",
-    a: "Euren Markennamen und kurz euer Ziel. Den Rest sehen wir im Account.",
+    a: "Euren Markennamen und kurz euer Ziel. Mehr braucht es für das erste Gespräch nicht.",
   },
   {
     q: "Sind wir danach gebunden?",
-    a: "Nein. Ihr entscheidet nach dem Gespräch, ob es weitergeht. Eine Zusammenarbeit verlängert ihr später nach Performance, nicht wegen einer langen Laufzeit.",
+    a: "Nein. Ihr entscheidet nach dem Gespräch, ob es weitergeht.",
   },
   {
     q: "Mit wem sprechen wir?",

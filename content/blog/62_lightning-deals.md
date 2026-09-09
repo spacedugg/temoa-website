@@ -15,7 +15,7 @@ Ein Lightning Deal ist ein zeitlich befristetes Sonderangebot (in der Regel übe
 
 ## Warum sie wirken
 
-Lightning Deals kombinieren drei psychologische Hebel: einen attraktiven Preis, prominente Platzierung (mehr Augen auf deinem Produkt) und Zeitdruck. Der Verkaufsschub ist dabei mehr als ein Einmaleffekt – ein Volumenanstieg kann das Flywheel anschieben, dein Ranking verbessern und nach dem Deal zu mehr organischer Sichtbarkeit führen. Genau dieser Nacheffekt ist oft wertvoller als der direkte Umsatz während des Deals.
+Lightning Deals kombinieren drei psychologische Effekte: einen attraktiven Preis, prominente Platzierung (mehr Augen auf deinem Produkt) und Zeitdruck. Der Verkaufsschub ist dabei mehr als ein Einmaleffekt – ein Volumenanstieg kann das Flywheel anschieben, dein Ranking verbessern und nach dem Deal zu mehr organischer Sichtbarkeit führen. Genau dieser Nacheffekt ist oft wertvoller als der direkte Umsatz während des Deals.
 
 ## Die Kostenseite ehrlich rechnen
 

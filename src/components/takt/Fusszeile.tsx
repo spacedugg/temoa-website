@@ -1,4 +1,5 @@
 import { Logo } from "../Logo";
+import { CookieEinstellungen } from "../consent/CookieEinstellungen";
 
 /** Fußzeile als Planfuß: Kennung links, Spalten rechts, alles auf Hairlines. */
 
@@ -6,10 +7,10 @@ const cols = [
   {
     title: "Leistungen",
     links: [
-      { label: "Strategie & Analyse", href: "/leistungen/strategie" },
-      { label: "Content & Listings", href: "/leistungen/listing-seo" },
-      { label: "Advertising / PPC", href: "/leistungen/ppc-advertising" },
-      { label: "Account-Management", href: "/leistungen/account-management" },
+      { label: "Strategie", href: "/leistungen/strategie" },
+      { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
+      { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
+      { label: "Account Management", href: "/leistungen/account-management" },
       { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
     ],
   },
@@ -26,6 +27,9 @@ const cols = [
     links: [
       { label: "Impressum", href: "/impressum" },
       { label: "Datenschutz", href: "/datenschutz" },
+      /* Die AGB standen bewusst nicht hier, solange die Seite eine Vorlage
+         mit Platzhaltern war. Der Text des Kunden liegt jetzt vor. */
+      { label: "AGB", href: "/agb" },
     ],
   },
 ];
@@ -58,6 +62,13 @@ export function Fusszeile() {
                     </a>
                   </li>
                 ))}
+                {/* Der Widerruf gehoert dorthin, wo Impressum und Datenschutz
+                    stehen, nicht in eine eigene Ecke. */}
+                {c.title === "Rechtliches" && (
+                  <li>
+                    <CookieEinstellungen className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500" />
+                  </li>
+                )}
               </ul>
             </div>
           ))}
@@ -66,10 +77,10 @@ export function Fusszeile() {
         <div className="flex flex-col items-start justify-between gap-2 border-t border-white/10 py-6 text-small text-chalk-faint md:flex-row md:items-center">
           <span className="[font-variant-numeric:tabular-nums]">© {new Date().getFullYear()} temoa</span>
           <a
-            href="mailto:kontakt@temoa.de"
+            href="mailto:info@temoa.de"
             className="flex min-h-[2.75rem] items-center transition-colors hover:text-brand-500"
           >
-            kontakt@temoa.de
+            info@temoa.de
           </a>
         </div>
       </div>

@@ -1,11 +1,11 @@
 ---
-title: "Sponsored Brands und Sponsored Display: Die Anzeigentypen, die die meisten Seller ignorieren"
+title: "Sponsored Brands und Sponsored Display: Die Anzeigentypen, die die meisten Marken ignorieren"
 meta_description: "Fast alle Budgets fließen in Sponsored Products. Warum Sponsored Brands und Sponsored Display unterschätzte Chancen sind und wie du sie sinnvoll einsetzt."
 keywords: ["Sponsored Brands", "Sponsored Display", "Amazon Anzeigentypen", "Amazon Advertising"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Sponsored Brands und Sponsored Display: Die Anzeigentypen, die die meisten Seller ignorieren
+# Sponsored Brands und Sponsored Display: Die Anzeigentypen, die die meisten Marken ignorieren
 
 Der Großteil aller Amazon-Werbebudgets fließt fast vollständig in einen einzigen Anzeigentyp: Sponsored Products. Sponsored Brands und Sponsored Display – zwei Formate, die in weniger umkämpften Platzierungen und oft zu niedrigeren Klickpreisen laufen – bekommen nur einen Bruchteil der Aufmerksamkeit und des Budgets. Genau dieses Ungleichgewicht ist eine Chance. Marken, die ihr Budget über alle drei Typen verteilen, bauen eine Kategoriepräsenz auf, die Sponsored Products allein nicht erzeugen kann.
 
@@ -19,7 +19,7 @@ Sponsored Brands sind Markenanzeigen, die meist prominent über oder innerhalb d
 
 - **Markensichtbarkeit:** Du belegst die wertvollste Fläche ganz oben und prägst dich ein, noch bevor der Käufer die organischen Ergebnisse sieht.
 - **Mehrere Produkte gleichzeitig:** Du kannst eine kleine Auswahl deines Sortiments zeigen und Käufer in deine Markenwelt oder deinen Store leiten.
-- **Storytelling:** Mit eigener Headline und Bildwelt transportierst du eine Botschaft, nicht nur ein Produkt.
+- **Storytelling:** Mit eigener Headline und eigenen Bildern transportierst du eine Botschaft, nicht nur ein Produkt.
 
 Besonders stark sind Sponsored Brands auf Kategorie- und Marken-Keywords, wo es um Präsenz und Wiedererkennung geht.
 
@@ -34,7 +34,7 @@ Sponsored Display wirkt damit sowohl ganz oben (neue Zielgruppen) als auch ganz 
 
 ## Wie die drei Typen zusammenspielen
 
-Der eigentliche Hebel liegt nicht in einem einzelnen Format, sondern im Zusammenspiel. Sponsored Display und Sponsored Brands bauen Bekanntheit und Reichweite auf; Sponsored Products ernten die Kaufabsicht. Ein Käufer sieht vielleicht zuerst eine Sponsored-Brand-Anzeige, wird später per Sponsored Display erneut angesprochen und schließt den Kauf über eine Sponsored-Products-Anzeige ab. Wer nur den letzten Schritt bezahlt, verschenkt die günstigeren, früheren Kontaktpunkte.
+Die Wirkung liegt nicht in einem einzelnen Format, sondern im Zusammenspiel. Sponsored Display und Sponsored Brands bauen Bekanntheit und Reichweite auf; Sponsored Products ernten die Kaufabsicht. Ein Käufer sieht vielleicht zuerst eine Sponsored-Brand-Anzeige, wird später per Sponsored Display erneut angesprochen und schließt den Kauf über eine Sponsored-Products-Anzeige ab. Wer nur den letzten Schritt bezahlt, verschenkt die günstigeren, früheren Kontaktpunkte.
 
 ## Häufige Fehler
 

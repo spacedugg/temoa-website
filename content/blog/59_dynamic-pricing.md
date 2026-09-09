@@ -7,7 +7,7 @@ kategorie: "Strategie & Geschäftsmodelle"
 
 # Dynamische Preisstrategie auf Amazon: Automatisiert den richtigen Preis finden
 
-Der Preis ist auf Amazon einer der stärksten Hebel überhaupt – er beeinflusst Buy Box, Conversion und Marge gleichzeitig. In einem Markt, der sich ständig bewegt, kann ein fixer Preis schnell zu hoch (du verlierst die Buy Box) oder zu niedrig (du verschenkst Marge) sein. Hier setzt dynamische Preisgestaltung an: Preise passen sich automatisch an Wettbewerb und Nachfrage an. Dieser Beitrag erklärt, wie das sinnvoll funktioniert.
+Der Preis ist auf Amazon einer der stärksten Faktoren überhaupt – er beeinflusst Buy Box, Conversion und Marge gleichzeitig. In einem Markt, der sich ständig bewegt, kann ein fixer Preis schnell zu hoch (du verlierst die Buy Box) oder zu niedrig (du verschenkst Marge) sein. Hier setzt dynamische Preisgestaltung an: Preise passen sich automatisch an Wettbewerb und Nachfrage an. Dieser Beitrag erklärt, wie das sinnvoll funktioniert.
 
 ## Was Dynamic Pricing ist
 

@@ -29,7 +29,7 @@ Richtig genutzt ist der BSR ein hilfreicher Näherungswert für Nachfrage – be
 
 Drei Missverständnisse halten sich hartnäckig:
 
-- **„Der BSR beeinflusst direkt das Suchranking."** Tatsächlich ist es eher umgekehrt: Beide hängen von Verkäufen ab, aber der BSR ist ein Ergebnis von Verkäufen, kein eigenständiger Ranking-Hebel in der Suche.
+- **„Der BSR beeinflusst direkt das Suchranking."** Tatsächlich ist es eher umgekehrt: Beide hängen von Verkäufen ab, aber der BSR ist ein Ergebnis von Verkäufen, kein eigenständiges Ranking-Signal in der Suche.
 - **„Ein guter BSR bedeutet hohen Gewinn."** Der BSR misst Volumen, nicht Marge. Ein Bestseller mit dünner Marge kann unprofitabler sein als ein Nischenprodukt mit weniger Verkäufen.
 - **„Ein einzelner BSR-Wert ist aussagekräftig."** Wegen der starken Schwankung ist der Verlauf über Zeit viel wichtiger als ein Momentwert.
 

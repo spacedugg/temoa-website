@@ -1,6 +1,6 @@
 ---
 title: "Amazon Accelerate: Was die Verkäuferkonferenz bringt und wie du sie nutzt"
-meta_description: "Amazon Accelerate ist Amazons jährliche Konferenz für Verkäufer. Was dort passiert, welche Ankündigungen wichtig sind und wie du als Seller davon profitierst."
+meta_description: "Amazon Accelerate ist Amazons jährliche Konferenz für Verkäufer. Was dort passiert, welche Ankündigungen wichtig sind und wie du davon profitierst."
 keywords: ["Amazon Accelerate", "Amazon Verkäuferkonferenz", "Seller Event", "Amazon Neuerungen"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---
@@ -9,7 +9,7 @@ kategorie: "Strategie & Geschäftsmodelle"
 
 > **Marktbezug:** Amazon Accelerate ist primär eine **US-Verkäuferkonferenz**. Für den deutschen und europäischen Markt sind zusätzlich lokale Formate und Programme (z. B. Amazon-Events, -Webinare und die Amazon Academy in der EU) relevant. Viele der dort vorgestellten Funktionen kommen zeitversetzt auch nach Europa.
 
-Einmal im Jahr versammelt Amazon seine Verkäufergemeinschaft zu einer großen Konferenz: Amazon Accelerate. Für viele Seller ist es das wichtigste Event des Jahres, weil hier neue Tools, Programme und strategische Weichenstellungen vorgestellt werden – oft Dinge, die das Verkaufen im kommenden Jahr prägen. Dieser Beitrag erklärt, was Accelerate ist und wie du es für dich nutzt, ohne unbedingt vor Ort zu sein.
+Einmal im Jahr versammelt Amazon seine Verkäufergemeinschaft zu einer großen Konferenz: Amazon Accelerate. Für viele Marken ist es das wichtigste Event des Jahres, weil hier neue Tools, Programme und strategische Weichenstellungen vorgestellt werden – oft Dinge, die das Verkaufen im kommenden Jahr prägen. Dieser Beitrag erklärt, was Accelerate ist und wie du es für dich nutzt, ohne unbedingt vor Ort zu sein.
 
 ## Was Amazon Accelerate ist
 
