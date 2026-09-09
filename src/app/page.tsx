@@ -1,7 +1,6 @@
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Auftrag } from "@/components/takt/Auftrag";
-import { Ablauf } from "@/components/takt/Ablauf";
 import {
   Kundenband,
   Befund,
@@ -22,10 +21,6 @@ import {
  * Leistungen, ein Besucher las also zuerst, was bei ihm schiefliegt, und
  * erfuhr erst danach, was wir tun.
  *
- * Der Ablauf steht zwischen den Stimmen und dem Termin: erst der Beleg, dann
- * der Plan, dann die Buchung. Der Plan nimmt das Risiko genau dort heraus, wo
- * entschieden wird.
- *
  * Der Blog-Streifen ist raus. Vier Beitragskacheln am Fuss der Startseite
  * haben niemanden zum Gespraech gebracht, den Blog gibt es weiter unter
  * /blog und in der Kopfzeile.
@@ -43,7 +38,6 @@ export default function Home() {
         <Verfahren />
         <Arbeiten />
         <Stimmen />
-        <Ablauf />
         <Termin />
         <Mannschaft />
       </main>

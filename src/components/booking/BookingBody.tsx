@@ -5,6 +5,7 @@ import { Reveal } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
 import { SectionHeading, Pille } from "../ui/SectionHeading";
 import { Stimmen } from "../takt/sections";
+import { Fahrplan } from "../takt/Fahrplan";
 import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
@@ -359,6 +360,11 @@ export function BookingBody() {
           </Reveal>
         </div>
       </section>
+
+      {/* Der Fahrplan steht unter dem Kalender und ueber den Stimmen: wer sich
+          gerade einen Termin sucht, liest direkt danach, was nach dem Start
+          passiert. */}
+      <Fahrplan />
 
       <Stimmen />
 
