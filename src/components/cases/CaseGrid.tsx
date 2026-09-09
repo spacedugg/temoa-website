@@ -1,6 +1,8 @@
 "use client";
 
-import { cases, type CaseStudy } from "@/lib/cases";
+import { type CaseStudy } from "@/lib/cases";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Flagge } from "../ui/Flagge";
 import { Markenlogo } from "../ui/Markenlogo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
@@ -12,10 +14,18 @@ function mesh(accent: string) {
   } as React.CSSProperties;
 }
 
-function CaseTile({ c }: { c: CaseStudy }) {
+function CaseTile({
+  c,
+  href,
+  oeffnen,
+}: {
+  c: CaseStudy;
+  href: string;
+  oeffnen: string;
+}) {
   return (
     <a
-      href={`/ergebnisse/${c.slug}`}
+      href={href}
       className="group relative isolate flex h-72 flex-col overflow-hidden rounded-[1.75rem] shadow-lift ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1 md:h-80"
       style={mesh(c.accent)}
     >
@@ -48,7 +58,7 @@ function CaseTile({ c }: { c: CaseStudy }) {
           <div className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-white/70">{c.preview.label}</div>
           <h3 className="mt-3 max-w-md text-balance text-lg font-bold leading-snug text-white">{c.headline}</h3>
           <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-white">
-            Case Study öffnen
+            {oeffnen}
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
               <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -59,19 +69,27 @@ function CaseTile({ c }: { c: CaseStudy }) {
   );
 }
 
-export function CaseGrid() {
+export function CaseGrid({
+  faelle,
+  sprache,
+  w,
+}: {
+  faelle: CaseStudy[];
+  sprache: Sprache;
+  w: Woerterbuch["faelle"]["raster"];
+}) {
   return (
     <section className="relative ground py-16 md:py-20">
       <div className="container-x">
         <RevealGroup className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2" stagger={0.08}>
-          {cases.map((c) => (
+          {faelle.map((c) => (
             <RevealItem key={c.slug} className="h-full">
-              <CaseTile c={c} />
+              <CaseTile c={c} href={pfad(sprache, `/ergebnisse/${c.slug}`)} oeffnen={w.oeffnen} />
             </RevealItem>
           ))}
         </RevealGroup>
         <Reveal delay={0.1}>
-          <p className="mt-6 text-center text-sm text-ink-faint">Klickt eine Marke an für die ganze Case Study.</p>
+          <p className="mt-6 text-center text-sm text-ink-faint">{w.hinweis}</p>
         </Reveal>
       </div>
     </section>

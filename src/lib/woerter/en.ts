@@ -911,4 +911,91 @@ export const en: Woerterbuch = {
     cta: "Which area is holding your growth back?",
   },
 
+  faelle: {
+    meta: {
+      titel: "Case Studies · temoa",
+      beschreibung:
+        "Six brands on Amazon with their starting point, the work and the result: revenue grown profitably, one product built from nothing, a bestseller rank and four marketplaces in parallel.",
+      fallTitel: "Case Study · temoa",
+    },
+
+    kopf: {
+      eyebrow: "Case Studies",
+      titelVor: "Six brands that ",
+      titelEm: "grew profitably.",
+      lead: "Brands from different categories. We grew their revenue profitably, launched new products and opened up further countries. Each case with its period and the numbers from the account.",
+    },
+
+    kennzahlen: [
+      { vor: "Avg. +", nach: "%", label: "increase in profitability" },
+      { vor: "€", nach: "M", label: "annual Amazon revenue under management" },
+      { vor: "", nach: "+", label: "brands we work with" },
+      { vor: "", nach: "+", label: "international marketplaces" },
+    ],
+
+    bindung: {
+      nach: "%",
+      zeile: "of brands renew on performance.",
+      zusatz: "Renewal happens when the numbers say so.",
+    },
+
+    raster: {
+      oeffnen: "Open the case study",
+      hinweis: "Pick a brand for the full case study.",
+    },
+
+    diagramm: {
+      umsatz: "Revenue per month",
+      tacos: "TACoS",
+      bildAlt: "Revenue and TACoS over time",
+    },
+
+    /* "Best Seller" and "Amazon's Choice" are quotes from the search results,
+       not awards temoa hands out. They read the way Amazon writes them on the
+       English marketplaces. */
+    abzeichen: {
+      bestseller: "Best Seller",
+      tipp: "Amazon's Choice",
+    },
+
+    arbeit: {
+      eyebrow: "Work delivered",
+      titel: "A look at it, not the whole catalog.",
+      lead: "These are single products from the work for {marke}. The brand is considerably larger, and the work covered accordingly more items.",
+      listing: "Listing",
+      video: "Video",
+      videoTitel: "The listing video",
+      paletteTitel: "{n} further items in the same image style",
+      palette: "Product range",
+      paletteHinweis:
+        "One main image per item, all built the same way. That keeps the brand recognizable in the search results, whichever product somebody finds.",
+      hauptbild: "Main image",
+      varianten: "{n} versions of the main image",
+      variantenHinweis:
+        "Several main images are created for one product. Which one stays is decided by the click-through rate in the search results.",
+      aplus: "Premium A+ Content",
+      schliessen: "Close",
+    },
+
+    galerie: {
+      titel: "More from this project",
+    },
+
+    weitere: {
+      eyebrow: "More brands",
+      titel: "Other accounts, the same work.",
+      alle: "All case studies",
+    },
+
+    cta: "What would be possible for you?",
+
+    fallCta: {
+      titel: "Results like these for your brand?",
+      zusagen: [
+        "You get a read on your catalog, not a standard pitch deck",
+        "We also say no when we see no way forward for you",
+      ],
+    },
+  },
+
 };

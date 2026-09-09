@@ -7,13 +7,26 @@ import { ServiceCTA } from "@/components/service/Blocks";
 import { ProofStrip } from "@/components/sections/SocialProof";
 import { Stats } from "@/components/home/Stats";
 import { Counter } from "@/components/ui/Counter";
-import { testimonials } from "@/lib/testimonials";
+import { stimmenFuer } from "@/lib/testimonials";
+import { faelleFuer } from "@/lib/cases";
+import { istSprache, sprachAngaben, type Sprache } from "@/lib/i18n";
+import { woerter, type Woerterbuch } from "@/lib/woerter";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Case Studies · temoa",
-  description:
-    "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang und vier Marktplätze parallel.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!istSprache(locale)) return {};
+  const m = woerter(locale).faelle.meta;
+  return {
+    title: m.titel,
+    description: m.beschreibung,
+    alternates: sprachAngaben(locale, "/ergebnisse"),
+  };
+}
 
 /**
  * 98 % Kundenbindung.
@@ -22,8 +35,9 @@ export const metadata: Metadata = {
  * der Seite und ging unter. Jetzt ein dunkles Podest: links die Zahl, rechts
  * eine Stimme aus einem Konto, das seit Jahren bleibt.
  */
-function RetentionBand() {
-  const stimme = testimonials[0];
+function RetentionBand({ sprache, w }: { sprache: Sprache; w: Woerterbuch["faelle"]["bindung"] }) {
+  /* Die erste Stimme, in der Sprache der Seite. */
+  const stimme = stimmenFuer(sprache)[0];
   return (
     /* Vorher lag die Zahl als Navy-Platte in einer hellen Sektion, und die
        Stimme daneben noch einmal in einer eigenen Kachel darin. Jetzt traegt
@@ -38,13 +52,13 @@ function RetentionBand() {
         <div className="grid items-center gap-12 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
           <div>
             <div className="num text-[clamp(2.9rem,1.8rem+5.6vw,6.5rem)] leading-none text-white">
-              <Counter to={98} suffix=" %" />
+              <Counter to={98} suffix={w.nach} />
             </div>
             <p className="mt-5 max-w-[26ch] text-lead font-bold text-white">
-              der Marken verlängern nach Performance.
+              {w.zeile}
             </p>
             <p className="mt-3 max-w-[34ch] text-small text-chalk-muted">
-              Verlängert wird, wenn die Zahlen dafür sprechen.
+              {w.zusatz}
             </p>
           </div>
 
@@ -80,31 +94,34 @@ function RetentionBand() {
   );
 }
 
-export default function ErgebnissePage() {
+export default async function ErgebnissePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!istSprache(locale)) notFound();
+  const w = woerter(locale).faelle;
+
   return (
     <>
       <Kopfzeile />
       <main>
         <PageHero
-          eyebrow="Case Studies"
+          eyebrow={w.kopf.eyebrow}
           title={
             <>
-              Sechs Marken, die <span className="text-gradient">profitabel gewachsen sind.</span>
+              {w.kopf.titelVor}
+              <span className="text-gradient">{w.kopf.titelEm}</span>
             </>
           }
-          /* Vorher: „Fünf Konten, vollständig nachgerechnet." Nachrechnen ist
-             das, was ein Steuerberater tut, und es sagt nichts darüber, was
-             passiert ist. Der Untertitel sagt jetzt, was wir erreicht haben,
-             statt darauf hinzuweisen, wo es nicht rund lief. */
-          description="Marken aus verschiedenen Kategorien. Wir haben ihren Umsatz profitabel ausgebaut, neue Produkte eingeführt und weitere Länder erschlossen. Je Fall mit Zeitraum und den Zahlen aus dem Konto."
+          description={w.kopf.lead}
         />
-        <Stats tone="white" />
+        <Stats tone="white" kennzahlen={w.kennzahlen} />
         <ProofStrip tone="blue" bare />
-        <CaseGrid />
-        <RetentionBand />
-        <ServiceCTA
-          title="Was wäre bei euch möglich?"
-        />
+        <CaseGrid faelle={faelleFuer(locale)} sprache={locale} w={w.raster} />
+        <RetentionBand sprache={locale} w={w.bindung} />
+        <ServiceCTA title={w.cta} />
       </main>
       <Fusszeile />
     </>

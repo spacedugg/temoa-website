@@ -951,6 +951,109 @@ export const de = {
     cta: "Welcher Bereich bremst euer Wachstum?",
   },
 
+  /* ============================================================
+     Die Case Studies: Uebersicht und Fallseiten.
+
+     Die Zahlen, Ueberschriften und Belege der sechs Faelle stehen nicht hier,
+     sondern in `lib/cases.ts` und `lib/cases-en.ts`. Hier steht der Rahmen
+     darum: Bezeichnungen, Ueberschriften der Seiten und die Beschriftungen
+     der Bausteine.
+     ============================================================ */
+  faelle: {
+    meta: {
+      titel: "Case Studies · temoa",
+      beschreibung:
+        "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang und vier Marktplätze parallel.",
+      /* Steht vor „· Case Study · temoa" im Titel einer Fallseite. */
+      fallTitel: "Case Study · temoa",
+    },
+
+    kopf: {
+      eyebrow: "Case Studies",
+      titelVor: "Sechs Marken, die ",
+      titelEm: "profitabel gewachsen sind.",
+      /* Vorher: „Fünf Konten, vollständig nachgerechnet." Nachrechnen ist,
+         was ein Steuerberater tut, und es sagt nichts über das Ergebnis. */
+      lead: "Marken aus verschiedenen Kategorien. Wir haben ihren Umsatz profitabel ausgebaut, neue Produkte eingeführt und weitere Länder erschlossen. Je Fall mit Zeitraum und den Zahlen aus dem Konto.",
+    },
+
+    /* Vorzeichen und Einheit gehoeren zur Sprache: „Ø" ist die deutsche
+       Abkuerzung fuer den Durchschnitt, „Mio." die deutsche fuer Millionen. */
+    kennzahlen: [
+      { vor: "Ø +", nach: " %", label: "Profitabilitätssteigerung" },
+      { vor: "", nach: " Mio. €", label: "betreuter Amazon-Jahresumsatz" },
+      { vor: "", nach: "+", label: "betreute Marken" },
+      { vor: "", nach: "+", label: "internationale Marktplätze" },
+    ],
+
+    bindung: {
+      nach: " %",
+      zeile: "der Marken verlängern nach Performance.",
+      zusatz: "Verlängert wird, wenn die Zahlen dafür sprechen.",
+    },
+
+    raster: {
+      oeffnen: "Case Study öffnen",
+      hinweis: "Klickt eine Marke an für die ganze Case Study.",
+    },
+
+    diagramm: {
+      umsatz: "Umsatz pro Monat",
+      tacos: "TACoS",
+      bildAlt: "Umsatz- und TACoS-Verlauf",
+    },
+
+    /* „Bestseller" und „Amazons Tipp" sind Zitate aus dem Suchergebnis, keine
+       Auszeichnungen, die temoa vergibt. Sie stehen so, wie Amazon sie im
+       jeweiligen Marktplatz schreibt. */
+    abzeichen: {
+      bestseller: "Bestseller",
+      tipp: "Amazons Tipp",
+    },
+
+    arbeit: {
+      eyebrow: "Ausgelieferte Arbeit",
+      titel: "Ein Einblick, nicht das ganze Sortiment.",
+      /* `{marke}` wird durch den Namen der Marke ersetzt. */
+      lead: "Gezeigt sind einzelne Produkte aus der Arbeit für {marke}. Die Marke ist deutlich größer, gearbeitet wurde an entsprechend mehr Artikeln.",
+      listing: "Listing",
+      video: "Video",
+      videoTitel: "Das Listing-Video",
+      /* `{n}` wird durch die Zahl der Artikel ersetzt. */
+      paletteTitel: "{n} weitere Artikel im selben Bildstil",
+      palette: "Produktpalette",
+      paletteHinweis:
+        "Ein Hauptbild je Artikel, alle im selben Aufbau. So bleibt die Marke im Suchergebnis wiedererkennbar, egal welches Produkt jemand findet.",
+      hauptbild: "Hauptbild",
+      /* `{n}` wird durch die Zahl der Varianten ersetzt. */
+      varianten: "{n} Varianten des Hauptbilds",
+      variantenHinweis:
+        "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.",
+      aplus: "Premium A+ Content",
+      schliessen: "Schließen",
+    },
+
+    galerie: {
+      titel: "Mehr aus diesem Projekt",
+    },
+
+    weitere: {
+      eyebrow: "Weitere Marken",
+      titel: "Andere Konten, dieselbe Arbeit.",
+      alle: "Alle Case Studies",
+    },
+
+    cta: "Was wäre bei euch möglich?",
+
+    fallCta: {
+      titel: "Solche Ergebnisse für eure Marke?",
+      zusagen: [
+        "Ihr bekommt eine Einschätzung zu eurem Sortiment, keine Standardpräsentation",
+        "Wir sagen auch ab, wenn wir bei euch keinen Weg sehen",
+      ],
+    },
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

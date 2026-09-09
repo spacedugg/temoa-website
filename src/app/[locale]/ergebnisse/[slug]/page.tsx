@@ -5,39 +5,53 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { CaseBlock } from "@/components/cases/CaseStudiesFull";
 import { CaseGallery, OtherCases } from "@/components/cases/CaseDetailExtras";
 import { ServiceCTA } from "@/components/service/Blocks";
-import { cases, getCase } from "@/lib/cases";
+import { cases, faelleFuer, fallFuer } from "@/lib/cases";
+import { istSprache, sprachAngaben, sprachen } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
 
+/* Die Adressen der Faelle sind in beiden Sprachen dieselben, die Sprache
+   steckt im Praefix. `cases` reicht deshalb fuer die Liste der Adressen. */
 export function generateStaticParams() {
-  return cases.map((c) => ({ slug: c.slug }));
+  return sprachen.flatMap((locale) => cases.map((c) => ({ locale, slug: c.slug })));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const c = getCase((await params).slug);
-  if (!c) return { title: "Case Study · temoa" };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) return {};
+  const w = woerter(locale).faelle;
+  const c = fallFuer(locale, slug);
+  if (!c) return { title: w.meta.fallTitel };
   return {
-    title: `${c.displayName} · Case Study · temoa`,
+    title: `${c.displayName} · ${w.meta.fallTitel}`,
     description: `${c.headline} ${c.subheadline}`,
+    alternates: sprachAngaben(locale, `/ergebnisse/${slug}`),
   };
 }
 
-export default async function CaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const c = getCase((await params).slug);
+export default async function CaseDetailPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  if (!istSprache(locale)) notFound();
+  const c = fallFuer(locale, slug);
   if (!c) notFound();
+  const w = woerter(locale).faelle;
+
   return (
     <>
       <Kopfzeile />
       <main>
         <div className="pt-10 md:pt-14" />
-        <CaseBlock c={c} index={0} />
-        <CaseGallery c={c} />
-        <OtherCases slug={c.slug} />
-        <ServiceCTA
-          title="Solche Ergebnisse für eure Marke?"
-          zusagen={[
-            "Ihr bekommt eine Einschätzung zu eurem Sortiment, keine Standardpräsentation",
-            "Wir sagen auch ab, wenn wir bei euch keinen Weg sehen",
-          ]}
-        />
+        <CaseBlock c={c} index={0} w={w} />
+        <CaseGallery c={c} w={w} />
+        <OtherCases slug={c.slug} faelle={faelleFuer(locale)} sprache={locale} w={w} />
+        <ServiceCTA title={w.fallCta.titel} zusagen={w.fallCta.zusagen} />
       </main>
       <Fusszeile />
     </>
