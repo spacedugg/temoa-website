@@ -45,7 +45,10 @@ export function DienstTabelle() {
 
       <p className="text-sm leading-relaxed text-ink-muted">
         Eure Entscheidung könnt ihr jederzeit ändern:{" "}
-        <CookieEinstellungen className="font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-2" />
+        <CookieEinstellungen
+          label="Cookie-Einstellungen"
+          className="font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-2"
+        />
         . Wir speichern sie im lokalen Speicher eures Browsers, mit Zeitpunkt, als Nachweis nach
         Art. 7 Abs. 1 DSGVO. Ein Widerruf wirkt sofort, für die Zukunft.
       </p>

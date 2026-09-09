@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Logo } from "../Logo";
+import { Sprachumschalter } from "../i18n/Sprachumschalter";
+import { pfad, spracheAusPfad, type Sprache } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 /**
  * Kopfzeile der Welt „Taktplan".
@@ -14,25 +17,41 @@ import { Logo } from "../Logo";
  * Inhalt darunter nicht durchscheint.
  */
 
-const leistungen = [
-  { label: "Strategie", href: "/leistungen/strategie" },
-  { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
-  { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
-  { label: "Account Management", href: "/leistungen/account-management" },
-  { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
-];
+/* Beschriftungen kommen aus dem Woerterbuch, die Adressen bekommen das
+   Sprachpraefix. Ohne das Praefix spraenge ein Besucher aus `/en` zurueck auf
+   die deutsche Seite, und die Weiche muesste ihn ueber eine zweite
+   Weiterleitung wieder einfangen. */
+type Eintrag = { label: string; href: string; children?: Eintrag[] };
 
-const links: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: "Full Service", href: "/full-service", children: leistungen },
-  { label: "Case Studies", href: "/ergebnisse" },
-  { label: "Designbeispiele", href: "/design-beispiele" },
-  { label: "Blog", href: "/blog" },
-];
+type Rahmen = (typeof rahmenWoerter)[Sprache];
+
+function navigation(sprache: Sprache, w: Rahmen): Eintrag[] {
+  const p = (ziel: string) => pfad(sprache, ziel);
+  const leistungen: Eintrag[] = [
+    { label: w.leistungen.strategie, href: p("/leistungen/strategie") },
+    { label: w.leistungen.listingSeo, href: p("/leistungen/listing-seo") },
+    { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
+    { label: w.leistungen.account, href: p("/leistungen/account-management") },
+    { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
+  ];
+  return [
+    { label: w.navigation.fullService, href: p("/full-service"), children: leistungen },
+    { label: w.navigation.caseStudies, href: p("/ergebnisse") },
+    { label: w.navigation.designbeispiele, href: p("/design-beispiele") },
+    { label: w.navigation.blog, href: p("/blog") },
+  ];
+}
 
 export function Kopfzeile() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  /* Die Sprache steht im Pfad. So muss keine der dreizehn Seiten sie
+     durchreichen, und die Leiste stimmt auch dort, wo sie noch niemand
+     angefasst hat. */
+  const sprache = spracheAusPfad(pathname);
+  const w = rahmenWoerter[sprache];
+  const links = navigation(sprache, w);
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
 
@@ -52,8 +71,8 @@ export function Kopfzeile() {
       <div className="container-x">
         <nav className="flex h-[4.5rem] items-center justify-between gap-6">
           <a
-            href="/#top"
-            aria-label="temoa, zur Startseite"
+            href={`${pfad(sprache, "/")}#top`}
+            aria-label={w.rahmen.zurStartseite}
             className="flex min-h-[2.75rem] items-center rounded-inner pr-2"
           >
             <Logo priority />
@@ -116,11 +135,16 @@ export function Kopfzeile() {
           </div>
 
           <div className="flex items-center gap-3">
+            <Sprachumschalter
+              aktuell={sprache}
+              beschriftung={w.rahmen.spracheWaehlen}
+              className="hidden md:flex"
+            />
             {/* Warum dieser Knopf so aussieht, steht bei `.btn-kopf` in
                 globals.css. Kurz: Navy mit Lichthof und Bewegung beim Hover,
                 Rot ist auf dieser Website die Farbe fuer Probleme. */}
-            <a href="/gespraech-vereinbaren" className="group hidden md:inline-flex btn-kopf">
-              Potenzialanalyse buchen
+            <a href={pfad(sprache, "/gespraech-vereinbaren")} className="group hidden md:inline-flex btn-kopf">
+              {w.rahmen.cta}
               <span className="disc" aria-hidden>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -128,7 +152,7 @@ export function Kopfzeile() {
               </span>
             </a>
             <button
-              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              aria-label={open ? w.rahmen.menueSchliessen : w.rahmen.menueOeffnen}
               aria-expanded={open}
               aria-controls="hauptmenue"
               onClick={() => setOpen((o) => !o)}
@@ -182,7 +206,7 @@ export function Kopfzeile() {
                 </div>
               ))}
               <a
-                href="/gespraech-vereinbaren"
+                href={pfad(sprache, "/gespraech-vereinbaren")}
                 onClick={() => setOpen(false)}
                 className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] text-base font-bold text-white"
                 style={{
@@ -190,8 +214,17 @@ export function Kopfzeile() {
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 26px -14px rgba(255,153,0,0.7)",
                 }}
               >
-                Potenzialanalyse buchen
+                {w.rahmen.cta}
               </a>
+
+              {/* Der Umschalter steht im Mobilmenue unter dem Knopf: oben in
+                  der Leiste ist neben Logo und Menuetaste kein Platz. */}
+              <div className="mt-6 flex items-center justify-between border-t border-ink/[0.08] pt-6">
+                <span className="text-label font-bold uppercase text-ink-faint">
+                  {w.rahmen.sprache}
+                </span>
+                <Sprachumschalter aktuell={sprache} beschriftung={w.rahmen.spracheWaehlen} />
+              </div>
             </div>
           </motion.div>
         )}

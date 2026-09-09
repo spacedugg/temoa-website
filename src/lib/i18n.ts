@@ -60,12 +60,24 @@ export function pfad(sprache: Sprache, ziel: string): string {
 }
 
 /**
+ * Pfad ohne Sprachpraefix.
+ *
+ * Streift `/de` und `/en` ab, nicht nur `/en`. Der Grund: die Weiche schreibt
+ * die deutschen Adressen intern auf `/de/...` um, und `usePathname` liefert
+ * diesen umgeschriebenen Pfad, nicht den aus der Adressleiste. Ohne `/de` in
+ * der Liste baute der Umschalter auf der deutschen Startseite die Adresse
+ * `/en/de`.
+ */
+export function ohnePraefix(pathname: string): string {
+  return pathname.replace(/^\/(de|en)(?=\/|$)/, "") || "/";
+}
+
+/**
  * Dieselbe Seite in der anderen Sprache, ausgehend vom aktuellen Pfad.
  * Braucht der Umschalter: er soll auf der Seite bleiben, auf der man ist.
  */
 export function pfadWechsel(aktuellerPfad: string, ziel: Sprache): string {
-  const ohne = aktuellerPfad.replace(/^\/en(?=\/|$)/, "") || "/";
-  return pfad(ziel, ohne);
+  return pfad(ziel, ohnePraefix(aktuellerPfad));
 }
 
 /**
@@ -116,4 +128,14 @@ export function sprachAngaben(sprache: Sprache, ziel: string) {
       "x-default": pfad(STANDARD, ziel),
     },
   };
+}
+
+/**
+ * Sprache aus einem Pfad ablesen.
+ *
+ * Damit koennen Kopf- und Fusszeile ihre Sprache selbst bestimmen, ohne dass
+ * jede der dreizehn Seiten sie durchreichen muss.
+ */
+export function spracheAusPfad(pathname: string): Sprache {
+  return pathname === "/en" || pathname.startsWith("/en/") ? "en" : STANDARD;
 }

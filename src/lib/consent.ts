@@ -53,6 +53,15 @@ export const KATEGORIEN: Kategorie[] = [
           "Eintrag im lokalen Speicher des Browsers (localStorage), kein Cookie. Bleibt bis zum Widerruf oder bis ihr die Websitedaten löscht.",
         grundlage: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
       },
+      {
+        name: "temoa_sprache",
+        anbieter: "temoa (diese Website)",
+        zweck:
+          "Speichert, ob ihr die Website auf Deutsch oder Englisch lesen wollt. Ohne diese Speicherung würde bei jedem Aufruf wieder die Sprache des Browsers entscheiden und eure Wahl überschreiben.",
+        speicher:
+          "Cookie, ein Jahr. Enthält ausschließlich das Kürzel der Sprache (de oder en), keine Kennung und nichts, woran sich eine Person erkennen ließe.",
+        grundlage: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
+      },
     ],
   },
   {

@@ -10,10 +10,17 @@ import { einstellungenOeffnen } from "./useEinwilligung";
  * der Fusszeile, auf jeder Seite, an derselben Stelle wie Impressum und
  * Datenschutz.
  */
-export function CookieEinstellungen({ className }: { className?: string }) {
+export function CookieEinstellungen({
+  label,
+  className,
+}: {
+  /** Beschriftung aus dem Woerterbuch, damit der Knopf die Sprache der Seite spricht. */
+  label: string;
+  className?: string;
+}) {
   return (
     <button type="button" onClick={einstellungenOeffnen} className={className}>
-      Cookie-Einstellungen
+      {label}
     </button>
   );
 }

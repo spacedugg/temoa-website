@@ -1,51 +1,81 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Logo } from "../Logo";
 import { CookieEinstellungen } from "../consent/CookieEinstellungen";
+import { Sprachumschalter } from "../i18n/Sprachumschalter";
+import { pfad, spracheAusPfad, STANDARD, type Sprache } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
+
+type Rahmen = (typeof rahmenWoerter)[Sprache];
 
 /** Fußzeile als Planfuß: Kennung links, Spalten rechts, alles auf Hairlines. */
 
-const cols = [
-  {
-    title: "Leistungen",
-    links: [
-      { label: "Strategie", href: "/leistungen/strategie" },
-      { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
-      { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
-      { label: "Account Management", href: "/leistungen/account-management" },
-      { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
-    ],
-  },
-  {
-    title: "Unternehmen",
-    links: [
-      { label: "Case Studies", href: "/ergebnisse" },
-      { label: "Designbeispiele", href: "/design-beispiele" },
-      { label: "Blog", href: "/blog" },
-    ],
-  },
-  {
-    title: "Rechtliches",
-    links: [
-      { label: "Impressum", href: "/impressum" },
-      { label: "Datenschutz", href: "/datenschutz" },
-      /* Die AGB standen bewusst nicht hier, solange die Seite eine Vorlage
-         mit Platzhaltern war. Der Text des Kunden liegt jetzt vor. */
-      { label: "AGB", href: "/agb" },
-    ],
-  },
-];
+type Spalte = { title: string; links: { label: string; href: string }[]; recht?: boolean };
+
+function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
+  const p = (ziel: string) => pfad(sprache, ziel);
+
+  /* Die Rechtstexte liegen nur auf Deutsch vor und sind die verbindliche
+     Fassung. Solange die englischen Entwuerfe nicht anwaltlich freigegeben
+     sind, verweist auch die englische Fusszeile auf die deutschen Seiten. Ein
+     nicht geprueftes Impressum oder eine nicht geprueft uebersetzte
+     Datenschutzerklaerung darf nicht als geltender Text dastehen. */
+  const rechtsPfad = (ziel: string) => pfad(STANDARD, ziel);
+
+  return [
+    {
+      title: w.fusszeile.spalteLeistungen,
+      links: [
+        { label: w.leistungen.strategie, href: p("/leistungen/strategie") },
+        { label: w.leistungen.listingSeo, href: p("/leistungen/listing-seo") },
+        { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
+        { label: w.leistungen.account, href: p("/leistungen/account-management") },
+        { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
+      ],
+    },
+    {
+      title: w.fusszeile.spalteUnternehmen,
+      links: [
+        { label: w.navigation.caseStudies, href: p("/ergebnisse") },
+        { label: w.navigation.designbeispiele, href: p("/design-beispiele") },
+        { label: w.navigation.blog, href: p("/blog") },
+      ],
+    },
+    {
+      title: w.fusszeile.spalteRecht,
+      recht: true,
+      links: [
+        { label: w.fusszeile.impressum, href: rechtsPfad("/impressum") },
+        { label: w.fusszeile.datenschutz, href: rechtsPfad("/datenschutz") },
+        /* Die AGB standen bewusst nicht hier, solange die Seite eine Vorlage
+           mit Platzhaltern war. Der Text des Kunden liegt jetzt vor. */
+        { label: w.fusszeile.agb, href: rechtsPfad("/agb") },
+      ],
+    },
+  ];
+}
 
 export function Fusszeile() {
+  const sprache = spracheAusPfad(usePathname());
+  const w = rahmenWoerter[sprache];
+  const cols = spalten(sprache, w);
+
   return (
     <footer className="on-dark relative bg-navy text-chalk">
-      
       <div className="container-x">
         <div className="grid gap-10 py-16 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-12">
           <div>
             <Logo variant="white" />
             <p className="mt-5 max-w-[34ch] text-small leading-relaxed text-chalk-muted">
-              Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch verkauft, dann
-              Werbung, die darauf aufbaut.
+              {w.fusszeile.beschreibung}
             </p>
+            <Sprachumschalter
+              aktuell={sprache}
+              beschriftung={w.rahmen.spracheWaehlen}
+              ton="dunkel"
+              className="mt-6 w-fit"
+            />
           </div>
 
           {cols.map((c) => (
@@ -64,9 +94,17 @@ export function Fusszeile() {
                 ))}
                 {/* Der Widerruf gehoert dorthin, wo Impressum und Datenschutz
                     stehen, nicht in eine eigene Ecke. */}
-                {c.title === "Rechtliches" && (
+                {c.recht && (
                   <li>
-                    <CookieEinstellungen className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500" />
+                    <CookieEinstellungen
+                      label={w.fusszeile.cookieEinstellungen}
+                      className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500"
+                    />
+                  </li>
+                )}
+                {c.recht && w.fusszeile.rechtHinweis && (
+                  <li className="mt-2 max-w-[24ch] text-[0.75rem] leading-snug text-chalk-faint">
+                    {w.fusszeile.rechtHinweis}
                   </li>
                 )}
               </ul>

@@ -5,6 +5,7 @@ import "../globals.css";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { htmlLang, istSprache, ogLocale, sprachen } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 /* Diese Datei ist das Wurzel-Layout. Es liegt im Sprachsegment und nicht
    darueber, weil `<html lang>` die Sprache kennen muss. Next erlaubt genau
@@ -68,7 +69,7 @@ export default async function RootLayout({
     <html lang={htmlLang[locale]} className={caros.variable}>
       <body className="font-sans antialiased">
         <a href="#inhalt" className="skip-link">
-          {w.rahmen.zumInhalt}
+          {rahmenWoerter[locale].rahmen.zumInhalt}
         </a>
         {children}
         {/* Liegt unter dem Inhalt im Markup und oben auf dem Bildschirm: so
