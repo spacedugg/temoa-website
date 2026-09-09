@@ -2,46 +2,56 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
+import { Icon, type IconName } from "./Icons";
 
 /**
- * Welt „Taktplan", helle Fassung.
+ * Sektionsgerüst im Theme „Studio".
  *
- * Die Seite ist ein Plan, der von oben nach unten gelesen wird. Jede Sektion
- * ist eine Station mit Nummer und Bezeichnung. Der Grund ist weiß, einzelne
- * Stationen tragen Farbe: getönt, dunkel oder orange.
+ * Zwei Fassungen liegen hinter dieser: erst ein „Taktplan" mit mitlaufender
+ * Linie am linken Rand und Stationsnummern, dann dieselbe Struktur ohne
+ * Nummern. Beide hatten flache weiße Sektionen, auf denen Text frei schwebte.
  *
- * Typografische Regel: groß wird leicht gesetzt, klein wird fett gesetzt.
+ * Jetzt trägt jede Sektion einen eigenen Grund: heller Verlauf mit warmem
+ * Lichtkern, kräftiger getönt, oder ein dunkles Podest. Inhalte liegen darauf
+ * auf Platten. Die Töne wechseln über die Seite, damit Sektionen als Blöcke
+ * lesbar sind und nicht als eine lange weiße Bahn.
+ *
+ * Typografische Regel bleibt: groß wird leicht gesetzt, klein wird fett.
  */
 
-export type Tone = "paper" | "tint" | "dark";
+export type Tone = "paper" | "tint" | "warm" | "dark" | "signal";
 
 const grounds: Record<Tone, string> = {
-  paper: "bg-white text-ink",
-  tint: "bg-canvas-tint text-ink",
-  dark: "on-dark bg-navy text-chalk",
+  paper: "ground text-ink",
+  tint: "ground-tint text-ink",
+  warm: "ground-warm text-ink",
+  dark: "on-dark ground-deep text-chalk",
+  signal: "on-signal ground-signal",
 };
 
 export function Station({
-  n,
   label,
   tone = "paper",
   id,
   children,
   className,
 }: {
-  n: string;
-  label: string;
+  /** Kurze Bezeichnung über der Überschrift. Weglassen, wenn die Überschrift reicht. */
+  label?: string;
   tone?: Tone;
   id?: string;
   children: React.ReactNode;
   className?: string;
 }) {
   const dark = tone === "dark";
+  const signal = tone === "signal";
   return (
     <section id={id} className={clsx("relative scroll-mt-24", grounds[tone], className)}>
       <div className="container-x">
-        <div className="grid gap-y-10 py-24 md:grid-cols-[8rem_1fr] md:gap-x-14 md:py-32 lg:grid-cols-[10rem_1fr]">
-          <StationMark n={n} label={label} dark={dark} />
+        {/* Auf dem Telefon weniger Luft: 80 Pixel oben und unten sind
+            dort ein Viertel Bildschirm. */}
+        <div className="py-14 md:py-28">
+          {label && <Eyebrow label={label} dark={dark} signal={signal} />}
           <div className="min-w-0">{children}</div>
         </div>
       </div>
@@ -49,28 +59,52 @@ export function Station({
   );
 }
 
-function StationMark({ n, label, dark }: { n: string; label: string; dark: boolean }) {
+/**
+ * Bezeichnung über der Überschrift.
+ *
+ * Sitzt als kleine Pille auf dem Grund, mit einem Leuchtpunkt davor. Das
+ * bindet sie an die Glow-Sprache des Themes und hebt sie vom Grund ab, statt
+ * sie als nackte Zeile daraufzulegen.
+ */
+export function Eyebrow({
+  label,
+  dark = false,
+  signal = false,
+}: {
+  label: string;
+  dark?: boolean;
+  /** Auf der orangen Signalfläche: dunkle Pille statt weißer. */
+  signal?: boolean;
+}) {
   const reduce = useReducedMotion();
   return (
-    <div className="flex items-center gap-4 md:sticky md:top-28 md:h-fit md:flex-col md:items-start md:gap-4">
-      <motion.span
-        initial={reduce ? undefined : { opacity: 0, y: 8 }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-15% 0px" }}
-        transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-        className={clsx("num text-[3.5rem] md:text-[4.5rem]", dark ? "text-white/15" : "text-ink/10")}
-      >
-        {n}
-      </motion.span>
+    <motion.div
+      initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-15% 0px" }}
+      transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+      className={clsx(
+        "mb-6 inline-flex items-center gap-2.5 rounded-full py-2 pl-3 pr-4",
+        signal
+          ? "bg-white/[0.14] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.22)]"
+          : dark
+            ? "bg-white/[0.07] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]"
+            : "bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(13,36,57,0.05),0_10px_20px_-14px_rgba(13,36,57,0.2)]"
+      )}
+    >
+      <span
+        aria-hidden
+        className={clsx("node-glow", signal && "!bg-brand-400 !shadow-[0_0_0_4px_rgba(255,153,0,0.22)]")}
+      />
       <span
         className={clsx(
-          "text-label font-bold uppercase md:border-t md:pt-4",
-          dark ? "border-white/15 text-brand-400" : "border-ink/10 text-brand-800"
+          "text-label font-bold uppercase",
+          signal ? "text-white" : dark ? "text-chalk" : "text-ink-soft"
         )}
       >
         {label}
       </span>
-    </div>
+    </motion.div>
   );
 }
 
@@ -85,7 +119,10 @@ export function StationTitle({
   as?: "h1" | "h2";
 }) {
   return (
-    <As className={clsx("title max-w-[22ch] text-balance text-[clamp(2rem,1.3rem+2.1vw,3.25rem)]", className)}>
+    /* Untergrenze 1,75 rem statt 2 rem: auf 390 Pixel Breite stand die
+       Überschrift mit 32 Pixeln da und brauchte vier Zeilen für einen
+       Halbsatz. */
+    <As className={clsx("title max-w-[22ch] text-balance text-[clamp(1.75rem,1.2rem+2.3vw,3.25rem)]", className)}>
       {children}
     </As>
   );
@@ -104,7 +141,7 @@ export function StationLead({
     <p
       className={clsx(
         "mt-6 max-w-[56ch] text-pretty text-lead",
-        tone === "dark" ? "text-chalk-muted" : "text-ink-muted",
+        tone === "dark" ? "text-chalk-muted" : tone === "signal" ? "signal-leise" : "text-ink-muted",
         className
       )}
     >
@@ -147,49 +184,90 @@ export function Reading({
   );
 }
 
-/** Zeile einer gerissenen Liste. Ersetzt die Kartenreihe. */
-export function RuledRow({
-  index,
+/**
+ * Inhaltskarte.
+ *
+ * Ersetzt die frühere `RuledRow`, eine Zeile zwischen zwei Haarlinien. Die
+ * hat den Text frei auf dem weißen Grund liegen lassen und pro Blick kaum
+ * etwas getragen. Jetzt ist es eine Platte mit Icon-Kachel, wie in den
+ * Referenzen: Symbol, kurze Überschrift, ein Satz.
+ */
+/**
+ * Karte mit Icon.
+ *
+ * `body` ist absichtlich freiwillig. Der Kunde fand die Kacheln zu textlastig
+ * und wollte stattdessen laengere Ueberschriften ohne Unterzeile und deutlich
+ * groessere Icons. Ohne `body` schaltet die Karte genau in diese Fassung: das
+ * Icon wird gross, die Ueberschrift traegt die Aussage allein.
+ */
+export function Karte({
+  icon,
   title,
   body,
   href,
   tone = "paper",
+  className,
 }: {
-  index: string;
+  icon: IconName;
   title: string;
-  body: string;
+  /** Weglassen, wenn die Ueberschrift die Aussage allein traegt. */
+  body?: string;
   href?: string;
   tone?: Tone;
+  className?: string;
 }) {
   const dark = tone === "dark";
+  const nurTitel = !body;
+
+  /* Auf dem Telefon steht das Icon neben dem Text, nicht darueber.
+     Gestapelt kostet eine Karte mit Icon, Ueberschrift, einem Satz und einer
+     Linkzeile rund 260 Pixel; vier davon untereinander sind mehr als ein
+     Bildschirm, und der Blick sieht dabei viermal dasselbe leere Feld links
+     oben. Nebeneinander ist dieselbe Karte rund hundert Pixel flacher.
+
+     Die Fassung ohne Text bleibt gestapelt: dort ist das grosse Icon der
+     Punkt der Karte, und die Ueberschrift traegt die Aussage allein. */
   const inner = (
     <>
-      <span className={clsx("num text-[1.5rem]", dark ? "text-white/25" : "text-ink/20")}>{index}</span>
-      <span className="min-w-0">
+      <span className={clsx(nurTitel ? "block" : "flex gap-4 md:block")}>
         <span
           className={clsx(
-            "block text-[1.25rem] font-bold leading-snug tracking-[-0.015em] md:text-[1.4rem]",
-            dark ? "text-white" : "text-ink"
+            dark ? "tile-dark" : "tile",
+            "shrink-0",
+            nurTitel ? "mb-6 !h-[4.5rem] !w-[4.5rem] !rounded-[1.4rem]" : "md:mb-5"
           )}
         >
-          {title}
+          <Icon name={icon} className={nurTitel ? "h-9 w-9" : "h-8 w-8"} />
         </span>
-        <span className={clsx("mt-2.5 block max-w-[54ch] text-body", dark ? "text-chalk-muted" : "text-ink-muted")}>
-          {body}
+        <span className={clsx(nurTitel ? "block" : "min-w-0 flex-1")}>
+          <span
+            className={clsx(
+              "block font-bold leading-snug tracking-[-0.015em]",
+              nurTitel
+                ? "text-[1.2rem] md:text-[1.35rem]"
+                : "text-[1.05rem] md:text-[1.2rem]",
+              dark ? "text-white" : "text-ink"
+            )}
+          >
+            {title}
+          </span>
+          {body && (
+            <span className={clsx("mt-2 block text-small leading-relaxed", dark ? "text-chalk-muted" : "text-ink-muted")}>
+              {body}
+            </span>
+          )}
         </span>
       </span>
       {href && (
         <span
           className={clsx(
-            "hidden shrink-0 self-center transition-all duration-300 md:grid md:h-10 md:w-10 md:place-items-center md:rounded-[0.625rem]",
-            dark
-              ? "text-brand-400 group-hover:bg-white/10"
-              : "text-brand-700 group-hover:bg-brand-500 group-hover:text-ink"
+            "mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold transition-transform duration-300 group-hover:translate-x-1 md:mt-5",
+            dark ? "text-brand-400" : "text-navy"
           )}
-          aria-hidden
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          Mehr dazu
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
       )}
@@ -197,12 +275,13 @@ export function RuledRow({
   );
 
   const shared = clsx(
-    "group grid grid-cols-[2.5rem_1fr] items-start gap-x-5 gap-y-1 border-t py-8 transition-colors duration-300 md:grid-cols-[3.5rem_1fr_auto] md:py-9",
-    dark ? "border-white/10" : "border-ink/[0.09]"
+    "group flex h-full flex-col p-5 md:p-8",
+    dark ? "panel-dark" : "panel panel-lift",
+    className
   );
 
   return href ? (
-    <a href={href} className={clsx(shared, "-mx-5 px-5 hover:bg-ink/[0.025]")}>
+    <a href={href} className={shared}>
       {inner}
     </a>
   ) : (

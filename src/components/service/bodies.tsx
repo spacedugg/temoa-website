@@ -2,146 +2,19 @@ import {
   ServiceHero,
   Cards,
   SplitCards,
-  Placeholder,
   Points,
-  Rows,
   Compare,
   TextMedia,
-  AccentStrip,
-  BulletPanel,
   ResultBlock,
   ServiceCTA,
+  Lieferung,
+  Ergebnis,
 } from "./Blocks";
+import { MarktSektion } from "./Weltkugel";
+import { Aufgaben } from "./Aufgaben";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
-import { BudgetSplitDiagram } from "./Diagrams";
-import { Testimonials } from "../home/Testimonials";
-
-/* ============ FULL SERVICE (Übersicht) ============ */
-export function FullServiceBody() {
-  return (
-    <>
-      <ServiceHero
-        eyebrow="Full Service"
-        title={
-          <>
-            Ein eingespieltes Team für euren{" "}
-            <span className="text-gradient">kompletten Amazon-Account.</span>
-          </>
-        }
-        sub="Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht."
-      />
-      <Cards
-        tone="blue"
-        eyebrow="Für wen"
-        title="Passt das zu eurer Marke?"
-        cols={4}
-        items={[
-          { title: "Etabliertes Sortiment", body: "Eigene Marke, ab etwa 50.000 € Amazon-Umsatz im Monat, aber Luft nach oben." },
-          { title: "Amazon-Wissen fehlt im Haus", body: "Die Produkte sind stark, das Plattform-Know-how noch nicht." },
-          { title: "Schnelles Wachstum", body: "Das Sortiment wächst schneller als die interne Kapazität." },
-          { title: "Viele SKUs, mehrere Marktplätze", body: "Mehrere hundert Produkte, die niemand einzeln durchgehen kann." },
-        ]}
-      />
-      <SplitCards
-        tone="white"
-        eyebrow="Die Ausgangslage"
-        title="Warum die üblichen Lösungen an Amazon scheitern."
-        imageAspect="aspect-[4/3]"
-        callout="Die größten Verluste entstehen bei Chancen, die intern nie auffallen."
-        items={[
-          { title: "Internes Team zu klein", body: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken." },
-          { title: "Einzeldienstleister, getrennte Sicht", body: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand." },
-          { title: "Amazon ist ein Vollzeitjob", body: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert." },
-        ]}
-      />
-      <Rows
-        tone="blue"
-        eyebrow="Was wir übernehmen"
-        title="Fünf Bereiche, jeder in voller Tiefe."
-        items={[
-          {
-            n: "01",
-            title: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
-            line: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
-            bullets: [
-              "Search Query Performance je Suchbegriff: Impression-Share, Klickrate, Conversion, Cart-Adds",
-              "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
-              "Vollständige Margen- und Deckungsbeitragsrechnung je Variante, inklusive aller Fees",
-            ],
-          },
-          {
-            n: "02",
-            title: "Ein Listing, das auch ohne Werbung verkauft.",
-            line: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
-            bullets: [
-              "Hauptbild zuerst, optimiert auf die Klickrate, den wichtigsten Faktor im Suchergebnis",
-              "Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
-              "Titel, Bullets, Backend und alle Attributfelder so aufgebaut, dass Rufus und COSMO sie verstehen",
-            ],
-          },
-          {
-            n: "03",
-            title: "Saubere Kampagnen, gesteuert am TACoS.",
-            line: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
-            bullets: [
-              "Kampagnenstruktur mit Suchbegriff-Isolation und Harvesting von Auto zu Exact, ohne Kannibalisieren",
-              "Platzierungs- und Gebotssteuerung, Top-of-Search gezielt eingesetzt",
-              "Profitabilität als Ziel, beim Aufbau neuer Suchbegriffe bewusst und befristet darüber hinaus",
-            ],
-          },
-          {
-            n: "04",
-            title: "Stabiler Betrieb, geschützte Rankings.",
-            line: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
-            bullets: [
-              "Buy-Box-Monitoring inklusive Verlust-Ursachen: Preis, Verfügbarkeit, Mehranbieter",
-              "Forecasting und Inventar, damit Out-of-Stock keine Rankings zerstört",
-              "Account Health, Ticketing und Troubleshooting mit dem Amazon-Support, Uploads über Flat Files",
-              "Pricing-Strategien und Profitability Protection",
-            ],
-          },
-          {
-            n: "05",
-            title: "Jeder neue Marktplatz von Grund auf aufgebaut.",
-            line: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
-            bullets: [
-              "Eigene Keyword-Recherche je Marktplatz",
-              "Content und Kampagnen für jeden Markt neu aufgesetzt",
-              "Lokalisieren statt übersetzen",
-            ],
-          },
-        ]}
-      />
-      <AccentStrip
-        tone="blue"
-        eyebrow="Immer enthalten"
-        title="Reporting, das ihr in fünf Minuten versteht."
-        items={["Monatliche Performance-Reports", "Profit- und Verlust-Analyse", "Markttrends und Wettbewerbsbeobachtung"]}
-        icons={["chart", "margin", "search"]}
-      />
-      <BulletPanel
-        tone="white"
-        eyebrow="Der Unterschied"
-        title="Alle Bereiche arbeiten mit denselben Zahlen."
-        withImage
-        imageAspect="aspect-square"
-        points={[
-          "Dieselbe Keyword- und Margenanalyse liegt Content, Kampagnen und Pricing zugrunde",
-          "Was im Search Query Report auffällt, landet in derselben Woche im Listing und in der Kampagne",
-          "Wir verantworten das Ergebnis. Kein Verschieben der Verantwortung zwischen Dienstleistern.",
-          "Ein Ansprechpartner, ein Report, eine Planung für alle fünf Bereiche",
-        ]}
-      />
-      <Testimonials tone="blue" />
-      <ServiceCTA
-        title="Welcher Bereich bremst euer Wachstum?"
-        sub="Kostenlose Potenzialanalyse: Wir gehen die fünf Bereiche an eurem Account durch und sagen, wo wir zuerst ansetzen."
-        chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
-      />
-    </>
-  );
-}
+import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
 
 /* ============ STRATEGIE ============ */
 export function StrategieBody() {
@@ -155,6 +28,8 @@ export function StrategieBody() {
           </>
         }
         sub="Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte."
+        image="/bilder/s-strategie.webp"
+        imageAlt="Aus den Berichten im Konto entsteht eine Reihenfolge"
       />
       <Points
         tone="blue"
@@ -167,7 +42,6 @@ export function StrategieBody() {
           "Es fehlt eine Reihenfolge: alles ist wichtig, nichts kommt zuerst.",
         ]}
         bridge="Wer die Berichte nicht auswertet, optimiert nach Geschmack. Das kostet über Monate Marge."
-        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
@@ -176,37 +50,67 @@ export function StrategieBody() {
         cols={2}
         items={[
           {
+            piktogramm: "analyse",
             title: "Analyse",
             subtitle: "Was in den Berichten steht",
             bullets: [
-              "Search Query Performance je Suchbegriff: Impressionen, Klickrate, Conversion, Cart-Adds",
-              "Verkäufe und Traffic je ASIN: wie viele Besucher kommen und wie viele davon kaufen",
-              "Wettbewerbs- und Marktanteilsanalyse über die Zeit",
-              "Margen- und Deckungsbeitragsrechnung je Variante inklusive aller Fees",
+              "Zu welchen Suchbegriffen ihr gefunden, geklickt und gekauft werdet",
+              "Wie viele Besucher jedes Produkt bekommt und wie viele davon kaufen",
+              "Wie sich euer Anteil am Markt über die Monate verändert",
+              "Was jede einzelne Variante nach allen Gebühren verdient",
             ],
           },
           {
+            piktogramm: "fahrplan",
             title: "Strategie & Fahrplan",
             subtitle: "Was daraus folgt",
             bullets: [
-              "Welche Produkte Wachstum bekommen und welche gehalten werden",
-              "ACoS- und TACoS-Ziele als Messlatte",
-              "Reihenfolge der Maßnahmen, sortiert nach erwartetem Umsatz-Effekt",
+              "Welche Produkte wachsen sollen und welche nur gehalten werden",
+              "Ein Zielwert für ACoS und TACoS",
+              "Die Reihenfolge: was zuerst, was danach, was später",
             ],
           },
         ]}
       />
-      <TextMedia
-        tone="blue"
-        title="Damit steht das Fundament."
-        text="Content und Werbung bauen auf eurer Strategie auf. Ohne sie skaliert ihr nur die Probleme."
-        reverse
-        imageAspect="aspect-[3/2]"
+      <Lieferung
+        eyebrow="Was ihr danach in der Hand habt"
+        title={<>Zwei Dokumente, mit denen ihr arbeiten könnt.</>}
+        stuecke={[
+          {
+            kicker: "Dokument 1",
+            title: "Margenübersicht je Artikel",
+            punkte: [
+              "Verkaufspreis, Amazon-Gebühren, FBA, Wareneinsatz und Werbung je Variante",
+              "Was am Ende übrig bleibt, in Euro und in Prozent",
+              "Welche Artikel Wachstum verdienen und welche nur gehalten werden",
+            ],
+          },
+          {
+            kicker: "Dokument 2",
+            title: "Fahrplan für die nächsten Monate",
+            punkte: [
+              "Was zuerst kommt, weil es schnell wirkt, und was warten kann",
+              "Welche Artikel in den ersten Content-Sprint gehen",
+              "Ab wann Kampagnen dazugeschaltet werden und mit welchem Ziel",
+              "Wie tief wir ins Tagesgeschäft gehen sollen, von Beobachten bis Übernehmen",
+              "Wo der Bestand knapp wird, bevor er die Skalierung ausbremst",
+            ],
+          },
+        ]}
       />
-      <Testimonials tone="white" />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="Vitaworld, Q1 2025 auf Q1 2026"
+        zeile="Erst durchgerechnet, dann skaliert: das Werbebudget stieg um 39 %, der Umsatz um 147 %."
+        werte={[
+          { wert: "+147 %", label: "Umsatz", sub: "im Vergleich der beiden Quartale" },
+          { wert: "−44 %", label: "TACoS", sub: "bei wachsendem Umsatz", runter: true },
+          { wert: "−19,4 %", label: "Anteil der Werbung am Umsatz", sub: "das Wachstum kommt organisch", runter: true },
+        ]}
+        href="/ergebnisse/vitaworld"
+      />
       <ServiceCTA
         title="Wisst ihr, wo euer größtes Potenzial liegt?"
-        sub="In der kostenlosen Potenzialanalyse werten wir eure Berichte aus und zeigen, welche drei Schritte zuerst kommen."
       />
     </>
   );
@@ -217,13 +121,15 @@ export function ContentBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Content & Listings"
+        eyebrow="Produktbilder & SEO"
         title={
           <>
             Content, der aus Klicks <span className="text-gradient">Käufer macht.</span>
           </>
         }
         sub="Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion."
+        image="/bilder/s-content.webp"
+        imageAlt="Produktseite aus Hauptbild, Textblöcken und weiteren Bildern"
       />
       <ContentResultBand />
       <TextMedia
@@ -231,6 +137,8 @@ export function ContentBody() {
         eyebrow="Unser Ansatz"
         title="Schöner Content allein verkauft nichts."
         text="Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken."
+        image="/bilder/s-content-ansatz.webp"
+        imageAlt="Vier Treffer nebeneinander, einer leuchtet, darüber eine steigende Kurve"
         imageAspect="aspect-[3/2]"
       />
       <ContentShowcase />
@@ -259,10 +167,19 @@ export function ContentBody() {
           ],
         }}
       />
-      <Testimonials tone="white" />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="HaA, Launch über 17 Wochen"
+        zeile="Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget."
+        werte={[
+          { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
+          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
+          { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
+        ]}
+        href="/ergebnisse/haa"
+      />
       <ServiceCTA
         title="Wie viel Umsatz verliert ihr an schwachem Content?"
-        sub="In der kostenlosen Potenzialanalyse gehen wir eure Listings durch und zeigen, an welcher Stelle Besucher abspringen."
       />
     </>
   );
@@ -273,13 +190,15 @@ export function AdvertisingBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Advertising / PPC"
+        eyebrow="PPC Advertising"
         title={
           <>
             Skalieren, ohne die <span className="text-gradient">Marge zu verlieren.</span>
           </>
         }
         sub="Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt."
+        image="/bilder/s-advertising.webp"
+        imageAlt="Budget geht dorthin, wo nach Kosten Gewinn bleibt"
       />
       <Points
         tone="blue"
@@ -299,68 +218,61 @@ export function AdvertisingBody() {
         tone="white"
         eyebrow="Unser Ansatz"
         title="Mehr Budget ist keine Strategie."
-        text="Wir rechnen jedes Produkt erst auf seine Marge durch. In die Skalierung geht nur, was nach allen Kosten Gewinn bringt. Darauf setzen wir eine saubere Kampagnenarchitektur auf und steuern sie laufend nach."
+        text="Bevor ein Produkt mehr Budget bekommt, rechnen wir es durch: Wareneinsatz, Amazon-Gebühren, Versand, Werbung. Was danach Gewinn bringt, skalieren wir. Der Rest wird gehalten."
+        aside={<MargenDiagramm />}
         reverse
-        imageAspect="aspect-[3/2]"
       />
       <Cards
         tone="blue"
-        eyebrow="Was wir steuern"
-        title="Von der Struktur bis zum einzelnen Gebot."
+        eyebrow="Was wir übernehmen"
+        title="Von der Margenrechnung bis zum einzelnen Gebot."
         cols={3}
         items={[
           {
-            title: "Profit-First",
-            subtitle: "Erst analysieren, dann skalieren",
-            bullets: [
-              "Marge und Deckungsbeitrag je Produkt",
-              "Welche Produkte überhaupt profitabel wachsen können",
-              "Nur diese bekommen mehr Budget, der Rest wird gehalten",
-              "Optimiert wird auf den Gewinn, nicht nur auf den ACoS",
-            ],
+            piktogramm: "marge",
+            title: "Erst rechnen, dann skalieren",
+            body: "Mehr Budget bekommt nur, was nach allen Kosten Gewinn bringt.",
           },
           {
-            title: "Kampagnenstruktur",
-            subtitle: "Architektur vor Bid-Management",
-            bullets: [
-              "Saubere Keyword-Segmentierung, intent-basiertes Clustering",
-              "Sponsored Products für direkte Sales, Sponsored Brands für Sichtbarkeit, Sponsored Display fürs Retargeting",
-              "Brand Defense: eure Markenbegriffe gegen Wettbewerber geschützt",
-            ],
+            piktogramm: "struktur",
+            title: "Kampagnen sauber aufgebaut",
+            body: "Jede Kampagne hat eine Aufgabe. Keine bietet gegen die andere.",
           },
           {
-            title: "Keywordmanagement",
-            subtitle: "Laufend neue, konvertierende Suchbegriffe",
-            bullets: [
-              "Strukturierte Research-Kampagnen",
-              "Konvertierende Suchbegriffe gezielt übernehmen",
-              "Laufende Optimierung statt einmal aufsetzen",
-            ],
+            piktogramm: "marke",
+            title: "Eure Marke verteidigt",
+            body: "Wer nach eurem Namen sucht, landet bei euch, nicht beim Wettbewerb.",
           },
           {
-            title: "Gebotssteuerung",
-            subtitle: "Dynamisch, nicht statisch",
-            bullets: [
-              "Gebote angepasst an Performance, Wettbewerb und Saison",
-              "Platzierungen getrennt für Top-of-Search und den Rest",
-              "Tägliche Steuerung, nicht monatlich",
-            ],
+            piktogramm: "suche",
+            title: "Neue Suchbegriffe laufend gesucht",
+            body: "Was verkauft, wandert in die eigene Kampagne. Was nicht, fliegt raus.",
           },
           {
-            title: "Paid trifft Organic",
-            subtitle: "TACoS als Maßstab",
-            bullets: [
-              "TACoS als Effizienzmaß für Paid und Organic zusammen",
-              "Werbung, die das organische Ranking mitzieht",
-              "Budget dorthin, wo es Umsatz und Sichtbarkeit zugleich bringt",
-            ],
+            piktogramm: "pricing",
+            title: "Gebote täglich nachgezogen",
+            body: "Angepasst an Wettbewerb, Saison und Platzierung, nicht einmal im Monat.",
+          },
+          {
+            piktogramm: "ranking",
+            title: "Werbung, die das Ranking mitzieht",
+            body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
           },
         ]}
       />
-      <Testimonials tone="white" />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="FUTUM, erstes volles Amazon-Jahr"
+        zeile="Zwei Produktlaunches in einer Akut-Nische, profitabel skaliert statt Wachstum eingekauft."
+        werte={[
+          { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung", runter: true },
+          { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
+          { wert: "+37,3 %", label: "Conversion Rate", sub: "auf Ebene des ganzen Kontos" },
+        ]}
+        href="/ergebnisse/futum"
+      />
       <ServiceCTA
         title="Wo versickert euer Werbebudget?"
-        sub="In der kostenlosen Potenzialanalyse prüfen wir eure Kampagnen auf Streuverlust und Gewinn."
       />
     </>
   );
@@ -371,7 +283,7 @@ export function AccountBody() {
   return (
     <>
       <ServiceHero
-        eyebrow="Account-Management"
+        eyebrow="Account Management"
         title={
           <>
             Ihr baut die Marke. Das{" "}
@@ -379,6 +291,8 @@ export function AccountBody() {
           </>
         }
         sub="Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment."
+        image="/bilder/s-account.webp"
+        imageAlt="Tagesgeschäft an einem Pult gesteuert"
       />
       <Points
         tone="blue"
@@ -396,24 +310,36 @@ export function AccountBody() {
         tone="white"
         eyebrow="Wie wir arbeiten"
         title="So bleibt euer Account stabil."
+        image="/bilder/s-account-monitor.webp"
+        imageAlt="Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet"
         imageAspect="aspect-[3/2]"
         items={[
-          { title: "Proaktives Monitoring", body: "Klare KPIs und Frühwarnsysteme zeigen Risiken, bevor sie Umsatz kosten." },
-          { title: "Ein vernetztes System", body: "Bestand, Pricing, Content und Werbung greifen ineinander, gesteuert als Ganzes." },
-          { title: "Volle Transparenz", body: "Klare Empfehlungen und priorisierte Maßnahmen, ohne euch durch 20 Tabs zu klicken." },
+          {
+            title: "Buy-Box weg, 9:40 Uhr",
+            body: "Ein Mehranbieter unterbietet euch um 40 Cent. Wir sehen es am Vormittag, prüfen die Marge und entscheiden mit euch: mitgehen oder aussitzen.",
+          },
+          {
+            title: "Noch 18 Tage Bestand vor der Saison",
+            body: "Der Nachschub braucht 6 Wochen bis ins Lager. Wir melden das, bevor der Artikel leerläuft und das Ranking mit ihm.",
+          },
+          {
+            title: "Richtlinienwarnung im Postfach",
+            body: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
+          },
         ]}
       />
-      <Cards
-        tone="blue"
+      <Aufgaben
         eyebrow="Was wir übernehmen"
-        title="Das Tagesgeschäft in unserer Hand."
-        cols={3}
+        title="Acht Aufgaben weniger auf eurem Tisch."
         items={[
-          { title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
-          { title: "Forecasting & Inventar", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { title: "Account Health & Cases", body: "Konto-Gesundheit im Blick, Fälle mit dem Amazon-Support geklärt." },
-          { title: "Pricing & Profitability Protection", body: "Preise gesteuert, Marge geschützt." },
-          { title: "Strategie- & Performance-Calls", body: "Regelmäßig, mit klaren nächsten Schritten." },
+          { name: "buybox", title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
+          { name: "bestand", title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
+          { name: "ticket", title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
+          { name: "katalog", title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
+          { name: "richtlinie", title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
+          { name: "test", title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
+          { name: "pricing", title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
+          { name: "termin", title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
         ]}
       />
       <ResultBlock
@@ -426,10 +352,19 @@ export function AccountBody() {
           "Anfragen an den Amazon-Support laufen über uns",
         ]}
       />
-      <Testimonials tone="blue" />
+      <Ergebnis
+        eyebrow="Aus der Praxis"
+        title="Marke aus Gartenzubehör, Saison 2026"
+        zeile="Schon im Herbst vorbereitet, damit die Nachfrage im April auf einen Account trifft, der sie aushält."
+        werte={[
+          { wert: "−35 %", label: "TACoS im Hauptmarkt", sub: "über die Saison", runter: true },
+          { wert: "+21 %", label: "Conversion Rate", sub: "Hauptmarkt DE" },
+          { wert: "+110 %", label: "Klicks Italien", sub: "bei sinkendem ACoS" },
+        ]}
+        href="/ergebnisse/marke-gartenzubehoer"
+      />
       <ServiceCTA
         title="Gebt das Tagesgeschäft an uns ab."
-        sub="In der kostenlosen Potenzialanalyse zeigen wir, was wir euch abnehmen können."
       />
     </>
   );
@@ -443,10 +378,12 @@ export function InternationalisierungBody() {
         eyebrow="Internationalisierung"
         title={
           <>
-            Jeder Marktplatz ist ein <span className="text-gradient">eigener Markt.</span>
+            Jedes Land sucht <span className="text-gradient">anders.</span>
           </>
         }
-        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu."
+        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen."
+        image="/bilder/s-international.webp"
+        imageAlt="Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern"
       />
       <Points
         tone="blue"
@@ -459,7 +396,6 @@ export function InternationalisierungBody() {
           "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
         ]}
         bridge="Andere Käufer, andere Suchbegriffe, anderer Wettbewerb. Deshalb beginnt bei uns jedes Land mit einer eigenen Recherche, nicht mit einer Übersetzung."
-        aside={<Placeholder aspect="aspect-square" />}
       />
       <Cards
         tone="white"
@@ -468,33 +404,46 @@ export function InternationalisierungBody() {
         cols={2}
         items={[
           {
+            piktogramm: "sprache",
             title: "Eigene Keyword-Recherche",
             subtitle: "Jeder Markt sucht anders",
             body: "Für jeden Marktplatz recherchieren wir die Suchbegriffe neu, statt sie aus dem Startmarkt zu übersetzen.",
           },
           {
+            piktogramm: "seite",
             title: "Lokalisierter Content",
             subtitle: "Geschrieben für den Markt",
             body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz neu erstellt, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
           },
           {
+            piktogramm: "kampagne",
             title: "Eigene Kampagnen",
             subtitle: "Lokal gesteuert",
             body: "Sponsored Products, Brands und Display je Marktplatz neu aufgesetzt und über den lokalen TACoS gesteuert.",
           },
           {
+            piktogramm: "wiederholen",
             title: "Markt für Markt",
             subtitle: "Der gleiche volle Aufwand",
             body: "Die komplette Arbeit, die ein Marktplatz bekommt, bekommt auch der nächste. Ohne Abkürzung.",
           },
         ]}
       />
-      <AccentStrip
-        tone="blue"
+      <MarktSektion
+        eyebrow="Wie es aussieht"
+        title="Ein Konto, jedes Land für sich aufgebaut."
+        text="Der Startmarkt bleibt der Startmarkt. Jedes weitere Land bekommt die komplette Arbeit noch einmal, statt eine Übersetzung des ersten."
+      />
+      <Ergebnis
         eyebrow="Aus der Praxis"
-        title="Vier Marktplätze parallel aufgebaut."
-        items={["Saisonstart auf allen Märkten vorbereitet", "TACoS im Hauptmarkt −35 %", "Zweitmarkt: Klicks +110 % bei sinkendem ACoS"]}
-        icons={["rocket", "margin", "target"]}
+        title="Miganeo, Sommer 2026"
+        zeile="Fünf Marktplätze in zehn Wochen aufgebaut, aus vier losen Kampagnen wurden 120."
+        werte={[
+          { wert: "×20", label: "Umsatz im Ausland", sub: "8.967 € auf 179.287 €" },
+          { wert: "9,9 %", label: "ACoS", sub: "299.184 € Umsatz bei 29.490 € Einsatz", runter: true },
+          { wert: "98,9 %", label: "außerhalb der eigenen Marke", sub: "neu gewonnen, nicht umgebucht" },
+        ]}
+        href="/ergebnisse/miganeo"
       />
       <Compare
         tone="white"
@@ -519,10 +468,8 @@ export function InternationalisierungBody() {
           ],
         }}
       />
-      <Testimonials tone="blue" />
       <ServiceCTA
         title="Welcher Markt ist euer nächster?"
-        sub="In der kostenlosen Potenzialanalyse prüfen wir, welche Marktplätze sich für eure Marke lohnen."
       />
     </>
   );

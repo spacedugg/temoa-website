@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { ComingSoon } from "@/components/sections/ComingSoon";
 import {
   StrategieBody,
@@ -13,22 +13,22 @@ import {
 
 const meta: Record<string, { name: string; description: string }> = {
   strategie: {
-    name: "Strategie & Analyse",
+    name: "Strategie",
     description:
       "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
   },
   "listing-seo": {
-    name: "Content & Listings",
+    name: "Produktbilder & SEO",
     description:
       "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
   },
   "ppc-advertising": {
-    name: "Advertising / PPC",
+    name: "PPC Advertising",
     description:
       "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
   },
   "account-management": {
-    name: "Account-Management",
+    name: "Account Management",
     description:
       "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
   },
@@ -85,11 +85,11 @@ export default async function LeistungPage({
   if (!meta[slug]) notFound();
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <Body slug={slug} />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

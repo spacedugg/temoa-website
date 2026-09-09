@@ -1,19 +1,19 @@
 ---
 title: "Amazon Conversion-Rate-Optimierung: Mehr Verkäufe ohne Preissenkung"
-meta_description: "Die Conversion-Rate zu erhöhen ist oft profitabler als Preise zu senken. Welche Hebel auf der Detailseite wirklich wirken und wie du strukturiert testest."
+meta_description: "Die Conversion-Rate zu erhöhen ist oft profitabler als Preise zu senken. Was auf der Detailseite wirklich wirkt und wie du strukturiert testest."
 keywords: ["Conversion Rate Optimierung", "Amazon CRO", "CVR steigern", "Detailseite optimieren"]
 kategorie: "Listing, SEO & Conversion"
 ---
 
 # Amazon Conversion-Rate-Optimierung: Mehr Verkäufe ohne Preissenkung
 
-Wenn der Umsatz stockt, ist der erste Reflex vieler Verkäufer, den Preis zu senken. Das wirkt – und frisst gleichzeitig die Marge. Dabei gibt es einen Hebel, der oft mehr bringt und nichts an der Marge ändert: die Conversion-Rate (CVR). Sie sagt, wie viele Besucher deiner Detailseite tatsächlich kaufen. Schon eine kleine Verbesserung wirkt auf jeden einzelnen Besucher – und verstärkt sich, weil eine höhere CVR auch dein Ranking und deine Werbeeffizienz hebt. Dieser Beitrag zeigt die wichtigsten Stellhebel.
+Wenn der Umsatz stockt, ist der erste Reflex vieler Verkäufer, den Preis zu senken. Das wirkt – und frisst gleichzeitig die Marge. Dabei gibt es einen Weg, der oft mehr bringt und nichts an der Marge ändert: die Conversion-Rate (CVR). Sie sagt, wie viele Besucher deiner Detailseite tatsächlich kaufen. Schon eine kleine Verbesserung wirkt auf jeden einzelnen Besucher – und verstärkt sich, weil eine höhere CVR auch dein Ranking und deine Werbeeffizienz hebt. Dieser Beitrag zeigt, was am stärksten wirkt.
 
-## Warum CVR der unterschätzte Hebel ist
+## Warum die CVR unterschätzt wird
 
 Eine höhere Conversion-Rate wirkt doppelt. Erstens machst du aus demselben Traffic mehr Umsatz – ohne einen Cent mehr für Werbung. Zweitens belohnt Amazons Algorithmus Listings, die gut konvertieren, mit besseren organischen Platzierungen, weil sie aus Sicht der Plattform die Kundenbedürfnisse besser treffen. Und drittens sinkt dein ACoS automatisch, weil mehr Klicks zu Käufen werden. Eine Preissenkung dagegen wirkt nur über den Preis – und kostet dich bei jedem Verkauf.
 
-## Die wichtigsten Conversion-Hebel
+## Was die Conversion am stärksten bewegt
 
 Nicht alle Elemente einer Detailseite wirken gleich stark. Diese haben den größten Einfluss:
 
@@ -38,4 +38,4 @@ Beginne dort, wo die Wirkung am größten und der Aufwand am kleinsten ist: meis
 
 ## Fazit
 
-Die Conversion-Rate zu verbessern ist fast immer profitabler, als den Preis zu senken – weil sie auf jeden Besucher wirkt und gleichzeitig Ranking und Werbeeffizienz hebt, ohne die Marge anzutasten. Die stärksten Hebel sind Hauptbild, Bildergalerie, überzeugende Bulletpoints, A+ Content und Bewertungen. Wer diese systematisch und testbasiert verbessert, wächst aus demselben Traffic heraus – und muss seltener über den Preis kämpfen.
+Die Conversion-Rate zu verbessern ist fast immer profitabler, als den Preis zu senken – weil sie auf jeden Besucher wirkt und gleichzeitig Ranking und Werbeeffizienz hebt, ohne die Marge anzutasten. Am stärksten wirken Hauptbild, Bildergalerie, überzeugende Bulletpoints, A+ Content und Bewertungen. Wer diese systematisch und testbasiert verbessert, wächst aus demselben Traffic heraus – und muss seltener über den Preis kämpfen.

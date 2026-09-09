@@ -15,10 +15,10 @@ import { Logo } from "../Logo";
  */
 
 const leistungen = [
-  { label: "Strategie & Analyse", href: "/leistungen/strategie" },
-  { label: "Content & Listings", href: "/leistungen/listing-seo" },
-  { label: "Advertising / PPC", href: "/leistungen/ppc-advertising" },
-  { label: "Account-Management", href: "/leistungen/account-management" },
+  { label: "Strategie", href: "/leistungen/strategie" },
+  { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
+  { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
+  { label: "Account Management", href: "/leistungen/account-management" },
   { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
 ];
 
@@ -70,7 +70,7 @@ export function Kopfzeile() {
                       href={l.href}
                       className={clsx(
                         "flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
-                        active ? "text-brand-800" : "text-ink-muted hover:text-ink"
+                        active ? "text-ink" : "text-ink-muted hover:text-ink"
                       )}
                     >
                       {l.label}
@@ -86,7 +86,7 @@ export function Kopfzeile() {
                             href={c.href}
                             className={clsx(
                               "flex min-h-[2.75rem] items-center gap-3 px-3 text-small transition-colors",
-                              pathname === c.href ? "text-brand-800" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
+                              pathname === c.href ? "text-ink" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
                             )}
                           >
                             <span className="num text-[0.95rem] text-ink/25">
@@ -106,7 +106,7 @@ export function Kopfzeile() {
                   href={l.href}
                   className={clsx(
                     "flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
-                    pathname === l.href ? "text-brand-800" : "text-ink-muted hover:text-ink"
+                    pathname === l.href ? "text-ink" : "text-ink-muted hover:text-ink"
                   )}
                 >
                   {l.label}
@@ -116,11 +116,16 @@ export function Kopfzeile() {
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href="/gespraech-vereinbaren"
-              className="hidden min-h-[2.75rem] items-center rounded-[0.75rem] bg-brand-500 px-5 text-small font-bold text-ink transition-all duration-300 hover:-translate-y-0.5 md:inline-flex"
-            >
+            {/* Warum dieser Knopf so aussieht, steht bei `.btn-kopf` in
+                globals.css. Kurz: Navy mit Lichthof und Bewegung beim Hover,
+                Rot ist auf dieser Website die Farbe fuer Probleme. */}
+            <a href="/gespraech-vereinbaren" className="group hidden md:inline-flex btn-kopf">
               Potenzialanalyse buchen
+              <span className="disc" aria-hidden>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </a>
             <button
               aria-label={open ? "Menü schließen" : "Menü öffnen"}
@@ -179,7 +184,11 @@ export function Kopfzeile() {
               <a
                 href="/gespraech-vereinbaren"
                 onClick={() => setOpen(false)}
-                className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] bg-brand-500 text-base font-bold text-ink"
+                className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] text-base font-bold text-white"
+                style={{
+                  background: "linear-gradient(150deg, #14425f, #0b2438)",
+                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 26px -14px rgba(255,153,0,0.7)",
+                }}
               >
                 Potenzialanalyse buchen
               </a>

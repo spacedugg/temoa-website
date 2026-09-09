@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 
-const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.png`);
+const logos = Array.from({ length: 14 }, (_, i) => `/clients/${i + 1}.webp`);
 
 /** Client-logo marquee + a compact trust line. Drop onto any subpage.
  *  `bare` zeigt nur die Logos (ohne Überschrift und Trust-Zeile) — sinnvoll,
  *  wenn die Zahlen schon in einer eigenen Sektion auf der Seite stehen. */
 export function ProofStrip({ tone = "white", bare = false }: { tone?: "white" | "blue"; bare?: boolean }) {
   return (
-    <section className={`relative ${tone === "blue" ? "bg-[#EDF5FB]" : "bg-white"} py-12 md:py-14`}>
+    <section className={`relative ${tone === "blue" ? "ground-tint" : "ground"} py-12 md:py-14`}>
       <div className="container-x">
         {!bare && (
           <p className="text-center text-xs font-bold uppercase tracking-[0.16em] text-ink-faint">

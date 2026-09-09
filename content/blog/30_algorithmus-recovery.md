@@ -31,7 +31,7 @@ Ein nützlicher Test: Betrifft der Einbruch nur ein Produkt oder dein ganzes Sor
 
 Sobald die Ursache klar ist, handelst du gezielt:
 
-- **Bei technischen Problemen:** sofort beheben – reaktivieren, Buy Box zurückholen, unterdrückte Inhalte korrigieren. Das ist der schnellste Hebel.
+- **Bei technischen Problemen:** sofort beheben – reaktivieren, Buy Box zurückholen, unterdrückte Inhalte korrigieren. Das wirkt am schnellsten.
 - **Bei Verfügbarkeit:** Nachschub sichern und das Flywheel mit Werbung wieder anschieben, um verlorenes Momentum zurückzukaufen.
 - **Bei Wettbewerb:** Listing und Angebot schärfen – Conversion verbessern, Preis und Wertversprechen prüfen, Werbung anpassen.
 - **Bei Bewertungen:** Ursache der negativen Reviews angehen (Produkt/Service), regelkonform neue Bewertungen fördern.

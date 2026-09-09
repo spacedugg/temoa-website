@@ -23,7 +23,7 @@ Amazon Prints konkurriert mit etablierten Fotodienstleistern. Seine Stärken sin
 
 ## Relevanz für Verkäufer und Marken
 
-Für klassische Amazon-Seller ist Amazon Prints in der Regel kein Verkaufskanal – es ist ein Endkundendienst von Amazon selbst, kein Marktplatz für Dritthändler. Indirekt zeigt der Dienst aber etwas Wichtiges: wie konsequent Amazon sein Ökosystem aus Geräten, Cloud, Prime und physischen Produkten verzahnt. Wer das Verhalten von Amazon-Kunden verstehen will, sieht hier ein gutes Beispiel für die Bindung über mehrere Services hinweg.
+Für Marken auf Amazon ist Amazon Prints in der Regel kein Verkaufskanal – es ist ein Endkundendienst von Amazon selbst, kein Marktplatz für Dritthändler. Indirekt zeigt der Dienst aber etwas Wichtiges: wie konsequent Amazon sein Ökosystem aus Geräten, Cloud, Prime und physischen Produkten verzahnt. Wer das Verhalten von Amazon-Kunden verstehen will, sieht hier ein gutes Beispiel für die Bindung über mehrere Services hinweg.
 
 ## Wann der Dienst sinnvoll ist
 

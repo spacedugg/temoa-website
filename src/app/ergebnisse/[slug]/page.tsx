@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { CaseBlock } from "@/components/cases/CaseStudiesFull";
 import { CaseGallery, OtherCases } from "@/components/cases/CaseDetailExtras";
 import { ServiceCTA } from "@/components/service/Blocks";
-import { Testimonials } from "@/components/home/Testimonials";
 import { cases, getCase } from "@/lib/cases";
 
 export function generateStaticParams() {
@@ -26,20 +25,21 @@ export default async function CaseDetailPage({ params }: { params: Promise<{ slu
   if (!c) notFound();
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         <div className="pt-10 md:pt-14" />
         <CaseBlock c={c} index={0} />
         <CaseGallery c={c} />
         <OtherCases slug={c.slug} />
-        <Testimonials tone="white" />
         <ServiceCTA
           title="Solche Ergebnisse für eure Marke?"
-          sub="In der kostenlosen Potenzialanalyse schauen wir, welcher Schritt aus dieser Case Study auf euer Sortiment passt."
-          chips={["Ihr verlängert nach Performance", "98 % Kundenbindung"]}
+          zusagen={[
+            "Ihr bekommt eine Einschätzung zu eurem Sortiment, keine Standardpräsentation",
+            "Wir sagen auch ab, wenn wir bei euch keinen Weg sehen",
+          ]}
         />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

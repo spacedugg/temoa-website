@@ -11,7 +11,7 @@ Ein erfolgreiches Amazon-Geschäft ist nicht nur eine Einnahmequelle – es ist 
 
 ## Wie der Wert grundsätzlich berechnet wird
 
-Die gängigste Bewertungslogik basiert auf dem Gewinn, multipliziert mit einem Faktor (Multiple). Üblich ist die Kennzahl **SDE** (Seller's Discretionary Earnings) – vereinfacht der bereinigte Gewinn, den ein Eigentümer-Geschäftsführer tatsächlich aus dem Geschäft zieht. Auf diesen Gewinn wird ein Multiple angewandt, das je nach Qualität und Risiko des Geschäfts variiert. Vereinfacht: Wert = bereinigter Jahresgewinn × Multiple. Das Multiple ist der Hebel, an dem sich alles entscheidet.
+Die gängigste Bewertungslogik basiert auf dem Gewinn, multipliziert mit einem Faktor (Multiple). Üblich ist die Kennzahl **SDE** (Seller's Discretionary Earnings) – vereinfacht der bereinigte Gewinn, den ein Eigentümer-Geschäftsführer tatsächlich aus dem Geschäft zieht. Auf diesen Gewinn wird ein Multiple angewandt, das je nach Qualität und Risiko des Geschäfts variiert. Vereinfacht: Wert = bereinigter Jahresgewinn × Multiple. Am Multiple entscheidet sich alles.
 
 ## Was das Multiple treibt
 

@@ -33,7 +33,7 @@ Geh schrittweise vor. Automatisiere zuerst die zeitfressenden, regelbasierten Ro
 
 ## Das richtige Mindset
 
-Der nützlichste Gedanke: Automatisierung ist ein Werkzeug zur Hebelung deiner Zeit, kein Ersatz für Verständnis und Kontrolle. Die erfolgreichsten Verkäufer automatisieren das Repetitive und investieren die gewonnene Zeit in das, was Maschinen nicht können – Produktentscheidungen, Differenzierung, Beziehungen und Strategie. Wer dagegen die Verantwortung komplett abgibt, verliert die Kontrolle über sein eigenes Geschäft.
+Der nützlichste Gedanke: Automatisierung ist ein Werkzeug, das deine Zeit vervielfacht, kein Ersatz für Verständnis und Kontrolle. Die erfolgreichsten Verkäufer automatisieren das Repetitive und investieren die gewonnene Zeit in das, was Maschinen nicht können – Produktentscheidungen, Differenzierung, Beziehungen und Strategie. Wer dagegen die Verantwortung komplett abgibt, verliert die Kontrolle über sein eigenes Geschäft.
 
 ## Fazit
 

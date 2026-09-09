@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Kopfzeile } from "@/components/takt/Kopfzeile";
+import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
@@ -37,11 +37,52 @@ function slugify(s: string) {
     .replace(/^-|-$/g, "");
 }
 
+/**
+ * Loest HTML-Entities in Text auf, der als Text ausgegeben wird.
+ *
+ * Das Inhaltsverzeichnis liest die Ueberschriften aus dem gerenderten HTML.
+ * Dort steht ein Anfuehrungszeichen als `&quot;`. React gibt den String
+ * unveraendert aus, deshalb stand im Verzeichnis woertlich
+ * „niedrig ist immer gut&quot;". Betroffen war jede Ueberschrift mit
+ * Anfuehrungszeichen, kaufmaennischem Und oder Apostroph.
+ */
+function entitiesAuflösen(s: string) {
+  const bekannt: Record<string, string> = {
+    amp: "&",
+    lt: "<",
+    gt: ">",
+    quot: '"',
+    apos: "'",
+    nbsp: " ",
+    ndash: "–",
+    mdash: "–",
+    hellip: "…",
+    laquo: "«",
+    raquo: "»",
+    bdquo: "„",
+    ldquo: "“",
+    rdquo: "”",
+    sbquo: "‚",
+    lsquo: "‘",
+    rsquo: "’",
+    shy: "",
+  };
+  return s.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (treffer, name: string) => {
+    if (name.startsWith("#x") || name.startsWith("#X")) {
+      return String.fromCodePoint(parseInt(name.slice(2), 16));
+    }
+    if (name.startsWith("#")) {
+      return String.fromCodePoint(parseInt(name.slice(1), 10));
+    }
+    return name.toLowerCase() in bekannt ? bekannt[name.toLowerCase()] : treffer;
+  });
+}
+
 /** Inject ids into h2 headings and build a table of contents. */
 function withToc(html: string) {
   const toc: { id: string; label: string }[] = [];
   const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner) => {
-    const label = String(inner).replace(/<[^>]+>/g, "").trim();
+    const label = entitiesAuflösen(String(inner).replace(/<[^>]+>/g, "")).trim();
     const id = slugify(label);
     toc.push({ id, label });
     return `<h2 id="${id}">${inner}</h2>`;
@@ -58,10 +99,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <Navbar />
+      <Kopfzeile />
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-white pt-32 md:pt-40">
+        <section className="relative overflow-hidden ground pt-32 md:pt-40">
           <div
             className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-50 blur-3xl"
             style={{ background: `radial-gradient(circle, ${post.accent}33, transparent 70%)` }}
@@ -71,7 +112,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <nav className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
                 <a href="/blog" className="hover:text-ink">Blog</a>
                 <span className="text-ink-faint">/</span>
-                <a href={`/blog/kategorie/${post.categorySlug}`} className="hover:text-ink" style={{ color: post.accent }}>
+                <a
+                  href={`/blog/kategorie/${post.categorySlug}`}
+                  className="font-semibold text-navy underline decoration-2 underline-offset-2 hover:decoration-navy"
+                  style={{ textDecorationColor: post.accent }}
+                >
                   {post.categoryLabel}
                 </a>
               </nav>
@@ -86,7 +131,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </Reveal>
             <Reveal delay={0.15}>
               <div className="mt-5 flex items-center gap-3 text-sm text-ink-faint">
-                <span className="font-semibold" style={{ color: post.accent }}>
+                <span className="inline-flex items-center gap-2 font-semibold text-ink">
+                  <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: post.accent }} />
                   {post.categoryShort}
                 </span>
                 <span className="h-1 w-1 rounded-full bg-ink-faint" />
@@ -101,6 +147,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 icon={post.categoryIcon}
                 seed={post.slug}
                 image={post.image}
+                label={post.categoryLabel}
                 className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
               />
             </Reveal>
@@ -108,7 +155,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </section>
 
         {/* Body + TOC */}
-        <section className="relative bg-white py-14 md:py-16">
+        <section className="relative ground py-14 md:py-16">
           <div className="container-x">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
               <article className="article-body max-w-2xl" dangerouslySetInnerHTML={{ __html: html }} />
@@ -134,7 +181,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         {/* Related */}
         {related.length > 0 && (
-          <section className="relative bg-[#EDF5FB] py-16 md:py-20">
+          <section className="ground-tint relative py-16 md:py-20">
             <div className="container-x">
               <h2 className="text-2xl font-bold tracking-tight text-ink">Weiterlesen</h2>
               <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
@@ -150,10 +197,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <ServiceCTA
           title="Genug gelesen, Zeit für Ergebnisse?"
-          sub="In der kostenlosen Potenzialanalyse zeigen wir, wo in eurem Account das Wachstum liegt."
         />
       </main>
-      <Footer />
+      <Fusszeile />
     </>
   );
 }

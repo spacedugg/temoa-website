@@ -1,13 +1,41 @@
 "use client";
 
 import { useEffect } from "react";
+import { ConsentGate } from "../consent/ConsentGate";
 
 /* Cal.com inline embed. Set the real booking link in CAL_LINK (e.g.
    "temoa/potenzialanalyse"); until then a styled scheduler placeholder
    is shown so the page is complete and on-brand. */
 const CAL_LINK = "temoa-clemens/temoa-strategiegesprach";
 
+/**
+ * Der Kalender, hinter der Einwilligung.
+ *
+ * `ConsentGate` rendert sein Kind erst, wenn die Kategorie „Externe Dienste"
+ * zugelassen ist. Weil der Ladecode in `CalInline` steckt und nicht hier,
+ * laeuft er dann auch wirklich erst danach: kein Skript von app.cal.com, keine
+ * Verbindung, kein Cookie, solange nicht zugestimmt wurde.
+ *
+ * Wer nicht zustimmen will, bekommt den Weg direkt zum Anbieter. Ein
+ * Einwilligungsbanner, das ohne Zustimmung keinen Weg zum Termin laesst, waere
+ * eine Kopplung.
+ */
 export function CalEmbed() {
+  if (!CAL_LINK) return <SchedulerPlaceholder />;
+  return (
+    <ConsentGate
+      kategorie="extern"
+      titel="Der Terminkalender liegt bei Cal.com"
+      grund="Damit ihr die freien Zeiten hier direkt sehen könnt, laden wir den Kalender von Cal.com. Dabei geht eine Verbindung dorthin, und Cal.com setzt eigene Cookies. Ohne eure Zustimmung passiert das nicht."
+      ausweichLabel="Termin direkt bei Cal.com buchen"
+      ausweichHref={`https://cal.com/${CAL_LINK}`}
+    >
+      <CalInline />
+    </ConsentGate>
+  );
+}
+
+function CalInline() {
   useEffect(() => {
     if (!CAL_LINK) return;
     // Official Cal.com embed loader.
@@ -43,14 +71,15 @@ export function CalEmbed() {
     window.Cal("inline", { elementOrSelector: "#cal-inline", calLink: CAL_LINK });
   }, []);
 
-  if (CAL_LINK) {
-    return (
-      <div>
-        <div className="relative min-h-[540px] overflow-hidden rounded-3xl ring-1 ring-black/[0.06]">
-          <div className="pointer-events-none absolute inset-0 grid place-items-center text-sm text-ink-faint">
+  return (
+    <div>
+        {/* Kein overflow-hidden und keine feste Hoehe: der Cal-Rahmen waechst
+            mit der Terminauswahl, vorher war er bei 540 px abgeschnitten. */}
+        <div className="relative rounded-3xl ring-1 ring-black/[0.06]">
+          <div className="pointer-events-none absolute inset-x-0 top-40 grid place-items-center text-sm text-ink-faint">
             Kalender wird geladen …
           </div>
-          <div id="cal-inline" className="relative min-h-[540px] w-full" />
+          <div id="cal-inline" className="relative min-h-[42rem] w-full md:min-h-[46rem]" />
         </div>
         <p className="mt-4 text-center text-sm text-ink-faint">
           Kalender lädt nicht?{" "}
@@ -58,16 +87,13 @@ export function CalEmbed() {
             href={`https://cal.com/${CAL_LINK}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-brand-600 underline underline-offset-2"
+            className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2"
           >
             Termin direkt bei Cal.com buchen
           </a>
         </p>
       </div>
-    );
-  }
-
-  return <SchedulerPlaceholder />;
+  );
 }
 
 const days = ["Mo", "Di", "Mi", "Do", "Fr"];
@@ -91,7 +117,7 @@ function SchedulerPlaceholder() {
               <div className="text-xs font-semibold text-ink-faint">{d}</div>
               <div
                 className={`mt-1.5 grid h-11 place-items-center rounded-xl text-sm font-bold ring-1 ${
-                  i === 2 ? "bg-brand-500/10 text-brand-600 ring-brand-200" : "text-ink ring-black/[0.06]"
+                  i === 2 ? "bg-brand-500/10 text-ink ring-brand-200" : "text-ink ring-black/[0.06]"
                 }`}
               >
                 {12 + i}
@@ -112,7 +138,7 @@ function SchedulerPlaceholder() {
             <div
               key={s}
               className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold ring-1 transition ${
-                i === 1 ? "bg-brand-500/10 text-brand-700 ring-brand-200" : "text-ink-muted ring-black/[0.07]"
+                i === 1 ? "bg-brand-500/10 text-ink ring-brand-200" : "text-ink-muted ring-black/[0.07]"
               }`}
             >
               {s}

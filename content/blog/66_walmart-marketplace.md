@@ -1,6 +1,6 @@
 ---
 title: "Walmart Marketplace für Amazon-Verkäufer: Lohnt sich der zweite Kanal?"
-meta_description: "Walmart Marketplace wächst und gilt als naheliegende Erweiterung für Amazon-Seller. Unterschiede, Chancen, Herausforderungen und für wen sich der Schritt lohnt."
+meta_description: "Walmart Marketplace wächst und gilt als naheliegende Erweiterung für Marken auf Amazon. Unterschiede, Chancen, Herausforderungen und für wen sich der Schritt lohnt."
 keywords: ["Walmart Marketplace", "Multichannel", "Amazon Alternative", "auf Walmart verkaufen"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---

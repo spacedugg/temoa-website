@@ -19,6 +19,229 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - KEINE umgangssprachlichen oder vulgaeren Ausdruecke. Verboten z. B.: "Geld in Werbung pumpen", "ins Werbebudget pumpen". Stattdessen nuechtern formulieren.
 - Above-the-fold/Hero: knapp halten. Kein unnoetiger Text, keine Microcopy unter dem Haupt-CTA.
 
+## Theme „Studio" (verbindlich, ersetzt „Taktplan")
+
+Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken Rand, Stationsnummern 00 bis 09, flache weisse Sektionen. Der Kunde hat es verworfen. Referenz sind die von ihm gelieferten Beispielbilder: weiche 3D-Renderings, Glasplatten, gluehende orange Verbindungen, isometrische Navy-Podeste.
+
+- **Kein Balken am linken Rand.** Die Komponente `TaktLine` ist geloescht und darf nicht zurueckkommen.
+- **Der Grund ist nie reinweiss.** Drei Toene, in `globals.css` definiert: `.ground` (heller Verlauf mit warmem Lichtkern), `.ground-tint` (kraeftiger getoent), `.ground-deep` (dunkles Navy-Podest, immer mit `.on-dark`). Die Toene wechseln ueber die Seite, damit Sektionen als Bloecke lesbar sind.
+- **Inhalte liegen auf Platten, nie frei im Weissraum.** `.panel` (weiss, gestaffelter Schatten, Lichtkante oben), `.panel-lift` (Hover), `.panel-dark` und `.panel-dark-accent` auf dunklem Grund. Grosse Radien, 1,75 rem an Platten.
+- **Keine Haarlinien-Listen.** Die frueheren Zeilen zwischen zwei Linien (`RuledRow`) sind durch `Karte` ersetzt: Icon-Kachel, kurze Ueberschrift, ein Satz. Icons kommen aus `src/components/takt/Icons.tsx`, Navy-Form mit einem orangen Detail.
+- **Zusammenhaenge werden gezeichnet, nicht beschrieben.** `.link-glow`, `.link-glow-v`, `.node-glow`, `.halo` und die Podest-Illustrationen. Kein Fliesstext, der erklaert, was ein Bild zeigen kann.
+- **Sektionsbezeichnung** ist eine Pille mit Leuchtpunkt (`Eyebrow`), keine nackte Zeile.
+- **Kennzahlen sind Karten** (`.kpi`), mit gruenem Trendpfeil, nicht nackte Zahlen unter einer Linie.
+- **Illustrationen sind freigestellt.** Die `szene3d`-Bilder werden mit `background: "transparent"` erzeugt und sitzen ohne Platte direkt auf dem Grund. Vorher hatten sie einen Studiogrund, der als Kasten auf der Flaeche stand und die Grafik abgeschnitten wirken liess. Entweder nahtlos auf dem Grund oder klar in einer Kachel, nie ein Bild mit eigenem hellgrauen Grund auf Weiss.
+- **Farbe traegt die Reihenfolge.** Wenn zwei Bloecke verschiedene Dinge sagen, unterscheiden sie sich auch farblich: `.panel-cool` fuer den ersten, das orange Band als Scharnier, `.panel-navy` fuer den zweiten. Dazu Schrittmarken (`.schritt`). Vorher war es weiss, orange, weiss, dann sprang das Auge aufs Orange und die Folge war nicht zu sehen.
+- **Der CTA ist der hellste Punkt der Sektion.** `btn-primary` ist groesser als ein normaler Button und traegt einen orangen Lichthof. Orange wird nie zur Buttonflaeche.
+- **Designbeispiele folgen dem Aufbau eines Listings**, nicht einem freien Raster: Hauptbild gross, darunter die sechs weiteren Bilder in zwei Spalten und drei Zeilen, rechts der A+ Content vertikal gestapelt mit Modulen im Querformat.
+- **Fotos gehoeren nicht in Kameragroesse ins Repo.** `node scripts/bilder-optimieren.mjs` rechnet die Fotos unter `public` auf Anzeigegroesse herunter und schreibt WebP, die Originale wandern nach `fotos-original` ausserhalb von `public`. Die Teamfotos lagen mit bis zu 2,5 MB je Datei im Repo, zusammen 22 MB fuer eine Sektion mit Quadraten von rund hundert Pixeln.
+
+## Design- und Bildregeln (nach Kundenfeedback verbindlich)
+
+- **Amazon muss above the fold ankommen.** Ein Besucher darf nach zwei Sekunden nicht raten, worum es geht. Frueher stand dort nur „Wachstum ist keine Frage des Werbebudgets", das konnte jede Marketingfirma sein.
+- **Keine Stationsnummerierung, keine Bauplan-Sprache.** Verboten als Sektionsbezeichnung: „Der Auftrag", „Der Befund", „Das Verfahren", „Der Umfang", „Der Nachweis", „Die Arbeiten", „Die Mannschaft", „Das Wissen", „Fuer wen", „Die Ausgangslage" in Verbindung mit einer Nummer 00 bis 09. So redet in diesem Geschaeft niemand. Sektionen tragen eine kurze normale Bezeichnung ueber der Ueberschrift (Ausgangslage, Unser Vorgehen, Leistungen, Ergebnisse, Designbeispiele, Kundenstimmen, Team, Blog) oder gar keine.
+- **Kein dunkles Orange als Schriftfarbe.** `brand-700` (#C96D00) und `brand-800` (#9E5600) sind als Text verboten, das liest sich als Gold und wirkt schmutzig. Betonte Woerter in Ueberschriften bleiben dunkel und bekommen die Klasse `mark`, die einen orangen Balken unter die Grundlinie setzt. Auf dunklem Grund darf `brand-400` Text sein.
+- **Kein dunkler Text auf oranger Flaeche bei Buttons.** Primaerbutton ist Navy mit weisser Schrift, die Pfeilscheibe traegt das Orange (`btn-primary`). Auf dunklem Grund kehrt es sich um: weisse Flaeche, Navy-Text (`btn-on-dark`). Orange bleibt Akzent, nie Buttonflaeche.
+- **Keine schwebenden Textbloecke auf Weiss.** Inhalte sitzen in abgesetzten Flaechen: Karten, getoente Baender, dunkle Sektionen. Zwei Textbausteine ohne sichtbare Trennung nebeneinander sind ein Fehler.
+- **Keine nackten Tabellen und keine Durchstreichungslisten.** Gegenueberstellungen laufen als zwei Karten, links das Uebliche gedaempft mit Kreuz, rechts die temoa-Fassung betont mit Haken.
+- **Drei Bildfamilien, klar getrennt** (siehe `content/bild-prompts.json`):
+  1. `szene3d`: weiche 3D-Illustrationen nach den Kundenreferenzen, freigestellt auf transparentem Grund. Leitfamilie fuer Argumentationssektionen.
+  2. `produkt`: fotorealistische Produktaufnahmen fuer Hero, Designbeispiele und A+ Module. Ein durchgaengiges, frei erfundenes Produkt ohne Marke und ohne Schrift.
+  3. `objekt`: die frueheren matten Einzelgegenstaende, abgeloest, nur noch Archiv.
+- **Schrift gehoert nie ins generierte Bild.** Bildmodelle setzen Schrift fehlerhaft. Der Bildgrund kommt aus der Datei, jede Beschriftung zeichnet der Code darueber. Gilt auch fuer A+ Module und Listing-Nachbauten.
+- **Listing-Nachbauten ohne Amazon-Oberflaeche.** Kein Amazon-Logo, kein Prime, keine Amazon-Chrome. Nur der Aufbau einer Produktseite. Beispiel-Listings werden als erfunden gekennzeichnet.
+- **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 60+ Marken, 5+ Marktplaetze, 98 % Kundenbindung), nicht als Fantasiewert in einer Grafik.
+
+## Farben und Sektionsfarben (Stand nach der zweiten Feedbackrunde)
+
+- **Die farbige Sektion ist Rot, nicht Orange.** Erste Fassung war die
+  Markenfarbe #FF9900 mit dunklem Text darauf. Der Kunde hat das als
+  anstrengend zurueckgewiesen: dunkelbraun auf Orange kommt auf 6:1, das ist
+  messbar in Ordnung und flimmert trotzdem, weil beide Toene fast gleich hell
+  sind. `.ground-signal` ist jetzt ein tiefes Rot (#b81f14 bis #8f150f) mit
+  weisser Schrift, 7,4:1. Damit kommt endlich das Rot aus dem Logo vor.
+- **Rot heisst Problem, Gruen heisst Ergebnis.** Die Problem-Sektion jeder
+  Leistungsseite ist dunkel mit rot getoenten Nummern und roter Kante oben.
+  Kennzahlen, die sich verbessert haben, stehen in Gruen (#6EE7A0 auf
+  dunklem Grund) mit gruenem Trendpfeil. Bei ACoS und TACoS zeigt der Pfeil
+  nach unten und bleibt gruen, weil ein gefallener Wert dort gut ist.
+- **Der Abschluss-CTA liegt auf der roten Flaeche**, nicht auf Navy: die
+  Fusszeile ist Navy, und zwei gleiche Toene direkt uebereinander lassen
+  nicht erkennen, wo die Seite endet.
+- **Der Knopf in der Kopfzeile traegt die Markenflaeche**, weil Navy auf
+  einer Seite voller Navy nicht als Aktion auffaellt.
+- **Kein farbiger Strich oben links auf weissen Kacheln.** Das Muster stand
+  auf jeder zweiten Kachel der Website und hat sie alle gleich aussehen
+  lassen. Reihenfolge tragen Ziffern, Farbe sitzt auf Aufzaehlungszeichen.
+- **Diagramme tragen keine erfundene Zeitachse.** „Vor der Ueberarbeitung"
+  bis „Nach zwoelf Monaten" ist ein Versprechen, das niemand einloesen kann.
+  Ein Schema zeigt den Mechanismus, ein Fall zeigt Zahlen, nichts dazwischen.
+- **Kleingedruckte Hinweise unter Diagrammen entfallen.** Dass eine
+  Darstellung schematisch ist, sieht man ihr an, wenn keine Zahl daran steht.
+- **Zahlenwiederholung vermeiden.** Ø +30 %, 21 Mio. EUR und 98 % standen
+  viermal auf der Startseite. Eine Zahl, die viermal dasteht, ueberzeugt
+  nicht mehr, sie nutzt sich ab.
+- **Jede Leistungsseite endet mit einem belegten Fall** (Komponente
+  `Ergebnis` in `service/Blocks`), verlinkt auf die zugehoerige Case Study.
+  Die Zahlen stammen aus `src/lib/cases.ts`, nicht aus der Fantasie.
+
+## Bausteine der dritten Feedbackrunde
+
+- **Es gibt genau einen Abschluss-CTA**, die Komponente `takt/Gespraech`.
+  Startseite (`Termin`) und Unterseiten (`ServiceCTA`) sind nur noch Huellen
+  darum. Zwei Fassungen bedeuteten, dass jede Aenderung doppelt gemacht
+  werden musste und die Seiten trotzdem verschieden aussahen.
+- **Der CTA ist eine Karte, keine hohe Sektion.** Links Clemens freigestellt,
+  formatfuellend bis an die Unterkante, mit einer Glasplatte „Hi, ich bin
+  Clemens." und einem handgezeichneten Pfeil zum Gesicht. Rechts Aussage,
+  Knopf und zwei Zusagen. Vorher stand er klein in der Ecke einer sehr hohen
+  Flaeche.
+- **Keine Chips wie „Ohne lange Laufzeit" oder „Kostenlos und
+  unverbindlich".** Der Platz traegt Zusagen mit Inhalt: was in den 30 Minuten
+  passiert, was danach bei der Marke bleibt. Aussagen ueber Vertragslaufzeiten
+  stehen nirgends, solange der Vertrag nicht danebenliegt.
+- **`framer-motion` ueberschreibt Tailwind-Transforms.** Ein `motion.img` mit
+  `-translate-x-1/2` sitzt eine halbe Breite zu weit rechts, weil das Element
+  beim Einlaufen ein eigenes `transform` bekommt. Mittig wird ueber
+  `inset-x-0 mx-auto` gesetzt.
+- **`max-w-[NNch]` gehoert an das Textelement, nicht an die Huelle.** `ch`
+  rechnet mit der Schrift des Elements; an einem `div` mit Grundschrift ergibt
+  `30ch` rund 240 Pixel, und jede Ueberschrift brach in vier kurze Zeilen.
+- **Die Problem-Sektion fuellt beide Spalten.** Ohne Diagramm: links Kopf und
+  Schlusszeile, rechts die Punkte untereinander. Mit Diagramm: links Kopf und
+  Schlusszeile, rechts das Diagramm, die Punkte darunter in zwei Spalten.
+  `text-balance` bleibt in schmalen Spalten aus, es macht aus zwei vollen
+  Zeilen vier Fetzen.
+- **Icons zeigen die Sache selbst.** Fuer die acht Aufgaben im
+  Account-Management gibt es eigene Piktogramme (`service/Aufgaben`):
+  Navy-Kachel, helle Formen, ein oranges Detail, das sich beim Zeigen bewegt.
+  Allgemeine Strich-Icons (Zielscheibe, Schild, Sternchen) sind dort raus, sie
+  passten zum Teil gar nicht zum Text.
+- **Der Globus dreht sich und traegt Flaggen** (`service/Karte`). Die
+  Marktplaetze laufen als Ring um die Kugel, vorne gross und hell, hinten
+  klein und blass. Flaggen sitzen bewusst nicht auf Laendern: genau das war
+  der Fehler in der Referenz, dort standen Flaggen auf den falschen Laendern.
+  Alles gezeichnet, kein Bildmodell.
+- **Der Knopf in der Kopfzeile ist wieder Navy** (`.btn-kopf`), mit orangem
+  Lichthof, einem Lichtsweep beim Hover und einer Scheibe, die von Weiss auf
+  Orange umschlaegt. Rot ist auf dieser Website die Farbe fuer Probleme, nicht
+  fuer die wichtigste Aktion.
+- **Trendpfeile nur, wenn alle Zahlen einer Reihe einen haben.** Im
+  Kennzahlenband stand der gruene Pfeil an einer von vier Zahlen und sass
+  optisch vor der naechsten. Jetzt traegt die Steigerung die Farbe (gruen),
+  die drei Bestandszahlen bleiben weiss, dazwischen feine Trennlinien.
+
+## Vierte Feedbackrunde (verbindlich)
+
+- **Die Signalfarbe ist das Logo-Rot #FF3131.** Zwei Vorfassungen waren zu
+  dunkel: erst ein Rot mit Stich ins Braune, dann ein tiefes Weinrot. Beide
+  waren kontraststark und trotzdem nicht die Farbe der Marke. `.ground-signal`
+  laeuft jetzt von #FF3131 oben rechts nach #BD0D19 unten links, die Textzone
+  liegt in der tieferen Ecke.
+- **Nichts liegt als Kachel auf einem Gesicht.** Die Glasplatte mit „Hi, ich
+  bin Clemens." ist vom Foto verschwunden. Die Zeile steht im Text, wo sie
+  Kontrast hat, auf der Buchungsseite unter dem Bild.
+- **Der handgezeichnete Pfeil endet auf dem Knopf**, nicht auf einem Kinn. Er
+  haengt am Knopf (`absolute` im Knopf-Wrapper) und ragt nach links ueber das
+  Bild hinaus, dadurch sitzt er auf jeder Seite richtig, egal wie lang die
+  Ueberschrift ist.
+- **Der Globus ist ein 3D-Bild plus Code.** Die Kugel kommt freigestellt aus
+  `bilder/s-international-globus.webp`, die Marktplaetze zeichnet der Code als
+  Flaggenschilder mit Leitlinie auf den Punkt. Kein Ring, nichts wird
+  angeschnitten, und die Laenderliste unter der Grafik entfaellt: der Name
+  steht am Land. Auf dem Telefon steht die Kugel allein, darunter die Flaggen
+  mit Namen, weil Schrift in der Grafik dort fuenf Pixel gross waere.
+- **Der Ablauf des Erstgespraechs stimmt jetzt.** Kein Blick in den Account
+  vorab. Erst wenn es fuer beide Seiten passt, folgt ein zweiter Termin mit
+  aufbereiteten Zahlen. „45 Minuten" und „wir schauen vorab in eure Listings"
+  sind ueberall raus. Zur Dauer siehe die zwanzigste Runde: sie steht jetzt
+  bei 30 Minuten.
+- **Bewegte Piktogramme** (`service/Aufgaben`) sind das Vorbild fuer Icons in
+  Kacheln. Auf der Startseite und der Full-Service-Seite bleiben die
+  bestehenden Grafiken, dort sind die Icons bereits eigene Zeichnungen
+  (`takt/Icons`). Aus dem allgemeinen Strich-Satz (`ui/Icon`) kommt nichts
+  Neues mehr dazu.
+
+## Fuenfte Feedbackrunde (verbindlich)
+
+- **Rot nur fuer Probleme.** `.ground-signal` steht ausschliesslich dort, wo
+  es um Fehler und Missstaende geht. Der Abschluss-CTA und die Sektion
+  „Was ihr danach in der Hand habt" (`Lieferung`) sind raus aus dem Rot: der
+  CTA liegt als dunkle Karte auf hellem Grund, `Lieferung` ist eine helle
+  Sektion mit zwei weissen Platten.
+- **Der Abschluss-CTA traegt nur das Noetigste**: Ueberschrift, Knopf, zwei
+  Zusagen. Kein Absatz unter der Ueberschrift, keine Vorstellungszeile im
+  Text. Wer spricht, steht am Bild, ohne Platte darunter, nur mit Schatten
+  unter der Schrift.
+- **Der handgezeichnete Pfeil ist geloescht.** Drei Fassungen, dreimal
+  danebengegangen. Er kommt nicht zurueck.
+- **Rundungen gehoeren auch an die Bildspalte.** Ein Bild mit `filter`
+  bricht in manchen Browsern aus dem `overflow-hidden` der Karte aus, dadurch
+  stand unten links eine eckige Ecke an einer sonst runden Karte.
+- **`whileInView` niemals auf Elementen im SVG.** Ein Element im SVG hat keine
+  eigene Box, der Beobachter loest dort in manchen Browsern nie aus, und die
+  Grafik bleibt auf Deckkraft null stehen: die Sektion ist dann leer. Der
+  Zustand haengt an der Huelle (`useInView` auf einem `div`) und wird nach
+  hoechstens zwei Sekunden ohnehin gesetzt. Eine leere Flaeche ist der
+  schlimmste Fehler, den eine Animation machen kann.
+- **Die Globus-Sektion ist zweispaltig**: links die Grafik, rechts der Text.
+  Grafik oben und Text darunter machte aus einer kurzen Aussage eine sehr
+  hohe Sektion.
+
+## Sechste Feedbackrunde (verbindlich)
+
+- **Die Marktplatzkarte ist eine echte Landkarte.** Umrisse aus Natural Earth,
+  `node scripts/europa-karte.mjs` rechnet sie in eine Lambert-Projektion und
+  schreibt `src/components/service/europa-geo.ts`. Ausschnitt Portugal bis
+  Polen, kein Globus und keine Weltansicht. Gezeigt werden die Pan-EU-Maerkte
+  (DE, FR, IT, ES, NL, BE, PL, SE), dazu Grossbritannien und ein Verweis auf
+  die USA. Kein Kanada, kein Mexiko. Jede Flagge sitzt auf ihrem Land, von
+  Deutschland laufen Lichtpunkte dauerhaft in die anderen Maerkte.
+- **Keine Kasten-in-Kasten-Sektionen.** Wenn eine Sektion eine eigene Farbe
+  traegt, laeuft der Inhalt ueber die Breite und liegt nicht noch einmal in
+  einer Box darin. Das Kennzahlenband ist deshalb eine Navy-Sektion ohne
+  Innenkarte.
+- **Der Abschluss-CTA darf hoch sein**, aber Bild, Ueberschrift, Knopf und
+  Zusagen muessen zusammen in einen Bildschirm passen, am Telefon wie am
+  Rechner.
+- **Weisse Kacheln tragen ein bewegtes Piktogramm** aus
+  `service/Piktogramme.tsx`, keine leeren Kacheln und nichts aus dem
+  allgemeinen Strich-Satz. Auf der Startseite und der Full-Service-Seite
+  bleiben die bestehenden Grafiken, dort sind die Zeichen schon eigene
+  Zeichnungen.
+- **Der Hero zeigt Wachstum, kein Produkt.** Rechts die freigestellte
+  Wachstumsszene (`bilder/h-wachstum.webp`), die leise schwebt und zum Zeiger
+  kippt. Der Listing-Nachbau ist raus.
+- **Im Hero steht sozialer Beleg, keine Kennzahlkarten.** Drei echte
+  Kundengesichter aus den Kundenstimmen, fuenf Sterne, eine Zeile. Die drei
+  dunklen Kennzahlkarten sind weg: sie setzten drei weitere Farbakzente neben
+  den Knopf, der der einzige Blickfang sein soll. Portraits sind nur die
+  Bilder mit `art: "person"`, zwei der Kundenbilder sind Buchstabenkacheln.
+
+## Siebte Feedbackrunde (verbindlich)
+
+- **Keine Kachel in der Kachel, nirgends.** Eine Sektion mit eigener Farbe
+  traegt ihren Inhalt direkt, nicht noch einmal in einem Kasten, und darin
+  nicht noch einmal in Kacheln. Umgestellt: Kennzahlenband (Startseite und
+  Case Studies), Zahlenband und Kalender auf der Buchungsseite, die 98 %
+  mit der Kundenstimme, das Kundenband auf der Startseite. Wo eine weisse
+  Flaeche noetig ist (Kalender-Einbettung), traegt die Sektion denselben
+  hellen Ton wie die Nachbarn, damit die Flaeche nicht als Kasten liest.
+  Ausnahme mit Absicht: der Abschluss-CTA ist eine Karte, das ist so
+  beschlossen.
+- **Die Marktplatzgrafik ist eine Kugel.** Orthografische Projektion mit Blick
+  auf den Nordatlantik (`scripts/europa-karte.mjs`), dadurch sind Europa und
+  die Ostkueste der USA gleichzeitig zu sehen und der Bogen ueber den Atlantik
+  ergibt Sinn. Gitternetz, Lichtkante und Schattenseite machen aus der Scheibe
+  eine Kugel. Die Schilder stehen neben der Kugel mit einer Linie auf ihren
+  Punkt: auf der Kugel ist Europa zu klein fuer neun Beschriftungen. Die
+  Aufzaehlung der Laender unter dem Text ist raus, die Namen stehen an den
+  Schildern.
+- **Die Hero-Grafik ist eine Komposition**, kein einzelnes Bild: Produktseite
+  im Vordergrund, zwei belegte Kennzahlen als Karten darueber, die
+  Wachstumsszene dahinter. Keine Amazon-Oberflaeche, keine erfundenen Zahlen,
+  keine Schrift aus dem Bildmodell.
+
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.
@@ -35,7 +258,7 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 - Verbotenes Wort: "Hebel" und jede Hebel-Analogie. Wir "hebeln" nichts; PPC wird nicht "zum Hebel".
 - Verbotene Woerter: "ausrollen" / "Rollout" und "erprobt" / "erprobtes Setup". Wir "rollen" nichts aus und nennen nichts "erprobt".
 - Internationalisierung: NIE behaupten, was in einem Markt verkauft, verkaufe automatisch im naechsten (das ist falsch). Kernaussage: Jeder Marktplatz ist ein eigener Markt und bekommt die komplette Arbeit neu (eigene Keyword-Recherche, eigener Content, eigene Kampagnen). Nicht auf Europa/USA begrenzen, es geht um Amazon-Marktplaetze weltweit.
-- Kundenstimmen/Reviews: GENAU EINE Bewertungssektion (die Homepage-Section) wird unveraendert auf jede Seite dupliziert. Keine abgespeckte 3-Karten-Variante.
+- Kundenstimmen/Reviews: Es gibt GENAU EINE Bewertungssektion (die Homepage-Section), keine abgespeckte 3-Karten-Variante. Sie steht nur noch auf der Homepage und auf der Buchungsseite. Auf allen anderen Seiten ist sie entfernt: der Kunde findet Bewertungen auf jeder Seite zu viel.
 - KI-Suche mitdenken: Content KI-ready fuer Rufus, COSMO und A10 (nicht Keywords stapeln, sondern Relevanz zeigen).
 - Kern-Argument Organic First: Listing zuerst auf Klickrate (CTR) und Conversion (CVR) optimieren, das sind die wichtigsten Ranking-Signale. Sonst bleibt PPC-Abhaengigkeit, Klicks werden jaehrlich teurer, Margen enger (Negativspirale).
 - Ueberschriften kurz, knackig, konkret. Keine generischen Floskeln, die nach etwas klingen, aber nichts sagen (Negativbeispiele: "Klarheit ueber Zahlen, Markt und Ziele", "Werbung, die Profitabilitaet bringt").
@@ -63,7 +286,7 @@ Gelten fuer ALLES: Website-Texte UND Chat-Antworten an den Kunden.
 
 Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, selbst klickbar zur Uebersichtsseite) · Case Studies · Designbeispiele · CTA "Potenzialanalyse buchen"
 
-1. Hero (Versprechen + Angebot als CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen")
+1. Hero (Amazon in der ersten Zeile, Versprechen, CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen", rechts ein Listing-Nachbau mit echten Produktbildern)
 2. Credibility-Band (Kundenlogos + Zahlen: Ø +30 % Profitabilitaet, 21 Mio EUR betreuter Jahresumsatz, 60+ betreute Marken, 5+ Marktplaetze)
 3. Problem (kurz, knackig, visuell: "Das Noetigste reicht nicht" + Pain-Liste, fuehrt mit Zeitmangel; KEIN "nebenbei")
 4. Mechanismus Organic First, PPC Second + Alt/Neu-Tabelle (Spalten "Wie es jetzt laeuft" vs "Wie temoa arbeitet"; kein Wort "Agentur")
@@ -78,6 +301,888 @@ Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, se
 
 **Call-Buchen-Unterseite:** Prozessablauf, FAQ, Einbindung des Cal.com-Kalenders.
 
+## Unterseiten (Stand nach dem Theme-Wechsel)
+
+- **Eine Kopf- und Fusszeile fuer alle Seiten**: `takt/Kopfzeile` und
+  `takt/Fusszeile`. Die alten `Navbar` und `Footer` sind geloescht.
+- **Sektionsbezeichnung** ist ueberall die Komponente `Pille`
+  (`ui/SectionHeading`): Pille mit Leuchtpunkt, keine nackte Zeile.
+- **Sektionstoene** kommen aus `ground` und `ground-tint`. `bg-white` und
+  `bg-[#EDF5FB]` als Sektionsgrund sind raus.
+- **Abschluss-CTA** ist ueberall dasselbe dunkle Podest (`ground-deep`,
+  orange Lichtkante oben, `btn-on-dark`). Die frueheren Flaechen in tiefem
+  Orange-Rot (`--brand-gradient-deep`) sind weg.
+- **Bilder in Sektionen** laufen ueber `SzeneBild` in `service/Blocks`:
+  Pfade unter `/bilder` sind freigestellt und bekommen keinen Rahmen, Fotos
+  bekommen die Platte. Fehlt ein Bild, entfaellt die Bildspalte. Es gibt
+  keine grauen Kaesten mit der Aufschrift „Bild" mehr.
+- **Kein Orange als Schriftfarbe**, auch nicht `brand-600` (#F08400, rund
+  2,6:1 auf Weiss). Links sind Navy mit oranger Unterlaenge. Auf oranger
+  Flaeche steht immer dunkler Text.
+- **Leistungsseiten** haben je eine eigene freigestellte Illustration:
+  `s-strategie`, `s-content`, `s-advertising`, `s-account`,
+  `s-international`.
+- **Designbeispiele**: solange die Referenz-Bibliothek
+  (`src/data/references.json`) leer ist, zeigt die Seite den Aufbau am
+  erfundenen Beispielprodukt, sichtbar gekennzeichnet. Der Aufbau ist
+  links das Hauptbild, rechts die sechs Listingbilder (`listing-raster`,
+  auf dem Telefon gestapelt).
+- **Alte Sektionen sind geloescht.** `components/home` und
+  `components/sections` enthielten 37 Vorfassungen, auf die keine Seite
+  mehr zeigte. Sie kommen nicht zurueck; erhalten bleiben nur
+  `sections/ComingSoon`, `sections/SocialProof` und `home/Stats`.
+  Im zweiten Durchgang sind auch `lib/copy.ts`, `sections/Blocks`,
+  `sections/Mocks`, `sections/Listing3D` und `ui/MockKit` gefallen: sie
+  zeigten nur noch aufeinander, und `copy.ts` war voller verbotener
+  Woerter (Hebel, erprobt, Gedankenstriche). Toter Code mit falschem
+  Wortschatz ist gefaehrlich, weil man ihn beim naechsten Mal
+  wiederverwendet.
+
+## Siebte Feedbackrunde (verbindlich)
+
+- **Die Marktplatzgrafik ist ein Ausschnitt einer Kugel, keine Scheibe.**
+  Die Kugel ist groesser als der Rahmen und deckt ihn ab: oben, unten und
+  links laeuft sie hinaus, es gibt keinen sichtbaren Rand und keine
+  Lichtkante. Ein Rechteck im aeussersten Ton des Verlaufs liegt hinter der
+  Kugel, damit in den Ecken kein Stueck helle Seite steht.
+- **Der Ausschnitt reicht bis an den Bildschirmrand**, ohne dass etwas
+  abgeschnitten wird: der negative Rand links ist genau der Rand des
+  Containers (`-ml-[calc(max(2rem,(100vw-80rem)/2+2rem))]`). Ein glatter
+  `-ml-[18vw]` sieht auf einem Bildschirm richtig aus und schneidet auf dem
+  naechsten die USA ab.
+- **Weiche Kanten statt harter.** Die Grafik laeuft oben, unten und zum Text
+  hin ueber eine Maske aus. Zwei verschachtelte Huellen, weil ein Element nur
+  eine Maske traegt: aussen senkrecht, innen waagerecht. `mask-composite`
+  kann nicht jeder Browser.
+- **In einem Ausschnitt liegen die Schilder auf der Kugel**, nicht daneben:
+  neben der Woelbung waere kein Platz, ohne dass die Kugel wieder klein wird.
+  Die neun europaeischen Schilder stehen als Spalte ueber dem Atlantik, die
+  USA tragen ihres neben dem Punkt. Leitlinien sind hell, nicht dunkel: sie
+  laufen ueber dunkles Blau.
+- **Ringe, die groesstenteils hinter dem Horizont liegen, fallen weg.** Punkte
+  auf der Rueckseite werden auf den Rand gezogen, damit Kuesten nicht
+  abreissen. Aus einer Inselkette hinter dem Horizont wird dadurch ein
+  Schmierstreifen am Rand, wenn ein einziger sichtbarer Punkt schon reicht.
+- **Kein dunkles Zeichen auf oranger Flaeche, nirgends.** Betroffen waren die
+  Schrittmarke `.schritt-orange` (dunkle Ziffer auf Orange, jetzt Navy mit
+  weisser Ziffer und orangem Ring), die Bruecke und die Haken in
+  `Lieferung`, das Kennzahlenband, der Einkaufswagen im Hero und die Scheiben
+  der Knoepfe. Geprueft wird das nicht per Auge, sondern indem man jede Seite
+  im Browser nach Elementen mit oranger Flaeche durchgeht und deren Text-,
+  `stroke`- und `fill`-Farbe auf Helligkeit prueft.
+- **Ausgenommen ist der Textmarker `.mark`**: der orange Balken sitzt unter
+  der Grundlinie, die Schrift steht nicht darauf.
+
+## Achte Feedbackrunde (verbindlich, ersetzt die Ausschnitt-Regeln)
+
+- **Die Marktplatzgrafik ist eine runde Kugel auf dem Grund der Seite.** Kein
+  rechteckiger Ausschnitt, keine Maske, kein weiches Auslaufen an den Kanten.
+  Der Kunde hat den Ausschnitt mit Auslauf verworfen: er sah aus wie ein
+  schlecht freigestelltes Bild. Der Kreis steht mit einem Schatten darunter
+  frei auf der Flaeche, sonst nichts.
+- **Die Kugel ist nah an Europa herangefahren.** Der Radius (1750) ist ein
+  Vielfaches des sichtbaren Kreises (470), dadurch sind Deutschland,
+  Frankreich, Spanien und Italien gross genug, dass eine Flagge im Land
+  stehen kann. Gitternetz, Lichtkante und Schattenseite machen daraus eine
+  Kugel und keine Landkarte.
+- **Die Flagge steckt im Land.** Keine Pillen am Bildrand, keine Leitlinien
+  vom Schild auf ein Land. Wo zwei Laender zu klein und zu nah beieinander
+  liegen (Niederlande, Belgien), sitzt die Flagge daneben, ohne Linie. Der
+  Name erscheint beim Zeigen ueber der Flagge.
+- **Die USA stehen als eigener Punkt unter der Kugel**, mit einem gestrichelten
+  Bogen vom westlichen Rand dorthin. Bei diesem Zoom liegt Amerika hinter dem
+  Horizont; eine Flagge im Atlantik waere schlicht falsch.
+- **Das Schweben liegt auf der ganzen Grafik**, nicht auf der Kugel allein:
+  sonst wandert die Kugel unter den Flaggen weg.
+
+## Neunte Feedbackrunde (verbindlich)
+
+- **Der Hero traegt ein freigestelltes 3D-Bild, keinen Nachbau aus Code.**
+  Der Listing-Nachbau war eine weisse Karte auf hellem Grund: er stand nicht im
+  Bild, er fiel hinein, und die Sektion darunter ist ebenfalls hell. Jetzt
+  `bilder/h-buehne.webp` im Stil der uebrigen Bilder, dunkle Koerper auf hellem
+  Grund. Die beiden schwebenden Kennzahlkarten sind ersatzlos raus.
+- **Bewegung macht der Code, nicht das Bild**: schweben, zum Zeiger kippen
+  (`Neigung`), ein Lichthof, der leise atmet.
+- **Generierte Bilder brauchen `"transparent": true`** in
+  `content/bild-prompts.json`. Ohne das Feld malt das Modell das Karomuster als
+  Hintergrund ins Bild, und auf der Seite steht ein Schachbrett.
+- **Der Verlauf ist ein isometrischer Stapel auf dunklem Grund**, nicht eine
+  flache Flaeche ueber die ganze Breite. Er steht neben der Aussage, nicht
+  darunter. Unten der Umsatz ueber Werbung, ueberall gleich hoch, darueber der
+  organische Umsatz, der waechst, dazu eine waagerechte Hoehenlinie hinter den
+  Saeulen. Kein Zeitstrahl, keine Werte.
+- **Das Ergebnisband zwischen den beiden Schritten ist weiss mit orangem Ring
+  und orangem Lichthof**, dazu `z-10`. Vorher war es Navy und lag damit auf
+  derselben Farbe wie die Platte darunter, davor Orange mit dunkler Schrift.
+- **Kleine Haken sind weiss auf Navy.** Ein oranges Zeichen in einem Kreis von
+  20 Pixeln auf dunklem Grund ist nur ein Fleck. Orange bleibt Akzent auf
+  Flaechen und Ringen, nicht auf kleinen Zeichen.
+- **Gegenueberstellungen tragen eine eigene Ueberschrift.** Zwei weisse Karten
+  ohne Ansage auf hellem Grund gehen unter. Die temoa-Karte ist die betonte:
+  oranger Lichtsaum und kraeftigerer Schatten.
+- **Bilder in Kacheln bekommen eine eigene Spalte**, wenn sie etwas zeigen
+  sollen. In der Ecke neben einer Ueberschrift sind sie Dekoration.
+
+## Zehnte Feedbackrunde (verbindlich, ersetzt alle Globus-Regeln davor)
+
+Der Kunde hat neun Fassungen der Marktplatzgrafik verworfen und dann eine
+Referenz geschickt. Der Fehler in allen neun war derselbe: die Kugel war
+dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
+
+- **Die Kugel ist hell**, matt, auf hellem Grund: Verlauf von fast Weiss oben
+  links nach gedaempftem Blaugrau unten rechts. Kein dunkles Blau, kein Glas,
+  kein Glanzpunkt. Das Land ist eine helle Silhouette mit feinem Punktraster,
+  das gibt der Flaeche Material, ohne dass eine zweite Farbe dazukommt.
+- **Keine Bewegung.** Die Grafik steht still. Ohne Animation sieht sie besser
+  aus, und sie muss nichts vorfuehren.
+- **Der Blick geht weit in den Atlantik hinaus** (Mitte 50 Grad West, 36 Grad
+  Nord). Dadurch liegt Europa rechts am Rand und Nordamerika in der Mitte,
+  beides ist gleichzeitig zu sehen, und der Bogen ueber den Atlantik ergibt
+  Sinn. Europa ist dabei stark verkuerzt, das gehoert zu dieser Ansicht.
+- **Die ganze Kugel steht im Bild**, mit einem weichen Schatten darunter. Kein
+  Ausschnitt, keine Maske, kein Rahmen, keine Platte.
+- **Die Schilder tragen Flagge und Laenderkuerzel**, nicht den ganzen Namen:
+  neun Namen um ein kleines Europa herum sind eine Wand aus Schrift. Sie
+  stehen im Kranz um Europa und zeigen mit einem kurzen hellen Stiel auf ihren
+  Punkt. Der Punkt ist ein oranger Leuchtpunkt auf dem Land.
+- **Auf dem Telefon entfallen die Schilder**: darin waere die Schrift acht
+  Pixel gross. Dort tragen Punkte die Kugel und die Namen stehen als Liste
+  darunter.
+- **Erzeugt wird die Geometrie von `scripts/welt-karte.mjs`** nach
+  `src/components/service/welt-geo.ts`. Marktplaetze werden feiner
+  vereinfacht als die Umgebung, damit ihre Form stimmt.
+
+## Elfte Feedbackrunde (verbindlich)
+
+- **Die fuenf Leistungen heissen ueberall gleich**: Strategie, Produktbilder &
+  SEO, PPC Advertising, Account Management, Internationalisierung. Alte Namen
+  („Strategie & Analyse", „Content & Listings", „Advertising / PPC",
+  „Account-Management") sind raus, in Kopfzeile, Fusszeile, Startseite,
+  Full-Service-Seite, Leistungsseiten und deren Metadaten. Die Adressen der
+  Seiten bleiben unveraendert (`/leistungen/listing-seo`,
+  `/leistungen/ppc-advertising`), sonst brechen Verweise und Suchergebnisse.
+  Ausgenommen sind die Schrittmarken der Grafik `takt/Zusammenlauf`: fuenf
+  Kacheln von rund achtzig Pixeln tragen dort weiter Kurzformen.
+- **In den Designbeispielen steht echte Arbeit, kein erfundenes Produkt.** Das
+  Listing fuer Miganeo (sieben Bilder, sechs Module Premium A+ Content) liegt
+  unter `public/bilder/miganeo`. Sobald freigegebene Arbeit vorliegt, hat ein
+  erfundenes Beispiel auf der Seite nichts mehr zu suchen. Betroffen sind die
+  Startseite (`takt/sections`, `Arbeiten`) und der Rueckfall der Seite
+  Designbeispiele (`design/DesignGallery`).
+- **Die Bilder tragen ihre Beschriftung selbst.** Die Regel „Schrift gehoert
+  nie ins Bild" gilt fuer erzeugte Grafiken. Ausgelieferte Kundenarbeit wird
+  gezeigt, wie sie auf Amazon steht.
+- **Die Spaltenbreite der Designbeispiele ist gerechnet, nicht geschaetzt.**
+  Links ergibt sich die Hoehe aus 1,25 Breiten fuers Hauptbild (4:5) und drei
+  halben Breiten fuer die sechs Quadrate, rechts aus sechs Modulen im
+  Verhaeltnis 1400:574. Gleichgesetzt fuehrt das auf 0,884 zu 1, und beide
+  Spalten enden auf derselben Hoehe. Vorher fuellte eine Platte in der rechten
+  Spalte den Rest auf; die Platte steht jetzt ueber die volle Breite unter
+  beiden Spalten.
+- **A+ Module liegen ohne Abstand untereinander.** Auf der Produktseite laufen
+  sie ineinander; mit Luft dazwischen fallen der Kopf und das erste Bild
+  auseinander.
+- **Clemens steht auf Orange, nicht auf Blau.** Die Portraetspalte des
+  Abschluss-CTA lag als dunkelblaues Feld in einer dunkelblauen Karte, damit
+  hob sich das Portrait nicht ab. Der Grund ist jetzt orange, im CTA
+  (`takt/Gespraech`) und auf der Buchungsseite (`booking/BookingBody`)
+  derselbe Verlauf.
+- **Die Zeile am Bild bekommt einen Grund, keine Platte.** „Hi, ich bin
+  Clemens." stand mit einem Schatten frei auf dem Foto. Der Fuss der Spalte
+  laeuft jetzt ueber die unteren 36 Prozent ins Dunkelbraun aus. Braun und
+  nicht Navy: auf einer orangen Flaeche liest sich Braun als ihr eigener
+  Schatten, Navy als zweite Farbe. Eine Kachel auf dem Gesicht bleibt
+  verboten.
+- **Kundenbilder kommen als WebP in Anzeigegroesse ins Repo**, nicht in
+  Kameragroesse: 1200 px fuers Hauptbild, 700 px fuer die Listingbilder,
+  1400 px fuer die A+ Module. Aus 45 MB JPG werden so 1,5 MB.
+
+## Zwoelfte Feedbackrunde (verbindlich, Startseite)
+
+- **Die Reihenfolge der Startseite ist: Hero, Kundenband, Leistungen, Case
+  Studies, Ausgangslage mit Ursache, Unser Vorgehen, Designbeispiele,
+  Kundenstimmen, Abschluss-CTA, Team.** Vorher stand die Ausgangslage vor den
+  Leistungen: ein Besucher las zuerst, was bei ihm schiefliegt, und erfuhr
+  erst danach, was wir tun. Der Blog-Streifen am Fuss ist ersatzlos raus, mit
+  ihm die Komponente `Wissen`.
+- **Das Kundenband traegt Navy.** Es lag im selben hellen Ton wie der Hero,
+  damit hatte der Hero keine Unterkante. Die Logos sind weisse Silhouetten
+  (`brightness-0 invert`). Zwei der vierzehn Dateien sind „Knockout", der
+  Schriftzug ist in eine gefuellte Flaeche gestanzt: als Silhouette werden sie
+  zu einem weissen Klecks, deshalb bleiben sie in ihrer Farbe (`KNOCKOUT` in
+  `takt/sections`). Rot waere hier falsch, Rot ist die Farbe fuer Probleme.
+- **Die Case Studies sind ein Band aus fuenf Streifen**, die sich die Breite
+  teilen. Beim Zeigen wird einer breit, die anderen weichen zurueck, und im
+  breiten Streifen kommt die Ueberschrift des Falls dazu. Bewegt wird
+  `flex-grow`, keine Breite in Prozent: die rechnet der Browser gegen die
+  Elternbreite und die Nachbarn springen. Vorher waren es fuenf grosse Karten
+  in zwei Spalten, die Sektion war ueber zweitausend Pixel hoch.
+- **Zahlen in schmalen Spalten brauchen `whitespace-nowrap`.** „+37,3 %" brach
+  sonst hinter dem Komma um und das Prozentzeichen stand allein in der
+  zweiten Zeile.
+- **Im Vorgehen steht die Ueberschrift zweizeilig links, das Diagramm rechts
+  daneben.** Der Block „Was sich verschiebt" mit Ueberschrift und Absatz ist
+  raus: das Diagramm sagt dasselbe in einem Blick.
+- **Das Ergebnisband ist gruen.** Weiss mit orangem Ring war zu leise
+  zwischen zwei hellen Flaechen. Gruen ist auf dieser Website die Farbe fuer
+  Ergebnisse, und genau das steht darauf.
+- **Die Gegenueberstellung ist nicht mehr zweimal dieselbe Karte**: links eine
+  eingelassene Flaeche mit gestrichelter Kante ohne Schatten, rechts eine
+  weisse Platte mit orangem Saum, die aufliegt. Dazu deutlich Abstand nach
+  oben und eine eigene, mittig stehende Ueberschrift.
+- **Die Designbeispiele sind eine dunkle Sektion und deutlich kleiner**
+  (`max-w-[44rem]`). Die Listingbilder haben weissen Hintergrund, auf einer
+  hellen Seite sind sie nicht als Bilder zu erkennen. Vorher lief das Listing
+  ueber die volle Breite, das Hauptbild allein war siebenhundert Pixel hoch.
+  Die Platte „Was an diesem Listing gemacht wurde" ist raus.
+- **`.btn-text-hell` ist der Textlink auf dunklem Grund.** `.btn-text` faerbt
+  sich beim Zeigen dunkel und ist auf Navy dann verschwunden.
+
+## Dreizehnte Feedbackrunde (verbindlich, ersetzt alle Globus-Regeln)
+
+- **Die Marktplatzgrafik ist ein Bild, keine Zeichnung.** Nach elf gezeichneten
+  Fassungen hat der Kunde das Bild geliefert:
+  `public/bilder/s-international-kugel.webp`, freigestellt, im Stil der uebrigen
+  3D-Bilder. Es liegt ohne Platte und ohne Rahmen auf dem Grund und bewegt sich
+  nicht. Damit sind `service/welt-geo.ts` und `scripts/welt-karte.mjs`
+  geloescht; die gezeichnete Fassung steht in der Geschichte unter
+  „Marktplatzgrafik nach der Referenz des Kunden neu gebaut".
+- **Neun Maerkte, kein Grossbritannien.** Das Bild zeigt DE, FR, IT, ES, NL, BE,
+  PL, SE und die USA. Die Liste auf dem Telefon fuehrt genau diese neun: eine
+  Fahne in der Liste, die im Bild fehlt, faellt sofort auf.
+- **Bilder aus dem Chat kommen nicht auf der Platte an.** Nur Anhaenge landen in
+  `/root/.claude/uploads`. Ein Bild, das im Chat steht, ist sichtbar, aber es
+  gibt keine Datei dazu. Wenn ein Bild eingebaut werden soll: als Anhang
+  anfordern, nicht raten und nicht nachbauen.
+
+## Vierzehnte Feedbackrunde (verbindlich)
+
+- **Der Hero traegt eine Komposition aus echter Arbeit, kein erzeugtes Bild.**
+  Fuenf 3D-Entwuerfe im Stil teurer Produktrenderings hat der Kunde als
+  „kindlich" verworfen und Referenzen geschickt: ein echtes Listing auf einem
+  Telefon, Listingbilder daneben, schwebende Karten mit Zahlen. `takt/HeroBuehne`
+  baut das aus dem Miganeo-Listing, einem Telefonrahmen aus Code und zwei
+  belegten Zahlen aus der zugehoerigen Case Study, mit Link dorthin.
+- **Kein Amazon-Logo und keine Amazon-Oberflaeche**, auch wenn die Referenzen
+  sie zeigen. Der Aufbau einer Produktseite reicht.
+- **Keine erfundenen Preise.** Im Listing-Nachbau ist der Preis ein Balken.
+  Eine Zahl daraus zu machen hiesse, einen Preis fuer das Produkt eines Kunden
+  zu erfinden.
+- **„Profitabel skalieren" steht im Hero.** Skalieren kann jeder behaupten, der
+  Unterschied liegt in der Marge. Ueberschrift: „Auf Amazon profitabel
+  skalieren."
+- **`useReducedMotion` darf nie dazu fuehren, dass Animationsangaben
+  verschwinden.** Der Wert ist beim ersten Rendern false, framer-motion setzt
+  die Deckkraft auf 0, danach wird er wahr, die Angaben fallen weg und das
+  Element bleibt unsichtbar stehen. `whileInView` bleibt deshalb immer gesetzt,
+  nur der Startwert wechselt.
+- **`body` traegt `overflow-x: clip`, nicht `hidden`.** `hidden` macht aus dem
+  Body einen Scroll-Container, und darin haelt kein `position: sticky`.
+- **Die Designbeispiele sind eine Scroll-Geschichte**: links bleibt der Text
+  stehen, rechts laeuft das Listing durch. Die A+ Spalte wird auf die Hoehe der
+  Bildstrecke gezogen und teilt sie unter ihren sechs Modulen auf, dadurch enden
+  beide Spalten immer gleich. Eine gerechnete Spaltenbreite geht nie genau auf,
+  weil die Abstaende feste Pixel sind und die Bilder nicht.
+- **Die Team-Sektion der Startseite ist kurz**: drei Aufnahmen, die Bereiche im
+  Haus, ein Link auf `/team`. Dort stehen die Gruender, das Team, weitere
+  Aufnahmen und eine eigene Grafik. Die Seite steht in der Fusszeile, nicht in
+  der Kopfzeile.
+
+## Fuenfzehnte Feedbackrunde (verbindlich)
+
+- **Im Hero steht ausgelieferte Arbeit, kein erzeugtes Produkt.** Acht
+  Fassungen sind gescheitert, darunter drei erzeugte Bilder. Das letzte zeigte
+  eine erfundene Trinkflasche, und genau das will der Kunde nicht. Jetzt eine
+  Fusion seiner drei Referenzen, gebaut aus dem Miganeo-Listing: links das
+  Telefon mit der Produktseite, rechts die sechs Listingbilder als Raster,
+  darauf zwei Schilder und die belegte Zahl aus der Case Study. Kein
+  Bildmodell, keine Bewegung ausser dem einmaligen Einlaufen.
+- **Wenn ein Bild gebraucht wird, kommt es aus der Galerie des Kunden.**
+  Erfundene Produkte aus dem Bildmodell sind fuer Produktdarstellungen raus.
+- **Ueberschrift und Versprechen kommen vom Kunden**: „Profitables Wachstum
+  fuer eure Amazon-Marke." und „Mehr Umsatz ist keine Frage des Werbebudgets.
+  Es ist eine Frage der Umsetzung." Aus dem Entwurf sind zwei Saetze geworden,
+  weil der Anschluss mit „durch Profi-Umsetzung" grammatisch nicht trug, und
+  „Profi" ist raus: was wir koennen, zeigen die Faelle darunter. Die Anrede
+  bleibt „ihr/euch", auch wenn der Entwurf „deine" sagte.
+- **Die Bezeichnung gehoert in die haftende Spalte.** In den Designbeispielen
+  steht sie in der linken Spalte und bleibt mit dem Text stehen. Ueber der
+  Sektion waere sie beim ersten Scrollen weg. „Retail Ready" traegt
+  `whitespace-nowrap`, die beiden Woerter gehoeren in eine Zeile.
+- **Die Team-Sektion der Startseite ist ein Block**: Bezeichnung, Ueberschrift,
+  drei Zeilen, Link, daneben das Bild der drei Gruender. Die weisse Platte mit
+  den Bereichen ist raus, die drei Aufnahmen auch. Auf dem Bild sitzt der
+  Stempel (`takt/Stempel`): eine drehende Scheibe mit umlaufender Schrift, halb
+  auf dem Foto und halb auf dem Grund. Die Schrift wird auf den Umfang
+  gestreckt, sonst laeuft der zweite Durchlauf in den ersten.
+- **Die Team-Seite ist eine Aufstellung, keine Inszenierung.** „Wer bei euch am
+  Konto sitzt" ist raus: an einem Konto sitzt niemand. Die Trennung in „die,
+  mit denen ihr sprecht" und „die, die am Konto arbeiten" ist raus, die
+  Gruender arbeiten genauso daran. Die Sektion „Fuenf Bereiche, ein Konto" ist
+  ersatzlos gestrichen, sie sagte dasselbe wie die Startseite.
+- **Jede Person hat eine eigene Farbe**, bewusst keine Markenfarbe: ein weicher
+  Farbfleck hinter dem Portrait, ein farbiger Rand am Bild und die Rolle in
+  derselben Farbe. Das bringt Individualitaet in die Seite, ohne die Marke zu
+  wiederholen.
+
+## Sechzehnte Feedbackrunde (verbindlich)
+
+- **Hero-Copy steht wortgleich so, wie der Kunde sie vorgibt.** „Profitables
+  Wachstum fuer deine Amazon Brand", die ersten beiden Woerter fett und mit dem
+  Textmarker. Darunter: „Mehr Umsatz ist keine Frage des Werbebudgets durch
+  Profi-Umsetzung in Content, Ads, Account Betreuung & Co." Die Anrede weicht
+  hier bewusst von der uebrigen Website ab, das ist zweimal bestaetigt.
+- **Rahmen liegen als eigene Ebene ueber dem Bild.** Ein `outline` am Element
+  selbst wird vom Foto darin verdeckt, deshalb sah man beim Zeigen nur die
+  Ecken aufblitzen. Der Rahmen der Fall-Streifen ist jetzt ein eigenes
+  `absolute inset-0` mit `border-2`, immer sichtbar, und wechselt beim Zeigen
+  von Weiss auf Orange.
+- **Die Bewegung der Fall-Streifen laeuft ueber 700 ms** mit
+  `cubic-bezier(0.22,0.61,0.24,1)`, Bild und Text folgen derselben Kurve.
+- **Der Stempel traegt das Logo, keine Schrift.** Rote Scheibe im Logo-Rot
+  #FF3131, darin eine weisse Innenscheibe mit den vier Formen des Zeichens.
+  Die rote Kreisform des Logos wuerde auf der roten Scheibe verschwinden,
+  deshalb die weisse Innenflaeche.
+- **Auf der Team-Seite traegt die Karte die Farbe**, nicht nur die Rolle. Die
+  Farbe wird mit Weiss aufgehellt (86 Prozent), damit die Schrift darauf
+  lesbar bleibt.
+- **Die Team-Seite hat eine Sektion.** Bezeichnung „12 Amazon-Spezialisten",
+  keine Ueberschrift, links die drei Gruender, rechts die vier Aufnahmen aus
+  dem Buero, darunter die neun im Team. Das Band mit den Bereichen und die
+  Sektion „Bei uns" sind gestrichen: die Bereiche stehen schon auf der
+  Startseite.
+
 ## Branch
 
-Entwicklung auf `claude/pensive-turing-llpu6b`.
+Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
+
+## Siebzehnte Feedbackrunde (verbindlich)
+
+- **Das Hero-Bild liefert der Kunde.** `bilder/h-listing.webp`, freigestellt,
+  ohne Platte und ohne Rahmen, mit einem warmen Lichthof dahinter. Kein
+  Schweben, kein Kippen zum Zeiger: die Grafik laeuft einmal ein und steht
+  danach still. Damit sind zehn Fassungen erledigt, darunter fuenf
+  3D-Entwuerfe, ein erzeugtes Produkt und die Komposition aus dem
+  Miganeo-Listing (`takt/HeroBuehne`, alte Fassung in der Geschichte).
+- **Ausnahme mit Ansage: in diesem Bild steht Amazon-Oberflaeche.**
+  Amazon-Schriftzug, Suchleiste, „Add to Cart" und ein erfundener Preis von
+  299 Dollar an einem erfundenen Produkt. Das widerspricht zwei Regeln dieser
+  Datei (keine Amazon-Oberflaeche, keine erfundenen Preise). Es steht so da,
+  weil der Kunde genau dieses Bild vorgegeben hat. Nicht eigenmaechtig
+  zurueckbauen, aber auch nicht als Vorbild fuer weitere Bilder nehmen.
+- **Der Stempel ist ein Ring aus Schrift ohne Flaeche.** Zwei Vorfassungen
+  hatten eine gefuellte Scheibe, zuletzt rot mit dem Logo darin. Beide waren
+  zu schwer: eine Scheibe deckt das Bild darunter zu, und das Logo steht
+  ohnehin in der Kopfzeile. Jetzt bleibt der Grund frei, die Schrift laeuft
+  halb durchsichtig um zwei feine Ringe.
+- **Schrift, die ueber Foto und Grund zugleich laeuft, braucht eine Kontur.**
+  Der Stempel sitzt halb auf einem fast schwarzen Pullover. Dunkle Schrift
+  allein verschwindet darin, ein weicher Schein dahinter reicht nicht. Hinter
+  jedem Buchstaben liegt deshalb eine weisse Kontur (`paint-order: stroke`):
+  auf dem hellen Grund unsichtbar, auf dem Foto traegt sie die Schrift.
+- **An der Nahtstelle des Rings steht ein geschuetztes Leerzeichen.** Wo der
+  Text in sich selbst laeuft, stiess der Punkt sonst direkt an das naechste
+  Wort. Zwei normale Leerzeichen zieht SVG zu einem zusammen.
+- **Negative Raender auf dem Telefon nie groesser als der Container-Rand.**
+  `px-6` sind 1,5 rem; bei `-left-9` stand der Stempel halb ausserhalb des
+  Bildschirms, und weil `body` mit `overflow-x: clip` abschneidet, faellt das
+  nicht als waagerechtes Scrollen auf, sondern nur im Bild.
+- **Die Team-Seite ist ersatzlos gestrichen.** Mit ihr `src/app/team`,
+  `components/team/TeamBody` und `src/lib/team.ts`; der Verweis in der
+  Fusszeile und der Link aus der Team-Sektion der Startseite sind weg. Die
+  kurze Sektion auf der Startseite bleibt, sie zeigt jetzt nur noch
+  Ueberschrift, Absatz und das Bild der Gruender. Die Portraits unter
+  `public/team` bleiben liegen, Clemens wird im Abschluss-CTA gebraucht.
+
+## Achtzehnte Feedbackrunde (verbindlich)
+
+- **Alle vierzehn Kundenlogos stehen im selben Ton.** Zwei Dateien sind
+  „Knockout": der Schriftzug steht weiss in einer gefuellten farbigen Flaeche
+  (Kijimea in einem Rechteck, Nicotinell in einer Ellipse). Als weisse
+  Silhouette werden sie zu einem Klecks, in ihrer eigenen Farbe sind zwei von
+  vierzehn blau. `node scripts/logos-knockout.mjs` dreht sie um: die Helligkeit
+  wird zur Deckkraft, die Farbe faellt weg, uebrig bleibt der weisse
+  Schriftzug. Bei Nicotinell gatet zusaetzlich die Deckkraft der Quelle den
+  weissen Schein um die Ellipse weg, sonst steht dort ein grauer Nebel.
+- **Kleine Haken sind weiss, nie orange.** Ein oranges Zeichen in einem Kreis
+  von 20 Pixeln auf Navy ist nur ein Fleck, die Form ist nicht mehr zu
+  erkennen. Betroffen waren die Leistungslisten in `service/Blocks`
+  (`Lieferung`), die Bruecke derselben Datei und die beiden Zusagen im
+  Abschluss-CTA. Orange bleibt Akzent auf Flaechen, Ringen und Kanten.
+- **Account Management ist kein vierter Schritt.** In `takt/Zusammenlauf`
+  standen fuenf gleich grosse Kacheln nebeneinander, Account Management an
+  vierter Stelle. Die anderen vier sind Arbeiten mit Anfang und Ende, das
+  Account Management laeuft vom ersten Tag bis zum letzten. Es steht deshalb
+  als durchgehendes Band unter den vier Kacheln, mit einem Strich, der von
+  links nach rechts durchlaeuft.
+- **Der Ablauf der ersten Wochen ist korrigiert.** Ueberschrift „Vom Gespräch
+  bis zur ersten Optimierung.", Bezeichnung „Die ersten drei Wochen". Die
+  Analyse dauert je nach Sortiment bis zu zwei Wochen, die Arbeit laeuft
+  ab Woche 2 bis 3.
+- **In der Content-Sektion der Seite Produktbilder & SEO steht echte Arbeit.**
+  Das erfundene Produkt aus dem Bildmodell ist raus, es zeigt das Listing fuer
+  Miganeo: Hauptbild im Suchergebnis, die sieben Bilder in der Bildstrecke, die
+  ersten Module Premium A+ Content und der Aufbau der Brand Story. Mit dem
+  Produkt sind die sechzehn nicht mehr benutzten Bilder gefallen (`c-*`,
+  `ca-*`, `h-haupt`, `h-detail`, `h-gruppe`, `h-szene`, `h-wachstum`, `b-02`,
+  `s-international-globus`).
+- **Vier A+ Module untereinander sind hoeher als eine Nachbarkachel.** Ein
+  Modul ist 2,4 mal so breit wie hoch; das Raster zieht die Zeile auf die
+  hoechste Kachel, und unter den beiden anderen stand eine leere Flaeche. Die
+  Kachel hat deshalb eine feste Hoehe mit weichem Auslauf nach unten. Das sagt
+  ausserdem das Richtige: auf der Produktseite geht es dort weiter.
+- **Die Case-Studies-Seite sagt, was passiert ist.** „Fünf Konten, vollständig
+  nachgerechnet." ist raus: nachrechnen ist, was ein Steuerberater tut, und es
+  sagt nichts ueber das Ergebnis. Jetzt „Fünf Marken, die profitabel gewachsen
+  sind." Der Untertitel nennt Umsatz, neue Produkte und weitere Laender und
+  weist nicht mehr darauf hin, wo es nicht rund lief.
+- **Die Themen-Sektion des Blogs traegt Navy.** Kopf, Themen und empfohlene
+  Beitraege lagen als drei helle Flaechen uebereinander, die Sektion hatte
+  weder oben noch unten eine Kante. Die acht Themenfarben werden dafuer ueber
+  HSL umgerechnet und nicht mit Weiss gemischt: zwei davon sind #023047 und
+  #0B4D6B, aufgehellt waeren sie ein Blaugrau ohne Farbe. Der Farbton bleibt,
+  die Helligkeit geht auf 64 Prozent, die Saettigung hat eine Untergrenze.
+- **Weiche Trennzeichen statt `hyphens: auto`** in sehr schmalen Kacheln.
+  In `Zusammenlauf` sind die Kacheln auf dem Telefon rund achtzig Pixel breit;
+  dort stand „Produktbil" ueber „der", ohne Bindestrich.
+
+## Neunzehnte Feedbackrunde (verbindlich, Mobil)
+
+Gemessen wurde nicht nach Gefuehl, sondern im Browser: je Seite die
+Schriftgroessen aller Textelemente, die Hoehe jeder Sektion in Bildschirmen,
+jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
+40 Pixeln. Geprueft auf 320, 390, 430 und 768 Pixeln.
+
+- **Auf dem Telefon steht das Symbol neben dem Text, nicht darueber.** Eine
+  Karte mit Icon, Ueberschrift, einem Satz und einer Linkzeile war gestapelt
+  rund 260 Pixel hoch; vier davon untereinander sind mehr als ein Bildschirm
+  fuer vier Zeilen Inhalt. Betrifft `takt/Station` (`Karte`) und die fuenf
+  Leistungen der Startseite. Ab `md` steht wieder alles gestapelt. Ausgenommen
+  ist die Fassung ohne Text: dort ist das grosse Icon der Punkt der Karte.
+- **Sektionsluft auf dem Telefon rund ein Drittel weniger.** `Station` traegt
+  `py-14 md:py-28`, `.section-y` und die beiden Geschwister sind entsprechend
+  gekuerzt. 80 Pixel ueber und unter jeder Sektion sind auf 390 Pixel Breite
+  ein Viertel Bildschirm.
+- **Ueberschriften auf dem Telefon: h1 rund 31 bis 33 Pixel, h2 rund 28.**
+  Vorher 36 bis 37 beziehungsweise 32. Die Untergrenzen der `clamp`-Angaben
+  sind gesenkt, die Obergrenzen bleiben, am Rechner aendert sich nichts.
+- **Nichts unter elf Pixeln.** Betroffen waren das Schild „Ranking-Signal"
+  (9,3), die Backend-Zeile in der Content-Sektion (9,6), die Zeile unter
+  „Account Management" in `Zusammenlauf` (9,9) und die Kacheln daneben (10,6).
+- **Kundenstimmen laufen auf dem Telefon nicht von allein.** Ein Band, das
+  sich bewegt, haelt am Rechner an, sobald der Zeiger darauf liegt. Auf dem
+  Telefon gibt es keinen Zeiger, der Text lief einfach weiter, und die Karte
+  stand zur Haelfte hinter dem Rand. Jetzt: `md:animate-marquee`, darunter
+  still, Karten so breit wie der Container, mit Einrastpunkten zum Wischen.
+- **`body` mit `overflow-x: clip` versteckt Fehler, statt sie zu zeigen.** Auf
+  320 Pixeln stand in `service/Diagrams` das Urteil „bekommt mehr Budget" 36
+  Pixel ausserhalb des Bildschirms und war damit unsichtbar, ohne dass
+  waagerechtes Scrollen darauf hingewiesen haette. Die Zeile bricht jetzt
+  (`flex-wrap` plus `basis-full`, ab `sm` wieder nebeneinander). Deshalb wird
+  nicht `window.scrollX` geprueft, sondern jedes Element mit `right > vw`.
+- **Ein Element, das waehrend des Einlaufens ueber den Rand ragt, ist kein
+  Fehler.** `Reveal direction="left"` schiebt sein Kind beim Einlaufen zur
+  Seite; wer in dem Moment misst, findet eine zu breite Seite, die es nach der
+  Animation nicht mehr gibt.
+
+## Zwanzigste Feedbackrunde (verbindlich)
+
+- **Das Erstgespraech dauert 30 Minuten.** Vorher standen dort 25. Die Zahl
+  steht an acht Stellen in sechs Dateien: Ablauf und Zusagen der
+  Buchungsseite, deren Abschlusszeile, die FAQ, der Abschluss-CTA
+  (`takt/Gespraech`), der Onboarding-Schritt „Tag 0" auf der Full-Service-Seite
+  und die Metadaten der Buchungsseite. Wer die Dauer aendert, sucht nach
+  „25 Minuten" beziehungsweise „30 Minuten" und geht alle durch; die
+  Kalender-Attrappe in `booking/CalEmbed` traegt sie ebenfalls.
+- **Die Content-Sektion der Seite Produktbilder & SEO hat ihr eigenes
+  Material.** Vorher lief dort das Miganeo-Listing, dasselbe, das die
+  Designbeispiele der Startseite traegt. Jetzt das Listing fuer Kemes
+  (`public/bilder/kemes`, Hauptbild plus sechs Bilder) und ein Modul Premium A+
+  Content fuer Futum (`public/bilder/futum`). Wer von der Startseite hierher
+  kommt, sieht damit nicht dasselbe Produkt zum zweiten Mal.
+- **Die drei Futum-Dateien sind keine drei Module, sondern drei Bahnen eines
+  Moduls**, die aufeinander aufbauen: Kopf mit der Aussage, Produkt im Rasen,
+  erste Anwendung. Sie liegen ohne Abstand untereinander, sonst reisst die
+  Grafik mitten im Bild auseinander.
+
+## Einundzwanzigste Feedbackrunde (verbindlich)
+
+### Case Study Bachgold
+
+- **Der Fall steht an zweiter Stelle**, direkt hinter Miganeo: 1.677.538 Euro
+  Umsatz und Bestseller-Rang 1 sind die groesste belegte Zahl der Sammlung.
+  Grundlage ist die vom Kunden gelieferte Fallstudie als PDF; Zahlen, Zitat und
+  die Bilder beider Listings stammen daraus.
+- **In diesem Fall lag das Kampagnenmanagement nicht bei uns.** Die Arbeit war
+  Markenauftritt und Content. Der Text sagt deshalb an keiner Stelle etwas
+  ueber Werbung, weder im Vorgehen noch im Ergebnis. Was wir nicht gemacht
+  haben, steht auch nicht da, auch nicht abgeschwaecht als „mitgewirkt".
+- **Lange Zahlen brechen nicht um.** „1.677.538 €" liess das Eurozeichen in die
+  zweite Zeile fallen und zog die Kennzahlkarte hoeher als ihre Nachbarn. Ab
+  neun Zeichen wird der Wert eine Stufe kleiner gesetzt und traegt
+  `whitespace-nowrap`.
+- **Bilder aus einem PDF holt man aus den Streams.** Die Textextraktion war
+  wertlos (Schrift ohne ToUnicode), die 21 eingebetteten JPEGs liegen dagegen
+  unkomprimiert im Datenstrom und beginnen mit `FF D8`.
+
+### Cookie-Banner und Einwilligung
+
+- **Die Kategorien stehen in `src/lib/consent.ts` und nur dort.** Banner und
+  Datenschutzerklaerung rendern dieselbe Liste, deshalb koennen sie nicht
+  auseinander laufen. Ein neuer Dienst kommt in dieses Verzeichnis und
+  erscheint an beiden Stellen.
+- **Es gibt genau zwei Kategorien: Notwendig und Externe Dienste.** Die Website
+  misst nichts, es gibt keine Analyse und kein Marketing-Pixel, die Schriften
+  liegen selbst auf dem Server. Ein Banner, das „Statistik" anbietet, wo nichts
+  gemessen wird, waere eine Behauptung. Kommt Analyse dazu, kommt die Kategorie
+  dazu und `VERSION` wird erhoeht: dann wird neu gefragt.
+- **Nichts von einem Dritten wird vor der Zustimmung geladen.** Der Ladecode
+  fuer Cal.com steckt in `CalInline`, und `ConsentGate` rendert sein Kind erst,
+  wenn die Kategorie erlaubt ist. Damit laeuft der Code auch wirklich erst
+  danach. Geprueft wird das nicht per Auge, sondern indem im Browser alle
+  Anfragen mitgeschrieben werden, die nicht an localhost gehen: vor der
+  Zustimmung null, danach eine.
+- **Ablehnen ist so leicht wie Zustimmen.** Beide Knoepfe sind gleich gross,
+  gleich fett und stehen nebeneinander. Ein grauer Textlink neben einem grossen
+  Knopf waere keine freie Entscheidung.
+- **Wer nicht zustimmt, kommt trotzdem zum Termin.** Statt des Kalenders steht
+  eine Platte mit dem Grund, einem Knopf zum Zulassen und dem Weg direkt zum
+  Anbieter. Ohne diesen Weg waere die Einwilligung an die Leistung gekoppelt.
+- **Der Widerruf steht in der Fusszeile** unter „Cookie-Einstellungen", auf
+  jeder Seite, neben Impressum und Datenschutz. Eine Einwilligung, die man
+  schwerer zurueckzieht als man sie gibt, ist keine.
+- **`pointer-events-none` an der Huelle des Banners.** Die Huelle liegt fest
+  ueber die volle Breite; ohne das fingen die leeren Streifen links und rechts
+  der Karte alle Klicks ab, und alles, was dort unten auf der Seite lag, war
+  nicht mehr anklickbar.
+- **Escape schliesst den Hinweis nicht.** Wegdruecken ist keine Entscheidung.
+  Escape geht nur aus den Einstellungen zurueck.
+- **Die Entscheidung liegt im lokalen Speicher, nicht in einem Cookie**, mit
+  Zeitpunkt und Fassungsnummer als Nachweis nach Art. 7 Abs. 1 DSGVO. Jeder
+  Zugriff darauf liegt in `try/catch`: im privaten Fenster wirft der Speicher.
+- **Die Texte sind kein Rechtsrat.** Der Ablauf ist nach unserem Verstaendnis
+  der DSGVO und des TDDDG gebaut, die juristische Pruefung liegt beim Kunden.
+
+## Zweiundzwanzigste Feedbackrunde (verbindlich)
+
+- **Das Cookie-Banner hat drei Wege**: „Nur notwendige", „Anpassen", „Alle
+  akzeptieren". Die beiden Entscheidungen tragen dieselbe weisse Flaeche,
+  dieselbe Groesse und dieselbe Schriftstaerke, „Anpassen" traegt nur eine
+  Kante, weil es keine Entscheidung ist, sondern ein Wechsel der Ansicht.
+- **Die Karte ist dunkel, dahinter liegt ein Schleier.** Vorher waren Karte
+  und Seite beides weiss, damit war der Hinweis kaum als eigene Ebene zu
+  erkennen. Der Schleier ist kein Klickziel: Wegdruecken ist keine
+  Entscheidung. Impressum und Datenschutz stehen in der Karte selbst, sie
+  bleiben also erreichbar.
+- **Beim Sperren des Scrollens nur die senkrechte Achse anfassen.**
+  `document.body.style.overflow = "hidden"` ueberschreibt das
+  `overflow-x: clip` aus dem Stylesheet, und `overflow: hidden` am Body macht
+  aus ihm einen Scroll-Container, in dem kein `position: sticky` mehr haelt.
+- **CTR, CVR, ACoS und TACoS stehen in einem eigenen Band**, direkt unter dem
+  Kopf des Falls: Kuerzel zuerst, Wert daneben, darunter der Weg („0,44 % auf
+  0,67 %"). Wer aus dieser Branche kommt, sucht nach genau diesen
+  Abkuerzungen. Damit keine Zahl zweimal auf der Seite steht, sind diese vier
+  Kennzahlen aus `heroStats` und `subStats` heraus: dort stehen jetzt nur
+  Umsatz, Bestellungen, Raenge und Marktplaetze.
+- **Gruen fuer alle vier Kennzahlen.** Eine gestiegene Klickrate und ein
+  gefallener ACoS sind dasselbe Ergebnis, der Pfeil zeigt die Richtung.
+  #6EE7A0 und nicht das dunkle Signalgruen: letzteres kommt auf Navy auf
+  2,4:1.
+- **Marktplaetze tragen Flaggen**, nicht Kuerzel in einer Zeile. Gezeichnet
+  in `ui/Flagge`, nicht als Emoji: 🇩🇪 wird unter Windows nicht als Fahne
+  gerendert, dort stehen dann die Buchstaben da. Die Formen lagen vorher
+  unerreichbar in `service/Weltkugel`, sie liegen jetzt in der gemeinsamen
+  Komponente.
+- **Bachgold steht fuer ein Produkt und nur Content.** 1,68 Mio. Euro sind
+  fuer sich genommen keine aussergewoehnliche Summe, aussergewoehnlich ist die
+  Grundlage. Ueberschrift „Ein Produkt, nur Content, 1,68 Mio. €". Die
+  Kennzahl „2 Groessen mit eigenem Content" ist aus dem Kopf raus, sie sagte
+  nichts; `kennzahlen` bleibt leer, weil das Kampagnenmanagement nicht bei uns
+  lag. Maerkte: DE, FR, IT, ES, NL und US.
+- **Kein Bild zweimal.** Von den neun Bachgold-Dateien sind zwei dieselbe
+  Aufnahme in zwei Farben. Die Doppelung wird in `lib/cases.ts` aussortiert,
+  nicht in der Komponente: eine Komponente soll nicht raten muessen, was
+  doppelt ist.
+- **Ausgeliefertes Material steht als Listing-Ansicht**, oben im Fall und
+  nicht am Fuss: grosses Hauptbild, die weiteren Bilder als Streifen daneben.
+  Erst sehen, dann lesen. Der Streifen ist 15 Prozent breit, nicht 17: bei 17
+  war er aus fuenf Quadraten hoeher als das quadratische Hauptbild und stand
+  darunter hinaus.
+- **Die drei Schritte eines Falls sind Aussage plus Punkte.** Vorher stand in
+  jeder Karte ein Absatz mit vier bis fuenf Saetzen; drei davon nebeneinander
+  liest niemand, und die Zahlen darin gehen unter. Jetzt ein fetter Satz, dann
+  zwei bis vier Punkte mit dem Aufzaehlungszeichen in der Fallfarbe.
+- **Die Brand-Story-Kachel zeigt eine Brand Story.** Zwei Bahnen aus der
+  Arbeit fuer Rainfactory, ohne Abstand untereinander. Vorher waren dort
+  Bilder aus dem Kemes-Listing gestellt, das hatte mit einer Brand Story
+  nichts zu tun.
+- **Ein voller Build braucht ein leeres `.next`**, wenn waehrend eines
+  laufenden Servers gebaut wurde. Sonst liefert der Server Chunks, die es
+  nicht mehr gibt (`ChunkLoadError`, 400 auf `_next/static/chunks/...`), und
+  die Seite bleibt leer, ohne dass ein Fehler im Build steht.
+- **Vollseiten-Aufnahmen im Browser zeigen `whileInView`-Inhalte nicht.**
+  Elemente ausserhalb des Fensters bleiben auf Deckkraft null, in der Aufnahme
+  steht dort eine leere Flaeche. Zum Pruefen an die Stelle scrollen und das
+  Fenster aufnehmen, nicht die ganze Seite.
+
+## Dreiundzwanzigste Feedbackrunde (verbindlich)
+
+- **Jeder Fall zeigt die ausgelieferte Arbeit** (`cases/CaseArbeit`), direkt
+  unter dem Kennzahlenband und vor der Geschichte: erst sehen, dann lesen.
+  Drei Teile, jeder einzeln zu haben, weil jede Marke anderes Material
+  liefert: das Listing, die Hauptbildvarianten, die A+ Module.
+- **Hauptbildvarianten sind eine eigene Reihe.** Fuer ein Produkt entstehen
+  mehrere Hauptbilder, welches bleibt, entscheidet die Klickrate. Das ist eine
+  Aussage ueber die Arbeitsweise und geht in einem Listing-Raster unter.
+- **A+ Module stehen vollstaendig da.** Kein Rahmen mit begrenzter Hoehe, kein
+  Knopf, der ihn aufmacht: der Kunde will den Content sehen. Zwei Vorfassungen
+  hatten einen Deckel, erst auf einer festen Hoehe in rem (Schnitt mitten in
+  einer Zeile Schrift, sah aus wie ein Fehler), dann auf einer Modulkante
+  gerechnet. Beide sind raus.
+- **In die Reihe der A+ Module gehoert je Modul genau eine Bahn.** Kommen
+  mehrere Fassungen desselben Moduls (dieselbe Aufnahme, andere Aussage), darf
+  nur eine davon hinein. Bei Vitaworld lagen vier solche Fassungen in der
+  Lieferung; untereinander gestapelt stand dort viermal dieselbe Flasche, und
+  das liest sich als Fehler.
+- **Die Hauptbildvarianten stehen in der linken Spalte** unter dem Listing,
+  nicht als eigene Reihe darunter. Die A+ Spalte ist offen deutlich hoeher als
+  das Listing, sonst bliebe darunter eine leere Flaeche.
+- **Die Breite des Bildstreifens ist gerechnet, nicht geschaetzt.** Bei fuenf
+  Bildern 15 Prozent, bei sechs 13: `min(17, 92 / (Anzahl + 1))`. Sonst steht
+  der Streifen unter dem quadratischen Hauptbild hinaus.
+- **Ein Fall kann mehrere Produkte zeigen.** `arbeit.produkte` ist eine Liste,
+  je Produkt Hauptbild, Bildstrecke, Hauptbildvarianten und A+ Content. Bei
+  Miganeo sind das drei Produkte (Trampolin, Elektro-Bootsmotor, Solarfolie),
+  und genau das ist dort die Aussage: derselbe Aufbau ueber ein breites
+  Sortiment. Zwischen den Produkten liegt eine feine Linie, sonst laufen drei
+  Bloecke mit demselben Aufbau ineinander.
+- **A+ kommt als einzelne Module oder als ganze Seite.** Bachgold und
+  Vitaworld liefern die Module getrennt (2,44 zu 1), Miganeo die ganze Seite
+  als ein hohes Bild. `aplus.bahnen` traegt beides, die Darstellung ist
+  dieselbe: ohne Abstand untereinander, in voller Laenge.
+- **Der erklaerende Satz zu den Hauptbildvarianten steht nur am ersten
+  Produkt.** Dreimal derselbe Satz auf einer Seite liest niemand.
+- **Produktbilder laufen mit `object-contain`, nicht `cover`.** Die Hauptbilder
+  liegen teils quadratisch (3000 x 3000) und teils in 4 zu 5 vor (2000 x 2500).
+  Bei `cover` schneidet die quadratische Kachel einem hohen Bild oben und unten
+  je zehn Prozent ab, und dort steht bei diesen Bildern das Produkt.
+- **Die Zuordnung Datei zu Rolle steht in `scripts/case-arbeit-bilder.mjs`.**
+  Die Dateinamen der Marken folgen keinem gemeinsamen Muster
+  (`Bachgold_WasserfilterXL_Schwarz_01C.jpg`, `B0DPN5KD2P.PT04.jpg`,
+  `Sektion5_4.jpg`). Raten waere hier falsch. Das Skript rechnet auf
+  Anzeigegroesse herunter: Hauptbild 1200, Bildstrecke und Varianten 700,
+  A+ Module 1400 Pixel. Aus 46 MB Amazon-Uploads werden 1,8 MB.
+- **Die neun Bachgold-Bilder aus dem PDF sind geloescht.** Drei davon sind
+  dieselben Aufnahmen wie in den gelieferten Dateien, nur 600 Pixel gross.
+  Gezeigt wird die XL-Groesse; dass es die 500-ml-Variante mit eigenem Content
+  gibt, steht als Angabe unter den Kennzahlen.
+- **Fuer die Marke aus Gartenzubehoer gibt es keine Bilder.** Sie ist
+  anonymisiert, jedes Produktbild wuerde sie verraten. `arbeit` bleibt dort
+  leer, und die Darstellung laesst weg, was fehlt.
+- **Listing und A+ duerfen zwei verschiedene Artikel derselben Marke zeigen.**
+  Bei Vitaworld ist das Absicht: derselbe Aufbau laeuft ueber die ganze
+  Produktpalette, und genau das soll man sehen.
+
+## Vierundzwanzigste Feedbackrunde (verbindlich)
+
+### Zahlen
+
+- **Nur relative Zahlen, keine absoluten.** „ACoS um 30 Prozent gesenkt" steht
+  da, „von 30,9 auf 21,6 Prozent" nicht. Umsaetze, Bestellzahlen und
+  Stueckzahlen stehen gar nicht da. Betroffen waren die Kennzahlenbaender und
+  die Kennzahlkarten von Vitaworld, HaA und Futum, deren Punktlisten und die
+  `Ergebnis`-Bloecke der Leistungsseiten.
+- **Ausgenommen ist Miganeo.** Dort bleiben die konkreten Zahlen so stehen, wie
+  sie sind, auf der Fallseite und auf der Seite Internationalisierung.
+- **Wo eine Kennzahl nur absolut vorliegt, faellt sie weg.** Bei HaA gab es zum
+  ACoS nur den Stand (13,5 %) und keinen Ausgangswert, die Zeile ist deshalb
+  aus dem Band heraus. Eine Kennzahl ohne Zahl ist keine Kennzahl.
+- **Zwei Stellen bleiben absichtlich stehen und brauchen eine Entscheidung**:
+  der Umsatz im Bachgold-Fall (1,68 Mio. €, vom Kunden ausdruecklich als
+  Ueberschrift gewuenscht) und die Kundenstimme von Vitaworld in
+  `lib/testimonials.ts`, die selbst Bestellzahlen und einen TACoS nennt. Ein
+  Zitat wird nicht eigenmaechtig umgeschrieben.
+
+### Ausgelieferte Arbeit
+
+- **`palette` ist nicht `varianten`.** `varianten` sind mehrere Fassungen eines
+  Hauptbilds fuer ein Produkt, `palette` ist ein Hauptbild je Artikel derselben
+  Marke im selben Bildstil. Bei Vitaworld sind das sechs weitere Artikel, bei
+  HaA sechs Bundle-Groessen desselben Artikels (die stehen als `varianten`).
+- **Ohne A+ Content rueckt die Variantenreihe in die rechte Spalte.** Beim
+  Silberfischspray von Futum liegt kein A+ vor; vorher stand rechts eine leere
+  Flaeche.
+- **Videos laufen mit `poster` und `preload="none"`.** Ohne das laedt jede
+  Fallseite vier Megabyte, die die meisten Besucher nie abspielen. Das
+  Standbild kommt mit `ffmpeg` aus dem Video selbst (Sekunde 1).
+- **Videos werden auf 1280 Pixel und CRF 27 gerechnet** (H.264, `+faststart`).
+  Aus 18,5 MB werden 4,2 MB, aus 4,0 MB werden 1,9 MB. `ffmpeg` ist in dieser
+  Umgebung nicht vorinstalliert und muss per `apt-get install ffmpeg` dazu.
+- **Bilder mit `effort: 6` und `smartSubsample`**, dazu A+ Module und A+ Seiten
+  auf 900 statt 1400 Pixel: sie stehen in einer Spalte von rund 430 Pixeln und
+  werden nie in der Lupe geoeffnet. Zusammen rund ein Drittel weniger Bytes.
+- **macOS legt Umlaute zerlegt ab (NFD).** Ein Pfad mit „Wühlmaus" aus einer
+  Quelldatei (NFC) findet die Datei im entpackten Zip nicht. `loese()` in
+  `scripts/case-arbeit-bilder.mjs` vergleicht jeden Pfadteil normalisiert.
+- **Das Trampolin in der Miganeo-Arbeit traegt die Marke TERENA.** Das ist so
+  geliefert; wenn es nicht als Miganeo-Arbeit erscheinen soll, muss es raus.
+
+## Fuenfundzwanzigste Feedbackrunde (verbindlich)
+
+### Zahlen, Korrektur der vorigen Runde
+
+- **Relativ gilt nur fuer CTR, CVR, ACoS und TACoS.** Die vorige Runde hat die
+  Regel zu weit gefasst und auch Umsaetze, Bestellzahlen und Stueckzahlen
+  herausgenommen. Die stehen wieder konkret da: 392.327 EUR und 17.042
+  Bestellungen bei Futum, 131k auf 326k EUR und 5.019 auf 16.073 Bestellungen
+  bei Vitaworld, 28 auf 397 Bestellungen pro Woche bei HaA. Was nicht dasteht,
+  ist der Weg einer Rate von X auf Y: das ist die Zahl, die ein Wettbewerber
+  mitliest, und sie sagt einem Besucher ohne Marge und Sortiment nichts.
+- **Der Anteil der Werbung am Umsatz ist eine Rate**, kein Umsatz. Er bleibt
+  relativ (minus 19,4 Prozent), auch wenn er in Euro gerechnet wird.
+- **Bei HaA fehlt die ACoS-Zeile weiter.** Dort liegt nur der Stand vor
+  (13,5 %) und kein Ausgangswert; eine Kennzahl ohne Veraenderung ist unter
+  dieser Regel keine.
+- **Die Kundenstimme von Vitaworld bleibt, wie sie ist.** Sie nennt selbst
+  Bestellzahlen und einen TACoS. Ein Zitat wird nicht umgeschrieben.
+
+### Aufbau einer Fallseite
+
+- **Erst lesen, dann sehen.** Reihenfolge: Kopf, Kennzahlenband, Diagramm,
+  die drei Schritte (Ausgangslage, Vorgehen, Ergebnis), Kennzahlen darunter,
+  Auszeichnungen, und ganz am Schluss die ausgelieferte Arbeit. Vorher stand
+  die Arbeit direkt unter den Zahlen: wer bei drei Produkten mit Listing,
+  Varianten und A+ ankam, hatte ueber tausend Pixel Bilder hinter sich, bevor
+  ein Wort darueber stand, was gemacht wurde.
+- **Der Kopf eines Falls ist eine helle Karte.** Die Vorfassung war eine fast
+  schwarze Flaeche mit einem dunkel abgedeckten Foto darin, weisser Schrift
+  und drei Glaskacheln, direkt ueber dem ebenfalls dunklen Kennzahlenband:
+  zwei schwere Bloecke uebereinander in einer hellen Seite. Jetzt links Logo,
+  Ueberschrift, Fahnen und Zeitraum, rechts das Foto ohne Schleier, darunter
+  die drei Zahlen als Fuss der Karte, getrennt durch feine Linien. Die
+  Fallfarbe kommt nur noch als Lichtkern hinter der Ecke vor. Das Dunkle
+  traegt das Kennzahlenband danach.
+- **Die Zahlen im Kopf stehen in Navy, nicht in der Fallfarbe.** Zwei der
+  sechs Fallfarben sind #FF9900 und #FF3131.
+- **Der Bildstreifen des Listings laeuft in zwei Spalten.** In einer Spalte
+  muss die Summe der Quadrate unter der Hoehe des quadratischen Hauptbilds
+  bleiben, das ergibt bei sechs Bildern 14 Prozent Breite: Briefmarken neben
+  einem sehr grossen Hauptbild. In zwei Spalten halbiert sich die Zahl der
+  Zeilen, und die Breite folgt daraus: Zeilen ist n/2 aufgerundet, der
+  Streifen ist 2/(2+Zeilen). Bei sechs Bildern also 40 zu 60 statt 14 zu 86.
+  Bei ungerader Anzahl steht das letzte Bild mittig ueber beide Spalten, sonst
+  bleibt rechts eine Luecke.
+- **Die Arbeit steht auf `max-w-6xl`**, breiter als der uebrige Fall: dort
+  liegen Listing, Varianten und A+ nebeneinander, und die Bilder sind der
+  Inhalt.
+
+### Rechtstexte
+
+- **Impressum, Datenschutzerklaerung und AGB stehen wortgleich so da, wie der
+  Kunde sie geliefert hat.** Sie liegen als einfacher Text in `src/lib/recht`
+  und werden von `components/legal/Rechtstext` gesetzt. Kein
+  Markdown-Paket dafuer: erkannt wird nur, was in diesen drei Texten
+  vorkommt (zwei Ueberschriftstufen, Aufzaehlung, Kasten, Links, fett).
+- **An einem Rechtstext wird nicht getextet.** Der AGB-Text nennt die
+  Vertragspartnerin durchgaengig „Agentur", obwohl das Wort in der
+  Website-Copy verboten ist: es ist die Legaldefinition aus Ziffer 1.1.
+- **Die Liste der eingebundenen Dienste steht nur an einer Stelle.** In der
+  Datenschutzerklaerung markiert `[[DIENSTE]]` unter Ziffer 10.2 die Stelle,
+  an der `consent/DienstTabelle` gerendert wird. Quelle bleibt
+  `lib/consent.ts`, damit Banner und Erklaerung nicht auseinanderlaufen
+  koennen.
+- **Die AGB stehen jetzt in der Fusszeile.** Sie waren bewusst unverlinkt,
+  solange die Seite eine Vorlage mit Platzhaltern war.
+- **Die Adresse ist info@temoa.de.** Die Fusszeile trug kontakt@temoa.de, das
+  Impressum tools@temoa.de. Beide sind raus, die richtige steht in Ziffer 1.2
+  der Datenschutzerklaerung.
+- **Zwei Stellen brauchen eine Entscheidung des Kunden.** Der gelieferte
+  Impressumstext liess das Feld nach § 18 Abs. 2 MStV leer, dort stehen jetzt
+  die drei Geschaeftsfuehrer mit der Anschrift des Hauses. Und die
+  Datenschutzerklaerung beschreibt Dienste, die diese Website nicht einbindet
+  (Google Analytics, Meta Pixel, Google Ads, YouTube, Trusted Shops,
+  Typeform, Google Forms, ein Bewerbungsformular). Zutreffend sind Cal.com,
+  das Einwilligungswerkzeug und die Abschnitte zu Hosting und Kontakt.
+
+## Sechsundzwanzigste Feedbackrunde (verbindlich, ersetzt die Zahlenregel)
+
+- **Keine absoluten Zahlen.** Die fuenfundzwanzigste Runde hatte Umsaetze und
+  Bestellzahlen wieder eingesetzt, das war falsch. Weder „392.327 € Umsatz"
+  noch „17.042 Bestellungen" noch „131k € auf 326k €" stehen da. Genannt wird
+  die Veraenderung, nicht der Stand und nicht der Weg von X auf Y.
+- **Zwei Faelle bleiben ausgenommen**, beide auf ausdruecklichen Wunsch:
+  Miganeo steht in allem so, wie es ist, und bei Bachgold bleibt der Umsatz
+  von 1,68 Mio. Euro, weil er die Aussage des Falls traegt.
+- **Die Kundenstimme von Vitaworld ist die letzte offene Stelle.** Sie nennt
+  selbst „von 5k auf über 16k Bestellungen" und einen TACoS von 5,8 %. Ein
+  Zitat wird nicht eigenmaechtig umgeschrieben, dafuer braucht es die
+  Freigabe des Kunden.
+- **Amazon-Abzeichen werden gezeichnet, wie Amazon sie zeichnet.** „Bestseller"
+  weiss auf Orange (#C7511F), „Amazons Tipp" weiss auf Schwarz (#131A22),
+  kleine Rundung, fette Schrift, daneben in derselben Pille das Produkt.
+  Vorher stand dort ein Trophaeen-Zeichen mit einer Umschreibung. Das Orange
+  ist das von Amazon und nicht die Markenfarbe der Website: das Abzeichen ist
+  ein Zitat, keine Auszeichnung, die temoa vergibt. Fuer alles, was Amazon
+  nicht vergibt, bleibt die Pille mit Zeichen (`art: "hinweis"`).
+- **Die ausgelieferte Arbeit ist ausdruecklich ein Ausschnitt.** Ueber den
+  Bildern steht „Ein Einblick, nicht das ganze Sortiment." mit einem Satz
+  dazu. Ohne den liest sich die Reihe wie das vollstaendige Sortiment einer
+  Marke, und dann sieht die Arbeit kleiner aus, als sie ist.
+
+## Siebenundzwanzigste Feedbackrunde (verbindlich)
+
+- **Die Markenlogos stehen ueberall, wo eine Case Study vorkommt**: im Kopf
+  der Fallseite, im Raster auf `/ergebnisse`, im Band der Startseite, unter
+  „Weitere Case Studies" und im Ergebnis-Block der Leistungsseiten. Es gibt
+  genau eine Komponente dafuer, `ui/Markenlogo`.
+- **Ein Logo darf nicht auf `display: none` warten.** Beide Vorfassungen
+  standen unsichtbar, bis `onLoad` feuerte. Ein Bild, das beim Aufbau der
+  Seite schon im Zwischenspeicher liegt, ist fertig, bevor React seinen
+  `onLoad` daranhaengt, der Aufruf kommt nie, und das Logo bleibt verborgen.
+  Sichtbar, bis das Laden fehlschlaegt, nie umgekehrt.
+- **Logos werden ueber Hoehe UND Breite begrenzt.** HaA ist ein rundes Siegel
+  (1200 zu 1200), Bachgold ein Schriftzug (400 zu 225). Bei gleicher Hoehe
+  waere das Siegel ein Punkt. Die Kachel traegt ausserdem `w-fit` und
+  `self-start`: in einer Spalte mit `flex` zog sie sich sonst als weisser
+  Streifen ueber das ganze Foto.
+- **Wo kein Logo vorliegt, steht der Name.** Zu Miganeo hat der Kunde keins
+  geliefert, die Marke aus Gartenzubehoer ist anonymisiert. Eine leere Stelle
+  sieht nach Fehler aus.
+- **Bei Futum stehen CTR, CVR und ACoS an den drei grossen Plaetzen** im Kopf
+  des Falls. Vorher standen dort „zwei Produktlaunches" und „vier Produkte mit
+  eigenem Content": die Marke hat deutlich mehr Artikel, und die Zahl der
+  Launches ist keine Leistung. Das Kennzahlenband entfaellt dort, sonst
+  stuende dieselbe Zahl zweimal auf der Seite.
+- **„Weitere Case Studies" ist eine dunkle Sektion**, in derselben Sprache
+  wie das Band der Startseite: Foto mit dem Farbschimmer der Marke, weisse
+  Kachel mit dem Logo, Fahnen, Kennzahl in Gruen, ein Rahmen, der beim Zeigen
+  von Weiss auf Orange wechselt. Vorher waren es fuenf gleiche Kacheln von
+  160 Pixeln auf hellem Grund. Bei genau fuenf Faellen stehen drei schmale
+  Karten oben und zwei breite darunter, damit keine Luecke bleibt.
+
+## Achtundzwanzigste Feedbackrunde (verbindlich)
+
+- **Das Markenlogo liegt direkt auf der Kachel, nie auf einer weissen
+  Flaeche.** Die weisse Kachel darunter war die Vorfassung und sah nach
+  Aufkleber aus: ein heller Kasten auf einem Foto, der mit dem Bild nichts zu
+  tun hat. Statt Farbe traegt das Logo eine Silhouette, und der Grund
+  entscheidet die Richtung: auf dunklem Grund weiss mit einem weichen Schatten
+  dahinter, auf hellem Grund schwarz. Gerechnet wird das mit `filter`
+  (`brightness(0)` und `invert(1)`), nicht mit einer zweiten Datei je Marke.
+- **Die Logos sind deutlich groesser.** Im Kopf der Fallseite ein Kasten von
+  96 Pixeln Hoehe, in den Kacheln 56 bis 64, im Band der Startseite 44.
+- **Die Groesse ist ein Kasten aus Hoehe UND Breite, und die Hoehe wird
+  reichlich gesetzt.** HaA ist ein rundes Siegel (1 zu 1) mit umlaufender
+  Schrift, Miganeo ein Schriftzug (4 zu 1). Begrenzt man nur die Breite, ist
+  das Siegel so hoch wie der Schriftzug breit sein darf, und die Schrift darin
+  ist ein Fleck.
+- **Die Branche steht nicht mehr neben dem Logo.** Welche Marke es ist, sagt
+  das Logo, was sie verkauft, sagt die Ueberschrift.
+- **Ein Logo, das als weisser Schriftzug auf gefuellter Flaeche kommt, wird
+  freigestellt.** `node scripts/marke-freistellen.mjs <quelle> <ziel>` macht
+  die Helligkeit zur Deckkraft, wirft die Farbe weg und beschneidet auf den
+  Inhalt. Ohne das Beschneiden steht die Marke klein in der Mitte eines
+  leeren Rechtecks und laesst sich nicht auf eine Hoehe skalieren. So ist das
+  Logo von Miganeo entstanden, dasselbe Rezept wie
+  `scripts/logos-knockout.mjs` fuer zwei der vierzehn Kundenlogos.

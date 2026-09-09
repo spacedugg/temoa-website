@@ -37,7 +37,7 @@ Retail Arbitrage eignet sich gut für Menschen mit wenig Startkapital, die das A
 
 ## Der Übergang zu nachhaltigeren Modellen
 
-Viele nutzen Retail Arbitrage als Startphase und wechseln später zu Modellen mit mehr Hebel: Wholesale (planbarer Nachschub gleicher Produkte) oder Private Label (eigene Marke, skalierbar und als Asset verkaufbar). Diese verlangen mehr Kapital und Know-how, lösen aber die zentralen Grenzen der Arbitrage – fehlende Skalierbarkeit und fehlender Markenwert.
+Viele nutzen Retail Arbitrage als Startphase und wechseln später zu Modellen mit mehr Spielraum: Wholesale (planbarer Nachschub gleicher Produkte) oder Private Label (eigene Marke, skalierbar und als Asset verkaufbar). Diese verlangen mehr Kapital und Know-how, lösen aber die zentralen Grenzen der Arbitrage – fehlende Skalierbarkeit und fehlender Markenwert.
 
 ## Fazit
 

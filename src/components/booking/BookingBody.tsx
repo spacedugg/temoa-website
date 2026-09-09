@@ -1,15 +1,20 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
-import { SectionHeading } from "../ui/SectionHeading";
-import { Testimonials } from "../home/Testimonials";
+import { Icon, type IconName } from "../takt/Icons";
+import { SectionHeading, Pille } from "../ui/SectionHeading";
+import { Stimmen } from "../takt/sections";
+import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
 
-const metrics = [
-  { value: "+147 %", label: "Umsatz, Vitaworld", color: "#FF3131" },
-  { value: "+439 %", label: "Conversion Rate, HaA", color: "#2A9BD8" },
-  { value: "−35 %", label: "TACoS, Marke aus Gartenzubehör", color: "#FF9900" },
+/* `runter` heisst: der Wert soll sinken, der Pfeil zeigt nach unten. Eine
+   gesunkene TACoS ist ein gutes Ergebnis, deshalb bleibt der Pfeil gruen. */
+const metrics: { value: string; label: string; runter?: boolean }[] = [
+  { value: "+147 %", label: "Umsatz, Vitaworld" },
+  { value: "+439 %", label: "Conversion Rate, HaA" },
+  { value: "−35 %", label: "TACoS, Marke aus Gartenzubehör", runter: true },
 ];
 
 const fit = [
@@ -44,97 +49,252 @@ function Cross() {
   );
 }
 
+/* Der Ablauf, wie er wirklich laeuft: erst ein kurzes Kennenlernen, dann ein
+   zweiter Termin mit vorbereiteten Zahlen, dann die Entscheidung. Vorher stand
+   auf dieser Seite, wir wuerden vorab in Listings und Kampagnen schauen und im
+   Termin 45 Minuten den Bildschirm teilen. */
+const ablauf: { schritt: string; title: string; body: string; icon: IconName }[] = [
+  {
+    schritt: "Schritt 1",
+    title: "Erstgespräch, 30 Minuten",
+    body: "Wir hören, wo ihr steht: Sortiment, Ziele, was gerade klemmt. Ihr hört, wie wir arbeiten.",
+  icon: "kompass",
+  },
+  {
+    schritt: "Schritt 2",
+    title: "Zweiter Termin mit euren Zahlen",
+    body: "Passt es für beide Seiten, bereiten wir eure Zahlen auf und gehen sie mit euch durch.",
+    icon: "lupe",
+  },
+  {
+    schritt: "Schritt 3",
+    title: "Ihr entscheidet",
+    body: "Ihr wisst, welche Schritte zuerst kommen und was sie bringen sollen. Alles Weitere entscheidet ihr.",
+    icon: "stufen",
+  },
+];
+
+const EASE = [0.32, 0.72, 0, 1] as const;
+
+function Ablauf() {
+  const reduce = useReducedMotion();
+
+  return (
+    <section className="ground relative py-20 md:py-24">
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Ablauf"
+          size="compact"
+          title={
+            <>
+              Vom ersten Termin bis <span className="text-gradient">zur Entscheidung.</span>
+            </>
+          }
+        />
+
+        <div className="relative mt-14">
+          {/* Die Bahn zeichnet sich von links nach rechts, bevor die Schritte
+              einlaufen. Dieselbe Bewegung wie beim Onboarding auf der
+              Full-Service-Seite, damit beide Seiten dieselbe Sprache sprechen. */}
+          <motion.span
+            aria-hidden
+            className="absolute left-0 top-[2.05rem] hidden h-[2px] w-full origin-left md:block"
+            style={{
+              background: "linear-gradient(90deg, rgba(255,153,0,0.15), #FF9900 45%, rgba(255,153,0,0.15))",
+              boxShadow: "0 0 14px rgba(255,153,0,0.45)",
+            }}
+            initial={reduce ? { scaleX: 1 } : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-15% 0px" }}
+            transition={{ duration: 1.1, ease: EASE }}
+          />
+
+          <div className="grid gap-8 md:grid-cols-3 md:gap-6">
+            {ablauf.map((a, i) => (
+              <motion.div
+                key={a.schritt}
+                initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-12% 0px" }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.16, ease: EASE }}
+                className="relative flex flex-col"
+              >
+                <span className="relative z-10 grid h-[4.1rem] w-[4.1rem] place-items-center rounded-[1.3rem] bg-navy text-brand-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_0_0_6px_rgba(244,248,251,1)]">
+                  <Icon name={a.icon} className="h-8 w-8" />
+                </span>
+                <span className="mt-6 text-label font-bold uppercase tracking-[0.14em] text-ink-faint">
+                  {a.schritt}
+                </span>
+                <span className="mt-2 text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem]">
+                  {a.title}
+                </span>
+                <p className="mt-2.5 text-small leading-relaxed text-ink-muted">{a.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function BookingBody() {
   return (
     <>
       {/* Hero: copy left, booking card (with calendar) right */}
-      <section className="relative overflow-hidden bg-white pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="relative overflow-hidden ground pt-32 pb-16 md:pt-40 md:pb-20">
         <div
           className="pointer-events-none absolute -right-40 -top-40 h-[40rem] w-[40rem] rounded-full opacity-60 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(255,153,0,0.16), rgba(255,49,49,0.07) 50%, transparent 72%)" }}
         />
-        <div className="container-x relative grid items-start gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          {/* left: copy + Clemens photo */}
+        <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="flex flex-col text-center lg:text-left">
             <Reveal>
-              <span className="eyebrow lg:justify-start">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-                Kostenlose Potenzialanalyse
-              </span>
+              <Pille>Kostenlose Potenzialanalyse</Pille>
             </Reveal>
             <Reveal delay={0.05}>
-              <h1 className="mx-auto mt-5 max-w-xl text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:mx-0">
-                Erst schauen wir in euren Account, <span className="text-gradient">dann reden wir.</span>
+              <h1 className="mx-auto mt-6 max-w-xl text-balance text-[1.95rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-[1.08] lg:mx-0">
+                Erst lernen wir uns kennen, <span className="text-gradient">dann die Zahlen.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mx-auto mt-5 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
-                Vor dem Termin sehen wir uns eure Listings und Kampagnen an. Im Gespräch bekommt ihr konkrete
-                Beobachtungen und eine Einschätzung, keine Präsentation.
+              <p className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
+                Ein kurzes erstes Gespräch, in dem wir eure Lage verstehen und ihr uns kennenlernt.
               </p>
             </Reveal>
-            {/* Square portrait, face fully visible (no mid-face crop) */}
-            <Reveal delay={0.18} className="mt-8">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lift ring-1 ring-black/[0.06] sm:aspect-[3/2] lg:aspect-square">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/team/Clemens.jpg"
-                  alt="Clemens, euer Ansprechpartner bei temoa"
-                  className="absolute inset-0 h-full w-full object-cover object-center [filter:brightness(1.05)]"
-                />
-                <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-gradient-to-t from-navy-deep/80 via-navy-deep/30 to-transparent p-5 pt-16">
-                  <div className="flex items-center gap-1 text-white">
-                    <span className="flex gap-0.5">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#FF9900">
-                          <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
-                        </svg>
-                      ))}
-                    </span>
-                  </div>
-                  <div className="ml-1">
-                    <div className="text-sm font-bold text-white">Dein Host: Clemens</div>
-                    <div className="text-xs text-white/80">Euer Ansprechpartner bei temoa</div>
-                  </div>
-                </div>
+
+            {/* Was im ersten Gespraech passiert. Vorher stand hier, dass wir
+                vorab in Listings und Kampagnen schauen und 45 Minuten den
+                Bildschirm teilen: so laeuft es nicht. Das erste Gespraech
+                dauert 30 Minuten und dient dem Kennenlernen, die
+                vorbereitete Auswertung kommt im zweiten Termin. */}
+            <Reveal delay={0.16}>
+              <ul className="mx-auto mt-8 grid max-w-lg gap-3 text-left lg:mx-0">
+                {[
+                  "30 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
+                  "Wir fragen nach Sortiment, Zielen und dem, was gerade klemmt",
+                  "Am Ende wisst ihr, ob es passt und wie der nächste Schritt aussieht",
+                ].map((t) => (
+                  <li key={t} className="flex items-start gap-3">
+                    <CheckGreen />
+                    <span className="text-base leading-snug text-ink">{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+
+            <Reveal delay={0.22}>
+              <div className="mt-9 flex justify-center lg:justify-start">
+                <a href="#kalender" className="btn-primary">
+                  Zum Kalender
+                  <span className="disc" aria-hidden>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 5v13m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </a>
               </div>
             </Reveal>
           </div>
 
-          {/* right: booking card */}
-          <Reveal direction="left" delay={0.1} className="lg:self-center">
-            <div id="kalender" className="flex scroll-mt-24 flex-col rounded-[2rem] bg-white p-5 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
-              <div className="flex-1">
-                <CalEmbed />
+          {/* Vorher lag hier ein rechteckiges Foto mit einer dunkelblauen
+              Platte darauf, dieselbe Form, die im Abschluss-CTA schon
+              ersetzt wurde. Jetzt steht Clemens freigestellt in einer
+              eigenen Flaeche, die Angaben liegen als Glasplatte davor. */}
+          <Reveal direction="left" delay={0.12}>
+            <figure className="relative mx-auto w-full max-w-[26rem] lg:mx-0 lg:ml-auto">
+              <div
+                className="relative h-[24rem] overflow-hidden rounded-[1.75rem] sm:h-[27rem]"
+                /* Derselbe orange Grund wie im Abschluss-CTA. Clemens steht
+                   auf jeder Seite vor derselben Flaeche. */
+                style={{
+                  background:
+                    "radial-gradient(95% 62% at 50% 14%, #FFC77E 0%, rgba(255,199,126,0) 62%), linear-gradient(168deg, #FFA51F 0%, #FF8A00 46%, #E06A00 100%)",
+                  boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.18), 0 30px 70px -40px rgba(122,52,0,0.75)",
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/team/clemens-frei.webp"
+                  alt="Clemens, euer Ansprechpartner bei temoa"
+                  width={900}
+                  height={855}
+                  className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
+                  style={{ filter: "drop-shadow(0 22px 40px rgba(122,52,0,0.5))" }}
+                />
               </div>
-            </div>
+              {/* Die Angaben stehen unter dem Bild, nicht als Kachel darauf.
+                  Eine Platte auf einem Gesicht sieht nach Aufkleber aus. */}
+              <figcaption className="mt-5">
+                <span className="flex gap-0.5" aria-hidden>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#FF9900">
+                      <path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.8 5.9 20.4l1.4-6.8L2.2 9l6.9-.7L12 2z" />
+                    </svg>
+                  ))}
+                </span>
+                <div className="mt-2 text-[1rem] font-bold text-ink">Hi, ich bin Clemens.</div>
+                <div className="mt-0.5 text-small text-ink-muted">Founder. Ihr sprecht mit mir.</div>
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>
 
-      {/* Real results band (dark) */}
-      <section className="relative bg-white pb-4">
-        <div className="container-x">
-          <Reveal>
-            <div
-              className="grid gap-6 rounded-[1.75rem] px-6 py-9 text-center sm:grid-cols-3 md:px-12"
-              style={{ background: "linear-gradient(135deg,#0A1E2B,#053048)" }}
-            >
-              {metrics.map((m) => (
-                <div key={m.label}>
-                  <div className="text-3xl font-extrabold tracking-tight md:text-4xl" style={{ color: m.color }}>
-                    {m.value}
+      {/* Belegte Zahlen aus den Case Studies.
+          Vorher lagen sie als abgerundeter Navy-Kasten in einer hellen Sektion,
+          und darin steckte jede Zahl noch einmal in einer eigenen Kachel: eine
+          Kachel in einem Kasten in einer Sektion. Jetzt traegt die Sektion das
+          Navy selbst, die Zahlen stehen frei darauf, getrennt durch feine
+          Linien. */}
+      <section className="on-dark ground-deep relative isolate overflow-hidden py-12 md:py-16">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-[-8%] top-[-40%] h-[26rem] w-[26rem] rounded-full opacity-70 blur-[80px]"
+          style={{ background: "radial-gradient(circle, rgba(255,153,0,0.22), transparent 68%)" }}
+        />
+        <div className="container-x relative">
+          <div className="grid gap-y-8 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-white/[0.1]">
+            {metrics.map((m, i) => (
+              <Reveal
+                key={m.label}
+                delay={i * 0.07}
+                className={i === 0 ? "sm:pr-8" : i === metrics.length - 1 ? "sm:pl-8" : "sm:px-8"}
+              >
+                <div className="flex items-start gap-3">
+                  <div className="min-w-0">
+                    <ZahlText
+                      text={m.value}
+                      className="num text-[clamp(2rem,1.4rem+1.6vw,2.75rem)] leading-none text-white"
+                    />
+                    <div className="mt-2.5 text-small font-bold leading-snug text-white/85">{m.label}</div>
                   </div>
-                  <div className="mt-1.5 text-sm text-white/70">{m.label}</div>
+                  <span
+                    aria-hidden
+                    className="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-[0.7rem]"
+                    style={{ background: "#22C55E26", color: "#4ADE80", boxShadow: "0 0 14px -2px #22C55E77" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+                        stroke="currentColor"
+                        strokeWidth="2.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </div>
-              ))}
-            </div>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
+
+      <Ablauf />
 
       {/* Passt / Passt nicht */}
-      <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+      <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Für wen" size="compact" title={<>Wann sich das Gespräch <span className="text-gradient">lohnt.</span></>} />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
@@ -176,44 +336,67 @@ export function BookingBody() {
         </div>
       </section>
 
-      <Testimonials tone="white" />
+      {/* Der Kalender steht jetzt in einer eigenen Sektion ueber die volle
+          Breite. Vorher war er in eine Spalte des Hero gequetscht: der Rahmen
+          hatte 540 px Mindesthoehe und overflow-hidden, dadurch war die
+          Terminauswahl unten abgeschnitten. */}
+      <section id="kalender" className="ground relative scroll-mt-24 py-20 md:py-24">
+        <div className="container-x">
+          <SectionHeading
+            eyebrow="Termin"
+            size="compact"
+            title={
+              <>
+                Sucht euch <span className="text-gradient">einen Termin.</span>
+              </>
+            }
+            description="Ihr bekommt sofort eine Bestätigung mit dem Videolink."
+          />
+          <Reveal delay={0.08}>
+            <div className="mx-auto mt-10 max-w-4xl rounded-[2rem] bg-white p-4 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
+              <CalEmbed />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <Stimmen />
 
       {/* FAQ */}
-      <section className="relative bg-[#EDF5FB] py-20 md:py-24">
+      <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="FAQ" size="compact" title={<>Bevor ihr <span className="text-gradient">bucht.</span></>} />
           <BookingFAQ />
         </div>
       </section>
 
-      {/* Final CTA -> back up to the calendar */}
-      <section className="relative py-20 md:py-28">
-        <div className="container-x">
-          <div
-            className="on-dark relative overflow-hidden rounded-panel px-6 py-16 text-center shadow-panel md:px-12 md:py-20"
-            style={{ backgroundImage: "var(--brand-gradient-deep)" }}
-          >
-            <div className="pointer-events-none absolute -left-12 -top-12 h-52 w-52 rounded-full bg-white/25 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-14 -right-10 h-60 w-60 rounded-full bg-white/15 blur-3xl" />
-            <Reveal>
-              <h2 className="relative mx-auto max-w-2xl text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-4xl">
-                Nehmt euch die 30 Minuten.
-              </h2>
-            </Reveal>
-            <Reveal delay={0.08}>
-              <p className="relative mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/90 md:text-lg">
-                Der Termin ist kostenlos und unverbindlich. Danach wisst ihr, was in eurem Konto liegt.
-              </p>
-            </Reveal>
-            <Reveal delay={0.14}>
-              <div className="relative mt-8 flex justify-center">
-                <a href="#kalender" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-semibold text-ink shadow-lift transition-transform duration-300 hover:-translate-y-0.5">
-                  Termin sichern
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 8l5-5 5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                </a>
-              </div>
-            </Reveal>
-          </div>
+      {/* Abschluss: zurueck nach oben zum Kalender. Dasselbe dunkle Podest wie
+          die uebrigen Abschluss-Sektionen, nicht mehr die orange Flaeche. */}
+      <section className="on-dark ground-deep relative overflow-hidden py-20 text-center md:py-28">
+        <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
+        <div className="container-x relative">
+          <Reveal>
+            <h2 className="title mx-auto max-w-[24ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
+              Nehmt euch die 30 Minuten.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mx-auto mt-5 max-w-[50ch] text-pretty text-lead text-chalk-muted">
+              Danach wisst ihr, ob wir zueinander passen. Alles Weitere entscheidet ihr danach.
+            </p>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <div className="mt-9 flex justify-center">
+              <a href="#kalender" className="btn-on-dark">
+                Termin sichern
+                <span className="disc" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 19V5m0 0l-5 5m5-5l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>
