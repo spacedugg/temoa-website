@@ -199,6 +199,535 @@ export const de = {
       bildAlt: "Die Gründer von temoa",
     },
   },
+  /* ============================================================
+     Die fuenf Leistungsseiten.
+
+     `meta` traegt Name und Beschreibung fuer den Seitentitel. Die Adressen
+     bleiben deutsch, auch auf der englischen Seite: sie sind gesetzt, ein
+     Wechsel bricht Verweise und Suchergebnisse.
+
+     `bausteine` sind die Beschriftungen, die in den Bausteinen selbst
+     stecken und nicht in der Copy einer einzelnen Seite: der Knopf im
+     Seitenkopf, der Link unter einem Fall, die Laender an der Weltkugel, die
+     Beschriftungen der beiden Diagramme.
+     ============================================================ */
+  leistungen: {
+    meta: {
+      strategie: {
+        name: "Strategie",
+        beschreibung:
+          "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
+      },
+      content: {
+        name: "Produktbilder & SEO",
+        beschreibung:
+          "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
+      },
+      advertising: {
+        name: "PPC Advertising",
+        beschreibung:
+          "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
+      },
+      account: {
+        name: "Account Management",
+        beschreibung:
+          "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+      },
+      international: {
+        name: "Internationalisierung",
+        beschreibung:
+          "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
+      },
+    },
+
+    bausteine: {
+      knopf: "Potenzialanalyse buchen",
+      fallLesen: "Ganze Case Study lesen",
+      ausDerPraxis: "Aus der Praxis",
+      dasProblem: "Das Problem",
+      unserAnsatz: "Unser Ansatz",
+      vorherNachher: "Vorher / Nachher",
+      wasWirUebernehmen: "Was wir übernehmen",
+    },
+
+    /* Die drei Zahlen, an denen Content gemessen wird. Der Kunde nennt diese
+       Sektion den Nordstern der Content-Seite. */
+    contentBand: {
+      eyebrow: "Woran Amazon euer Listing misst",
+      titel: "Drei Zahlen entscheiden alles.",
+      lead: "Wie oft ihr gezeigt werdet. Wie oft geklickt wird. Wie oft gekauft wird. Jedes Bild und jeder Satz, den wir schreiben, zahlt auf eine dieser drei Zahlen ein.",
+      /* Die Ueberschriften hiessen einmal „Höherer Impressionsanteil" und
+         „Conversion Rate Uplift": zwei Steigerungsbehauptungen und ein
+         englischer Brocken. Jetzt steht dort die Kennzahl, die Aussage macht
+         der Satz darunter. */
+      karten: [
+        {
+          titel: "Impressionsanteil",
+          text: "Wie oft ihr überhaupt auftaucht, wenn jemand euer Produkt sucht.",
+        },
+        {
+          titel: "Klickrate",
+          text: "Wie viele von denen, die euch sehen, auf euer Bild klicken.",
+        },
+        {
+          titel: "Conversion Rate",
+          text: "Wie viele von denen, die klicken, am Ende kaufen.",
+        },
+      ],
+    },
+
+    contentSchau: {
+      eyebrow: "Content",
+      titelVor: "Jedes Element eurer ",
+      titelEm: "Produktseite.",
+      lead: "Vom ersten Bild im Suchergebnis bis zum Feld, das nur Amazon liest.",
+      backend: "Backend",
+      kacheln: [
+        {
+          kicker: "Hauptbild",
+          titel: "Der Klick fällt im Suchergebnis.",
+          text: "Neben drei anderen Treffern habt ihr eine Sekunde. Das Hauptbild entscheidet, ob geklickt wird.",
+        },
+        {
+          kicker: "Listing",
+          titel: "Sieben Bilder, die zusammen erzählen.",
+          text: "Größe, Anwendung, Material, Lieferumfang. Wer scrollt, hat danach keine Frage mehr offen.",
+        },
+        {
+          kicker: "A+ und Premium A+",
+          titel: "Der Teil unter den Bullets.",
+          text: "Liegende Module, eines unter dem anderen. Hier beantwortet ihr, woran der Kauf sonst scheitert.",
+        },
+        {
+          kicker: "Brand Story",
+          titel: "Aus einem Produkt wird eine Marke.",
+          text: "Das Band über der Detailseite führt zu euren anderen Produkten, statt zum nächsten Anbieter.",
+        },
+        {
+          kicker: "Titel, Bullets, Backend",
+          titel: "Gefunden werden, ohne Wortsalat.",
+          text: "Lesbar für Menschen geschrieben, verständlich für Rufus, COSMO und A10.",
+        },
+      ],
+      merksatzVor: "Solange das Listing nicht von allein verkauft, ",
+      merksatzMark: "verpufft jeder Euro Werbung.",
+    },
+
+    budgetDiagramm: {
+      eyebrow: "Wohin dasselbe Budget fließt",
+      ohneLabel: "Ohne saubere Struktur",
+      ohneVerloren: "Klicks ohne Kauf",
+      ohneVerkauf: "Verkäufe",
+      mitLabel: "So bauen wir es auf",
+      mitVerkauf: "Verkäufe",
+      mitTest: "Test",
+    },
+
+    /* Bewusst ohne Zahlen: ein Kostenanteil in Prozent waere eine erfundene
+       Angabe, die Breiten reichen aus, um die Reihenfolge zu zeigen. */
+    margenDiagramm: {
+      eyebrow: "Was von einem Verkauf übrig bleibt",
+      kosten: ["Wareneinsatz", "Amazon-Gebühren", "Versand", "Werbung", "Gewinn"],
+      produktA: "Produkt A",
+      urteilA: "bekommt mehr Budget",
+      produktB: "Produkt B",
+      urteilB: "wird gehalten",
+    },
+
+    weltkugel: {
+      bildAlt:
+        "Eine Weltkugel mit Blick über den Atlantik. In Deutschland, Frankreich, Italien, Spanien, den Niederlanden, Belgien, Polen, Schweden und den USA steckt je eine Fahne. Von Deutschland laufen leuchtende Linien zu allen anderen Märkten.",
+      /* Neun Maerkte, in der Reihenfolge der Kuerzel in `Weltkugel`.
+         Grossbritannien ist nicht dabei: eine Fahne in der Liste, die im Bild
+         fehlt, faellt sofort auf. */
+      laender: [
+        "Deutschland",
+        "Frankreich",
+        "Italien",
+        "Spanien",
+        "Niederlande",
+        "Belgien",
+        "Polen",
+        "Schweden",
+        "USA",
+      ],
+    },
+
+    strategie: {
+      hero: {
+        eyebrow: "Individuelle Amazon-Strategie",
+        titelVor: "Die Antworten liegen ",
+        titelEm: "in eurem Konto.",
+        lead: "Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte.",
+        bildAlt: "Aus den Berichten im Konto entsteht eine Reihenfolge",
+      },
+      problem: {
+        titel: "Warum im Konto nichts vorangeht.",
+        punkte: [
+          "Die Berichte liegen im Konto, ausgewertet hat sie zuletzt niemand.",
+          "Werbung wird hochgefahren, bevor das Listing konvertiert.",
+          "Die Marge wird nie bis auf die einzelne Variante durchgerechnet.",
+          "Es fehlt eine Reihenfolge: alles ist wichtig, nichts kommt zuerst.",
+        ],
+        bruecke:
+          "Wer die Berichte nicht auswertet, optimiert nach Geschmack. Das kostet über Monate Marge.",
+      },
+      inhalt: {
+        eyebrow: "Was drinsteckt",
+        titel: "Von der Analyse zum priorisierten Fahrplan.",
+        karten: [
+          {
+            titel: "Analyse",
+            unterzeile: "Was in den Berichten steht",
+            punkte: [
+              "Zu welchen Suchbegriffen ihr gefunden, geklickt und gekauft werdet",
+              "Wie viele Besucher jedes Produkt bekommt und wie viele davon kaufen",
+              "Wie sich euer Anteil am Markt über die Monate verändert",
+              "Was jede einzelne Variante nach allen Gebühren verdient",
+            ],
+          },
+          {
+            titel: "Strategie & Fahrplan",
+            unterzeile: "Was daraus folgt",
+            punkte: [
+              "Welche Produkte wachsen sollen und welche nur gehalten werden",
+              "Ein Zielwert für ACoS und TACoS",
+              "Die Reihenfolge: was zuerst, was danach, was später",
+            ],
+          },
+        ],
+      },
+      lieferung: {
+        eyebrow: "Was ihr danach in der Hand habt",
+        titel: "Zwei Dokumente, mit denen ihr arbeiten könnt.",
+        stuecke: [
+          {
+            kicker: "Dokument 1",
+            titel: "Margenübersicht je Artikel",
+            punkte: [
+              "Verkaufspreis, Amazon-Gebühren, FBA, Wareneinsatz und Werbung je Variante",
+              "Was am Ende übrig bleibt, in Euro und in Prozent",
+              "Welche Artikel Wachstum verdienen und welche nur gehalten werden",
+            ],
+          },
+          {
+            kicker: "Dokument 2",
+            titel: "Fahrplan für die nächsten Monate",
+            punkte: [
+              "Was zuerst kommt, weil es schnell wirkt, und was warten kann",
+              "Welche Artikel in den ersten Content-Sprint gehen",
+              "Ab wann Kampagnen dazugeschaltet werden und mit welchem Ziel",
+              "Wie tief wir ins Tagesgeschäft gehen sollen, von Beobachten bis Übernehmen",
+              "Wo der Bestand knapp wird, bevor er die Skalierung ausbremst",
+            ],
+          },
+        ],
+      },
+      ergebnis: {
+        titel: "Vitaworld, Q1 2025 auf Q1 2026",
+        zeile: "Erst durchgerechnet, dann skaliert: das Werbebudget stieg um 39 %, der Umsatz um 147 %.",
+        werte: [
+          { wert: "+147 %", label: "Umsatz", sub: "im Vergleich der beiden Quartale" },
+          { wert: "−44 %", label: "TACoS", sub: "bei wachsendem Umsatz" },
+          {
+            wert: "−19,4 %",
+            label: "Anteil der Werbung am Umsatz",
+            sub: "das Wachstum kommt organisch",
+          },
+        ],
+      },
+      cta: "Wisst ihr, wo euer größtes Potenzial liegt?",
+    },
+
+    content: {
+      hero: {
+        eyebrow: "Produktbilder & SEO",
+        titelVor: "Content, der aus Klicks ",
+        titelEm: "Käufer macht.",
+        lead: "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
+        bildAlt: "Produktseite aus Hauptbild, Textblöcken und weiteren Bildern",
+      },
+      ansatz: {
+        titel: "Schöner Content allein verkauft nichts.",
+        text: "Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken.",
+        bildAlt: "Vier Treffer nebeneinander, einer leuchtet, darüber eine steigende Kurve",
+      },
+      vergleich: {
+        titel: "Was sich mit starkem Content ändert.",
+        linksLabel: "Vor der Zusammenarbeit",
+        links: [
+          "Traffic kommt, gekauft wird woanders",
+          "Das Listing taucht in der Suche kaum auf",
+          "Keywords ohne System, Rankings ohne Plan",
+          "Werbebudget läuft auf Seiten, die nicht konvertieren",
+          "Richtlinienverstöße gefährden das Konto",
+        ],
+        rechtsLabel: "So arbeiten wir",
+        rechts: [
+          "Retail Ready: der Content steht, bevor Budget fließt",
+          "Hauptbild auf die Klickrate ausgelegt, nicht nach Geschmack gewählt",
+          "Keywords, die tatsächlich zum Kauf führen, gezielt besetzt",
+          "A+ Content beantwortet die Fragen, an denen der Kauf sonst scheitert",
+          "Richtlinienkonform, ohne Risiko fürs Konto",
+        ],
+      },
+      ergebnis: {
+        titel: "HaA, Launch über 17 Wochen",
+        zeile: "Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget.",
+        werte: [
+          { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
+          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
+          { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
+        ],
+      },
+      cta: "Wie viel Umsatz verliert ihr an schwachem Content?",
+    },
+
+    advertising: {
+      hero: {
+        eyebrow: "PPC Advertising",
+        titelVor: "Skalieren, ohne die ",
+        titelEm: "Marge zu verlieren.",
+        lead: "Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
+        bildAlt: "Budget geht dorthin, wo nach Kosten Gewinn bleibt",
+      },
+      problem: {
+        titel: "Wo Amazon-Werbung Geld verbrennt.",
+        punkte: [
+          "Ein großer Teil des Budgets fließt in Keywords, die nie profitabel werden.",
+          "Auto-, Phrase- und Exact-Kampagnen bieten gegeneinander.",
+          "Sponsored Products und Sponsored Brands konkurrieren um dieselben Klicks.",
+          "Niemand steuert auf Produktebene, also auf den tatsächlichen Gewinn.",
+          "Einmal aufgesetzt, dann sich selbst überlassen.",
+        ],
+        bruecke: "Professionelles PPC beginnt bei der Struktur, lange vor dem ersten Gebot.",
+      },
+      ansatz: {
+        titel: "Mehr Budget ist keine Strategie.",
+        text: "Bevor ein Produkt mehr Budget bekommt, rechnen wir es durch: Wareneinsatz, Amazon-Gebühren, Versand, Werbung. Was danach Gewinn bringt, skalieren wir. Der Rest wird gehalten.",
+      },
+      leistung: {
+        titel: "Von der Margenrechnung bis zum einzelnen Gebot.",
+        karten: [
+          {
+            titel: "Erst rechnen, dann skalieren",
+            text: "Mehr Budget bekommt nur, was nach allen Kosten Gewinn bringt.",
+          },
+          {
+            titel: "Kampagnen sauber aufgebaut",
+            text: "Jede Kampagne hat eine Aufgabe. Keine bietet gegen die andere.",
+          },
+          {
+            titel: "Eure Marke verteidigt",
+            text: "Wer nach eurem Namen sucht, landet bei euch, nicht beim Wettbewerb.",
+          },
+          {
+            titel: "Neue Suchbegriffe laufend gesucht",
+            text: "Was verkauft, wandert in die eigene Kampagne. Was nicht, fliegt raus.",
+          },
+          {
+            titel: "Gebote täglich nachgezogen",
+            text: "Angepasst an Wettbewerb, Saison und Platzierung, nicht einmal im Monat.",
+          },
+          {
+            titel: "Werbung, die das Ranking mitzieht",
+            text: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
+          },
+        ],
+      },
+      ergebnis: {
+        titel: "FUTUM, erstes volles Amazon-Jahr",
+        zeile: "Zwei Produktlaunches in einer Akut-Nische, profitabel skaliert statt Wachstum eingekauft.",
+        werte: [
+          { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung" },
+          { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
+          { wert: "+37,3 %", label: "Conversion Rate", sub: "auf Ebene des ganzen Kontos" },
+        ],
+      },
+      cta: "Wo versickert euer Werbebudget?",
+    },
+
+    account: {
+      hero: {
+        eyebrow: "Account Management",
+        titelVor: "Ihr baut die Marke. Das ",
+        titelEm: "Tagesgeschäft liegt bei uns.",
+        lead: "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+        bildAlt: "Tagesgeschäft an einem Pult gesteuert",
+      },
+      problem: {
+        titel: "Die meisten reagieren erst, wenn es brennt.",
+        punkte: [
+          "Buy-Box verloren, oft tagelang unbemerkt.",
+          "Bestände leer, Rankings brechen weg.",
+          "Performance bricht ein, niemand sieht den Grund.",
+          "Policy-Warnung im Postfach, das Konto in Gefahr.",
+        ],
+        bruecke: "Wir greifen früher ein, bevor es Umsatz kostet.",
+      },
+      faelle: {
+        eyebrow: "Wie wir arbeiten",
+        titel: "So bleibt euer Account stabil.",
+        bildAlt:
+          "Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet",
+        stuecke: [
+          {
+            titel: "Buy-Box weg, 9:40 Uhr",
+            text: "Ein Mehranbieter unterbietet euch um 40 Cent. Wir sehen es am Vormittag, prüfen die Marge und entscheiden mit euch: mitgehen oder aussitzen.",
+          },
+          {
+            titel: "Noch 18 Tage Bestand vor der Saison",
+            text: "Der Nachschub braucht 6 Wochen bis ins Lager. Wir melden das, bevor der Artikel leerläuft und das Ranking mit ihm.",
+          },
+          {
+            titel: "Richtlinienwarnung im Postfach",
+            text: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
+          },
+        ],
+      },
+      aufgaben: {
+        titel: "Acht Aufgaben weniger auf eurem Tisch.",
+        liste: [
+          {
+            titel: "Buy-Box-Monitoring",
+            text: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter.",
+          },
+          {
+            titel: "Bestand und Nachschub",
+            text: "Nachschub geplant, damit kein Bestseller leerläuft.",
+          },
+          {
+            titel: "Cases und Amazon-Support",
+            text: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert.",
+          },
+          {
+            titel: "Produkte anlegen und pflegen",
+            text: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt.",
+          },
+          {
+            titel: "Richtlinien im Blick",
+            text: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden.",
+          },
+          {
+            titel: "Änderungen und Tests",
+            text: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl.",
+          },
+          {
+            titel: "Pricing und Marge",
+            text: "Preise gesteuert, damit Wachstum nicht die Marge frisst.",
+          },
+          {
+            titel: "Feste Termine mit euch",
+            text: "Regelmäßig, mit klaren nächsten Schritten.",
+          },
+        ],
+      },
+      ergebnisBand: {
+        badge: "Wir machen die Arbeit",
+        titel: "Ihr bekommt die Ergebnisse.",
+        punkte: [
+          "Buy-Box-Verluste am selben Tag geklärt",
+          "Nachschub geplant, bevor der Bestand kippt",
+          "Monatsreport mit klaren nächsten Schritten",
+          "Anfragen an den Amazon-Support laufen über uns",
+        ],
+      },
+      ergebnis: {
+        titel: "Marke aus Gartenzubehör, Saison 2026",
+        zeile: "Schon im Herbst vorbereitet, damit die Nachfrage im April auf einen Account trifft, der sie aushält.",
+        werte: [
+          { wert: "−35 %", label: "TACoS im Hauptmarkt", sub: "über die Saison" },
+          { wert: "+21 %", label: "Conversion Rate", sub: "Hauptmarkt DE" },
+          { wert: "+110 %", label: "Klicks Italien", sub: "bei sinkendem ACoS" },
+        ],
+      },
+      cta: "Gebt das Tagesgeschäft an uns ab.",
+    },
+
+    international: {
+      hero: {
+        eyebrow: "Internationalisierung",
+        titelVor: "Jedes Land sucht ",
+        titelEm: "anders.",
+        lead: "Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen.",
+        bildAlt: "Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern",
+      },
+      problem: {
+        titel: "Warum neue Marktplätze oft enttäuschen.",
+        punkte: [
+          "Listings werden übersetzt, statt für den Markt geschrieben.",
+          "Jeder Marktplatz hat eigene Suchbegriffe und Kaufgewohnheiten.",
+          "Kampagnen aus dem Startmarkt werden eins zu eins übernommen.",
+          "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
+        ],
+        bruecke:
+          "Andere Käufer, andere Suchbegriffe, anderer Wettbewerb. Deshalb beginnt bei uns jedes Land mit einer eigenen Recherche, nicht mit einer Übersetzung.",
+      },
+      vorgehen: {
+        eyebrow: "Unser Vorgehen",
+        titel: "Was wir für jeden Marktplatz neu machen.",
+        karten: [
+          {
+            titel: "Eigene Keyword-Recherche",
+            unterzeile: "Jeder Markt sucht anders",
+            text: "Für jeden Marktplatz recherchieren wir die Suchbegriffe neu, statt sie aus dem Startmarkt zu übersetzen.",
+          },
+          {
+            titel: "Lokalisierter Content",
+            unterzeile: "Geschrieben für den Markt",
+            text: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz neu erstellt, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
+          },
+          {
+            titel: "Eigene Kampagnen",
+            unterzeile: "Lokal gesteuert",
+            text: "Sponsored Products, Brands und Display je Marktplatz neu aufgesetzt und über den lokalen TACoS gesteuert.",
+          },
+          {
+            titel: "Markt für Markt",
+            unterzeile: "Der gleiche volle Aufwand",
+            text: "Die komplette Arbeit, die ein Marktplatz bekommt, bekommt auch der nächste. Ohne Abkürzung.",
+          },
+        ],
+      },
+      karte: {
+        eyebrow: "Wie es aussieht",
+        titel: "Ein Konto, jedes Land für sich aufgebaut.",
+        text: "Der Startmarkt bleibt der Startmarkt. Jedes weitere Land bekommt die komplette Arbeit noch einmal, statt eine Übersetzung des ersten.",
+      },
+      ergebnis: {
+        titel: "Miganeo, Sommer 2026",
+        zeile: "Fünf Marktplätze in zehn Wochen aufgebaut, aus vier losen Kampagnen wurden 120.",
+        werte: [
+          { wert: "×20", label: "Umsatz im Ausland", sub: "8.967 € auf 179.287 €" },
+          { wert: "9,9 %", label: "ACoS", sub: "299.184 € Umsatz bei 29.490 € Einsatz" },
+          {
+            wert: "98,9 %",
+            label: "außerhalb der eigenen Marke",
+            sub: "neu gewonnen, nicht umgebucht",
+          },
+        ],
+      },
+      vergleich: {
+        titel: "Übersetzt oder lokalisiert.",
+        linksLabel: "Nur übersetzt",
+        links: [
+          "Titel wörtlich übersetzt, an den Suchbegriffen vorbei",
+          "Gleiche Keywords wie im Startmarkt",
+          "Kampagnen kopiert, Budget ohne lokalen Bezug",
+          "Conversion bleibt hinter dem Startmarkt zurück",
+        ],
+        rechtsLabel: "Lokalisiert",
+        rechts: [
+          "Content je Markt neu geschrieben, auf Klickrate und Conversion",
+          "Eigene Keyword-Recherche pro Marktplatz",
+          "Kampagnen lokal aufgesetzt und über den TACoS gesteuert",
+          "Profitables Wachstum auf jedem neuen Marktplatz",
+        ],
+      },
+      cta: "Welcher Markt ist euer nächster?",
+    },
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

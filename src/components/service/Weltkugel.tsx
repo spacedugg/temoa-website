@@ -1,6 +1,7 @@
 "use client";
 
 import { Pille } from "../ui/SectionHeading";
+import type { Woerterbuch } from "@/lib/woerter";
 import { FlaggeForm } from "../ui/Flagge";
 
 /* ============================================================
@@ -20,25 +21,17 @@ import { FlaggeForm } from "../ui/Flagge";
    Keine Bewegung: der Kunde will hier keine Animation.
    ============================================================ */
 
-/** Die Maerkte, die im Bild eine Nadel tragen. Grossbritannien ist nicht dabei. */
-const MAERKTE = [
-  { code: "DE", name: "Deutschland" },
-  { code: "FR", name: "Frankreich" },
-  { code: "IT", name: "Italien" },
-  { code: "ES", name: "Spanien" },
-  { code: "NL", name: "Niederlande" },
-  { code: "BE", name: "Belgien" },
-  { code: "PL", name: "Polen" },
-  { code: "SE", name: "Schweden" },
-  { code: "US", name: "USA" },
-];
+/** Die Kuerzel der Maerkte, die im Bild eine Nadel tragen, in der Reihenfolge
+ *  der Namen im Woerterbuch. Grossbritannien ist nicht dabei: eine Fahne in
+ *  der Liste, die im Bild fehlt, faellt sofort auf. */
+const MAERKTE = ["DE", "FR", "IT", "ES", "NL", "BE", "PL", "SE", "US"];
 
-export function Weltkugel() {
+export function Weltkugel({ bildAlt }: { bildAlt: string }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src="/bilder/s-international-kugel.webp"
-      alt="Eine Weltkugel mit Blick über den Atlantik. In Deutschland, Frankreich, Italien, Spanien, den Niederlanden, Belgien, Polen, Schweden und den USA steckt je eine Fahne. Von Deutschland laufen leuchtende Linien zu allen anderen Märkten."
+      alt={bildAlt}
       width={1600}
       height={900}
       loading="lazy"
@@ -57,30 +50,32 @@ export function MarktSektion({
   eyebrow,
   title,
   text,
+  w,
 }: {
   eyebrow?: string;
   title: string;
   text?: string;
+  w: Woerterbuch["leistungen"]["weltkugel"];
 }) {
   return (
     <section className="ground-tint relative isolate py-16 md:py-24">
       <div className="container-x">
         <div className="grid items-center gap-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-10">
           <div className="mx-auto w-full min-w-0 max-w-[46rem]">
-            <Weltkugel />
+            <Weltkugel bildAlt={w.bildAlt} />
             {/* Auf dem Telefon ist die Grafik rund dreihundert Pixel breit, eine
                 Fahne darin waere sieben Pixel gross. Deshalb stehen die Namen
                 dort noch einmal als Liste darunter. */}
             <ul className="mt-6 flex flex-wrap justify-center gap-2 md:hidden">
-              {MAERKTE.map((m) => (
+              {MAERKTE.map((code, i) => (
                 <li
-                  key={m.code}
+                  key={code}
                   className="flex items-center gap-2 rounded-full bg-white px-3 py-1.5 shadow-[0_6px_16px_-10px_rgba(60,90,125,0.6)] ring-1 ring-navy/[0.08]"
                 >
                   <svg width="20" height="14" viewBox="-13 -9 26 18" aria-hidden className="shrink-0 rounded-[2px]">
-                    <FlaggeForm code={m.code} />
+                    <FlaggeForm code={code} />
                   </svg>
-                  <span className="text-[0.8rem] font-bold text-ink">{m.name}</span>
+                  <span className="text-[0.8rem] font-bold text-ink">{w.laender[i]}</span>
                 </li>
               ))}
             </ul>

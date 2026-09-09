@@ -165,6 +165,8 @@ export function ServiceHero({
   image,
   imageAlt = "",
   imageAspect = "aspect-square",
+  knopf,
+  knopfHref,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -174,6 +176,11 @@ export function ServiceHero({
   imageAlt?: string;
   /** Aspect ratio for the placeholder (service heroes are 1:1). */
   imageAspect?: string;
+  /** Beschriftung und Ziel des Knopfes. Beides kommt von aussen: eine feste
+   *  Beschriftung waere eine feste Sprache, ein festes Ziel ein Sprung von
+   *  der englischen Seite auf die deutsche. */
+  knopf: string;
+  knopfHref: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden ground pt-32 pb-16 md:pt-40 md:pb-20">
@@ -198,8 +205,8 @@ export function ServiceHero({
           </Reveal>
           <Reveal delay={0.18}>
             <div className={`mt-8 flex justify-center ${image ? "md:justify-start" : ""}`}>
-              <a href="/gespraech-vereinbaren" className="btn-primary">
-                Potenzialanalyse buchen
+              <a href={knopfHref} className="btn-primary">
+                {knopf}
                 <Pfeil />
               </a>
             </div>
@@ -868,12 +875,15 @@ export function Ergebnis({
   zeile,
   werte,
   href,
+  mehr,
 }: {
   eyebrow: string;
   title: string;
   zeile: string;
   werte: { wert: string; label: string; sub?: string; runter?: boolean }[];
   href: string;
+  /** Beschriftung des Links auf die Fallseite. */
+  mehr: string;
 }) {
   /* Der Fall zur Adresse. Das Logo aus den Falldaten zu holen ist sicherer,
      als es an jeder Aufrufstelle noch einmal mitzugeben. */
@@ -913,7 +923,7 @@ export function Ergebnis({
             </Reveal>
             <Reveal delay={0.15}>
               <a href={href} className="btn-text mt-8 !text-brand-400">
-                Ganze Case Study lesen
+                {mehr}
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

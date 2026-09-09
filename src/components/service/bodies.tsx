@@ -15,462 +15,352 @@ import { Aufgaben } from "./Aufgaben";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
+import { pfad, type Sprache } from "@/lib/i18n";
+import { woerter } from "@/lib/woerter";
+import type { PiktogrammName } from "./Piktogramme";
+
+/* ============================================================
+   Die fuenf Leistungsseiten.
+
+   Die Copy steht im Woerterbuch, hier steht der Aufbau. Diese Datei laeuft
+   auf dem Server, sie darf das Woerterbuch deshalb selbst importieren; die
+   Bausteine darunter laufen im Browser und bekommen ihre Beschriftungen als
+   Prop.
+
+   Was hier im Modul bleibt, ist alles ohne Sprache: Bildpfade, die Namen der
+   Piktogramme, die Adressen der Faelle.
+   ============================================================ */
+
+/* Die Piktogramme in der Reihenfolge der Karten im Woerterbuch. */
+const STRATEGIE_ZEICHEN: PiktogrammName[] = ["analyse", "fahrplan"];
+const ADVERTISING_ZEICHEN: PiktogrammName[] = [
+  "marge",
+  "struktur",
+  "marke",
+  "suche",
+  "pricing",
+  "ranking",
+];
+const INTERNATIONAL_ZEICHEN: PiktogrammName[] = ["sprache", "seite", "kampagne", "wiederholen"];
+const AUFGABEN_ZEICHEN: PiktogrammName[] = [
+  "buybox",
+  "bestand",
+  "ticket",
+  "katalog",
+  "richtlinie",
+  "test",
+  "pricing",
+  "termin",
+];
 
 /* ============ STRATEGIE ============ */
-export function StrategieBody() {
+export function StrategieBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.strategie;
+  const b = alle.bausteine;
+
   return (
     <>
       <ServiceHero
-        eyebrow="Individuelle Amazon-Strategie"
+        eyebrow={w.hero.eyebrow}
         title={
           <>
-            Die Antworten liegen <span className="text-gradient">in eurem Konto.</span>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
           </>
         }
-        sub="Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte."
+        sub={w.hero.lead}
         image="/bilder/s-strategie.webp"
-        imageAlt="Aus den Berichten im Konto entsteht eine Reihenfolge"
+        imageAlt={w.hero.bildAlt}
+        knopf={alle.bausteine.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
       <Points
         tone="blue"
-        eyebrow="Das Problem"
-        title="Warum im Konto nichts vorangeht."
-        points={[
-          "Die Berichte liegen im Konto, ausgewertet hat sie zuletzt niemand.",
-          "Werbung wird hochgefahren, bevor das Listing konvertiert.",
-          "Die Marge wird nie bis auf die einzelne Variante durchgerechnet.",
-          "Es fehlt eine Reihenfolge: alles ist wichtig, nichts kommt zuerst.",
-        ]}
-        bridge="Wer die Berichte nicht auswertet, optimiert nach Geschmack. Das kostet über Monate Marge."
+        eyebrow={b.dasProblem}
+        title={w.problem.titel}
+        points={w.problem.punkte}
+        bridge={w.problem.bruecke}
       />
       <Cards
         tone="white"
-        eyebrow="Was drinsteckt"
-        title="Von der Analyse zum priorisierten Fahrplan."
+        eyebrow={w.inhalt.eyebrow}
+        title={w.inhalt.titel}
         cols={2}
-        items={[
-          {
-            piktogramm: "analyse",
-            title: "Analyse",
-            subtitle: "Was in den Berichten steht",
-            bullets: [
-              "Zu welchen Suchbegriffen ihr gefunden, geklickt und gekauft werdet",
-              "Wie viele Besucher jedes Produkt bekommt und wie viele davon kaufen",
-              "Wie sich euer Anteil am Markt über die Monate verändert",
-              "Was jede einzelne Variante nach allen Gebühren verdient",
-            ],
-          },
-          {
-            piktogramm: "fahrplan",
-            title: "Strategie & Fahrplan",
-            subtitle: "Was daraus folgt",
-            bullets: [
-              "Welche Produkte wachsen sollen und welche nur gehalten werden",
-              "Ein Zielwert für ACoS und TACoS",
-              "Die Reihenfolge: was zuerst, was danach, was später",
-            ],
-          },
-        ]}
+        items={w.inhalt.karten.map((k, i) => ({
+          piktogramm: STRATEGIE_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          bullets: k.punkte,
+        }))}
       />
       <Lieferung
-        eyebrow="Was ihr danach in der Hand habt"
-        title={<>Zwei Dokumente, mit denen ihr arbeiten könnt.</>}
-        stuecke={[
-          {
-            kicker: "Dokument 1",
-            title: "Margenübersicht je Artikel",
-            punkte: [
-              "Verkaufspreis, Amazon-Gebühren, FBA, Wareneinsatz und Werbung je Variante",
-              "Was am Ende übrig bleibt, in Euro und in Prozent",
-              "Welche Artikel Wachstum verdienen und welche nur gehalten werden",
-            ],
-          },
-          {
-            kicker: "Dokument 2",
-            title: "Fahrplan für die nächsten Monate",
-            punkte: [
-              "Was zuerst kommt, weil es schnell wirkt, und was warten kann",
-              "Welche Artikel in den ersten Content-Sprint gehen",
-              "Ab wann Kampagnen dazugeschaltet werden und mit welchem Ziel",
-              "Wie tief wir ins Tagesgeschäft gehen sollen, von Beobachten bis Übernehmen",
-              "Wo der Bestand knapp wird, bevor er die Skalierung ausbremst",
-            ],
-          },
-        ]}
+        eyebrow={w.lieferung.eyebrow}
+        title={w.lieferung.titel}
+        stuecke={w.lieferung.stuecke.map((s) => ({
+          kicker: s.kicker,
+          title: s.titel,
+          punkte: s.punkte,
+        }))}
       />
       <Ergebnis
-        eyebrow="Aus der Praxis"
-        title="Vitaworld, Q1 2025 auf Q1 2026"
-        zeile="Erst durchgerechnet, dann skaliert: das Werbebudget stieg um 39 %, der Umsatz um 147 %."
-        werte={[
-          { wert: "+147 %", label: "Umsatz", sub: "im Vergleich der beiden Quartale" },
-          { wert: "−44 %", label: "TACoS", sub: "bei wachsendem Umsatz", runter: true },
-          { wert: "−19,4 %", label: "Anteil der Werbung am Umsatz", sub: "das Wachstum kommt organisch", runter: true },
-        ]}
-        href="/ergebnisse/vitaworld"
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        /* `runter` steht hier und nicht im Woerterbuch: ob ein gefallener Wert
+           gut ist, haengt an der Kennzahl und nicht an der Sprache. */
+        werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: i > 0 }))}
+        href={pfad(sprache, "/ergebnisse/vitaworld")}
+        mehr={b.fallLesen}
       />
-      <ServiceCTA
-        title="Wisst ihr, wo euer größtes Potenzial liegt?"
-      />
+      <ServiceCTA title={w.cta} />
     </>
   );
 }
 
-/* ============ CONTENT & LISTINGS ============ */
-export function ContentBody() {
+/* ============ PRODUKTBILDER & SEO ============ */
+export function ContentBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.content;
+  const b = alle.bausteine;
+
   return (
     <>
       <ServiceHero
-        eyebrow="Produktbilder & SEO"
+        eyebrow={w.hero.eyebrow}
         title={
           <>
-            Content, der aus Klicks <span className="text-gradient">Käufer macht.</span>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
           </>
         }
-        sub="Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion."
+        sub={w.hero.lead}
         image="/bilder/s-content.webp"
-        imageAlt="Produktseite aus Hauptbild, Textblöcken und weiteren Bildern"
+        imageAlt={w.hero.bildAlt}
+        knopf={b.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
-      <ContentResultBand />
+      <ContentResultBand w={alle.contentBand} />
       <TextMedia
         tone="blue"
-        eyebrow="Unser Ansatz"
-        title="Schöner Content allein verkauft nichts."
-        text="Wir entwickeln jedes Listing aus den Daten eures Kontos: wonach gesucht wird, an welcher Stelle Besucher abspringen, wo der Wettbewerb an euch vorbeizieht. Daraus entstehen Bilder und Texte, die verkaufen und organisch ranken."
+        eyebrow={b.unserAnsatz}
+        title={w.ansatz.titel}
+        text={w.ansatz.text}
         image="/bilder/s-content-ansatz.webp"
-        imageAlt="Vier Treffer nebeneinander, einer leuchtet, darüber eine steigende Kurve"
+        imageAlt={w.ansatz.bildAlt}
         imageAspect="aspect-[3/2]"
       />
-      <ContentShowcase />
+      <ContentShowcase w={alle.contentSchau} />
       <Compare
         tone="blue"
-        eyebrow="Vorher / Nachher"
-        title="Was sich mit starkem Content ändert."
-        left={{
-          label: "Vor der Zusammenarbeit",
-          points: [
-            "Traffic kommt, gekauft wird woanders",
-            "Das Listing taucht in der Suche kaum auf",
-            "Keywords ohne System, Rankings ohne Plan",
-            "Werbebudget läuft auf Seiten, die nicht konvertieren",
-            "Richtlinienverstöße gefährden das Konto",
-          ],
-        }}
-        right={{
-          label: "So arbeiten wir",
-          points: [
-            "Retail Ready: der Content steht, bevor Budget fließt",
-            "Hauptbild auf die Klickrate ausgelegt, nicht nach Geschmack gewählt",
-            "Keywords, die tatsächlich zum Kauf führen, gezielt besetzt",
-            "A+ Content beantwortet die Fragen, an denen der Kauf sonst scheitert",
-            "Richtlinienkonform, ohne Risiko fürs Konto",
-          ],
-        }}
+        eyebrow={b.vorherNachher}
+        title={w.vergleich.titel}
+        left={{ label: w.vergleich.linksLabel, points: w.vergleich.links }}
+        right={{ label: w.vergleich.rechtsLabel, points: w.vergleich.rechts }}
       />
       <Ergebnis
-        eyebrow="Aus der Praxis"
-        title="HaA, Launch über 17 Wochen"
-        zeile="Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget."
-        werte={[
-          { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
-          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
-          { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
-        ]}
-        href="/ergebnisse/haa"
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        werte={w.ergebnis.werte}
+        href={pfad(sprache, "/ergebnisse/haa")}
+        mehr={b.fallLesen}
       />
-      <ServiceCTA
-        title="Wie viel Umsatz verliert ihr an schwachem Content?"
-      />
+      <ServiceCTA title={w.cta} />
     </>
   );
 }
 
-/* ============ ADVERTISING / PPC ============ */
-export function AdvertisingBody() {
+/* ============ PPC ADVERTISING ============ */
+export function AdvertisingBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.advertising;
+  const b = alle.bausteine;
+
   return (
     <>
       <ServiceHero
-        eyebrow="PPC Advertising"
+        eyebrow={w.hero.eyebrow}
         title={
           <>
-            Skalieren, ohne die <span className="text-gradient">Marge zu verlieren.</span>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
           </>
         }
-        sub="Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt."
+        sub={w.hero.lead}
         image="/bilder/s-advertising.webp"
-        imageAlt="Budget geht dorthin, wo nach Kosten Gewinn bleibt"
+        imageAlt={w.hero.bildAlt}
+        knopf={b.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
       <Points
         tone="blue"
-        eyebrow="Das Problem"
-        title="Wo Amazon-Werbung Geld verbrennt."
-        points={[
-          "Ein großer Teil des Budgets fließt in Keywords, die nie profitabel werden.",
-          "Auto-, Phrase- und Exact-Kampagnen bieten gegeneinander.",
-          "Sponsored Products und Sponsored Brands konkurrieren um dieselben Klicks.",
-          "Niemand steuert auf Produktebene, also auf den tatsächlichen Gewinn.",
-          "Einmal aufgesetzt, dann sich selbst überlassen.",
-        ]}
-        bridge="Professionelles PPC beginnt bei der Struktur, lange vor dem ersten Gebot."
-        aside={<BudgetSplitDiagram />}
+        eyebrow={b.dasProblem}
+        title={w.problem.titel}
+        points={w.problem.punkte}
+        bridge={w.problem.bruecke}
+        aside={<BudgetSplitDiagram w={alle.budgetDiagramm} />}
       />
       <TextMedia
         tone="white"
-        eyebrow="Unser Ansatz"
-        title="Mehr Budget ist keine Strategie."
-        text="Bevor ein Produkt mehr Budget bekommt, rechnen wir es durch: Wareneinsatz, Amazon-Gebühren, Versand, Werbung. Was danach Gewinn bringt, skalieren wir. Der Rest wird gehalten."
-        aside={<MargenDiagramm />}
+        eyebrow={b.unserAnsatz}
+        title={w.ansatz.titel}
+        text={w.ansatz.text}
+        aside={<MargenDiagramm w={alle.margenDiagramm} />}
         reverse
       />
       <Cards
         tone="blue"
-        eyebrow="Was wir übernehmen"
-        title="Von der Margenrechnung bis zum einzelnen Gebot."
+        eyebrow={b.wasWirUebernehmen}
+        title={w.leistung.titel}
         cols={3}
-        items={[
-          {
-            piktogramm: "marge",
-            title: "Erst rechnen, dann skalieren",
-            body: "Mehr Budget bekommt nur, was nach allen Kosten Gewinn bringt.",
-          },
-          {
-            piktogramm: "struktur",
-            title: "Kampagnen sauber aufgebaut",
-            body: "Jede Kampagne hat eine Aufgabe. Keine bietet gegen die andere.",
-          },
-          {
-            piktogramm: "marke",
-            title: "Eure Marke verteidigt",
-            body: "Wer nach eurem Namen sucht, landet bei euch, nicht beim Wettbewerb.",
-          },
-          {
-            piktogramm: "suche",
-            title: "Neue Suchbegriffe laufend gesucht",
-            body: "Was verkauft, wandert in die eigene Kampagne. Was nicht, fliegt raus.",
-          },
-          {
-            piktogramm: "pricing",
-            title: "Gebote täglich nachgezogen",
-            body: "Angepasst an Wettbewerb, Saison und Platzierung, nicht einmal im Monat.",
-          },
-          {
-            piktogramm: "ranking",
-            title: "Werbung, die das Ranking mitzieht",
-            body: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
-          },
-        ]}
+        items={w.leistung.karten.map((k, i) => ({
+          piktogramm: ADVERTISING_ZEICHEN[i],
+          title: k.titel,
+          body: k.text,
+        }))}
       />
       <Ergebnis
-        eyebrow="Aus der Praxis"
-        title="FUTUM, erstes volles Amazon-Jahr"
-        zeile="Zwei Produktlaunches in einer Akut-Nische, profitabel skaliert statt Wachstum eingekauft."
-        werte={[
-          { wert: "−19,7 %", label: "ACoS", sub: "trotz Launch-Skalierung", runter: true },
-          { wert: "80 %", label: "organische Verkäufe", sub: "Spitzenanteil am Gesamtumsatz" },
-          { wert: "+37,3 %", label: "Conversion Rate", sub: "auf Ebene des ganzen Kontos" },
-        ]}
-        href="/ergebnisse/futum"
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: i === 0 }))}
+        href={pfad(sprache, "/ergebnisse/futum")}
+        mehr={b.fallLesen}
       />
-      <ServiceCTA
-        title="Wo versickert euer Werbebudget?"
-      />
+      <ServiceCTA title={w.cta} />
     </>
   );
 }
 
-/* ============ ACCOUNT-MANAGEMENT ============ */
-export function AccountBody() {
+/* ============ ACCOUNT MANAGEMENT ============ */
+export function AccountBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.account;
+  const b = alle.bausteine;
+
   return (
     <>
       <ServiceHero
-        eyebrow="Account Management"
+        eyebrow={w.hero.eyebrow}
         title={
           <>
-            Ihr baut die Marke. Das{" "}
-            <span className="text-gradient">Tagesgeschäft liegt bei uns.</span>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
           </>
         }
-        sub="Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment."
+        sub={w.hero.lead}
         image="/bilder/s-account.webp"
-        imageAlt="Tagesgeschäft an einem Pult gesteuert"
+        imageAlt={w.hero.bildAlt}
+        knopf={b.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
       <Points
         tone="blue"
-        eyebrow="Das Problem"
-        title="Die meisten reagieren erst, wenn es brennt."
-        points={[
-          "Buy-Box verloren, oft tagelang unbemerkt.",
-          "Bestände leer, Rankings brechen weg.",
-          "Performance bricht ein, niemand sieht den Grund.",
-          "Policy-Warnung im Postfach, das Konto in Gefahr.",
-        ]}
-        bridge="Wir greifen früher ein, bevor es Umsatz kostet."
+        eyebrow={b.dasProblem}
+        title={w.problem.titel}
+        points={w.problem.punkte}
+        bridge={w.problem.bruecke}
       />
       <SplitCards
         tone="white"
-        eyebrow="Wie wir arbeiten"
-        title="So bleibt euer Account stabil."
+        eyebrow={w.faelle.eyebrow}
+        title={w.faelle.titel}
         image="/bilder/s-account-monitor.webp"
-        imageAlt="Buy-Box, Bestand und Konto-Gesundheit nebeneinander, eine Warnleuchte meldet"
+        imageAlt={w.faelle.bildAlt}
         imageAspect="aspect-[3/2]"
-        items={[
-          {
-            title: "Buy-Box weg, 9:40 Uhr",
-            body: "Ein Mehranbieter unterbietet euch um 40 Cent. Wir sehen es am Vormittag, prüfen die Marge und entscheiden mit euch: mitgehen oder aussitzen.",
-          },
-          {
-            title: "Noch 18 Tage Bestand vor der Saison",
-            body: "Der Nachschub braucht 6 Wochen bis ins Lager. Wir melden das, bevor der Artikel leerläuft und das Ranking mit ihm.",
-          },
-          {
-            title: "Richtlinienwarnung im Postfach",
-            body: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
-          },
-        ]}
+        items={w.faelle.stuecke.map((s) => ({ title: s.titel, body: s.text }))}
       />
       <Aufgaben
-        eyebrow="Was wir übernehmen"
-        title="Acht Aufgaben weniger auf eurem Tisch."
-        items={[
-          { name: "buybox", title: "Buy-Box-Monitoring", body: "Verlust sofort erkannt, samt Ursache: Preis, Verfügbarkeit, Mehranbieter." },
-          { name: "bestand", title: "Bestand und Nachschub", body: "Nachschub geplant, damit kein Bestseller leerläuft." },
-          { name: "ticket", title: "Cases und Amazon-Support", body: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert." },
-          { name: "katalog", title: "Produkte anlegen und pflegen", body: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt." },
-          { name: "richtlinie", title: "Richtlinien im Blick", body: "Neue Amazon-Vorgaben werden geprüft und umgesetzt, bevor sie zur Warnung werden." },
-          { name: "test", title: "Änderungen und Tests", body: "Hauptbild, Titel oder Preis geändert und gegen den Vorzeitraum gemessen, statt nach Gefühl." },
-          { name: "pricing", title: "Pricing und Marge", body: "Preise gesteuert, damit Wachstum nicht die Marge frisst." },
-          { name: "termin", title: "Feste Termine mit euch", body: "Regelmäßig, mit klaren nächsten Schritten." },
-        ]}
+        eyebrow={b.wasWirUebernehmen}
+        title={w.aufgaben.titel}
+        items={w.aufgaben.liste.map((a, i) => ({
+          name: AUFGABEN_ZEICHEN[i],
+          title: a.titel,
+          body: a.text,
+        }))}
       />
       <ResultBlock
-        badge="Wir machen die Arbeit"
-        title="Ihr bekommt die Ergebnisse."
-        benefits={[
-          "Buy-Box-Verluste am selben Tag geklärt",
-          "Nachschub geplant, bevor der Bestand kippt",
-          "Monatsreport mit klaren nächsten Schritten",
-          "Anfragen an den Amazon-Support laufen über uns",
-        ]}
+        badge={w.ergebnisBand.badge}
+        title={w.ergebnisBand.titel}
+        benefits={w.ergebnisBand.punkte}
       />
       <Ergebnis
-        eyebrow="Aus der Praxis"
-        title="Marke aus Gartenzubehör, Saison 2026"
-        zeile="Schon im Herbst vorbereitet, damit die Nachfrage im April auf einen Account trifft, der sie aushält."
-        werte={[
-          { wert: "−35 %", label: "TACoS im Hauptmarkt", sub: "über die Saison", runter: true },
-          { wert: "+21 %", label: "Conversion Rate", sub: "Hauptmarkt DE" },
-          { wert: "+110 %", label: "Klicks Italien", sub: "bei sinkendem ACoS" },
-        ]}
-        href="/ergebnisse/marke-gartenzubehoer"
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: i === 0 }))}
+        href={pfad(sprache, "/ergebnisse/marke-gartenzubehoer")}
+        mehr={b.fallLesen}
       />
-      <ServiceCTA
-        title="Gebt das Tagesgeschäft an uns ab."
-      />
+      <ServiceCTA title={w.cta} />
     </>
   );
 }
 
 /* ============ INTERNATIONALISIERUNG ============ */
-export function InternationalisierungBody() {
+export function InternationalisierungBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.international;
+  const b = alle.bausteine;
+
   return (
     <>
       <ServiceHero
-        eyebrow="Internationalisierung"
+        eyebrow={w.hero.eyebrow}
         title={
           <>
-            Jedes Land sucht <span className="text-gradient">anders.</span>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
           </>
         }
-        sub="Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen."
+        sub={w.hero.lead}
         image="/bilder/s-international.webp"
-        imageAlt="Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern"
+        imageAlt={w.hero.bildAlt}
+        knopf={b.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
       <Points
         tone="blue"
-        eyebrow="Das Problem"
-        title="Warum neue Marktplätze oft enttäuschen."
-        points={[
-          "Listings werden übersetzt, statt für den Markt geschrieben.",
-          "Jeder Marktplatz hat eigene Suchbegriffe und Kaufgewohnheiten.",
-          "Kampagnen aus dem Startmarkt werden eins zu eins übernommen.",
-          "Ohne lokale Relevanz bleiben Sichtbarkeit und Conversion aus.",
-        ]}
-        bridge="Andere Käufer, andere Suchbegriffe, anderer Wettbewerb. Deshalb beginnt bei uns jedes Land mit einer eigenen Recherche, nicht mit einer Übersetzung."
+        eyebrow={b.dasProblem}
+        title={w.problem.titel}
+        points={w.problem.punkte}
+        bridge={w.problem.bruecke}
       />
       <Cards
         tone="white"
-        eyebrow="Unser Vorgehen"
-        title="Was wir für jeden Marktplatz neu machen."
+        eyebrow={w.vorgehen.eyebrow}
+        title={w.vorgehen.titel}
         cols={2}
-        items={[
-          {
-            piktogramm: "sprache",
-            title: "Eigene Keyword-Recherche",
-            subtitle: "Jeder Markt sucht anders",
-            body: "Für jeden Marktplatz recherchieren wir die Suchbegriffe neu, statt sie aus dem Startmarkt zu übersetzen.",
-          },
-          {
-            piktogramm: "seite",
-            title: "Lokalisierter Content",
-            subtitle: "Geschrieben für den Markt",
-            body: "Hauptbild, Titel, Bullets und A+ Content je Marktplatz neu erstellt, sprachlich und kulturell. KI-ready für Rufus und COSMO im jeweiligen Markt.",
-          },
-          {
-            piktogramm: "kampagne",
-            title: "Eigene Kampagnen",
-            subtitle: "Lokal gesteuert",
-            body: "Sponsored Products, Brands und Display je Marktplatz neu aufgesetzt und über den lokalen TACoS gesteuert.",
-          },
-          {
-            piktogramm: "wiederholen",
-            title: "Markt für Markt",
-            subtitle: "Der gleiche volle Aufwand",
-            body: "Die komplette Arbeit, die ein Marktplatz bekommt, bekommt auch der nächste. Ohne Abkürzung.",
-          },
-        ]}
+        items={w.vorgehen.karten.map((k, i) => ({
+          piktogramm: INTERNATIONAL_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          body: k.text,
+        }))}
       />
       <MarktSektion
-        eyebrow="Wie es aussieht"
-        title="Ein Konto, jedes Land für sich aufgebaut."
-        text="Der Startmarkt bleibt der Startmarkt. Jedes weitere Land bekommt die komplette Arbeit noch einmal, statt eine Übersetzung des ersten."
+        eyebrow={w.karte.eyebrow}
+        title={w.karte.titel}
+        text={w.karte.text}
+        w={alle.weltkugel}
       />
       <Ergebnis
-        eyebrow="Aus der Praxis"
-        title="Miganeo, Sommer 2026"
-        zeile="Fünf Marktplätze in zehn Wochen aufgebaut, aus vier losen Kampagnen wurden 120."
-        werte={[
-          { wert: "×20", label: "Umsatz im Ausland", sub: "8.967 € auf 179.287 €" },
-          { wert: "9,9 %", label: "ACoS", sub: "299.184 € Umsatz bei 29.490 € Einsatz", runter: true },
-          { wert: "98,9 %", label: "außerhalb der eigenen Marke", sub: "neu gewonnen, nicht umgebucht" },
-        ]}
-        href="/ergebnisse/miganeo"
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: i === 1 }))}
+        href={pfad(sprache, "/ergebnisse/miganeo")}
+        mehr={b.fallLesen}
       />
       <Compare
         tone="white"
-        eyebrow="Vorher / Nachher"
-        title="Übersetzt oder lokalisiert."
-        left={{
-          label: "Nur übersetzt",
-          points: [
-            "Titel wörtlich übersetzt, an den Suchbegriffen vorbei",
-            "Gleiche Keywords wie im Startmarkt",
-            "Kampagnen kopiert, Budget ohne lokalen Bezug",
-            "Conversion bleibt hinter dem Startmarkt zurück",
-          ],
-        }}
-        right={{
-          label: "Lokalisiert",
-          points: [
-            "Content je Markt neu geschrieben, auf Klickrate und Conversion",
-            "Eigene Keyword-Recherche pro Marktplatz",
-            "Kampagnen lokal aufgesetzt und über den TACoS gesteuert",
-            "Profitables Wachstum auf jedem neuen Marktplatz",
-          ],
-        }}
+        eyebrow={b.vorherNachher}
+        title={w.vergleich.titel}
+        left={{ label: w.vergleich.linksLabel, points: w.vergleich.links }}
+        right={{ label: w.vergleich.rechtsLabel, points: w.vergleich.rechts }}
       />
-      <ServiceCTA
-        title="Welcher Markt ist euer nächster?"
-      />
+      <ServiceCTA title={w.cta} />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "../ui/SectionHeading";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 
 /* ============================================================
@@ -224,7 +225,7 @@ function BrandStoryViz() {
 }
 
 /** Titel, Bullets, Backend: was der Kaeufer liest und was nur Amazon sieht. */
-function SeoViz() {
+function SeoViz({ backend }: { backend: string }) {
   return (
     <div className="rounded-[1.1rem] bg-white p-4 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
       <div className="flex flex-wrap items-center gap-1.5">
@@ -250,7 +251,7 @@ function SeoViz() {
       {/* Backend: die Felder, die kein Kaeufer sieht. Deshalb dunkel abgesetzt. */}
       <div className="mt-4 rounded-[0.7rem] bg-navy p-3">
         <span className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white/60">
-          Backend
+          {backend}
         </span>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {[38, 26, 46, 30, 34, 22].map((w, i) => (
@@ -268,76 +269,48 @@ function SeoViz() {
 
 /* --- Kacheln ---------------------------------------------------------- */
 
-type Kachel = {
-  viz: () => React.ReactNode;
-  kicker: string;
-  title: string;
-  desc: string;
-  span?: string;
-  dunkel?: boolean;
-};
+/* Nachbau, Breite und Ton der fuenf Kacheln, in der Reihenfolge des
+   Woerterbuchs. Die Beschriftung kommt von aussen.
 
-const kacheln: Kachel[] = [
-  {
-    viz: SucheViz,
-    kicker: "Hauptbild",
-    title: "Der Klick fällt im Suchergebnis.",
-    desc: "Neben drei anderen Treffern habt ihr eine Sekunde. Das Hauptbild entscheidet, ob geklickt wird.",
-    span: "lg:col-span-2",
-    dunkel: true,
-  },
-  {
-    viz: ListingViz,
-    kicker: "Listing",
-    title: "Sieben Bilder, die zusammen erzählen.",
-    desc: "Größe, Anwendung, Material, Lieferumfang. Wer scrollt, hat danach keine Frage mehr offen.",
-  },
-  {
-    viz: APlusViz,
-    kicker: "A+ und Premium A+",
-    title: "Der Teil unter den Bullets.",
-    desc: "Liegende Module, eines unter dem anderen. Hier beantwortet ihr, woran der Kauf sonst scheitert.",
-  },
-  {
-    viz: BrandStoryViz,
-    kicker: "Brand Story",
-    title: "Aus einem Produkt wird eine Marke.",
-    desc: "Das Band über der Detailseite führt zu euren anderen Produkten, statt zum nächsten Anbieter.",
-  },
-  {
-    viz: SeoViz,
-    kicker: "Titel, Bullets, Backend",
-    title: "Gefunden werden, ohne Wortsalat.",
-    desc: "Lesbar für Menschen geschrieben, verständlich für Rufus, COSMO und A10.",
-  },
+   `backend` bekommen alle Nachbauten, gebraucht wird es nur von einem: der
+   SEO-Nachbau hat als einziger Schrift darin. Ein eigener Typ je Nachbau
+   waere hier mehr Aufwand als Nutzen. */
+const kacheln: { viz: (p: { backend: string }) => React.ReactNode; span?: string; dunkel?: boolean }[] = [
+  { viz: SucheViz, span: "lg:col-span-2", dunkel: true },
+  { viz: ListingViz },
+  { viz: APlusViz },
+  { viz: BrandStoryViz },
+  { viz: SeoViz },
 ];
 
-export function ContentShowcase() {
+export function ContentShowcase({ w }: { w: Woerterbuch["leistungen"]["contentSchau"] }) {
   return (
     <section className="relative isolate ground-tint py-20 md:py-28">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Content"
+          eyebrow={w.eyebrow}
           size="compact"
           title={
             <>
-              Jedes Element eurer <span className="text-gradient">Produktseite.</span>
+              {w.titelVor}
+              <span className="text-gradient">{w.titelEm}</span>
             </>
           }
-          description="Vom ersten Bild im Suchergebnis bis zum Feld, das nur Amazon liest."
+          description={w.lead}
         />
 
         <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-3" stagger={0.06}>
-          {kacheln.map((k) => {
+          {w.kacheln.map((t, i) => {
+            const k = kacheln[i];
             const Viz = k.viz;
             return (
-              <RevealItem key={k.title} className={`h-full ${k.span ?? ""}`}>
+              <RevealItem key={t.titel} className={`h-full ${k.span ?? ""}`}>
                 <div
                   className={`${
                     k.dunkel ? "panel-navy on-dark" : "panel panel-lift"
                   } flex h-full flex-col p-5 md:p-6`}
                 >
-                  <Viz />
+                  <Viz backend={w.backend} />
                   {/* Die Nachbauten sind unterschiedlich hoch. Der Text sitzt
                       deshalb am Fuss der Kachel, sonst haengt unter den
                       kuerzeren Kacheln eine leere Flaeche. */}
@@ -347,21 +320,21 @@ export function ContentShowcase() {
                         k.dunkel ? "text-brand-400" : "text-ink-soft"
                       }`}
                     >
-                      {k.kicker}
+                      {t.kicker}
                     </span>
                     <h3
                       className={`mt-2 text-balance text-[1.15rem] font-bold leading-snug md:text-[1.3rem] ${
                         k.dunkel ? "text-white" : "text-ink"
                       }`}
                     >
-                      {k.title}
+                      {t.titel}
                     </h3>
                     <p
                       className={`mt-2 text-small leading-relaxed ${
                         k.dunkel ? "text-chalk-muted" : "text-ink-muted"
                       }`}
                     >
-                      {k.desc}
+                      {t.text}
                     </p>
                   </div>
                 </div>
@@ -374,7 +347,8 @@ export function ContentShowcase() {
             Raster und war nicht zu sehen. */}
         <Reveal delay={0.12}>
           <p className="title mx-auto mt-14 max-w-[24ch] text-balance text-center text-[clamp(1.6rem,1.1rem+1.6vw,2.5rem)] text-ink">
-            Solange das Listing nicht von allein verkauft, <span className="mark">verpufft jeder Euro Werbung.</span>
+            {w.merksatzVor}
+            <span className="mark">{w.merksatzMark}</span>
           </p>
         </Reveal>
       </div>

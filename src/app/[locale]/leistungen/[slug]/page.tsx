@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
-import { ComingSoon } from "@/components/sections/ComingSoon";
 import {
   StrategieBody,
   ContentBody,
@@ -10,84 +9,72 @@ import {
   AccountBody,
   InternationalisierungBody,
 } from "@/components/service/bodies";
+import { istSprache, sprachAngaben, sprachen, type Sprache } from "@/lib/i18n";
+import { woerter, type Woerterbuch } from "@/lib/woerter";
 
-const meta: Record<string, { name: string; description: string }> = {
-  strategie: {
-    name: "Strategie",
-    description:
-      "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
-  },
-  "listing-seo": {
-    name: "Produktbilder & SEO",
-    description:
-      "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
-  },
-  "ppc-advertising": {
-    name: "PPC Advertising",
-    description:
-      "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
-  },
-  "account-management": {
-    name: "Account Management",
-    description:
-      "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
-  },
-  internationalisierung: {
-    name: "Internationalisierung",
-    description:
-      "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
-  },
+/* Die Adressen bleiben deutsch, auch auf der englischen Seite. Sie sind
+   gesetzt, ein Wechsel bricht Verweise und Suchergebnisse; die Sprache steckt
+   allein im Praefix. Der Schluessel daneben zeigt in das Woerterbuch. */
+const SEITEN: Record<string, keyof Woerterbuch["leistungen"]["meta"]> = {
+  strategie: "strategie",
+  "listing-seo": "content",
+  "ppc-advertising": "advertising",
+  "account-management": "account",
+  internationalisierung: "international",
 };
 
 export function generateStaticParams() {
-  return Object.keys(meta).map((slug) => ({ slug }));
+  return sprachen.flatMap((locale) => Object.keys(SEITEN).map((slug) => ({ locale, slug })));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const m = meta[slug];
-  return m ? { title: `${m.name} · temoa`, description: m.description } : {};
+  const { locale, slug } = await params;
+  const schluessel = SEITEN[slug];
+  if (!istSprache(locale) || !schluessel) return {};
+  const m = woerter(locale).leistungen.meta[schluessel];
+  return {
+    title: `${m.name} · temoa`,
+    description: m.beschreibung,
+    alternates: sprachAngaben(locale, `/leistungen/${slug}`),
+  };
 }
 
-function Body({ slug }: { slug: string }) {
+/* Kein Zweig fuer unbekannte Adressen: die Seite ruft vorher `notFound`. Ein
+   „folgt in Kuerze" darunter waere toter Code, den beim naechsten Mal jemand
+   fuer erreichbar haelt. */
+function Body({ slug, sprache }: { slug: string; sprache: Sprache }) {
   switch (slug) {
     case "strategie":
-      return <StrategieBody />;
+      return <StrategieBody sprache={sprache} />;
     case "listing-seo":
-      return <ContentBody />;
+      return <ContentBody sprache={sprache} />;
     case "ppc-advertising":
-      return <AdvertisingBody />;
+      return <AdvertisingBody sprache={sprache} />;
     case "account-management":
-      return <AccountBody />;
+      return <AccountBody sprache={sprache} />;
     case "internationalisierung":
-      return <InternationalisierungBody />;
+      return <InternationalisierungBody sprache={sprache} />;
     default:
-      return (
-        <ComingSoon
-          eyebrow="Leistung"
-          title="Diese Leistung folgt in Kürze"
-          sub="Diese Leistungsseite überarbeiten wir gerade. Die Inhalte folgen in Kürze."
-        />
-      );
+      return null;
   }
 }
 
 export default async function LeistungPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { slug } = await params;
-  if (!meta[slug]) notFound();
+  const { locale, slug } = await params;
+  if (!istSprache(locale) || !SEITEN[slug]) notFound();
   return (
     <>
       <Kopfzeile />
       <main>
-        <Body slug={slug} />
+        <Body slug={slug} sprache={locale} />
       </main>
       <Fusszeile />
     </>
