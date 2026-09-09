@@ -1054,6 +1054,202 @@ export const de = {
     },
   },
 
+  /* ============================================================
+     Die Buchungsseite und der Fahrplan darauf.
+
+     Die Dauer des Erstgespraechs steht an mehreren Stellen dieser Datei:
+     im Ablauf, in den drei Punkten unter der Ueberschrift, in der FAQ und in
+     der Abschlusszeile. Wer sie aendert, sucht nach „30 Minuten"
+     beziehungsweise „30 minutes" und geht alle durch. Die Zusagen im
+     Abschluss-CTA stehen in `rahmen.ts`.
+     ============================================================ */
+  buchung: {
+    meta: {
+      titel: "Potenzialanalyse buchen · temoa",
+      beschreibung:
+        "Kostenlose Potenzialanalyse: 30 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
+    },
+
+    kopf: {
+      eyebrow: "Kostenlose Potenzialanalyse",
+      titelVor: "Erst lernen wir uns kennen, ",
+      titelEm: "dann die Zahlen.",
+      lead: "Ein kurzes erstes Gespräch, in dem wir eure Lage verstehen und ihr uns kennenlernt.",
+      punkte: [
+        "30 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
+        "Wir fragen nach Sortiment, Zielen und dem, was gerade klemmt",
+        "Am Ende wisst ihr, ob es passt und wie der nächste Schritt aussieht",
+      ],
+      knopf: "Zum Kalender",
+      portraetAlt: "Clemens, euer Ansprechpartner bei temoa",
+      portraetName: "Hi, ich bin Clemens.",
+      portraetRolle: "Founder. Ihr sprecht mit mir.",
+    },
+
+    /* Belegte Zahlen aus den Case Studies. Sie stehen hier und nicht in
+       `cases.ts`, weil hier die Marke dazugehoert. */
+    zahlen: [
+      { wert: "+147 %", label: "Umsatz, Vitaworld" },
+      { wert: "+439 %", label: "Conversion Rate, HaA" },
+      { wert: "−35 %", label: "TACoS, Marke aus Gartenzubehör" },
+    ],
+
+    /* Der Ablauf, wie er wirklich laeuft: erst ein kurzes Kennenlernen, dann
+       ein zweiter Termin mit vorbereiteten Zahlen, dann die Entscheidung. */
+    ablauf: {
+      eyebrow: "Ablauf",
+      titelVor: "Vom ersten Termin bis ",
+      titelEm: "zur Entscheidung.",
+      schritte: [
+        {
+          schritt: "Schritt 1",
+          titel: "Erstgespräch, 30 Minuten",
+          text: "Wir hören, wo ihr steht: Sortiment, Ziele, was gerade klemmt. Ihr hört, wie wir arbeiten.",
+        },
+        {
+          schritt: "Schritt 2",
+          titel: "Zweiter Termin mit euren Zahlen",
+          text: "Passt es für beide Seiten, bereiten wir eure Zahlen auf und gehen sie mit euch durch.",
+        },
+        {
+          schritt: "Schritt 3",
+          titel: "Ihr entscheidet",
+          text: "Ihr wisst, welche Schritte zuerst kommen und was sie bringen sollen. Alles Weitere entscheidet ihr.",
+        },
+      ],
+    },
+
+    passt: {
+      eyebrow: "Für wen",
+      titelVor: "Wann sich das Gespräch ",
+      titelEm: "lohnt.",
+      jaLabel: "Passt, wenn",
+      ja: [
+        "Ihr seid eine etablierte Marke mit eigenem Sortiment auf Amazon.",
+        "Bei euch kümmern sich ein, zwei Leute um Amazon und die Zeit reicht nicht.",
+        "Ihr wollt profitabel wachsen, nicht Umsatz um jeden Preis.",
+        "Ihr seht Amazon als Vertriebskanal, in den ihr investiert.",
+      ],
+      neinLabel: "Passt nicht, wenn",
+      nein: [
+        "Euer Amazon-Umsatz liegt unter 50.000 € im Monat, dann fehlt den Produkten der Traffic.",
+        "Ihr sucht den günstigsten Anbieter.",
+        "Ihr wollt garantierte Rankings und schnelle Tricks.",
+        "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
+      ],
+    },
+
+    kalender: {
+      eyebrow: "Termin",
+      titelVor: "Sucht euch ",
+      titelEm: "einen Termin.",
+      lead: "Ihr bekommt sofort eine Bestätigung mit dem Videolink.",
+    },
+
+    faqTitelVor: "Bevor ihr ",
+    faqTitelEm: "bucht.",
+    faq: [
+      {
+        frage: "Was kostet die Potenzialanalyse?",
+        antwort: "Nichts. Die Analyse und das Gespräch sind kostenlos und unverbindlich.",
+      },
+      {
+        frage: "Wie lange dauert das Gespräch?",
+        antwort:
+          "Das erste Gespräch dauert etwa 30 Minuten und dient dem Kennenlernen. Passt es für beide Seiten, folgt ein zweiter Termin, für den wir eure Zahlen aufbereiten.",
+      },
+      {
+        frage: "Was braucht ihr von uns?",
+        antwort: "Euren Markennamen und kurz euer Ziel. Mehr braucht es für das erste Gespräch nicht.",
+      },
+      {
+        frage: "Sind wir danach gebunden?",
+        antwort: "Nein. Ihr entscheidet nach dem Gespräch, ob es weitergeht.",
+      },
+      {
+        frage: "Mit wem sprechen wir?",
+        antwort:
+          "Direkt mit Clemens, einem der drei Gründer von temoa. Er kann euren Account fachlich einschätzen und tut das im Gespräch auch.",
+      },
+      {
+        frage: "Wie schnell geht es nach dem Gespräch los?",
+        antwort:
+          "Sobald Umfang und Ziel abgestimmt sind. Wir richten einen gemeinsamen Google Drive ein, dort legt ihr die Assets ab, die wir nicht schon auf Amazon finden. Mehr braucht es nicht. Wettbewerb, Produkte und Zielgruppe analysieren wir selbst, ohne dass ihr dafür in weiteren Terminen sitzt.",
+      },
+      {
+        frage: "Für wen lohnt sich das?",
+        antwort:
+          "Für etablierte Marken mit eigenem Sortiment und ab etwa 50.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
+      },
+    ],
+
+    abschluss: {
+      titel: "Nehmt euch die 30 Minuten.",
+      lead: "Danach wisst ihr, ob wir zueinander passen. Alles Weitere entscheidet ihr danach.",
+      knopf: "Termin sichern",
+    },
+
+    cal: {
+      /* Die Attrappe steht nur, wenn kein Kalender hinterlegt ist. */
+      tage: ["Mo", "Di", "Mi", "Do", "Fr"],
+      dauer: "30 Min.",
+      knopf: "Potenzialanalyse buchen",
+      sperreTitel: "Der Terminkalender liegt bei Cal.com",
+      sperreGrund:
+        "Damit ihr die freien Zeiten hier direkt sehen könnt, laden wir den Kalender von Cal.com. Dabei geht eine Verbindung dorthin, und Cal.com setzt eigene Cookies. Ohne eure Zustimmung passiert das nicht.",
+      direkt: "Termin direkt bei Cal.com buchen",
+      laedt: "Kalender wird geladen …",
+      dieseWoche: "Diese Woche",
+      attrappe: "Beispielansicht. Die Online-Buchung läuft über Cal.com.",
+      freieZeiten: "Freie Zeiten",
+    },
+
+    fahrplan: {
+      eyebrow: "Fahrplan",
+      titelVor: "Die ersten ",
+      titelMark: "90 Tage.",
+      tage: "90 Tage",
+      /* Die Farbe der drei Monate im Kalender: weiss, orange, grün. */
+      monate: ["Analyse", "Umsetzung", "Skalierung"],
+      fussVor: "Ab Tag 91",
+      fussRest: " läuft die Betreuung weiter: monatlicher Report, Strategie- und Performance-Calls.",
+      phasen: [
+        {
+          zeitraum: "Tag 1 bis 30",
+          titel: "Analyse",
+          lead: "Der erste Monat gehört der Analyse. Am Tag eins beginnt die Strategie.",
+          punkte: [
+            "Der gesamte Account wird gesichtet: Katalog, ASINs, Kampagnen- und Gebotsstrukturen",
+            "PPC-Berichte, Verkäufe, Traffic und der Search Query Report werden ausgewertet",
+            "Inventar und Konto-Gesundheit geprüft, offensichtlich verlorenes Werbebudget gestoppt",
+            "Zum Monatsende steht die Übersicht: Produkte, Margen, was funktioniert und was nicht",
+          ],
+        },
+        {
+          zeitraum: "Tag 31 bis 60",
+          titel: "Umsetzung",
+          lead: "Jetzt wird gebaut, auf der Grundlage aus Monat eins.",
+          punkte: [
+            "Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content neu",
+            "Listings auf Suche, Klickrate und Conversion ausgerichtet, lesbar für Rufus, COSMO und A10",
+            "Kampagnenstrukturen neu aufgebaut, gesteuert über ACoS und TACoS",
+            "Inventar bleibt im Blick, neue Produkte werden eingeplant, wenn sie anstehen",
+          ],
+        },
+        {
+          zeitraum: "Tag 61 bis 90",
+          titel: "Skalierung",
+          lead: "Was gewinnt, bekommt mehr.",
+          punkte: [
+            "Budget geht auf die Kampagnen und Suchbegriffe, die konvertieren",
+            "Content-Tests: A+ Module und Hauptbilder werden nachgezogen",
+            "Zum Quartalsende die Roadmap fürs nächste Quartal, sortiert nach den größten Chancen",
+          ],
+        },
+      ],
+    },
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

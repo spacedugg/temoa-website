@@ -16,69 +16,121 @@
  * „Statistik" anbietet, wo nichts gemessen wird, waere eine Behauptung.
  */
 
+import type { Sprache } from "./i18n";
+
 export type KategorieId = "notwendig" | "extern";
 
+/* Jeder Text steht in beiden Sprachen nebeneinander und nicht in zwei
+   getrennten Verzeichnissen. Der Grund ist derselbe wie fuer das eine
+   Verzeichnis ueberhaupt: ein Dienst kommt an einer Stelle dazu, und Banner
+   und Datenschutzerklaerung koennen nicht auseinander laufen, in keiner
+   Sprache. Eine fehlende Uebersetzung ist ein Typfehler.
+
+   Die Rechtsgrundlagen bleiben deutsches Recht, auch auf Englisch: DSGVO und
+   TDDDG haben keine englische Fassung, die hier gaelte. Uebersetzt wird nur
+   die Schreibweise der Fundstelle. */
+type Zweisprachig = Record<Sprache, string>;
+
 export type Dienst = {
+  /** Der Name des Dienstes. Er wird nicht uebersetzt. */
   name: string;
-  anbieter: string;
-  zweck: string;
+  anbieter: Zweisprachig;
+  zweck: Zweisprachig;
   /** Was gespeichert wird und wie lange. */
-  speicher: string;
+  speicher: Zweisprachig;
   /** Rechtsgrundlage, wie sie in der Datenschutzerklaerung steht. */
-  grundlage: string;
+  grundlage: Zweisprachig;
 };
 
 export type Kategorie = {
   id: KategorieId;
-  name: string;
+  name: Zweisprachig;
   /** Kann nicht abgewaehlt werden. */
   pflicht: boolean;
-  beschreibung: string;
+  beschreibung: Zweisprachig;
   dienste: Dienst[];
+};
+
+/** Eine Kategorie, aufgeloest in eine Sprache: was die Anzeige braucht. */
+export type KategorieText = {
+  id: KategorieId;
+  name: string;
+  pflicht: boolean;
+  beschreibung: string;
+  dienste: { name: string; anbieter: string; zweck: string; speicher: string; grundlage: string }[];
 };
 
 export const KATEGORIEN: Kategorie[] = [
   {
     id: "notwendig",
-    name: "Notwendig",
+    name: { de: "Notwendig", en: "Essential" },
     pflicht: true,
-    beschreibung:
-      "Damit die Website funktioniert und wir uns eure Entscheidung zu dieser Auswahl merken können. Ohne diese Speicherung müssten wir bei jedem Aufruf erneut fragen.",
+    beschreibung: {
+      de: "Damit die Website funktioniert und wir uns eure Entscheidung zu dieser Auswahl merken können. Ohne diese Speicherung müssten wir bei jedem Aufruf erneut fragen.",
+      en: "So that the website works and we can remember the choice you made here. Without storing it, we would have to ask again on every visit.",
+    },
     dienste: [
       {
         name: "temoa-consent",
-        anbieter: "temoa (diese Website)",
-        zweck: "Speichert, welche Kategorien ihr zugelassen habt.",
-        speicher:
-          "Eintrag im lokalen Speicher des Browsers (localStorage), kein Cookie. Bleibt bis zum Widerruf oder bis ihr die Websitedaten löscht.",
-        grundlage: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
+        anbieter: { de: "temoa (diese Website)", en: "temoa (this website)" },
+        zweck: {
+          de: "Speichert, welche Kategorien ihr zugelassen habt.",
+          en: "Stores which categories you allowed.",
+        },
+        speicher: {
+          de: "Eintrag im lokalen Speicher des Browsers (localStorage), kein Cookie. Bleibt bis zum Widerruf oder bis ihr die Websitedaten löscht.",
+          en: "An entry in the browser's local storage (localStorage), not a cookie. It stays until you withdraw consent or clear the site data.",
+        },
+        grundlage: {
+          de: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
+          en: "Art. 6(1)(c) GDPR, § 25(2) no. 2 TDDDG (technically necessary)",
+        },
       },
       {
         name: "temoa_sprache",
-        anbieter: "temoa (diese Website)",
-        zweck:
-          "Speichert, ob ihr die Website auf Deutsch oder Englisch lesen wollt. Ohne diese Speicherung würde bei jedem Aufruf wieder die Sprache des Browsers entscheiden und eure Wahl überschreiben.",
-        speicher:
-          "Cookie, ein Jahr. Enthält ausschließlich das Kürzel der Sprache (de oder en), keine Kennung und nichts, woran sich eine Person erkennen ließe.",
-        grundlage: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
+        anbieter: { de: "temoa (diese Website)", en: "temoa (this website)" },
+        zweck: {
+          de: "Speichert, ob ihr die Website auf Deutsch oder Englisch lesen wollt. Ohne diese Speicherung würde bei jedem Aufruf wieder die Sprache des Browsers entscheiden und eure Wahl überschreiben.",
+          en: "Stores whether you want to read the website in German or English. Without it, the browser language would decide again on every visit and override your choice.",
+        },
+        speicher: {
+          de: "Cookie, ein Jahr. Enthält ausschließlich das Kürzel der Sprache (de oder en), keine Kennung und nichts, woran sich eine Person erkennen ließe.",
+          en: "A cookie, one year. It holds nothing but the language code (de or en), no identifier and nothing a person could be recognized by.",
+        },
+        grundlage: {
+          de: "Art. 6 Abs. 1 lit. c DSGVO, § 25 Abs. 2 Nr. 2 TDDDG (technisch erforderlich)",
+          en: "Art. 6(1)(c) GDPR, § 25(2) no. 2 TDDDG (technically necessary)",
+        },
       },
     ],
   },
   {
     id: "extern",
-    name: "Externe Dienste",
+    name: { de: "Externe Dienste", en: "External services" },
     pflicht: false,
-    beschreibung:
-      "Der Terminkalender für das Erstgespräch läuft über einen Dienstleister. Solange ihr nicht zustimmt, wird er nicht geladen und es geht keine Verbindung dorthin. Ihr könnt einen Termin dann direkt beim Anbieter buchen.",
+    beschreibung: {
+      de: "Der Terminkalender für das Erstgespräch läuft über einen Dienstleister. Solange ihr nicht zustimmt, wird er nicht geladen und es geht keine Verbindung dorthin. Ihr könnt einen Termin dann direkt beim Anbieter buchen.",
+      en: "The booking calendar for the first call runs through a service provider. As long as you do not consent, it is not loaded and no connection goes there. You can book a time directly with the provider instead.",
+    },
     dienste: [
       {
         name: "Cal.com",
-        anbieter: "Cal.com, Inc., 2261 Market Street #4667, San Francisco, CA 94114, USA",
-        zweck:
-          "Zeigt die freien Termine für das Erstgespräch direkt auf unserer Seite und nimmt die Buchung auf.",
-        speicher:
-          "Cal.com setzt eigene Cookies und verarbeitet dabei die IP-Adresse. Übertragung in die USA auf Grundlage der EU-Standardvertragsklauseln.",
-        grundlage: "Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
+        anbieter: {
+          de: "Cal.com, Inc., 2261 Market Street #4667, San Francisco, CA 94114, USA",
+          en: "Cal.com, Inc., 2261 Market Street #4667, San Francisco, CA 94114, USA",
+        },
+        zweck: {
+          de: "Zeigt die freien Termine für das Erstgespräch direkt auf unserer Seite und nimmt die Buchung auf.",
+          en: "Shows the open slots for the first call directly on our page and takes the booking.",
+        },
+        speicher: {
+          de: "Cal.com setzt eigene Cookies und verarbeitet dabei die IP-Adresse. Übertragung in die USA auf Grundlage der EU-Standardvertragsklauseln.",
+          en: "Cal.com sets its own cookies and processes the IP address in doing so. Transfer to the USA on the basis of the EU standard contractual clauses.",
+        },
+        grundlage: {
+          de: "Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
+          en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
+        },
       },
     ],
   },
@@ -86,6 +138,23 @@ export const KATEGORIEN: Kategorie[] = [
 
 /** Nur die Kategorien, über die entschieden werden kann. */
 export const WAEHLBAR = KATEGORIEN.filter((k) => !k.pflicht);
+
+/** Das Verzeichnis in einer Sprache, wie Banner und Erklaerung es anzeigen. */
+export function kategorienFuer(sprache: Sprache): KategorieText[] {
+  return KATEGORIEN.map((k) => ({
+    id: k.id,
+    name: k.name[sprache],
+    pflicht: k.pflicht,
+    beschreibung: k.beschreibung[sprache],
+    dienste: k.dienste.map((d) => ({
+      name: d.name,
+      anbieter: d.anbieter[sprache],
+      zweck: d.zweck[sprache],
+      speicher: d.speicher[sprache],
+      grundlage: d.grundlage[sprache],
+    })),
+  }));
+}
 
 export type Auswahl = Record<KategorieId, boolean>;
 
@@ -97,6 +166,9 @@ export type Einwilligung = {
   auswahl: Auswahl;
 };
 
+/* Bleibt bei 1: die Kategorien haben sich mit der englischen Fassung nicht
+   geaendert, nur ihr Wortlaut. Eine Erhoehung wuerde jeden Besucher erneut
+   fragen, obwohl er ueber dieselben zwei Kategorien schon entschieden hat. */
 export const VERSION = 1;
 const SCHLUESSEL = "temoa-consent";
 

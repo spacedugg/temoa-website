@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll } from "framer-motion";
 import clsx from "clsx";
 import { Eyebrow, StationTitle } from "./Station";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /**
  * Fahrplan. Die ersten 90 Tage nach dem Start.
@@ -40,49 +41,18 @@ const PRO_MONAT = 30;
 
 type Farbe = "weiss" | "orange" | "gruen";
 
-const monate: { titel: string; farbe: Farbe; offset: number }[] = [
-  { titel: "Analyse", farbe: "weiss", offset: 3 },
-  { titel: "Umsetzung", farbe: "orange", offset: 5 },
-  { titel: "Skalierung", farbe: "gruen", offset: 0 },
+/* Farbe und Startwochentag der drei Monatsbloecke. Die Monate beginnen an
+   verschiedenen Wochentagen wie in einem echten Kalender, dadurch faengt kein
+   Block oben links glatt an. */
+const monate: { farbe: Farbe; offset: number }[] = [
+  { farbe: "weiss", offset: 3 },
+  { farbe: "orange", offset: 5 },
+  { farbe: "gruen", offset: 0 },
 ];
 
-const phasen = [
-  {
-    n: "1",
-    zeitraum: "Tag 1 bis 30",
-    titel: "Analyse",
-    lead: "Der erste Monat gehört der Analyse. Am Tag eins beginnt die Strategie.",
-    punkte: [
-      "Der gesamte Account wird gesichtet: Katalog, ASINs, Kampagnen- und Gebotsstrukturen",
-      "PPC-Berichte, Verkäufe, Traffic und der Search Query Report werden ausgewertet",
-      "Inventar und Konto-Gesundheit geprüft, offensichtlich verlorenes Werbebudget gestoppt",
-      "Zum Monatsende steht die Übersicht: Produkte, Margen, was funktioniert und was nicht",
-    ],
-  },
-  {
-    n: "2",
-    zeitraum: "Tag 31 bis 60",
-    titel: "Umsetzung",
-    lead: "Jetzt wird gebaut, auf der Grundlage aus Monat eins.",
-    punkte: [
-      "Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content neu",
-      "Listings auf Suche, Klickrate und Conversion ausgerichtet, lesbar für Rufus, COSMO und A10",
-      "Kampagnenstrukturen neu aufgebaut, gesteuert über ACoS und TACoS",
-      "Inventar bleibt im Blick, neue Produkte werden eingeplant, wenn sie anstehen",
-    ],
-  },
-  {
-    n: "3",
-    zeitraum: "Tag 61 bis 90",
-    titel: "Skalierung",
-    lead: "Was gewinnt, bekommt mehr.",
-    punkte: [
-      "Budget geht auf die Kampagnen und Suchbegriffe, die konvertieren",
-      "Content-Tests: A+ Module und Hauptbilder werden nachgezogen",
-      "Zum Quartalsende die Roadmap fürs nächste Quartal, sortiert nach den größten Chancen",
-    ],
-  },
-];
+type W = Woerterbuch["buchung"]["fahrplan"];
+type Phase = W["phasen"][number];
+
 
 /* ------------------------------------------------------------------
    Kalender
@@ -98,11 +68,11 @@ const gefuelltKlasse: Record<Farbe, string> = {
    fuer Ergebnisse auf dunklem Grund benutzen, und liegt nicht im Tailwind-Satz. */
 const GRUEN = "#6EE7A0";
 
-function Kalender({ tage }: { tage: number }) {
+function Kalender({ tage, w }: { tage: number; w: W }) {
   return (
     <div className="w-[13rem]">
       <div className="flex items-baseline justify-between gap-3">
-        <span className="text-label font-bold uppercase text-chalk-muted">90 Tage</span>
+        <span className="text-label font-bold uppercase text-chalk-muted">{w.tage}</span>
         <span className="text-label font-bold tabular-nums text-white">
           {tage} / {TAGE}
         </span>
@@ -112,7 +82,7 @@ function Kalender({ tage }: { tage: number }) {
         {monate.map((m, i) => {
           const erster = i * PRO_MONAT;
           return (
-            <div key={m.titel}>
+            <div key={w.monate[i]}>
               <div className="grid grid-cols-7 gap-1">
                 {Array.from({ length: m.offset }, (_, k) => (
                   <span key={`leer-${k}`} className="aspect-square" />
@@ -141,14 +111,14 @@ function Kalender({ tage }: { tage: number }) {
 
       {/* Legende. Die drei Toene sind genau die drei Phasen links. */}
       <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2 border-t border-white/[0.1] pt-3.5">
-        {monate.map((m) => (
-          <span key={m.titel} className="flex items-center gap-2.5">
+        {monate.map((m, i) => (
+          <span key={w.monate[i]} className="flex items-center gap-2.5">
             <span
               aria-hidden
               style={m.farbe === "gruen" ? { background: GRUEN } : undefined}
               className={clsx("h-2 w-2 shrink-0 rounded-[2px]", gefuelltKlasse[m.farbe])}
             />
-            <span className="text-label font-bold uppercase text-chalk-muted">{m.titel}</span>
+            <span className="text-label font-bold uppercase text-chalk-muted">{w.monate[i]}</span>
           </span>
         ))}
       </div>
@@ -162,11 +132,15 @@ function Kalender({ tage }: { tage: number }) {
 
 function Phase({
   phase,
+  n,
   offen,
   erreicht,
   reduce,
 }: {
-  phase: (typeof phasen)[number];
+  phase: Phase;
+  /* Die Ziffer der Schrittmarke folgt aus der Position, nicht aus den Daten:
+     eine Uebersetzung soll keine Nummerierung mitschleppen. */
+  n: number;
   offen: boolean;
   erreicht: boolean;
   reduce: boolean | null;
@@ -180,7 +154,7 @@ function Phase({
           erreicht ? "schritt-orange" : "bg-white/[0.08] text-chalk-faint"
         )}
       >
-        {phase.n}
+        {n}
       </span>
 
       <span
@@ -224,22 +198,23 @@ function Phase({
   );
 }
 
-function Kopf({ klein = false }: { klein?: boolean } = {}) {
+function Kopf({ w, klein = false }: { w: W; klein?: boolean }) {
   return (
     <>
-      <Eyebrow label="Fahrplan" dark />
+      <Eyebrow label={w.eyebrow} dark />
       <StationTitle className={klein ? "!text-[clamp(1.6rem,1.2rem+1.2vw,2.4rem)]" : undefined}>
-        Die ersten <span className="em mark">90 Tage.</span>
+        {w.titelVor}
+        <span className="em mark">{w.titelMark}</span>
       </StationTitle>
     </>
   );
 }
 
-function Fussnote() {
+function Fussnote({ w }: { w: W }) {
   return (
     <p className="text-small text-chalk-muted">
-      <span className="font-bold text-brand-400">Ab Tag 91</span> läuft die Betreuung weiter:
-      monatlicher Report, Strategie- und Performance-Calls.
+      <span className="font-bold text-brand-400">{w.fussVor}</span>
+      {w.fussRest}
     </p>
   );
 }
@@ -258,7 +233,7 @@ function Fussnote() {
  * dann auf das ganze Dokument: die Sektion begann bei 37 von 90 Tagen und
  * endete bei 57.
  */
-function Bahn({ reduce }: { reduce: boolean | null }) {
+function Bahn({ reduce, w }: { reduce: boolean | null; w: W }) {
   const bahnRef = useRef<HTMLDivElement>(null);
   const [tage, setTage] = useState(0);
 
@@ -281,14 +256,21 @@ function Bahn({ reduce }: { reduce: boolean | null }) {
           schneidet sie die Ueberschrift des angehefteten Blocks ab. */}
       <div className="sticky top-0 flex h-screen items-center overflow-hidden pt-24">
         <div className="container-x w-full">
-          <Kopf klein />
+          <Kopf w={w} klein />
           <div className="mt-7 grid items-start gap-12 lg:grid-cols-[1fr_13rem] xl:gap-16">
             <div className="space-y-6">
-              {phasen.map((p, i) => (
-                <Phase key={p.n} phase={p} offen={i === aktiv} erreicht={i <= aktiv} reduce={reduce} />
+              {w.phasen.map((p, i) => (
+                <Phase
+                  key={p.titel}
+                  phase={p}
+                  n={i + 1}
+                  offen={i === aktiv}
+                  erreicht={i <= aktiv}
+                  reduce={reduce}
+                />
               ))}
             </div>
-            <Kalender tage={tage} />
+            <Kalender tage={tage} w={w} />
           </div>
         </div>
       </div>
@@ -296,7 +278,7 @@ function Bahn({ reduce }: { reduce: boolean | null }) {
   );
 }
 
-export function Fahrplan() {
+export function Fahrplan({ w }: { w: W }) {
   const reduce = useReducedMotion();
   const [breit, setBreit] = useState(false);
 
@@ -316,31 +298,31 @@ export function Fahrplan() {
     <section id="fahrplan" className="on-dark ground-deep relative scroll-mt-24 text-chalk">
       {angeheftet ? (
         <>
-          <Bahn reduce={reduce} />
+          <Bahn reduce={reduce} w={w} />
           {/* Die Zeile steht hinter den 90 Tagen, nicht daneben. */}
           <div className="container-x pb-16">
             <div className="border-t border-white/[0.1] pt-6">
-              <Fussnote />
+              <Fussnote w={w} />
             </div>
           </div>
         </>
       ) : (
         /* Ruhende Fassung: Telefon, kein JavaScript, reduzierte Bewegung */
         <div className="container-x py-14 md:py-24">
-          <Kopf />
+          <Kopf w={w} />
           <div className="mt-10 grid items-start gap-12 lg:grid-cols-[1fr_13rem]">
             <div className="space-y-10">
-              {phasen.map((p) => (
-                <Phase key={p.n} phase={p} offen erreicht reduce={reduce} />
+              {w.phasen.map((p, i) => (
+                <Phase key={p.titel} phase={p} n={i + 1} offen erreicht reduce={reduce} />
               ))}
             </div>
             {/* Auf dem Telefon entfaellt der Kalender ganz. */}
             <div className="hidden lg:block">
-              <Kalender tage={TAGE} />
+              <Kalender tage={TAGE} w={w} />
             </div>
           </div>
           <div className="mt-10 border-t border-white/[0.1] pt-6">
-            <Fussnote />
+            <Fussnote w={w} />
           </div>
         </div>
       )}

@@ -12,26 +12,12 @@ import { ZahlText } from "../takt/Zahl";
 import { CalEmbed } from "./CalEmbed";
 import { BookingFAQ } from "./BookingFAQ";
 
-/* `runter` heisst: der Wert soll sinken, der Pfeil zeigt nach unten. Eine
-   gesunkene TACoS ist ein gutes Ergebnis, deshalb bleibt der Pfeil gruen. */
-const metrics: { value: string; label: string; runter?: boolean }[] = [
-  { value: "+147 %", label: "Umsatz, Vitaworld" },
-  { value: "+439 %", label: "Conversion Rate, HaA" },
-  { value: "−35 %", label: "TACoS, Marke aus Gartenzubehör", runter: true },
-];
+/* Die dritte Zahl soll sinken, der Pfeil zeigt dort nach unten. Eine
+   gesunkene TACoS ist ein gutes Ergebnis, deshalb bleibt er gruen. Das haengt
+   an der Kennzahl und nicht an der Sprache, deshalb steht es hier. */
+const RUNTER = 2;
 
-const fit = [
-  "Ihr seid eine etablierte Marke mit eigenem Sortiment auf Amazon.",
-  "Bei euch kümmern sich ein, zwei Leute um Amazon und die Zeit reicht nicht.",
-  "Ihr wollt profitabel wachsen, nicht Umsatz um jeden Preis.",
-  "Ihr seht Amazon als Vertriebskanal, in den ihr investiert.",
-];
-const noFit = [
-  "Euer Amazon-Umsatz liegt unter 50.000 € im Monat, dann fehlt den Produkten der Traffic.",
-  "Ihr sucht den günstigsten Anbieter.",
-  "Ihr wollt garantierte Rankings und schnelle Tricks.",
-  "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
-];
+type B = Woerterbuch["buchung"];
 
 function CheckGreen() {
   return (
@@ -56,41 +42,24 @@ function Cross() {
    zweiter Termin mit vorbereiteten Zahlen, dann die Entscheidung. Vorher stand
    auf dieser Seite, wir wuerden vorab in Listings und Kampagnen schauen und im
    Termin 45 Minuten den Bildschirm teilen. */
-const ablauf: { schritt: string; title: string; body: string; icon: IconName }[] = [
-  {
-    schritt: "Schritt 1",
-    title: "Erstgespräch, 30 Minuten",
-    body: "Wir hören, wo ihr steht: Sortiment, Ziele, was gerade klemmt. Ihr hört, wie wir arbeiten.",
-  icon: "kompass",
-  },
-  {
-    schritt: "Schritt 2",
-    title: "Zweiter Termin mit euren Zahlen",
-    body: "Passt es für beide Seiten, bereiten wir eure Zahlen auf und gehen sie mit euch durch.",
-    icon: "lupe",
-  },
-  {
-    schritt: "Schritt 3",
-    title: "Ihr entscheidet",
-    body: "Ihr wisst, welche Schritte zuerst kommen und was sie bringen sollen. Alles Weitere entscheidet ihr.",
-    icon: "stufen",
-  },
-];
+/* Die Symbole der drei Schritte, in der Reihenfolge des Woerterbuchs. */
+const ABLAUF: IconName[] = ["kompass", "lupe", "stufen"];
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-function Ablauf() {
+function Ablauf({ w }: { w: B["ablauf"] }) {
   const reduce = useReducedMotion();
 
   return (
     <section className="ground relative py-20 md:py-24">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Ablauf"
+          eyebrow={w.eyebrow}
           size="compact"
           title={
             <>
-              Vom ersten Termin bis <span className="text-gradient">zur Entscheidung.</span>
+              {w.titelVor}
+              <span className="text-gradient">{w.titelEm}</span>
             </>
           }
         />
@@ -113,7 +82,7 @@ function Ablauf() {
           />
 
           <div className="grid gap-8 md:grid-cols-3 md:gap-6">
-            {ablauf.map((a, i) => (
+            {w.schritte.map((a, i) => (
               <motion.div
                 key={a.schritt}
                 initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -123,15 +92,15 @@ function Ablauf() {
                 className="relative flex flex-col"
               >
                 <span className="relative z-10 grid h-[4.1rem] w-[4.1rem] place-items-center rounded-[1.3rem] bg-navy text-brand-500 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_0_0_6px_rgba(244,248,251,1)]">
-                  <Icon name={a.icon} className="h-8 w-8" />
+                  <Icon name={ABLAUF[i]} className="h-8 w-8" />
                 </span>
                 <span className="mt-6 text-label font-bold uppercase tracking-[0.14em] text-ink-faint">
                   {a.schritt}
                 </span>
                 <span className="mt-2 text-[1.15rem] font-bold leading-snug text-ink md:text-[1.25rem]">
-                  {a.title}
+                  {a.titel}
                 </span>
-                <p className="mt-2.5 text-small leading-relaxed text-ink-muted">{a.body}</p>
+                <p className="mt-2.5 text-small leading-relaxed text-ink-muted">{a.text}</p>
               </motion.div>
             ))}
           </div>
@@ -145,9 +114,11 @@ function Ablauf() {
    Stimmen-Sektion teilt sie mit der Startseite, deshalb kommt sie hier schon
    von aussen herein. */
 export function BookingBody({
+  w,
   stimmen,
   stimmenListe,
 }: {
+  w: B;
   stimmen: Woerterbuch["start"]["stimmen"];
   stimmenListe: Testimonial[];
 }) {
@@ -162,16 +133,17 @@ export function BookingBody({
         <div className="container-x relative grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="flex flex-col text-center lg:text-left">
             <Reveal>
-              <Pille>Kostenlose Potenzialanalyse</Pille>
+              <Pille>{w.kopf.eyebrow}</Pille>
             </Reveal>
             <Reveal delay={0.05}>
               <h1 className="mx-auto mt-6 max-w-xl text-balance text-[1.95rem] font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-[1.08] lg:mx-0">
-                Erst lernen wir uns kennen, <span className="text-gradient">dann die Zahlen.</span>
+                {w.kopf.titelVor}
+                <span className="text-gradient">{w.kopf.titelEm}</span>
               </h1>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink-muted lg:mx-0">
-                Ein kurzes erstes Gespräch, in dem wir eure Lage verstehen und ihr uns kennenlernt.
+                {w.kopf.lead}
               </p>
             </Reveal>
 
@@ -182,11 +154,7 @@ export function BookingBody({
                 vorbereitete Auswertung kommt im zweiten Termin. */}
             <Reveal delay={0.16}>
               <ul className="mx-auto mt-8 grid max-w-lg gap-3 text-left lg:mx-0">
-                {[
-                  "30 Minuten, per Video, ohne Vorbereitung auf eurer Seite",
-                  "Wir fragen nach Sortiment, Zielen und dem, was gerade klemmt",
-                  "Am Ende wisst ihr, ob es passt und wie der nächste Schritt aussieht",
-                ].map((t) => (
+                {w.kopf.punkte.map((t) => (
                   <li key={t} className="flex items-start gap-3">
                     <CheckGreen />
                     <span className="text-base leading-snug text-ink">{t}</span>
@@ -198,7 +166,7 @@ export function BookingBody({
             <Reveal delay={0.22}>
               <div className="mt-9 flex justify-center lg:justify-start">
                 <a href="#kalender" className="btn-primary">
-                  Zum Kalender
+                  {w.kopf.knopf}
                   <span className="disc" aria-hidden>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                       <path d="M12 5v13m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -228,7 +196,7 @@ export function BookingBody({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/team/clemens-frei.webp"
-                  alt="Clemens, euer Ansprechpartner bei temoa"
+                  alt={w.kopf.portraetAlt}
                   width={900}
                   height={855}
                   className="absolute inset-x-0 bottom-0 mx-auto h-[98%] w-auto max-w-none object-contain object-bottom"
@@ -245,8 +213,8 @@ export function BookingBody({
                     </svg>
                   ))}
                 </span>
-                <div className="mt-2 text-[1rem] font-bold text-ink">Hi, ich bin Clemens.</div>
-                <div className="mt-0.5 text-small text-ink-muted">Founder. Ihr sprecht mit mir.</div>
+                <div className="mt-2 text-[1rem] font-bold text-ink">{w.kopf.portraetName}</div>
+                <div className="mt-0.5 text-small text-ink-muted">{w.kopf.portraetRolle}</div>
               </figcaption>
             </figure>
           </Reveal>
@@ -267,16 +235,16 @@ export function BookingBody({
         />
         <div className="container-x relative">
           <div className="grid gap-y-8 sm:grid-cols-3 sm:gap-y-0 sm:divide-x sm:divide-white/[0.1]">
-            {metrics.map((m, i) => (
+            {w.zahlen.map((m, i) => (
               <Reveal
                 key={m.label}
                 delay={i * 0.07}
-                className={i === 0 ? "sm:pr-8" : i === metrics.length - 1 ? "sm:pl-8" : "sm:px-8"}
+                className={i === 0 ? "sm:pr-8" : i === w.zahlen.length - 1 ? "sm:pl-8" : "sm:px-8"}
               >
                 <div className="flex items-start gap-3">
                   <div className="min-w-0">
                     <ZahlText
-                      text={m.value}
+                      text={m.wert}
                       className="num text-[clamp(2rem,1.4rem+1.6vw,2.75rem)] leading-none text-white"
                     />
                     <div className="mt-2.5 text-small font-bold leading-snug text-white/85">{m.label}</div>
@@ -288,7 +256,7 @@ export function BookingBody({
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                       <path
-                        d={m.runter ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
+                        d={i === RUNTER ? "M18 6L6 18m0 0h7m-7 0v-7" : "M6 18L18 6m0 0h-7m7 0v7"}
                         stroke="currentColor"
                         strokeWidth="2.6"
                         strokeLinecap="round"
@@ -303,12 +271,21 @@ export function BookingBody({
         </div>
       </section>
 
-      <Ablauf />
+      <Ablauf w={w.ablauf} />
 
       {/* Passt / Passt nicht */}
       <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Für wen" size="compact" title={<>Wann sich das Gespräch <span className="text-gradient">lohnt.</span></>} />
+          <SectionHeading
+            eyebrow={w.passt.eyebrow}
+            size="compact"
+            title={
+              <>
+                {w.passt.titelVor}
+                <span className="text-gradient">{w.passt.titelEm}</span>
+              </>
+            }
+          />
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
             <Reveal>
               <div className="surface flex h-full flex-col p-7">
@@ -316,10 +293,10 @@ export function BookingBody({
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "#16A34A1A", color: "#16A34A", boxShadow: "0 0 12px -1px #16A34A66" }}>
                     <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
-                  <span className="text-base font-bold text-ink">Passt, wenn</span>
+                  <span className="text-base font-bold text-ink">{w.passt.jaLabel}</span>
                 </div>
                 <ul className="mt-5 space-y-3">
-                  {fit.map((p) => (
+                  {w.passt.ja.map((p) => (
                     <li key={p} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
                       <CheckGreen /> <span>{p}</span>
                     </li>
@@ -333,10 +310,10 @@ export function BookingBody({
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full" style={{ background: "#FF31311A", color: "#E11414", boxShadow: "0 0 12px -1px #FF313155" }}>
                     <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </span>
-                  <span className="text-base font-bold text-ink">Passt nicht, wenn</span>
+                  <span className="text-base font-bold text-ink">{w.passt.neinLabel}</span>
                 </div>
                 <ul className="mt-5 space-y-3">
-                  {noFit.map((p) => (
+                  {w.passt.nein.map((p) => (
                     <li key={p} className="flex items-start gap-2.5 text-sm leading-snug text-ink-muted">
                       <Cross /> <span>{p}</span>
                     </li>
@@ -355,18 +332,19 @@ export function BookingBody({
       <section id="kalender" className="ground relative scroll-mt-24 py-20 md:py-24">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Termin"
+            eyebrow={w.kalender.eyebrow}
             size="compact"
             title={
               <>
-                Sucht euch <span className="text-gradient">einen Termin.</span>
+                {w.kalender.titelVor}
+                <span className="text-gradient">{w.kalender.titelEm}</span>
               </>
             }
-            description="Ihr bekommt sofort eine Bestätigung mit dem Videolink."
+            description={w.kalender.lead}
           />
           <Reveal delay={0.08}>
             <div className="mx-auto mt-10 max-w-4xl rounded-[2rem] bg-white p-4 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
-              <CalEmbed />
+              <CalEmbed w={w.cal} />
             </div>
           </Reveal>
         </div>
@@ -375,15 +353,24 @@ export function BookingBody({
       {/* Der Fahrplan steht unter dem Kalender und ueber den Stimmen: wer sich
           gerade einen Termin sucht, liest direkt danach, was nach dem Start
           passiert. */}
-      <Fahrplan />
+      <Fahrplan w={w.fahrplan} />
 
       <Stimmen w={stimmen} liste={stimmenListe} />
 
       {/* FAQ */}
       <section className="ground-tint relative py-20 md:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="FAQ" size="compact" title={<>Bevor ihr <span className="text-gradient">bucht.</span></>} />
-          <BookingFAQ />
+          <SectionHeading
+            eyebrow="FAQ"
+            size="compact"
+            title={
+              <>
+                {w.faqTitelVor}
+                <span className="text-gradient">{w.faqTitelEm}</span>
+              </>
+            }
+          />
+          <BookingFAQ faq={w.faq} />
         </div>
       </section>
 
@@ -394,18 +381,18 @@ export function BookingBody({
         <div className="container-x relative">
           <Reveal>
             <h2 className="title mx-auto max-w-[24ch] text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] text-white">
-              Nehmt euch die 30 Minuten.
+              {w.abschluss.titel}
             </h2>
           </Reveal>
           <Reveal delay={0.08}>
             <p className="mx-auto mt-5 max-w-[50ch] text-pretty text-lead text-chalk-muted">
-              Danach wisst ihr, ob wir zueinander passen. Alles Weitere entscheidet ihr danach.
+              {w.abschluss.lead}
             </p>
           </Reveal>
           <Reveal delay={0.14}>
             <div className="mt-9 flex justify-center">
               <a href="#kalender" className="btn-on-dark">
-                Termin sichern
+                {w.abschluss.knopf}
                 <span className="disc" aria-hidden>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M12 19V5m0 0l-5 5m5-5l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

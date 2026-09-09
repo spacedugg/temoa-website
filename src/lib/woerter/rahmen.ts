@@ -57,6 +57,39 @@ type Rahmen = {
     portraetName: string;
     portraetRolle: string;
   };
+  /* Die Einwilligungsschicht. Sie steht auf jeder Seite, deshalb hier und
+     nicht im grossen Woerterbuch. Die Kategorien und Dienste selbst stehen in
+     `lib/consent.ts` und nur dort, damit Banner und Datenschutzerklaerung
+     nicht auseinander laufen koennen. */
+  consent: {
+    titel: string;
+    titelDetails: string;
+    text: string;
+    datenschutz: string;
+    nurNotwendig: string;
+    anpassen: string;
+    alleAkzeptieren: string;
+    auswahlSpeichern: string;
+    zurueck: string;
+    impressum: string;
+    immerAktiv: string;
+    nurMitEinwilligung: string;
+    /* Was ein Vorleseprogramm zum Schalter einer Kategorie ansagt.
+       `{name}` wird durch den Namen der Kategorie ersetzt. */
+    schalter: string;
+    /* Die Beschriftungen der Platte, die anstelle einer Einbettung steht. */
+    gateKnopf: string;
+    gateAusweich: string;
+    gateHinweisVor: string;
+    /* In der Datenschutzerklaerung, unter der Liste der Dienste. */
+    tabelleDienst: string;
+    tabelleAnbieter: string;
+    tabelleZweck: string;
+    tabelleSpeicher: string;
+    tabelleGrundlage: string;
+    widerrufVor: string;
+    widerrufNach: string;
+  };
   fusszeile: {
     beschreibung: string;
     spalteLeistungen: string;
@@ -110,6 +143,32 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       portraetName: "Hi, ich bin Clemens.",
       portraetRolle: "Founder. Ihr sprecht mit mir.",
     },
+    consent: {
+      titel: "Kurz zu Cookies",
+      titelDetails: "Was ihr zulassen wollt",
+      text: "Diese Website braucht für sich selbst keine Cookies. Für das Erstgespräch liegt der Terminkalender bei einem externen Dienst. Der wird erst geladen, wenn ihr zustimmt. Was dabei passiert, steht in der",
+      datenschutz: "Datenschutzerklärung",
+      nurNotwendig: "Nur notwendige",
+      anpassen: "Anpassen",
+      alleAkzeptieren: "Alle akzeptieren",
+      auswahlSpeichern: "Auswahl speichern",
+      zurueck: "Zurück",
+      impressum: "Impressum",
+      immerAktiv: "immer aktiv",
+      nurMitEinwilligung: "nur mit Einwilligung",
+      schalter: "{name} zulassen",
+      gateKnopf: "Einmal zulassen und laden",
+      gateAusweich: "Beim Anbieter öffnen",
+      gateHinweisVor: "Was dabei übertragen wird, steht in der",
+      tabelleDienst: "Dienst",
+      tabelleAnbieter: "Anbieter",
+      tabelleZweck: "Zweck",
+      tabelleSpeicher: "Speicherung",
+      tabelleGrundlage: "Grundlage",
+      widerrufVor: "Eure Entscheidung könnt ihr jederzeit ändern:",
+      widerrufNach:
+        ". Wir speichern sie im lokalen Speicher eures Browsers, mit Zeitpunkt, als Nachweis nach Art. 7 Abs. 1 DSGVO. Ein Widerruf wirkt sofort, für die Zukunft.",
+    },
     fusszeile: {
       beschreibung:
         "Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch verkauft, dann Werbung, die darauf aufbaut.",
@@ -156,6 +215,32 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       portraetAlt: "Clemens, founder and sales at temoa",
       portraetName: "Hi, I am Clemens.",
       portraetRolle: "Founder. You will be talking to me.",
+    },
+    consent: {
+      titel: "A word on cookies",
+      titelDetails: "What you want to allow",
+      text: "This website needs no cookies of its own. For the first call, the booking calendar is hosted by an external service. It is only loaded once you consent. What happens then is set out in the",
+      datenschutz: "privacy policy",
+      nurNotwendig: "Essential only",
+      anpassen: "Customize",
+      alleAkzeptieren: "Accept all",
+      auswahlSpeichern: "Save selection",
+      zurueck: "Back",
+      impressum: "Imprint",
+      immerAktiv: "always on",
+      nurMitEinwilligung: "only with consent",
+      schalter: "Allow {name}",
+      gateKnopf: "Allow once and load",
+      gateAusweich: "Open at the provider",
+      gateHinweisVor: "What gets transmitted is set out in the",
+      tabelleDienst: "Service",
+      tabelleAnbieter: "Provider",
+      tabelleZweck: "Purpose",
+      tabelleSpeicher: "Storage",
+      tabelleGrundlage: "Legal basis",
+      widerrufVor: "You can change your decision at any time:",
+      widerrufNach:
+        ". We store it in your browser's local storage, with a timestamp, as the record required by Art. 7(1) GDPR. A withdrawal takes effect at once, for the future.",
     },
     fusszeile: {
       beschreibung:

@@ -998,4 +998,185 @@ export const en: Woerterbuch = {
     },
   },
 
+  buchung: {
+    meta: {
+      titel: "Book an account review · temoa",
+      beschreibung:
+        "A free account review: 30 minutes to get to know each other, then a second call with your numbers prepared. No obligation.",
+    },
+
+    kopf: {
+      eyebrow: "Free account review",
+      titelVor: "First we get to know each other, ",
+      titelEm: "then the numbers.",
+      lead: "A short first call where we understand where you stand and you get to know us.",
+      punkte: [
+        "30 minutes, by video, with nothing to prepare on your side",
+        "We ask about your catalog, your targets and what is stuck right now",
+        "At the end you know whether it fits and what the next step looks like",
+      ],
+      knopf: "Go to the calendar",
+      portraetAlt: "Clemens, your contact at temoa",
+      portraetName: "Hi, I am Clemens.",
+      portraetRolle: "Founder. You will be talking to me.",
+    },
+
+    zahlen: [
+      { wert: "+147%", label: "Revenue, Vitaworld" },
+      { wert: "+439%", label: "Conversion rate, HaA" },
+      { wert: "−35%", label: "TACoS, garden accessories brand" },
+    ],
+
+    ablauf: {
+      eyebrow: "How it goes",
+      titelVor: "From the first call to ",
+      titelEm: "your decision.",
+      schritte: [
+        {
+          schritt: "Step 1",
+          titel: "First call, 30 minutes",
+          text: "We hear where you stand: catalog, targets, what is stuck. You hear how we work.",
+        },
+        {
+          schritt: "Step 2",
+          titel: "A second call with your numbers",
+          text: "If it fits for both sides, we prepare your numbers and go through them with you.",
+        },
+        {
+          schritt: "Step 3",
+          titel: "You decide",
+          text: "You know which steps come first and what they are meant to bring. Everything after that is your call.",
+        },
+      ],
+    },
+
+    passt: {
+      eyebrow: "Who it is for",
+      titelVor: "When the call is ",
+      titelEm: "worth it.",
+      jaLabel: "A fit when",
+      ja: [
+        "You are an established brand with your own catalog on Amazon.",
+        "One or two people handle Amazon and the time is not enough.",
+        "You want to grow profitably, not revenue at any cost.",
+        "You see Amazon as a sales channel you invest in.",
+      ],
+      neinLabel: "Not a fit when",
+      nein: [
+        "Your Amazon revenue is below €50,000 a month, then the products lack the traffic.",
+        "You are looking for the cheapest provider.",
+        "You want guaranteed rankings and quick tricks.",
+        "Amazon is a side channel for you that nothing goes into.",
+      ],
+    },
+
+    kalender: {
+      eyebrow: "Appointment",
+      titelVor: "Pick ",
+      titelEm: "a time.",
+      lead: "You get a confirmation with the video link right away.",
+    },
+
+    faqTitelVor: "Before you ",
+    faqTitelEm: "book.",
+    faq: [
+      {
+        frage: "What does the account review cost?",
+        antwort: "Nothing. The review and the call are free and without obligation.",
+      },
+      {
+        frage: "How long does the call take?",
+        antwort:
+          "The first call runs about 30 minutes and is there to get to know each other. If it fits for both sides, a second call follows and we prepare your numbers for it.",
+      },
+      {
+        frage: "What do you need from us?",
+        antwort: "Your brand name and your goal in a sentence. The first call needs no more than that.",
+      },
+      {
+        frage: "Are we committed afterwards?",
+        antwort: "No. You decide after the call whether it goes on.",
+      },
+      {
+        frage: "Who will we be talking to?",
+        antwort:
+          "Clemens directly, one of the three founders of temoa. He can read your account professionally, and he does that in the call.",
+      },
+      {
+        frage: "How fast does it start after the call?",
+        antwort:
+          "As soon as scope and goal are agreed. We set up a shared Google Drive where you put the assets we cannot already find on Amazon. That is all it takes. Competition, products and audience we analyze ourselves, without you sitting through further meetings for it.",
+      },
+      {
+        frage: "Who is this worth it for?",
+        antwort:
+          "For established brands with their own catalog and from around €50,000 Amazon revenue a month. Below that, too little traffic runs over the products to draw reliable conclusions from.",
+      },
+    ],
+
+    abschluss: {
+      titel: "Take the 30 minutes.",
+      lead: "After that you know whether we fit together. Everything else is your call.",
+      knopf: "Book a time",
+    },
+
+    cal: {
+      tage: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+      dauer: "30 min",
+      knopf: "Book an account review",
+      sperreTitel: "The booking calendar is hosted at Cal.com",
+      sperreGrund:
+        "So that you can see the open slots right here, we load the calendar from Cal.com. That opens a connection to them, and Cal.com sets its own cookies. Without your consent, none of that happens.",
+      direkt: "Book directly at Cal.com",
+      laedt: "Loading the calendar …",
+      dieseWoche: "This week",
+      attrappe: "Example view. The online booking runs through Cal.com.",
+      freieZeiten: "Open slots",
+    },
+
+    fahrplan: {
+      eyebrow: "The plan",
+      titelVor: "The first ",
+      titelMark: "90 days.",
+      tage: "90 days",
+      monate: ["Analysis", "Execution", "Scaling"],
+      fussVor: "From day 91",
+      fussRest: " the work carries on: a monthly report, strategy and performance calls.",
+      phasen: [
+        {
+          zeitraum: "Day 1 to 30",
+          titel: "Analysis",
+          lead: "The first month belongs to the analysis. Strategy starts on day one.",
+          punkte: [
+            "The whole account is reviewed: catalog, ASINs, campaign and bidding structures",
+            "PPC reports, sales, traffic and the Search Query report are evaluated",
+            "Inventory and account health checked, obviously wasted ad spend stopped",
+            "By the end of the month the overview stands: products, margins, what works and what does not",
+          ],
+        },
+        {
+          zeitraum: "Day 31 to 60",
+          titel: "Execution",
+          lead: "Now it gets built, on the ground laid in month one.",
+          punkte: [
+            "Main image, listing images, title, bullets, backend fields and A+ content, all new",
+            "Listings built for search, click-through rate and conversion, readable for Rufus, COSMO and A10",
+            "Campaign structures rebuilt, steered on ACoS and TACoS",
+            "Inventory stays in view, new products get scheduled when they are due",
+          ],
+        },
+        {
+          zeitraum: "Day 61 to 90",
+          titel: "Scaling",
+          lead: "What wins gets more.",
+          punkte: [
+            "Budget goes to the campaigns and search terms that convert",
+            "Content tests: A+ modules and main images get pulled up",
+            "At the end of the quarter, the plan for the next one, sorted by the biggest opportunities",
+          ],
+        },
+      ],
+    },
+  },
+
 };

@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ALLES_AN, ALLES_AUS, KATEGORIEN, type Auswahl, type KategorieId } from "@/lib/consent";
+import { usePathname } from "next/navigation";
+import { ALLES_AN, ALLES_AUS, kategorienFuer, type Auswahl, type KategorieId } from "@/lib/consent";
+import { pfad, spracheAusPfad, STANDARD } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 import { OEFFNEN, useEinwilligung } from "./useEinwilligung";
 
 /* ============================================================
@@ -76,6 +79,13 @@ function Schalter({
 }
 
 export function CookieBanner() {
+  const sprache = spracheAusPfad(usePathname());
+  const w = rahmenWoerter[sprache].consent;
+  const kategorien = kategorienFuer(sprache);
+  /* Impressum und Datenschutzerklaerung liegen nur auf Deutsch vor und sind
+     die verbindliche Fassung. Solange die englischen Entwuerfe nicht
+     anwaltlich geprueft sind, verweist auch das englische Banner dorthin. */
+  const rechtsPfad = (ziel: string) => pfad(STANDARD, ziel);
   const { bereit, entschieden, daten, speichern } = useEinwilligung();
   const reduce = useReducedMotion();
 
@@ -181,19 +191,17 @@ export function CookieBanner() {
                 id="cookie-titel"
                 className="text-[1.15rem] font-bold leading-snug text-white sm:text-[1.3rem]"
               >
-                {details ? "Was ihr zulassen wollt" : "Kurz zu Cookies"}
+                {details ? w.titelDetails : w.titel}
               </h2>
 
               {!details && (
                 <p className="mt-2.5 text-small leading-relaxed text-chalk-muted">
-                  Diese Website braucht für sich selbst keine Cookies. Für das Erstgespräch liegt der
-                  Terminkalender bei einem externen Dienst. Der wird erst geladen, wenn ihr zustimmt.
-                  Was dabei passiert, steht in der{" "}
+                  {w.text}{" "}
                   <a
-                    href="/datenschutz"
+                    href={rechtsPfad("/datenschutz")}
                     className="font-bold text-white underline decoration-brand-500 decoration-2 underline-offset-2"
                   >
-                    Datenschutzerklärung
+                    {w.datenschutz}
                   </a>
                   .
                 </p>
@@ -201,7 +209,7 @@ export function CookieBanner() {
 
               {details && (
                 <div className="mt-5 space-y-3">
-                  {KATEGORIEN.map((k) => {
+                  {kategorien.map((k) => {
                     const an = k.pflicht ? true : entwurf[k.id];
                     return (
                       <div
@@ -214,7 +222,7 @@ export function CookieBanner() {
                               {k.name}
                               {k.pflicht && (
                                 <span className="ml-2 align-middle text-[0.7rem] font-bold uppercase tracking-[0.1em] text-chalk-faint">
-                                  immer aktiv
+                                  {w.immerAktiv}
                                 </span>
                               )}
                             </p>
@@ -232,7 +240,7 @@ export function CookieBanner() {
                           <Schalter
                             an={an}
                             aus={k.pflicht}
-                            beschriftung={`${k.name} zulassen`}
+                            beschriftung={w.schalter.replace("{name}", k.name)}
                             onChange={(wert) =>
                               setEntwurf((v) => ({ ...v, [k.id as KategorieId]: wert }))
                             }
@@ -256,17 +264,17 @@ export function CookieBanner() {
                       onClick={() => schliessen(ALLES_AUS)}
                       className={KNOPF_VOLL}
                     >
-                      Nur notwendige
+                      {w.nurNotwendig}
                     </button>
                     <button type="button" onClick={einstellungenAuf} className={KNOPF_KANTE}>
-                      Anpassen
+                      {w.anpassen}
                     </button>
                     <button
                       type="button"
                       onClick={() => schliessen(ALLES_AN)}
                       className={KNOPF_VOLL}
                     >
-                      Alle akzeptieren
+                      {w.alleAkzeptieren}
                     </button>
                   </>
                 )}
@@ -278,14 +286,14 @@ export function CookieBanner() {
                       onClick={() => schliessen({ ...entwurf, notwendig: true })}
                       className={KNOPF_VOLL}
                     >
-                      Auswahl speichern
+                      {w.auswahlSpeichern}
                     </button>
                     <button
                       type="button"
                       onClick={() => schliessen(ALLES_AN)}
                       className={KNOPF_VOLL}
                     >
-                      Alle akzeptieren
+                      {w.alleAkzeptieren}
                     </button>
                   </>
                 )}
@@ -298,20 +306,20 @@ export function CookieBanner() {
                     onClick={() => setDetails(false)}
                     className="font-bold text-chalk underline decoration-white/25 underline-offset-2 hover:decoration-white/60"
                   >
-                    Zurück
+                    {w.zurueck}
                   </button>
                 )}
                 <a
-                  href="/datenschutz"
+                  href={rechtsPfad("/datenschutz")}
                   className="underline decoration-white/25 underline-offset-2 hover:decoration-white/60"
                 >
-                  Datenschutz
+                  {w.datenschutz}
                 </a>
                 <a
-                  href="/impressum"
+                  href={rechtsPfad("/impressum")}
                   className="underline decoration-white/25 underline-offset-2 hover:decoration-white/60"
                 >
-                  Impressum
+                  {w.impressum}
                 </a>
               </div>
             </div>
