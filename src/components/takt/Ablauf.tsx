@@ -114,14 +114,23 @@ function Tafel({ phase }: { phase: number }) {
         {Array.from({ length: FELDER }, (_, feld) => (
           <motion.span
             key={feld}
-            initial={reduce ? false : { opacity: 0, scale: 0.7 }}
-            whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+            /* `whileInView` bleibt immer gesetzt, nur der Startwert wechselt.
+               `useReducedMotion` ist beim ersten Rendern false: framer-motion
+               setzt die Deckkraft auf 0, danach wird der Wert wahr, und mit
+               einem `undefined` an dieser Stelle fielen die Angaben weg. Die
+               64 Felder blieben dann unsichtbar stehen, die Tafel waere leer. */
+            initial={reduce ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.7 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-10% 0px" }}
-            transition={{
-              opacity: { duration: 0.4, delay: (feld % 24) * 0.014, ease: EASE },
-              scale: { duration: 0.4, delay: (feld % 24) * 0.014, ease: EASE },
-              default: { duration: 0.45, ease: EASE },
-            }}
+            transition={
+              reduce
+                ? { duration: 0 }
+                : {
+                    opacity: { duration: 0.4, delay: (feld % 24) * 0.014, ease: EASE },
+                    scale: { duration: 0.4, delay: (feld % 24) * 0.014, ease: EASE },
+                    default: { duration: 0.45, ease: EASE },
+                  }
+            }
             className={clsx(
               "aspect-square rounded-[4px] transition-[background-color,box-shadow] duration-500",
               feldFarben[zustand(feld, phase)]
@@ -179,7 +188,7 @@ export function Ablauf() {
   });
 
   return (
-    <Station label="Der Ablauf" tone="dark" id="ablauf">
+    <Station label="Ablauf" tone="dark" id="ablauf">
       <StationTitle>
         Die ersten <span className="em mark">90 Tage.</span>
       </StationTitle>
