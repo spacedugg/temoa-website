@@ -708,4 +708,207 @@ export const en: Woerterbuch = {
     },
   },
 
+  fullService: {
+    meta: {
+      titel: "Full Service · temoa",
+      beschreibung:
+        "Strategy, content, advertising, account management and new marketplaces for your Amazon account. Five areas, one team, all working from the same numbers.",
+    },
+
+    kopf: {
+      eyebrow: "Amazon Full Service",
+      titelVor: "One team that works together on your ",
+      titelMark: "entire Amazon account.",
+      lead: "We take on your Amazon account completely, from the analysis to the day-to-day. For every area you get somebody who does it full time.",
+      bildAlt: "Five workstations on a platform, all connected to one shared evaluation",
+    },
+
+    fuerWen: {
+      label: "Who we work with",
+      titel: "Is this a fit for your brand?",
+      punkte: [
+        "Your own brand, from €50,000 revenue a month",
+        "Strong products, but little Amazon knowledge in house",
+        "The catalog grows faster than the team",
+        "Several hundred items across several marketplaces",
+      ],
+    },
+
+    nichtFuerWen: {
+      label: "When it is not a fit",
+      titelVor: "And when we ",
+      titelMark: "say no.",
+      lead: "Four cases where we say in the first call that it makes no sense. Better now than after four months.",
+      karten: [
+        {
+          titel: "You want revenue whatever it costs",
+          text: "We can turn campaigns up until the number looks right. We are able to do that, and at the end of the year you have nothing from it.",
+        },
+        {
+          titel: "The listing has to stay as it is",
+          text: "If images and copy cannot be touched, only advertising is left. Then clicks get more expensive every year and the margin gets tighter.",
+        },
+        {
+          titel: "You are looking for the cheapest provider",
+          text: "Staffing five areas full time costs money. Below €50,000 monthly revenue on Amazon it does not pay off for you.",
+        },
+        {
+          titel: "Decisions take months with you",
+          text: "A main image approved in March no longer sells in the season. We need one contact who is allowed to decide.",
+        },
+      ],
+    },
+
+    ausgangslage: {
+      label: "The starting point",
+      titel: "Why the usual answers fail on Amazon.",
+      karten: [
+        {
+          titel: "The in-house team is too small",
+          text: "One person cannot cover strategy, content, advertising and operations at the depth each of them needs.",
+        },
+        {
+          titel: "Separate providers, separate views",
+          text: "One steers PPC on ad spend alone, another writes content without looking at inventory. Nobody owns the strategy as a whole.",
+        },
+        {
+          titel: "Amazon is a full-time job",
+          text: "20 to 40 hours a week on a platform that keeps changing.",
+        },
+      ],
+      schluss:
+        "What hurts is not visible in the account: the search term you never showed up on, and the competitor who took the place from you.",
+    },
+
+    bereiche: {
+      label: "What we take on",
+      titel: "Five areas, each one in full depth.",
+      liste: [
+        {
+          bereich: "Strategy",
+          titel: "We read your market down to the single search term.",
+          zeile: "Before anything is optimized, it is clear where your revenue sits and which targets are realistic.",
+          punkte: [
+            "Which search terms bring you revenue and which only cost money",
+            "Where you stand in the market, month by month",
+            "What is left on every variation after all fees",
+          ],
+        },
+        {
+          bereich: "Product Images & SEO",
+          titel: "A listing that sells without advertising too.",
+          zeile: "Visibility turns into clicks, clicks into orders, until the listing is retail ready.",
+          punkte: [
+            "The main image first: it decides whether you are clicked in the search results",
+            "All product images, A+ through Premium A+ content, brand store and brand story",
+            "Title, bullets and the fields in the background, clear enough for Rufus and COSMO",
+          ],
+        },
+        {
+          bereich: "PPC Advertising",
+          titel: "Clean campaigns, steered on TACoS.",
+          zeile: "Once the listing sells organically, PPC adds revenue you can plan with.",
+          punkte: [
+            "Every campaign with one clear job, none bidding against another",
+            "Bids and placements steered separately, top of search deliberately",
+            "More expensive on purpose while building new search terms, then back to profit",
+          ],
+        },
+        {
+          bereich: "Account Management",
+          titel: "Steady operations, protected rankings.",
+          zeile: "The operational side, where one mistake costs visibility you built up.",
+          punkte: [
+            "Buy Box gone? We see it the same day, with its cause",
+            "Resupply planned so no bestseller runs out and rankings tip over",
+            "Account health watched, cases go to Amazon support through us",
+            "Prices steered so growth does not eat the margin",
+          ],
+        },
+        {
+          bereich: "International Expansion",
+          titel: "Every new marketplace built from the ground up.",
+          zeile: "The complete service on further Amazon marketplaces, done again for each market.",
+          punkte: [
+            "Its own keyword research per marketplace",
+            "Content and campaigns set up again for every market",
+            "Localize instead of translate",
+          ],
+        },
+      ],
+    },
+
+    reporting: {
+      label: "Always included",
+      titel: "Reporting you understand in five minutes.",
+      lead: "No data export for you to evaluate yourself. You get the numbers that matter, and our reading of them.",
+      bildAlt: "A floating dashboard with a rising curve, bars and two metric cards.",
+      punkte: [
+        {
+          titel: "What the month brought in",
+          text: "Revenue, contribution margin and TACoS per product group, against the month before and against last year.",
+        },
+        {
+          titel: "What caused it",
+          text: "Which change caused which swing, and what the competition did over the same period.",
+        },
+        {
+          titel: "What comes next",
+          text: "The three moves for the coming month, with the expected effect and what we need from you for them.",
+        },
+      ],
+    },
+
+    unterschied: {
+      label: "Working together",
+      titelVor: "You get ",
+      titelMark: "one team,",
+      titelNach: " not three companies.",
+      punkte: [
+        "One contact for all five areas, not three providers",
+        "What stands out in the numbers is changed in the listing the same week",
+        "One number holds for everyone: what a product earns is not three different figures",
+        "If something goes wrong, it is us. Nobody points at anybody else.",
+      ],
+    },
+
+    zusammenlauf: {
+      bereiche: ["Strategy", "Images", "PPC", "Countries"],
+      quelle: "Revenue, margin, TACoS",
+      band: "Account Management",
+      bandZeile: "Every day, from the first to the last",
+    },
+
+    onboarding: {
+      label: "The first three weeks",
+      titelVor: "From the call to ",
+      titelEm: "the first optimization.",
+      lead: "No three-day kickoff workshop. You give us access, we get started.",
+      schritte: [
+        {
+          schritt: "Day 0",
+          titel: "The call",
+          text: "30 minutes with Clemens to get to know each other. If it fits, a second call follows with your numbers.",
+        },
+        {
+          schritt: "Day 1",
+          titel: "Access and channel",
+          text: "You invite us into Seller Central, we open a shared Slack channel and a drive for all files.",
+        },
+        {
+          schritt: "Week 1",
+          titel: "The analysis",
+          text: "We cost every product out and set the order. Depending on the size of the catalog that takes up to two weeks. You get the result as a plan, not as a file.",
+        },
+        {
+          schritt: "Week 2 to 3",
+          titel: "The work runs",
+          text: "A content sprint for the first items, campaigns get rebuilt. From here you see every week what happened.",
+        },
+      ],
+    },
+
+    cta: "Which area is holding your growth back?",
+  },
+
 };

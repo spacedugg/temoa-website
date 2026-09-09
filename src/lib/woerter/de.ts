@@ -728,6 +728,229 @@ export const de = {
     },
   },
 
+  /* ============================================================
+     Die Uebersichtsseite Full Service.
+
+     `zusammenlauf` sind die Beschriftungen der Grafik unter „Zusammenarbeit".
+     Vier Kacheln von rund achtzig Pixeln tragen dort Kurzformen, nicht die
+     vollen Namen der Leistungen: das ist die eine Ausnahme von der Regel der
+     elften Runde, dass die fuenf Leistungen ueberall gleich heissen.
+     ============================================================ */
+  fullService: {
+    meta: {
+      titel: "Full Service · temoa",
+      beschreibung:
+        "Strategie, Content, Advertising, Account Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
+    },
+
+    kopf: {
+      eyebrow: "Amazon Full Service",
+      titelVor: "Ein eingespieltes Team für euren ",
+      titelMark: "kompletten Amazon-Account.",
+      lead: "Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht.",
+      bildAlt:
+        "Fünf Arbeitsplätze auf einem Podest, alle verbunden mit einer gemeinsamen Auswertung",
+    },
+
+    fuerWen: {
+      label: "Für wen wir arbeiten",
+      titel: "Passt das zu eurer Marke?",
+      /* Die Ueberschrift traegt die Aussage allein, dafuer ein paar Woerter
+         laenger, und das Icon wird gross. */
+      punkte: [
+        "Eigene Marke, ab 50.000 € Umsatz im Monat",
+        "Starke Produkte, aber wenig Amazon-Wissen im Haus",
+        "Das Sortiment wächst schneller als das Team",
+        "Mehrere hundert Artikel auf mehreren Marktplätzen",
+      ],
+    },
+
+    nichtFuerWen: {
+      label: "Wann es nicht passt",
+      titelVor: "Und wann wir ",
+      titelMark: "absagen.",
+      lead: "Vier Fälle, in denen wir im ersten Gespräch sagen, dass es keinen Sinn hat. Lieber jetzt als nach vier Monaten.",
+      karten: [
+        {
+          titel: "Ihr wollt Umsatz, egal was er kostet",
+          text: "Wir drehen Kampagnen so lange auf, bis die Zahl stimmt: das können wir, aber davon habt ihr am Jahresende nichts.",
+        },
+        {
+          titel: "Das Listing soll bleiben, wie es ist",
+          text: "Wenn Bilder und Texte nicht angefasst werden dürfen, bleibt nur Werbung. Dann werden Klicks jedes Jahr teurer und die Marge enger.",
+        },
+        {
+          titel: "Ihr sucht den günstigsten Anbieter",
+          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 50.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
+        },
+        {
+          titel: "Entscheidungen dauern bei euch Monate",
+          text: "Ein Hauptbild, das im März freigegeben wird, verkauft nicht mehr in der Saison. Wir brauchen einen Ansprechpartner, der entscheiden darf.",
+        },
+      ],
+    },
+
+    ausgangslage: {
+      label: "Ausgangslage",
+      titel: "Warum die üblichen Lösungen an Amazon scheitern.",
+      karten: [
+        {
+          titel: "Internes Team zu klein",
+          text: "Eine Person kann Strategie, Content, Werbung und Betrieb nicht in der nötigen Tiefe abdecken.",
+        },
+        {
+          titel: "Einzeldienstleister, getrennte Sicht",
+          text: "Einer steuert PPC nur auf Werbeausgaben, einer erstellt Content ohne Blick auf den Bestand. Die Gesamtstrategie verantwortet niemand.",
+        },
+        {
+          titel: "Amazon ist ein Vollzeitjob",
+          text: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert.",
+        },
+      ],
+      schluss:
+        "Was weh tut, sieht man nicht im Konto: der Suchbegriff, auf dem ihr nie aufgetaucht seid, und der Wettbewerber, der euch den Platz abgenommen hat.",
+    },
+
+    bereiche: {
+      label: "Was wir übernehmen",
+      titel: "Fünf Bereiche, jeder in voller Tiefe.",
+      /* Jeder Bereich traegt seinen Namen. Vorher stand ueber Block 01 nur
+         die Ueberschrift; wer nicht schon wusste, dass das die Strategie ist,
+         hat es an dieser Stelle nicht erfahren. */
+      liste: [
+        {
+          bereich: "Strategie",
+          titel: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
+          zeile: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
+          punkte: [
+            "Welche Suchbegriffe euch Umsatz bringen und welche nur Geld kosten",
+            "Wo ihr im Markt steht, Monat für Monat",
+            "Was bei jeder Variante nach allen Gebühren übrig bleibt",
+          ],
+        },
+        {
+          bereich: "Produktbilder & SEO",
+          titel: "Ein Listing, das auch ohne Werbung verkauft.",
+          zeile: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
+          punkte: [
+            "Zuerst das Hauptbild: es entscheidet, ob im Suchergebnis geklickt wird",
+            "Alle Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
+            "Titel, Bullets und die Felder im Hintergrund, verständlich für Rufus und COSMO",
+          ],
+        },
+        {
+          bereich: "PPC Advertising",
+          titel: "Saubere Kampagnen, gesteuert am TACoS.",
+          zeile: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
+          punkte: [
+            "Jede Kampagne mit einer klaren Aufgabe, keine bietet gegen die andere",
+            "Gebote und Platzierungen getrennt gesteuert, Top-of-Search gezielt",
+            "Beim Aufbau neuer Suchbegriffe bewusst teurer, danach zurück auf Profit",
+          ],
+        },
+        {
+          bereich: "Account Management",
+          titel: "Stabiler Betrieb, geschützte Rankings.",
+          zeile: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
+          punkte: [
+            "Buy-Box weg? Wir sehen es am selben Tag, samt Ursache",
+            "Nachschub geplant, damit kein Bestseller leerläuft und Rankings kippen",
+            "Konto-Gesundheit im Blick, Fälle laufen über uns zum Amazon-Support",
+            "Preise so gesteuert, dass Wachstum die Marge nicht auffrisst",
+          ],
+        },
+        {
+          bereich: "Internationalisierung",
+          titel: "Jeder neue Marktplatz von Grund auf aufgebaut.",
+          zeile: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
+          punkte: [
+            "Eigene Keyword-Recherche je Marktplatz",
+            "Content und Kampagnen für jeden Markt neu aufgesetzt",
+            "Lokalisieren statt übersetzen",
+          ],
+        },
+      ],
+    },
+
+    reporting: {
+      label: "Immer enthalten",
+      titel: "Reporting, das ihr in fünf Minuten versteht.",
+      lead: "Kein Datenexport zum Selbstauswerten. Ihr bekommt die Zahlen, auf die es ankommt, und dazu unsere Einordnung.",
+      bildAlt: "Ein schwebendes Dashboard mit steigender Kurve, Balken und zwei Kennzahlkarten.",
+      /* Ein Report, den eine Geschaeftsfuehrung liest, beantwortet drei
+         verschiedene Fragen: Was ist passiert, warum, und was machen wir
+         jetzt. Vorher stand hier dreimal derselbe Rueckblick. */
+      punkte: [
+        {
+          titel: "Was der Monat gebracht hat",
+          text: "Umsatz, Deckungsbeitrag und TACoS je Produktgruppe, gegen den Vormonat und gegen das Vorjahr.",
+        },
+        {
+          titel: "Woran es lag",
+          text: "Welche Änderung welchen Ausschlag verursacht hat, dazu was der Wettbewerb im selben Zeitraum gemacht hat.",
+        },
+        {
+          titel: "Was als Nächstes ansteht",
+          text: "Die drei Maßnahmen für den kommenden Monat, mit erwartetem Effekt und dem, was wir dafür von euch brauchen.",
+        },
+      ],
+    },
+
+    unterschied: {
+      label: "Zusammenarbeit",
+      titelVor: "Bei euch arbeitet ",
+      titelMark: "ein Team,",
+      titelNach: " nicht drei Firmen.",
+      punkte: [
+        "Ein Ansprechpartner für alle fünf Bereiche, nicht drei Dienstleister",
+        "Was in den Zahlen auffällt, ist in derselben Woche im Listing geändert",
+        "Eine Zahl gilt für alle: was ein Produkt verdient, steht nicht dreimal verschieden im Raum",
+        "Läuft etwas schief, sind wir es. Keiner zeigt auf den anderen.",
+      ],
+    },
+
+    zusammenlauf: {
+      /* Kurzformen: die Kacheln sind auf dem Telefon rund achtzig Pixel breit.
+         Das weiche Trennzeichen in „Produktbilder" muss bleiben, sonst steht
+         dort „Produktbil" ueber „der", ohne Bindestrich. */
+      bereiche: ["Strategie", "Produkt­bilder", "PPC", "Länder"],
+      quelle: "Umsatz, Marge, TACoS",
+      band: "Account Management",
+      bandZeile: "Jeden Tag, vom ersten bis zum letzten",
+    },
+
+    onboarding: {
+      label: "Die ersten drei Wochen",
+      titelVor: "Vom Gespräch bis ",
+      titelEm: "zur ersten Optimierung.",
+      lead: "Kein Kickoff-Workshop über drei Tage. Ihr gebt uns Zugang, wir fangen an.",
+      schritte: [
+        {
+          schritt: "Tag 0",
+          titel: "Das Gespräch",
+          text: "30 Minuten mit Clemens zum Kennenlernen. Passt es, folgt ein zweiter Termin mit euren Zahlen.",
+        },
+        {
+          schritt: "Tag 1",
+          titel: "Zugänge und Kanal",
+          text: "Ihr ladet uns in Seller Central ein, wir öffnen einen gemeinsamen Slack-Kanal und ein Drive für alle Dateien.",
+        },
+        {
+          schritt: "Woche 1",
+          titel: "Die Analyse",
+          text: "Wir rechnen jedes Produkt durch und legen die Reihenfolge fest. Je nach Größe des Sortiments dauert das bis zu zwei Wochen. Ihr bekommt das Ergebnis als Fahrplan, nicht als Datei.",
+        },
+        {
+          schritt: "Woche 2 bis 3",
+          titel: "Die Arbeit läuft",
+          text: "Content-Sprint für die ersten Artikel, Kampagnen werden umgebaut. Ab hier seht ihr jede Woche, was passiert ist.",
+        },
+      ],
+    },
+
+    cta: "Welcher Bereich bremst euer Wachstum?",
+  },
+
 };
 
 /* Kein `as const`: sonst waeren die deutschen Saetze Literaltypen und keine

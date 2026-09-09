@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /* ============================================================
    Zusammenlauf: eine Auswertung, vier Bereiche, ein Fundament.
@@ -21,18 +22,17 @@ import { useRef } from "react";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-/* Vier Bereiche mit Anfang und Ende. „Märkte" war unklar, gemeint sind
-   weitere Amazon-Laender. Kurzformen, weil die Kacheln rund achtzig Pixel
-   breit sind; der fuenfte Bereich traegt unten seinen vollen Namen. */
-/* Weiches Trennzeichen in „Produktbilder": auf dem Telefon sind die
-   Kacheln rund achtzig Pixel breit, dort bricht das Wort. Ohne das
-   Zeichen steht „Produktbil" und „der" untereinander, ohne Bindestrich. */
-const bereiche = ["Strategie", "Produkt\u00ADbilder", "PPC", "Länder"];
+/* Die vier Kurzformen und die drei Zeilen dieser Grafik stehen im
+   Woerterbuch unter `fullService.zusammenlauf`. Kurzformen, weil die Kacheln
+   rund achtzig Pixel breit sind; der fuenfte Bereich traegt unten seinen
+   vollen Namen. Das weiche Trennzeichen in „Produktbilder" gehoert dazu:
+   ohne es steht dort „Produktbil" ueber „der", ohne Bindestrich. */
 
 /** Die kleinen Balken im Kopf der Platte. Anteile, keine Werte. */
 const balken = [0.34, 0.42, 0.38, 0.55, 0.62, 0.58, 0.74, 0.88];
 
-export function Zusammenlauf() {
+export function Zusammenlauf({ w }: { w: Woerterbuch["fullService"]["zusammenlauf"] }) {
+  const bereiche = w.bereiche;
   const ref = useRef<HTMLDivElement>(null);
   const drin = useInView(ref, { once: true, margin: "-15% 0px" });
   const reduce = useReducedMotion();
@@ -66,7 +66,7 @@ export function Zusammenlauf() {
             ))}
           </div>
           <div className="mt-3 border-t border-ink/[0.07] pt-3">
-            <span className="text-[0.78rem] font-bold text-ink">Umsatz, Marge, TACoS</span>
+            <span className="text-[0.78rem] font-bold text-ink">{w.quelle}</span>
           </div>
         </div>
       </div>
@@ -124,9 +124,9 @@ export function Zusammenlauf() {
           transition={{ duration: 0.9, delay: 1.35, ease: EASE }}
         />
         <span className="min-w-0">
-          <span className="block text-[0.72rem] font-bold leading-tight text-white">Account Management</span>
+          <span className="block text-[0.72rem] font-bold leading-tight text-white">{w.band}</span>
           <span className="mt-0.5 block text-[0.68rem] font-bold uppercase tracking-[0.08em] text-chalk-muted">
-            Jeden Tag, vom ersten bis zum letzten
+            {w.bandZeile}
           </span>
         </span>
         <span aria-hidden className="shrink-0 text-brand-400">
