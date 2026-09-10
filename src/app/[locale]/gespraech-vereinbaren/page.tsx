@@ -35,7 +35,12 @@ export default async function GespraechBuchenPage({
     <>
       <Kopfzeile />
       <main>
-        <BookingBody w={w.buchung} stimmen={w.start.stimmen} stimmenListe={stimmenFuer(locale)} />
+        <BookingBody
+          w={w.buchung}
+          fahrplan={w.fahrplan}
+          stimmen={w.start.stimmen}
+          stimmenListe={stimmenFuer(locale)}
+        />
       </main>
       <Fusszeile />
     </>

@@ -10,8 +10,8 @@ import {
   Reporting,
   Unterschied,
   NichtFuerWen,
-  Onboarding,
 } from "@/components/takt/fullservice";
+import { Fahrplan } from "@/components/takt/Fahrplan";
 import { Termin } from "@/components/takt/sections";
 import { istSprache, sprachAngaben } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
@@ -38,7 +38,8 @@ export default async function FullServicePage({
 }) {
   const { locale } = await params;
   if (!istSprache(locale)) notFound();
-  const w = woerter(locale).fullService;
+  const alle = woerter(locale);
+  const w = alle.fullService;
 
   return (
     <>
@@ -53,7 +54,12 @@ export default async function FullServicePage({
         <Bereiche w={w.bereiche} />
         <Reporting w={w.reporting} />
         <Unterschied w={w.unterschied} zusammenlauf={w.zusammenlauf} />
-        <Onboarding w={w.onboarding} />
+        {/* Der Fahrplan als letzte Sektion vor dem Abschluss-CTA, dieselbe
+            Sektion wie auf der Buchungsseite. Sie ersetzt `Onboarding` mit
+            den ersten drei Wochen: der Fahrplan sagt dasselbe ueber 90 Tage
+            statt ueber drei Wochen, und zwei Ablaeufe auf einer Website
+            waeren zwei Versprechen. */}
+        <Fahrplan w={alle.fahrplan} />
         <Termin title={w.cta} />
       </main>
       <Fusszeile />

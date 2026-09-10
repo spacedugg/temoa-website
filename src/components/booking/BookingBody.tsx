@@ -115,10 +115,14 @@ function Ablauf({ w }: { w: B["ablauf"] }) {
    von aussen herein. */
 export function BookingBody({
   w,
+  fahrplan,
   stimmen,
   stimmenListe,
 }: {
   w: B;
+  /* Der Fahrplan steht auch auf der Full-Service-Seite und liegt deshalb auf
+     der obersten Ebene des Woerterbuchs, nicht in `buchung`. */
+  fahrplan: Woerterbuch["fahrplan"];
   stimmen: Woerterbuch["start"]["stimmen"];
   stimmenListe: Testimonial[];
 }) {
@@ -353,7 +357,7 @@ export function BookingBody({
       {/* Der Fahrplan steht unter dem Kalender und ueber den Stimmen: wer sich
           gerade einen Termin sucht, liest direkt danach, was nach dem Start
           passiert. */}
-      <Fahrplan w={w.fahrplan} />
+      <Fahrplan w={fahrplan} />
 
       <Stimmen w={stimmen} liste={stimmenListe} />
 
