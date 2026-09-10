@@ -1275,6 +1275,11 @@ export const de = {
     ],
     vorher: "Vorherige Karten",
     weiter: "Weitere Karten",
+    /* Die drei Knoepfe der Grossansicht. Sie standen fest auf Deutsch im
+       Code und sagten damit auf der englischen Seite das Falsche an. */
+    schliessen: "Schließen",
+    zurueck: "Vorheriges Beispiel",
+    vor: "Nächstes Beispiel",
     /* `{a}` ist die Zahl der gezeigten, `{b}` die aller Beispiele. */
     zaehler: "{a} von {b} Beispielen",
     mehrLaden: "Mehr laden",

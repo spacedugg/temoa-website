@@ -1227,3 +1227,44 @@ beide Sprachen, sofern hier nichts anderes steht.
   auf Deutsch "deine Amazon-Agentur". Das Wort ist in der Website-Copy
   verboten; auf Englisch steht deshalb "your Amazon growth partner". Ob die
   deutsche Fassung nachzieht, entscheidet der Kunde.
+
+## Dreissigste Feedbackrunde (verbindlich)
+
+- **Kein CSS-Mehrspaltenlayout fuer Bildraster.** Die Designbeispiele legten
+  die EBC-Kacheln in `columns-*` mit `break-inside-avoid`. Chrome rechnet die
+  Spalten neu, sobald ein Element darin eine eigene Zeichenebene bekommt, und
+  beim Zeigen verschwanden ganze Spalten. Im Browser nachgemessen: nach dem
+  Hover stand in der letzten Spalte nur noch die erste Kachel. Ersetzt durch
+  ein normales Raster; nach dem Umbau bleiben alle achtzehn Kacheln stehen,
+  auch nachdem vier davon angefasst wurden.
+- **EBC-Kacheln sind gleich hoch und zeigen den Anfang.** 3 zu 4, oben
+  angesetzt, unten weicher Auslauf, wie die A+ Kachel auf der Leistungsseite.
+  Der freie Stapel war auf 183 Pixeln Breite weder lesbar noch ordentlich. Zwei
+  bis fuenf Spalten je nach Breite.
+- **Ein Stapel, der niedriger ist als die Kachel, steht mittig.** Bei zwei
+  Modulen kommt er auf 0,82 Kachelbreiten und fuellt die 1,33 nicht. Oben
+  angesetzt bliebe unten ein weisser Rest, der wie ein Fehler aussieht.
+- **Geladen werden nur die Bahnen, die in den Ausschnitt passen**, dazu eine
+  als Puffer gegen fehlende Bildmasse in den Daten. Eine Kachel von 230 Pixeln
+  braucht keine sechs A+ Module, von denen vier abgeschnitten sind.
+- **Die Grossansicht scrollt, sie staucht nicht.** Vorher wurde der ganze
+  Stapel in 84 vh Hoehe gezwungen; bei sechs Modulen blieb eine handbreite
+  Spalte, auf der nichts zu lesen war. Jetzt volle Breite bis 760 Pixel und
+  Scrollen.
+- **Liegt nur ein einziges Beispiel vor, wird nichts beschnitten.** Dann gibt
+  es nichts zu ordnen, und der Stapel steht ganz da.
+- **Die offene Seite ist in der Kopfzeile zu sehen.** Ein oranger Balken unter
+  der Grundlinie, das Mittel des Textmarkers `.mark`. Vorher unterschied sich
+  die offene Seite nur durch `text-ink` statt `text-ink-muted`.
+- **Auf einer Leistungsseite nennt die Kopfzeile die Seite.** „Full Service /
+  PPC Advertising". Im Aufklappmenue traegt der offene Eintrag die
+  Navy-Flaeche mit Leuchtpunkt, wie die aktive Kategorie in den
+  Designbeispielen. Vorher stand nirgends, auf welcher der fuenf Seiten man
+  war.
+- **Der Sprachumschalter in der Leiste ist klein** (28 statt 44 Pixel hoch).
+  Dort wird mit der Maus geklickt. Die Untergrenzen aus der Mobilrunde gelten
+  weiter, wo der Finger klickt: im Mobilmenue und in der Fusszeile bleibt er
+  gross.
+- **Die Beschriftungen der Grossansicht stehen im Woerterbuch.** „Schliessen",
+  „Vorheriges" und „Naechstes" standen fest auf Deutsch im Code und sagten auf
+  der englischen Seite das Falsche an.

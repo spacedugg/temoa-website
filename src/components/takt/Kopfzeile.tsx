@@ -42,6 +42,25 @@ function navigation(sprache: Sprache, w: Rahmen): Eintrag[] {
   ];
 }
 
+/**
+ * Der Balken unter der offenen Seite.
+ *
+ * Dasselbe Mittel wie der Textmarker `.mark` in den Ueberschriften: die
+ * Schrift bleibt dunkel, das Orange sitzt unter der Grundlinie. Vorher
+ * unterschied sich die offene Seite nur durch `text-ink` statt
+ * `text-ink-muted`, und das sah man nicht.
+ */
+function Marke() {
+  return (
+    <span
+      aria-hidden
+      /* Unter den Unterlaengen, nicht auf ihnen: das „g" von „Advertising"
+         reicht rund 14 Pixel ueber die Unterkante des Feldes. */
+      className="pointer-events-none absolute inset-x-3 bottom-[0.55rem] h-[3px] rounded-full bg-brand-500"
+    />
+  );
+}
+
 export function Kopfzeile() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
@@ -80,40 +99,66 @@ export function Kopfzeile() {
 
           <div className="hidden items-center gap-1 md:flex">
             {links.map((l) => {
-              const active =
-                pathname === l.href || (l.children && l.children.some((c) => pathname === c.href));
+              const kind = l.children?.find((c) => pathname === c.href);
+              const active = pathname === l.href || kind != null;
               if (l.children) {
                 return (
                   <div key={l.href} className="group relative">
                     <a
                       href={l.href}
+                      aria-current={active ? "page" : undefined}
                       className={clsx(
-                        "flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
+                        "relative flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
                         active ? "text-ink" : "text-ink-muted hover:text-ink"
                       )}
                     >
                       {l.label}
+                      {/* Steht der Besucher auf einer Leistungsseite, sagt die
+                          Leiste welche. Vorher war nur „Full Service" eine
+                          Spur dunkler, und auf welcher der fuenf Seiten man
+                          war, stand nirgends. */}
+                      {kind && (
+                        <>
+                          <span aria-hidden className="text-ink/25">/</span>
+                          <span className="max-w-[11rem] truncate font-bold text-ink">{kind.label}</span>
+                        </>
+                      )}
                       <svg width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden className="transition-transform group-hover:rotate-180">
                         <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
+                      {active && <Marke />}
                     </a>
                     <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                       <div className="w-72 rounded-[1rem] bg-white p-2 shadow-[0_30px_60px_-25px_rgba(2,48,71,0.45)]">
-                        {l.children.map((c, i) => (
-                          <a
-                            key={c.href}
-                            href={c.href}
-                            className={clsx(
-                              "flex min-h-[2.75rem] items-center gap-3 px-3 text-small transition-colors",
-                              pathname === c.href ? "text-ink" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
-                            )}
-                          >
-                            <span className="num text-[0.95rem] text-ink/25">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            {c.label}
-                          </a>
-                        ))}
+                        {l.children.map((c, i) => {
+                          const hier = pathname === c.href;
+                          return (
+                            <a
+                              key={c.href}
+                              href={c.href}
+                              aria-current={hier ? "page" : undefined}
+                              className={clsx(
+                                /* Die offene Seite traegt die Navy-Flaeche,
+                                   wie die aktive Kategorie in den
+                                   Designbeispielen. Vorher unterschied sie
+                                   sich nur durch eine dunklere Schrift. */
+                                "flex min-h-[2.75rem] items-center gap-3 rounded-[0.7rem] px-3 text-small transition-colors",
+                                hier
+                                  ? "bg-navy font-bold text-white"
+                                  : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
+                              )}
+                            >
+                              {hier ? (
+                                <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />
+                              ) : (
+                                <span className="num text-[0.95rem] text-ink/25">
+                                  {String(i + 1).padStart(2, "0")}
+                                </span>
+                              )}
+                              {c.label}
+                            </a>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -123,12 +168,14 @@ export function Kopfzeile() {
                 <a
                   key={l.href}
                   href={l.href}
+                  aria-current={active ? "page" : undefined}
                   className={clsx(
-                    "flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
-                    pathname === l.href ? "text-ink" : "text-ink-muted hover:text-ink"
+                    "relative flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
+                    active ? "text-ink" : "text-ink-muted hover:text-ink"
                   )}
                 >
                   {l.label}
+                  {active && <Marke />}
                 </a>
               );
             })}
@@ -138,6 +185,7 @@ export function Kopfzeile() {
             <Sprachumschalter
               aktuell={sprache}
               beschriftung={w.rahmen.spracheWaehlen}
+              groesse="klein"
               className="hidden md:flex"
             />
             {/* Warum dieser Knopf so aussieht, steht bei `.btn-kopf` in
@@ -184,23 +232,35 @@ export function Kopfzeile() {
                 <div key={l.href} className="border-t border-ink/[0.08]">
                   <a
                     href={l.href}
+                    aria-current={pathname === l.href ? "page" : undefined}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-[3.25rem] items-center text-base font-bold text-ink"
+                    className="flex min-h-[3.25rem] items-center gap-2.5 text-base font-bold text-ink"
                   >
+                    {pathname === l.href && (
+                      <span aria-hidden className="h-[1.1rem] w-[3px] rounded-full bg-brand-500" />
+                    )}
                     {l.label}
                   </a>
                   {l.children && (
                     <div className="pb-3">
-                      {l.children.map((c) => (
-                        <a
-                          key={c.href}
-                          href={c.href}
-                          onClick={() => setOpen(false)}
-                          className="flex min-h-[2.75rem] items-center text-small text-ink-muted"
-                        >
-                          {c.label}
-                        </a>
-                      ))}
+                      {l.children.map((c) => {
+                        const hier = pathname === c.href;
+                        return (
+                          <a
+                            key={c.href}
+                            href={c.href}
+                            aria-current={hier ? "page" : undefined}
+                            onClick={() => setOpen(false)}
+                            className={clsx(
+                              "flex min-h-[2.75rem] items-center gap-2.5 rounded-[0.7rem] text-small",
+                              hier ? "bg-navy px-3 font-bold text-white" : "text-ink-muted"
+                            )}
+                          >
+                            {hier && <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />}
+                            {c.label}
+                          </a>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

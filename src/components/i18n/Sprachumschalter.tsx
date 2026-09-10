@@ -30,6 +30,7 @@ export function Sprachumschalter({
   aktuell,
   beschriftung,
   ton = "hell",
+  groesse = "normal",
   className,
 }: {
   aktuell: Sprache;
@@ -37,14 +38,23 @@ export function Sprachumschalter({
   beschriftung: string;
   /** `hell` auf weissem Grund, `dunkel` auf Navy. */
   ton?: "hell" | "dunkel";
+  /**
+   * `klein` nur dort, wo mit der Maus geklickt wird: in der Leiste am
+   * Rechner. Dort stand der Umschalter vorher so gross wie der Knopf daneben
+   * und zog Aufmerksamkeit auf eine Nebensache. Wo der Finger klickt, im
+   * Mobilmenue und in der Fusszeile, bleibt `normal`.
+   */
+  groesse?: "normal" | "klein";
   className?: string;
 }) {
   const pathname = usePathname();
+  const klein = groesse === "klein";
 
   return (
     <div
       className={clsx(
-        "flex items-center gap-0.5 rounded-full p-0.5",
+        "flex items-center gap-0.5 rounded-full",
+        klein ? "p-[2px]" : "p-0.5",
         ton === "dunkel" ? "bg-white/[0.08]" : "bg-ink/[0.06]",
         className
       )}
@@ -65,8 +75,12 @@ export function Sprachumschalter({
             className={clsx(
               /* 40 Pixel hoch und 12 Pixel Schrift: die Untergrenzen aus der
                  Mobilrunde. Ein Umschalter von 32 Pixeln ist auf dem Telefon
-                 nicht sicher zu treffen. */
-              "grid h-10 min-w-[2.5rem] place-items-center rounded-full px-2.5 text-[0.75rem] font-bold uppercase tracking-[0.08em] transition-colors",
+                 nicht sicher zu treffen. Die kleine Fassung unterschreitet das
+                 bewusst, sie steht nur am Rechner. */
+              "grid place-items-center rounded-full font-bold uppercase tracking-[0.08em] transition-colors",
+              klein
+                ? "h-[1.55rem] min-w-[1.8rem] px-1.5 text-[0.625rem]"
+                : "h-10 min-w-[2.5rem] px-2.5 text-[0.75rem]",
               gewaehlt
                 ? ton === "dunkel"
                   ? "bg-white text-ink"

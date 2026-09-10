@@ -2,11 +2,13 @@
 
 import { useEffect, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /* Shared "zoom into the centre" overlay for Listings / Brand Stores /
  * Brand Stories / EBC. Portal to <body>, scroll-locks the page (and any
  * open Radix dialog), Esc closes, ←/→ page through siblings. */
 export function ExpandedShell({
+  w,
   onClose,
   hasPrev,
   hasNext,
@@ -14,6 +16,8 @@ export function ExpandedShell({
   onNext,
   children,
 }: {
+  /* Nur die drei Beschriftungen, die ein Vorleseprogramm ansagt. */
+  w: Pick<Woerterbuch["design"], "schliessen" | "zurueck" | "vor">;
   onClose: () => void;
   hasPrev?: boolean;
   hasNext?: boolean;
@@ -55,7 +59,7 @@ export function ExpandedShell({
     >
       <button
         type="button"
-        aria-label="Schließen"
+        aria-label={w.schliessen}
         onClick={onClose}
         className="fixed right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/95 text-ink shadow-lift transition hover:scale-105"
       >
@@ -67,7 +71,7 @@ export function ExpandedShell({
       {hasPrev && (
         <button
           type="button"
-          aria-label="Vorheriges"
+          aria-label={w.zurueck}
           onClick={(e) => {
             e.stopPropagation();
             onPrev?.();
@@ -80,7 +84,7 @@ export function ExpandedShell({
       {hasNext && (
         <button
           type="button"
-          aria-label="Nächstes"
+          aria-label={w.vor}
           onClick={(e) => {
             e.stopPropagation();
             onNext?.();
