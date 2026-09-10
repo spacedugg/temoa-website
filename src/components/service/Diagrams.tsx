@@ -3,52 +3,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Pille } from "../ui/SectionHeading";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /* Schematic, claim-free diagrams that illustrate a mechanism.
    Relative widths only, no invented numbers. */
-
-/** Market-agnostic visual: every new marketplace gets the full work,
- *  no country codes named. */
-export function MarketWorkStrip() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
-  const chips = ["Keywords", "Content", "Kampagnen"];
-  return (
-    <div ref={ref} className="surface p-6 md:p-7">
-      <Pille>Jeder Marktplatz, die komplette Arbeit</Pille>
-
-      <div className="mt-6 space-y-3">
-        {[0, 1, 2].map((m) => (
-          <motion.div
-            key={m}
-            className="flex items-center gap-3 rounded-2xl bg-navy/[0.03] p-3.5 ring-1 ring-black/[0.05]"
-            initial={{ opacity: 0, y: 12 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.15 + m * 0.12 }}
-          >
-            <span className="shrink-0 text-brand-600">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 7h16l-1 4a3 3 0 0 1-3 2.4H8A3 3 0 0 1 5 11L4 7Z" />
-                <path d="M6 7l1-3h10l1 3M6 20h12M9 20v-5h6v5" />
-              </svg>
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {chips.map((c) => (
-                <span key={c} className="rounded-full bg-white px-2.5 py-1 text-xs font-semibold text-ink-muted ring-1 ring-black/[0.05]">
-                  {c}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <p className="mt-5 text-xs leading-relaxed text-ink-faint">
-        Was ein Marktplatz an Recherche, Content und Kampagnen bekommt, bekommt jeder weitere genauso. Ohne Abkürzung.
-      </p>
-    </div>
-  );
-}
 
 /**
  * Ein Balken aus zwei Teilen, dazu die Beschriftung unter dem Balken.
@@ -97,24 +55,24 @@ function Track({
   );
 }
 
-export function BudgetSplitDiagram() {
+export function BudgetSplitDiagram({ w }: { w: Woerterbuch["leistungen"]["budgetDiagramm"] }) {
   return (
     <div className="panel p-5 sm:p-7 md:p-8">
-      <Pille>Wohin dasselbe Budget fließt</Pille>
+      <Pille>{w.eyebrow}</Pille>
       <div className="mt-7 space-y-8">
         <Track
-          label="Ohne saubere Struktur"
+          label={w.ohneLabel}
           segments={[
-            { w: 68, color: "#D6E1EA", text: "Klicks ohne Kauf" },
-            { w: 32, color: "#FF9900", text: "Verkäufe" },
+            { w: 68, color: "#D6E1EA", text: w.ohneVerloren },
+            { w: 32, color: "#FF9900", text: w.ohneVerkauf },
           ]}
         />
         <Track
-          label="So bauen wir es auf"
+          label={w.mitLabel}
           delay={0.25}
           segments={[
-            { w: 76, color: "#FF9900", text: "Verkäufe" },
-            { w: 24, color: "#D6E1EA", text: "Test" },
+            { w: 76, color: "#FF9900", text: w.mitVerkauf },
+            { w: 24, color: "#D6E1EA", text: w.mitTest },
           ]}
         />
       </div>
@@ -134,26 +92,27 @@ export function BudgetSplitDiagram() {
    Angabe, die Breiten reichen aus, um die Reihenfolge zu zeigen.
    ============================================================ */
 
-const kosten = [
-  { text: "Wareneinsatz", w: 32, color: "#0E3350" },
-  { text: "Amazon-Gebühren", w: 17, color: "#1D5A80" },
-  { text: "Versand", w: 13, color: "#3E86A8" },
-  { text: "Werbung", w: 19, color: "#7FB2C9" },
-  { text: "Gewinn", w: 19, color: "#FF9900" },
+/* Breite und Farbe der fuenf Posten, in der Reihenfolge des Woerterbuchs. */
+const kostenTeile = [
+  { w: 32, color: "#0E3350" },
+  { w: 17, color: "#1D5A80" },
+  { w: 13, color: "#3E86A8" },
+  { w: 19, color: "#7FB2C9" },
+  { w: 19, color: "#FF9900" },
 ];
 
-const entscheidung = [
-  { produkt: "Produkt A", rest: 74, urteil: "bekommt mehr Budget", stark: true },
-  { produkt: "Produkt B", rest: 22, urteil: "wird gehalten", stark: false },
-];
-
-export function MargenDiagramm() {
+export function MargenDiagramm({ w }: { w: Woerterbuch["leistungen"]["margenDiagramm"] }) {
+  const kosten = kostenTeile.map((k, i) => ({ ...k, text: w.kosten[i] }));
+  const entscheidung = [
+    { produkt: w.produktA, rest: 74, urteil: w.urteilA, stark: true },
+    { produkt: w.produktB, rest: 22, urteil: w.urteilB, stark: false },
+  ];
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-12% 0px" });
 
   return (
     <div ref={ref} className="panel p-5 sm:p-7 md:p-8">
-      <Pille>Was von einem Verkauf übrig bleibt</Pille>
+      <Pille>{w.eyebrow}</Pille>
 
       <div className="mt-7 flex h-16 w-full gap-1.5">
         {kosten.map((k, i) => (

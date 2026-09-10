@@ -15,6 +15,9 @@
  * Stilregeln angepasst (keine verbotenen Begriffe), Zahlen bleiben unverändert.
  */
 
+import type { Sprache } from "./i18n";
+import { faelleEn, type FallEn } from "./cases-en";
+
 export type Trend = "up" | "down" | "neutral";
 
 export type CaseStat = {
@@ -685,3 +688,126 @@ export const cases: CaseStudy[] = [
 ];
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
+
+/* ============================================================
+   Englische Fassung.
+
+   Die Uebersetzungen liegen in `cases-en.ts` und werden hier ueber die
+   Reihenfolge zugeordnet. Weicht eine Laenge ab, bricht der Bau ab: eine
+   stille Verschiebung waere der schlimmere Fehler, dann stuende unter einer
+   Ueberschrift ein Beleg, der nicht dazu gehoert. Diese Datei wird nur auf
+   dem Server gelesen, der Abbruch faellt also beim Bauen und nie beim
+   Besucher.
+
+   Uebersetzt wird die Copy, nicht die Struktur: Trend, Kuerzel, Farbe,
+   Bildpfade, Marktplaetze und Zahlenreihen des Diagramms bleiben, wie sie in
+   dieser Datei stehen. `wert` und `value` sind die eine Ausnahme, weil ein
+   deutsch gesetzter Zahlenwert ("9,9 %") im Englischen etwas anderes bedeutet.
+   ============================================================ */
+
+function gleichLang<A, B>(slug: string, feld: string, a: A[], b: B[]): void {
+  if (a.length !== b.length) {
+    throw new Error(
+      `cases-en: ${slug}.${feld} hat ${b.length} Eintraege, die deutsche Fassung ${a.length}. ` +
+        `Die Zuordnung laeuft ueber die Reihenfolge, also muessen beide gleich lang sein.`
+    );
+  }
+}
+
+function uebersetze(c: CaseStudy, en: FallEn): CaseStudy {
+  gleichLang(c.slug, "sections", c.sections, en.sections);
+  gleichLang(c.slug, "heroStats", c.heroStats, en.heroStats);
+  gleichLang(c.slug, "kennzahlen", c.kennzahlen, en.kennzahlen);
+  gleichLang(c.slug, "subStats", c.subStats, en.subStats);
+  gleichLang(c.slug, "badges", c.badges, en.badges);
+  gleichLang(c.slug, "chart", c.chart ?? [], en.chart ?? []);
+  gleichLang(c.slug, "arbeit.produkte", c.arbeit?.produkte ?? [], en.produkte ?? []);
+
+  return {
+    ...c,
+    displayName: en.displayName ?? c.displayName,
+    industry: en.industry,
+    timeframe: en.timeframe,
+    headline: en.headline,
+    subheadline: en.subheadline,
+    preview: { ...c.preview, value: en.preview.value, label: en.preview.label },
+    sections: c.sections.map((s, i) => {
+      const e = en.sections[i];
+      gleichLang(c.slug, `sections[${i}].punkte`, s.punkte ?? [], e.punkte ?? []);
+      return { heading: e.heading, body: e.body, punkte: s.punkte && e.punkte };
+    }),
+    heroStats: c.heroStats.map((x, i) => ({ ...x, ...en.heroStats[i] })),
+    kennzahlen: c.kennzahlen.map((x, i) => ({
+      ...x,
+      name: en.kennzahlen[i].name,
+      wert: en.kennzahlen[i].wert,
+      /* `hinweis` faellt weg, wenn die englische Fassung keinen hat: sonst
+         stuende dort der deutsche Satz. */
+      hinweis: en.kennzahlen[i].hinweis,
+    })),
+    subStats: c.subStats.map((x, i) => ({ ...x, ...en.subStats[i] })),
+    badges: c.badges.map((b, i) => ({ ...b, label: en.badges[i] })),
+    chart: c.chart?.map((pkt, i) => ({
+      ...pkt,
+      label: en.chart![i].label,
+      annotation: en.chart![i].annotation,
+    })),
+    arbeit: c.arbeit && {
+      produkte: c.arbeit.produkte.map((prod, i) => {
+        const e = en.produkte![i];
+        return {
+          ...prod,
+          titel: e.titel,
+          aplus: prod.aplus && { ...prod.aplus, titel: e.aplus ?? prod.aplus.titel },
+        };
+      }),
+    },
+  };
+}
+
+const faelleEnglisch = cases.map((c) => {
+  const en = faelleEn[c.slug];
+  /* `Record` prueft die Schluessel nicht, `slug` ist ein String. Ein neuer
+     Fall ohne englische Fassung faellt deshalb hier auf und nicht erst als
+     leere Seite. */
+  if (!en) throw new Error(`cases-en: fuer "${c.slug}" fehlt die englische Fassung.`);
+  return uebersetze(c, en);
+});
+
+export function faelleFuer(sprache: Sprache): CaseStudy[] {
+  return sprache === "de" ? cases : faelleEnglisch;
+}
+
+/**
+ * Was das Fall-Band der Startseite braucht, und sonst nichts.
+ *
+ * Die Sektion laeuft im Browser. Wuerde sie `cases` selbst importieren, laege
+ * die ganze Sammlung im Bundle, mit allen Bildlisten der ausgelieferten
+ * Arbeit, und seit es die englische Fassung gibt zweimal. Diese neun Felder
+ * sind das, was auf einem Streifen steht.
+ */
+export type FallVorschau = {
+  slug: string;
+  displayName: string;
+  logo?: string;
+  bgImage?: string;
+  accent: string;
+  headline: string;
+  preview: { value: string; label: string; trend: Trend };
+};
+
+export function vorschauFuer(sprache: Sprache): FallVorschau[] {
+  return faelleFuer(sprache).map((c) => ({
+    slug: c.slug,
+    displayName: c.displayName,
+    logo: c.logo,
+    bgImage: c.bgImage,
+    accent: c.accent,
+    headline: c.headline,
+    preview: c.preview,
+  }));
+}
+
+export function fallFuer(sprache: Sprache, slug: string): CaseStudy | undefined {
+  return faelleFuer(sprache).find((c) => c.slug === slug);
+}

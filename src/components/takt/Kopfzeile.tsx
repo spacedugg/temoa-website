@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Logo } from "../Logo";
+import { Sprachumschalter } from "../i18n/Sprachumschalter";
+import { pfad, spracheAusPfad, type Sprache } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 /**
  * Kopfzeile der Welt „Taktplan".
@@ -14,25 +17,60 @@ import { Logo } from "../Logo";
  * Inhalt darunter nicht durchscheint.
  */
 
-const leistungen = [
-  { label: "Strategie", href: "/leistungen/strategie" },
-  { label: "Produktbilder & SEO", href: "/leistungen/listing-seo" },
-  { label: "PPC Advertising", href: "/leistungen/ppc-advertising" },
-  { label: "Account Management", href: "/leistungen/account-management" },
-  { label: "Internationalisierung", href: "/leistungen/internationalisierung" },
-];
+/* Beschriftungen kommen aus dem Woerterbuch, die Adressen bekommen das
+   Sprachpraefix. Ohne das Praefix spraenge ein Besucher aus `/en` zurueck auf
+   die deutsche Seite, und die Weiche muesste ihn ueber eine zweite
+   Weiterleitung wieder einfangen. */
+type Eintrag = { label: string; href: string; children?: Eintrag[] };
 
-const links: { label: string; href: string; children?: { label: string; href: string }[] }[] = [
-  { label: "Full Service", href: "/full-service", children: leistungen },
-  { label: "Case Studies", href: "/ergebnisse" },
-  { label: "Designbeispiele", href: "/design-beispiele" },
-  { label: "Blog", href: "/blog" },
-];
+type Rahmen = (typeof rahmenWoerter)[Sprache];
+
+function navigation(sprache: Sprache, w: Rahmen): Eintrag[] {
+  const p = (ziel: string) => pfad(sprache, ziel);
+  const leistungen: Eintrag[] = [
+    { label: w.leistungen.strategie, href: p("/leistungen/strategie") },
+    { label: w.leistungen.listingSeo, href: p("/leistungen/listing-seo") },
+    { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
+    { label: w.leistungen.account, href: p("/leistungen/account-management") },
+    { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
+  ];
+  return [
+    { label: w.navigation.fullService, href: p("/full-service"), children: leistungen },
+    { label: w.navigation.caseStudies, href: p("/ergebnisse") },
+    { label: w.navigation.designbeispiele, href: p("/design-beispiele") },
+    { label: w.navigation.blog, href: p("/blog") },
+  ];
+}
+
+/**
+ * Der Balken unter der offenen Seite.
+ *
+ * Dasselbe Mittel wie der Textmarker `.mark` in den Ueberschriften: die
+ * Schrift bleibt dunkel, das Orange sitzt unter der Grundlinie. Vorher
+ * unterschied sich die offene Seite nur durch `text-ink` statt
+ * `text-ink-muted`, und das sah man nicht.
+ */
+function Marke() {
+  return (
+    <span
+      aria-hidden
+      /* Unter den Unterlaengen, nicht auf ihnen: das „g" von „Advertising"
+         reicht rund 14 Pixel ueber die Unterkante des Feldes. */
+      className="pointer-events-none absolute inset-x-3 bottom-[0.55rem] h-[3px] rounded-full bg-brand-500"
+    />
+  );
+}
 
 export function Kopfzeile() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  /* Die Sprache steht im Pfad. So muss keine der dreizehn Seiten sie
+     durchreichen, und die Leiste stimmt auch dort, wo sie noch niemand
+     angefasst hat. */
+  const sprache = spracheAusPfad(pathname);
+  const w = rahmenWoerter[sprache];
+  const links = navigation(sprache, w);
   const reduce = useReducedMotion();
   const { scrollY } = useScroll();
 
@@ -52,8 +90,8 @@ export function Kopfzeile() {
       <div className="container-x">
         <nav className="flex h-[4.5rem] items-center justify-between gap-6">
           <a
-            href="/#top"
-            aria-label="temoa, zur Startseite"
+            href={`${pfad(sprache, "/")}#top`}
+            aria-label={w.rahmen.zurStartseite}
             className="flex min-h-[2.75rem] items-center rounded-inner pr-2"
           >
             <Logo priority />
@@ -61,40 +99,66 @@ export function Kopfzeile() {
 
           <div className="hidden items-center gap-1 md:flex">
             {links.map((l) => {
-              const active =
-                pathname === l.href || (l.children && l.children.some((c) => pathname === c.href));
+              const kind = l.children?.find((c) => pathname === c.href);
+              const active = pathname === l.href || kind != null;
               if (l.children) {
                 return (
                   <div key={l.href} className="group relative">
                     <a
                       href={l.href}
+                      aria-current={active ? "page" : undefined}
                       className={clsx(
-                        "flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
+                        "relative flex min-h-[2.75rem] items-center gap-1.5 px-3 text-small font-bold transition-colors",
                         active ? "text-ink" : "text-ink-muted hover:text-ink"
                       )}
                     >
                       {l.label}
+                      {/* Steht der Besucher auf einer Leistungsseite, sagt die
+                          Leiste welche. Vorher war nur „Full Service" eine
+                          Spur dunkler, und auf welcher der fuenf Seiten man
+                          war, stand nirgends. */}
+                      {kind && (
+                        <>
+                          <span aria-hidden className="text-ink/25">/</span>
+                          <span className="max-w-[11rem] truncate font-bold text-ink">{kind.label}</span>
+                        </>
+                      )}
                       <svg width="10" height="10" viewBox="0 0 16 16" fill="none" aria-hidden className="transition-transform group-hover:rotate-180">
                         <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
+                      {active && <Marke />}
                     </a>
                     <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                       <div className="w-72 rounded-[1rem] bg-white p-2 shadow-[0_30px_60px_-25px_rgba(2,48,71,0.45)]">
-                        {l.children.map((c, i) => (
-                          <a
-                            key={c.href}
-                            href={c.href}
-                            className={clsx(
-                              "flex min-h-[2.75rem] items-center gap-3 px-3 text-small transition-colors",
-                              pathname === c.href ? "text-ink" : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
-                            )}
-                          >
-                            <span className="num text-[0.95rem] text-ink/25">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            {c.label}
-                          </a>
-                        ))}
+                        {l.children.map((c, i) => {
+                          const hier = pathname === c.href;
+                          return (
+                            <a
+                              key={c.href}
+                              href={c.href}
+                              aria-current={hier ? "page" : undefined}
+                              className={clsx(
+                                /* Die offene Seite traegt die Navy-Flaeche,
+                                   wie die aktive Kategorie in den
+                                   Designbeispielen. Vorher unterschied sie
+                                   sich nur durch eine dunklere Schrift. */
+                                "flex min-h-[2.75rem] items-center gap-3 rounded-[0.7rem] px-3 text-small transition-colors",
+                                hier
+                                  ? "bg-navy font-bold text-white"
+                                  : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
+                              )}
+                            >
+                              {hier ? (
+                                <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />
+                              ) : (
+                                <span className="num text-[0.95rem] text-ink/25">
+                                  {String(i + 1).padStart(2, "0")}
+                                </span>
+                              )}
+                              {c.label}
+                            </a>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -104,23 +168,31 @@ export function Kopfzeile() {
                 <a
                   key={l.href}
                   href={l.href}
+                  aria-current={active ? "page" : undefined}
                   className={clsx(
-                    "flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
-                    pathname === l.href ? "text-ink" : "text-ink-muted hover:text-ink"
+                    "relative flex min-h-[2.75rem] items-center px-3 text-small font-bold transition-colors",
+                    active ? "text-ink" : "text-ink-muted hover:text-ink"
                   )}
                 >
                   {l.label}
+                  {active && <Marke />}
                 </a>
               );
             })}
           </div>
 
           <div className="flex items-center gap-3">
+            <Sprachumschalter
+              aktuell={sprache}
+              beschriftung={w.rahmen.spracheWaehlen}
+              groesse="klein"
+              className="hidden md:flex"
+            />
             {/* Warum dieser Knopf so aussieht, steht bei `.btn-kopf` in
                 globals.css. Kurz: Navy mit Lichthof und Bewegung beim Hover,
                 Rot ist auf dieser Website die Farbe fuer Probleme. */}
-            <a href="/gespraech-vereinbaren" className="group hidden md:inline-flex btn-kopf">
-              Potenzialanalyse buchen
+            <a href={pfad(sprache, "/gespraech-vereinbaren")} className="group hidden md:inline-flex btn-kopf">
+              {w.rahmen.cta}
               <span className="disc" aria-hidden>
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -128,7 +200,7 @@ export function Kopfzeile() {
               </span>
             </a>
             <button
-              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              aria-label={open ? w.rahmen.menueSchliessen : w.rahmen.menueOeffnen}
               aria-expanded={open}
               aria-controls="hauptmenue"
               onClick={() => setOpen((o) => !o)}
@@ -160,29 +232,41 @@ export function Kopfzeile() {
                 <div key={l.href} className="border-t border-ink/[0.08]">
                   <a
                     href={l.href}
+                    aria-current={pathname === l.href ? "page" : undefined}
                     onClick={() => setOpen(false)}
-                    className="flex min-h-[3.25rem] items-center text-base font-bold text-ink"
+                    className="flex min-h-[3.25rem] items-center gap-2.5 text-base font-bold text-ink"
                   >
+                    {pathname === l.href && (
+                      <span aria-hidden className="h-[1.1rem] w-[3px] rounded-full bg-brand-500" />
+                    )}
                     {l.label}
                   </a>
                   {l.children && (
                     <div className="pb-3">
-                      {l.children.map((c) => (
-                        <a
-                          key={c.href}
-                          href={c.href}
-                          onClick={() => setOpen(false)}
-                          className="flex min-h-[2.75rem] items-center text-small text-ink-muted"
-                        >
-                          {c.label}
-                        </a>
-                      ))}
+                      {l.children.map((c) => {
+                        const hier = pathname === c.href;
+                        return (
+                          <a
+                            key={c.href}
+                            href={c.href}
+                            aria-current={hier ? "page" : undefined}
+                            onClick={() => setOpen(false)}
+                            className={clsx(
+                              "flex min-h-[2.75rem] items-center gap-2.5 rounded-[0.7rem] text-small",
+                              hier ? "bg-navy px-3 font-bold text-white" : "text-ink-muted"
+                            )}
+                          >
+                            {hier && <span aria-hidden className="node-glow !h-[0.4rem] !w-[0.4rem]" />}
+                            {c.label}
+                          </a>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
               ))}
               <a
-                href="/gespraech-vereinbaren"
+                href={pfad(sprache, "/gespraech-vereinbaren")}
                 onClick={() => setOpen(false)}
                 className="mt-6 flex min-h-[3.25rem] w-full items-center justify-center rounded-[0.875rem] text-base font-bold text-white"
                 style={{
@@ -190,8 +274,17 @@ export function Kopfzeile() {
                   boxShadow: "inset 0 1px 0 rgba(255,255,255,0.16), 0 12px 26px -14px rgba(255,153,0,0.7)",
                 }}
               >
-                Potenzialanalyse buchen
+                {w.rahmen.cta}
               </a>
+
+              {/* Der Umschalter steht im Mobilmenue unter dem Knopf: oben in
+                  der Leiste ist neben Logo und Menuetaste kein Platz. */}
+              <div className="mt-6 flex items-center justify-between border-t border-ink/[0.08] pt-6">
+                <span className="text-label font-bold uppercase text-ink-faint">
+                  {w.rahmen.sprache}
+                </span>
+                <Sprachumschalter aktuell={sprache} beschriftung={w.rahmen.spracheWaehlen} />
+              </div>
             </div>
           </motion.div>
         )}

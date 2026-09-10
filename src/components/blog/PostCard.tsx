@@ -1,9 +1,22 @@
 import type { PostMeta } from "@/lib/blog";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
 import { BlogCover } from "./BlogCover";
 
-export function PostCard({ post }: { post: PostMeta }) {
+export function PostCard({
+  post,
+  sprache,
+  w,
+}: {
+  post: PostMeta;
+  sprache: Sprache;
+  w: Woerterbuch["blog"];
+}) {
   return (
-    <a href={`/blog/${post.slug}`} className="surface surface-hover group flex h-full flex-col overflow-hidden">
+    <a
+      href={pfad(sprache, `/blog/${post.slug}`)}
+      className="surface surface-hover group flex h-full flex-col overflow-hidden"
+    >
       <BlogCover
         accent={post.accent}
         icon={post.categoryIcon}
@@ -18,9 +31,9 @@ export function PostCard({ post }: { post: PostMeta }) {
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted line-clamp-2">{post.description}</p>
         <div className="mt-auto flex items-center justify-between pt-4 text-xs text-ink-faint">
-          <span>{post.readingMinutes} Min. Lesezeit</span>
+          <span>{w.lesezeit.replace("{n}", String(post.readingMinutes))}</span>
           <span className="inline-flex items-center gap-1 font-semibold text-ink-muted transition-colors group-hover:text-ink">
-            Lesen
+            {w.lesen}
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-0.5">
               <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

@@ -1,7 +1,10 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { pfad, spracheAusPfad } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 /* ============================================================
    Der Abschluss-CTA. Eine Fassung für die gesamte Website.
@@ -36,23 +39,25 @@ function Pfeilscheibe() {
   );
 }
 
-/**
- * Zwei Zusagen, die den Ablauf beschreiben, wie er wirklich ist: ein kurzes
- * erstes Gespraech zum Kennenlernen, die vorbereitete Auswertung erst danach.
- */
-const ZUSAGEN = [
-  "30 Minuten, in denen wir eure Lage verstehen und ihr uns kennenlernt",
-  "Passt es, folgt ein zweites Gespräch, für das wir eure Zahlen vorbereiten",
-];
+/* Der Block steht auf jeder Seite. Die Copy kommt deshalb nicht als Prop von
+   oben, sondern aus dem Rahmen-Woerterbuch, und die Sprache liest er selbst
+   aus dem Pfad, wie Kopf- und Fusszeile. Durch fuenfzehn Seiten
+   durchgereicht waere derselbe Text fuenfzehnmal zu setzen.
 
+   Ueberschrift und Zusagen bleiben als Prop ueberschreibbar: die
+   Unterseiten formulieren die Ueberschrift jeweils eigen, das ist so
+   beschlossen. */
 export function Gespraech({
   title,
-  zusagen = ZUSAGEN,
+  zusagen,
 }: {
   title?: ReactNode;
   zusagen?: string[];
 }) {
   const reduce = useReducedMotion();
+  const sprache = spracheAusPfad(usePathname());
+  const w = rahmenWoerter[sprache].gespraech;
+  const punkte = zusagen ?? w.zusagen;
 
   /* Mehr Luft nach oben und unten, damit niemand versehentlich vorbeiscrollt.
      Die Karte selbst bleibt so hoch, dass Bild, Ueberschrift, Knopf und
@@ -87,7 +92,7 @@ export function Gespraech({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <motion.img
               src="/team/clemens-frei.webp"
-              alt="Clemens, Founder und Sales bei temoa"
+              alt={w.portraetAlt}
               width={900}
               height={855}
               loading="lazy"
@@ -126,27 +131,27 @@ export function Gespraech({
             {/* Wer spricht, steht am Bild, nicht im Text. */}
             <div className="absolute inset-x-6 bottom-6">
               <p className="text-[1.15rem] font-extrabold leading-tight tracking-[-0.01em] text-white">
-                Hi, ich bin Clemens.
+                {w.portraetName}
               </p>
-              <p className="mt-1 text-small leading-snug text-white/85">Founder. Ihr sprecht mit mir.</p>
+              <p className="mt-1 text-small leading-snug text-white/85">{w.portraetRolle}</p>
             </div>
           </div>
 
           {/* Textspalte: Ueberschrift, Knopf, zwei Zusagen. Sonst nichts. */}
           <div className="relative flex flex-col justify-center p-7 sm:p-9 md:p-11 lg:p-12">
             <h2 className="title max-w-[20ch] text-balance text-[clamp(1.8rem,1.2rem+1.9vw,2.7rem)] text-white">
-              {title ?? "Wie viel Umsatz lässt euer Listing liegen?"}
+              {title ?? w.titel}
             </h2>
 
             <div className="mt-8">
-              <a href="/gespraech-vereinbaren" className="btn-on-dark">
-                Potenzialanalyse buchen
+              <a href={pfad(sprache, "/gespraech-vereinbaren")} className="btn-on-dark">
+                {rahmenWoerter[sprache].rahmen.cta}
                 <Pfeilscheibe />
               </a>
             </div>
 
             <ul className="mt-8 grid gap-2.5">
-              {zusagen.map((z) => (
+              {punkte.map((z) => (
                 <li key={z} className="flex items-start gap-3 text-small font-bold leading-snug text-chalk">
                   <span
                     aria-hidden

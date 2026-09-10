@@ -3,6 +3,11 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Eyebrow } from "./Station";
 import { HeroBuehne } from "./HeroBuehne";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
+/* Der Knopftext steht im Rahmen-Woerterbuch, weil er auf jeder Seite gleich
+   ist. Das Modul ist klein und darf im Bundle landen. */
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 
 /* ============================================================
@@ -31,8 +36,9 @@ import { HeroBuehne } from "./HeroBuehne";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-export function Auftrag() {
+export function Auftrag({ sprache, w }: { sprache: Sprache; w: Woerterbuch["start"]["hero"] }) {
   const reduce = useReducedMotion();
+  const knopf = rahmenWoerter[sprache].rahmen.cta;
   const rise = (delay: number) =>
     ({
           initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
@@ -49,28 +55,28 @@ export function Auftrag() {
         <div className="grid items-center gap-y-14 pb-24 pt-28 lg:grid-cols-[1fr_0.95fr] lg:gap-x-16 lg:pb-32 lg:pt-36">
           <div className="min-w-0">
             <motion.div {...rise(0)}>
-              <Eyebrow label="Amazon Full Service" />
+              <Eyebrow label={w.eyebrow} />
             </motion.div>
 
             <motion.h1
               {...rise(0.06)}
               className="display max-w-[24ch] text-balance text-[clamp(2rem,1.4rem+2.6vw,3.5rem)] text-ink"
             >
-              <span className="em mark">Profitables Wachstum</span> für deine Amazon Brand
+              <span className="em mark">{w.titelMark}</span>
+              {w.titelRest}
             </motion.h1>
 
             {/* Ueberschrift und Versprechen stehen wortgleich so, wie der Kunde
-                sie vorgegeben hat. Die Anrede weicht hier bewusst von der
-                Website ab („deine" statt „eure"): das ist seine Entscheidung,
-                zweimal bestaetigt. */}
+                sie vorgegeben hat, siehe `woerter/de.ts`. Die Anrede weicht
+                dort bewusst von der Website ab („deine" statt „eure"): das ist
+                seine Entscheidung, zweimal bestaetigt. */}
             <motion.p {...rise(0.14)} className="mt-7 max-w-[46ch] text-pretty text-lead text-ink-muted">
-              Mehr Umsatz ist keine Frage des Werbebudgets durch Profi-Umsetzung in Content, Ads,
-              Account Betreuung &amp; Co.
+              {w.lead}
             </motion.p>
 
             <motion.div {...rise(0.22)} className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a href="/gespraech-vereinbaren" className="btn-primary">
-                Potenzialanalyse buchen
+              <a href={pfad(sprache, "/gespraech-vereinbaren")} className="btn-primary">
+                {knopf}
                 <span className="disc" aria-hidden>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -78,7 +84,7 @@ export function Auftrag() {
                 </span>
               </a>
               <a href="#nachweis" className="btn-text">
-                Case Studies ansehen
+                {w.ctaZweit}
               </a>
             </motion.div>
 

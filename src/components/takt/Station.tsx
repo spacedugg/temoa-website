@@ -205,6 +205,7 @@ export function Karte({
   title,
   body,
   href,
+  mehr,
   tone = "paper",
   className,
 }: {
@@ -213,6 +214,10 @@ export function Karte({
   /** Weglassen, wenn die Ueberschrift die Aussage allein traegt. */
   body?: string;
   href?: string;
+  /** Beschriftung der Linkzeile. Ohne sie bleibt die Zeile weg: eine
+   *  Beschriftung fest in der Komponente waere eine Sprache fest in der
+   *  Komponente. */
+  mehr?: string;
   tone?: Tone;
   className?: string;
 }) {
@@ -258,14 +263,14 @@ export function Karte({
           )}
         </span>
       </span>
-      {href && (
+      {href && mehr && (
         <span
           className={clsx(
             "mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold transition-transform duration-300 group-hover:translate-x-1 md:mt-5",
             dark ? "text-brand-400" : "text-navy"
           )}
         >
-          Mehr dazu
+          {mehr}
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
             <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

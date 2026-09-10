@@ -3,9 +3,18 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import type { ChartPoint } from "@/lib/cases";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /** Revenue (area) + TACoS (line) on independent scales, draws on view. */
-export function CaseChart({ points, accent }: { points: ChartPoint[]; accent: string }) {
+export function CaseChart({
+  points,
+  accent,
+  w,
+}: {
+  points: ChartPoint[];
+  accent: string;
+  w: Woerterbuch["faelle"]["diagramm"];
+}) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
 
@@ -38,15 +47,15 @@ export function CaseChart({ points, accent }: { points: ChartPoint[]; accent: st
       <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-semibold text-ink-muted">
         <span className="inline-flex items-center gap-2">
           <span className="h-2.5 w-4 rounded-sm" style={{ background: accent }} />
-          Umsatz pro Monat
+          {w.umsatz}
         </span>
         <span className="inline-flex items-center gap-2">
           <span className="h-0.5 w-4 rounded-sm bg-navy" />
-          TACoS
+          {w.tacos}
         </span>
       </div>
 
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Umsatz- und TACoS-Verlauf">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label={w.bildAlt}>
         <defs>
           <linearGradient id={`rev-${accent.replace("#", "")}`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor={accent} stopOpacity="0.28" />

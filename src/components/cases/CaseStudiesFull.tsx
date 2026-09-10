@@ -1,7 +1,8 @@
 "use client";
 
 import { ZahlText } from "../takt/Zahl";
-import { cases, type CaseStudy, type CaseStat, type CaseBadge, type CaseMetric, type Trend } from "@/lib/cases";
+import { type CaseStudy, type CaseStat, type CaseBadge, type CaseMetric, type Trend } from "@/lib/cases";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Flaggenreihe } from "../ui/Flagge";
 import { Markenlogo } from "../ui/Markenlogo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
@@ -49,19 +50,24 @@ function BadgeIcon({ icon }: { icon: "trophy" | "award" | "shield" }) {
  * Orange von Amazon und nicht die Markenfarbe der Website: das Abzeichen soll
  * wie ein Zitat aussehen, nicht wie eine Auszeichnung, die temoa vergibt.
  */
-const AMAZON_ABZEICHEN = {
-  bestseller: { text: "Bestseller", grund: "#C7511F" },
-  tipp: { text: "Amazons Tipp", grund: "#131A22" },
-} as const;
+/* Die Farben von Amazon, nicht die der Website. Der Wortlaut steht im
+   Woerterbuch: auf den englischen Marktplaetzen heissen die beiden
+   Abzeichen „Best Seller" und „Amazon's Choice". */
+const ABZEICHEN_GRUND = { bestseller: "#C7511F", tipp: "#131A22" } as const;
 
-function AmazonAbzeichen({ art }: { art: "bestseller" | "tipp" }) {
-  const a = AMAZON_ABZEICHEN[art];
+function AmazonAbzeichen({
+  art,
+  wort,
+}: {
+  art: "bestseller" | "tipp";
+  wort: string;
+}) {
   return (
     <span
       className="inline-flex items-center rounded-[0.3rem] px-2.5 py-[0.35rem] text-[0.74rem] font-bold leading-none text-white"
-      style={{ backgroundColor: a.grund }}
+      style={{ backgroundColor: ABZEICHEN_GRUND[art] }}
     >
-      {a.text}
+      {wort}
     </span>
   );
 }
@@ -314,7 +320,15 @@ function Geschichte({ c }: { c: CaseStudy }) {
  * hinter sich und liest den Text nicht mehr. Was gemacht wurde, gehoert nach
  * oben; die Bilder belegen es danach.
  */
-export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
+export function CaseBlock({
+  c,
+  index,
+  w,
+}: {
+  c: CaseStudy;
+  index: number;
+  w: Woerterbuch["faelle"];
+}) {
   const tone = index % 2 === 1 ? "ground-tint" : "ground";
   return (
     <section id={c.slug} className={`relative scroll-mt-28 ${tone} py-16 md:py-24`}>
@@ -326,7 +340,7 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
         {c.chart && (
           <Reveal delay={0.1}>
             <div className="mx-auto mt-6 max-w-5xl">
-              <CaseChart points={c.chart} accent={c.accent} />
+              <CaseChart points={c.chart} accent={c.accent} w={w.diagramm} />
             </div>
           </Reveal>
         )}
@@ -356,7 +370,7 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
                       <BadgeIcon icon={b.icon} />
                     </span>
                   ) : (
-                    <AmazonAbzeichen art={b.art} />
+                    <AmazonAbzeichen art={b.art} wort={w.abzeichen[b.art]} />
                   )}
                   {b.label}
                 </span>
@@ -367,18 +381,9 @@ export function CaseBlock({ c, index }: { c: CaseStudy; index: number }) {
 
         {/* Die ausgelieferte Arbeit steht am Schluss des Falls: erst lesen,
             was gemacht wurde, dann sehen, wie es aussieht. */}
-        <CaseArbeitView c={c} />
+        <CaseArbeitView c={c} w={w.arbeit} />
       </div>
     </section>
   );
 }
 
-export function CaseStudiesFull() {
-  return (
-    <>
-      {cases.map((c, i) => (
-        <CaseBlock key={c.slug} c={c} index={i} />
-      ))}
-    </>
-  );
-}

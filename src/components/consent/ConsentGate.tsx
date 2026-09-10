@@ -1,7 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { ALLES_AN, type KategorieId } from "@/lib/consent";
+import { pfad, spracheAusPfad, STANDARD } from "@/lib/i18n";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 import { useEinwilligung } from "./useEinwilligung";
 
 /**
@@ -32,6 +35,8 @@ export function ConsentGate({
   children: ReactNode;
 }) {
   const { bereit, erlaubt, speichern, daten } = useEinwilligung();
+  const sprache = spracheAusPfad(usePathname());
+  const w = rahmenWoerter[sprache].consent;
 
   /* Vor dem ersten Rendern im Browser wissen wir nichts. Dann lieber die
      Platte zeigen als kurz die Einbettung: geladen ist geladen. */
@@ -58,7 +63,7 @@ export function ConsentGate({
           onClick={() => speichern({ ...(daten?.auswahl ?? ALLES_AN), [kategorie]: true, notwendig: true })}
           className="inline-flex min-h-[3rem] items-center justify-center rounded-[0.875rem] bg-navy px-6 text-small font-bold text-white transition-colors duration-300 hover:bg-[#123553]"
         >
-          Einmal zulassen und laden
+          {w.gateKnopf}
         </button>
         {ausweichHref && (
           <a
@@ -67,14 +72,16 @@ export function ConsentGate({
             rel="noopener noreferrer"
             className="text-small font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-4"
           >
-            {ausweichLabel ?? "Beim Anbieter öffnen"}
+            {ausweichLabel ?? w.gateAusweich}
           </a>
         )}
       </div>
       <p className="text-[0.75rem] text-ink-faint">
-        Was dabei übertragen wird, steht in der{" "}
-        <a href="/datenschutz" className="underline decoration-ink/25 underline-offset-2">
-          Datenschutzerklärung
+        {w.gateHinweisVor}{" "}
+        {/* Die Datenschutzerklaerung liegt nur auf Deutsch vor und ist die
+            verbindliche Fassung. */}
+        <a href={pfad(STANDARD, "/datenschutz")} className="underline decoration-ink/25 underline-offset-2">
+          {w.datenschutz}
         </a>
         .
       </p>

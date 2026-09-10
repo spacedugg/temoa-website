@@ -655,7 +655,7 @@ dunkel und damit eine andere Bildfamilie als die uebrigen Illustrationen.
 
 ## Branch
 
-Entwicklung auf `claude/copy-shaerfen-website-redesign-j2lnui`.
+Entwicklung auf `claude/gracious-mendel-9xyxw2`.
 
 ## Siebzehnte Feedbackrunde (verbindlich)
 
@@ -1186,3 +1186,85 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   leeren Rechtecks und laesst sich nicht auf eine Hoehe skalieren. So ist das
   Logo von Miganeo entstanden, dasselbe Rezept wie
   `scripts/logos-knockout.mjs` fuer zwei der vierzehn Kundenlogos.
+
+## Neunundzwanzigste Feedbackrunde (verbindlich, Englisch)
+
+Die Website gibt es in zwei Sprachen. Deutsch bleibt die Hauptfassung und
+liegt unter `/`, Englisch unter `/en`. Alle Regeln dieser Datei gelten fuer
+beide Sprachen, sofern hier nichts anderes steht.
+
+- **Ein Woerterbuch, zwei Fassungen.** `src/lib/woerter/de.ts` und `en.ts`.
+  `Woerterbuch = typeof de` ohne `as const`: fehlt auf Englisch ein Zweig,
+  bricht der Bau ab. Eine fehlende Uebersetzung soll ein Typfehler sein und
+  kein deutscher Satz auf einer englischen Seite.
+- **Serverkomponenten holen sich die Woerter selbst**, Clientkomponenten
+  bekommen sie als `w` durchgereicht. Kopf- und Fusszeile und alles, was auf
+  jeder Seite steht, liest die Sprache aus dem Pfad
+  (`spracheAusPfad(usePathname())`), damit kein Aufrufer sie vergessen kann.
+- **Zahlen werden je Sprache formatiert.** `de-DE` schreibt 1.677.538 und
+  37,3 %, `en-US` schreibt 1,677,538 und 37.3 %. `takt/Zahl` und `ui/Counter`
+  lesen die Sprache selbst aus dem Pfad. Vorher stand im Englischen 168M statt
+  1.68M, weil der Punkt als Tausenderzeichen gelesen wurde.
+- **Erkannt wird ueber `Accept-Language`, nicht ueber die IP.** Ein Deutscher
+  im Urlaub bekommt sonst Englisch. Dazu ein Umschalter in der Kopfzeile, und
+  die Wahl liegt im Cookie `temoa_sprache`. Suchmaschinen werden von der
+  Erkennung ausgenommen, sonst indexieren sie die falsche Fassung.
+- **Die Adressen der deutschen Seiten aendern sich nicht.** `/leistungen/...`
+  bleibt `/leistungen/...`, auch unter `/en`. Sonst brechen Verweise und
+  Suchergebnisse. `hreflang` paart die beiden Fassungen ueber denselben Pfad.
+- **Die englischen Beitraege liegen unter `content/blog/en`** und tragen
+  denselben Dateinamen wie die deutschen. Was dort fehlt, erscheint auf
+  Englisch nicht und traegt auch kein `hreflang`: ein deutscher Text unter
+  englischer Kopfzeile ist schlechter als ein kuerzeres Verzeichnis.
+- **Zitate werden nicht uebersetzt und nicht umgeschrieben**, sondern
+  gespiegelt: `quoteEn` und `roleEn` in `lib/testimonials.ts` sind die vom
+  Kunden freigegebene englische Fassung derselben Aussage.
+- **Die Rechtstexte sind auf Englisch nicht verbindlich.** Solange der Anwalt
+  des Kunden die Uebersetzung nicht freigegeben hat, verweist die englische
+  Fusszeile auf die deutschen Fassungen, und im Text steht, dass nur diese
+  verbindlich sind.
+- **In der Fusszeile der sechs Beitraege zur Zusammenarbeit** nennt sich temoa
+  auf Deutsch "deine Amazon-Agentur". Das Wort ist in der Website-Copy
+  verboten; auf Englisch steht deshalb "your Amazon growth partner". Ob die
+  deutsche Fassung nachzieht, entscheidet der Kunde.
+
+## Dreissigste Feedbackrunde (verbindlich)
+
+- **Kein CSS-Mehrspaltenlayout fuer Bildraster.** Die Designbeispiele legten
+  die EBC-Kacheln in `columns-*` mit `break-inside-avoid`. Chrome rechnet die
+  Spalten neu, sobald ein Element darin eine eigene Zeichenebene bekommt, und
+  beim Zeigen verschwanden ganze Spalten. Im Browser nachgemessen: nach dem
+  Hover stand in der letzten Spalte nur noch die erste Kachel. Ersetzt durch
+  ein normales Raster; nach dem Umbau bleiben alle achtzehn Kacheln stehen,
+  auch nachdem vier davon angefasst wurden.
+- **EBC-Kacheln sind gleich hoch und zeigen den Anfang.** 3 zu 4, oben
+  angesetzt, unten weicher Auslauf, wie die A+ Kachel auf der Leistungsseite.
+  Der freie Stapel war auf 183 Pixeln Breite weder lesbar noch ordentlich. Zwei
+  bis fuenf Spalten je nach Breite.
+- **Ein Stapel, der niedriger ist als die Kachel, steht mittig.** Bei zwei
+  Modulen kommt er auf 0,82 Kachelbreiten und fuellt die 1,33 nicht. Oben
+  angesetzt bliebe unten ein weisser Rest, der wie ein Fehler aussieht.
+- **Geladen werden nur die Bahnen, die in den Ausschnitt passen**, dazu eine
+  als Puffer gegen fehlende Bildmasse in den Daten. Eine Kachel von 230 Pixeln
+  braucht keine sechs A+ Module, von denen vier abgeschnitten sind.
+- **Die Grossansicht scrollt, sie staucht nicht.** Vorher wurde der ganze
+  Stapel in 84 vh Hoehe gezwungen; bei sechs Modulen blieb eine handbreite
+  Spalte, auf der nichts zu lesen war. Jetzt volle Breite bis 760 Pixel und
+  Scrollen.
+- **Liegt nur ein einziges Beispiel vor, wird nichts beschnitten.** Dann gibt
+  es nichts zu ordnen, und der Stapel steht ganz da.
+- **Die offene Seite ist in der Kopfzeile zu sehen.** Ein oranger Balken unter
+  der Grundlinie, das Mittel des Textmarkers `.mark`. Vorher unterschied sich
+  die offene Seite nur durch `text-ink` statt `text-ink-muted`.
+- **Auf einer Leistungsseite nennt die Kopfzeile die Seite.** „Full Service /
+  PPC Advertising". Im Aufklappmenue traegt der offene Eintrag die
+  Navy-Flaeche mit Leuchtpunkt, wie die aktive Kategorie in den
+  Designbeispielen. Vorher stand nirgends, auf welcher der fuenf Seiten man
+  war.
+- **Der Sprachumschalter in der Leiste ist klein** (28 statt 44 Pixel hoch).
+  Dort wird mit der Maus geklickt. Die Untergrenzen aus der Mobilrunde gelten
+  weiter, wo der Finger klickt: im Mobilmenue und in der Fusszeile bleibt er
+  gross.
+- **Die Beschriftungen der Grossansicht stehen im Woerterbuch.** „Schliessen",
+  „Vorheriges" und „Naechstes" standen fest auf Deutsch im Code und sagten auf
+  der englischen Seite das Falsche an.

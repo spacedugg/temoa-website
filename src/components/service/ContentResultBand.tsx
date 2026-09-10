@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Pille } from "../ui/SectionHeading";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /* Impressionsanteil: aufsteigende Balken. */
 function BarsViz({ color }: { color: string }) {
@@ -84,10 +85,12 @@ function ConversionViz({ color }: { color: string }) {
    Klickrate" und "Conversion Rate Uplift". Das erste und zweite waren
    Steigerungsbehauptungen, das dritte war englisch. Jetzt steht dort die
    Kennzahl, die Aussage macht der Satz darunter. */
-const items: { Viz: (p: { color: string }) => React.ReactNode; title: string; body: string; color: string }[] = [
-  { Viz: BarsViz, title: "Impressionsanteil", body: "Wie oft ihr überhaupt auftaucht, wenn jemand euer Produkt sucht.", color: "#FF9900" },
-  { Viz: ClickViz, title: "Klickrate", body: "Wie viele von denen, die euch sehen, auf euer Bild klicken.", color: "#FF7A5C" },
-  { Viz: ConversionViz, title: "Conversion Rate", body: "Wie viele von denen, die klicken, am Ende kaufen.", color: "#4FC3E8" },
+/* Zeichnung und Farbe der drei Kacheln, in der Reihenfolge des
+   Woerterbuchs. Die Beschriftung kommt von aussen. */
+const zeichen: { Viz: (p: { color: string }) => React.ReactNode; color: string }[] = [
+  { Viz: BarsViz, color: "#FF9900" },
+  { Viz: ClickViz, color: "#FF7A5C" },
+  { Viz: ConversionViz, color: "#4FC3E8" },
 ];
 
 /**
@@ -98,43 +101,42 @@ const items: { Viz: (p: { color: string }) => React.ReactNode; title: string; bo
  * Band zwischen zwei anderen hellen Sektionen und ging unter. Jetzt ist sie
  * ein dunkles Podest mit eigener Ueberschrift und grossen Kacheln.
  */
-export function ContentResultBand() {
+export function ContentResultBand({ w }: { w: Woerterbuch["leistungen"]["contentBand"] }) {
   return (
     <section className="on-dark ground-deep relative overflow-hidden py-16 md:py-24">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px] bg-brand-500" />
       <div className="container-x relative">
         <Reveal>
           <div className="flex justify-center">
-            <Pille>Woran Amazon euer Listing misst</Pille>
+            <Pille>{w.eyebrow}</Pille>
           </div>
         </Reveal>
         <Reveal delay={0.06}>
           <h2 className="title mx-auto mt-6 max-w-[20ch] text-balance text-center text-[clamp(1.9rem,1.3rem+1.8vw,3rem)] text-white">
-            Drei Zahlen entscheiden alles.
+            {w.titel}
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="mx-auto mt-5 max-w-[46ch] text-pretty text-center text-lead text-chalk-muted">
-            Wie oft ihr gezeigt werdet. Wie oft geklickt wird. Wie oft gekauft wird. Jedes Bild und jeder Satz,
-            den wir schreiben, zahlt auf eine dieser drei Zahlen ein.
+            {w.lead}
           </p>
         </Reveal>
 
         <RevealGroup className="mx-auto mt-12 grid max-w-5xl items-stretch gap-4 md:grid-cols-3 md:gap-5" stagger={0.08}>
-          {items.map((it, i) => (
-            <RevealItem key={it.title} className="h-full">
+          {w.karten.map((it, i) => (
+            <RevealItem key={it.titel} className="h-full">
               <div className="panel-dark relative flex h-full flex-col p-5 sm:p-7 md:p-8">
                 <span className="text-label font-bold uppercase tracking-[0.14em] text-chalk-faint">
                   {`0${i + 1}`}
                 </span>
                 {/* Die Zeichen sind der Blickfang der Kachel, deshalb gross. */}
                 <div className="mt-6 origin-left scale-[1.7]">
-                  <it.Viz color={it.color} />
+                  {zeichen[i].Viz({ color: zeichen[i].color })}
                 </div>
                 <h3 className="mt-14 text-[1.4rem] font-bold leading-snug text-white md:text-[1.6rem]">
-                  {it.title}
+                  {it.titel}
                 </h3>
-                <p className="mt-2 text-small leading-relaxed text-chalk-muted">{it.body}</p>
+                <p className="mt-2 text-small leading-relaxed text-chalk-muted">{it.text}</p>
               </div>
             </RevealItem>
           ))}

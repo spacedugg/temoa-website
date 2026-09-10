@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { cases, type CaseStudy } from "@/lib/cases";
+import { type CaseStudy } from "@/lib/cases";
+import { pfad, type Sprache } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Flagge } from "../ui/Flagge";
 import { Markenlogo } from "../ui/Markenlogo";
@@ -10,7 +12,7 @@ import { Kachel, Lupe } from "./CaseArbeit";
 /* Das einfache Raster fuer Faelle, zu denen einzelne Aufnahmen vorliegen,
    aber kein vollstaendiges Listing. Wo ausgelieferte Arbeit vorliegt, steht
    sie weiter oben im Fall (`CaseArbeitView`), und diese Sektion entfaellt. */
-export function CaseGallery({ c }: { c: CaseStudy }) {
+export function CaseGallery({ c, w }: { c: CaseStudy; w: Woerterbuch["faelle"] }) {
   const [offen, setOffen] = useState<string | null>(null);
   if (c.arbeit || !c.images || c.images.length === 0) return null;
   return (
@@ -18,7 +20,7 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
       <div className="container-x">
         <Reveal>
           <h2 className="mx-auto mb-8 max-w-3xl text-center text-2xl font-bold tracking-tight text-ink md:text-3xl">
-            Mehr aus diesem Projekt
+            {w.galerie.titel}
           </h2>
         </Reveal>
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-3">
@@ -27,7 +29,7 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
           ))}
         </div>
       </div>
-      {offen && <Lupe src={offen} onClose={() => setOffen(null)} />}
+      {offen && <Lupe src={offen} onClose={() => setOffen(null)} schliessen={w.arbeit.schliessen} />}
     </section>
   );
 }
@@ -49,10 +51,10 @@ export function CaseGallery({ c }: { c: CaseStudy }) {
  * Breite, die letzten beiden sind breiter. Bei genau fuenf Faellen geht das
  * auf, sonst laufen alle in der schmalen Form.
  */
-function AndererFall({ c }: { c: CaseStudy }) {
+function AndererFall({ c, href }: { c: CaseStudy; href: string }) {
   return (
     <a
-      href={`/ergebnisse/${c.slug}`}
+      href={href}
       className="group relative isolate block h-60 overflow-hidden rounded-[1.4rem] shadow-[0_28px_60px_-34px_rgba(4,16,28,0.95)] transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.24,1)] hover:-translate-y-1 md:h-64"
       style={{ backgroundColor: "#08192b" }}
     >
@@ -139,8 +141,19 @@ function TrendPfeil({ runter }: { runter: boolean }) {
   );
 }
 
-export function OtherCases({ slug }: { slug: string }) {
-  const others = cases.filter((c) => c.slug !== slug);
+export function OtherCases({
+  slug,
+  faelle,
+  sprache,
+  w,
+}: {
+  slug: string;
+  faelle: CaseStudy[];
+  sprache: Sprache;
+  w: Woerterbuch["faelle"];
+}) {
+  const alleHref = pfad(sprache, "/ergebnisse");
+  const others = faelle.filter((c) => c.slug !== slug);
   /* Bei genau fuenf Faellen: drei schmale Karten oben, zwei breite darunter.
      Damit bleibt keine Luecke in der Reihe. Bei jeder anderen Anzahl laufen
      alle in der schmalen Form, drei je Zeile. */
@@ -155,14 +168,14 @@ export function OtherCases({ slug }: { slug: string }) {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-white/80 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.16)]">
                 <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-                Weitere Marken
+                {w.weitere.eyebrow}
               </span>
               <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-                Andere Konten, dieselbe Arbeit.
+                {w.weitere.titel}
               </h2>
             </div>
-            <a href="/ergebnisse" className="btn-text-hell">
-              Alle Case Studies
+            <a href={alleHref} className="btn-text-hell">
+              {w.weitere.alle}
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -173,7 +186,7 @@ export function OtherCases({ slug }: { slug: string }) {
         <RevealGroup className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6" stagger={0.06}>
           {others.map((c, i) => (
             <RevealItem key={c.slug} className={`h-full ${zweiReihen && i >= 3 ? "lg:col-span-3" : "lg:col-span-2"}`}>
-              <AndererFall c={c} />
+              <AndererFall c={c} href={pfad(sprache, `/ergebnisse/${c.slug}`)} />
             </RevealItem>
           ))}
         </RevealGroup>

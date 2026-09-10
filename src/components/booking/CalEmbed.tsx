@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ConsentGate } from "../consent/ConsentGate";
+import { pfad, spracheAusPfad } from "@/lib/i18n";
+import type { Woerterbuch } from "@/lib/woerter";
 
 /* Cal.com inline embed. Set the real booking link in CAL_LINK (e.g.
    "temoa/potenzialanalyse"); until then a styled scheduler placeholder
@@ -20,22 +23,22 @@ const CAL_LINK = "temoa-clemens/temoa-strategiegesprach";
  * Einwilligungsbanner, das ohne Zustimmung keinen Weg zum Termin laesst, waere
  * eine Kopplung.
  */
-export function CalEmbed() {
-  if (!CAL_LINK) return <SchedulerPlaceholder />;
+export function CalEmbed({ w }: { w: Woerterbuch["buchung"]["cal"] }) {
+  if (!CAL_LINK) return <SchedulerPlaceholder w={w} />;
   return (
     <ConsentGate
       kategorie="extern"
-      titel="Der Terminkalender liegt bei Cal.com"
-      grund="Damit ihr die freien Zeiten hier direkt sehen könnt, laden wir den Kalender von Cal.com. Dabei geht eine Verbindung dorthin, und Cal.com setzt eigene Cookies. Ohne eure Zustimmung passiert das nicht."
-      ausweichLabel="Termin direkt bei Cal.com buchen"
+      titel={w.sperreTitel}
+      grund={w.sperreGrund}
+      ausweichLabel={w.direkt}
       ausweichHref={`https://cal.com/${CAL_LINK}`}
     >
-      <CalInline />
+      <CalInline w={w} />
     </ConsentGate>
   );
 }
 
-function CalInline() {
+function CalInline({ w }: { w: Woerterbuch["buchung"]["cal"] }) {
   useEffect(() => {
     if (!CAL_LINK) return;
     // Official Cal.com embed loader.
@@ -77,7 +80,7 @@ function CalInline() {
             mit der Terminauswahl, vorher war er bei 540 px abgeschnitten. */}
         <div className="relative rounded-3xl ring-1 ring-black/[0.06]">
           <div className="pointer-events-none absolute inset-x-0 top-40 grid place-items-center text-sm text-ink-faint">
-            Kalender wird geladen …
+            {w.laedt}
           </div>
           <div id="cal-inline" className="relative min-h-[42rem] w-full md:min-h-[46rem]" />
         </div>
@@ -89,30 +92,30 @@ function CalInline() {
             rel="noopener noreferrer"
             className="font-semibold text-navy underline decoration-brand-500 decoration-2 underline-offset-2"
           >
-            Termin direkt bei Cal.com buchen
+            {w.direkt}
           </a>
         </p>
       </div>
   );
 }
 
-const days = ["Mo", "Di", "Mi", "Do", "Fr"];
 const slots = ["09:00", "10:30", "13:00", "14:30", "16:00"];
 
-function SchedulerPlaceholder() {
+function SchedulerPlaceholder({ w }: { w: Woerterbuch["buchung"]["cal"] }) {
+  const sprache = spracheAusPfad(usePathname());
   return (
     <div className="surface grid gap-6 p-6 md:grid-cols-[1.1fr_1fr] md:p-8">
       {/* mini month */}
       <div>
         <div className="flex items-center justify-between">
-          <span className="text-sm font-bold text-ink">Diese Woche</span>
+          <span className="text-sm font-bold text-ink">{w.dieseWoche}</span>
           <div className="flex gap-1 text-ink-faint">
             <span className="grid h-7 w-7 place-items-center rounded-lg ring-1 ring-black/[0.06]">‹</span>
             <span className="grid h-7 w-7 place-items-center rounded-lg ring-1 ring-black/[0.06]">›</span>
           </div>
         </div>
         <div className="mt-4 grid grid-cols-5 gap-2">
-          {days.map((d, i) => (
+          {w.tage.map((d, i) => (
             <div key={d} className="text-center">
               <div className="text-xs font-semibold text-ink-faint">{d}</div>
               <div
@@ -126,13 +129,13 @@ function SchedulerPlaceholder() {
           ))}
         </div>
         <p className="mt-4 text-xs leading-relaxed text-ink-faint">
-          Beispielansicht. Die Online-Buchung läuft über Cal.com.
+          {w.attrappe}
         </p>
       </div>
 
       {/* slots */}
       <div className="flex flex-col">
-        <span className="text-sm font-bold text-ink">Freie Zeiten</span>
+        <span className="text-sm font-bold text-ink">{w.freieZeiten}</span>
         <div className="mt-4 grid gap-2.5">
           {slots.map((s, i) => (
             <div
@@ -142,12 +145,12 @@ function SchedulerPlaceholder() {
               }`}
             >
               {s}
-              <span className="text-xs font-medium text-ink-faint">30 Min.</span>
+              <span className="text-xs font-medium text-ink-faint">{w.dauer}</span>
             </div>
           ))}
         </div>
-        <a href="/gespraech-vereinbaren#kalender" className="btn-primary mt-5 w-full">
-          Potenzialanalyse buchen
+        <a href={`${pfad(sprache, "/gespraech-vereinbaren")}#kalender`} className="btn-primary mt-5 w-full">
+          {w.knopf}
         </a>
       </div>
     </div>

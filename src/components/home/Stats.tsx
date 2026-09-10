@@ -10,12 +10,12 @@ import { RevealGroup, RevealItem } from "../ui/Reveal";
  * orangen Strich darunter. Das Theme fuehrt Kennzahlen als Karten, damit sie
  * als Block lesbar sind und nicht als Text im Weissraum.
  */
-const stats: { to: number; prefix?: string; suffix: string; label: string; wachstum?: boolean }[] = [
-  { to: 30, prefix: "Ø +", suffix: " %", label: "Profitabilitätssteigerung", wachstum: true },
-  { to: 21, suffix: " Mio. €", label: "betreuter Amazon-Jahresumsatz" },
-  { to: 60, suffix: "+", label: "betreute Marken" },
-  { to: 5, suffix: "+", label: "internationale Marktplätze" },
-];
+/* Nur die Werte stehen hier. Vorzeichen, Einheit und Beschriftung kommen von
+   aussen: „Ø" und „Mio." sind deutsche Abkuerzungen, im Englischen heissen
+   sie anders. */
+const werte = [30, 21, 60, 5];
+/* Die erste Zahl ist eine Steigerung und traegt deshalb Gruen. */
+const WACHSTUM = 0;
 
 /* Der gruene Pfeil stand nur an der ersten Zahl und sass wegen der
    Aufteilung optisch vor der zweiten. Ein Zeichen, das nur an einer von vier
@@ -39,7 +39,13 @@ const stats: { to: number; prefix?: string; suffix: string; label: string; wachs
  *
  * `tone` bleibt in der Signatur, damit die Aufrufe unveraendert laufen.
  */
-export function Stats({ tone }: { tone?: "blue" | "white" }) {
+export function Stats({
+  tone,
+  kennzahlen,
+}: {
+  tone?: "blue" | "white";
+  kennzahlen: { vor: string; nach: string; label: string }[];
+}) {
   void tone;
   return (
     <section className="on-dark ground-deep relative isolate overflow-hidden py-12 md:py-16">
@@ -53,19 +59,19 @@ export function Stats({ tone }: { tone?: "blue" | "white" }) {
           className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/[0.1]"
           stagger={0.08}
         >
-          {stats.map((s, i) => (
+          {kennzahlen.map((k, i) => (
             <RevealItem
-              key={s.label}
-              className={i === 0 ? "md:pr-8" : i === stats.length - 1 ? "md:pl-8" : "md:px-8"}
+              key={k.label}
+              className={i === 0 ? "md:pr-8" : i === werte.length - 1 ? "md:pl-8" : "md:px-8"}
             >
               <div className="flex h-full flex-col justify-between gap-3">
                 <span
                   className="num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none"
-                  style={s.wachstum ? { color: "#6EE7A0" } : { color: "#ffffff" }}
+                  style={i === WACHSTUM ? { color: "#6EE7A0" } : { color: "#ffffff" }}
                 >
-                  <Counter to={s.to} prefix={s.prefix} suffix={s.suffix} />
+                  <Counter to={werte[i]} prefix={k.vor} suffix={k.nach} />
                 </span>
-                <p className="text-[0.85rem] leading-snug text-chalk-muted">{s.label}</p>
+                <p className="text-[0.85rem] leading-snug text-chalk-muted">{k.label}</p>
               </div>
             </RevealItem>
           ))}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { CaseProdukt, CaseStudy } from "@/lib/cases";
+import type { Woerterbuch } from "@/lib/woerter";
 import { Reveal } from "../ui/Reveal";
 
 /* ============================================================
@@ -38,12 +39,6 @@ import { Reveal } from "../ui/Reveal";
    muessen, was doppelt ist.
    ============================================================ */
 
-const VARIANTEN_HINWEIS =
-  "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.";
-
-const PALETTE_HINWEIS =
-  "Ein Hauptbild je Artikel, alle im selben Aufbau. So bleibt die Marke im Suchergebnis wiedererkennbar, egal welches Produkt jemand findet.";
-
 /**
  * Ein Produktbild in einer Kachel.
  *
@@ -78,7 +73,15 @@ export function Kachel({
   );
 }
 
-export function Lupe({ src, onClose }: { src: string; onClose: () => void }) {
+export function Lupe({
+  src,
+  onClose,
+  schliessen,
+}: {
+  src: string;
+  onClose: () => void;
+  schliessen: string;
+}) {
   return (
     <div
       className="fixed inset-0 z-[80] flex items-center justify-center bg-black/85 p-5 backdrop-blur-sm"
@@ -86,7 +89,7 @@ export function Lupe({ src, onClose }: { src: string; onClose: () => void }) {
     >
       <button
         type="button"
-        aria-label="Schließen"
+        aria-label={schliessen}
         className="fixed right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-white/95 text-ink shadow-lift"
         onClick={onClose}
       >
@@ -171,17 +174,19 @@ function Produkt({
   p,
   mitHinweis,
   oeffne,
+  w,
 }: {
   p: CaseProdukt;
   mitHinweis: boolean;
   oeffne: (src: string) => void;
+  w: Woerterbuch["faelle"]["arbeit"];
 }) {
   const hatVarianten = (p.varianten?.length ?? 0) > 0;
 
   const listing = (
     <Reveal>
       <div>
-        <Teil label="Listing" titel={p.titel} />
+        <Teil label={w.listing} titel={p.titel} />
         <div className="mt-4 flex items-start gap-3">
           {/* Der Streifen laeuft in zwei Spalten, nicht in einer.
 
@@ -227,7 +232,7 @@ function Produkt({
   const video = p.video && (
     <Reveal delay={0.12}>
       <div>
-        <Teil label="Video" titel="Das Listing-Video" />
+        <Teil label={w.video} titel={w.videoTitel} />
         <div className="mt-4">
           <Video quelle={p.video.quelle} poster={p.video.poster} />
         </div>
@@ -239,9 +244,9 @@ function Produkt({
     <Reveal delay={0.14}>
       <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
         <Teil
-          label="Produktpalette"
-          titel={`${p.palette.length} weitere Artikel im selben Bildstil`}
-          hinweis={PALETTE_HINWEIS}
+          label={w.palette}
+          titel={w.paletteTitel.replace("{n}", String(p.palette.length))}
+          hinweis={w.paletteHinweis}
         />
         <div className="mt-4 grid grid-cols-3 gap-3">
           {p.palette.map((src) => (
@@ -256,9 +261,9 @@ function Produkt({
     <Reveal delay={0.1}>
       <div className="rounded-[1.4rem] bg-white/70 p-5 shadow-[inset_0_0_0_1px_rgba(2,48,71,0.08)]">
         <Teil
-          label="Hauptbild"
-          titel={`${p.varianten.length} Varianten des Hauptbilds`}
-          hinweis={mitHinweis ? VARIANTEN_HINWEIS : undefined}
+          label={w.hauptbild}
+          titel={w.varianten.replace("{n}", String(p.varianten.length))}
+          hinweis={mitHinweis ? w.variantenHinweis : undefined}
         />
         {/* Zwei Varianten in zwei Spalten, drei und mehr in drei: bei festen
             drei Spalten stand neben zwei Bildern eine leere Zelle und beide
@@ -302,7 +307,7 @@ function Produkt({
       </div>
       <Reveal delay={0.08}>
         <div>
-          <Teil label="Premium A+ Content" titel={p.aplus.titel} />
+          <Teil label={w.aplus} titel={p.aplus.titel} />
           <div className="mt-4">
             <APlus bahnen={p.aplus.bahnen} />
           </div>
@@ -320,27 +325,26 @@ function Produkt({
  * die Reihe wie das ganze Sortiment, und dann sieht die Arbeit kleiner aus,
  * als sie ist.
  */
-function Vorspann({ marke }: { marke: string }) {
+function Vorspann({ marke, w }: { marke: string; w: Woerterbuch["faelle"]["arbeit"] }) {
   return (
     <Reveal>
       <div className="mb-8 max-w-[52ch]">
         <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink-soft shadow-[0_8px_20px_-14px_rgba(4,20,34,0.5)] ring-1 ring-navy/[0.08]">
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-brand-500" />
-          Ausgelieferte Arbeit
+          {w.eyebrow}
         </span>
         <h3 className="mt-3 text-[1.35rem] font-extrabold leading-snug tracking-tight text-ink md:text-2xl">
-          Ein Einblick, nicht das ganze Sortiment.
+          {w.titel}
         </h3>
         <p className="mt-2 text-sm leading-relaxed text-ink-muted md:text-[0.95rem]">
-          Gezeigt sind einzelne Produkte aus der Arbeit für {marke}. Die Marke ist deutlich größer,
-          gearbeitet wurde an entsprechend mehr Artikeln.
+          {w.lead.replace("{marke}", marke)}
         </p>
       </div>
     </Reveal>
   );
 }
 
-export function CaseArbeitView({ c }: { c: CaseStudy }) {
+export function CaseArbeitView({ c, w }: { c: CaseStudy; w: Woerterbuch["faelle"]["arbeit"] }) {
   const [gross, setGross] = useState<string | null>(null);
   const produkte = c.arbeit?.produkte;
   if (!produkte || produkte.length === 0) return null;
@@ -353,7 +357,7 @@ export function CaseArbeitView({ c }: { c: CaseStudy }) {
     /* Breiter als der uebrige Fall: in dieser Spalte stehen Listing,
        Varianten und A+ nebeneinander, und die Bilder sind der Inhalt. */
     <div className="mx-auto mt-10 max-w-6xl">
-      <Vorspann marke={c.displayName} />
+      <Vorspann marke={c.displayName} w={w} />
       {produkte.map((p, i) => (
         <div
           key={p.titel}
@@ -362,11 +366,11 @@ export function CaseArbeitView({ c }: { c: CaseStudy }) {
              ein Produkt endet. */
           className={i > 0 ? "mt-10 border-t border-navy/[0.09] pt-10" : ""}
         >
-          <Produkt p={p} mitHinweis={i === erstesMitVarianten} oeffne={setGross} />
+          <Produkt p={p} mitHinweis={i === erstesMitVarianten} oeffne={setGross} w={w} />
         </div>
       ))}
 
-      {gross && <Lupe src={gross} onClose={() => setGross(null)} />}
+      {gross && <Lupe src={gross} onClose={() => setGross(null)} schliessen={w.schliessen} />}
     </div>
   );
 }
