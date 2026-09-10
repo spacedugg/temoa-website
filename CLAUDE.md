@@ -1268,3 +1268,28 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Die Beschriftungen der Grossansicht stehen im Woerterbuch.** „Schliessen",
   „Vorheriges" und „Naechstes" standen fest auf Deutsch im Code und sagten auf
   der englischen Seite das Falsche an.
+
+## Einunddreissigste Feedbackrunde (verbindlich)
+
+- **Es gibt genau einen Ablauf, und das ist der Fahrplan.** Die Sektion „Die
+  ersten drei Wochen / Vom Gespräch bis zur ersten Optimierung" auf der
+  Full-Service-Seite ist ersatzlos gestrichen, mit ihr die Komponente
+  `Onboarding` in `takt/fullservice.tsx` und der Zweig
+  `fullService.onboarding` in beiden Woerterbuechern. Zwei Ablaeufe auf einer
+  Website sind zwei Versprechen: der eine ging bis Woche 3, der andere bis
+  Tag 90, und beide begannen beim Gespraech.
+- **Der Fahrplan liegt auf der obersten Ebene des Woerterbuchs**, nicht in
+  `buchung`. Er steht auf der Buchungsseite und auf der Full-Service-Seite;
+  laege die Copy unter `buchung`, wuerde die zweite Seite aus dem Vorrat der
+  ersten lesen, und beim naechsten Umbau faellt das niemandem auf.
+  `Fahrplan` nimmt `Woerterbuch["fahrplan"]`, `BookingBody` bekommt den
+  Zweig als eigene Angabe durchgereicht.
+- **Er steht als letzte Sektion vor dem Abschluss-CTA.** Die Folge der Toene
+  bleibt damit dieselbe wie vorher: helle Sektion, dunkles Podest, CTA-Karte
+  auf hellem Grund. Zwei dunkle Sektionen uebereinander gibt es nicht.
+- **Tag 0 und Tag 1 fehlen jetzt auf der Full-Service-Seite.** Die alte
+  Sektion nannte das Gespraech und die Zugaenge (Einladung in Seller Central,
+  gemeinsamer Kanal, Ablage fuer Dateien), der Fahrplan beginnt bei „Tag 1
+  bis 30: Analyse". Auf der Buchungsseite steht das im eigenen `Ablauf`, auf
+  der Full-Service-Seite an keiner anderen Stelle. Ob es zurueckkommt und wo,
+  entscheidet der Kunde.

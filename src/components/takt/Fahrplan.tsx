@@ -9,9 +9,15 @@ import type { Woerterbuch } from "@/lib/woerter";
 /**
  * Fahrplan. Die ersten 90 Tage nach dem Start.
  *
- * Steht auf der Buchungsseite unter dem Kalender und ueber den Kundenstimmen:
- * wer sich gerade einen Termin sucht, sieht direkt darunter, was danach
- * passiert. Auf der Startseite hat die Sektion nichts zu suchen, dort ist die
+ * Steht an zwei Stellen. Auf der Buchungsseite unter dem Kalender und ueber
+ * den Kundenstimmen: wer sich gerade einen Termin sucht, sieht direkt
+ * darunter, was danach passiert. Auf der Full-Service-Seite als letzte
+ * Sektion vor dem Abschluss-CTA; dort stand vorher `Onboarding` mit den
+ * ersten drei Wochen, das ist ersetzt. Der Text liegt deshalb auf der
+ * obersten Ebene des Woerterbuchs und nicht im Zweig einer der beiden
+ * Seiten.
+ *
+ * Auf der Startseite hat die Sektion nichts zu suchen, dort ist die
  * Reihenfolge des Kunden gesetzt.
  *
  * Die Grafik ist ein Kalender ueber 90 Tage, drei Monatsbloecke zu je 30
@@ -50,7 +56,7 @@ const monate: { farbe: Farbe; offset: number }[] = [
   { farbe: "gruen", offset: 0 },
 ];
 
-type W = Woerterbuch["buchung"]["fahrplan"];
+type W = Woerterbuch["fahrplan"];
 type Phase = W["phasen"][number];
 
 

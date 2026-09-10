@@ -879,35 +879,6 @@ export const en: Woerterbuch = {
       bandZeile: "Every day, from the first to the last",
     },
 
-    onboarding: {
-      label: "The first three weeks",
-      titelVor: "From the call to ",
-      titelEm: "the first optimization.",
-      lead: "No three-day kickoff workshop. You give us access, we get started.",
-      schritte: [
-        {
-          schritt: "Day 0",
-          titel: "The call",
-          text: "30 minutes with Clemens to get to know each other. If it fits, a second call follows with your numbers.",
-        },
-        {
-          schritt: "Day 1",
-          titel: "Access and channel",
-          text: "You invite us into Seller Central, we open a shared Slack channel and a drive for all files.",
-        },
-        {
-          schritt: "Week 1",
-          titel: "The analysis",
-          text: "We cost every product out and set the order. Depending on the size of the catalog that takes up to two weeks. You get the result as a plan, not as a file.",
-        },
-        {
-          schritt: "Week 2 to 3",
-          titel: "The work runs",
-          text: "A content sprint for the first items, campaigns get rebuilt. From here you see every week what happened.",
-        },
-      ],
-    },
-
     cta: "Which area is holding your growth back?",
   },
 
@@ -1133,50 +1104,52 @@ export const en: Woerterbuch = {
       attrappe: "Example view. The online booking runs through Cal.com.",
       freieZeiten: "Open slots",
     },
+  },
 
-    fahrplan: {
-      eyebrow: "The plan",
-      titelVor: "The first ",
-      titelMark: "90 days.",
-      tage: "90 days",
-      monate: ["Analysis", "Execution", "Scaling"],
-      fussVor: "From day 91",
-      fussRest: " the work carries on: a monthly report, strategy and performance calls.",
-      phasen: [
-        {
-          zeitraum: "Day 1 to 30",
-          titel: "Analysis",
-          lead: "The first month belongs to the analysis. Strategy starts on day one.",
-          punkte: [
-            "The whole account is reviewed: catalog, ASINs, campaign and bidding structures",
-            "PPC reports, sales, traffic and the Search Query report are evaluated",
-            "Inventory and account health checked, obviously wasted ad spend stopped",
-            "By the end of the month the overview stands: products, margins, what works and what does not",
-          ],
-        },
-        {
-          zeitraum: "Day 31 to 60",
-          titel: "Execution",
-          lead: "Now it gets built, on the ground laid in month one.",
-          punkte: [
-            "Main image, listing images, title, bullets, backend fields and A+ content, all new",
-            "Listings built for search, click-through rate and conversion, readable for Rufus, COSMO and A10",
-            "Campaign structures rebuilt, steered on ACoS and TACoS",
-            "Inventory stays in view, new products get scheduled when they are due",
-          ],
-        },
-        {
-          zeitraum: "Day 61 to 90",
-          titel: "Scaling",
-          lead: "What wins gets more.",
-          punkte: [
-            "Budget goes to the campaigns and search terms that convert",
-            "Content tests: A+ modules and main images get pulled up",
-            "At the end of the quarter, the plan for the next one, sorted by the biggest opportunities",
-          ],
-        },
-      ],
-    },
+  /* Der Fahrplan steht auf zwei Seiten und deshalb auf der obersten Ebene.
+     Siehe die deutsche Fassung. */
+  fahrplan: {
+    eyebrow: "The plan",
+    titelVor: "The first ",
+    titelMark: "90 days.",
+    tage: "90 days",
+    monate: ["Analysis", "Execution", "Scaling"],
+    fussVor: "From day 91",
+    fussRest: " the work carries on: a monthly report, strategy and performance calls.",
+    phasen: [
+      {
+        zeitraum: "Day 1 to 30",
+        titel: "Analysis",
+        lead: "The first month belongs to the analysis. Strategy starts on day one.",
+        punkte: [
+          "The whole account is reviewed: catalog, ASINs, campaign and bidding structures",
+          "PPC reports, sales, traffic and the Search Query report are evaluated",
+          "Inventory and account health checked, obviously wasted ad spend stopped",
+          "By the end of the month the overview stands: products, margins, what works and what does not",
+        ],
+      },
+      {
+        zeitraum: "Day 31 to 60",
+        titel: "Execution",
+        lead: "Now it gets built, on the ground laid in month one.",
+        punkte: [
+          "Main image, listing images, title, bullets, backend fields and A+ content, all new",
+          "Listings built for search, click-through rate and conversion, readable for Rufus, COSMO and A10",
+          "Campaign structures rebuilt, steered on ACoS and TACoS",
+          "Inventory stays in view, new products get scheduled when they are due",
+        ],
+      },
+      {
+        zeitraum: "Day 61 to 90",
+        titel: "Scaling",
+        lead: "What wins gets more.",
+        punkte: [
+          "Budget goes to the campaigns and search terms that convert",
+          "Content tests: A+ modules and main images get pulled up",
+          "At the end of the quarter, the plan for the next one, sorted by the biggest opportunities",
+        ],
+      },
+    ],
   },
 
   design: {

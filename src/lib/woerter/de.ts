@@ -919,35 +919,6 @@ export const de = {
       bandZeile: "Jeden Tag, vom ersten bis zum letzten",
     },
 
-    onboarding: {
-      label: "Die ersten drei Wochen",
-      titelVor: "Vom Gespräch bis ",
-      titelEm: "zur ersten Optimierung.",
-      lead: "Kein Kickoff-Workshop über drei Tage. Ihr gebt uns Zugang, wir fangen an.",
-      schritte: [
-        {
-          schritt: "Tag 0",
-          titel: "Das Gespräch",
-          text: "30 Minuten mit Clemens zum Kennenlernen. Passt es, folgt ein zweiter Termin mit euren Zahlen.",
-        },
-        {
-          schritt: "Tag 1",
-          titel: "Zugänge und Kanal",
-          text: "Ihr ladet uns in Seller Central ein, wir öffnen einen gemeinsamen Slack-Kanal und ein Drive für alle Dateien.",
-        },
-        {
-          schritt: "Woche 1",
-          titel: "Die Analyse",
-          text: "Wir rechnen jedes Produkt durch und legen die Reihenfolge fest. Je nach Größe des Sortiments dauert das bis zu zwei Wochen. Ihr bekommt das Ergebnis als Fahrplan, nicht als Datei.",
-        },
-        {
-          schritt: "Woche 2 bis 3",
-          titel: "Die Arbeit läuft",
-          text: "Content-Sprint für die ersten Artikel, Kampagnen werden umgebaut. Ab hier seht ihr jede Woche, was passiert ist.",
-        },
-      ],
-    },
-
     cta: "Welcher Bereich bremst euer Wachstum?",
   },
 
@@ -1203,51 +1174,60 @@ export const de = {
       attrappe: "Beispielansicht. Die Online-Buchung läuft über Cal.com.",
       freieZeiten: "Freie Zeiten",
     },
+  },
 
-    fahrplan: {
-      eyebrow: "Fahrplan",
-      titelVor: "Die ersten ",
-      titelMark: "90 Tage.",
-      tage: "90 Tage",
-      /* Die Farbe der drei Monate im Kalender: weiss, orange, grün. */
-      monate: ["Analyse", "Umsetzung", "Skalierung"],
-      fussVor: "Ab Tag 91",
-      fussRest: " läuft die Betreuung weiter: monatlicher Report, Strategie- und Performance-Calls.",
-      phasen: [
-        {
-          zeitraum: "Tag 1 bis 30",
-          titel: "Analyse",
-          lead: "Der erste Monat gehört der Analyse. Am Tag eins beginnt die Strategie.",
-          punkte: [
-            "Der gesamte Account wird gesichtet: Katalog, ASINs, Kampagnen- und Gebotsstrukturen",
-            "PPC-Berichte, Verkäufe, Traffic und der Search Query Report werden ausgewertet",
-            "Inventar und Konto-Gesundheit geprüft, offensichtlich verlorenes Werbebudget gestoppt",
-            "Zum Monatsende steht die Übersicht: Produkte, Margen, was funktioniert und was nicht",
-          ],
-        },
-        {
-          zeitraum: "Tag 31 bis 60",
-          titel: "Umsetzung",
-          lead: "Jetzt wird gebaut, auf der Grundlage aus Monat eins.",
-          punkte: [
-            "Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content neu",
-            "Listings auf Suche, Klickrate und Conversion ausgerichtet, lesbar für Rufus, COSMO und A10",
-            "Kampagnenstrukturen neu aufgebaut, gesteuert über ACoS und TACoS",
-            "Inventar bleibt im Blick, neue Produkte werden eingeplant, wenn sie anstehen",
-          ],
-        },
-        {
-          zeitraum: "Tag 61 bis 90",
-          titel: "Skalierung",
-          lead: "Was gewinnt, bekommt mehr.",
-          punkte: [
-            "Budget geht auf die Kampagnen und Suchbegriffe, die konvertieren",
-            "Content-Tests: A+ Module und Hauptbilder werden nachgezogen",
-            "Zum Quartalsende die Roadmap fürs nächste Quartal, sortiert nach den größten Chancen",
-          ],
-        },
-      ],
-    },
+  /* ============================================================
+     Der Fahrplan: die ersten 90 Tage nach dem Start.
+
+     Steht an zwei Stellen, auf der Buchungsseite und auf der
+     Full-Service-Seite, und deshalb hier auf der obersten Ebene statt in
+     einem der beiden Zweige. Zwei Fassungen bedeuteten, dass jede Aenderung
+     doppelt gemacht werden muss und die Seiten trotzdem verschieden
+     dastehen.
+     ============================================================ */
+  fahrplan: {
+    eyebrow: "Fahrplan",
+    titelVor: "Die ersten ",
+    titelMark: "90 Tage.",
+    tage: "90 Tage",
+    /* Die Farbe der drei Monate im Kalender: weiss, orange, grün. */
+    monate: ["Analyse", "Umsetzung", "Skalierung"],
+    fussVor: "Ab Tag 91",
+    fussRest: " läuft die Betreuung weiter: monatlicher Report, Strategie- und Performance-Calls.",
+    phasen: [
+      {
+        zeitraum: "Tag 1 bis 30",
+        titel: "Analyse",
+        lead: "Der erste Monat gehört der Analyse. Am Tag eins beginnt die Strategie.",
+        punkte: [
+          "Der gesamte Account wird gesichtet: Katalog, ASINs, Kampagnen- und Gebotsstrukturen",
+          "PPC-Berichte, Verkäufe, Traffic und der Search Query Report werden ausgewertet",
+          "Inventar und Konto-Gesundheit geprüft, offensichtlich verlorenes Werbebudget gestoppt",
+          "Zum Monatsende steht die Übersicht: Produkte, Margen, was funktioniert und was nicht",
+        ],
+      },
+      {
+        zeitraum: "Tag 31 bis 60",
+        titel: "Umsetzung",
+        lead: "Jetzt wird gebaut, auf der Grundlage aus Monat eins.",
+        punkte: [
+          "Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content neu",
+          "Listings auf Suche, Klickrate und Conversion ausgerichtet, lesbar für Rufus, COSMO und A10",
+          "Kampagnenstrukturen neu aufgebaut, gesteuert über ACoS und TACoS",
+          "Inventar bleibt im Blick, neue Produkte werden eingeplant, wenn sie anstehen",
+        ],
+      },
+      {
+        zeitraum: "Tag 61 bis 90",
+        titel: "Skalierung",
+        lead: "Was gewinnt, bekommt mehr.",
+        punkte: [
+          "Budget geht auf die Kampagnen und Suchbegriffe, die konvertieren",
+          "Content-Tests: A+ Module und Hauptbilder werden nachgezogen",
+          "Zum Quartalsende die Roadmap fürs nächste Quartal, sortiert nach den größten Chancen",
+        ],
+      },
+    ],
   },
 
   design: {
