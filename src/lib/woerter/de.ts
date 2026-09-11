@@ -19,14 +19,19 @@ export const de = {
 
   start: {
     /* Ueberschrift und Versprechen stehen wortgleich so, wie der Kunde sie
-       vorgegeben hat, inklusive der Anrede "deine" statt "eure". Zweimal
+       vorgegeben hat, inklusive der Anrede "deine" statt "eure". Mehrfach
        bestaetigt, also nicht anfassen. Die Ueberschrift ist geteilt, weil das
-       erste Stueck den Textmarker traegt. */
+       erste Stueck den Textmarker traegt.
+
+       Das Versprechen ist in der zweiunddreissigsten Runde umgestellt: die
+       Umsetzung steht vorn, die Aussage ueber das Budget folgt daraus. Vorher
+       hing "durch Profi-Umsetzung" hinten an und bezog sich grammatisch auf
+       das Werbebudget. */
     hero: {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitables Wachstum",
       titelRest: " für deine Amazon Brand",
-      lead: "Mehr Umsatz ist keine Frage des Werbebudgets durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co.",
+      lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
     },
 

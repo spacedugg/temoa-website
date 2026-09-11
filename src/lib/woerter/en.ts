@@ -26,12 +26,14 @@ export const en: Woerterbuch = {
        The lead mirrors the German rhetorical move ("is not a question of ad
        budget"). That is close to the "not X, but Y" pattern the style rules
        ban, and it stays anyway: the construction is the client's own core
-       claim, not a filler phrase. */
+       claim, not a filler phrase. It follows the German word order the client
+       set in the thirty-second round: execution first, the claim about budget
+       follows from it. */
     hero: {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitable growth",
       titelRest: " for your Amazon brand",
-      lead: "More revenue is not a question of ad budget. It is a question of execution: content, advertising, account management.",
+      lead: "With professional execution in content, advertising and account management, more revenue is not a question of a bigger ad budget.",
       ctaZweit: "See the case studies",
     },
 

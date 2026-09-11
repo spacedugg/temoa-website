@@ -465,7 +465,20 @@ const leistungWege: { icon: IconName; href: string }[] = [
  * Kundenband. Wer auf der Seite landet, liest zuerst, was wir machen, und
  * nicht, was bei ihm schiefliegt.
  */
-export function Leistungen({ sprache, w }: { sprache: Sprache; w: W["leistungen"] }) {
+export function Leistungen({
+  sprache,
+  w,
+  kennzahlen,
+}: {
+  sprache: Sprache;
+  w: W["leistungen"];
+  /* Dieselben vier Zahlen wie auf der Uebersicht der Case Studies. Sie stehen
+     hier und nicht dort: unter den Faellen standen sie zwischen deren eigenen
+     Kennzahlen und gingen darin unter. Unter den fuenf Leistungen sind sie die
+     einzigen Zahlen weit und breit, und sie sagen an dieser Stelle das
+     Richtige: in welchem Umfang diese Leistungen laufen. */
+  kennzahlen: { vor: string; nach: string; label: string }[];
+}) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -552,6 +565,40 @@ export function Leistungen({ sprache, w }: { sprache: Sprache; w: W["leistungen"
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </a>
+
+      {/* Das Kennzahlenband, auf dem hellen Grund der Sektion und ohne eigene
+          Flaeche darunter: eine Platte in einer Sektion, die selbst schon eine
+          Farbe traegt, waere ein Kasten im Kasten. Getrennt nur durch eine
+          Haarlinie.
+
+          Die Steigerung traegt das dunkle Gruen (#1B7F4B, 4,6:1 auf hell), die
+          drei Bestandszahlen stehen in Navy. Das helle #6EE7A0 gilt nur auf
+          dunklem Grund, hier waere es kaum zu lesen. */}
+      <div className="mt-14 border-t border-ink/[0.12] pt-10 md:mt-16 md:pt-12">
+        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-ink/[0.1]">
+          {kennzahlen.map((k, i) => (
+            <motion.div
+              key={k.label}
+              {...auf(0.06 + i * 0.07)}
+              className={clsx(
+                "flex flex-col gap-2.5",
+                i === 0 ? "md:pr-8" : i === kennzahlen.length - 1 ? "md:pl-8" : "md:px-8"
+              )}
+            >
+              <Zahl
+                bis={KENNZAHL_WERTE[i]}
+                vor={k.vor}
+                nach={k.nach}
+                className={clsx(
+                  "num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none",
+                  i === WACHSTUM ? "text-[#1B7F4B]" : "text-ink"
+                )}
+              />
+              <p className="text-[0.85rem] leading-snug text-ink-muted">{k.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </Station>
   );
 }
@@ -612,16 +659,10 @@ export function Nachweis({
   sprache,
   w,
   faelle,
-  kennzahlen,
 }: {
   sprache: Sprache;
   w: W["nachweis"];
   faelle: FallVorschau[];
-  /* Dieselben vier Zahlen, die auf der Uebersicht der Case Studies unter dem
-     Seitenkopf stehen. Sie laufen hier im selben dunklen Grund mit, direkt
-     unter den vier Faellen: die Faelle sind die Beispiele, die Zahlen die
-     Summe dahinter. */
-  kennzahlen: { vor: string; nach: string; label: string }[];
 }) {
   const reduce = useReducedMotion();
 
@@ -731,39 +772,7 @@ export function Nachweis({
         ))}
       </div>
 
-      {/* Das Kennzahlenband. Steht ohne eigene Sektion in derselben dunklen
-          Flaeche, getrennt nur durch eine Haarlinie: ein zweites Podest in
-          derselben Farbe waere eine Naht ohne Grund. */}
-      <div className="mt-14 border-t border-white/[0.12] pt-10 md:mt-16 md:pt-12">
-        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/[0.1]">
-          {kennzahlen.map((k, i) => (
-            <motion.div
-              key={k.label}
-              initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-12% 0px" }}
-              transition={{ duration: 0.55, delay: i * 0.07, ease: [0.32, 0.72, 0, 1] }}
-              className={clsx(
-                "flex flex-col gap-2.5",
-                i === 0 ? "md:pr-8" : i === kennzahlen.length - 1 ? "md:pl-8" : "md:px-8"
-              )}
-            >
-              <Zahl
-                bis={KENNZAHL_WERTE[i]}
-                vor={k.vor}
-                nach={k.nach}
-                className={clsx(
-                  "num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none",
-                  i === WACHSTUM ? "text-[#6EE7A0]" : "text-white"
-                )}
-              />
-              <p className="text-[0.85rem] leading-snug text-chalk-muted">{k.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <a href={pfad(sprache, "/ergebnisse")} className="btn-text-hell mt-12">
+      <a href={pfad(sprache, "/ergebnisse")} className="btn-text-hell mt-10">
         {w.alle}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
