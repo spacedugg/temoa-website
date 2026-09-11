@@ -60,7 +60,7 @@ const guard = (e: React.MouseEvent) => {
  * Die Bilder kommen aus der Referenz-Bibliothek und tragen dort keinen Text.
  * Was sich sagen laesst, ist die Art der Arbeit und die Marke, wo eine
  * hinterlegt ist, dazu die Nummer innerhalb der Strecke. Das ist wenig, aber
- * es ist wahr, und leer ist keine Alternative: die Bildersuche liest nur, was
+ * es ist wahr. Leer ist keine Alternative: die Bildersuche liest nur, was
  * dasteht.
  */
 function altText(art: string, listing: RefListing, n: number): string {

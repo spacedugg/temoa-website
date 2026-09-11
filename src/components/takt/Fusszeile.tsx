@@ -131,8 +131,8 @@ export function Fusszeile() {
         <div className="grid gap-10 border-t border-white/10 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
           {/* Die Bezeichnungen der Spalten waren `h2`. Damit standen auf jeder
               Seite vier weitere Ueberschriften derselben Stufe wie die
-              Sektionen des Inhalts, und die Gliederung eines Dokuments endete
-              mit "Leistungen, Unternehmen, Rechtliches, Sprache". Jetzt traegt
+              Sektionen des Inhalts. Die Gliederung eines Dokuments endete
+              damit mit "Leistungen, Unternehmen, Rechtliches, Sprache". Jetzt traegt
               jede Spalte einen eigenen Navigationsbereich mit Namen: ein
               Vorleseprogramm findet sie weiter, die Gliederung bleibt frei. */}
           {cols.map((c) => (

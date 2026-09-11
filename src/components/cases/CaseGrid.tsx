@@ -90,7 +90,7 @@ export function CaseGrid({
   return (
     <section className="relative ground py-16 md:py-20">
       <div className="container-x">
-        {/* Das Raster stand ohne Ueberschrift da, und jede Kachel traegt eine
+        {/* Das Raster stand ohne Ueberschrift da. Jede Kachel traegt aber eine
             h3: die Seite sprang damit von der h1 auf die h3. Eine
             Zwischenstufe, die nur fuer die Gliederung da ist, waere versteckte
             Schrift; diese steht sichtbar. */}

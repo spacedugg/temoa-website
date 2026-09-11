@@ -236,7 +236,7 @@ function Fallkopf({ c, fotoAlt }: { c: CaseStudy; fotoAlt: string }) {
               </span>
             )}
             {/* Die Ueberschrift des Falls ist die h1 der Seite. Vorher war
-                sie eine h2, und die Seite hatte damit gar keine h1: fuer eine
+                sie eine h2. Die Seite hatte damit gar keine h1: fuer eine
                 Suchmaschine ist das die Angabe, worum es hier geht. */}
             <h1 className="mt-5 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-3xl md:text-[2.4rem]">
               {c.headline}

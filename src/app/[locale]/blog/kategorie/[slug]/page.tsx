@@ -87,7 +87,7 @@ export default async function CategoryPage({
 
         <section className="relative ground pb-24">
           <div className="container-x">
-            {/* Die Liste stand ohne Ueberschrift da, und jede Kachel traegt
+            {/* Die Liste stand ohne Ueberschrift da. Jede Kachel traegt aber
                 eine h3: die Seite sprang damit von der h1 auf die h3. */}
             <Reveal>
               <h2 className="mb-8 text-[1.35rem] font-extrabold tracking-tight text-ink md:text-[1.6rem]">
