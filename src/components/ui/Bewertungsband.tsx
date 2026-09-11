@@ -10,7 +10,7 @@ import { spracheAusPfad } from "@/lib/i18n";
    Zwei Zeilen, je Dienst eine: Sterne, Durchschnitt, Name.
 
    Ob die Zeile verlinkt ist, entscheidet die Stelle. In der Fusszeile ja:
-   dort sucht jemand gezielt nach Belegen, und der Verweis oeffnet einen neuen
+   dort sucht jemand gezielt nach Belegen. Der Verweis oeffnet einen neuen
    Tab. Bei den Kundenstimmen nein: dort steht der Beleg mitten im Lesefluss,
    und ein Pfeil nach aussen ist an dieser Stelle eine Einladung, die Seite zu
    verlassen. Die Zahl allein sagt dort, was zu sagen ist.

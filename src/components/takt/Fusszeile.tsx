@@ -23,11 +23,11 @@ type Rahmen = (typeof rahmenWoerter)[Sprache];
    zwischen „Unternehmen" und „Rechtliches" und fiel nicht auf, obwohl er das
    ist, wofür die meisten hier herunterscrollen. Dann bekam er ein eigenes Band,
    aber als hohe Spalte rechts: Adresse, Knopf und Bewertungen untereinander.
-   Links stand daneben nur die Kennung, und die Fußzeile kippte nach rechts.
+   Links stand daneben nur die Kennung. Die Fußzeile kippte damit nach rechts.
 
    Jetzt läuft der Kontakt in der Breite statt in der Höhe. Damit wird das erste
-   Band flach, die Bewertungen ziehen zur Kennung, und die Verzeichnisse
-   rücken nach oben neben sie.
+   Band flach. Die Bewertungen ziehen zur Kennung, die Verzeichnisse rücken
+   nach oben neben sie.
 
    Eine Telefonnummer steht bewusst nicht dabei, die gibt der Kunde später
    frei. Und nur eine Adresse: zwei nebeneinander sind eine Entscheidung, die
