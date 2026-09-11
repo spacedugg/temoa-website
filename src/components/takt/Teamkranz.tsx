@@ -132,7 +132,7 @@ function Portrait({
 
 /* Die vier Formen des Zeichens, ohne Schriftzug. Inline und nicht als Datei:
    das `img` trug Breite und Höhe gleich groß, das Zeichen ist aber höher als
-   breit, und beim Skalieren stand das Quadrat oben angeschnitten an der Kante. */
+   breit. Beim Skalieren stand das Quadrat dann oben angeschnitten an der Kante. */
 function Zeichen({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 228 254" className={className} aria-hidden>

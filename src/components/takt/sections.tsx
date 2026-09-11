@@ -475,7 +475,7 @@ export function Leistungen({
   /* Dieselben vier Zahlen wie auf der Uebersicht der Case Studies. Sie stehen
      hier und nicht dort: unter den Faellen standen sie zwischen deren eigenen
      Kennzahlen und gingen darin unter. Unter den fuenf Leistungen sind sie die
-     einzigen Zahlen weit und breit, und sie sagen an dieser Stelle das
+     einzigen Zahlen weit und breit. Sie sagen an dieser Stelle ausserdem das
      Richtige: in welchem Umfang diese Leistungen laufen. */
   kennzahlen: { vor: string; nach: string; label: string }[];
 }) {
