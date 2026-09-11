@@ -1,7 +1,14 @@
 "use client";
 
 import { ZahlText } from "../takt/Zahl";
-import { type CaseStudy, type CaseStat, type CaseBadge, type CaseMetric, type Trend } from "@/lib/cases";
+import {
+  markenfotoAlt,
+  type CaseStudy,
+  type CaseStat,
+  type CaseBadge,
+  type CaseMetric,
+  type Trend,
+} from "@/lib/cases";
 import type { Woerterbuch } from "@/lib/woerter";
 import { Flaggenreihe } from "../ui/Flagge";
 import { Markenlogo } from "../ui/Markenlogo";
@@ -199,7 +206,9 @@ function Kennzahlenband({ metriken }: { metriken: CaseMetric[] }) {
  * Ecke vor. Das Dunkle traegt danach das Kennzahlenband, und damit hat die
  * Seite eine Abfolge statt zweier schwerer Bloecke.
  */
-function Fallkopf({ c }: { c: CaseStudy }) {
+/* `fotoAlt` ist der fertige Text, nicht das Muster: den Fall kennt der
+   Aufrufer ohnehin. */
+function Fallkopf({ c, fotoAlt }: { c: CaseStudy; fotoAlt: string }) {
   return (
     <Reveal>
       <div className="relative isolate overflow-hidden rounded-[2rem] bg-white shadow-[0_44px_90px_-52px_rgba(2,48,71,0.5)] ring-1 ring-navy/[0.07]">
@@ -226,9 +235,12 @@ function Fallkopf({ c }: { c: CaseStudy }) {
                 {c.displayName}
               </span>
             )}
-            <h2 className="mt-5 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-3xl md:text-[2.4rem]">
+            {/* Die Ueberschrift des Falls ist die h1 der Seite. Vorher war
+                sie eine h2, und die Seite hatte damit gar keine h1: fuer eine
+                Suchmaschine ist das die Angabe, worum es hier geht. */}
+            <h1 className="mt-5 text-[1.55rem] font-extrabold leading-[1.12] tracking-tight text-ink sm:text-3xl md:text-[2.4rem]">
               {c.headline}
-            </h2>
+            </h1>
             <p className="mt-4 max-w-[46ch] text-[0.98rem] leading-relaxed text-ink-muted md:text-base">
               {c.subheadline}
             </p>
@@ -251,7 +263,7 @@ function Fallkopf({ c }: { c: CaseStudy }) {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={c.bgImage}
-                alt=""
+                alt={fotoAlt}
                 className="relative aspect-[16/11] w-full rounded-[1.4rem] object-cover shadow-[0_30px_60px_-34px_rgba(2,48,71,0.55)] ring-1 ring-navy/[0.08]"
               />
             </div>
@@ -333,7 +345,7 @@ export function CaseBlock({
   return (
     <section id={c.slug} className={`relative scroll-mt-28 ${tone} py-16 md:py-24`}>
       <div className="container-x">
-        <Fallkopf c={c} />
+        <Fallkopf c={c} fotoAlt={markenfotoAlt(c, w.altMarkenfoto)} />
 
         <Kennzahlenband metriken={c.kennzahlen} />
 

@@ -119,7 +119,7 @@ export default async function ArticlePage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         {/* Hero */}
         <section className="relative overflow-hidden ground pt-32 md:pt-40">
           <div
@@ -167,6 +167,7 @@ export default async function ArticlePage({
                 seed={post.slug}
                 image={post.image}
                 label={post.categoryLabel}
+                titel={post.title}
                 className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
               />
             </Reveal>

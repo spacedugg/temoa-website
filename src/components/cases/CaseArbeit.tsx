@@ -49,10 +49,14 @@ import { Reveal } from "../ui/Reveal";
  */
 export function Kachel({
   src,
+  alt,
   onClick,
   className = "",
 }: {
   src: string;
+  /** Was das Bild zeigt. Rund zweihundert ausgelieferte Bilder stehen auf
+      diesen Seiten; ohne Beschreibung taucht keines in der Bildersuche auf. */
+  alt: string;
   onClick: () => void;
   className?: string;
 }) {
@@ -65,7 +69,7 @@ export function Kachel({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt=""
+        alt={alt}
         loading="lazy"
         className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
       />
@@ -75,10 +79,12 @@ export function Kachel({
 
 export function Lupe({
   src,
+  alt,
   onClose,
   schliessen,
 }: {
   src: string;
+  alt: string;
   onClose: () => void;
   schliessen: string;
 }) {
@@ -100,7 +106,7 @@ export function Lupe({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt=""
+        alt={alt}
         className="max-h-[88vh] max-w-[92vw] rounded-2xl object-contain shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       />
@@ -133,13 +139,13 @@ function Teil({ label, titel, hinweis }: { label: string; titel: string; hinweis
  * Ohne Luft zwischen den Bahnen, wie auf der Produktseite: die Grafiken laufen
  * ineinander, mit Abstand reisst sie mitten im Bild auseinander.
  */
-function APlus({ bahnen }: { bahnen: string[] }) {
+function APlus({ bahnen, alt }: { bahnen: string[]; alt: (n: number) => string }) {
   return (
     <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
       <div className="overflow-hidden rounded-[0.7rem]">
-        {bahnen.map((src) => (
+        {bahnen.map((src, i) => (
           /* eslint-disable-next-line @next/next/no-img-element */
-          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+          <img key={src} src={src} alt={alt(i + 1)} loading="lazy" className="block w-full" />
         ))}
       </div>
     </div>
@@ -154,7 +160,7 @@ function APlus({ bahnen }: { bahnen: string[] }) {
  * abspielen. `playsInline` verhindert, dass iOS die Wiedergabe in den
  * Vollbildmodus reisst.
  */
-function Video({ quelle, poster }: { quelle: string; poster: string }) {
+function Video({ quelle, poster, titel }: { quelle: string; poster: string; titel: string }) {
   return (
     <div className="overflow-hidden rounded-[1.1rem] bg-white p-2 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)] ring-1 ring-navy/[0.08]">
       <video
@@ -163,6 +169,7 @@ function Video({ quelle, poster }: { quelle: string; poster: string }) {
         preload="none"
         poster={poster}
         playsInline
+        aria-label={titel}
       >
         <source src={quelle} type="video/mp4" />
       </video>
@@ -172,16 +179,26 @@ function Video({ quelle, poster }: { quelle: string; poster: string }) {
 
 function Produkt({
   p,
+  marke,
   mitHinweis,
   oeffne,
   w,
 }: {
   p: CaseProdukt;
+  marke: string;
   mitHinweis: boolean;
   oeffne: (src: string) => void;
   w: Woerterbuch["faelle"]["arbeit"];
 }) {
   const hatVarianten = (p.varianten?.length ?? 0) > 0;
+
+  /* Die Alternativtexte stehen im Woerterbuch und tragen Platzhalter. Hier
+     werden Marke und Produkt eingesetzt, `{n}` erst an der einzelnen Kachel. */
+  const text = (muster: string, n?: number) =>
+    muster
+      .replace("{marke}", marke)
+      .replace("{produkt}", p.titel)
+      .replace("{n}", String(n ?? ""));
 
   const listing = (
     <Reveal>
@@ -210,6 +227,7 @@ function Produkt({
               <Kachel
                 key={src}
                 src={src}
+                alt={text(w.altListing, i + 1)}
                 onClick={() => oeffne(src)}
                 /* Bei ungerader Anzahl bliebe in der letzten Zeile eine
                    Luecke rechts. Das letzte Bild laeuft deshalb ueber beide
@@ -223,7 +241,12 @@ function Produkt({
               />
             ))}
           </div>
-          <Kachel src={p.haupt} onClick={() => oeffne(p.haupt)} className="aspect-square min-w-0 flex-1" />
+          <Kachel
+            src={p.haupt}
+            alt={text(w.altHauptbild)}
+            onClick={() => oeffne(p.haupt)}
+            className="aspect-square min-w-0 flex-1"
+          />
         </div>
       </div>
     </Reveal>
@@ -234,7 +257,7 @@ function Produkt({
       <div>
         <Teil label={w.video} titel={w.videoTitel} />
         <div className="mt-4">
-          <Video quelle={p.video.quelle} poster={p.video.poster} />
+          <Video quelle={p.video.quelle} poster={p.video.poster} titel={text(w.altVideo)} />
         </div>
       </div>
     </Reveal>
@@ -250,7 +273,13 @@ function Produkt({
         />
         <div className="mt-4 grid grid-cols-3 gap-3">
           {p.palette.map((src) => (
-            <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+            <Kachel
+              key={src}
+              src={src}
+              alt={text(w.altPalette)}
+              onClick={() => oeffne(src)}
+              className="aspect-square"
+            />
           ))}
         </div>
       </div>
@@ -269,8 +298,14 @@ function Produkt({
             drei Spalten stand neben zwei Bildern eine leere Zelle und beide
             waren schmaler als noetig. */}
         <div className={`mt-4 grid gap-3 ${p.varianten.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
-          {p.varianten.map((src) => (
-            <Kachel key={src} src={src} onClick={() => oeffne(src)} className="aspect-square" />
+          {p.varianten.map((src, i) => (
+            <Kachel
+              key={src}
+              src={src}
+              alt={text(w.altVariante, i + 1)}
+              onClick={() => oeffne(src)}
+              className="aspect-square"
+            />
           ))}
         </div>
       </div>
@@ -309,7 +344,7 @@ function Produkt({
         <div>
           <Teil label={w.aplus} titel={p.aplus.titel} />
           <div className="mt-4">
-            <APlus bahnen={p.aplus.bahnen} />
+            <APlus bahnen={p.aplus.bahnen} alt={(n) => text(w.altAplus, n)} />
           </div>
         </div>
       </Reveal>
@@ -366,11 +401,27 @@ export function CaseArbeitView({ c, w }: { c: CaseStudy; w: Woerterbuch["faelle"
              ein Produkt endet. */
           className={i > 0 ? "mt-10 border-t border-navy/[0.09] pt-10" : ""}
         >
-          <Produkt p={p} mitHinweis={i === erstesMitVarianten} oeffne={setGross} w={w} />
+          <Produkt
+            p={p}
+            marke={c.displayName}
+            mitHinweis={i === erstesMitVarianten}
+            oeffne={setGross}
+            w={w}
+          />
         </div>
       ))}
 
-      {gross && <Lupe src={gross} onClose={() => setGross(null)} schliessen={w.schliessen} />}
+      {/* Die Lupe zeigt ein Bild, dessen Beschreibung an der Kachel haengt. Sie
+          bekommt deshalb den Namen der Marke: das ist die Angabe, die in jedem
+          Fall stimmt. */}
+      {gross && (
+        <Lupe
+          src={gross}
+          alt={c.displayName}
+          onClose={() => setGross(null)}
+          schliessen={w.schliessen}
+        />
+      )}
     </div>
   );
 }

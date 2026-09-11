@@ -33,6 +33,7 @@ export const de = {
       titelRest: " für deine Amazon Brand",
       lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
+      bildAlt: "Eine Produktseite auf dem Telefon, daneben Bewertungen und der Einkaufswagen",
     },
 
     /* Nur noch die Beschriftung ueber den Logos. „60+ Marken" und
@@ -1013,7 +1014,13 @@ export const de = {
     raster: {
       oeffnen: "Case Study öffnen",
       hinweis: "Klickt eine Marke an für die ganze Case Study.",
+      /* Ueberschrift ueber dem Raster. Sie stand nirgends, dadurch sprang die
+         Seite von der h1 direkt auf die h3 der Fallkacheln. */
+      titel: "Sechs Marken im Einzelnen.",
     },
+    /* `{marke}` und `{branche}` werden ersetzt. Beschreibt das Markenfoto, das
+       jede Fallkachel und jeder Fallkopf traegt. */
+    altMarkenfoto: "{marke}, {branche}",
 
     diagramm: {
       umsatz: "Umsatz pro Monat",
@@ -1049,6 +1056,16 @@ export const de = {
         "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.",
       aplus: "Premium A+ Content",
       schliessen: "Schließen",
+      /* Alternativtexte der Produktbilder. `{marke}`, `{produkt}` und `{n}`
+         werden ersetzt. Sie stehen hier und nicht als leeres `alt` im Code:
+         es sind rund zweihundert ausgelieferte Bilder, und ohne Beschreibung
+         taucht keines davon in der Bildersuche auf. */
+      altHauptbild: "Hauptbild für {produkt} von {marke}",
+      altListing: "Listingbild {n} für {produkt} von {marke}",
+      altVariante: "Hauptbildvariante {n} für {produkt} von {marke}",
+      altPalette: "Hauptbild eines weiteren Artikels von {marke}, im selben Aufbau",
+      altAplus: "Premium A+ Modul {n} für {produkt} von {marke}",
+      altVideo: "Listing-Video für {produkt} von {marke}",
     },
 
     galerie: {
@@ -1327,6 +1344,9 @@ export const de = {
       lead: "Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
+    /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von
+       der h1 auf die h3 der Kacheln. `{thema}` wird ersetzt. */
+    themaTitel: "Alle Beiträge zu {thema}",
     einBeitrag: "1 Beitrag",
     beitraege: "{n} Beiträge",
     empfohlen: "Empfohlene Beiträge",

@@ -15,7 +15,7 @@ export default function DatenschutzPage() {
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow="Rechtliches"
           title={<>Datenschutz&shy;erklärung</>}

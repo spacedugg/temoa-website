@@ -27,6 +27,7 @@ export function BlogCover({
   label,
   className,
   image,
+  titel,
 }: {
   accent: string;
   icon: IconName;
@@ -35,6 +36,9 @@ export function BlogCover({
   className?: string;
   /** Optional generated cover; when set, it replaces the SVG motif. */
   image?: string;
+  /* Der Titel des Beitrags. Er steht als Alternativtext am Bild: ein
+     Beitragsbild ohne Beschreibung taucht in der Bildersuche nicht auf. */
+  titel?: string;
 }) {
   const h = hash(seed);
 
@@ -42,7 +46,7 @@ export function BlogCover({
     return (
       <div className={`relative overflow-hidden bg-navy ${className ?? ""}`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt="" className="h-full w-full object-cover" loading="lazy" />
+        <img src={image} alt={titel ?? ""} className="h-full w-full object-cover" loading="lazy" />
         {label && (
           <span className="absolute left-5 top-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
             {label}

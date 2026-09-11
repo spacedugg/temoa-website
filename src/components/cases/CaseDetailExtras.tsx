@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { type CaseStudy } from "@/lib/cases";
+import { markenfotoAlt, type CaseStudy } from "@/lib/cases";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
@@ -25,11 +25,24 @@ export function CaseGallery({ c, w }: { c: CaseStudy; w: Woerterbuch["faelle"] }
         </Reveal>
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 md:grid-cols-3">
           {c.images.map((src) => (
-            <Kachel key={src} src={src} onClick={() => setOffen(src)} className="aspect-square rounded-2xl" />
+            <Kachel
+              key={src}
+              src={src}
+              alt={markenfotoAlt(c, w.altMarkenfoto)}
+              onClick={() => setOffen(src)}
+              className="aspect-square rounded-2xl"
+            />
           ))}
         </div>
       </div>
-      {offen && <Lupe src={offen} onClose={() => setOffen(null)} schliessen={w.arbeit.schliessen} />}
+      {offen && (
+        <Lupe
+          src={offen}
+          alt={c.displayName}
+          onClose={() => setOffen(null)}
+          schliessen={w.arbeit.schliessen}
+        />
+      )}
     </section>
   );
 }
@@ -51,7 +64,7 @@ export function CaseGallery({ c, w }: { c: CaseStudy; w: Woerterbuch["faelle"] }
  * Breite, die letzten beiden sind breiter. Bei genau fuenf Faellen geht das
  * auf, sonst laufen alle in der schmalen Form.
  */
-function AndererFall({ c, href }: { c: CaseStudy; href: string }) {
+function AndererFall({ c, href, fotoAlt }: { c: CaseStudy; href: string; fotoAlt: string }) {
   return (
     <a
       href={href}
@@ -62,7 +75,7 @@ function AndererFall({ c, href }: { c: CaseStudy; href: string }) {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={c.bgImage}
-          alt=""
+          alt={fotoAlt}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.24,1)] group-hover:scale-[1.06]"
         />
@@ -186,7 +199,11 @@ export function OtherCases({
         <RevealGroup className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6" stagger={0.06}>
           {others.map((c, i) => (
             <RevealItem key={c.slug} className={`h-full ${zweiReihen && i >= 3 ? "lg:col-span-3" : "lg:col-span-2"}`}>
-              <AndererFall c={c} href={pfad(sprache, `/ergebnisse/${c.slug}`)} />
+              <AndererFall
+                c={c}
+                href={pfad(sprache, `/ergebnisse/${c.slug}`)}
+                fotoAlt={markenfotoAlt(c, w.altMarkenfoto)}
+              />
             </RevealItem>
           ))}
         </RevealGroup>

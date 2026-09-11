@@ -700,7 +700,7 @@ export function Nachweis({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.bgImage}
-              alt=""
+              alt={`${c.displayName}, ${c.industry}`}
               loading={i < 2 ? undefined : "lazy"}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.24,1)] group-hover:scale-[1.05]"
             />

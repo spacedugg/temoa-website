@@ -129,9 +129,15 @@ export function Fusszeile() {
         {/* Die Verzeichnisse. Sie stehen unter dem Kontakt, nicht daneben: wer
             sie sucht, sucht gezielt. */}
         <div className="grid gap-10 border-t border-white/10 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
+          {/* Die Bezeichnungen der Spalten waren `h2`. Damit standen auf jeder
+              Seite vier weitere Ueberschriften derselben Stufe wie die
+              Sektionen des Inhalts, und die Gliederung eines Dokuments endete
+              mit "Leistungen, Unternehmen, Rechtliches, Sprache". Jetzt traegt
+              jede Spalte einen eigenen Navigationsbereich mit Namen: ein
+              Vorleseprogramm findet sie weiter, die Gliederung bleibt frei. */}
           {cols.map((c) => (
-            <div key={c.title}>
-              <h2 className="text-label font-bold uppercase text-chalk-faint">{c.title}</h2>
+            <nav key={c.title} aria-label={c.title}>
+              <span className="block text-label font-bold uppercase text-chalk-faint">{c.title}</span>
               <ul className="mt-3">
                 {c.links.map((l) => (
                   <li key={l.label}>
@@ -159,13 +165,13 @@ export function Fusszeile() {
                   </li>
                 )}
               </ul>
-            </div>
+            </nav>
           ))}
 
           <div>
-            <h2 className="text-label font-bold uppercase text-chalk-faint">
+            <span className="block text-label font-bold uppercase text-chalk-faint">
               {w.rahmen.sprache}
-            </h2>
+            </span>
             <Sprachumschalter
               aktuell={sprache}
               beschriftung={w.rahmen.spracheWaehlen}

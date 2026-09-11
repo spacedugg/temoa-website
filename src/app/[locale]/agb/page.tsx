@@ -14,7 +14,7 @@ export default function AgbPage() {
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow="Rechtliches"
           title={<>Allgemeine Geschäfts&shy;bedingungen</>}

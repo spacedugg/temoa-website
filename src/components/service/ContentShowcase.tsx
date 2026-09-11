@@ -34,6 +34,11 @@ import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
    Moduls, die aufeinander aufbauen: Kopf mit Aussage, Produkt im Rasen, erste
    Anwendung. Sie liegen deshalb ohne Abstand untereinander, wie auf der
    Produktseite. */
+/* Die Marken, deren Arbeit hier steht. Sie stehen in den Alternativtexten der
+   Bilder: ohne Beschreibung taucht kein einziges davon in der Bildersuche auf,
+   und "Bild" als Text hilft niemandem. */
+const MARKEN = { listing: "Kemes", aplus: "Futum", brandstory: "Rainfactory" };
+
 const M = {
   haupt: "/bilder/kemes/l-1.webp",
   /* Die sechs weiteren Listingbilder in ihrer Reihenfolge. */
@@ -48,10 +53,12 @@ const M = {
 
 function Bild({
   src,
+  alt,
   className = "",
   fit = "contain",
 }: {
   src: string;
+  alt: string;
   className?: string;
   fit?: "contain" | "cover";
 }) {
@@ -60,7 +67,7 @@ function Bild({
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
-        alt=""
+        alt={alt}
         loading="lazy"
         className={`absolute inset-0 h-full w-full ${fit === "cover" ? "object-cover" : "object-contain p-1"}`}
       />
@@ -114,7 +121,7 @@ function SucheViz() {
               transition={unser ? { duration: 3.2, repeat: Infinity, ease: "easeInOut" } : undefined}
             >
               {unser ? (
-                <Bild src={M.haupt} className="aspect-square" />
+                <Bild src={M.haupt} alt={`Hauptbild für ${MARKEN.listing}`} className="aspect-square" />
               ) : (
                 <div className="aspect-square rounded-[0.6rem] bg-navy/[0.07]" />
               )}
@@ -144,10 +151,16 @@ function ListingViz() {
       <div className="flex items-start gap-2.5">
         <div className="flex w-[12%] shrink-0 flex-col gap-1.5">
           {M.strecke.map((s, i) => (
-            <Bild key={s} src={s} className={`aspect-square ${i === 0 ? "ring-2 ring-brand-500" : ""}`} fit="cover" />
+            <Bild
+              key={s}
+              src={s}
+              alt={`Listingbild ${i + 2} für ${MARKEN.listing}`}
+              className={`aspect-square ${i === 0 ? "ring-2 ring-brand-500" : ""}`}
+              fit="cover"
+            />
           ))}
         </div>
-        <Bild src={M.haupt} className="aspect-[4/5] flex-1" />
+        <Bild src={M.haupt} alt={`Hauptbild für ${MARKEN.listing}`} className="aspect-[4/5] flex-1" />
         <div className="flex w-[30%] shrink-0 flex-col gap-2 pt-1">
           <Zeile w="100%" stark />
           <Zeile w="72%" stark />
@@ -188,9 +201,15 @@ function APlusViz() {
           Der Auslauf sagt ausserdem das Richtige: auf der Produktseite geht
           es an dieser Stelle weiter. */}
       <div className="relative h-[19rem] overflow-hidden rounded-[0.7rem]">
-        {M.aplus.map((src) => (
+        {M.aplus.map((src, i) => (
           /* eslint-disable-next-line @next/next/no-img-element */
-          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+          <img
+            key={src}
+            src={src}
+            alt={`Premium A+ Content für ${MARKEN.aplus}, Bahn ${i + 1}`}
+            loading="lazy"
+            className="block w-full"
+          />
         ))}
         <span
           aria-hidden
@@ -215,9 +234,15 @@ function BrandStoryViz() {
   return (
     <div className="overflow-hidden rounded-[1.1rem] bg-white p-2.5 shadow-[0_20px_50px_-30px_rgba(4,20,34,0.55)]">
       <div className="overflow-hidden rounded-[0.7rem]">
-        {M.brandstory.map((src) => (
+        {M.brandstory.map((src, i) => (
           /* eslint-disable-next-line @next/next/no-img-element */
-          <img key={src} src={src} alt="" loading="lazy" className="block w-full" />
+          <img
+            key={src}
+            src={src}
+            alt={`Brand Story für ${MARKEN.brandstory}, Bahn ${i + 1}`}
+            loading="lazy"
+            className="block w-full"
+          />
         ))}
       </div>
     </div>

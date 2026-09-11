@@ -18,7 +18,9 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-export function HeroBuehne() {
+/* Der Alternativtext kommt aus dem Woerterbuch und nicht aus dieser Datei:
+   er stand fest auf Deutsch und lief so auch auf der englischen Seite. */
+export function HeroBuehne({ bildAlt }: { bildAlt: string }) {
   const reduce = useReducedMotion();
 
   return (
@@ -34,7 +36,7 @@ export function HeroBuehne() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <motion.img
         src="/bilder/h-listing.webp"
-        alt="Eine Produktseite auf dem Telefon, daneben Bewertungen und der Einkaufswagen"
+        alt={bildAlt}
         width={1200}
         height={1200}
         className="relative block w-full"

@@ -689,6 +689,20 @@ export const cases: CaseStudy[] = [
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
 
+/**
+ * Alternativtext fuer das Markenfoto eines Falls.
+ *
+ * Steht hier, weil dasselbe Foto an vier Stellen vorkommt: im Band der
+ * Startseite, im Raster auf `/ergebnisse`, im Kopf der Fallseite und unter
+ * "Weitere Case Studies". Vier Stellen mit vier verschiedenen Texten waeren
+ * vier Gelegenheiten, es beim naechsten Mal zu vergessen.
+ *
+ * `muster` kommt aus dem Woerterbuch und traegt `{marke}` und `{branche}`.
+ */
+export function markenfotoAlt(c: CaseStudy, muster: string): string {
+  return muster.replace("{marke}", c.displayName).replace("{branche}", c.industry);
+}
+
 /* ============================================================
    Englische Fassung.
 
@@ -791,6 +805,8 @@ export type FallVorschau = {
   displayName: string;
   logo?: string;
   bgImage?: string;
+  /** Fuer den Alternativtext des Markenfotos. */
+  industry: string;
   accent: string;
   headline: string;
   preview: { value: string; label: string; trend: Trend };
@@ -802,6 +818,7 @@ export function vorschauFuer(sprache: Sprache): FallVorschau[] {
     displayName: c.displayName,
     logo: c.logo,
     bgImage: c.bgImage,
+    industry: c.industry,
     accent: c.accent,
     headline: c.headline,
     preview: c.preview,

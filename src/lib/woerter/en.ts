@@ -35,6 +35,7 @@ export const en: Woerterbuch = {
       titelRest: " for your Amazon brand",
       lead: "With professional execution in content, advertising and account management, more revenue is not a question of a bigger ad budget.",
       ctaZweit: "See the case studies",
+      bildAlt: "A product page on a phone, with reviews and the shopping cart beside it",
     },
 
     kundenband: {
@@ -942,7 +943,9 @@ export const en: Woerterbuch = {
     raster: {
       oeffnen: "Open the case study",
       hinweis: "Pick a brand for the full case study.",
+      titel: "The six brands in detail.",
     },
+    altMarkenfoto: "{marke}, {branche}",
 
     diagramm: {
       umsatz: "Revenue per month",
@@ -975,6 +978,12 @@ export const en: Woerterbuch = {
         "Several main images are created for one product. Which one stays is decided by the click-through rate in the search results.",
       aplus: "Premium A+ Content",
       schliessen: "Close",
+      altHauptbild: "Main image for {produkt} by {marke}",
+      altListing: "Listing image {n} for {produkt} by {marke}",
+      altVariante: "Main image version {n} for {produkt} by {marke}",
+      altPalette: "Main image of another {marke} item, built the same way",
+      altAplus: "Premium A+ module {n} for {produkt} by {marke}",
+      altVideo: "Listing video for {produkt} by {marke}",
     },
 
     galerie: {
@@ -1224,6 +1233,7 @@ export const en: Woerterbuch = {
       titelEm: "Amazon.",
       lead: "Articles on advertising, listings, logistics and strategy. Sorted by topic, with no filler.",
     },
+    themaTitel: "All articles on {thema}",
     einBeitrag: "1 article",
     beitraege: "{n} articles",
     empfohlen: "Recommended articles",

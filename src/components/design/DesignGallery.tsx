@@ -54,6 +54,19 @@ const guard = (e: React.MouseEvent) => {
   if (t.tagName === "IMG" || t.tagName === "VIDEO") e.preventDefault();
 };
 
+/**
+ * Alternativtext eines Galeriebildes.
+ *
+ * Die Bilder kommen aus der Referenz-Bibliothek und tragen dort keinen Text.
+ * Was sich sagen laesst, ist die Art der Arbeit und die Marke, wo eine
+ * hinterlegt ist, dazu die Nummer innerhalb der Strecke. Das ist wenig, aber
+ * es ist wahr, und leer ist keine Alternative: die Bildersuche liest nur, was
+ * dasteht.
+ */
+function altText(art: string, listing: RefListing, n: number): string {
+  return `${listing.title ? `${listing.title}, ` : ""}${art} ${n}`;
+}
+
 function MaximizeBadge({ onClick, visible = false }: { onClick?: (e: React.MouseEvent) => void; visible?: boolean }) {
   return (
     <span
@@ -85,7 +98,7 @@ function usePager(count: number) {
 /* ============================================================================
  * 1. Produktbilder / Listings — Hero + 3×2-Grid; 2 nebeneinander (Desktop)
  * ========================================================================== */
-function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { listing: RefListing; onOpen?: () => void; interactive?: boolean; accent?: number }) {
+function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: { listing: RefListing; art: string; onOpen?: () => void; interactive?: boolean; accent?: number }) {
   const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
   const details = listing.images.filter((i) => i !== hero).slice(0, 6);
   const [heroAspect, setHeroAspect] = useState(() => aspect(hero, 1));
@@ -104,7 +117,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={hero.url}
-              alt=""
+              alt={altText(art, listing, 1)}
               loading="lazy"
               onLoad={(e) => {
                 const t = e.currentTarget;
@@ -122,7 +135,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
               <div key={i} className="overflow-hidden rounded-sm">
                 {im && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={im.url} alt="" loading="lazy" className="h-full w-full object-cover" />
+                  <img src={im.url} alt={altText(art, listing, i + 2)} loading="lazy" className="h-full w-full object-cover" />
                 )}
               </div>
             );
@@ -133,7 +146,7 @@ function ListingCard({ listing, onOpen, interactive = true, accent = 0 }: { list
   );
 }
 
-function ListingGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["design"] }) {
+function ListingGallery({ listings, art, w }: { listings: RefListing[]; art: string; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
   // Ein einzelnes Beispiel bekommt die ganze Breite, sonst zwei Spalten.
   const einzeln = listings.length === 1;
@@ -145,13 +158,13 @@ function ListingGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuc
         }`}
       >
         {listings.map((l, i) => (
-          <ListingCard key={l.id} listing={l} accent={i} onOpen={() => p.open(i)} />
+          <ListingCard key={l.id} listing={l} art={art} accent={i} onOpen={() => p.open(i)} />
         ))}
       </div>
       {p.idx != null && (
         <ExpandedShell w={w} onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
           <div className="overflow-y-auto rounded-2xl bg-white p-3 md:p-5" style={{ width: "min(94vw, 1040px)", maxHeight: "92vh" }}>
-            <ListingCard listing={listings[p.idx]} interactive={false} />
+            <ListingCard listing={listings[p.idx]} art={art} interactive={false} />
           </div>
         </ExpandedShell>
       )}
@@ -178,7 +191,7 @@ function ListingGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuc
 /* Hoehe je Breite einer Vorschaukachel. 4 zu 3 fasst rund drei A+ Module. */
 const VORSCHAU = 4 / 3;
 
-function EbcVorschau({ listing }: { listing: RefListing }) {
+function EbcVorschau({ listing, art }: { listing: RefListing; art: string }) {
   const gap = listing.layout !== "ebc_seamless";
   /* Hoehe je Bahn, gerechnet in Vielfachen der Breite. Ein A+ Modul liegt
      bei 2,44 zu 1, also rund 0,41. */
@@ -209,7 +222,14 @@ function EbcVorschau({ listing }: { listing: RefListing }) {
       <div className={`flex w-full flex-col ${gap ? "gap-[3px]" : "gap-0"}`}>
         {sichtbar.map((im) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={im.order} src={im.url} alt="" loading="lazy" decoding="async" className="w-full" />
+          <img
+            key={im.order}
+            src={im.url}
+            alt={altText(art, listing, im.order + 1)}
+            loading="lazy"
+            decoding="async"
+            className="w-full"
+          />
         ))}
       </div>
       {!kurz && (
@@ -224,7 +244,7 @@ function EbcVorschau({ listing }: { listing: RefListing }) {
 
 /* Der ganze Stapel ohne Schnitt. Steht dort, wo Platz genug ist: in der
    Grossansicht und wenn nur ein einziges Beispiel vorliegt. */
-function EbcVoll({ listing, klick = true }: { listing: RefListing; klick?: boolean }) {
+function EbcVoll({ listing, art, klick = true }: { listing: RefListing; art: string; klick?: boolean }) {
   const gap = listing.layout !== "ebc_seamless";
   return (
     <div className={`flex w-full flex-col bg-white ${gap ? "gap-[4px]" : "gap-0"}`}>
@@ -233,7 +253,7 @@ function EbcVoll({ listing, klick = true }: { listing: RefListing; klick?: boole
         <img
           key={im.order}
           src={im.url}
-          alt=""
+          alt={altText(art, listing, im.order + 1)}
           loading={klick ? "lazy" : undefined}
           decoding="async"
           className="w-full"
@@ -246,18 +266,18 @@ function EbcVoll({ listing, klick = true }: { listing: RefListing; klick?: boole
 /* Gross: der ganze Stapel in voller Breite, gescrollt statt gestaucht. Die
    Vorfassung zwang den Stapel in 84 vh Hoehe; bei sechs Modulen blieb davon
    eine handbreite Spalte uebrig, auf der nichts mehr zu lesen war. */
-function EbcGross({ listing }: { listing: RefListing }) {
+function EbcGross({ listing, art }: { listing: RefListing; art: string }) {
   return (
     <div
       className="overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-lift"
       style={{ width: "min(94vw, 760px)", maxHeight: "92vh" }}
     >
-      <EbcVoll listing={listing} klick={false} />
+      <EbcVoll listing={listing} art={art} klick={false} />
     </div>
   );
 }
 
-function EbcGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["design"] }) {
+function EbcGallery({ listings, art, w }: { listings: RefListing[]; art: string; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
   /* Bei einem einzigen Beispiel gibt es nichts zu ordnen: dann steht der
      Stapel ganz da, statt auf Kachelhoehe beschnitten zu werden. */
@@ -281,13 +301,13 @@ function EbcGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["d
             className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg transition-transform duration-300 hover:-translate-y-1"
           >
             <MaximizeBadge />
-            {einzeln ? <EbcVoll listing={l} /> : <EbcVorschau listing={l} />}
+            {einzeln ? <EbcVoll listing={l} art={art} /> : <EbcVorschau listing={l} art={art} />}
           </button>
         ))}
       </div>
       {p.idx != null && (
         <ExpandedShell w={w} onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
-          <EbcGross listing={listings[p.idx]} />
+          <EbcGross listing={listings[p.idx]} art={art} />
         </ExpandedShell>
       )}
     </>
@@ -297,7 +317,7 @@ function EbcGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["d
 /* ============================================================================
  * 4. Brand Stores — 2:3-Teaser, Play -> groß zentriert (Auto-Scroll / MP4)
  * ========================================================================== */
-function StoreThumb({ media, onOpen, accent = 0 }: { media: RefImage; onOpen: () => void; accent?: number }) {
+function StoreThumb({ media, alt, onOpen, accent = 0 }: { media: RefImage; alt: string; onOpen: () => void; accent?: number }) {
   const video = media.mediaType === "video";
   return (
     <button
@@ -311,7 +331,7 @@ function StoreThumb({ media, onOpen, accent = 0 }: { media: RefImage; onOpen: ()
         <video src={media.url} muted playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={media.url} alt="" loading="lazy" className="absolute inset-x-0 top-0 w-full" />
+        <img src={media.url} alt={alt} loading="lazy" className="absolute inset-x-0 top-0 w-full" />
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
       <div className="pointer-events-none absolute inset-0 grid place-items-center">
@@ -323,7 +343,7 @@ function StoreThumb({ media, onOpen, accent = 0 }: { media: RefImage; onOpen: ()
   );
 }
 
-function StoreExpanded({ media }: { media: RefImage }) {
+function StoreExpanded({ media, alt }: { media: RefImage; alt: string }) {
   const video = media.mediaType === "video";
   const imgRef = useRef<HTMLImageElement>(null);
   const ratio = aspect(media, 9 / 16);
@@ -381,23 +401,33 @@ function StoreExpanded({ media }: { media: RefImage }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-black shadow-2xl" style={{ width: "min(92vw, 520px)", height: "min(86vh, 880px)" }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img ref={imgRef} src={media.url} alt="" className="w-full will-change-transform" />
+      <img ref={imgRef} src={media.url} alt={alt} className="w-full will-change-transform" />
     </div>
   );
 }
 
-function BrandStoreGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["design"] }) {
+function BrandStoreGallery({ listings, art, w }: { listings: RefListing[]; art: string; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
   return (
     <>
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {listings.map((l, i) => (
-          <StoreThumb key={l.id} media={l.images[0]} accent={i} onOpen={() => p.open(i)} />
+          <StoreThumb
+            key={l.id}
+            media={l.images[0]}
+            alt={altText(art, l, 1)}
+            accent={i}
+            onOpen={() => p.open(i)}
+          />
         ))}
       </div>
       {p.idx != null && (
         <ExpandedShell w={w} onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
-          <StoreExpanded key={listings[p.idx].id} media={listings[p.idx].images[0]} />
+          <StoreExpanded
+            key={listings[p.idx].id}
+            media={listings[p.idx].images[0]}
+            alt={altText(art, listings[p.idx], 1)}
+          />
         </ExpandedShell>
       )}
     </>
@@ -415,7 +445,7 @@ function viewOffsets(count: number): number[] {
   return offsets;
 }
 
-function StoryCardInner({ card }: { card: RefImage }) {
+function StoryCardInner({ card, alt }: { card: RefImage; alt: string }) {
   const meta = card.metadata as RefCardMetadata | null;
   if (meta?.cardType === "asin_grid") {
     const grid = (meta.asinImages ?? [null, null, null, null]).slice(0, 4);
@@ -427,7 +457,7 @@ function StoryCardInner({ card }: { card: RefImage }) {
             <div key={i} className="relative overflow-hidden bg-canvas-alt" style={{ aspectRatio: "1328 / 1456" }}>
               {sub?.url ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={sub.url} alt="" draggable={false} className="block h-full w-full object-cover" />
+                <img src={sub.url} alt={alt} draggable={false} className="block h-full w-full object-cover" />
               ) : (
                 <div className="grid h-full w-full place-items-center text-[8px] text-ink-faint">ASIN</div>
               )}
@@ -448,18 +478,21 @@ function StoryCardInner({ card }: { card: RefImage }) {
     );
   }
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={card.url} alt="" loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
+  return <img src={card.url} alt={alt} loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
 }
 
 function StoryFrame({
   background,
   cards,
+  alt,
   onExpand,
   accent = 0,
   w,
 }: {
   background: RefImage | null;
   cards: RefImage[];
+  /** Alternativtext je Karte, die Nummer beginnt bei eins. */
+  alt: (n: number) => string;
   onExpand?: () => void;
   accent?: number;
   /* Nur die beiden Beschriftungen der Pfeile, die ein Vorleseprogramm
@@ -492,7 +525,7 @@ function StoryFrame({
       >
         {background ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={background.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
+          <img src={background.url} alt={alt(0)} className="absolute inset-0 h-full w-full object-cover" />
         ) : (
           <div className="absolute inset-0 bg-canvas-alt" />
         )}
@@ -505,7 +538,7 @@ function StoryFrame({
                 className="absolute overflow-hidden"
                 style={{ left: `${i * BS.STRIDE}%`, top: `${BS.TOP}%`, width: `${BS.CARD_W}%`, height: `${BS.CARD_H}%` }}
               >
-                <StoryCardInner card={c} />
+                <StoryCardInner card={c} alt={alt(i + 1)} />
               </div>
             ))}
           </div>
@@ -536,12 +569,12 @@ function StoryFrame({
   );
 }
 
-function StorySnap({ cards }: { cards: RefImage[] }) {
+function StorySnap({ cards, alt }: { cards: RefImage[]; alt: (n: number) => string }) {
   return (
     <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto rounded-2xl">
       {cards.map((c) => (
         <div key={c.order} className="w-[min(60vw,280px)] shrink-0 snap-start overflow-hidden" style={{ aspectRatio: "814 / 1019" }}>
-          <StoryCardInner card={c} />
+          <StoryCardInner card={c} alt={alt(c.order + 1)} />
         </div>
       ))}
     </div>
@@ -554,15 +587,25 @@ function splitStory(l: RefListing) {
   return { background, cards };
 }
 
-function BrandStoryGallery({ listings, w }: { listings: RefListing[]; w: Woerterbuch["design"] }) {
+function BrandStoryGallery({ listings, art, w }: { listings: RefListing[]; art: string; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
   return (
     <>
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-x-8 gap-y-12 lg:grid-cols-2">
         {listings.map((l, i) => {
           const { background, cards } = splitStory(l);
-          if (!background) return <StorySnap key={l.id} cards={cards} />;
-          return <StoryFrame key={l.id} background={background} cards={cards} accent={i} onExpand={() => p.open(i)} w={w} />;
+          if (!background) return <StorySnap key={l.id} cards={cards} alt={(n) => altText(art, l, n)} />;
+          return (
+            <StoryFrame
+              key={l.id}
+              background={background}
+              cards={cards}
+              alt={(n) => altText(art, l, n)}
+              accent={i}
+              onExpand={() => p.open(i)}
+              w={w}
+            />
+          );
         })}
       </div>
       {p.idx != null &&
@@ -571,7 +614,16 @@ function BrandStoryGallery({ listings, w }: { listings: RefListing[]; w: Woerter
           return (
             <ExpandedShell w={w} onClose={p.close} hasPrev={p.hasPrev} hasNext={p.hasNext} onPrev={p.prev} onNext={p.next}>
               <div style={{ width: "min(96vw, 1180px)" }}>
-                {background ? <StoryFrame background={background} cards={cards} w={w} /> : <StorySnap cards={cards} />}
+                {background ? (
+                  <StoryFrame
+                    background={background}
+                    cards={cards}
+                    alt={(n) => altText(art, listings[p.idx!], n)}
+                    w={w}
+                  />
+                ) : (
+                  <StorySnap cards={cards} alt={(n) => altText(art, listings[p.idx!], n)} />
+                )}
               </div>
             </ExpandedShell>
           );
@@ -683,13 +735,13 @@ export function DesignGallery({
     const galerie = (() => {
       switch (active) {
         case "main_images":
-          return <ListingGallery listings={shown} w={w} />;
+          return <ListingGallery listings={shown} art={w.reiter[nr]} w={w} />;
         case "a_plus":
-          return <EbcGallery listings={shown} w={w} />;
+          return <EbcGallery listings={shown} art={w.reiter[nr]} w={w} />;
         case "brand_store":
-          return <BrandStoreGallery listings={shown} w={w} />;
+          return <BrandStoreGallery listings={shown} art={w.reiter[nr]} w={w} />;
         case "brand_story":
-          return <BrandStoryGallery listings={shown} w={w} />;
+          return <BrandStoryGallery listings={shown} art={w.reiter[nr]} w={w} />;
       }
     })();
     return (

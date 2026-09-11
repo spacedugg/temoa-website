@@ -94,7 +94,7 @@ export function Auftrag({ sprache, w }: { sprache: Sprache; w: Woerterbuch["star
               auf dem Telefon, rechts als Bildstrecke, dazu zwei Schilder und
               eine belegte Zahl. Siehe takt/HeroBuehne. */}
           <motion.div {...rise(0.16)} className="relative min-w-0">
-            <HeroBuehne />
+            <HeroBuehne bildAlt={w.bildAlt} />
           </motion.div>
         </div>
       </div>

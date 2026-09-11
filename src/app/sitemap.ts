@@ -3,6 +3,7 @@ import { SEITE } from "@/lib/seite";
 import { pfad, sprachen, htmlLang, STANDARD } from "@/lib/i18n";
 import { getAllPosts, kategorien } from "@/lib/blog";
 import { faelleFuer } from "@/lib/cases";
+import { bilderDerSeite } from "@/lib/seitenbilder";
 
 /* ============================================================
    sitemap.xml
@@ -16,6 +17,13 @@ import { faelleFuer } from "@/lib/cases";
 
    `priority` steht bewusst nicht dabei. Google wertet den Wert seit Jahren
    nicht aus, und ein erfundener Wert je Seite sagt nichts.
+
+   Zu jedem Eintrag stehen die Bilder der Seite. Ohne diese Zuordnung
+   indexiert Google Bilder kaum: es muss wissen, auf welcher Seite ein Bild
+   steht. Welche Bilder zu welcher Seite gehoeren, steht in
+   `lib/seitenbilder.ts`. Die Bilder stehen nur am deutschen Eintrag, nicht
+   noch einmal je Sprache: es sind dieselben Dateien unter denselben Adressen,
+   und zweimal dasselbe Bild in einer Sitemap ist ein Duplikat.
    ============================================================ */
 
 /* Seiten ohne eigenen Inhalt aus einer Datenquelle. */
@@ -37,6 +45,7 @@ const FESTE_SEITEN = [
 ];
 
 function eintrag(ziel: string, geaendert?: Date): MetadataRoute.Sitemap[number] {
+  const bilder = bilderDerSeite(ziel);
   return {
     url: `${SEITE.url}${pfad(STANDARD, ziel)}`,
     lastModified: geaendert,
@@ -45,6 +54,7 @@ function eintrag(ziel: string, geaendert?: Date): MetadataRoute.Sitemap[number] 
         sprachen.map((s) => [htmlLang[s], `${SEITE.url}${pfad(s, ziel)}`])
       ),
     },
+    ...(bilder.length > 0 && { images: bilder.map((b) => `${SEITE.url}${b}`) }),
   };
 }
 
