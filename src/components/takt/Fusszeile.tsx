@@ -10,18 +10,26 @@ import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 type Rahmen = (typeof rahmenWoerter)[Sprache];
 
-/** Fußzeile als Planfuß: Kennung links, Spalten rechts, alles auf Hairlines. */
+/* ============================================================
+   Fußzeile.
 
-type Link = {
-  label: string;
-  href: string;
-  /** Kleine Zeile ueber dem Wert, damit zwei Adressen zuzuordnen sind. */
-  note?: string;
-  /** Mit Pfeil und in Weiss: der Weg zum Termin ist kein Listeneintrag. */
-  betont?: boolean;
-};
+   Zwei Teile. Oben ein Kontaktband über die volle Breite: links die Kennung,
+   rechts die Adresse groß, der Weg zum Termin und die Bewertungen. Darunter,
+   durch eine Haarlinie getrennt, die Verzeichnisse.
 
-type Spalte = { title: string; links: Link[]; recht?: boolean };
+   Vorher stand der Kontakt als vierte Spalte zwischen „Unternehmen" und
+   „Rechtliches" und fiel damit nicht auf. Er ist aber das, wofür die meisten
+   Besucher hier herunterscrollen. Eine Adresse, die genauso aussieht wie ein
+   Verweis auf die AGB, wird auch so gelesen.
+
+   Eine Telefonnummer steht bewusst nicht dabei, die gibt der Kunde später
+   frei. Und nur eine Adresse: zwei nebeneinander sind eine Entscheidung, die
+   niemand treffen will.
+   ============================================================ */
+
+const ADRESSE = "michaelis@temoa.de";
+
+type Spalte = { title: string; links: { label: string; href: string }[]; recht?: boolean };
 
 function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
   const p = (ziel: string) => pfad(sprache, ziel);
@@ -52,25 +60,6 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
         { label: w.navigation.blog, href: p("/blog") },
       ],
     },
-    /* Kontakt steht in der Fusszeile, weil dort gesucht wird, wer erreichbar
-       ist. Eine Telefonnummer ist bewusst nicht dabei, die gibt der Kunde
-       spaeter frei. */
-    {
-      title: w.fusszeile.spalteKontakt,
-      links: [
-        {
-          label: "michaelis@temoa.de",
-          href: "mailto:michaelis@temoa.de",
-          note: w.fusszeile.kontaktPerson,
-        },
-        {
-          label: "info@temoa.de",
-          href: "mailto:info@temoa.de",
-          note: w.fusszeile.kontaktAllgemein,
-        },
-        { label: w.fusszeile.kontaktTermin, href: p("/gespraech-vereinbaren"), betont: true },
-      ],
-    },
     {
       title: w.fusszeile.spalteRecht,
       recht: true,
@@ -93,59 +82,67 @@ export function Fusszeile() {
   return (
     <footer className="on-dark relative bg-navy text-chalk">
       <div className="container-x">
-        <div className="grid gap-10 py-16 sm:grid-cols-2 md:gap-12 lg:grid-cols-[1.35fr_1fr_1fr_1.1fr_1fr]">
-          <div>
+        {/* Das Kontaktband. Die Adresse steht in der Größe einer Überschrift,
+            weil sie hier die Überschrift ist. */}
+        <div className="grid gap-10 py-16 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-16 lg:py-20">
+          <div className="min-w-0">
             <Logo variant="white" />
-            <p className="mt-5 max-w-[34ch] text-small leading-relaxed text-chalk-muted">
+            <p className="mt-5 max-w-[38ch] text-small leading-relaxed text-chalk-muted">
               {w.fusszeile.beschreibung}
             </p>
-            <Bewertungsband ton="dunkel" titel={w.fusszeile.bewertungen} className="mt-7 max-w-[19rem]" />
-            <Sprachumschalter
-              aktuell={sprache}
-              beschriftung={w.rahmen.spracheWaehlen}
-              ton="dunkel"
-              className="mt-7 w-fit"
-            />
           </div>
 
+          <div className="min-w-0 lg:text-right">
+            <span className="text-label font-bold uppercase text-chalk-faint">
+              {w.fusszeile.spalteKontakt}
+            </span>
+            <a
+              href={`mailto:${ADRESSE}`}
+              className="mt-3 block break-all text-[1.35rem] font-extrabold leading-tight tracking-[-0.01em] text-white transition-colors hover:text-brand-500 md:text-[1.7rem]"
+            >
+              {ADRESSE}
+            </a>
+            <div className="mt-6 flex lg:justify-end">
+              <a href={pfad(sprache, "/gespraech-vereinbaren")} className="btn-on-dark">
+                {w.rahmen.cta}
+                <span className="disc" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 12h13m0 0l-5-5m5 5l-5 5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <Bewertungsband
+              ton="dunkel"
+              titel={w.fusszeile.bewertungen}
+              className="mt-8 w-full lg:ml-auto lg:w-[17rem]"
+            />
+          </div>
+        </div>
+
+        {/* Die Verzeichnisse. Sie stehen unter dem Kontakt, nicht daneben: wer
+            sie sucht, sucht gezielt. */}
+        <div className="grid gap-10 border-t border-white/10 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
           {cols.map((c) => (
             <div key={c.title}>
               <h2 className="text-label font-bold uppercase text-chalk-faint">{c.title}</h2>
               <ul className="mt-3">
-                {c.links.map((l) =>
-                  l.betont ? (
-                    <li key={l.label}>
-                      <a
-                        href={l.href}
-                        className="inline-flex min-h-[2.75rem] items-center gap-1.5 text-small font-bold text-white transition-colors hover:text-brand-500"
-                      >
-                        {l.label}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
-                          <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </a>
-                    </li>
-                  ) : l.note ? (
-                    <li key={l.label} className="pt-3 first:pt-0">
-                      <span className="block text-[0.75rem] text-chalk-faint">{l.note}</span>
-                      <a
-                        href={l.href}
-                        className="flex min-h-[2.25rem] items-center break-all text-small text-chalk-muted transition-colors hover:text-brand-500"
-                      >
-                        {l.label}
-                      </a>
-                    </li>
-                  ) : (
-                    <li key={l.label}>
-                      <a
-                        href={l.href}
-                        className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500"
-                      >
-                        {l.label}
-                      </a>
-                    </li>
-                  )
-                )}
+                {c.links.map((l) => (
+                  <li key={l.label}>
+                    <a
+                      href={l.href}
+                      className="flex min-h-[2.75rem] items-center text-small text-chalk-muted transition-colors hover:text-brand-500"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
                 {/* Der Widerruf gehoert dorthin, wo Impressum und Datenschutz
                     stehen, nicht in eine eigene Ecke. */}
                 {c.recht && (
@@ -164,6 +161,18 @@ export function Fusszeile() {
               </ul>
             </div>
           ))}
+
+          <div>
+            <h2 className="text-label font-bold uppercase text-chalk-faint">
+              {w.rahmen.sprache}
+            </h2>
+            <Sprachumschalter
+              aktuell={sprache}
+              beschriftung={w.rahmen.spracheWaehlen}
+              ton="dunkel"
+              className="mt-4 w-fit"
+            />
+          </div>
         </div>
 
         <div className="border-t border-white/10 py-6 text-small text-chalk-faint">

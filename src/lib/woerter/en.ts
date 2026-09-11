@@ -200,7 +200,7 @@ export const en: Woerterbuch = {
     mannschaft: {
       label: "Team",
       titel: "The team behind temoa.",
-      lead: "Twelve Amazon specialists, more than 1,000 products optimised. Amazon is the only marketplace we work on.",
+      lead: "We have optimised more than 1,000 products on Amazon, from the main image to the campaign structure. The same people work on your range.",
       bildAlt: "The founders of temoa",
       teamAlt: "Portraits of the people who work at temoa",
     },

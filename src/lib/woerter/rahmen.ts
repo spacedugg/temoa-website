@@ -96,11 +96,6 @@ type Rahmen = {
     spalteUnternehmen: string;
     spalteKontakt: string;
     spalteRecht: string;
-    /* Steht als kleine Zeile unter der Adresse, damit nicht zwei Adressen
-       ohne Zuordnung untereinander stehen. */
-    kontaktPerson: string;
-    kontaktAllgemein: string;
-    kontaktTermin: string;
     /* Ueber den Verweisen auf Trustpilot und Google. */
     bewertungen: string;
     impressum: string;
@@ -184,9 +179,6 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       spalteUnternehmen: "Unternehmen",
       spalteKontakt: "Kontakt",
       spalteRecht: "Rechtliches",
-      kontaktPerson: "Clemens Michaelis",
-      kontaktAllgemein: "Allgemeine Anfragen",
-      kontaktTermin: "Termin buchen",
       bewertungen: "Bewertungen",
       impressum: "Impressum",
       datenschutz: "Datenschutz",
@@ -262,9 +254,6 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       spalteUnternehmen: "Company",
       spalteKontakt: "Contact",
       spalteRecht: "Legal",
-      kontaktPerson: "Clemens Michaelis",
-      kontaktAllgemein: "General enquiries",
-      kontaktTermin: "Book a call",
       bewertungen: "Reviews",
       impressum: "Imprint",
       datenschutz: "Privacy Policy",

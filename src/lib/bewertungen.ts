@@ -9,9 +9,9 @@
    den Dienst ohne Sterne: eine Zahl, die nicht belegt ist, gehoert nicht auf
    die Seite. Die Anzahl der Bewertungen wird bewusst nicht gezeigt.
 
-   Stand: das Trustpilot-Profil ist belegt, der Durchschnitt nicht. Ein
-   Google-Unternehmensprofil war nicht zu finden; sobald die Adresse vorliegt,
-   kommt der Eintrag dazu.
+   Stand: beide Profile und beide Durchschnitte kommen vom Kunden, abgelesen an
+   seinen eigenen Profilseiten. Aendert sich ein Wert dort, aendert er sich
+   hier, sonst steht auf der Website eine Zahl, die woanders nicht mehr gilt.
    ============================================================ */
 
 export type Bewertungsprofil = {
@@ -24,9 +24,17 @@ export type Bewertungsprofil = {
 
 export const bewertungsprofile: Bewertungsprofil[] = [
   {
+    dienst: "google",
+    name: "Google",
+    /* Der Kurzlink aus dem Unternehmensprofil. Er leitet auf den Eintrag in
+       Google Maps weiter. */
+    href: "https://share.google/x5evvBXdynSwSWl7i",
+    wert: 5,
+  },
+  {
     dienst: "trustpilot",
     name: "Trustpilot",
     href: "https://de.trustpilot.com/review/temoa.de",
-    wert: null,
+    wert: 4.5,
   },
 ];

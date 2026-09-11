@@ -16,9 +16,14 @@
 
    Jetzt zwei getrennte Dinge, beide ruhig. Das Gründerbild steht für sich, ohne
    etwas darauf und ohne etwas dahinter. Die Mannschaft steht als Reihe runder
-   Portraits in der Textspalte und belegt die Zahl im Satz darüber. Überlappende
-   Portraitkreise sind dafür die eingeführte Form: sie lesen sich als eine
-   Gruppe und nicht als neun Einzelbilder.
+   Portraits in der Textspalte. Überlappende Portraitkreise sind dafür die
+   eingeführte Form: sie lesen sich als eine Gruppe und nicht als neun
+   Einzelbilder.
+
+   Beim Zeigen geht die Reihe auseinander und der berührte Kreis kommt nach
+   vorn. Das Verhalten steht als `.teamreihe` in `globals.css`. Es hängt an
+   Geschwisterelementen, und das ist in CSS eine Zeile, in React dagegen ein
+   Zustand, der bei jeder Mausbewegung neu rendert.
 
    Die Ringe tragen den warmen Ton der Sektion und nicht Weiß. Sie trennen die
    Kreise voneinander, ohne als Rahmen um jedes Bild zu stehen.
@@ -40,21 +45,21 @@ const PORTRAITS = [
 /** Reihe überlappender Portraits. Steht unter dem Text, nicht am Bild. */
 export function Teamreihe({ teamAlt, className }: { teamAlt: string; className?: string }) {
   return (
-    <div role="group" aria-label={teamAlt} className={`flex items-center ${className ?? ""}`}>
+    <div role="group" aria-label={teamAlt} className={`teamreihe ${className ?? ""}`}>
       {PORTRAITS.map((src, i) => (
         <span
           key={src}
-          /* Jeder Kreis liegt über seinem rechten Nachbarn, damit die Reihe
-             nach links aufgebaut aussieht und nicht nach rechts abfällt. */
-          className="relative -ml-3 first:ml-0 sm:-ml-4"
-          style={{ zIndex: PORTRAITS.length - i }}
+          /* `--i` gibt die Stapelordnung: jeder Kreis liegt über seinem rechten
+             Nachbarn, damit die Reihe nach links aufgebaut aussieht. Den Rest
+             macht `.teamreihe`. */
+          style={{ "--i": i } as React.CSSProperties}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
             alt=""
             loading="lazy"
-            className="block h-12 w-12 rounded-full object-cover ring-[3px] ring-[#fdf3e8] sm:h-14 sm:w-14"
+            className="block h-12 w-12 rounded-full object-cover shadow-[0_6px_14px_-6px_rgba(13,36,57,0.45)] ring-[3px] ring-[#fdf3e8] sm:h-14 sm:w-14"
           />
         </span>
       ))}

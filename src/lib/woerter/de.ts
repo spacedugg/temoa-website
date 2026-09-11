@@ -203,11 +203,15 @@ export const de = {
     mannschaft: {
       label: "Team",
       titel: "Das Team hinter temoa.",
-      /* Vorher stand hier, wie viele Leute in welchem Bereich arbeiten. Das
-         interessiert an dieser Stelle niemanden: gefragt ist, warum diese Leute
-         die Richtigen sind. Die Zahl der optimierten Produkte ist eine Angabe
-         des Kunden und muss belegbar bleiben. */
-      lead: "Zwölf Amazon-Spezialisten, über 1.000 optimierte Produkte. Amazon ist der einzige Marktplatz, auf dem wir arbeiten.",
+      /* Zwei Fassungen sind hier gefallen. Erst stand da, wie viele Leute in
+         welchem Bereich arbeiten: das interessiert an dieser Stelle niemanden.
+         Dann „Amazon ist der einzige Marktplatz, auf dem wir arbeiten": das
+         schliesst weitere Marktplaetze aus, und die will der Kunde bedienen.
+         Auch die Zahl der Mitarbeiter steht nicht mehr da.
+
+         Was bleibt, ist die Arbeit selbst. Die Zahl der optimierten Produkte
+         ist eine Angabe des Kunden und muss belegbar bleiben. */
+      lead: "Über 1.000 Produkte haben wir auf Amazon optimiert, vom Hauptbild bis zur Kampagnenstruktur. Dieselben Leute arbeiten an eurem Sortiment.",
       bildAlt: "Die Gründer von temoa",
       /* Beschreibt den Kranz kleiner Portraits um das Gründerbild. Die
          Kacheln selbst tragen keinen Alternativtext: neun Namen, die auf der
