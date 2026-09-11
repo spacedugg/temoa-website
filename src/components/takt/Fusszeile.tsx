@@ -13,14 +13,21 @@ type Rahmen = (typeof rahmenWoerter)[Sprache];
 /* ============================================================
    Fußzeile.
 
-   Zwei Teile. Oben ein Kontaktband über die volle Breite: links die Kennung,
-   rechts die Adresse groß, der Weg zum Termin und die Bewertungen. Darunter,
-   durch eine Haarlinie getrennt, die Verzeichnisse.
+   Drei Bänder, jedes eine Zeile hoch.
 
-   Vorher stand der Kontakt als vierte Spalte zwischen „Unternehmen" und
-   „Rechtliches" und fiel damit nicht auf. Er ist aber das, wofür die meisten
-   Besucher hier herunterscrollen. Eine Adresse, die genauso aussieht wie ein
-   Verweis auf die AGB, wird auch so gelesen.
+     1. Der Kontakt: Adresse links, Knopf rechts, auf einer Linie.
+     2. Kennung und Bewertungen links, daneben die drei Verzeichnisse.
+     3. Baujahr links, Sprachumschalter rechts.
+
+   Drei Fassungen liegen dahinter. Erst stand der Kontakt als vierte Spalte
+   zwischen „Unternehmen" und „Rechtliches" und fiel nicht auf, obwohl er das
+   ist, wofür die meisten hier herunterscrollen. Dann bekam er ein eigenes Band,
+   aber als hohe Spalte rechts: Adresse, Knopf und Bewertungen untereinander.
+   Links stand daneben nur die Kennung, und die Fußzeile kippte nach rechts.
+
+   Jetzt läuft der Kontakt in der Breite statt in der Höhe. Damit wird das erste
+   Band flach, die Bewertungen ziehen zur Kennung, und die Verzeichnisse
+   rücken nach oben neben sie.
 
    Eine Telefonnummer steht bewusst nicht dabei, die gibt der Kunde später
    frei. Und nur eine Adresse: zwei nebeneinander sind eine Entscheidung, die
@@ -82,53 +89,54 @@ export function Fusszeile() {
   return (
     <footer className="on-dark relative bg-navy text-chalk">
       <div className="container-x">
-        {/* Das Kontaktband. Die Adresse steht in der Größe einer Überschrift,
-            weil sie hier die Überschrift ist. */}
-        <div className="grid gap-10 py-16 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-16 lg:py-20">
+        {/* Band eins: der Kontakt, auf einer Linie. Die Adresse steht in der
+            Größe einer Überschrift, weil sie hier die Überschrift ist. */}
+        <div className="flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:gap-10 md:py-14">
           <div className="min-w-0">
-            <Logo variant="white" />
-            <p className="mt-5 max-w-[38ch] text-small leading-relaxed text-chalk-muted">
-              {w.fusszeile.beschreibung}
-            </p>
-          </div>
-
-          <div className="min-w-0 lg:text-right">
             <span className="text-label font-bold uppercase text-chalk-faint">
               {w.fusszeile.spalteKontakt}
             </span>
             <a
               href={`mailto:${ADRESSE}`}
-              className="mt-3 block break-all text-[1.35rem] font-extrabold leading-tight tracking-[-0.01em] text-white transition-colors hover:text-brand-500 md:text-[1.7rem]"
+              className="mt-2 block break-all text-[1.4rem] font-extrabold leading-tight tracking-[-0.015em] text-white transition-colors hover:text-brand-500 md:text-[1.9rem]"
             >
               {ADRESSE}
             </a>
-            <div className="mt-6 flex lg:justify-end">
-              <a href={pfad(sprache, "/gespraech-vereinbaren")} className="btn-on-dark">
-                {w.rahmen.cta}
-                <span className="disc" aria-hidden>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path
-                      d="M5 12h13m0 0l-5-5m5 5l-5 5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </a>
-            </div>
+          </div>
+          <a
+            href={pfad(sprache, "/gespraech-vereinbaren")}
+            className="btn-on-dark w-fit shrink-0"
+          >
+            {w.rahmen.cta}
+            <span className="disc" aria-hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M5 12h13m0 0l-5-5m5 5l-5 5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+
+        {/* Band zwei: Kennung und Bewertungen links, die Verzeichnisse daneben.
+            Die erste Spalte ist breiter, sie trägt drei Zeilen Text. */}
+        <div className="grid gap-10 border-t border-white/10 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="min-w-0">
+            <Logo variant="white" />
+            <p className="mt-5 max-w-[34ch] text-small leading-relaxed text-chalk-muted">
+              {w.fusszeile.beschreibung}
+            </p>
             <Bewertungsband
               ton="dunkel"
               titel={w.fusszeile.bewertungen}
-              className="mt-8 w-full lg:ml-auto lg:w-[17rem]"
+              className="mt-7 max-w-[15rem]"
             />
           </div>
-        </div>
 
-        {/* Die Verzeichnisse. Sie stehen unter dem Kontakt, nicht daneben: wer
-            sie sucht, sucht gezielt. */}
-        <div className="grid gap-10 border-t border-white/10 py-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
           {/* Die Bezeichnungen der Spalten waren `h2`. Damit standen auf jeder
               Seite vier weitere Ueberschriften derselben Stufe wie die
               Sektionen des Inhalts. Die Gliederung eines Dokuments endete
@@ -167,22 +175,18 @@ export function Fusszeile() {
               </ul>
             </nav>
           ))}
-
-          <div>
-            <span className="block text-label font-bold uppercase text-chalk-faint">
-              {w.rahmen.sprache}
-            </span>
-            <Sprachumschalter
-              aktuell={sprache}
-              beschriftung={w.rahmen.spracheWaehlen}
-              ton="dunkel"
-              className="mt-4 w-fit"
-            />
-          </div>
         </div>
 
-        <div className="border-t border-white/10 py-6 text-small text-chalk-faint">
+        {/* Band drei: Baujahr und Sprache. Der Umschalter stand vorher als
+            vierte Spalte neben den Verzeichnissen und sah dort aus wie eins. */}
+        <div className="flex flex-col items-start justify-between gap-4 border-t border-white/10 py-6 text-small text-chalk-faint sm:flex-row sm:items-center">
           <span className="[font-variant-numeric:tabular-nums]">© {new Date().getFullYear()} temoa</span>
+          <Sprachumschalter
+            aktuell={sprache}
+            beschriftung={w.rahmen.spracheWaehlen}
+            ton="dunkel"
+            className="w-fit"
+          />
         </div>
       </div>
     </footer>

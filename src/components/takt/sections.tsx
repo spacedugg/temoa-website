@@ -1078,7 +1078,11 @@ export function Stimmen({ w, liste }: { w: W["stimmen"]; liste: Testimonial[] })
           {w.titelVor}
           <span className="em mark">{w.titelMark}</span>
         </StationTitle>
-        <Bewertungsband titel={w.extern} className="w-full shrink-0 md:w-[17rem]" />
+        <Bewertungsband
+          titel={w.extern}
+          verlinkt={false}
+          className="w-full shrink-0 md:w-[16rem]"
+        />
       </div>
 
       {/* Zwei Baender, gegenlaeufig. Der Verlauf an den Kanten muss den

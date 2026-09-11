@@ -1,15 +1,27 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { bewertungsprofile, type Bewertungsprofil } from "@/lib/bewertungen";
+import { spracheAusPfad } from "@/lib/i18n";
 
 /* ============================================================
    Bewertungen bei Google und Trustpilot.
 
-   Zwei Zeilen, je Dienst eine: Sterne, Name, Pfeil nach aussen. Bewusst leise
-   gehalten. Es sind Links, die von der Seite wegfuehren, und das ist nicht das
-   Ziel dieser Seite; sie oeffnen deshalb einen neuen Tab.
+   Zwei Zeilen, je Dienst eine: Sterne, Durchschnitt, Name.
 
-   Die Anzahl der Bewertungen steht nicht dabei. Der Durchschnitt steht nur
-   dort, wo er in `lib/bewertungen.ts` belegt ist, und die Sterne sind dann
-   anteilig gefuellt: 4,5 heisst viereinhalb Sterne, nicht fuenf.
+   Ob die Zeile verlinkt ist, entscheidet die Stelle. In der Fusszeile ja:
+   dort sucht jemand gezielt nach Belegen, und der Verweis oeffnet einen neuen
+   Tab. Bei den Kundenstimmen nein: dort steht der Beleg mitten im Lesefluss,
+   und ein Pfeil nach aussen ist an dieser Stelle eine Einladung, die Seite zu
+   verlassen. Die Zahl allein sagt dort, was zu sagen ist.
+
+   Die Anzahl der Bewertungen steht nicht dabei, der Durchschnitt schon. Er
+   steht als Zahl neben den Sternen, weil "viereinhalb von fuenf" aus vier
+   gefuellten Quadraten und einem halben niemand ablaesst. Die Sterne sind
+   trotzdem anteilig gefuellt: die Zahl sagt es, das Bild zeigt es.
+
+   Die Schreibweise haengt an der Sprache. Im Deutschen trennt das Komma die
+   Dezimalen, im Englischen der Punkt; "4.5" waere auf Deutsch falsch.
 
    Die Zeichen sind gezeichnet, nicht die Markenlogos der beiden Dienste: fuer
    die braeuchte es deren offizielle Dateien. Liegen die im Verzeichnis
@@ -79,15 +91,24 @@ function Sterne({ dienst, wert }: { dienst: Bewertungsprofil["dienst"]; wert: nu
 export function Bewertungsband({
   ton = "hell",
   titel,
+  verlinkt = true,
   className,
 }: {
   ton?: "hell" | "dunkel";
   /** Kleine Zeile darüber. Weglassen, wenn der Zusammenhang klar ist. */
   titel?: string;
+  /** `false` zeigt nur die Bewertung, ohne Verweis und ohne Pfeil. */
+  verlinkt?: boolean;
   className?: string;
 }) {
+  const sprache = spracheAusPfad(usePathname());
   if (bewertungsprofile.length === 0) return null;
   const dunkel = ton === "dunkel";
+  const zahl = (wert: number) =>
+    wert.toLocaleString(sprache === "de" ? "de-DE" : "en-US", {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
 
   return (
     <div className={className}>
@@ -103,44 +124,66 @@ export function Bewertungsband({
           dunkel ? "divide-white/[0.09]" : "divide-ink/[0.09]"
         }`}
       >
-        {bewertungsprofile.map((b) => (
-          <li key={b.dienst}>
-            <a
-              href={b.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={
-                b.wert === null
-                  ? `${b.name}, Bewertungen ansehen`
-                  : `${b.name}, ${b.wert.toLocaleString("de-DE")} von 5 Sternen, Bewertungen ansehen`
-              }
-              className={`group flex min-h-[2.75rem] items-center gap-3 py-1.5 transition-colors ${
-                dunkel ? "text-chalk-muted hover:text-white" : "text-ink-muted hover:text-ink"
-              }`}
-            >
+        {bewertungsprofile.map((b) => {
+          const inhalt = (
+            <>
               {b.wert !== null && <Sterne dienst={b.dienst} wert={b.wert} />}
-              <span className={`text-small font-bold ${dunkel ? "text-white" : "text-ink"}`}>
-                {b.name}
-              </span>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-                className="ml-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              >
-                <path
-                  d="M7 17L17 7m0 0h-7m7 0v7"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </li>
-        ))}
+              {b.wert !== null && (
+                <span
+                  className={`text-small font-extrabold [font-variant-numeric:tabular-nums] ${
+                    dunkel ? "text-white" : "text-ink"
+                  }`}
+                >
+                  {zahl(b.wert)}
+                </span>
+              )}
+              <span className="truncate text-small">{b.name}</span>
+            </>
+          );
+          const beschriftung =
+            b.wert === null ? b.name : `${b.name}, ${zahl(b.wert)} von 5 Sternen`;
+          const reihe = `flex min-h-[2.75rem] items-center gap-2.5 py-1.5 ${
+            dunkel ? "text-chalk-muted" : "text-ink-muted"
+          }`;
+
+          return (
+            <li key={b.dienst}>
+              {verlinkt ? (
+                <a
+                  href={b.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={beschriftung}
+                  className={`group ${reihe} transition-colors ${
+                    dunkel ? "hover:text-white" : "hover:text-ink"
+                  }`}
+                >
+                  {inhalt}
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                    className="ml-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  >
+                    <path
+                      d="M7 17L17 7m0 0h-7m7 0v7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              ) : (
+                <span className={reihe} aria-label={beschriftung}>
+                  {inhalt}
+                </span>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
