@@ -7,7 +7,8 @@ import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
 import { Icon, type IconName } from "./Icons";
 import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
-import { Teamkranz } from "./Teamkranz";
+import { Teambild, Teamreihe } from "./Teambild";
+import { Bewertungsband } from "../ui/Bewertungsband";
 import { Zahl, ZahlText } from "./Zahl";
 import { KENNZAHL_WERTE, WACHSTUM } from "../home/Stats";
 import type { FallVorschau } from "@/lib/cases";
@@ -1069,10 +1070,16 @@ export function Stimmen({ w, liste }: { w: W["stimmen"]; liste: Testimonial[] })
 
   return (
     <Station label={w.label} tone="tint">
-      <StationTitle>
-        {w.titelVor}
-        <span className="em mark">{w.titelMark}</span>
-      </StationTitle>
+      {/* Rechts neben der Ueberschrift die Profile bei Dritten. Sie stehen
+          dort, wo ohnehin nach Bewertungen gesucht wird. Leise gehalten, denn
+          es sind Verweise, die von der Seite wegfuehren. */}
+      <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-12">
+        <StationTitle>
+          {w.titelVor}
+          <span className="em mark">{w.titelMark}</span>
+        </StationTitle>
+        <Bewertungsband titel={w.extern} className="w-full shrink-0 md:w-[17rem]" />
+      </div>
 
       {/* Zwei Baender, gegenlaeufig. Der Verlauf an den Kanten muss den
           getoenten Sektionsgrund treffen, nicht Weiss, sonst zeichnet sich
@@ -1118,14 +1125,14 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
 /**
  * Team auf der Startseite.
  *
- * Drei Fassungen. Erst fuenfzehn Bilder: drei Aufnahmen, drei Gruender, neun
- * Portraits. Dann drei Aufnahmen und eine weisse Platte mit den Bereichen im
- * Haus. Beides war zu viel fuer den Fuss einer langen Seite, und die Platte
- * sagte nichts, was nicht schon oben stand.
+ * Vier Fassungen zeigten alle denselben Fehler: neun Portraits um das
+ * Gruenderbild herum arrangiert, erst als gerahmte Kacheln im Kreis, dann
+ * dahinter auf der Kante, dann gestreut und gedreht. Neun kleine Bilder gegen
+ * ein grosses zu stellen wird nicht besser, wenn man die Anordnung aendert.
  *
- * Jetzt: links Bezeichnung, Ueberschrift und drei Zeilen, rechts das Bild der
- * drei Gruender. Der Rest der Mannschaft steht als kleine Kacheln ringsum auf
- * dessen Kante und faehrt beim Scrollen mit, siehe `Teamkranz`.
+ * Jetzt zwei getrennte Dinge, beide ruhig: links Ueberschrift, Aussage und die
+ * Reihe der Portraits als Beleg der Zahl darin, rechts das Gruenderbild fuer
+ * sich. Siehe `Teambild`.
  */
 export function Mannschaft({ w }: { w: W["mannschaft"] }) {
   const reduce = useReducedMotion();
@@ -1142,10 +1149,15 @@ export function Mannschaft({ w }: { w: W["mannschaft"] }) {
         <div className="min-w-0">
           <StationTitle>{w.titel}</StationTitle>
           <StationLead>{w.lead}</StationLead>
+          {/* Die Reihe steht unter der Aussage und belegt die Zahl darin: die
+              drei Gruender sind auf dem Foto, die neun anderen hier. */}
+          <motion.div {...auf(0.12)}>
+            <Teamreihe teamAlt={w.teamAlt} className="mt-9" />
+          </motion.div>
         </div>
 
         <motion.div {...auf(0.08)}>
-          <Teamkranz bildAlt={w.bildAlt} teamAlt={w.teamAlt} />
+          <Teambild bildAlt={w.bildAlt} />
         </motion.div>
       </div>
     </Station>

@@ -194,12 +194,13 @@ export const en: Woerterbuch = {
       anfuehrungAuf: "“",
       anfuehrungZu: "”",
       sterne: "5 out of 5 stars",
+      extern: "Also rated here",
     },
 
     mannschaft: {
       label: "Team",
       titel: "The team behind temoa.",
-      lead: "No account rests on one person. Several people work on your catalog at the same time, each in their own area, all looking at the same numbers.",
+      lead: "Twelve Amazon specialists, more than 1,000 products optimised. Amazon is the only marketplace we work on.",
       bildAlt: "The founders of temoa",
       teamAlt: "Portraits of the people who work at temoa",
     },

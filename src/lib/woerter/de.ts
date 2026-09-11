@@ -196,12 +196,18 @@ export const de = {
       anfuehrungAuf: "„",
       anfuehrungZu: "“",
       sterne: "5 von 5 Sternen",
+      /* Ueber den Verweisen auf Trustpilot und Google. */
+      extern: "Auch hier bewertet",
     },
 
     mannschaft: {
       label: "Team",
       titel: "Das Team hinter temoa.",
-      lead: "Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig, jeder in seinem Bereich, mit denselben Zahlen vor sich.",
+      /* Vorher stand hier, wie viele Leute in welchem Bereich arbeiten. Das
+         interessiert an dieser Stelle niemanden: gefragt ist, warum diese Leute
+         die Richtigen sind. Die Zahl der optimierten Produkte ist eine Angabe
+         des Kunden und muss belegbar bleiben. */
+      lead: "Zwölf Amazon-Spezialisten, über 1.000 optimierte Produkte. Amazon ist der einzige Marktplatz, auf dem wir arbeiten.",
       bildAlt: "Die Gründer von temoa",
       /* Beschreibt den Kranz kleiner Portraits um das Gründerbild. Die
          Kacheln selbst tragen keinen Alternativtext: neun Namen, die auf der

@@ -94,7 +94,15 @@ type Rahmen = {
     beschreibung: string;
     spalteLeistungen: string;
     spalteUnternehmen: string;
+    spalteKontakt: string;
     spalteRecht: string;
+    /* Steht als kleine Zeile unter der Adresse, damit nicht zwei Adressen
+       ohne Zuordnung untereinander stehen. */
+    kontaktPerson: string;
+    kontaktAllgemein: string;
+    kontaktTermin: string;
+    /* Ueber den Verweisen auf Trustpilot und Google. */
+    bewertungen: string;
     impressum: string;
     datenschutz: string;
     agb: string;
@@ -174,7 +182,12 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
         "Amazon Full Service Wachstumspartner. Erst ein Listing, das organisch verkauft, dann Werbung, die darauf aufbaut.",
       spalteLeistungen: "Leistungen",
       spalteUnternehmen: "Unternehmen",
+      spalteKontakt: "Kontakt",
       spalteRecht: "Rechtliches",
+      kontaktPerson: "Clemens Michaelis",
+      kontaktAllgemein: "Allgemeine Anfragen",
+      kontaktTermin: "Termin buchen",
+      bewertungen: "Bewertungen",
       impressum: "Impressum",
       datenschutz: "Datenschutz",
       agb: "AGB",
@@ -247,7 +260,12 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
         "Amazon full service growth partner. First a listing that sells on its own, then advertising built on top of it.",
       spalteLeistungen: "Services",
       spalteUnternehmen: "Company",
+      spalteKontakt: "Contact",
       spalteRecht: "Legal",
+      kontaktPerson: "Clemens Michaelis",
+      kontaktAllgemein: "General enquiries",
+      kontaktTermin: "Book a call",
+      bewertungen: "Reviews",
       impressum: "Imprint",
       datenschutz: "Privacy Policy",
       agb: "Terms and Conditions",

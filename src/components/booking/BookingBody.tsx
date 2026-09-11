@@ -329,11 +329,16 @@ export function BookingBody({
         </div>
       </section>
 
-      {/* Der Kalender steht jetzt in einer eigenen Sektion ueber die volle
-          Breite. Vorher war er in eine Spalte des Hero gequetscht: der Rahmen
-          hatte 540 px Mindesthoehe und overflow-hidden, dadurch war die
-          Terminauswahl unten abgeschnitten. */}
-      <section id="kalender" className="ground relative scroll-mt-24 py-20 md:py-24">
+      {/* Der Kalender steht in einer eigenen Sektion ueber die volle Breite.
+          Vorher war er in eine Spalte des Hero gequetscht: der Rahmen hatte
+          540 px Mindesthoehe und overflow-hidden, dadurch war die
+          Terminauswahl unten abgeschnitten.
+
+          Der Grund ist warm und nicht `ground`. `ground` beginnt oben bei
+          reinem Weiss. Der Kalender selbst ist ebenfalls weiss: der wichtigste
+          Punkt der Seite stand damit weiss auf weiss. Auf dem warmen Ton
+          (#fff8ef) liegt die weisse Flaeche sichtbar auf. */}
+      <section id="kalender" className="ground-warm relative scroll-mt-24 py-20 md:py-24">
         <div className="container-x">
           <SectionHeading
             eyebrow={w.kalender.eyebrow}
@@ -347,7 +352,13 @@ export function BookingBody({
             description={w.kalender.lead}
           />
           <Reveal delay={0.08}>
-            <div className="mx-auto mt-10 max-w-4xl rounded-[2rem] bg-white p-4 shadow-[0_40px_90px_-40px_rgba(2,48,71,0.4)] ring-1 ring-black/[0.06] md:p-6">
+            {/* Keine weisse Platte mit Rand mehr um den Kalender: er ist
+                selbst weiss, der Rand war ein zweiter weisser Rahmen um einen
+                weissen Inhalt. Breiter als vorher (1152 statt 896 Pixel),
+                damit Cal seine dreispaltige Ansicht nutzt: Termin, Monat und
+                Uhrzeiten stehen dann nebeneinander statt untereinander, und
+                die Buchung passt in einen Bildschirm. */}
+            <div className="mx-auto mt-10 max-w-6xl">
               <CalEmbed w={w.cal} />
             </div>
           </Reveal>
