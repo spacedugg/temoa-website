@@ -78,7 +78,12 @@ function bilderEinesFalls(c: CaseStudy): string[] {
    sitemap.xml. */
 const FESTE_SEITEN: Record<string, string[]> = {
   "/": [
+    /* Die Beschriftung steckt im Hero-Bild, deshalb liegt es in zwei Sprachen
+       vor. Beide Dateien stehen hier: der Eintrag der Startseite gilt ueber
+       `alternates` fuer beide Fassungen. Die englische stuende sonst in
+       keiner Sitemap. */
     "/bilder/h-listing.webp",
+    "/bilder/h-listing-en.webp",
     "/bilder/n-ursache.webp",
     "/bilder/n-organic.webp",
     "/bilder/n-leistungen.webp",
