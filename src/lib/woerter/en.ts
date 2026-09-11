@@ -37,8 +37,6 @@ export const en: Woerterbuch = {
 
     kundenband: {
       label: "In our hands every day",
-      marken: "brands",
-      marktplaetze: "marketplaces",
     },
 
     leistungen: {
@@ -55,7 +53,7 @@ export const en: Woerterbuch = {
         { titel: "Strategy", text: "Data first, then the plan." },
         { titel: "Product Images & SEO", text: "Clicks turn into orders." },
         { titel: "PPC Advertising", text: "Scale profitably." },
-        { titel: "Account Management", text: "Inventory, Buy Box and cases under control." },
+        { titel: "Account Management", text: "Inventory, Buy Box, troubleshooting under control." },
         { titel: "International Expansion", text: "Localize instead of translate." },
       ],
     },
@@ -129,8 +127,8 @@ export const en: Woerterbuch = {
           text: "Brand and bestseller terms stay covered, competitors included.",
         },
         {
-          titel: "Steer on profit",
-          text: "Measured on TACoS: what advertising costs against total revenue.",
+          titel: "Grow profitability",
+          text: "We steer the brand on TACoS. When growth starts costing margin, we correct.",
         },
       ],
       unterschiedLabel: "The difference",
@@ -201,6 +199,7 @@ export const en: Woerterbuch = {
       titel: "The team behind temoa.",
       lead: "No account rests on one person. Several people work on your catalog at the same time, each in their own area, all looking at the same numbers.",
       bildAlt: "The founders of temoa",
+      teamAlt: "Portraits of the people who work at temoa",
     },
   },
   leistungen: {
@@ -561,7 +560,7 @@ export const en: Woerterbuch = {
           },
           {
             titel: "A policy warning in the inbox",
-            text: "One attribute breaks a new requirement. We write the case, correct the listing and report back once it is settled.",
+            text: "One attribute breaks a new requirement. We take it into troubleshooting with Amazon support, correct the listing and report back once it is settled.",
           },
         ],
       },
@@ -577,12 +576,12 @@ export const en: Woerterbuch = {
             text: "Resupply planned so no bestseller runs out.",
           },
           {
-            titel: "Cases and Amazon support",
-            text: "We write the tickets, stay on them and escalate when nothing happens.",
+            titel: "Troubleshooting with Amazon",
+            text: "We open the cases with Amazon support, stay on them and escalate when nothing happens.",
           },
           {
-            titel: "Creating and maintaining products",
-            text: "New items, variations and flat file uploads, including the attributes almost nobody fills in.",
+            titel: "Listing new products",
+            text: "Items and variations set up cleanly, so they sit in the catalogue correctly from day one.",
           },
           {
             titel: "Policies watched",
@@ -602,6 +601,33 @@ export const en: Woerterbuch = {
           },
         ],
       },
+      katalog: {
+        eyebrow: "Catalogue and backend",
+        titel: "A clean catalogue, down to the last attribute.",
+        lead: "A lot of what decides whether a product is found sits in fields that never show on the detail page. We maintain them across your whole range.",
+        karten: [
+          {
+            titel: "Attributes and required fields",
+            unterzeile: "Product type, size, material",
+            text: "Every category asks for different data. When it is missing, the product drops out of filters and search results.",
+          },
+          {
+            titel: "Backend search terms",
+            unterzeile: "250 bytes, filled properly once",
+            text: "Synonyms, spellings and common typos sit where they do not weigh down the title.",
+          },
+          {
+            titel: "Variations and parent-child",
+            unterzeile: "Sizes, colours, quantities",
+            text: "All variations under one detail page, so reviews and ranking build up in one place.",
+          },
+          {
+            titel: "Flat files and bulk edits",
+            unterzeile: "Hundreds of items at once",
+            text: "Changes run through uploads instead of item by item. Plus catalogue errors: duplicates, wrongly merged offers, dead ASINs.",
+          },
+        ],
+      },
       ergebnisBand: {
         badge: "We do the work",
         titel: "You get the results.",
@@ -609,7 +635,7 @@ export const en: Woerterbuch = {
           "Buy Box losses settled the same day",
           "Resupply planned before inventory tips over",
           "A monthly report with clear next steps",
-          "Requests to Amazon support run through us",
+          "Troubleshooting with Amazon support runs through us",
         ],
       },
       ergebnis: {
@@ -821,7 +847,7 @@ export const en: Woerterbuch = {
           punkte: [
             "Buy Box gone? We see it the same day, with its cause",
             "Resupply planned so no bestseller runs out and rankings tip over",
-            "Account health watched, cases go to Amazon support through us",
+            "Account health watched, troubleshooting with Amazon runs through us",
             "Prices steered so growth does not eat the margin",
           ],
         },

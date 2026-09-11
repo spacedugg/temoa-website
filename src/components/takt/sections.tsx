@@ -7,8 +7,9 @@ import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
 import { Icon, type IconName } from "./Icons";
 import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
-import { Stempel } from "./Stempel";
+import { Teamkranz } from "./Teamkranz";
 import { Zahl, ZahlText } from "./Zahl";
+import { KENNZAHL_WERTE, WACHSTUM } from "../home/Stats";
 import type { FallVorschau } from "@/lib/cases";
 import { Markenlogo } from "../ui/Markenlogo";
 import { initials, type Testimonial } from "@/lib/testimonials";
@@ -108,19 +109,16 @@ export function Kundenband({ w }: { w: W["kundenband"] }) {
         }}
       />
       <div className="container-x py-12 md:py-14">
+        {/* „60+ Marken" und „5+ Marktplaetze" standen hier und noch einmal
+            im Kennzahlenband unter den Case Studies. Zweimal dieselbe Zahl auf
+            einer Seite liest sich wie ein Versehen. Hier bleibt die
+            Beschriftung, die Zahlen stehen vollstaendig weiter unten. */}
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className="inline-flex items-center gap-2.5">
             <span aria-hidden className="node-glow" />
             <span className="text-label font-bold uppercase text-chalk-muted">
               {w.label}
             </span>
-          </span>
-          <span className="text-small font-bold text-white">
-            <Zahl bis={60} nach="+" /> {w.marken}
-          </span>
-          <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
-          <span className="text-small font-bold text-white">
-            <Zahl bis={5} nach="+" /> {w.marktplaetze}
           </span>
         </div>
         <div className="mt-8 space-y-6">
@@ -614,10 +612,16 @@ export function Nachweis({
   sprache,
   w,
   faelle,
+  kennzahlen,
 }: {
   sprache: Sprache;
   w: W["nachweis"];
   faelle: FallVorschau[];
+  /* Dieselben vier Zahlen, die auf der Uebersicht der Case Studies unter dem
+     Seitenkopf stehen. Sie laufen hier im selben dunklen Grund mit, direkt
+     unter den vier Faellen: die Faelle sind die Beispiele, die Zahlen die
+     Summe dahinter. */
+  kennzahlen: { vor: string; nach: string; label: string }[];
 }) {
   const reduce = useReducedMotion();
 
@@ -727,7 +731,39 @@ export function Nachweis({
         ))}
       </div>
 
-      <a href={pfad(sprache, "/ergebnisse")} className="btn-text-hell mt-10">
+      {/* Das Kennzahlenband. Steht ohne eigene Sektion in derselben dunklen
+          Flaeche, getrennt nur durch eine Haarlinie: ein zweites Podest in
+          derselben Farbe waere eine Naht ohne Grund. */}
+      <div className="mt-14 border-t border-white/[0.12] pt-10 md:mt-16 md:pt-12">
+        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/[0.1]">
+          {kennzahlen.map((k, i) => (
+            <motion.div
+              key={k.label}
+              initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-12% 0px" }}
+              transition={{ duration: 0.55, delay: i * 0.07, ease: [0.32, 0.72, 0, 1] }}
+              className={clsx(
+                "flex flex-col gap-2.5",
+                i === 0 ? "md:pr-8" : i === kennzahlen.length - 1 ? "md:pl-8" : "md:px-8"
+              )}
+            >
+              <Zahl
+                bis={KENNZAHL_WERTE[i]}
+                vor={k.vor}
+                nach={k.nach}
+                className={clsx(
+                  "num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none",
+                  i === WACHSTUM ? "text-[#6EE7A0]" : "text-white"
+                )}
+              />
+              <p className="text-[0.85rem] leading-snug text-chalk-muted">{k.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <a href={pfad(sprache, "/ergebnisse")} className="btn-text-hell mt-12">
         {w.alle}
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -1078,9 +1114,9 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
  * Haus. Beides war zu viel fuer den Fuss einer langen Seite, und die Platte
  * sagte nichts, was nicht schon oben stand.
  *
- * Jetzt: links Bezeichnung, Ueberschrift, drei Zeilen und der Weg zur
- * Team-Seite, rechts das Bild der drei Gruender. Darauf sitzt der Stempel,
- * halb auf dem Foto und halb auf dem Grund.
+ * Jetzt: links Bezeichnung, Ueberschrift und drei Zeilen, rechts das Bild der
+ * drei Gruender. Der Rest der Mannschaft steht als kleine Kacheln ringsum auf
+ * dessen Kante und faehrt beim Scrollen mit, siehe `Teamkranz`.
  */
 export function Mannschaft({ w }: { w: W["mannschaft"] }) {
   const reduce = useReducedMotion();
@@ -1099,21 +1135,8 @@ export function Mannschaft({ w }: { w: W["mannschaft"] }) {
           <StationLead>{w.lead}</StationLead>
         </div>
 
-        <motion.div {...auf(0.08)} className="relative">
-          <div className="overflow-hidden rounded-[1.5rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_34px_60px_-32px_rgba(13,36,57,0.45)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/team/Main.webp"
-              alt={w.bildAlt}
-              loading="lazy"
-              className="aspect-[16/10] w-full object-cover"
-            />
-          </div>
-          {/* Auf dem Telefon genau bis an den Rand des Containers und nicht
-              darueber hinaus: `px-6` sind 1,5 rem, ein groesserer negativer
-              Rand schiebt den Stempel aus dem Bildschirm, und der Body
-              schneidet ihn dann ab. */}
-          <Stempel className="absolute -bottom-8 -left-6 h-[6.5rem] w-[6.5rem] md:-bottom-10 md:-left-10 md:h-[9rem] md:w-[9rem]" />
+        <motion.div {...auf(0.08)}>
+          <Teamkranz bildAlt={w.bildAlt} teamAlt={w.teamAlt} />
         </motion.div>
       </div>
     </Station>

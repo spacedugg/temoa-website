@@ -42,11 +42,12 @@ const ADVERTISING_ZEICHEN: PiktogrammName[] = [
   "ranking",
 ];
 const INTERNATIONAL_ZEICHEN: PiktogrammName[] = ["sprache", "seite", "kampagne", "wiederholen"];
+const KATALOG_ZEICHEN: PiktogrammName[] = ["katalog", "suche", "struktur", "wiederholen"];
 const AUFGABEN_ZEICHEN: PiktogrammName[] = [
   "buybox",
   "bestand",
   "ticket",
-  "katalog",
+  "seite",
   "richtlinie",
   "test",
   "pricing",
@@ -278,6 +279,19 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
           name: AUFGABEN_ZEICHEN[i],
           title: a.titel,
           body: a.text,
+        }))}
+      />
+      <Cards
+        tone="white"
+        eyebrow={w.katalog.eyebrow}
+        title={w.katalog.titel}
+        description={w.katalog.lead}
+        cols={2}
+        items={w.katalog.karten.map((k, i) => ({
+          piktogramm: KATALOG_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          body: k.text,
         }))}
       />
       <ResultBlock

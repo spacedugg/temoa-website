@@ -54,7 +54,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Auftrag sprache={locale} w={w.start.hero} />
         <Kundenband w={w.start.kundenband} />
         <Leistungen sprache={locale} w={w.start.leistungen} />
-        <Nachweis sprache={locale} w={w.start.nachweis} faelle={vorschauFuer(locale)} />
+        <Nachweis
+          sprache={locale}
+          w={w.start.nachweis}
+          faelle={vorschauFuer(locale)}
+          kennzahlen={w.faelle.kennzahlen}
+        />
         <Befund w={w.start.befund} />
         <Verfahren w={w.start.verfahren} />
         <Arbeiten sprache={locale} w={w.start.arbeiten} />

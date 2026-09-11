@@ -30,10 +30,11 @@ export const de = {
       ctaZweit: "Case Studies ansehen",
     },
 
+    /* Nur noch die Beschriftung ueber den Logos. „60+ Marken" und
+       „5+ Marktplaetze" standen hier und noch einmal im Kennzahlenband unter
+       den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
       label: "Täglich in unserer Verantwortung",
-      marken: "Marken",
-      marktplaetze: "Marktplätze",
     },
 
     leistungen: {
@@ -49,7 +50,7 @@ export const de = {
         { titel: "Strategie", text: "Erst die Daten, dann der Plan." },
         { titel: "Produktbilder & SEO", text: "Aus Klicks werden Käufe." },
         { titel: "PPC Advertising", text: "Profitabel skalieren." },
-        { titel: "Account Management", text: "Bestand, Buy-Box, Cases im Griff." },
+        { titel: "Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff." },
         { titel: "Internationalisierung", text: "Lokalisieren statt übersetzen." },
       ],
     },
@@ -123,8 +124,8 @@ export const de = {
           text: "Marke und Bestseller-Begriffe bleiben besetzt, auch gegen Wettbewerber.",
         },
         {
-          titel: "Auf Profit steuern",
-          text: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
+          titel: "Profitabilität steigern",
+          text: "Wir steuern die Marke über den TACoS. Wenn Wachstum die Marge kostet, wird korrigiert.",
         },
       ],
       unterschiedLabel: "Der Unterschied",
@@ -197,6 +198,10 @@ export const de = {
       titel: "Das Team hinter temoa.",
       lead: "Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig, jeder in seinem Bereich, mit denselben Zahlen vor sich.",
       bildAlt: "Die Gründer von temoa",
+      /* Beschreibt den Kranz kleiner Portraits um das Gründerbild. Die
+         Kacheln selbst tragen keinen Alternativtext: neun Namen, die auf der
+         Seite nirgends stehen, helfen niemandem. */
+      teamAlt: "Portraits der Mitarbeiterinnen und Mitarbeiter von temoa",
     },
   },
   /* ============================================================
@@ -581,7 +586,7 @@ export const de = {
           },
           {
             titel: "Richtlinienwarnung im Postfach",
-            text: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
+            text: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir gehen ins Troubleshooting mit dem Amazon-Support, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
           },
         ],
       },
@@ -597,12 +602,12 @@ export const de = {
             text: "Nachschub geplant, damit kein Bestseller leerläuft.",
           },
           {
-            titel: "Cases und Amazon-Support",
-            text: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert.",
+            titel: "Troubleshooting mit Amazon",
+            text: "Wir eröffnen die Fälle beim Amazon-Support, hängen hinterher und eskalieren, wenn nichts passiert.",
           },
           {
-            titel: "Produkte anlegen und pflegen",
-            text: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt.",
+            titel: "Neue Produkte anlegen",
+            text: "Artikel und Varianten sauber aufgesetzt, damit sie vom ersten Tag an richtig im Katalog stehen.",
           },
           {
             titel: "Richtlinien im Blick",
@@ -622,6 +627,33 @@ export const de = {
           },
         ],
       },
+      katalog: {
+        eyebrow: "Katalog und Backend",
+        titel: "Ein sauberer Katalog, bis ins letzte Attribut.",
+        lead: "Vieles, was über die Auffindbarkeit eines Produkts entscheidet, steht in Feldern, die auf der Detailseite gar nicht auftauchen. Wir pflegen sie für euer ganzes Sortiment.",
+        karten: [
+          {
+            titel: "Attribute und Pflichtfelder",
+            unterzeile: "Produkttyp, Maße, Material",
+            text: "Jede Kategorie verlangt andere Angaben. Fehlen sie, fällt das Produkt aus Filtern und Suchergebnissen heraus.",
+          },
+          {
+            titel: "Backend-Suchbegriffe",
+            unterzeile: "250 Byte, einmal richtig gefüllt",
+            text: "Synonyme, Schreibweisen und Tippfehler liegen dort, wo sie den Titel nicht belasten.",
+          },
+          {
+            titel: "Varianten und Eltern-Kind",
+            unterzeile: "Größen, Farben, Mengen",
+            text: "Alle Varianten unter einer Detailseite. So sammeln sich Bewertungen und Ranking an einer Stelle.",
+          },
+          {
+            titel: "Flat Files und Massenpflege",
+            unterzeile: "Hunderte Artikel auf einmal",
+            text: "Änderungen laufen über Uploads statt per Hand. Dazu Katalogfehler: Dubletten, falsch zusammengeführte Angebote, tote ASINs.",
+          },
+        ],
+      },
       ergebnisBand: {
         badge: "Wir machen die Arbeit",
         titel: "Ihr bekommt die Ergebnisse.",
@@ -629,7 +661,7 @@ export const de = {
           "Buy-Box-Verluste am selben Tag geklärt",
           "Nachschub geplant, bevor der Bestand kippt",
           "Monatsreport mit klaren nächsten Schritten",
-          "Anfragen an den Amazon-Support laufen über uns",
+          "Troubleshooting mit dem Amazon-Support läuft über uns",
         ],
       },
       ergebnis: {
@@ -855,7 +887,7 @@ export const de = {
           punkte: [
             "Buy-Box weg? Wir sehen es am selben Tag, samt Ursache",
             "Nachschub geplant, damit kein Bestseller leerläuft und Rankings kippen",
-            "Konto-Gesundheit im Blick, Fälle laufen über uns zum Amazon-Support",
+            "Konto-Gesundheit im Blick, Troubleshooting mit Amazon läuft über uns",
             "Preise so gesteuert, dass Wachstum die Marge nicht auffrisst",
           ],
         },
