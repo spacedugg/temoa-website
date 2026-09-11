@@ -141,8 +141,8 @@ export const KATEGORIEN: Kategorie[] = [
     name: { de: "Statistik und Marketing", en: "Analytics and marketing" },
     pflicht: false,
     beschreibung: {
-      de: "Wir messen, welche Seiten aufgerufen werden und über welchen Weg jemand zu uns kommt. Daraus lernen wir, welche Inhalte weiterhelfen. Solange ihr nicht zustimmt, wird nichts geladen und nichts gemessen.",
-      en: "We measure which pages are opened and how someone arrived here. That tells us which content actually helps. As long as you do not consent, nothing is loaded and nothing is measured.",
+      de: "Wir messen, welche Seiten aufgerufen werden und über welchen Weg jemand zu uns kommt. Daraus lernen wir, welche Inhalte weiterhelfen. Ohne eure Zustimmung werden keine Cookies gesetzt und keine Messdaten gesendet.",
+      en: "We measure which pages are opened and how someone arrived here. That tells us which content actually helps. Without your consent no cookies are set and no measurement data is sent.",
     },
     dienste: [
       {
@@ -156,12 +156,12 @@ export const KATEGORIEN: Kategorie[] = [
           en: "Loads and controls the measurement tools we use. The tag manager itself measures nothing, it decides what gets loaded.",
         },
         speicher: {
-          de: "Beim Laden wird die IP-Adresse an Google übertragen. Die Werkzeuge, die der Tag Manager lädt, setzen eigene Cookies. Übertragung in die USA auf Grundlage der EU-Standardvertragsklauseln.",
-          en: "Loading it transmits the IP address to Google. The tools the tag manager loads set their own cookies. Transfer to the USA on the basis of the EU standard contractual clauses.",
+          de: "Der Tag Manager wird beim Aufruf der Seite geladen, dabei wird die IP-Adresse an Google übertragen. Bis zu eurer Zustimmung stehen alle Einwilligungssignale auf „abgelehnt“ (Google Consent Mode v2): es werden keine Cookies gesetzt, keine Kennungen gesendet und keine Messdaten erhoben. Erst mit der Zustimmung setzen die geladenen Werkzeuge eigene Cookies. Übertragung in die USA auf Grundlage der EU-Standardvertragsklauseln.",
+          en: "The tag manager is loaded when the page opens, which transmits the IP address to Google. Until you consent, every consent signal stays on “denied” (Google Consent Mode v2): no cookies are set, no identifiers are sent and no measurement data is collected. Only after consent do the loaded tools set their own cookies. Transfer to the USA on the basis of the EU standard contractual clauses.",
         },
         grundlage: {
-          de: "Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
-          en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
+          de: "Laden des Containers: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Messung und Cookies: Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
+          en: "Loading the container: Art. 6(1)(f) GDPR (legitimate interest). Measurement and cookies: Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
         },
       },
     ],
@@ -201,7 +201,12 @@ export type Einwilligung = {
 /* Von 1 auf 2 mit der Kategorie „Statistik und Marketing". Eine Erhoehung
    macht jede gespeicherte Entscheidung ungueltig. Genau das gehoert hier hin:
    wer ueber zwei Kategorien entschieden hat, hat ueber die dritte nichts
-   gesagt. Schweigen ist keine Einwilligung. */
+   gesagt. Schweigen ist keine Einwilligung.
+
+   Der Wechsel auf Consent Mode v2 hat die Zahl nicht noch einmal erhoeht: die
+   Kategorien sind dieselben geblieben, und Fassung 2 war zu dem Zeitpunkt noch
+   nicht veroeffentlicht, es gab also keine gespeicherte Entscheidung darueber.
+   Wer die Kategorien aendert, erhoeht hier. */
 export const VERSION = 2;
 const SCHLUESSEL = "temoa-consent";
 
