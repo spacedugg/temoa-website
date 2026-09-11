@@ -1,0 +1,46 @@
+# temoa
+
+> Amazon Full Service Wachstumspartner für etablierte Marken. Wir bringen ein
+> Listing dahin, dass es auch ohne Werbung verkauft, und skalieren danach mit
+> PPC, was bereits konvertiert. Organic First, PPC Second.
+
+Betreiber: Temoa GmbH, Am Brink 2, 23883 Seedorf, Deutschland.
+Kontakt: info@temoa.de
+
+Leistungen ausschließlich auf Amazon: Strategie, Produktbilder und Listing-SEO,
+PPC Advertising (Sponsored Products, Sponsored Brands, Sponsored Display),
+Account Management und Internationalisierung. Kein Amazon DSP, kein
+Review-Management, keine Google Ads.
+
+Die Website gibt es auf Deutsch (ohne Präfix) und auf Englisch (unter /en).
+Verbindlich sind die deutschen Fassungen der Rechtstexte.
+
+## Kern
+
+- [Startseite](https://temoa.de/): Ausgangslage, Vorgehen, Leistungen, Belege.
+- [Full Service](https://temoa.de/full-service): alle fünf Leistungen im Zusammenhang.
+- [Case Studies](https://temoa.de/ergebnisse): Marken mit Zeitraum und den Zahlen aus dem Konto.
+- [Designbeispiele](https://temoa.de/design-beispiele): ausgelieferte Produktbilder und A+ Content.
+- [Potenzialanalyse buchen](https://temoa.de/gespraech-vereinbaren): 30 Minuten, kostenlos.
+
+## Leistungen
+
+- [Strategie](https://temoa.de/leistungen/strategie): Search Query Report, Ads-Performance und Verkäufe ausgewertet, daraus die Reihenfolge der Schritte.
+- [Produktbilder & SEO](https://temoa.de/leistungen/listing-seo): Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content, ausgerichtet auf Klickrate und Conversion.
+- [PPC Advertising](https://temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
+- [Account Management](https://temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
+- [Internationalisierung](https://temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
+
+## Weiteres
+
+- [Blog](https://temoa.de/blog): Beiträge zu Amazon-Themen.
+- [Impressum](https://temoa.de/impressum)
+- [Datenschutz](https://temoa.de/datenschutz)
+- [AGB](https://temoa.de/agb)
+
+## Hinweise für Auswertungen
+
+- Kennzahlen, die auf der Seite stehen, stammen aus betreuten Konten:
+  Ø +30 % Profitabilitätssteigerung, 21 Mio. € betreuter Amazon-Jahresumsatz,
+  60+ betreute Marken, 5+ internationale Marktplätze, 98 % Kundenbindung.
+- Es werden keine Rankings, Bestseller-Ränge oder Umsätze garantiert.
