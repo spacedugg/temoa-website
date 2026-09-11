@@ -11,14 +11,16 @@
  * laufen. Kommt ein Dienst dazu, kommt er in dieses Verzeichnis, und beide
  * Stellen sind aktuell.
  *
- * Bewusst nur zwei Kategorien: die Website setzt selbst keine Cookies zur
- * Messung, es gibt keine Analyse und kein Marketing-Pixel. Ein Banner, das
- * „Statistik" anbietet, wo nichts gemessen wird, waere eine Behauptung.
+ * Drei Kategorien. Die dritte ist mit dem Google Tag Manager dazugekommen:
+ * vorher mass die Website nichts. Ein Banner, das „Statistik" anbietet, wo
+ * nichts gemessen wird, waere eine Behauptung gewesen. Jetzt misst sie etwas,
+ * also steht die Kategorie da. `VERSION` ist erhoeht, jeder Besucher wird
+ * erneut gefragt.
  */
 
 import type { Sprache } from "./i18n";
 
-export type KategorieId = "notwendig" | "extern";
+export type KategorieId = "notwendig" | "extern" | "messung";
 
 /* Jeder Text steht in beiden Sprachen nebeneinander und nicht in zwei
    getrennten Verzeichnissen. Der Grund ist derselbe wie fuer das eine
@@ -134,6 +136,36 @@ export const KATEGORIEN: Kategorie[] = [
       },
     ],
   },
+  {
+    id: "messung",
+    name: { de: "Statistik und Marketing", en: "Analytics and marketing" },
+    pflicht: false,
+    beschreibung: {
+      de: "Wir messen, welche Seiten aufgerufen werden und über welchen Weg jemand zu uns kommt. Daraus lernen wir, welche Inhalte weiterhelfen. Ohne eure Zustimmung werden keine Cookies gesetzt und keine Messdaten gesendet.",
+      en: "We measure which pages are opened and how someone arrived here. That tells us which content actually helps. Without your consent no cookies are set and no measurement data is sent.",
+    },
+    dienste: [
+      {
+        name: "Google Tag Manager",
+        anbieter: {
+          de: "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland",
+          en: "Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland",
+        },
+        zweck: {
+          de: "Lädt und steuert die Messwerkzeuge, die wir einsetzen. Der Tag Manager selbst misst nichts, er entscheidet, was geladen wird.",
+          en: "Loads and controls the measurement tools we use. The tag manager itself measures nothing, it decides what gets loaded.",
+        },
+        speicher: {
+          de: "Der Tag Manager wird beim Aufruf der Seite geladen, dabei wird die IP-Adresse an Google übertragen. Bis zu eurer Zustimmung stehen alle Einwilligungssignale auf „abgelehnt“ (Google Consent Mode v2): es werden keine Cookies gesetzt, keine Kennungen gesendet und keine Messdaten erhoben. Erst mit der Zustimmung setzen die geladenen Werkzeuge eigene Cookies. Übertragung in die USA auf Grundlage der EU-Standardvertragsklauseln.",
+          en: "The tag manager is loaded when the page opens, which transmits the IP address to Google. Until you consent, every consent signal stays on “denied” (Google Consent Mode v2): no cookies are set, no identifiers are sent and no measurement data is collected. Only after consent do the loaded tools set their own cookies. Transfer to the USA on the basis of the EU standard contractual clauses.",
+        },
+        grundlage: {
+          de: "Laden des Containers: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Messung und Cookies: Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
+          en: "Loading the container: Art. 6(1)(f) GDPR (legitimate interest). Measurement and cookies: Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
+        },
+      },
+    ],
+  },
 ];
 
 /** Nur die Kategorien, über die entschieden werden kann. */
@@ -166,17 +198,23 @@ export type Einwilligung = {
   auswahl: Auswahl;
 };
 
-/* Bleibt bei 1: die Kategorien haben sich mit der englischen Fassung nicht
-   geaendert, nur ihr Wortlaut. Eine Erhoehung wuerde jeden Besucher erneut
-   fragen, obwohl er ueber dieselben zwei Kategorien schon entschieden hat. */
-export const VERSION = 1;
+/* Von 1 auf 2 mit der Kategorie „Statistik und Marketing". Eine Erhoehung
+   macht jede gespeicherte Entscheidung ungueltig. Genau das gehoert hier hin:
+   wer ueber zwei Kategorien entschieden hat, hat ueber die dritte nichts
+   gesagt. Schweigen ist keine Einwilligung.
+
+   Der Wechsel auf Consent Mode v2 hat die Zahl nicht noch einmal erhoeht: die
+   Kategorien sind dieselben geblieben, und Fassung 2 war zu dem Zeitpunkt noch
+   nicht veroeffentlicht, es gab also keine gespeicherte Entscheidung darueber.
+   Wer die Kategorien aendert, erhoeht hier. */
+export const VERSION = 2;
 const SCHLUESSEL = "temoa-consent";
 
 /** Das Ereignis, mit dem sich die Seite ueber eine Aenderung verstaendigt. */
 export const EREIGNIS = "temoa:einwilligung";
 
-export const ALLES_AUS: Auswahl = { notwendig: true, extern: false };
-export const ALLES_AN: Auswahl = { notwendig: true, extern: true };
+export const ALLES_AUS: Auswahl = { notwendig: true, extern: false, messung: false };
+export const ALLES_AN: Auswahl = { notwendig: true, extern: true, messung: true };
 
 /**
  * Liest die gespeicherte Entscheidung.

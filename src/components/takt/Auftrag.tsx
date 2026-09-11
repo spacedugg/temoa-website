@@ -23,11 +23,10 @@ import { rahmenWoerter } from "@/lib/woerter/rahmen";
    steht nicht im Bild, sie faellt hinein. Er sah zu weit weg aus und wie
    nichts Bestimmtes.
 
-   Jetzt eine freigestellte 3D-Szene im Stil der uebrigen Bilder der Website:
-   die Produktseite als Platte, davor der Einkaufswagen, dahinter die
-   steigenden Balken, verbunden durch eine gluehende orange Linie. Dunkle
-   Koerper auf hellem Grund, dadurch steht sie. Bewegung macht der Code: die
-   Szene schwebt, kippt zum Zeiger und traegt einen Lichthof, der leise atmet.
+   Jetzt das Bild, das der Kunde selbst geliefert hat: freigestellt, ohne
+   Platte und ohne Rahmen, mit einem warmen Lichthof dahinter. Es steht still.
+   Weil die Beschriftung im Bild steckt, gibt es zwei Fassungen. Welche
+   laeuft, entscheidet die Sprache der Seite.
 
    Unter dem Knopf stand zwischendurch sozialer Beleg mit Kundengesichtern und
    Sternen. Der Kunde hat ihn wieder gestrichen: der Hero bleibt knapp, die
@@ -90,11 +89,17 @@ export function Auftrag({ sprache, w }: { sprache: Sprache; w: Woerterbuch["star
 
           </div>
 
-          {/* Die Hero-Grafik: das ausgelieferte Listing fuer Miganeo, links
-              auf dem Telefon, rechts als Bildstrecke, dazu zwei Schilder und
-              eine belegte Zahl. Siehe takt/HeroBuehne. */}
-          <motion.div {...rise(0.16)} className="relative min-w-0">
-            <HeroBuehne />
+          {/* Die Hero-Grafik, siehe takt/HeroBuehne. Sie laeuft ohne Verzug
+              und ohne Versatz ein, nur mit einer kurzen Blende: das Bild ist
+              das groesste Element im ersten Bildschirm. Was auf Deckkraft null
+              steht, zaehlt als noch nicht geladen. */}
+          <motion.div
+            className="relative min-w-0"
+            initial={reduce ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.45, ease: EASE }}
+          >
+            <HeroBuehne bildAlt={w.bildAlt} sprache={sprache} />
           </motion.div>
         </div>
       </div>

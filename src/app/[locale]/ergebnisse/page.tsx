@@ -106,7 +106,7 @@ export default async function ErgebnissePage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow={w.kopf.eyebrow}
           title={
@@ -119,7 +119,12 @@ export default async function ErgebnissePage({
         />
         <Stats tone="white" kennzahlen={w.kennzahlen} />
         <ProofStrip tone="blue" bare />
-        <CaseGrid faelle={faelleFuer(locale)} sprache={locale} w={w.raster} />
+        <CaseGrid
+          faelle={faelleFuer(locale)}
+          sprache={locale}
+          w={w.raster}
+          fotoAlt={w.altMarkenfoto}
+        />
         <RetentionBand sprache={locale} w={w.bindung} />
         <ServiceCTA title={w.cta} />
       </main>

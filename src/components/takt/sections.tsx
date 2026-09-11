@@ -7,8 +7,10 @@ import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
 import { Icon, type IconName } from "./Icons";
 import { Verlauf } from "./Verlauf";
 import { Gespraech } from "./Gespraech";
-import { Stempel } from "./Stempel";
+import { Teambild, Teamreihe } from "./Teambild";
+import { Bewertungsband } from "../ui/Bewertungsband";
 import { Zahl, ZahlText } from "./Zahl";
+import { KENNZAHL_WERTE, WACHSTUM } from "../home/Stats";
 import type { FallVorschau } from "@/lib/cases";
 import { Markenlogo } from "../ui/Markenlogo";
 import { initials, type Testimonial } from "@/lib/testimonials";
@@ -108,19 +110,16 @@ export function Kundenband({ w }: { w: W["kundenband"] }) {
         }}
       />
       <div className="container-x py-12 md:py-14">
+        {/* „60+ Marken" und „5+ Marktplaetze" standen hier und noch einmal
+            im Kennzahlenband unter den Case Studies. Zweimal dieselbe Zahl auf
+            einer Seite liest sich wie ein Versehen. Hier bleibt die
+            Beschriftung, die Zahlen stehen vollstaendig weiter unten. */}
         <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
           <span className="inline-flex items-center gap-2.5">
             <span aria-hidden className="node-glow" />
             <span className="text-label font-bold uppercase text-chalk-muted">
               {w.label}
             </span>
-          </span>
-          <span className="text-small font-bold text-white">
-            <Zahl bis={60} nach="+" /> {w.marken}
-          </span>
-          <span aria-hidden className="h-1 w-1 rounded-full bg-white/30" />
-          <span className="text-small font-bold text-white">
-            <Zahl bis={5} nach="+" /> {w.marktplaetze}
           </span>
         </div>
         <div className="mt-8 space-y-6">
@@ -467,7 +466,20 @@ const leistungWege: { icon: IconName; href: string }[] = [
  * Kundenband. Wer auf der Seite landet, liest zuerst, was wir machen, und
  * nicht, was bei ihm schiefliegt.
  */
-export function Leistungen({ sprache, w }: { sprache: Sprache; w: W["leistungen"] }) {
+export function Leistungen({
+  sprache,
+  w,
+  kennzahlen,
+}: {
+  sprache: Sprache;
+  w: W["leistungen"];
+  /* Dieselben vier Zahlen wie auf der Uebersicht der Case Studies. Sie stehen
+     hier und nicht dort: unter den Faellen standen sie zwischen deren eigenen
+     Kennzahlen und gingen darin unter. Unter den fuenf Leistungen sind sie die
+     einzigen Zahlen weit und breit. Sie sagen an dieser Stelle ausserdem das
+     Richtige: in welchem Umfang diese Leistungen laufen. */
+  kennzahlen: { vor: string; nach: string; label: string }[];
+}) {
   const reduce = useReducedMotion();
   const auf = (delay: number) =>
     ({
@@ -554,6 +566,40 @@ export function Leistungen({ sprache, w }: { sprache: Sprache; w: W["leistungen"
           <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </a>
+
+      {/* Das Kennzahlenband, auf dem hellen Grund der Sektion und ohne eigene
+          Flaeche darunter: eine Platte in einer Sektion, die selbst schon eine
+          Farbe traegt, waere ein Kasten im Kasten. Getrennt nur durch eine
+          Haarlinie.
+
+          Die Steigerung traegt das dunkle Gruen (#1B7F4B, 4,6:1 auf hell), die
+          drei Bestandszahlen stehen in Navy. Das helle #6EE7A0 gilt nur auf
+          dunklem Grund, hier waere es kaum zu lesen. */}
+      <div className="mt-14 border-t border-ink/[0.12] pt-10 md:mt-16 md:pt-12">
+        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-ink/[0.1]">
+          {kennzahlen.map((k, i) => (
+            <motion.div
+              key={k.label}
+              {...auf(0.06 + i * 0.07)}
+              className={clsx(
+                "flex flex-col gap-2.5",
+                i === 0 ? "md:pr-8" : i === kennzahlen.length - 1 ? "md:pl-8" : "md:px-8"
+              )}
+            >
+              <Zahl
+                bis={KENNZAHL_WERTE[i]}
+                vor={k.vor}
+                nach={k.nach}
+                className={clsx(
+                  "num text-[clamp(2rem,1.3rem+1.9vw,3rem)] leading-none",
+                  i === WACHSTUM ? "text-[#1B7F4B]" : "text-ink"
+                )}
+              />
+              <p className="text-[0.85rem] leading-snug text-ink-muted">{k.label}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </Station>
   );
 }
@@ -654,7 +700,7 @@ export function Nachweis({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.bgImage}
-              alt=""
+              alt={`${c.displayName}, ${c.industry}`}
               loading={i < 2 ? undefined : "lazy"}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,0.61,0.24,1)] group-hover:scale-[1.05]"
             />
@@ -1024,10 +1070,20 @@ export function Stimmen({ w, liste }: { w: W["stimmen"]; liste: Testimonial[] })
 
   return (
     <Station label={w.label} tone="tint">
-      <StationTitle>
-        {w.titelVor}
-        <span className="em mark">{w.titelMark}</span>
-      </StationTitle>
+      {/* Rechts neben der Ueberschrift die Profile bei Dritten. Sie stehen
+          dort, wo ohnehin nach Bewertungen gesucht wird. Leise gehalten, denn
+          es sind Verweise, die von der Seite wegfuehren. */}
+      <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-12">
+        <StationTitle>
+          {w.titelVor}
+          <span className="em mark">{w.titelMark}</span>
+        </StationTitle>
+        <Bewertungsband
+          titel={w.extern}
+          verlinkt={false}
+          className="w-full shrink-0 md:w-[16rem]"
+        />
+      </div>
 
       {/* Zwei Baender, gegenlaeufig. Der Verlauf an den Kanten muss den
           getoenten Sektionsgrund treffen, nicht Weiss, sonst zeichnet sich
@@ -1073,14 +1129,14 @@ export function Termin({ title }: { title?: React.ReactNode } = {}) {
 /**
  * Team auf der Startseite.
  *
- * Drei Fassungen. Erst fuenfzehn Bilder: drei Aufnahmen, drei Gruender, neun
- * Portraits. Dann drei Aufnahmen und eine weisse Platte mit den Bereichen im
- * Haus. Beides war zu viel fuer den Fuss einer langen Seite, und die Platte
- * sagte nichts, was nicht schon oben stand.
+ * Vier Fassungen zeigten alle denselben Fehler: neun Portraits um das
+ * Gruenderbild herum arrangiert, erst als gerahmte Kacheln im Kreis, dann
+ * dahinter auf der Kante, dann gestreut und gedreht. Neun kleine Bilder gegen
+ * ein grosses zu stellen wird nicht besser, wenn man die Anordnung aendert.
  *
- * Jetzt: links Bezeichnung, Ueberschrift, drei Zeilen und der Weg zur
- * Team-Seite, rechts das Bild der drei Gruender. Darauf sitzt der Stempel,
- * halb auf dem Foto und halb auf dem Grund.
+ * Jetzt zwei getrennte Dinge, beide ruhig: links Ueberschrift, Aussage und die
+ * Reihe der Portraits als Beleg der Zahl darin, rechts das Gruenderbild fuer
+ * sich. Siehe `Teambild`.
  */
 export function Mannschaft({ w }: { w: W["mannschaft"] }) {
   const reduce = useReducedMotion();
@@ -1097,23 +1153,15 @@ export function Mannschaft({ w }: { w: W["mannschaft"] }) {
         <div className="min-w-0">
           <StationTitle>{w.titel}</StationTitle>
           <StationLead>{w.lead}</StationLead>
+          {/* Die Reihe steht unter der Aussage und belegt die Zahl darin: die
+              drei Gruender sind auf dem Foto, die neun anderen hier. */}
+          <motion.div {...auf(0.12)}>
+            <Teamreihe teamAlt={w.teamAlt} className="mt-9" />
+          </motion.div>
         </div>
 
-        <motion.div {...auf(0.08)} className="relative">
-          <div className="overflow-hidden rounded-[1.5rem] shadow-[0_1px_2px_rgba(13,36,57,0.05),0_34px_60px_-32px_rgba(13,36,57,0.45)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/team/Main.webp"
-              alt={w.bildAlt}
-              loading="lazy"
-              className="aspect-[16/10] w-full object-cover"
-            />
-          </div>
-          {/* Auf dem Telefon genau bis an den Rand des Containers und nicht
-              darueber hinaus: `px-6` sind 1,5 rem, ein groesserer negativer
-              Rand schiebt den Stempel aus dem Bildschirm, und der Body
-              schneidet ihn dann ab. */}
-          <Stempel className="absolute -bottom-8 -left-6 h-[6.5rem] w-[6.5rem] md:-bottom-10 md:-left-10 md:h-[9rem] md:w-[9rem]" />
+        <motion.div {...auf(0.08)}>
+          <Teambild bildAlt={w.bildAlt} />
         </motion.div>
       </div>
     </Station>

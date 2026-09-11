@@ -14,7 +14,7 @@ export default function ImpressumPage() {
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow="Rechtliches"
           title={<>Impressum</>}

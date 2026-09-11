@@ -38,9 +38,16 @@ const stimmen: (Testimonial & { quoteEn: string; roleEn: string })[] = [
     image: "/clients/Andrea.jpeg.avif",
     art: "person",
   },
+  /* Sinngemaesse Fassung, Stand der siebenundzwanzigsten Feedbackrunde: die
+     vorherige Zeile sprach von verdoppeltem Umsatz, gesagt hat Roland Pladeck
+     verdoppelte Profitabilitaet. Belegt ist der ACoS von 30 auf 15 Prozent bei
+     rund 300.000 Euro Monatsumsatz. Der Wortlaut geht zur Gegenpruefung an
+     ihn und steht bis zu seiner Freigabe unter Vorbehalt. */
   {
-    quote: "Dank temoa konnten wir innerhalb von 6 Monaten unseren Umsatz verdoppeln!",
-    quoteEn: "With temoa we doubled our revenue within six months.",
+    quote:
+      "Bei rund 300.000 € Monatsumsatz haben wir den ACoS von 30 auf 15 % gesenkt. Unsere Profitabilität hat sich damit verdoppelt.",
+    quoteEn:
+      "At around €300,000 in monthly revenue we brought ACoS down from 30 to 15 percent. That doubled our profitability.",
     name: "Roland Pladeck",
     role: "GF Greenfood Natural Products BV",
     roleEn: "Managing Director, Greenfood Natural Products BV",

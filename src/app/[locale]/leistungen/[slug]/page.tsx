@@ -73,7 +73,7 @@ export default async function LeistungPage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <Body slug={slug} sprache={locale} />
       </main>
       <Fusszeile />

@@ -67,7 +67,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow={w.kopf.eyebrow}
           title={

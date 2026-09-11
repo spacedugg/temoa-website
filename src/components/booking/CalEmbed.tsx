@@ -71,18 +71,37 @@ function CalInline({ w }: { w: Woerterbuch["buchung"]["cal"] }) {
     // @ts-expect-error injected global
     window.Cal("init", { origin: "https://cal.com" });
     // @ts-expect-error injected global
-    window.Cal("inline", { elementOrSelector: "#cal-inline", calLink: CAL_LINK });
+    window.Cal("inline", {
+      elementOrSelector: "#cal-inline",
+      calLink: CAL_LINK,
+      config: { layout: "month_view" },
+    });
+    /* Helles Thema fest gesetzt. Ohne das folgt Cal der Systemeinstellung des
+       Besuchers. Wer sein Gerät auf dunkel stellt, bekommt dann mitten in einer
+       hellen Seite einen schwarzen Kalender. `month_view` stellt Termin, Monat
+       und Uhrzeiten nebeneinander, sobald die Breite reicht. */
+    // @ts-expect-error injected global
+    window.Cal("ui", { theme: "light", layout: "month_view" });
   }, []);
 
   return (
     <div>
-        {/* Kein overflow-hidden und keine feste Hoehe: der Cal-Rahmen waechst
-            mit der Terminauswahl, vorher war er bei 540 px abgeschnitten. */}
-        <div className="relative rounded-3xl ring-1 ring-black/[0.06]">
-          <div className="pointer-events-none absolute inset-x-0 top-40 grid place-items-center text-sm text-ink-faint">
+        {/* Keine feste Hoehe: der Cal-Rahmen waechst mit der Terminauswahl,
+            vorher war er bei 540 px abgeschnitten. `min-h` ist nur der Boden,
+            solange geladen wird. Auf dem Rechner ist er niedriger als auf dem
+            Telefon: dort stehen Monat und Uhrzeiten untereinander.
+
+            Der Schatten liegt am Rahmen selbst statt an einer Platte darum.
+            `overflow-hidden` rundet die Ecken des Eingebetteten, das sonst
+            eckig aus der Rundung steht. */}
+        <div
+          className="relative overflow-hidden rounded-[1.5rem] ring-1 ring-black/[0.07]"
+          style={{ boxShadow: "0 2px 6px rgba(2,48,71,0.06), 0 40px 80px -44px rgba(2,48,71,0.45)" }}
+        >
+          <div className="pointer-events-none absolute inset-x-0 top-32 grid place-items-center text-sm text-ink-faint">
             {w.laedt}
           </div>
-          <div id="cal-inline" className="relative min-h-[42rem] w-full md:min-h-[46rem]" />
+          <div id="cal-inline" className="relative min-h-[40rem] w-full md:min-h-[33rem]" />
         </div>
         <p className="mt-4 text-center text-sm text-ink-faint">
           Kalender lädt nicht?{" "}

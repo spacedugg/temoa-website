@@ -1,6 +1,6 @@
 "use client";
 
-import { type CaseStudy } from "@/lib/cases";
+import { markenfotoAlt, type CaseStudy } from "@/lib/cases";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 import { Flagge } from "../ui/Flagge";
@@ -18,10 +18,12 @@ function CaseTile({
   c,
   href,
   oeffnen,
+  fotoAlt,
 }: {
   c: CaseStudy;
   href: string;
   oeffnen: string;
+  fotoAlt: string;
 }) {
   return (
     <a
@@ -31,7 +33,11 @@ function CaseTile({
     >
       {c.bgImage && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={c.bgImage} alt="" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
+        <img
+          src={c.bgImage}
+          alt={fotoAlt}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+        />
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
 
@@ -73,18 +79,35 @@ export function CaseGrid({
   faelle,
   sprache,
   w,
+  fotoAlt,
 }: {
   faelle: CaseStudy[];
   sprache: Sprache;
   w: Woerterbuch["faelle"]["raster"];
+  /* Muster mit `{marke}` und `{branche}` fuer die Markenfotos. */
+  fotoAlt: string;
 }) {
   return (
     <section className="relative ground py-16 md:py-20">
       <div className="container-x">
+        {/* Das Raster stand ohne Ueberschrift da. Jede Kachel traegt aber eine
+            h3: die Seite sprang damit von der h1 auf die h3. Eine
+            Zwischenstufe, die nur fuer die Gliederung da ist, waere versteckte
+            Schrift; diese steht sichtbar. */}
+        <Reveal>
+          <h2 className="mx-auto mb-10 max-w-3xl text-center text-[1.5rem] font-extrabold tracking-tight text-ink md:text-[1.9rem]">
+            {w.titel}
+          </h2>
+        </Reveal>
         <RevealGroup className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2" stagger={0.08}>
           {faelle.map((c) => (
             <RevealItem key={c.slug} className="h-full">
-              <CaseTile c={c} href={pfad(sprache, `/ergebnisse/${c.slug}`)} oeffnen={w.oeffnen} />
+              <CaseTile
+                c={c}
+                href={pfad(sprache, `/ergebnisse/${c.slug}`)}
+                oeffnen={w.oeffnen}
+                fotoAlt={markenfotoAlt(c, fotoAlt)}
+              />
             </RevealItem>
           ))}
         </RevealGroup>

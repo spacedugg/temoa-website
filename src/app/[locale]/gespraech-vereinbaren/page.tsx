@@ -34,7 +34,7 @@ export default async function GespraechBuchenPage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <BookingBody
           w={w.buchung}
           fahrplan={w.fahrplan}

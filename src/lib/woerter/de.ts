@@ -19,21 +19,28 @@ export const de = {
 
   start: {
     /* Ueberschrift und Versprechen stehen wortgleich so, wie der Kunde sie
-       vorgegeben hat, inklusive der Anrede "deine" statt "eure". Zweimal
+       vorgegeben hat, inklusive der Anrede "deine" statt "eure". Mehrfach
        bestaetigt, also nicht anfassen. Die Ueberschrift ist geteilt, weil das
-       erste Stueck den Textmarker traegt. */
+       erste Stueck den Textmarker traegt.
+
+       Das Versprechen ist in der zweiunddreissigsten Runde umgestellt: die
+       Umsetzung steht vorn, die Aussage ueber das Budget folgt daraus. Vorher
+       hing "durch Profi-Umsetzung" hinten an und bezog sich grammatisch auf
+       das Werbebudget. */
     hero: {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitables Wachstum",
       titelRest: " für deine Amazon Brand",
-      lead: "Mehr Umsatz ist keine Frage des Werbebudgets durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co.",
+      lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
+      bildAlt: "Eine Produktseite auf dem Telefon, daneben Bewertungen und der Einkaufswagen",
     },
 
+    /* Nur noch die Beschriftung ueber den Logos. „60+ Marken" und
+       „5+ Marktplaetze" standen hier und noch einmal im Kennzahlenband unter
+       den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
       label: "Täglich in unserer Verantwortung",
-      marken: "Marken",
-      marktplaetze: "Marktplätze",
     },
 
     leistungen: {
@@ -49,7 +56,7 @@ export const de = {
         { titel: "Strategie", text: "Erst die Daten, dann der Plan." },
         { titel: "Produktbilder & SEO", text: "Aus Klicks werden Käufe." },
         { titel: "PPC Advertising", text: "Profitabel skalieren." },
-        { titel: "Account Management", text: "Bestand, Buy-Box, Cases im Griff." },
+        { titel: "Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff." },
         { titel: "Internationalisierung", text: "Lokalisieren statt übersetzen." },
       ],
     },
@@ -123,8 +130,8 @@ export const de = {
           text: "Marke und Bestseller-Begriffe bleiben besetzt, auch gegen Wettbewerber.",
         },
         {
-          titel: "Auf Profit steuern",
-          text: "Gemessen am TACoS: was Werbung kostet, gemessen am gesamten Umsatz.",
+          titel: "Profitabilität steigern",
+          text: "Wir steuern die Marke über den TACoS. Wenn Wachstum die Marge kostet, wird korrigiert.",
         },
       ],
       unterschiedLabel: "Der Unterschied",
@@ -190,13 +197,27 @@ export const de = {
       anfuehrungAuf: "„",
       anfuehrungZu: "“",
       sterne: "5 von 5 Sternen",
+      /* Ueber den Verweisen auf Trustpilot und Google. */
+      extern: "Auch hier bewertet",
     },
 
     mannschaft: {
       label: "Team",
       titel: "Das Team hinter temoa.",
-      lead: "Kein Konto liegt bei einer Person. An eurem Sortiment arbeiten mehrere gleichzeitig, jeder in seinem Bereich, mit denselben Zahlen vor sich.",
+      /* Zwei Fassungen sind hier gefallen. Erst stand da, wie viele Leute in
+         welchem Bereich arbeiten: das interessiert an dieser Stelle niemanden.
+         Dann „Amazon ist der einzige Marktplatz, auf dem wir arbeiten": das
+         schliesst weitere Marktplaetze aus, und die will der Kunde bedienen.
+         Auch die Zahl der Mitarbeiter steht nicht mehr da.
+
+         Was bleibt, ist die Arbeit selbst. Die Zahl der optimierten Produkte
+         ist eine Angabe des Kunden und muss belegbar bleiben. */
+      lead: "Über 1.000 Produkte haben wir auf Amazon optimiert, vom Hauptbild bis zur Kampagnenstruktur. Dieselben Leute arbeiten an eurem Sortiment.",
       bildAlt: "Die Gründer von temoa",
+      /* Beschreibt den Kranz kleiner Portraits um das Gründerbild. Die
+         Kacheln selbst tragen keinen Alternativtext: neun Namen, die auf der
+         Seite nirgends stehen, helfen niemandem. */
+      teamAlt: "Portraits der Mitarbeiterinnen und Mitarbeiter von temoa",
     },
   },
   /* ============================================================
@@ -581,7 +602,7 @@ export const de = {
           },
           {
             titel: "Richtlinienwarnung im Postfach",
-            text: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir schreiben den Case, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
+            text: "Ein Attribut verstößt gegen eine neue Vorgabe. Wir gehen ins Troubleshooting mit dem Amazon-Support, korrigieren das Listing und melden zurück, wenn es erledigt ist.",
           },
         ],
       },
@@ -597,12 +618,12 @@ export const de = {
             text: "Nachschub geplant, damit kein Bestseller leerläuft.",
           },
           {
-            titel: "Cases und Amazon-Support",
-            text: "Wir schreiben die Tickets, hängen hinterher und eskalieren, wenn nichts passiert.",
+            titel: "Troubleshooting mit Amazon",
+            text: "Wir eröffnen die Fälle beim Amazon-Support, hängen hinterher und eskalieren, wenn nichts passiert.",
           },
           {
-            titel: "Produkte anlegen und pflegen",
-            text: "Neue Artikel, Varianten und Flat-File-Uploads, inklusive der Attribute, die kaum jemand füllt.",
+            titel: "Neue Produkte anlegen",
+            text: "Artikel und Varianten sauber aufgesetzt, damit sie vom ersten Tag an richtig im Katalog stehen.",
           },
           {
             titel: "Richtlinien im Blick",
@@ -622,6 +643,33 @@ export const de = {
           },
         ],
       },
+      katalog: {
+        eyebrow: "Katalog und Backend",
+        titel: "Ein sauberer Katalog, bis ins letzte Attribut.",
+        lead: "Vieles, was über die Auffindbarkeit eines Produkts entscheidet, steht in Feldern, die auf der Detailseite gar nicht auftauchen. Wir pflegen sie für euer ganzes Sortiment.",
+        karten: [
+          {
+            titel: "Attribute und Pflichtfelder",
+            unterzeile: "Produkttyp, Maße, Material",
+            text: "Jede Kategorie verlangt andere Angaben. Fehlen sie, fällt das Produkt aus Filtern und Suchergebnissen heraus.",
+          },
+          {
+            titel: "Backend-Suchbegriffe",
+            unterzeile: "250 Byte, einmal richtig gefüllt",
+            text: "Synonyme, Schreibweisen und Tippfehler liegen dort, wo sie den Titel nicht belasten.",
+          },
+          {
+            titel: "Varianten und Eltern-Kind",
+            unterzeile: "Größen, Farben, Mengen",
+            text: "Alle Varianten unter einer Detailseite. So sammeln sich Bewertungen und Ranking an einer Stelle.",
+          },
+          {
+            titel: "Flat Files und Massenpflege",
+            unterzeile: "Hunderte Artikel auf einmal",
+            text: "Änderungen laufen über Uploads statt per Hand. Dazu Katalogfehler: Dubletten, falsch zusammengeführte Angebote, tote ASINs.",
+          },
+        ],
+      },
       ergebnisBand: {
         badge: "Wir machen die Arbeit",
         titel: "Ihr bekommt die Ergebnisse.",
@@ -629,7 +677,7 @@ export const de = {
           "Buy-Box-Verluste am selben Tag geklärt",
           "Nachschub geplant, bevor der Bestand kippt",
           "Monatsreport mit klaren nächsten Schritten",
-          "Anfragen an den Amazon-Support laufen über uns",
+          "Troubleshooting mit dem Amazon-Support läuft über uns",
         ],
       },
       ergebnis: {
@@ -855,7 +903,7 @@ export const de = {
           punkte: [
             "Buy-Box weg? Wir sehen es am selben Tag, samt Ursache",
             "Nachschub geplant, damit kein Bestseller leerläuft und Rankings kippen",
-            "Konto-Gesundheit im Blick, Fälle laufen über uns zum Amazon-Support",
+            "Konto-Gesundheit im Blick, Troubleshooting mit Amazon läuft über uns",
             "Preise so gesteuert, dass Wachstum die Marge nicht auffrisst",
           ],
         },
@@ -966,7 +1014,13 @@ export const de = {
     raster: {
       oeffnen: "Case Study öffnen",
       hinweis: "Klickt eine Marke an für die ganze Case Study.",
+      /* Ueberschrift ueber dem Raster. Sie stand nirgends, dadurch sprang die
+         Seite von der h1 direkt auf die h3 der Fallkacheln. */
+      titel: "Sechs Marken im Einzelnen.",
     },
+    /* `{marke}` und `{branche}` werden ersetzt. Beschreibt das Markenfoto, das
+       jede Fallkachel und jeder Fallkopf traegt. */
+    altMarkenfoto: "{marke}, {branche}",
 
     diagramm: {
       umsatz: "Umsatz pro Monat",
@@ -1002,6 +1056,16 @@ export const de = {
         "Für ein Produkt entstehen mehrere Hauptbilder. Welches bleibt, entscheidet die Klickrate im Suchergebnis.",
       aplus: "Premium A+ Content",
       schliessen: "Schließen",
+      /* Alternativtexte der Produktbilder. `{marke}`, `{produkt}` und `{n}`
+         werden ersetzt. Sie stehen hier und nicht als leeres `alt` im Code:
+         es sind rund zweihundert ausgelieferte Bilder, und ohne Beschreibung
+         taucht keines davon in der Bildersuche auf. */
+      altHauptbild: "Hauptbild für {produkt} von {marke}",
+      altListing: "Listingbild {n} für {produkt} von {marke}",
+      altVariante: "Hauptbildvariante {n} für {produkt} von {marke}",
+      altPalette: "Hauptbild eines weiteren Artikels von {marke}, im selben Aufbau",
+      altAplus: "Premium A+ Modul {n} für {produkt} von {marke}",
+      altVideo: "Listing-Video für {produkt} von {marke}",
     },
 
     galerie: {
@@ -1280,6 +1344,9 @@ export const de = {
       lead: "Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
+    /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von
+       der h1 auf die h3 der Kacheln. `{thema}` wird ersetzt. */
+    themaTitel: "Alle Beiträge zu {thema}",
     einBeitrag: "1 Beitrag",
     beitraege: "{n} Beiträge",
     empfohlen: "Empfohlene Beiträge",

@@ -46,7 +46,7 @@ export default async function CaseDetailPage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <div className="pt-10 md:pt-14" />
         <CaseBlock c={c} index={0} w={w} />
         <CaseGallery c={c} w={w} />

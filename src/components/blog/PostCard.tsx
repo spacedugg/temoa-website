@@ -23,6 +23,7 @@ export function PostCard({
         seed={post.slug}
         label={post.categoryShort}
         image={post.image}
+        titel={post.title}
         className="aspect-[16/10] w-full"
       />
       <div className="flex flex-1 flex-col p-5">

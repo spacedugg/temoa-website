@@ -48,7 +48,7 @@ export default async function CategoryPage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <section className="relative overflow-hidden ground pb-10 pt-36 md:pt-44">
           <div
             className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-50 blur-3xl"
@@ -87,6 +87,13 @@ export default async function CategoryPage({
 
         <section className="relative ground pb-24">
           <div className="container-x">
+            {/* Die Liste stand ohne Ueberschrift da. Jede Kachel traegt aber
+                eine h3: die Seite sprang damit von der h1 auf die h3. */}
+            <Reveal>
+              <h2 className="mb-8 text-[1.35rem] font-extrabold tracking-tight text-ink md:text-[1.6rem]">
+                {w.themaTitel.replace("{thema}", cat.label)}
+              </h2>
+            </Reveal>
             <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.05}>
               {posts.map((p) => (
                 <RevealItem key={p.slug} className="h-full">

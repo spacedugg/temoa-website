@@ -13,9 +13,13 @@ import { RevealGroup, RevealItem } from "../ui/Reveal";
 /* Nur die Werte stehen hier. Vorzeichen, Einheit und Beschriftung kommen von
    aussen: „Ø" und „Mio." sind deutsche Abkuerzungen, im Englischen heissen
    sie anders. */
-const werte = [30, 21, 60, 5];
+/* Die Werte stehen hier und werden von der Startseite mitbenutzt: das
+   Kennzahlenband laeuft dort im „Nachweis" mit, damit dieselben vier Zahlen
+   nicht an zwei Stellen gepflegt werden muessen. */
+export const KENNZAHL_WERTE = [30, 21, 60, 5];
+const werte = KENNZAHL_WERTE;
 /* Die erste Zahl ist eine Steigerung und traegt deshalb Gruen. */
-const WACHSTUM = 0;
+export const WACHSTUM = 0;
 
 /* Der gruene Pfeil stand nur an der ersten Zahl und sass wegen der
    Aufteilung optisch vor der zweiten. Ein Zeichen, das nur an einer von vier

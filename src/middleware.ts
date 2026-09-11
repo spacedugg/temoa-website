@@ -42,6 +42,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  /* Deutsch hat kein Praefix. Wer trotzdem `/de/...` aufruft, wird dauerhaft
+     auf die Adresse ohne Praefix geleitet. Ohne das lief `/de/x` in die
+     Umschreibung darunter und landete auf `/de/de/x`, also auf einer 404.
+     Dauerhaft und nicht vorlaeufig: dieselbe Seite unter zwei Adressen ist
+     ein Duplikat. Eine 308 sagt der Suchmaschine, welche davon gilt. */
+  if (pathname === "/de" || pathname.startsWith("/de/")) {
+    const ziel = request.nextUrl.clone();
+    ziel.pathname = pathname.slice(3) || "/";
+    return NextResponse.redirect(ziel, 308);
+  }
+
   const cookie = request.cookies.get(SPRACH_COOKIE)?.value;
   const ua = request.headers.get("user-agent");
 
@@ -74,6 +85,11 @@ export function middleware(request: NextRequest) {
 export const config = {
   /* Alles ausser Next-Interna, Dateien mit Endung und den API-Routen. Ohne
      die Ausnahme fuer Endungen laufen Bilder, Schriften und die
-     Sitemap durch die Weiche. */
-  matcher: ["/((?!api|_next/static|_next/image|.*\\.[\\w]+$).*)"],
+     Sitemap durch die Weiche.
+
+     `opengraph-image` ist ebenfalls ausgenommen. Es traegt keine Endung, ist
+     aber ein Bild und liegt unter dem Sprachsegment: `/de/opengraph-image`.
+     Liefe es durch die Weiche, wuerde daraus `/de/de/opengraph-image`. Die
+     Adresse, die in `og:image` steht, waere dann eine 404. */
+  matcher: ["/((?!api|_next/static|_next/image|.*opengraph-image|.*\\.[\\w]+$).*)"],
 };

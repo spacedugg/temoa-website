@@ -43,7 +43,7 @@ export default async function DesignBeispielePage({
   return (
     <>
       <Kopfzeile />
-      <main>
+      <main id="inhalt">
         <PageHero
           eyebrow={w.kopf.eyebrow}
           title={
