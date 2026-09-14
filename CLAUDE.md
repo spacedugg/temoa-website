@@ -1348,8 +1348,9 @@ beide Sprachen, sofern hier nichts anderes steht.
   A+ Bahnen, Markenfotos, Logos, die Illustrationen der Leistungsseiten, das
   Kemes-Listing im Nachbau der Produktseite.
 - **Ergebnis, im Browser gemessen**: Startseite 2,80 auf 1,46 MB, Fallseite
-  Miganeo 3,42 auf 1,98, Futum 3,82 auf 2,39, Designbeispiele 0,92 auf 0,43,
-  Produktbilder & SEO 1,92 auf 0,56.
+  Miganeo 3,42 auf 1,98, Futum 3,82 auf 2,39, Produktbilder & SEO 1,92 auf
+  0,56. Die Zahl zu den Designbeispielen, die hier zuerst stand, war falsch,
+  siehe die vierunddreissigste Runde.
 
 ### Videos
 
@@ -1398,3 +1399,62 @@ beide Sprachen, sofern hier nichts anderes steht.
   Zeile mit „4,9 / 5 Kundenbewertung", die seit der Umstellung auf `bare` nie
   gerendert wurde, fest auf Deutsch im Code stand und eine Bewertung nannte,
   die es so nicht gibt. Belegt sind 5,0 bei Google und 4,5 bei Trustpilot.
+
+## Vierunddreissigste Feedbackrunde (verbindlich, Designbeispiele)
+
+### Eine Messung, die nichts gemessen hat
+
+- **Die Designbeispiele holen ihre Bilder nicht aus dem Repo.** Sie kommen aus
+  dem Sales Room ueber den Blob-Speicher
+  (`mdkzd29bnpshwsig.public.blob.vercel-storage.com`), geladen zur Laufzeit
+  ueber `lib/references`. Im Repo liegt `src/data/references.json`. Die
+  Datei ist leer: lokal zeigt die Seite deshalb nur den Rueckfall aus zehn
+  Miganeo-Bildern.
+- **Die 0,43 MB der vorigen Runde galten diesem Rueckfall**, nicht der Seite.
+  Ueber die echte Bibliothek laufen Produktbilder, A+ Content, Brand Stores
+  und Brand Stories. Wer eine Zahl zu dieser Seite nennt, prueft vorher, ob
+  die Bibliothek gefuellt ist. Zum Messen: Testdaten nach
+  `src/data/references.json` schreiben, bauen, messen, Datei zuruecksetzen.
+- **Von dieser Umgebung aus ist die Live-Seite nicht erreichbar**, der
+  Ausgangsproxy blockt sie. Eine Aussage ueber die echte Seite kann deshalb nur
+  aus dem Code kommen oder vom Kunden.
+
+### Was an dieser Seite wirklich langsam war
+
+- **Die Bilder der Bibliothek liefen als einfaches `img` ueber die Seite**, in
+  der Groesse, in der sie im Sales Room hochgeladen wurden. Ein A+ Modul ist
+  dort gern zweitausend Pixel breit. Die Arbeit an den Dateien im Repo hat
+  dieser Seite nichts gebracht: `lib/bilder` schreibt nur Pfade um, die im
+  Repo liegen. Diese liegen dort nicht.
+- **Jetzt laufen sie ueber `next/image`** (`RefBild` in `design/DesignGallery`).
+  Der Blob-Host steht dafuer schon in `next.config.mjs`. Vercel liefert die
+  Datei in der gebrauchten Breite als WebP oder AVIF und legt sie in den
+  Zwischenspeicher.
+- **Eine Adresse von einem fremden Host faellt auf ein einfaches `img`
+  zurueck.** Die Bildoptimierung bricht bei einem unbekannten Host mit einem
+  Fehler ab. Eine Galerie, die gar nicht laedt, ist schlechter als eine, die
+  langsam laedt.
+- **`sizes` wird nicht geschaetzt, sondern nachgemessen.** Bei 22 rem lieferte
+  die Optimierung 352 Pixel in eine Spalte von 395. Die Schrift im A+ Modul
+  stand damit weich auf der Seite. Eine zu klein angesagte Breite ist der teurere
+  Fehler als eine zu grosse.
+
+### A+ Content steht in voller Laenge
+
+- **Kein Ausschnitt, kein Auslauf, kein Deckel.** Die dreissigste Runde hat die
+  A+ Kacheln auf 4 zu 3 beschnitten und nur die ersten Bahnen geladen. Das war
+  als Ordnung gedacht und war keine: bei A+ Content ist die Laenge die Aussage.
+  Die Regeln „EBC-Kacheln sind gleich hoch und zeigen den Anfang", „Ein Stapel,
+  der niedriger ist als die Kachel, steht mittig" und „Geladen werden nur die
+  Bahnen, die in den Ausschnitt passen" sind damit aufgehoben.
+- **Die Spalten verteilt der Code, nicht das Stylesheet.** `columns-*` bleibt
+  verboten (Chrome rechnet die Spalten neu, sobald ein Element eine eigene
+  Zeichenebene bekommt, siehe dreissigste Runde). Weil die Beispiele
+  verschieden hoch sind, kommt jedes in die Spalte, die gerade am wenigsten
+  traegt; die Hoehe dafuer rechnet sich aus den Bildmassen der Bibliothek.
+- **Eine Spalte auf dem Telefon, zwei ab 640, drei ab 1280.** Vorher bis zu
+  fuenf. In voller Laenge ist ein A+ Modul in einer Spalte von 183 Pixeln nicht
+  mehr zu lesen.
+- **Die Spaltenzahl steht im Code und im Stylesheet**, weil die Verteilung sie
+  braucht. Beim ersten Rendern steht sie auf drei; auf dem Telefon ordnet sich
+  das Raster nach dem Laden einmal neu.
