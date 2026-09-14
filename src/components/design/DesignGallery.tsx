@@ -267,6 +267,15 @@ function ListingGallery({ listings, art, w }: { listings: RefListing[]; art: str
  * Content steht einen Klick weiter in voller Groesse.
  * ========================================================================== */
 
+/* Der Abstand zwischen zwei Beispielen untereinander, in Vielfachen der
+   Spaltenbreite. Er geht in die Verteilung auf die Spalten ein: ohne ihn
+   rechnet sie mit Stapeln, die dichter stehen, als sie stehen. Die Spalten
+   enden dann ungleich.
+
+   Der Wert gehoert zum Abstand im Stylesheet (`gap-20`, 5 rem) bei einer
+   Spalte von rund 26 rem. */
+const LUECKE = 5 / 26;
+
 /* Wie breit eine A+ Kachel im Raster steht, fuer die Bildoptimierung.
    Der Container ist 80 rem breit, bei drei Spalten und zwei Luecken von 1 rem
    bleiben je Spalte rund 26 rem. Angesetzt sind 28: eine zu klein angesagte
@@ -385,14 +394,14 @@ function EbcGallery({ listings, art, w }: { listings: RefListing[]; art: string;
     let ziel = 0;
     for (let s = 1; s < spalten; s++) if (last[s] < last[ziel]) ziel = s;
     koerbe[ziel].push({ l, i });
-    last[ziel] += hoeheVon(l) + 0.1;
+    last[ziel] += hoeheVon(l) + LUECKE;
   });
 
   return (
     <>
-      <div className="mx-auto flex max-w-7xl items-start gap-4">
+      <div className="mx-auto flex max-w-7xl items-start gap-6 md:gap-10">
         {koerbe.map((korb, s) => (
-          <div key={s} className="flex min-w-0 flex-1 flex-col gap-4">
+          <div key={s} className="flex min-w-0 flex-1 flex-col gap-16 md:gap-20">
             {korb.map(({ l, i }) => (
               <button
                 key={l.id}

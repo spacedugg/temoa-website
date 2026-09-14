@@ -1458,3 +1458,12 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Die Spaltenzahl steht im Code und im Stylesheet**, weil die Verteilung sie
   braucht. Beim ersten Rendern steht sie auf drei; auf dem Telefon ordnet sich
   das Raster nach dem Laden einmal neu.
+- **Zwischen zwei Beispielen liegt viel Luft**: 80 Pixel untereinander, 40
+  nebeneinander (auf dem Telefon 64). Vorher waren es 16 in beide Richtungen.
+  Zwei A+ Seiten sind beide weiss und stossen sonst so aneinander, dass nicht
+  zu sehen ist, wo die eine aufhoert und die naechste anfaengt. Senkrecht
+  braucht es dabei mehr als waagerecht: nebeneinander trennen schon die
+  verschiedenen Hoehen.
+- **Der senkrechte Abstand geht in die Verteilung ein** (`LUECKE`). Ohne ihn
+  rechnet sie mit Stapeln, die dichter stehen, als sie stehen. Die Spalten
+  enden dann ungleich.
