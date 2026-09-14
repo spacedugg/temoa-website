@@ -1293,3 +1293,29 @@ beide Sprachen, sofern hier nichts anderes steht.
   bis 30: Analyse". Auf der Buchungsseite steht das im eigenen `Ablauf`, auf
   der Full-Service-Seite an keiner anderen Stelle. Ob es zurueckkommt und wo,
   entscheidet der Kunde.
+
+## Zweiunddreissigste Feedbackrunde (verbindlich, Hero-Bild)
+
+- **Das Hero-Bild liegt in zwei Sprachen vor.** Die Beschriftung steckt im
+  Bild, also gibt es das Bild zweimal: `bilder/h-listing` und
+  `bilder/h-listing-en`. Welche Fassung laeuft, entscheidet die Sprache der
+  Seite (`HeroBuehne` bekommt `sprache` von `Auftrag`), nicht der Ort des
+  Besuchers.
+- **Erzeugt wird es von `scripts/hero-bild.mjs <quelle-de> <quelle-en>`**: je
+  zwei Groessen (760 und 1200) in WebP und AVIF, dazu die Masse nach
+  `takt/hero-bild.ts`. Ohne `width` und `height` am Bild springt die Seite
+  beim Laden. Das Skript warnt, wenn die beiden Quellen verschiedene Masse
+  haben: dann wuerde die Seite beim Umschalten der Sprache springen.
+- **Das Hero-Bild ist das groesste Element im ersten Bildschirm** und damit
+  das, an dem die Ladezeit gemessen wird. Es traegt `fetchPriority="high"`
+  und blendet sich nicht mit Versatz und Verzug ein: was eine Sekunde lang
+  auf Deckkraft null steht, gilt eine Sekunde lang als nicht geladen. Die
+  Huelle in `Auftrag` macht nur noch eine kurze Blende ohne Verzoegerung.
+- **Die Ausnahme aus der siebzehnten Runde gilt weiter.** Auch dieses Bild
+  zeigt Oberflaeche einer Produktseite (Suchleiste, „In den Warenkorb") und
+  einen erfundenen Preis von 24,90 Euro an einem erfundenen Produkt. Der
+  Kunde hat es so geliefert. Nicht eigenmaechtig zurueckbauen, aber auch
+  nicht als Vorbild fuer weitere Bilder nehmen.
+- **Bilder kommen als Anhang, nicht im Fliesstext der Nachricht.** Ein Bild
+  im Chat ist sichtbar, es entsteht aber keine Datei dazu. Nur Anhaenge
+  landen unter `/root/.claude/uploads`.
