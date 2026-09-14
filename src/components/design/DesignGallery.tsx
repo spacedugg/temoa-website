@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Reveal } from "../ui/Reveal";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
@@ -48,6 +49,77 @@ const accentShadow = (i: number) => {
     `0 34px 60px -30px ${c}59`,
   ].join(", ");
 };
+
+/* ============================================================================
+ * Ein Bild aus der Referenz-Bibliothek.
+ *
+ * Diese Bilder liegen nicht im Repo. Sie kommen aus dem Sales Room, liegen im
+ * Blob-Speicher und haben die Groesse, in der sie dort hochgeladen wurden: ein
+ * A+ Modul ist dort gern zweitausend Pixel breit und mehrere hundert Kilobyte
+ * schwer. Bisher standen sie als einfaches `img` auf der Seite, jeder Besucher
+ * lud also jedes Original in voller Groesse. Bei einer Seite mit A+ Content,
+ * Brand Stores und Brand Stories sind das schnell zweistellige Megabyte, und
+ * genau das hat der Kunde als „dauert hammerlang" gemeldet.
+ *
+ * Jetzt laufen sie ueber die Bildoptimierung von Next. Der Blob-Host steht
+ * dafuer bereits in `next.config.mjs`. Sie liefert die Datei in der Breite aus,
+ * die an dieser Stelle gebraucht wird, in WebP oder AVIF. Das Ergebnis legt
+ * sie in den Zwischenspeicher.
+ *
+ * Kommt eine Adresse von einem anderen Host, faellt die Darstellung auf ein
+ * einfaches `img` zurueck: die Optimierung bricht bei einem unbekannten Host
+ * mit einem Fehler ab. Eine Galerie, die gar nicht laedt, ist schlechter als
+ * eine, die langsam laedt.
+ * ========================================================================== */
+
+const BLOB_HOST = "mdkzd29bnpshwsig.public.blob.vercel-storage.com";
+
+function optimierbar(url: string): boolean {
+  if (url.startsWith("/")) return true;
+  try {
+    return new URL(url).hostname === BLOB_HOST;
+  } catch {
+    return false;
+  }
+}
+
+function RefBild({
+  im,
+  alt,
+  sizes,
+  className = "w-full",
+  eager = false,
+  fallbackRatio = 970 / 600,
+}: {
+  im: RefImage | { url: string; width?: number | null; height?: number | null };
+  alt: string;
+  /** Wie breit das Bild an dieser Stelle steht, fuer die Bildoptimierung. */
+  sizes: string;
+  className?: string;
+  eager?: boolean;
+  fallbackRatio?: number;
+}) {
+  if (!optimierbar(im.url)) {
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={im.url} alt={alt} loading={eager ? undefined : "lazy"} decoding="async" className={className} />;
+  }
+  /* `next/image` braucht Masse. Wo die Bibliothek keine hinterlegt hat, wird
+     das Verhaeltnis geschaetzt: die Zahlen dienen nur dem Seitenverhaeltnis,
+     die Breite auf der Seite kommt aus dem Stylesheet. */
+  const breite = im.width ?? 1400;
+  const hoehe = im.height ?? Math.round(breite / fallbackRatio);
+  return (
+    <Image
+      src={im.url}
+      alt={alt}
+      width={breite}
+      height={hoehe}
+      sizes={sizes}
+      loading={eager ? undefined : "lazy"}
+      className={className}
+    />
+  );
+}
 
 const guard = (e: React.MouseEvent) => {
   const t = e.target as HTMLElement;
@@ -102,6 +174,11 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
   const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
   const details = listing.images.filter((i) => i !== hero).slice(0, 6);
   const [heroAspect, setHeroAspect] = useState(() => aspect(hero, 1));
+  /* Dieselbe Komponente steht in der Kachel und in der Grossansicht. In der
+     Kachel ist das Hauptbild rund 400 Pixel breit, in der Grossansicht bis zu
+     1040. Die Bildoptimierung bekommt das ueber `sizes` gesagt. */
+  const heroSizes = interactive ? "(min-width: 1024px) 24rem, 90vw" : "(min-width: 1024px) 40rem, 90vw";
+  const kachelSizes = interactive ? "(min-width: 1024px) 8rem, 30vw" : "(min-width: 1024px) 13rem, 30vw";
 
   return (
     <div
@@ -115,15 +192,11 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
         <div className="overflow-hidden rounded-sm">
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={hero.url}
+            <RefBild
+              im={hero}
               alt={altText(art, listing, 1)}
-              loading="lazy"
-              onLoad={(e) => {
-                const t = e.currentTarget;
-                if (!(hero.width && hero.height) && t.naturalWidth && t.naturalHeight)
-                  setHeroAspect(t.naturalWidth / t.naturalHeight);
-              }}
+              sizes={heroSizes}
+              fallbackRatio={1}
               className="h-full w-full object-contain"
             />
           )}
@@ -135,7 +208,13 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
               <div key={i} className="overflow-hidden rounded-sm">
                 {im && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={im.url} alt={altText(art, listing, i + 2)} loading="lazy" className="h-full w-full object-cover" />
+                  <RefBild
+                    im={im}
+                    alt={altText(art, listing, i + 2)}
+                    sizes={kachelSizes}
+                    fallbackRatio={1}
+                    className="h-full w-full object-cover"
+                  />
                 )}
               </div>
             );
@@ -188,74 +267,58 @@ function ListingGallery({ listings, art, w }: { listings: RefListing[]; art: str
  * Content steht einen Klick weiter in voller Groesse.
  * ========================================================================== */
 
-/* Hoehe je Breite einer Vorschaukachel. 4 zu 3 fasst rund drei A+ Module. */
-const VORSCHAU = 4 / 3;
+/* Der Abstand zwischen zwei Beispielen untereinander, in Vielfachen der
+   Spaltenbreite. Er geht in die Verteilung auf die Spalten ein: ohne ihn
+   rechnet sie mit Stapeln, die dichter stehen, als sie stehen. Die Spalten
+   enden dann ungleich.
 
-function EbcVorschau({ listing, art }: { listing: RefListing; art: string }) {
-  const gap = listing.layout !== "ebc_seamless";
-  /* Hoehe je Bahn, gerechnet in Vielfachen der Breite. Ein A+ Modul liegt
-     bei 2,44 zu 1, also rund 0,41. */
-  const bahn = (im: RefImage) => 1 / aspect(im, 970 / 600);
-  const gesamt = listing.images.reduce((s, im) => s + bahn(im), 0);
+   Der Wert gehoert zum Abstand im Stylesheet (`gap-20`, 5 rem) bei einer
+   Spalte von rund 26 rem. */
+const LUECKE = 5 / 26;
 
-  /* Nur die Bahnen laden, die in den Ausschnitt passen, dazu eine als Puffer:
-     eine Kachel von 230 Pixeln braucht keine sechs A+ Module, von denen vier
-     ohnehin abgeschnitten sind. Der Puffer faengt ab, wenn ein Bildmass in den
-     Daten fehlt und die Rechnung deshalb danebenliegt. */
-  const sichtbar: RefImage[] = [];
-  let hoehe = 0;
-  for (const im of listing.images) {
-    if (hoehe >= VORSCHAU + bahn(im)) break;
-    sichtbar.push(im);
-    hoehe += bahn(im);
-  }
+/* Wie breit eine A+ Kachel im Raster steht, fuer die Bildoptimierung.
+   Der Container ist 80 rem breit, bei drei Spalten und zwei Luecken von 1 rem
+   bleiben je Spalte rund 26 rem. Angesetzt sind 28: eine zu klein angesagte
+   Breite laesst die Bildoptimierung eine Stufe darunter ausliefern. Dann
+   steht die Schrift im A+ Modul weich auf der Seite. Im Browser nachgemessen:
+   bei 22 rem kam eine Datei mit 352 Pixeln in eine Spalte von 395. */
+const EBC_SIZES = "(min-width: 1280px) 28rem, (min-width: 640px) 50vw, 96vw";
 
-  /* Ein Stapel aus zwei Modulen ist niedriger als die Kachel. Dann steht er
-     mittig statt oben, und der weisse Rest liest sich als Passepartout und
-     nicht als Fehler. Laengere Stapel bleiben oben und laufen unten aus. */
-  const kurz = gesamt < VORSCHAU - 0.02;
-  return (
-    <div
-      className={`relative flex w-full overflow-hidden bg-white ${kurz ? "items-center" : "items-start"}`}
-      style={{ aspectRatio: `1 / ${VORSCHAU}` }}
-    >
-      <div className={`flex w-full flex-col ${gap ? "gap-[3px]" : "gap-0"}`}>
-        {sichtbar.map((im) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={im.order}
-            src={im.url}
-            alt={altText(art, listing, im.order + 1)}
-            loading="lazy"
-            decoding="async"
-            className="w-full"
-          />
-        ))}
-      </div>
-      {!kurz && (
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-white via-white/80 to-transparent"
-        />
-      )}
-    </div>
-  );
-}
-
-/* Der ganze Stapel ohne Schnitt. Steht dort, wo Platz genug ist: in der
-   Grossansicht und wenn nur ein einziges Beispiel vorliegt. */
-function EbcVoll({ listing, art, klick = true }: { listing: RefListing; art: string; klick?: boolean }) {
+/**
+ * Ein A+ Beispiel in voller Laenge.
+ *
+ * Kein Ausschnitt, kein Auslauf nach unten, kein Deckel: jedes Beispiel steht
+ * vollstaendig da. Eine Vorfassung hat die Kachel auf 4 zu 3 beschnitten und
+ * nur die ersten Bahnen geladen. Das war als Ordnung gedacht und war keine:
+ * bei A+ Content ist die Laenge die Aussage. Wer nur den Kopf sieht, sieht
+ * nicht die Arbeit.
+ *
+ * `gap` kommt aus dem Layout der Bibliothek: manche Seiten sind als Folge
+ * einzelner Module gebaut, andere laufen als eine durchgehende Grafik. Bei
+ * denen darf kein Abstand dazwischen, sonst reisst das Bild mitten im Motiv.
+ */
+function EbcVoll({
+  listing,
+  art,
+  sizes = EBC_SIZES,
+  eagerErste = false,
+}: {
+  listing: RefListing;
+  art: string;
+  sizes?: string;
+  /** Die erste Bahn der Grossansicht laedt sofort, sie steht schon im Bild. */
+  eagerErste?: boolean;
+}) {
   const gap = listing.layout !== "ebc_seamless";
   return (
     <div className={`flex w-full flex-col bg-white ${gap ? "gap-[4px]" : "gap-0"}`}>
-      {listing.images.map((im) => (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+      {listing.images.map((im, i) => (
+        <RefBild
           key={im.order}
-          src={im.url}
+          im={im}
           alt={altText(art, listing, im.order + 1)}
-          loading={klick ? "lazy" : undefined}
-          decoding="async"
+          sizes={sizes}
+          eager={eagerErste && i === 0}
           className="w-full"
         />
       ))}
@@ -272,37 +335,87 @@ function EbcGross({ listing, art }: { listing: RefListing; art: string }) {
       className="overflow-y-auto overscroll-contain rounded-2xl bg-white shadow-lift"
       style={{ width: "min(94vw, 760px)", maxHeight: "92vh" }}
     >
-      <EbcVoll listing={listing} art={art} klick={false} />
+      <EbcVoll listing={listing} art={art} sizes="min(94vw, 760px)" eagerErste />
     </div>
   );
 }
 
+/**
+ * Wie viele Spalten das Raster traegt.
+ *
+ * Die Zahl wird im Code gebraucht und nicht nur im Stylesheet, weil die
+ * Kacheln von Hand auf die Spalten verteilt werden. Beim ersten Rendern steht
+ * sie auf drei; das trifft den Rechner. Auf dem Telefon ordnet sich das
+ * Raster nach dem Laden einmal neu.
+ */
+function useSpalten(): number {
+  const [n, setN] = useState(3);
+  useEffect(() => {
+    const zwei = window.matchMedia("(min-width: 640px)");
+    const drei = window.matchMedia("(min-width: 1280px)");
+    const lesen = () => setN(drei.matches ? 3 : zwei.matches ? 2 : 1);
+    lesen();
+    zwei.addEventListener("change", lesen);
+    drei.addEventListener("change", lesen);
+    return () => {
+      zwei.removeEventListener("change", lesen);
+      drei.removeEventListener("change", lesen);
+    };
+  }, []);
+  return n;
+}
+
+/**
+ * Die A+ Beispiele.
+ *
+ * Kein CSS-Mehrspaltenlayout: Chrome rechnet `columns-*` neu, sobald ein
+ * Element darin eine eigene Zeichenebene bekommt. Beim Zeigen verschwanden
+ * dann ganze Spalten. Das steht so in der Geschichte und bleibt verboten.
+ *
+ * Weil die Beispiele in voller Laenge stehen, sind sie verschieden hoch. Ein
+ * gewoehnliches Raster zieht jede Zeile auf die hoechste Kachel und laesst
+ * unter den kurzen eine Luecke. Die Verteilung macht deshalb der Code: jedes
+ * Beispiel kommt in die Spalte, die gerade am wenigsten traegt. Die Hoehe ist
+ * dafuer aus den Bildmassen der Bibliothek gerechnet, in Vielfachen der
+ * Spaltenbreite.
+ */
 function EbcGallery({ listings, art, w }: { listings: RefListing[]; art: string; w: Woerterbuch["design"] }) {
   const p = usePager(listings.length);
-  /* Bei einem einzigen Beispiel gibt es nichts zu ordnen: dann steht der
-     Stapel ganz da, statt auf Kachelhoehe beschnitten zu werden. */
-  const einzeln = listings.length === 1;
+  const spalten = useSpalten();
+
+  /* Hoehe eines Beispiels in Vielfachen seiner Breite. Ein A+ Modul liegt bei
+     rund 2,44 zu 1, also 0,41 je Bahn. */
+  const hoeheVon = (l: RefListing) =>
+    l.images.reduce((s, im) => s + 1 / aspect(im, 970 / 600), 0);
+
+  const koerbe: { l: RefListing; i: number }[][] = Array.from({ length: spalten }, () => []);
+  const last = new Array(spalten).fill(0);
+  listings.forEach((l, i) => {
+    let ziel = 0;
+    for (let s = 1; s < spalten; s++) if (last[s] < last[ziel]) ziel = s;
+    koerbe[ziel].push({ l, i });
+    last[ziel] += hoeheVon(l) + LUECKE;
+  });
+
   return (
     <>
-      <div
-        className={
-          einzeln
-            ? "mx-auto max-w-[420px]"
-            : "mx-auto grid max-w-7xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
-        }
-      >
-        {listings.map((l, i) => (
-          <button
-            key={l.id}
-            type="button"
-            onClick={() => p.open(i)}
-            onContextMenu={guard}
-            style={{ boxShadow: accentShadow(i) }}
-            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg transition-transform duration-300 hover:-translate-y-1"
-          >
-            <MaximizeBadge />
-            {einzeln ? <EbcVoll listing={l} art={art} /> : <EbcVorschau listing={l} art={art} />}
-          </button>
+      <div className="mx-auto flex max-w-7xl items-start gap-6 md:gap-10">
+        {koerbe.map((korb, s) => (
+          <div key={s} className="flex min-w-0 flex-1 flex-col gap-16 md:gap-20">
+            {korb.map(({ l, i }) => (
+              <button
+                key={l.id}
+                type="button"
+                onClick={() => p.open(i)}
+                onContextMenu={guard}
+                style={{ boxShadow: accentShadow(i) }}
+                className="group relative block w-full cursor-zoom-in overflow-hidden rounded-lg transition-transform duration-300 hover:-translate-y-1"
+              >
+                <MaximizeBadge />
+                <EbcVoll listing={l} art={art} />
+              </button>
+            ))}
+          </div>
         ))}
       </div>
       {p.idx != null && (
@@ -314,9 +427,6 @@ function EbcGallery({ listings, art, w }: { listings: RefListing[]; art: string;
   );
 }
 
-/* ============================================================================
- * 4. Brand Stores — 2:3-Teaser, Play -> groß zentriert (Auto-Scroll / MP4)
- * ========================================================================== */
 function StoreThumb({ media, alt, onOpen, accent = 0 }: { media: RefImage; alt: string; onOpen: () => void; accent?: number }) {
   const video = media.mediaType === "video";
   return (
@@ -331,7 +441,13 @@ function StoreThumb({ media, alt, onOpen, accent = 0 }: { media: RefImage; alt: 
         <video src={media.url} muted playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={media.url} alt={alt} loading="lazy" className="absolute inset-x-0 top-0 w-full" />
+        <RefBild
+          im={media}
+          alt={alt}
+          sizes="(min-width: 1024px) 15rem, 45vw"
+          fallbackRatio={9 / 13.86}
+          className="absolute inset-x-0 top-0 w-full"
+        />
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
       <div className="pointer-events-none absolute inset-0 grid place-items-center">
@@ -457,7 +573,13 @@ function StoryCardInner({ card, alt }: { card: RefImage; alt: string }) {
             <div key={i} className="relative overflow-hidden bg-canvas-alt" style={{ aspectRatio: "1328 / 1456" }}>
               {sub?.url ? (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={sub.url} alt={alt} draggable={false} className="block h-full w-full object-cover" />
+                <RefBild
+                  im={sub}
+                  alt={alt}
+                  sizes="(min-width: 1024px) 7rem, 22vw"
+                  fallbackRatio={1}
+                  className="block h-full w-full object-cover"
+                />
               ) : (
                 <div className="grid h-full w-full place-items-center text-[8px] text-ink-faint">ASIN</div>
               )}
@@ -478,7 +600,15 @@ function StoryCardInner({ card, alt }: { card: RefImage; alt: string }) {
     );
   }
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={card.url} alt={alt} loading="lazy" draggable={false} className="block h-full w-full object-cover" />;
+  return (
+    <RefBild
+      im={card}
+      alt={alt}
+      sizes="(min-width: 1024px) 22rem, 70vw"
+      fallbackRatio={9 / 16}
+      className="block h-full w-full object-cover"
+    />
+  );
 }
 
 function StoryFrame({
@@ -525,7 +655,14 @@ function StoryFrame({
       >
         {background ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={background.url} alt={alt(0)} className="absolute inset-0 h-full w-full object-cover" />
+          <RefBild
+            im={background}
+            alt={alt(0)}
+            sizes="(min-width: 1024px) 60rem, 100vw"
+            fallbackRatio={16 / 9}
+            eager
+            className="absolute inset-0 h-full w-full object-cover"
+          />
         ) : (
           <div className="absolute inset-0 bg-canvas-alt" />
         )}

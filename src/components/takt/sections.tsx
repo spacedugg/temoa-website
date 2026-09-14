@@ -16,6 +16,8 @@ import { Markenlogo } from "../ui/Markenlogo";
 import { initials, type Testimonial } from "@/lib/testimonials";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
+import { klein } from "@/lib/bilder";
+import { kundenlogos } from "@/lib/marken";
 
 /* Die Copy dieser Sektionen kommt aus dem Woerterbuch und wird von der Seite
    als Prop uebergeben. Die Sektionen laufen im Browser; wuerden sie das
@@ -42,17 +44,32 @@ type W = Woerterbuch["start"];
    blau. `scripts/logos-knockout.mjs` dreht sie um, die Helligkeit wird zur
    Deckkraft, und liefert `1-weiss.webp` und `2-weiss.webp`. Die kommen fertig
    weiss aus der Datei und brauchen keinen Filter. */
-const KNOCKOUT = new Set([1, 2]);
-const logos = Array.from({ length: 14 }, (_, i) => {
-  const n = i + 1;
-  const knockout = KNOCKOUT.has(n);
-  return { src: `/clients/${knockout ? `${n}-weiss` : n}.webp`, knockout };
-});
+/* Namen und Dateien stehen in `lib/marken`, dieselbe Liste traegt den
+   Streifen auf der Seite Case Studies. Auf dem dunklen Grund stehen alle
+   vierzehn als weisse Silhouetten: zwoelf sind dunkle Schriftzuege auf
+   transparentem Grund, bei denen `brightness-0 invert` genau das ergibt, zwei
+   kommen fertig weiss aus der Datei (siehe `lib/marken`). */
+const logos = kundenlogos.map((l) => ({
+  src: l.weiss ?? l.datei,
+  knockout: !!l.weiss,
+  marke: l.marke,
+}));
 const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
 
 type Logo = (typeof logos)[number];
 
-function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; reverse?: boolean }) {
+function LogoRow({
+  row,
+  duration,
+  reverse,
+  altMuster,
+}: {
+  row: Logo[];
+  duration: number;
+  reverse?: boolean;
+  /** „Logo der Marke {marke}", aus dem Woerterbuch. */
+  altMuster: string;
+}) {
   /* Die Kanten laufen ueber eine Maske aus, nicht ueber zwei Verlaufsflaechen
      in der Farbe des Grundes. Der Grund ist ein Verlauf: eine einzelne Farbe
      daruebergelegt trifft ihn nie genau und zeichnet eine Kante. */
@@ -67,15 +84,27 @@ function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; re
         className="flex w-max animate-marquee items-center gap-14 md:gap-20"
         style={{ animationDuration: `${duration}s`, animationDirection: reverse ? "reverse" : "normal" }}
       >
+        {/* Das Band laeuft endlos, deshalb steht jede Reihe zweimal da. Die
+            zweite Haelfte ist dieselbe Sache noch einmal: sie traegt
+            `aria-hidden`, damit ein Vorleseprogramm die vierzehn Marken nicht
+            doppelt ansagt. Der Alternativtext steht trotzdem an beiden, sonst
+            liest eine Suchmaschine vierzehn Bilder ohne Beschreibung. */}
         {[...row, ...row].map((l, i) => (
           <div
             key={`${l.src}-${i}`}
+            aria-hidden={i >= row.length || undefined}
             className={clsx(
               "relative h-9 w-28 shrink-0 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
               l.knockout ? "opacity-70" : "opacity-70 brightness-0 invert"
             )}
           >
-            <Image src={l.src} alt="" fill sizes="128px" className="object-contain" />
+            <Image
+              src={l.src}
+              alt={altMuster.replace("{marke}", l.marke)}
+              fill
+              sizes="128px"
+              className="object-contain"
+            />
           </div>
         ))}
       </div>
@@ -96,7 +125,7 @@ function LogoRow({ row, duration, reverse }: { row: Logo[]; duration: number; re
  * Rot waere der noch staerkere Kontrast, ist hier aber falsch: Rot ist auf
  * dieser Website die Farbe fuer Probleme, und das hier sind die Kunden.
  */
-export function Kundenband({ w }: { w: W["kundenband"] }) {
+export function Kundenband({ w, logoAlt }: { w: W["kundenband"]; logoAlt: string }) {
   return (
     <section className="on-dark ground-deep relative overflow-hidden">
       {/* Feine Lichtkante oben, damit die Sektion nicht wie ein
@@ -123,8 +152,8 @@ export function Kundenband({ w }: { w: W["kundenband"] }) {
           </span>
         </div>
         <div className="mt-8 space-y-6">
-          <LogoRow row={logoRows[0]} duration={58} />
-          <LogoRow row={logoRows[1]} duration={72} reverse />
+          <LogoRow row={logoRows[0]} duration={58} altMuster={logoAlt} />
+          <LogoRow row={logoRows[1]} duration={72} reverse altMuster={logoAlt} />
         </div>
       </div>
     </section>
@@ -893,7 +922,7 @@ export function Arbeiten({ sprache, w }: { sprache: Sprache; w: W["arbeiten"] })
             <motion.figure {...auf(0)} className="listing-kachel m-0 mt-3.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={haupt}
+                src={klein(haupt)}
                 alt={hauptAlt}
                 width={1200}
                 height={1500}
@@ -906,7 +935,7 @@ export function Arbeiten({ sprache, w }: { sprache: Sprache; w: W["arbeiten"] })
                 <motion.figure key={b} {...auf(0.05 + i * 0.04)} className="listing-kachel m-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={b}
+                    src={klein(b)}
                     alt={weitereAlt[i]}
                     width={700}
                     height={700}
@@ -926,7 +955,7 @@ export function Arbeiten({ sprache, w }: { sprache: Sprache; w: W["arbeiten"] })
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   key={m}
-                  src={m}
+                  src={klein(m)}
                   alt={w.aplusAlt.replace("{n}", String(i + 1))}
                   width={1400}
                   height={574}
@@ -1000,7 +1029,12 @@ function Stimme({ t, w }: { t: Testimonial; w: W["stimmen"] }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={t.image}
-              alt=""
+              /* Der Name steht direkt daneben, das Bild waere also auch ohne
+                 Beschreibung in Ordnung. Es traegt trotzdem eine: sieben
+                 Bilder ohne Alternativtext sind fuer eine Suchmaschine sieben
+                 leere Stellen. „Porträt von" sagt ausserdem, was fuer ein
+                 Bild es ist. */
+              alt={(t.art === "logo" ? w.markeAlt : w.portraitAlt).replace("{name}", t.name)}
               loading="lazy"
               className={clsx(
                 "absolute inset-0 h-full w-full",

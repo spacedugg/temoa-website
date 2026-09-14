@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { CaseProdukt, CaseStudy } from "@/lib/cases";
 import type { Woerterbuch } from "@/lib/woerter";
 import { Reveal } from "../ui/Reveal";
+import { klein } from "@/lib/bilder";
 
 /* ============================================================
    Die ausgelieferte Arbeit auf der Fallseite.
@@ -66,9 +67,12 @@ export function Kachel({
       onClick={onClick}
       className={`group relative block overflow-hidden rounded-xl bg-white shadow-[0_10px_30px_-20px_rgba(4,20,34,0.5)] ring-1 ring-navy/[0.08] ${className}`}
     >
+      {/* Die Kachel ist 120 bis 410 Pixel breit, die Lupe zeigt dasselbe Bild
+          fast fensterfuellend. Deshalb steht hier die kleine Fassung, und
+          `onClick` gibt dem Aufrufer weiter den vollen Pfad. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={src}
+        src={klein(src)}
         alt={alt}
         loading="lazy"
         className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
@@ -159,6 +163,11 @@ function APlus({ bahnen, alt }: { bahnen: string[]; alt: (n: number) => string }
  * beim Aufruf der Seite vier Megabyte geladen, die die meisten Besucher nie
  * abspielen. `playsInline` verhindert, dass iOS die Wiedergabe in den
  * Vollbildmodus reisst.
+ *
+ * Zwei Quellen: AV1 zuerst, H.264 dahinter. AV1 liegt bei diesem Material rund
+ * ein Viertel unter H.264 (siehe `scripts/videos-rechnen.mjs`); wer es nicht
+ * abspielen kann, faellt auf die zweite Quelle zurueck. Der Browser nimmt die
+ * erste, die er kann, also steht die kleinere oben.
  */
 function Video({ quelle, poster, titel }: { quelle: string; poster: string; titel: string }) {
   return (
@@ -171,6 +180,7 @@ function Video({ quelle, poster, titel }: { quelle: string; poster: string; tite
         playsInline
         aria-label={titel}
       >
+        <source src={quelle.replace(/\.mp4$/, "-av1.mp4")} type="video/mp4; codecs=av01.0.05M.08" />
         <source src={quelle} type="video/mp4" />
       </video>
     </div>

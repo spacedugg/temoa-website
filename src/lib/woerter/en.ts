@@ -35,7 +35,8 @@ export const en: Woerterbuch = {
       titelRest: " for your Amazon brand",
       lead: "With professional execution in content, advertising and account management, more revenue is not a question of a bigger ad budget.",
       ctaZweit: "See the case studies",
-      bildAlt: "A product page on a phone, with reviews and the shopping cart beside it",
+      bildAlt:
+        "An Amazon product page on a phone, a rising revenue curve behind it, reviews and the shopping cart beside it",
     },
 
     kundenband: {
@@ -195,6 +196,8 @@ export const en: Woerterbuch = {
       anfuehrungAuf: "“",
       anfuehrungZu: "”",
       sterne: "5 out of 5 stars",
+      portraitAlt: "Portrait of {name}",
+      markeAlt: "{name} logo",
       extern: "Also rated here",
     },
 

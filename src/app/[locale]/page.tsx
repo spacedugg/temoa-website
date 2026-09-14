@@ -18,6 +18,7 @@ import { istSprache, sprachAngaben } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
 import { stimmenFuer } from "@/lib/testimonials";
 import { vorschauFuer } from "@/lib/cases";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 /**
  * Startseite.
@@ -52,7 +53,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <Kopfzeile />
       <main id="inhalt">
         <Auftrag sprache={locale} w={w.start.hero} />
-        <Kundenband w={w.start.kundenband} />
+        <Kundenband w={w.start.kundenband} logoAlt={rahmenWoerter[locale].rahmen.logoAlt} />
         <Leistungen
           sprache={locale}
           w={w.start.leistungen}

@@ -12,6 +12,7 @@ import { faelleFuer } from "@/lib/cases";
 import { istSprache, sprachAngaben, type Sprache } from "@/lib/i18n";
 import { woerter, type Woerterbuch } from "@/lib/woerter";
 import { notFound } from "next/navigation";
+import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 export async function generateMetadata({
   params,
@@ -77,7 +78,7 @@ function RetentionBand({ sprache, w }: { sprache: Sprache; w: Woerterbuch["faell
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={stimme.image}
-                  alt=""
+                  alt={woerter(sprache).start.stimmen.portraitAlt.replace("{name}", stimme.name)}
                   loading="lazy"
                   className="h-11 w-11 shrink-0 rounded-full object-cover ring-2 ring-white/15"
                 />
@@ -118,7 +119,7 @@ export default async function ErgebnissePage({
           description={w.kopf.lead}
         />
         <Stats tone="white" kennzahlen={w.kennzahlen} />
-        <ProofStrip tone="blue" bare />
+        <ProofStrip logoAlt={rahmenWoerter[locale].rahmen.logoAlt} />
         <CaseGrid
           faelle={faelleFuer(locale)}
           sprache={locale}

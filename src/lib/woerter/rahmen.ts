@@ -31,6 +31,10 @@ type Rahmen = {
     sprache: string;
     spracheWaehlen: string;
     cta: string;
+    /* Der Alternativtext eines Kundenlogos. Er steht hier und nicht bei der
+       Startseite, weil die Logos an zwei Stellen laufen: im Band der
+       Startseite und im Streifen auf der Seite Case Studies. */
+    logoAlt: string;
   };
   navigation: {
     fullService: string;
@@ -118,6 +122,7 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       sprache: "Sprache",
       spracheWaehlen: "Sprache wählen",
       cta: "Potenzialanalyse buchen",
+    logoAlt: "Logo der Marke {marke}",
     },
     navigation: {
       fullService: "Full Service",
@@ -197,6 +202,7 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       sprache: "Language",
       spracheWaehlen: "Choose language",
       cta: "Book an account review",
+    logoAlt: "{marke} brand logo",
     },
     navigation: {
       fullService: "Full Service",
