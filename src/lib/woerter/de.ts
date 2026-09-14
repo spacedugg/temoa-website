@@ -33,7 +33,8 @@ export const de = {
       titelRest: " für deine Amazon Brand",
       lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
-      bildAlt: "Eine Produktseite auf dem Telefon, daneben Bewertungen und der Einkaufswagen",
+      bildAlt:
+        "Eine Amazon-Produktseite auf dem Telefon, dahinter eine steigende Umsatzkurve, daneben Bewertungen und der Einkaufswagen",
     },
 
     /* Nur noch die Beschriftung ueber den Logos. „60+ Marken" und
@@ -197,6 +198,10 @@ export const de = {
       anfuehrungAuf: "„",
       anfuehrungZu: "“",
       sterne: "5 von 5 Sternen",
+      /* Beschreibung des Bildes neben dem Namen. Zwei Fassungen, weil zwei
+         der sieben Kundenbilder ein Markenzeichen sind und kein Gesicht. */
+      portraitAlt: "Porträt von {name}",
+      markeAlt: "Logo von {name}",
       /* Ueber den Verweisen auf Trustpilot und Google. */
       extern: "Auch hier bewertet",
     },

@@ -1319,3 +1319,82 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Bilder kommen als Anhang, nicht im Fliesstext der Nachricht.** Ein Bild
   im Chat ist sichtbar, es entsteht aber keine Datei dazu. Nur Anhaenge
   landen unter `/root/.claude/uploads`.
+
+## Dreiunddreissigste Feedbackrunde (verbindlich)
+
+### Bilder auf Anzeigegroesse
+
+- **Die Website liefert Bilder ohne Optimierung dazwischen aus**, als einfache
+  `img`-Elemente aus `public`. Was in der Datei steht, laedt jeder Besucher,
+  egal wie gross das Bild auf der Seite erscheint. Gemessen im Browser ueber
+  alle Seiten und ueber 1440 wie 390 Pixel Breite stand da unter anderem ein
+  Listingbild mit 700 Pixeln an einer Stelle von 38 Pixeln und ein Markenlogo
+  mit 1200 Pixeln an einer Stelle von 240.
+- **Das ist keine Frage der Kompressionsstufe.** Ein Bild, das achtzehnmal so
+  breit ist wie die Stelle, an der es steht, wird nicht dadurch klein, dass
+  man die Qualitaet senkt; es wird nur schlechter.
+- **Zielbreite ist ueberall das Doppelte der groessten gemessenen
+  Anzeigebreite**, nie mehr als die Datei hergibt. Die Tabelle steht in
+  `scripts/bilder-anzeigegroesse.mjs` und wird von Hand gepflegt: wer eine
+  Sektion umbaut, gehoert daran erinnert.
+- **Ein anklickbares Bild behaelt seine Datei und bekommt eine kleine daneben**
+  (`-klein`). Auf der Seite steht die kleine, beim Klick laedt die grosse. Die
+  Lupe zeigt bis zu 92 Prozent der Fensterbreite, dort waere eine auf 280 Pixel
+  gerechnete Datei ein Fleck. Welche Pfade eine kleine Fassung haben, steht in
+  `lib/bilder.ts`. Diese Liste muss zu den Regeln mit `klick: true` im
+  Skript passen: ein Pfad, der umgeschrieben wird, ohne dass die Datei
+  existiert, ist ein fehlendes Bild.
+- **Alles, was sich nicht oeffnen laesst**, wird an Ort und Stelle gerechnet:
+  A+ Bahnen, Markenfotos, Logos, die Illustrationen der Leistungsseiten, das
+  Kemes-Listing im Nachbau der Produktseite.
+- **Ergebnis, im Browser gemessen**: Startseite 2,80 auf 1,46 MB, Fallseite
+  Miganeo 3,42 auf 1,98, Futum 3,82 auf 2,39, Designbeispiele 0,92 auf 0,43,
+  Produktbilder & SEO 1,92 auf 0,56.
+
+### Videos
+
+- **Die gelieferten Dateien waren schon gerechnet** (1280 mal 720, H.264, 840
+  beziehungsweise 607 kbit/s). Ein zweiter H.264-Durchgang brachte null Bytes.
+- **AV1 liegt als zweite Quelle davor**, CRF 40: 30 beziehungsweise 22 Prozent
+  weniger. Die H.264-Datei bleibt als Rueckfall liegen, der Browser nimmt die
+  erste Quelle, die er abspielen kann. Bei CRF 30 wurde die AV1-Datei groesser
+  als die Vorlage: der Encoder zielt dann auf eine Qualitaet, die in der Quelle
+  nicht mehr steckt. Deren Artefakte schreibt er dann sauber mit.
+- **Das Skript verwirft eine Fassung, die groesser ist als die Vorlage.** Zwei
+  Dateien auszuliefern, von denen die neue die schlechtere ist, hilft niemandem.
+
+### Cookie-Banner
+
+- **Die weisse Flaeche traegt nur „Alle akzeptieren".** „Nur notwendige" und
+  „Anpassen" stehen daneben in der Navy-Flaeche der Karte, mit weisser Kante.
+  Groesse, Schriftstaerke und Position bleiben gleich. Das ist eine Ansage des
+  Kunden und hebt die Regel der zweiundzwanzigsten Runde auf. Der Hinweis dazu
+  steht an der Knopfdefinition in `consent/CookieBanner` und gehoert dorthin:
+  die Aufsichtsbehoerden sehen in einer farblich hervorgehobenen Zustimmung
+  neben einer zurueckhaltenden Ablehnung eine Beeinflussung der Entscheidung.
+  Die rechtliche Bewertung liegt beim Kunden.
+
+### Alternativtexte und Ueberschriften
+
+- **Die vierzehn Markennamen stehen in `lib/marken.ts`**, abgelesen aus den
+  gelieferten Logodateien. Dieselbe Liste traegt das Band der Startseite und
+  den Streifen auf der Seite Case Studies. Vorher standen dort achtundzwanzig
+  Bilder ohne Beschreibung.
+- **Ein Laufband zeigt jede Reihe zweimal.** Die zweite Haelfte traegt
+  `aria-hidden`, sonst sagt ein Vorleseprogramm alles doppelt an. Der
+  Alternativtext steht trotzdem an beiden, sonst sieht eine Suchmaschine die
+  Haelfte der Bilder ohne Beschreibung.
+- **Leer bleibt der Alternativtext nur noch an der Teamreihe.** Die neun
+  Portraits liegen in einer Gruppe mit eigener Beschreibung
+  (`role="group"` mit `aria-label`), Namen stehen dort bewusst nicht. Neun Mal
+  derselbe Satz waere fuer ein Vorleseprogramm nur Laerm.
+- **Gemessen, nicht geschaetzt**: 220 Seiten abgerufen und im ausgelieferten
+  HTML gezaehlt. Bilder ohne `alt`-Attribut: null, vorher wie nachher. Bilder
+  mit leerem `alt`: 188 auf 18. Seiten mit mehr als einer `h1`: null. Groesste
+  Seite: 196 kB, davon 5 kB Kopf und kein einziges `style`-Element im Dokument.
+  Der Hinweis von Bing zur Seitengroesse zielt auf Seiten mit viel Code und
+  Stilangaben am Anfang; das trifft hier nicht zu, die Grenze liegt bei 1 MB.
+- **`sections/SocialProof` ist entruempelt.** Unter dem Logostreifen stand eine
+  Zeile mit „4,9 / 5 Kundenbewertung", die seit der Umstellung auf `bare` nie
+  gerendert wurde, fest auf Deutsch im Code stand und eine Bewertung nannte,
+  die es so nicht gibt. Belegt sind 5,0 bei Google und 4,5 bei Trustpilot.

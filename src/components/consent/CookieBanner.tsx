@@ -16,10 +16,11 @@ import { OEFFNEN, useEinwilligung } from "./useEinwilligung";
    1. Es wird wirklich nichts geladen, bevor zugestimmt wurde. Der
       Terminkalender haengt an derselben Entscheidung (`ConsentGate`), es gibt
       keinen Dienst, der ohnehin schon laeuft.
-   2. Drei Wege, gleich schwer: „Nur notwendige", „Anpassen", „Alle
-      akzeptieren". Die beiden Entscheidungen tragen dieselbe Flaeche, dieselbe
-      Groesse und dieselbe Schriftstaerke. Ein grauer Textlink neben einem
-      grossen gruenen Knopf waere keine freie Entscheidung.
+   2. Drei Wege nebeneinander: „Nur notwendige", „Anpassen", „Alle
+      akzeptieren". Gleiche Groesse, gleiche Schriftstaerke, gleiche Zeile.
+      Die weisse Flaeche traegt auf Wunsch des Kunden nur die Zustimmung, die
+      beiden anderen stehen in Navy mit Kante. Zum rechtlichen Hinweis dazu
+      siehe die Knopfdefinition weiter unten.
    3. Die Karte liegt auf dunklem Grund, dahinter verdunkelt ein Schleier die
       Seite. Vorher war Karte und Seite beides weiss, damit war der Hinweis
       kaum als eigene Ebene zu erkennen. Der Schleier laesst sich nicht
@@ -38,9 +39,16 @@ import { OEFFNEN, useEinwilligung } from "./useEinwilligung";
 
 const EASE = [0.32, 0.72, 0, 1] as const;
 
-/* Zwei gleichwertige Knoepfe fuer die beiden Entscheidungen: weisse Flaeche,
-   Navy-Schrift. Der dritte Weg („Anpassen") ist keine Entscheidung, sondern
-   ein Wechsel der Ansicht, und traegt deshalb nur eine Kante. */
+/* Die weisse Flaeche traegt auf Wunsch des Kunden nur noch „Alle
+   akzeptieren". „Nur notwendige" und „Anpassen" stehen daneben in der
+   Navy-Flaeche der Karte, mit einer weissen Kante.
+
+   Dazu gehoert ein Hinweis. Er steht hier, damit ihn beim naechsten Umbau
+   jemand liest: Groesse, Schriftstaerke und Position der drei Knoepfe sind
+   gleich, die Farbe ist es nicht. Die Aufsichtsbehoerden sehen in einer
+   farblich hervorgehobenen Zustimmung neben einer zurueckhaltenden Ablehnung
+   eine Beeinflussung der Entscheidung. Der Kunde hat das so bestellt, die
+   rechtliche Bewertung liegt bei ihm. */
 const KNOPF_BASIS =
   "inline-flex min-h-[3rem] flex-1 items-center justify-center rounded-[0.875rem] px-4 text-small font-bold transition-colors duration-300";
 const KNOPF_VOLL = `${KNOPF_BASIS} bg-white text-navy hover:bg-chalk`;
@@ -262,7 +270,7 @@ export function CookieBanner() {
                       ref={ersterKnopf}
                       type="button"
                       onClick={() => schliessen(ALLES_AUS)}
-                      className={KNOPF_VOLL}
+                      className={KNOPF_KANTE}
                     >
                       {w.nurNotwendig}
                     </button>

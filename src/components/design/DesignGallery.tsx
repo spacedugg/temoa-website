@@ -6,6 +6,7 @@ import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 import { rahmenWoerter } from "@/lib/woerter/rahmen";
 import { ExpandedShell } from "./ExpandedShell";
+import { klein } from "@/lib/bilder";
 import type { RefData, RefCategory, RefListing, RefImage, RefCardMetadata } from "@/lib/references";
 
 /* ============================================================================
@@ -102,6 +103,10 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
   const hero = listing.images.find((i) => i.order === 0) ?? listing.images[0];
   const details = listing.images.filter((i) => i !== hero).slice(0, 6);
   const [heroAspect, setHeroAspect] = useState(() => aspect(hero, 1));
+  /* Dieselbe Komponente steht in der Kachel und in der Grossansicht. In der
+     Kachel ist das Hauptbild rund 400 Pixel breit, in der Grossansicht bis zu
+     1040. Nur dort wird die volle Datei gebraucht. */
+  const pfad = (u: string) => (interactive ? klein(u) : u);
 
   return (
     <div
@@ -116,7 +121,7 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
           {hero && (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={hero.url}
+              src={pfad(hero.url)}
               alt={altText(art, listing, 1)}
               loading="lazy"
               onLoad={(e) => {
@@ -135,7 +140,7 @@ function ListingCard({ listing, art, onOpen, interactive = true, accent = 0 }: {
               <div key={i} className="overflow-hidden rounded-sm">
                 {im && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={im.url} alt={altText(art, listing, i + 2)} loading="lazy" className="h-full w-full object-cover" />
+                  <img src={pfad(im.url)} alt={altText(art, listing, i + 2)} loading="lazy" className="h-full w-full object-cover" />
                 )}
               </div>
             );
@@ -224,7 +229,7 @@ function EbcVorschau({ listing, art }: { listing: RefListing; art: string }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             key={im.order}
-            src={im.url}
+            src={klein(im.url)}
             alt={altText(art, listing, im.order + 1)}
             loading="lazy"
             decoding="async"
@@ -331,7 +336,7 @@ function StoreThumb({ media, alt, onOpen, accent = 0 }: { media: RefImage; alt: 
         <video src={media.url} muted playsInline preload="metadata" className="aspect-[9/16] w-full object-cover" />
       ) : (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={media.url} alt={alt} loading="lazy" className="absolute inset-x-0 top-0 w-full" />
+        <img src={klein(media.url)} alt={alt} loading="lazy" className="absolute inset-x-0 top-0 w-full" />
       )}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent" />
       <div className="pointer-events-none absolute inset-0 grid place-items-center">

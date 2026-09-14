@@ -54,6 +54,11 @@ export function Teamreihe({ teamAlt, className }: { teamAlt: string; className?:
              macht `.teamreihe`. */
           style={{ "--i": i } as React.CSSProperties}
         >
+          {/* Ohne Alternativtext. Das ist hier richtig: die Reihe traegt
+              als Ganzes eine Beschreibung (`role="group"` mit `aria-label`),
+              und die neun Portraits sind darin ein Bild, kein Inhalt. Namen
+              stehen bewusst nicht dabei, das ist so entschieden. Neun Mal
+              derselbe Satz waere fuer ein Vorleseprogramm nur Laerm. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
