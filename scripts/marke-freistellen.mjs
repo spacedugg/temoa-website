@@ -18,17 +18,27 @@
  * Dasselbe Rezept wie `scripts/logos-knockout.mjs` fuer zwei der vierzehn
  * Kundenlogos im Band der Startseite.
  *
- * Aufruf: node scripts/marke-freistellen.mjs <quelle> <ziel> [unten] [oben]
+ * Der haeufigere Fall ist der umgekehrte: ein schwarzer Schriftzug auf
+ * weissem Grund, wie ihn jedes Logo-Paket enthaelt. Dafuer `--dunkel`. Dann
+ * wird die Dunkelheit zur Deckkraft und uebrig bleibt der schwarze Zug. Ohne
+ * das waere dieselbe Datei nach dem Filter eine weisse Flaeche, in der die
+ * Marke verschwindet.
+ *
+ * Aufruf: node scripts/marke-freistellen.mjs <quelle> <ziel> [unten] [oben] [--dunkel]
  */
 import sharp from "sharp";
 
-const [quelle, ziel, u = "170", o = "235"] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const DUNKEL = args.includes("--dunkel");
+const [quelle, ziel, u, o] = args.filter((a) => a !== "--dunkel");
 if (!quelle || !ziel) {
-  console.error("Aufruf: node scripts/marke-freistellen.mjs <quelle> <ziel> [unten] [oben]");
+  console.error("Aufruf: node scripts/marke-freistellen.mjs <quelle> <ziel> [unten] [oben] [--dunkel]");
   process.exit(1);
 }
-const UNTEN = Number(u);
-const OBEN = Number(o);
+/* Bei `--dunkel` laeuft die Rampe andersherum: was unter OBEN liegt, wird
+   deckend. Die Vorgabewerte spiegeln sich deshalb mit. */
+const UNTEN = Number(u ?? (DUNKEL ? "20" : "170"));
+const OBEN = Number(o ?? (DUNKEL ? "85" : "235"));
 
 const bild = sharp(quelle).ensureAlpha();
 const { width, height } = await bild.metadata();
@@ -43,11 +53,13 @@ for (let i = 0; i < width * height; i++) {
   const b = roh[i * 4 + 2];
   const a = roh[i * 4 + 3];
   const hell = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  const deckung = Math.max(0, Math.min(1, (hell - UNTEN) / (OBEN - UNTEN)));
+  const roh_deckung = DUNKEL ? (OBEN - hell) / (OBEN - UNTEN) : (hell - UNTEN) / (OBEN - UNTEN);
+  const deckung = Math.max(0, Math.min(1, roh_deckung));
   const alpha = Math.round(deckung * (a / 255) * 255);
-  aus[i * 4] = 255;
-  aus[i * 4 + 1] = 255;
-  aus[i * 4 + 2] = 255;
+  const ton = DUNKEL ? 0 : 255;
+  aus[i * 4] = ton;
+  aus[i * 4 + 1] = ton;
+  aus[i * 4 + 2] = ton;
   aus[i * 4 + 3] = alpha;
   if (alpha > 12) {
     const x = i % width;
