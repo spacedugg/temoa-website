@@ -1467,3 +1467,41 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Der senkrechte Abstand geht in die Verteilung ein** (`LUECKE`). Ohne ihn
   rechnet sie mit Stapeln, die dichter stehen, als sie stehen. Die Spalten
   enden dann ungleich.
+
+## Fuenfunddreissigste Feedbackrunde (verbindlich, Hero-Bild)
+
+- **Es gibt genau ein Hero-Bild. Es steht in beiden Sprachen.** Die
+  zweiunddreissigste Runde hatte zwei Dateien, weil die Beschriftung im Bild
+  steckt; der Kunde hat jetzt ein einzelnes Bild fuer Deutsch und Englisch
+  vorgegeben. Die Verzweigung nach der Sprache ist aus `takt/HeroBuehne`
+  heraus, `h-listing-en` ist geloescht. `scripts/hero-bild.mjs` nimmt eine
+  zweite Quelle weiterhin an: kommt eine englische Fassung, erzeugt das
+  Skript sie. Die Verzweigung gehoert dann zurueck.
+- **Das Bild kam mit weissem Grund.** Die Sektionen dieser Website sind nie
+  reinweiss: `.ground` laeuft von #ffffff nach #f6f9fd und traegt oben rechts
+  einen orangen Lichtkern, genau dort, wo das Hero-Bild steht. Ein Bild mit
+  weissem Grund steht darauf als Kasten.
+- **Freigestellt wird vom Rand her, nicht ueber die Farbe.** Weiss global
+  durchsichtig zu machen reisst Loecher in die Produktseite, in die
+  Verpackungen und in die Kissen. `scripts/weiss-freistellen.mjs` fuellt vom
+  Bildrand aus ueber helle Pixel nach innen, zwei Schwellen fuer einen weichen
+  Schattenrand.
+- **Weisse Kacheln ohne Kante brauchen eine Schutzzone.** Die Kachel „Extra
+  Kissenbezug" hat einen weissen Grund, dessen Oberkante nur an der Schrift
+  darin zu erkennen ist: gemessen liegen Kachel und Bildgrund beide bei 254
+  bis 255, kein Schwellenwert trennt das. Ohne `--schutz 714,92,272,240` lief
+  die Fuellung hinein und nahm der Kachel den halben Grund. Die Masse sind am
+  Bild gemessen, nicht geschaetzt.
+- **Die Quelle ist 1000 Pixel breit.** Am Rechner steht die Grafik in 544
+  Pixeln, auf einem feinen Bildschirm waeren 1088 ideal. Die 1000 liegen acht
+  Prozent darunter, das ist nicht zu sehen. Eine groessere Quelle waere
+  trotzdem besser.
+- **Drei Stellen brauchen eine Entscheidung des Kunden.** Das Bild zeigt eine
+  Marke, die nicht unter den vierzehn Kundenlogos steht. Es traegt das
+  temoa-Zeichen oben links, also steht dasselbe Zeichen zweimal im ersten
+  Bildschirm, direkt unter dem in der Kopfzeile. Und die Beschriftung darin
+  ist deutsch, auch auf `/en`.
+- **Die Ausnahme aus der siebzehnten Runde gilt weiter.** Auch dieses Bild
+  zeigt Oberflaeche einer Produktseite (Suchleiste, „In den Einkaufswagen",
+  „Jetzt kaufen"). Der Kunde hat es so geliefert. Nicht eigenmaechtig
+  zurueckbauen, aber auch nicht als Vorbild fuer weitere Bilder nehmen.

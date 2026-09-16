@@ -1,20 +1,21 @@
 #!/usr/bin/env node
 /* ============================================================
-   Das Hero-Bild der Startseite, in zwei Sprachen und zwei Groessen.
+   Das Hero-Bild der Startseite, in zwei Groessen und zwei Formaten.
 
-     node scripts/hero-bild.mjs <quelle-deutsch> <quelle-englisch>
+     node scripts/hero-bild.mjs <quelle> [quelle-englisch]
 
    Das Bild ist das erste, was ein Besucher sieht, und damit das Element, an
    dem Google die Ladezeit der Seite misst. Deshalb drei Dinge:
 
-   1. Zwei Sprachfassungen. Dasselbe Bild einmal mit deutscher und einmal mit
-      englischer Beschriftung. Welche gezeigt wird, entscheidet die Sprache der
-      Seite, nicht der Ort des Besuchers.
-   2. Zwei Groessen je Sprache. Die Grafik steht am Rechner in einer Spalte von
-      rund 544 Pixeln, auf dem Telefon in rund 340. Ein 1200 Pixel breites Bild
-      auf ein Telefon zu schicken ist die Haelfte der Ladezeit fuer nichts.
-   3. Zwei Formate je Groesse. AVIF liegt bei dieser Art Bild rund ein Drittel
+   1. Zwei Groessen. Die Grafik steht am Rechner in einer Spalte von rund 544
+      Pixeln, auf dem Telefon in rund 340. Ein 1200 Pixel breites Bild auf ein
+      Telefon zu schicken ist die Haelfte der Ladezeit fuer nichts.
+   2. Zwei Formate je Groesse. AVIF liegt bei dieser Art Bild rund ein Drittel
       unter WebP, und was ein Browser nicht kann, laesst er einfach liegen.
+   3. Eine zweite Sprachfassung, wenn eine vorliegt. Die Beschriftung steckt im
+      Bild, also braucht eine englische Beschriftung eine eigene Datei. Liegt
+      keine vor, faellt die zweite Angabe weg, die `-en`-Dateien werden
+      geloescht und beide Sprachen zeigen dieselbe Datei.
 
    Die Beschriftung im Bild ist Schrift in einer Grafik, und Schrift ist das
    Erste, was eine zu starke Kompression zerlegt. Deshalb `smartSubsample` und
@@ -25,7 +26,7 @@
    gepflegtes Seitenverhaeltnis geht beim naechsten Bild schief.
    ============================================================ */
 
-import { mkdir, writeFile, stat } from "node:fs/promises";
+import { mkdir, writeFile, stat, rm } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import sharp from "sharp";
 
@@ -73,23 +74,35 @@ async function fassung(quelle, kennung) {
 
 async function main() {
   const [de, en] = process.argv.slice(2);
-  if (!de || !en) {
-    console.error("Aufruf: node scripts/hero-bild.mjs <quelle-deutsch> <quelle-englisch>");
+  if (!de) {
+    console.error("Aufruf: node scripts/hero-bild.mjs <quelle> [quelle-englisch]");
     process.exit(1);
   }
 
   await mkdir(ZIEL, { recursive: true });
 
   const a = await fassung(de, "");
-  const b = await fassung(en, "-en");
+  const b = en ? await fassung(en, "-en") : null;
 
-  /* Beide Fassungen sind dasselbe Bild in zwei Sprachen. Haben sie
-     verschiedene Masse, stimmt an einer der beiden Quellen etwas nicht, und
-     die Seite wuerde beim Umschalten springen. */
-  if (a.roh.width !== b.roh.width || a.roh.height !== b.roh.height) {
-    console.warn(
-      `Achtung: die Quellen haben verschiedene Masse (${a.roh.width}x${a.roh.height} gegen ${b.roh.width}x${b.roh.height}).`
-    );
+  if (b) {
+    /* Beide Fassungen sind dasselbe Bild in zwei Sprachen. Haben sie
+       verschiedene Masse, stimmt an einer der beiden Quellen etwas nicht, und
+       die Seite wuerde beim Umschalten springen. */
+    if (a.roh.width !== b.roh.width || a.roh.height !== b.roh.height) {
+      console.warn(
+        `Achtung: die Quellen haben verschiedene Masse (${a.roh.width}x${a.roh.height} gegen ${b.roh.width}x${b.roh.height}).`
+      );
+    }
+  } else {
+    /* Ohne englische Quelle darf keine alte `-en`-Datei liegen bleiben: sie
+       wuerde weiter ausgeliefert, sobald jemand die Verzweigung im Code
+       zurueckholt. Dann stuende dort ein Bild, das niemand mehr kennt. */
+    for (const { suffix } of AUSGABEN) {
+      for (const endung of ["webp", "avif"]) {
+        await rm(`${ZIEL}/h-listing-en${suffix}.${endung}`, { force: true });
+      }
+    }
+    console.log("Keine englische Quelle angegeben, die -en-Dateien sind entfernt.\n");
   }
 
   const breite = Math.min(GROSS, a.roh.width);
@@ -103,7 +116,7 @@ async function main() {
     "utf8"
   );
 
-  for (const [pfad, groesse] of [...a.gemacht, ...b.gemacht]) {
+  for (const [pfad, groesse] of [...a.gemacht, ...(b?.gemacht ?? [])]) {
     console.log(`${pfad.replace(resolve("."), ".")}  ${kb(groesse)}`);
   }
   console.log(`\nMasse: ${breite} x ${hoehe}`);

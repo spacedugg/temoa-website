@@ -36,7 +36,7 @@ export const en: Woerterbuch = {
       lead: "With professional execution in content, advertising and account management, more revenue is not a question of a bigger ad budget.",
       ctaZweit: "See the case studies",
       bildAlt:
-        "An Amazon product page on a phone, a rising revenue curve behind it, reviews and the shopping cart beside it",
+        "A product page on a phone held in one hand, with six listing images showing product benefits beside it",
     },
 
     kundenband: {
