@@ -34,7 +34,7 @@ export const de = {
       lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
       bildAlt:
-        "Eine Amazon-Produktseite auf dem Telefon, dahinter eine steigende Umsatzkurve, daneben Bewertungen und der Einkaufswagen",
+        "Eine Produktseite auf einem Telefon in der Hand, daneben sechs Listingbilder mit Produktvorteilen",
     },
 
     /* Nur noch die Beschriftung ueber den Logos. „60+ Marken" und

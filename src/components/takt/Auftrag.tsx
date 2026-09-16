@@ -24,9 +24,8 @@ import { rahmenWoerter } from "@/lib/woerter/rahmen";
    nichts Bestimmtes.
 
    Jetzt das Bild, das der Kunde selbst geliefert hat: freigestellt, ohne
-   Platte und ohne Rahmen, mit einem warmen Lichthof dahinter. Es steht still.
-   Weil die Beschriftung im Bild steckt, gibt es zwei Fassungen. Welche
-   laeuft, entscheidet die Sprache der Seite.
+   Platte und ohne Rahmen, mit einem warmen Lichthof dahinter. Es steht still
+   und laeuft in beiden Sprachen gleich.
 
    Unter dem Knopf stand zwischendurch sozialer Beleg mit Kundengesichtern und
    Sternen. Der Kunde hat ihn wieder gestrichen: der Hero bleibt knapp, die
@@ -99,7 +98,7 @@ export function Auftrag({ sprache, w }: { sprache: Sprache; w: Woerterbuch["star
             animate={{ opacity: 1 }}
             transition={reduce ? { duration: 0 } : { duration: 0.45, ease: EASE }}
           >
-            <HeroBuehne bildAlt={w.bildAlt} sprache={sprache} />
+            <HeroBuehne bildAlt={w.bildAlt} />
           </motion.div>
         </div>
       </div>

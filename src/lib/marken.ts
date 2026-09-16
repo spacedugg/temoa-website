@@ -32,7 +32,7 @@ const NAMEN = [
   "Bachgold",
   "Juskys",
   "HECHT",
-  "NATURTREU",
+  "TRUE NATURE",
   "BIG DEAN",
   "uandu",
   "Vitaworld",
@@ -44,6 +44,13 @@ const NAMEN = [
 
 /* Kijimea steht in einem gefuellten Rechteck, Nicotinell in einer Ellipse. */
 const KNOCKOUT = new Set([1, 2]);
+
+/* Ein Logo gehoert freigestellt ins Verzeichnis, nicht als schwarzer Zug auf
+   weissem Grund: der Filter macht daraus sonst eine weisse Flaeche, in der
+   die Marke verschwindet. Nummer 7 kam so und ist mit
+   `node scripts/marke-freistellen.mjs fotos-original/clients/7.png
+   public/clients/7.webp --dunkel` freigestellt worden. Wer ein Logo tauscht,
+   prueft vorher, ob die Datei einen Alphakanal hat. */
 
 export const kundenlogos: Kundenlogo[] = NAMEN.map((marke, i) => {
   const n = i + 1;

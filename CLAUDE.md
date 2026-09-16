@@ -1467,3 +1467,49 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Der senkrechte Abstand geht in die Verteilung ein** (`LUECKE`). Ohne ihn
   rechnet sie mit Stapeln, die dichter stehen, als sie stehen. Die Spalten
   enden dann ungleich.
+
+## Fuenfunddreissigste Feedbackrunde (verbindlich, Hero-Bild)
+
+- **Es gibt genau ein Hero-Bild. Es steht in beiden Sprachen.** Die
+  zweiunddreissigste Runde hatte zwei Dateien, weil die Beschriftung im Bild
+  steckt; der Kunde hat jetzt ein einzelnes Bild fuer Deutsch und Englisch
+  vorgegeben. Die Verzweigung nach der Sprache ist aus `takt/HeroBuehne`
+  heraus, `h-listing-en` ist geloescht. `scripts/hero-bild.mjs` nimmt eine
+  zweite Quelle weiterhin an: kommt eine englische Fassung, erzeugt das
+  Skript sie. Die Verzweigung gehoert dann zurueck.
+- **Eine Bildquelle kommt mit Alphakanal, nicht mit weissem Grund.** Die
+  Sektionen dieser Website sind nie reinweiss: `.ground` laeuft von #ffffff
+  nach #f6f9fd und traegt oben rechts einen orangen Lichtkern, genau dort, wo
+  das Hero-Bild steht. Ein Bild mit weissem Grund steht darauf als Kasten.
+  Die erste Lieferung war so. Die zweite kam freigestellt und ist im Einsatz.
+- **`scripts/weiss-freistellen.mjs` ist das Werkzeug fuer den ersten Fall.**
+  Weiss global durchsichtig zu machen reisst Loecher in eine Produktseite, in
+  Verpackungen und in helle Produkte; das Skript fuellt deshalb vom Bildrand
+  aus ueber helle Pixel nach innen, mit zwei Schwellen fuer einen weichen
+  Schattenrand. Eine weisse Kachel, deren Oberkante nur an der Schrift darin
+  zu erkennen ist, braucht dazu `--schutz x,y,b,h`: gemessen lagen Kachel und
+  Bildgrund beide bei 254 bis 255, kein Schwellenwert trennt das. Die Masse
+  werden am Bild gemessen, nicht geschaetzt. Das ist die Notloesung, die
+  richtige Loesung ist eine Quelle mit Alphakanal.
+- **Die Quelle ist 2000 Pixel breit, ausgeliefert werden 1200 und 760.** Am
+  Rechner steht die Grafik in 544 Pixeln, auf einem feinen Bildschirm sind das
+  1088. Mehr als 1200 waere Ballast, den niemand sieht.
+- **Die Kompressionsstufe ist gemessen, nicht gesetzt.** An diesem Bild
+  gegengerechnet: AVIF q62 kommt auf 111 kB bei PSNR 42,3, WebP braucht fuer
+  eine schlechtere Zahl (38,6) fast dreimal so viel. Im Vergleich der Stufen
+  q56 bis q68 ist auf der Schrift in den Kacheln kein Unterschied zu sehen.
+  AVIF ist die erste Quelle, WebP der Rueckfall.
+- **Drei Stellen brauchen eine Entscheidung des Kunden.** Das Bild zeigt eine
+  Marke, die nicht unter den vierzehn Kundenlogos steht. Es traegt das
+  temoa-Zeichen oben links, also steht dasselbe Zeichen zweimal im ersten
+  Bildschirm, direkt unter dem in der Kopfzeile. Und die Beschriftung darin
+  ist deutsch, auch auf `/en`.
+- **Das Hero-Bild ist nicht das, was die Startseite langsam macht.** Gemessen
+  auf einem gedrosselten Telefon (1,6 Mbit/s): der erste Bildschirm zieht
+  2,0 MB, davon 684 kB Schriften (fuenf OTF-Dateien, ein Format ohne
+  Kompression), 573 kB JavaScript und 196 kB HTML. Das Hero-Bild sind 61 kB.
+  Wer die Ladezeit dieser Seite senken will, faengt bei den Schriften an.
+- **Die Ausnahme aus der siebzehnten Runde gilt weiter.** Auch dieses Bild
+  zeigt Oberflaeche einer Produktseite (Suchleiste, „In den Einkaufswagen",
+  „Jetzt kaufen"). Der Kunde hat es so geliefert. Nicht eigenmaechtig
+  zurueckbauen, aber auch nicht als Vorbild fuer weitere Bilder nehmen.
