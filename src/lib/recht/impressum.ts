@@ -20,9 +20,6 @@ Eddie Nordwich, Clemens Michaelis, Christoph Terner
 USt-IdNr. gemäß § 27a UStG:
 DE354359668
 
-Webauftritt erstellt durch Hutter Studio:
-[www.hutter.studio](https://www.hutter.studio)
-
 Plattform der EU-Kommission zur Online-Streitbeilegung:
 https://ec.europa.eu/odr
 
