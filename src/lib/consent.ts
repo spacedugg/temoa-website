@@ -152,7 +152,7 @@ export const KATEGORIEN: Kategorie[] = [
           en: "Shows the AI assistant in the bottom right corner of the website and answers questions in the chat.",
         },
         speicher: {
-          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats. Der Assistent lädt unabhängig von eurer Auswahl in dieser Kategorie, also auch nach „Nur notwendige".",
+          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats. Der Assistent lädt unabhängig von eurer Auswahl in dieser Kategorie, also auch nach „Nur notwendige“.",
           en: "Chattastic sets its own cookies and processes the IP address and the chat history in doing so. The assistant loads regardless of your choice in this category, including after choosing \"Essential only\".",
         },
         grundlage: {
