@@ -135,6 +135,13 @@ export const KATEGORIEN: Kategorie[] = [
         },
       },
       {
+        /* Auf ausdruecklichen Wunsch des Kunden geladen, unabhaengig von der
+           Auswahl in dieser Kategorie: siehe den Kommentar in
+           components/messung/Chattastic.tsx. Der Eintrag steht trotzdem
+           hier, weil hier die Stelle ist, an der Dritte offengelegt werden
+           (siehe [[DIENSTE]] in der Datenschutzerklaerung); die Angaben
+           beschreiben deshalb bewusst die tatsaechliche Ladebedingung statt
+           einer Einwilligung, die es fuer diesen Dienst nicht gibt. */
         name: "Chattastic",
         anbieter: {
           de: "Chattastic (chattastic.de)",
@@ -145,12 +152,12 @@ export const KATEGORIEN: Kategorie[] = [
           en: "Shows the AI assistant in the bottom right corner of the website and answers questions in the chat.",
         },
         speicher: {
-          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats.",
-          en: "Chattastic sets its own cookies and processes the IP address and the chat history in doing so.",
+          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats. Der Assistent lädt unabhängig von eurer Auswahl in dieser Kategorie, also auch nach „Nur notwendige".",
+          en: "Chattastic sets its own cookies and processes the IP address and the chat history in doing so. The assistant loads regardless of your choice in this category, including after choosing \"Essential only\".",
         },
         grundlage: {
-          de: "Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
-          en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
+          de: "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der direkten Erreichbarkeit)",
+          en: "Art. 6(1)(f) GDPR (legitimate interest in direct availability)",
         },
       },
     ],
@@ -227,11 +234,11 @@ export type Einwilligung = {
    nicht veroeffentlicht, es gab also keine gespeicherte Entscheidung darueber.
    Wer die Kategorien aendert, erhoeht hier.
 
-   Von 2 auf 3 mit dem Dienst „Chattastic" in der Kategorie „Externe Dienste".
-   Wer vorher nur dem Kalender zugestimmt hat, hat dem Chat-Assistenten nichts
-   erlaubt: eine Einwilligung gilt fuer den Dienst, dem zugestimmt wurde, nicht
-   fuer alles, was spaeter in dieselbe Kategorie faellt. */
-export const VERSION = 3;
+   Chattastic ist dazugekommen, ohne die Zahl zu erhoehen: der Dienst haengt
+   an keiner Auswahl in dieser Liste, er laedt unabhaengig davon (siehe
+   components/messung/Chattastic.tsx). Eine neue Fassung waere hier nur noetig,
+   wenn sich etwas an dem aendert, worueber tatsaechlich entschieden wird. */
+export const VERSION = 2;
 const SCHLUESSEL = "temoa-consent";
 
 /** Das Ereignis, mit dem sich die Seite ueber eine Aenderung verstaendigt. */
