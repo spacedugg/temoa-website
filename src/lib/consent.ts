@@ -134,6 +134,25 @@ export const KATEGORIEN: Kategorie[] = [
           en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
         },
       },
+      {
+        name: "Chattastic",
+        anbieter: {
+          de: "Chattastic (chattastic.de)",
+          en: "Chattastic (chattastic.de)",
+        },
+        zweck: {
+          de: "Zeigt den KI-Assistenten unten rechts auf der Website und beantwortet Fragen im Chat.",
+          en: "Shows the AI assistant in the bottom right corner of the website and answers questions in the chat.",
+        },
+        speicher: {
+          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats.",
+          en: "Chattastic sets its own cookies and processes the IP address and the chat history in doing so.",
+        },
+        grundlage: {
+          de: "Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG (Einwilligung)",
+          en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
+        },
+      },
     ],
   },
   {
@@ -206,8 +225,13 @@ export type Einwilligung = {
    Der Wechsel auf Consent Mode v2 hat die Zahl nicht noch einmal erhoeht: die
    Kategorien sind dieselben geblieben, und Fassung 2 war zu dem Zeitpunkt noch
    nicht veroeffentlicht, es gab also keine gespeicherte Entscheidung darueber.
-   Wer die Kategorien aendert, erhoeht hier. */
-export const VERSION = 2;
+   Wer die Kategorien aendert, erhoeht hier.
+
+   Von 2 auf 3 mit dem Dienst „Chattastic" in der Kategorie „Externe Dienste".
+   Wer vorher nur dem Kalender zugestimmt hat, hat dem Chat-Assistenten nichts
+   erlaubt: eine Einwilligung gilt fuer den Dienst, dem zugestimmt wurde, nicht
+   fuer alles, was spaeter in dieselbe Kategorie faellt. */
+export const VERSION = 3;
 const SCHLUESSEL = "temoa-consent";
 
 /** Das Ereignis, mit dem sich die Seite ueber eine Aenderung verstaendigt. */
