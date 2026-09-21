@@ -134,6 +134,32 @@ export const KATEGORIEN: Kategorie[] = [
           en: "Art. 6(1)(a) GDPR, § 25(1) TDDDG (consent)",
         },
       },
+      {
+        /* Auf ausdruecklichen Wunsch des Kunden geladen, unabhaengig von der
+           Auswahl in dieser Kategorie: siehe den Kommentar in
+           components/messung/Chattastic.tsx. Der Eintrag steht trotzdem
+           hier, weil hier die Stelle ist, an der Dritte offengelegt werden
+           (siehe [[DIENSTE]] in der Datenschutzerklaerung); die Angaben
+           beschreiben deshalb bewusst die tatsaechliche Ladebedingung statt
+           einer Einwilligung, die es fuer diesen Dienst nicht gibt. */
+        name: "Chattastic",
+        anbieter: {
+          de: "Chattastic (chattastic.de)",
+          en: "Chattastic (chattastic.de)",
+        },
+        zweck: {
+          de: "Zeigt den KI-Assistenten unten rechts auf der Website und beantwortet Fragen im Chat.",
+          en: "Shows the AI assistant in the bottom right corner of the website and answers questions in the chat.",
+        },
+        speicher: {
+          de: "Chattastic setzt eigene Cookies und verarbeitet dabei die IP-Adresse und den Verlauf des Chats. Der Assistent lädt unabhängig von eurer Auswahl in dieser Kategorie, also auch nach „Nur notwendige“.",
+          en: "Chattastic sets its own cookies and processes the IP address and the chat history in doing so. The assistant loads regardless of your choice in this category, including after choosing \"Essential only\".",
+        },
+        grundlage: {
+          de: "Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der direkten Erreichbarkeit)",
+          en: "Art. 6(1)(f) GDPR (legitimate interest in direct availability)",
+        },
+      },
     ],
   },
   {
@@ -206,7 +232,12 @@ export type Einwilligung = {
    Der Wechsel auf Consent Mode v2 hat die Zahl nicht noch einmal erhoeht: die
    Kategorien sind dieselben geblieben, und Fassung 2 war zu dem Zeitpunkt noch
    nicht veroeffentlicht, es gab also keine gespeicherte Entscheidung darueber.
-   Wer die Kategorien aendert, erhoeht hier. */
+   Wer die Kategorien aendert, erhoeht hier.
+
+   Chattastic ist dazugekommen, ohne die Zahl zu erhoehen: der Dienst haengt
+   an keiner Auswahl in dieser Liste, er laedt unabhaengig davon (siehe
+   components/messung/Chattastic.tsx). Eine neue Fassung waere hier nur noetig,
+   wenn sich etwas an dem aendert, worueber tatsaechlich entschieden wird. */
 export const VERSION = 2;
 const SCHLUESSEL = "temoa-consent";
 

@@ -5,6 +5,7 @@ import "../globals.css";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { StrukturierteDaten } from "@/components/seo/StrukturierteDaten";
 import { TagManager } from "@/components/messung/TagManager";
+import { Chattastic } from "@/components/messung/Chattastic";
 import { htmlLang, istSprache, ogLocale, pfad, sprachen } from "@/lib/i18n";
 import { SEITE } from "@/lib/seite";
 import { woerter } from "@/lib/woerter";
@@ -132,6 +133,9 @@ export default async function RootLayout({
         <CookieBanner />
         {/* Lädt erst nach Zustimmung, siehe den Kommentar in der Komponente. */}
         <TagManager />
+        {/* Chat-Assistent Chattastic: nur bei gesetzter Umgebungsvariable und
+            nach Zustimmung, siehe den Kommentar in der Komponente. */}
+        <Chattastic />
       </body>
     </html>
   );
