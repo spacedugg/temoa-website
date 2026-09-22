@@ -41,7 +41,7 @@ export const de = {
        „5+ Marktplaetze" standen hier und noch einmal im Kennzahlenband unter
        den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
-      label: "Täglich in unserer Verantwortung",
+      label: "Marken, die wir betreut haben",
     },
 
     leistungen: {
