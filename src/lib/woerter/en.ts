@@ -40,7 +40,7 @@ export const en: Woerterbuch = {
     },
 
     kundenband: {
-      label: "In our hands every day",
+      label: "Brands we've worked with",
     },
 
     leistungen: {
