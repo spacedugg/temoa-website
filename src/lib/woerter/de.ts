@@ -30,7 +30,7 @@ export const de = {
     hero: {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitables Wachstum",
-      titelRest: " für deine Amazon Brand",
+      titelRest: " für deine Marke auf Amazon",
       lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
       ctaZweit: "Case Studies ansehen",
       bildAlt:
