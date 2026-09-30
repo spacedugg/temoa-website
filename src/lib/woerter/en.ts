@@ -41,6 +41,7 @@ export const en: Woerterbuch = {
 
     kundenband: {
       label: "Brands we've worked with",
+      zeile: "For them, Amazon is one sales channel of several.",
     },
 
     leistungen: {
@@ -614,14 +615,9 @@ export const en: Woerterbuch = {
         lead: "We work in the account: planning shipments, steering inventory, setting shipping routes. Labelling and packing stay with your warehouse or prep partner.",
         karten: [
           {
-            titel: "Shipment preparation",
-            unterzeile: "Shipping plans in Seller Central",
-            text: "We create the shipping plan, split the quantities across items and submit it. The goods arrive at the warehouse with consistent data.",
-          },
-          {
-            titel: "Inventory management",
-            unterzeile: "Coverage, resupply, excess stock",
-            text: "Coverage per item in view, resupply scheduled, slow movers spotted early. No bestseller runs out, and storage costs for dead stock stay small.",
+            titel: "FBA or FBM decision",
+            unterzeile: "Calculated per item",
+            text: "We calculate per item which route leaves more after fees, storage and returns. After that it is settled what runs through FBA and what through FBM.",
           },
           {
             titel: "Shipping templates",
@@ -629,17 +625,22 @@ export const en: Woerterbuch = {
             text: "Set up cleanly once, the data is right on every shipment. Fee corrections and delays at receiving drop out.",
           },
           {
-            titel: "FBA or FBM decision",
-            unterzeile: "Calculated per item",
-            text: "We calculate per item which route leaves more after fees, storage and returns, and decide what runs through FBA and what through FBM.",
+            titel: "Shipment preparation",
+            unterzeile: "Shipping plans in Seller Central",
+            text: "We create the shipping plan, split the quantities across items and submit it. The goods arrive at the warehouse with consistent data.",
+          },
+          {
+            titel: "Inventory management",
+            unterzeile: "Ongoing: coverage, resupply, excess stock",
+            text: "Coverage per item in view, resupply scheduled, slow movers spotted early. No bestseller runs out. Storage costs for dead stock stay small.",
           },
         ],
       },
       compliance: {
         eyebrow: "Compliance",
         titel: "Products that are allowed to stay on Amazon.",
-        lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current and resolve blocks before they cost revenue.",
-        karten: [
+        lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current.",
+        pflichten: [
           {
             titel: "LUCID",
             unterzeile: "German packaging register",
@@ -653,22 +654,40 @@ export const en: Woerterbuch = {
           {
             titel: "Safety documents",
             unterzeile: "Test reports, certificates, conformity",
-            text: "We request the proofs, prepare them the way Amazon requires and upload them to the right item.",
-          },
-          {
-            titel: "Case management",
-            unterzeile: "Requests to Amazon support",
-            text: "We open the cases, submit proofs, keep deadlines and escalate when no answer comes. Until the case is solved.",
-          },
-          {
-            titel: "Blocked items",
-            unterzeile: "Fix the cause, request release",
-            text: "We find out which requirement stops the item, fix the cause in the listing or the proofs and request release.",
+            text: "We request the proofs and prepare them the way Amazon requires. They are uploaded to the right item.",
           },
         ],
+        sperre: {
+          eyebrow: "Case management",
+          titel: "Blocked items, from case to release.",
+          lead: "Every day with a blocked item is a day without sales. We take the case from the first notice to the release.",
+          schritte: [
+            {
+              titel: "Block spotted",
+              unterzeile: "Blocked items",
+              text: "We spot the block and find out which requirement stops the item.",
+            },
+            {
+              titel: "Cause fixed",
+              unterzeile: "Listing and proofs",
+              text: "Missing data and documents are added, the listing is adjusted.",
+            },
+            {
+              titel: "Case opened",
+              unterzeile: "Case management",
+              text: "We submit the proofs to Amazon support, keep deadlines and escalate when no answer comes.",
+            },
+            {
+              titel: "Item released",
+              unterzeile: "Back on sale",
+              text: "Once Amazon releases it, the item goes back on sale. You hear the outcome from us.",
+            },
+          ],
+        },
       },
       katalog: {
         eyebrow: "Catalogue and backend",
+        bildAlt: "Product row with one highlighted item, connected to a report",
         titel: "A clean catalogue, down to the last attribute.",
         lead: "A lot of what decides whether a product is found sits in fields that never show on the detail page. We maintain them across your whole range.",
         karten: [
@@ -829,7 +848,7 @@ export const en: Woerterbuch = {
     marken: {
       label: "Your brand",
       titel: "Your brand exists outside of Amazon too.",
-      lead: "We work with brands that existed before Amazon and sell through other channels alongside it. Amazon is one channel in that distribution, and that is how we plan it.",
+      lead: "We work with brands for which Amazon is one sales channel of several: other marketplaces, their own online shop, retail and B2B. That is how we plan Amazon too, as one channel in the mix.",
       karten: [
         {
           titel: "Other marketplaces",
@@ -866,7 +885,7 @@ export const en: Woerterbuch = {
         },
         {
           titel: "You are looking for the cheapest provider",
-          text: "Staffing five areas full time costs money. Below €100,000 monthly revenue on Amazon it does not pay off for you.",
+          text: "We deliver quality work. Listings, campaigns and cases are handled by experienced people, step by step and without a quick AI pass. That has its price.",
         },
         {
           titel: "Decisions take months with you",

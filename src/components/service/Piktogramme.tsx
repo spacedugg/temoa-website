@@ -49,7 +49,10 @@ export type PiktogrammName =
   | "sendung"
   | "weiche"
   | "zertifikat"
-  | "sperre";
+  | "sperre"
+  | "vorlage"
+  | "verpackung"
+  | "schutz";
 
 /* Die Kachel. Der Inhalt kommt als Kind, die Bewegung steuert die Karte
    darueber ueber Varianten: „an" beim Einlaufen, „zeig" beim Zeigen. */
@@ -582,6 +585,61 @@ function Piktogramm({ name }: { name: PiktogrammName }) {
             <rect x="14" y="27" width="26" height="4" rx="2" fill={ORANGE} />
           </motion.g>
           <path d="M36 27v12" stroke={HELL} strokeWidth="2.4" strokeLinecap="round" />
+        </Kachel>
+      );
+
+    /* Versandvorlage: ein Dokument mit Kopie dahinter, die Zeile fuellt sich. */
+    case "vorlage":
+      return (
+        <Kachel>
+          <rect x="15" y="14" width="24" height="26" rx="4" fill="rgba(255,255,255,0.05)" stroke={HELL_LEISE} />
+          <rect x="10" y="9" width="24" height="26" rx="4" fill="rgba(255,255,255,0.1)" stroke={HELL_LEISE} />
+          <rect x="14" y="14" width="10" height="2.2" rx="1.1" fill={HELL} />
+          <rect x="14" y="20" width="16" height="2.2" rx="1.1" fill={HELL_LEISE} />
+          <motion.rect
+            x="14"
+            y="26"
+            width="16"
+            height="3"
+            rx="1.5"
+            fill={ORANGE}
+            variants={{ ruhe: { opacity: 0, x: -6 }, an: { opacity: 1, x: 0 }, zeig: { opacity: 1, x: 2 } }}
+            transition={{ duration: 0.45, ease: EASE, delay: 0.2 }}
+          />
+        </Kachel>
+      );
+
+    /* Verpackung: ein Karton, daneben dreht sich der Kreislauf. */
+    case "verpackung":
+      return (
+        <Kachel>
+          <rect x="9" y="22" width="22" height="16" rx="3" fill="rgba(255,255,255,0.1)" stroke={HELL_LEISE} />
+          <path d="M9 28h22M20 22v6" stroke={HELL_LEISE} />
+          <motion.g
+            style={{ transformOrigin: "35px 15px" }}
+            variants={{ ruhe: { opacity: 0, rotate: -90 }, an: { opacity: 1, rotate: 0 }, zeig: { opacity: 1, rotate: 180 } }}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
+          >
+            <path d="M29 15a6 6 0 0 1 10.2-4.2M41 15a6 6 0 0 1-10.2 4.2" fill="none" stroke={ORANGE} strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M39.6 6.8v4.4h-4.4M30.4 23.2v-4.4h4.4" fill="none" stroke={ORANGE} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          </motion.g>
+        </Kachel>
+      );
+
+    /* Schutz: ein Schild, der Haken zeichnet sich. */
+    case "schutz":
+      return (
+        <Kachel>
+          <path d="M24 8l13 5v10c0 8-5.5 13.5-13 17-7.5-3.5-13-9-13-17V13l13-5Z" fill="rgba(255,255,255,0.08)" stroke={HELL_LEISE} strokeLinejoin="round" />
+          <rect x="18" y="14" width="12" height="2.2" rx="1.1" fill={HELL} />
+          <motion.path
+            d="M18 25l4.5 4.5L31 20"
+            stroke={ORANGE}
+            strokeWidth="2.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            variants={wisch}
+          />
         </Kachel>
       );
 

@@ -47,12 +47,11 @@ export default async function FullServicePage({
       <Kopfzeile />
       <main id="inhalt">
         <FullServiceKopf sprache={locale} w={w.kopf} />
-        <FuerWen w={w.fuerWen} />
-        {/* Die Marken, mit denen wir arbeiten, gibt es auch ausserhalb von
-            Amazon: weitere Marktplaetze, eigener Shop, Handel. */}
+        {/* Erst sagen wir, mit welchen Marken wir arbeiten, dann, ob das zu
+            euch passt, dann, wann wir absagen. Die Absage-Sektion beginnt mit
+            „Und" und braucht die Zusage direkt davor. */}
         <Marken w={w.marken} />
-        {/* Direkt hinter „fuer wen es passt" steht, fuer wen es nicht passt.
-            Eine Auswahl, die niemanden ausschliesst, ist keine Auswahl. */}
+        <FuerWen w={w.fuerWen} />
         <NichtFuerWen w={w.nichtFuerWen} />
         <Ausgangslage w={w.ausgangslage} />
         <Bereiche w={w.bereiche} />

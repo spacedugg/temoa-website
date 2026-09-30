@@ -421,12 +421,15 @@ export function Points({
   title,
   points,
   bridge,
+  brueckeGruen = false,
   aside,
 }: {
   eyebrow?: string;
   title: ReactNode;
   points: string[];
   bridge?: string;
+  /** Schlusszeile in Gruen: die Antwort auf das Problem, nicht ein weiterer Missstand. */
+  brueckeGruen?: boolean;
   tone?: Tone;
   /** Optionales Diagramm neben der Liste. */
   aside?: ReactNode;
@@ -457,12 +460,18 @@ export function Points({
     <Reveal delay={0.1}>
       <div
         className="flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7"
-        style={{
-          background: "rgba(255,153,0,0.12)",
-          boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)",
-        }}
+        style={
+          brueckeGruen
+            ? { background: "rgba(110,231,160,0.14)", boxShadow: "inset 0 0 0 1px rgba(110,231,160,0.45)" }
+            : { background: "rgba(255,153,0,0.12)", boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)" }
+        }
       >
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy text-white">
+        <span
+          className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${
+            brueckeGruen ? "text-navy" : "bg-navy text-white"
+          }`}
+          style={brueckeGruen ? { background: "#6EE7A0" } : undefined}
+        >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
