@@ -22,6 +22,7 @@ const EASE = [0.32, 0.72, 0, 1] as const;
 
 /* Die Symbole in der Reihenfolge des Woerterbuchs. */
 const FUER_WEN: IconName[] = ["regal", "kompass", "stufen", "globus"];
+const MARKEN: IconName[] = ["globus", "trichter", "stufen", "regal"];
 const AUSGANGSLAGE: IconName[] = ["uhr", "streuung", "schild"];
 
 /* Die Ziffern der fuenf Bereiche und die Symbole der vier Punkte unter
@@ -92,6 +93,21 @@ export function FuerWen({ w }: { w: W["fuerWen"] }) {
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {w.punkte.map((t, i) => (
           <Karte key={t} icon={FUER_WEN[i]} title={t} />
+        ))}
+      </div>
+    </Station>
+  );
+}
+
+/* ---------- Marken mit Vertrieb außerhalb von Amazon ---------- */
+export function Marken({ w }: { w: W["marken"] }) {
+  return (
+    <Station label={w.label} tone="paper">
+      <StationTitle>{w.titel}</StationTitle>
+      <StationLead>{w.lead}</StationLead>
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {w.karten.map((k, i) => (
+          <Karte key={k.titel} icon={MARKEN[i]} title={k.titel} body={k.text} />
         ))}
       </div>
     </Station>

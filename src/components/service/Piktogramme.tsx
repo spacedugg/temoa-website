@@ -45,7 +45,11 @@ export type PiktogrammName =
   | "sprache"
   | "seite"
   | "kampagne"
-  | "wiederholen";
+  | "wiederholen"
+  | "sendung"
+  | "weiche"
+  | "zertifikat"
+  | "sperre";
 
 /* Die Kachel. Der Inhalt kommt als Kind, die Bewegung steuert die Karte
    darueber ueber Varianten: „an" beim Einlaufen, „zeig" beim Zeigen. */
@@ -491,6 +495,93 @@ function Piktogramm({ name }: { name: PiktogrammName }) {
             />
             <path d="M33 9v6h-6M15 39v-6h6" fill="none" stroke={ORANGE} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
           </motion.g>
+        </Kachel>
+      );
+
+    /* Sendung: ein Karton geht auf die Reise, der Pfeil zeichnet sich. */
+    case "sendung":
+      return (
+        <Kachel>
+          <path d="M9 19l10-5 10 5v12l-10 5-10-5V19Z" fill="rgba(255,255,255,0.1)" stroke={HELL_LEISE} />
+          <path d="M9 19l10 5 10-5M19 24v12" stroke={HELL_LEISE} />
+          <motion.path
+            d="M31 13h8m0 0l-3-3m3 3l-3 3"
+            stroke={ORANGE}
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            variants={wisch}
+          />
+          <motion.rect
+            x="32"
+            y="27"
+            width="8"
+            height="8"
+            rx="2"
+            fill={ORANGE}
+            variants={{ ruhe: { opacity: 0, x: -6 }, an: { opacity: 1, x: 0 }, zeig: { opacity: 1, x: 2 } }}
+            transition={{ duration: 0.45, ease: EASE, delay: 0.2 }}
+          />
+        </Kachel>
+      );
+
+    /* FBA oder FBM: eine Weiche, der Weg schaltet um. */
+    case "weiche":
+      return (
+        <Kachel>
+          <circle cx="12" cy="24" r="3.4" fill={HELL} />
+          <path d="M15 24h7" stroke={HELL_LEISE} strokeWidth="2" strokeLinecap="round" />
+          <path d="M22 24c6 0 6-10 14-10" stroke={HELL_LEISE} strokeWidth="2" strokeLinecap="round" fill="none" />
+          <path d="M22 24c6 0 6 10 14 10" stroke={HELL_LEISE} strokeWidth="2" strokeLinecap="round" fill="none" />
+          <rect x="35" y="10" width="6" height="8" rx="2" fill="rgba(255,255,255,0.12)" stroke={HELL_LEISE} />
+          <motion.rect
+            x="35"
+            y="30"
+            width="6"
+            height="8"
+            rx="2"
+            fill={ORANGE}
+            variants={{ ruhe: { opacity: 0.3 }, an: { opacity: 0.6 }, zeig: { opacity: 1 } }}
+            transition={{ duration: 0.4, ease: EASE }}
+          />
+        </Kachel>
+      );
+
+    /* Zertifikat: ein Siegel mit Haken, der Haken zeichnet sich. */
+    case "zertifikat":
+      return (
+        <Kachel>
+          <rect x="9" y="10" width="30" height="22" rx="4" fill="rgba(255,255,255,0.07)" stroke={HELL_LEISE} />
+          <rect x="14" y="15" width="14" height="2.2" rx="1.1" fill={HELL} />
+          <rect x="14" y="20" width="9" height="2.2" rx="1.1" fill={HELL_LEISE} />
+          <path d="M31 31l-2 9 4-2 4 2-2-9" fill="rgba(255,255,255,0.12)" stroke={HELL_LEISE} strokeLinejoin="round" />
+          <circle cx="33" cy="27" r="6" fill="#0E2C43" stroke={ORANGE} strokeWidth="2" />
+          <motion.path
+            d="M30.2 27l2 2 3.6-3.8"
+            stroke="#FFFFFF"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            variants={wisch}
+          />
+        </Kachel>
+      );
+
+    /* Gesperrter Artikel: ein Karton mit Sperre, die sich beim Zeigen hebt. */
+    case "sperre":
+      return (
+        <Kachel>
+          <rect x="10" y="18" width="22" height="20" rx="3" fill="rgba(255,255,255,0.1)" stroke={HELL_LEISE} />
+          <path d="M10 25h22" stroke={HELL_LEISE} />
+          <rect x="15" y="29" width="10" height="2.2" rx="1.1" fill={HELL_LEISE} />
+          <motion.g
+            style={{ transformOrigin: "36px 30px" }}
+            variants={{ ruhe: { opacity: 0, rotate: 0 }, an: { opacity: 1, rotate: 0 }, zeig: { opacity: 1, rotate: -28 } }}
+            transition={{ duration: 0.45, ease: EASE, delay: 0.15 }}
+          >
+            <rect x="14" y="27" width="26" height="4" rx="2" fill={ORANGE} />
+          </motion.g>
+          <path d="M36 27v12" stroke={HELL} strokeWidth="2.4" strokeLinecap="round" />
         </Kachel>
       );
 

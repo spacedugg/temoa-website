@@ -43,6 +43,14 @@ const ADVERTISING_ZEICHEN: PiktogrammName[] = [
 ];
 const INTERNATIONAL_ZEICHEN: PiktogrammName[] = ["sprache", "seite", "kampagne", "wiederholen"];
 const KATALOG_ZEICHEN: PiktogrammName[] = ["katalog", "suche", "struktur", "wiederholen"];
+const FBA_ZEICHEN: PiktogrammName[] = ["sendung", "bestand", "katalog", "weiche"];
+const COMPLIANCE_ZEICHEN: PiktogrammName[] = [
+  "wiederholen",
+  "richtlinie",
+  "zertifikat",
+  "ticket",
+  "sperre",
+];
 const AUFGABEN_ZEICHEN: PiktogrammName[] = [
   "buybox",
   "bestand",
@@ -279,6 +287,32 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
           name: AUFGABEN_ZEICHEN[i],
           title: a.titel,
           body: a.text,
+        }))}
+      />
+      <Cards
+        tone="white"
+        eyebrow={w.fba.eyebrow}
+        title={w.fba.titel}
+        description={w.fba.lead}
+        cols={2}
+        items={w.fba.karten.map((k, i) => ({
+          piktogramm: FBA_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          body: k.text,
+        }))}
+      />
+      <Cards
+        tone="blue"
+        eyebrow={w.compliance.eyebrow}
+        title={w.compliance.titel}
+        description={w.compliance.lead}
+        cols={3}
+        items={w.compliance.karten.map((k, i) => ({
+          piktogramm: COMPLIANCE_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          body: k.text,
         }))}
       />
       <Cards

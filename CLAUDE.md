@@ -245,6 +245,7 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 ## No-Gos / Claims (rechtlich + inhaltlich)
 
 - Leistungen ausschliesslich: Sponsored Products, Sponsored Brands, Sponsored Display. KEIN DSP, kein Bewertungs-/Review-Management, kein Customer Service, keine Google Ads, kein Revenue Recovery, keine Cloud Ads.
+  Seit der sechsunddreissigsten Runde gilt fuer das Account Management eine Erweiterung (siehe dort): FBA-Planung im Konto und Compliance gehoeren dazu. Die Werbung selbst bleibt auf die drei Sponsored-Formate begrenzt.
 - Keine garantierten Rankings, keine BSR-Versprechen, keine Umsatz- oder Einkommensgarantien.
 - Keine angedeutete Amazon-Partnerschaft ueber das real Zutreffende hinaus. Status "offizieller Amazon-Advertising-Partner" ist offen; bis geklaert nicht behaupten.
 - Keine erfundenen Awards, Dollar-Werte oder Fremdmarken.
@@ -1513,3 +1514,38 @@ beide Sprachen, sofern hier nichts anderes steht.
   zeigt Oberflaeche einer Produktseite (Suchleiste, „In den Einkaufswagen",
   „Jetzt kaufen"). Der Kunde hat es so geliefert. Nicht eigenmaechtig
   zurueckbauen, aber auch nicht als Vorbild fuer weitere Bilder nehmen.
+
+## Sechsunddreissigste Feedbackrunde (verbindlich)
+
+- **Die Umsatzgrenze ist 100.000 Euro im Monat**, nicht 50.000. Sie steht auf
+  der Full-Service-Seite (Liste „Passt das zu eurer Marke?" und Absage-Karte
+  „Ihr sucht den guenstigsten Anbieter") und auf der Buchungsseite („Passt
+  nicht, wenn" und FAQ „Fuer wen lohnt sich das?"), in beiden Sprachen. Wer die
+  Grenze aendert, sucht nach „50.000" und „€50,000" und geht alle durch.
+- **Das Account Management umfasst FBA und Compliance.** Zwei neue Sektionen
+  auf der Leistungsseite (`service/bodies`, `AccountBody`): „FBA und Logistik"
+  (Sendungsvorbereitung, Inventory Management, Versandvorlagen, Entscheidung
+  FBA oder FBM) und „Compliance" (LUCID, GPSR, Sicherheitsdokumente,
+  Fallmanagement, gesperrte Artikel). Anlass: Amazon hat zwei Rollen im
+  SP-API-Partnerportal abgelehnt (Compliance, FBA Prep & Packaging), weil die
+  Website die Leistung nicht beschrieb. Die Copy soll dem Pruefer zeigen, was
+  genau getan wird.
+- **Wir bereiten keine Ware physisch vor.** Kein Etikettieren, Verpacken,
+  Buendeln oder Prep im Lager. Die Sektion sagt das ausdruecklich im Lead:
+  Sendungen planen, Bestand steuern, Versandwege festlegen, alles im Konto.
+  Nie so formulieren, dass es nach Prep-Dienstleistung klingt.
+- **Die Kategorie „FBA Prep & Packaging" passt nicht zur Arbeit.** Bei der
+  naechsten Bewerbung im Partnerportal eine Kategorie waehlen, die Inventory
+  und Sendungsplanung beschreibt. Die Kategorie muss zu dem passen, was auf
+  der Website steht (Data Access 3.8).
+- **Vier neue Piktogramme** in `service/Piktogramme`: `sendung`, `weiche`,
+  `zertifikat`, `sperre`. Dieselbe Sprache wie die uebrigen: Navy-Kachel, helle
+  Formen, ein oranges Detail, das sich beim Zeigen bewegt.
+- **Die Marken, mit denen wir arbeiten, gibt es auch ausserhalb von Amazon.**
+  Keine Marken, die nur auf Amazon entstanden sind, sondern etablierte Marken
+  mit weiteren Marktplaetzen, eigenem Shop, Handel und B2B. Neue Sektion
+  `Marken` auf der Full-Service-Seite direkt hinter „Passt das zu eurer
+  Marke?". Die Hero-Zeile der Startseite („deine Amazon Brand") ist vom
+  Kunden vorgegeben und bleibt, bis er sie selbst aendert. Offen: eine kurze
+  Zeile dazu auf der Startseite.
+

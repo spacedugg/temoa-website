@@ -257,7 +257,7 @@ export const de = {
       account: {
         name: "Account Management",
         beschreibung:
-          "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+          "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
       international: {
         name: "Internationalisierung",
@@ -578,7 +578,7 @@ export const de = {
         eyebrow: "Account Management",
         titelVor: "Ihr baut die Marke. Das ",
         titelEm: "Tagesgeschäft liegt bei uns.",
-        lead: "Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+        lead: "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
         bildAlt: "Tagesgeschäft an einem Pult gesteuert",
       },
       problem: {
@@ -645,6 +645,65 @@ export const de = {
           {
             titel: "Feste Termine mit euch",
             text: "Regelmäßig, mit klaren nächsten Schritten.",
+          },
+        ],
+      },
+      fba: {
+        eyebrow: "FBA und Logistik",
+        titel: "Der Weg der Ware ins Amazon-Lager, geplant statt improvisiert.",
+        lead: "Wir arbeiten im Konto: Sendungen planen, Bestand steuern, Versandwege festlegen. Etikettieren und Verpacken bleibt bei eurem Lager oder Prep-Partner.",
+        karten: [
+          {
+            titel: "Sendungsvorbereitung",
+            unterzeile: "Sendungspläne in Seller Central",
+            text: "Wir legen den Sendungsplan an, verteilen die Mengen auf die Artikel und reichen ihn ein. Die Ware kommt mit stimmigen Angaben im Lager an.",
+          },
+          {
+            titel: "Inventory Management",
+            unterzeile: "Reichweite, Nachschub, Überbestand",
+            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer. Lagerkosten für Ladenhüter bleiben klein.",
+          },
+          {
+            titel: "Versandvorlagen",
+            unterzeile: "Maße, Gewicht, Verpackungsart",
+            text: "Einmal sauber angelegt, stimmen die Angaben bei jeder Sendung. Gebührenkorrekturen und Verzögerungen im Wareneingang fallen weg.",
+          },
+          {
+            titel: "Entscheidung FBA oder FBM",
+            unterzeile: "Je Artikel durchgerechnet",
+            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt. Danach steht fest, was über FBA und was über FBM läuft.",
+          },
+        ],
+      },
+      compliance: {
+        eyebrow: "Compliance",
+        titel: "Produkte, die auf Amazon bleiben dürfen.",
+        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell und klären Sperren, bevor sie Umsatz kosten.",
+        karten: [
+          {
+            titel: "LUCID",
+            unterzeile: "Verpackungsregister Deutschland",
+            text: "Amazon verlangt die LUCID-Registrierungsnummer für Verpackungen. Wir hinterlegen sie im Konto, prüfen die Angaben und klären offene Fälle, bevor Angebote gesperrt werden.",
+          },
+          {
+            titel: "GPSR",
+            unterzeile: "Produktsicherheit in der EU",
+            text: "Hersteller, verantwortliche Person in der EU, Kontaktdaten und Sicherheitshinweise gehören zu jedem Angebot. Wir pflegen die Angaben für das gesamte Sortiment.",
+          },
+          {
+            titel: "Sicherheitsdokumente",
+            unterzeile: "Prüfberichte, Zertifikate, Konformität",
+            text: "Wir fordern die Nachweise an und bereiten sie so auf, wie Amazon es verlangt. Hochgeladen werden sie beim richtigen Artikel.",
+          },
+          {
+            titel: "Fallmanagement",
+            unterzeile: "Anfragen an den Amazon-Support",
+            text: "Wir eröffnen die Fälle, reichen Nachweise nach, halten Fristen ein und eskalieren, wenn eine Antwort ausbleibt. Bis der Fall gelöst ist.",
+          },
+          {
+            titel: "Gesperrte Artikel",
+            unterzeile: "Ursache beheben, Freigabe beantragen",
+            text: "Wir klären, welche Vorgabe den Artikel stoppt, beheben die Ursache im Listing oder bei den Nachweisen und beantragen die Freigabe.",
           },
         ],
       },
@@ -811,10 +870,34 @@ export const de = {
       /* Die Ueberschrift traegt die Aussage allein, dafuer ein paar Woerter
          laenger, und das Icon wird gross. */
       punkte: [
-        "Eigene Marke, ab 50.000 € Umsatz im Monat",
+        "Eigene Marke, ab 100.000 € Umsatz im Monat",
         "Starke Produkte, aber wenig Amazon-Wissen im Haus",
         "Das Sortiment wächst schneller als das Team",
         "Mehrere hundert Artikel auf mehreren Marktplätzen",
+      ],
+    },
+
+    marken: {
+      label: "Eure Marke",
+      titel: "Eure Marke gibt es auch außerhalb von Amazon.",
+      lead: "Wir arbeiten mit Marken, die vor Amazon entstanden sind und daneben in weiteren Kanälen verkaufen. Amazon ist dort ein Kanal im Vertrieb. So planen wir ihn.",
+      karten: [
+        {
+          titel: "Weitere Marktplätze",
+          text: "Preise, Sortiment und Markenauftritt stehen auf Amazon im Einklang mit euren übrigen Marktplätzen.",
+        },
+        {
+          titel: "Eigener Online-Shop",
+          text: "Aktionen und Preise auf Amazon laufen nicht gegen den Shop, der euch die Kundendaten liefert.",
+        },
+        {
+          titel: "Handel und B2B",
+          text: "Händler und Großkunden sehen euren Amazon-Preis. Wir steuern das Pricing so, dass es Partnerschaften nicht belastet.",
+        },
+        {
+          titel: "Ein Lager, mehrere Kanäle",
+          text: "Der Nachschub für Amazon konkurriert mit Shop und Handel um dieselbe Ware. Wir planen ihn mit euch ab.",
+        },
       ],
     },
 
@@ -834,7 +917,7 @@ export const de = {
         },
         {
           titel: "Ihr sucht den günstigsten Anbieter",
-          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 50.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
+          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 100.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
         },
         {
           titel: "Entscheidungen dauern bei euch Monate",
@@ -1172,7 +1255,7 @@ export const de = {
       ],
       neinLabel: "Passt nicht, wenn",
       nein: [
-        "Euer Amazon-Umsatz liegt unter 50.000 € im Monat, dann fehlt den Produkten der Traffic.",
+        "Euer Amazon-Umsatz liegt unter 100.000 € im Monat, dann fehlt den Produkten der Traffic.",
         "Ihr sucht den günstigsten Anbieter.",
         "Ihr wollt garantierte Rankings und schnelle Tricks.",
         "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
@@ -1219,7 +1302,7 @@ export const de = {
       {
         frage: "Für wen lohnt sich das?",
         antwort:
-          "Für etablierte Marken mit eigenem Sortiment und ab etwa 50.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
+          "Für etablierte Marken mit eigenem Sortiment und ab etwa 100.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
       },
     ],
 
