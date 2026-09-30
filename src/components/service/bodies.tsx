@@ -12,6 +12,7 @@ import {
 } from "./Blocks";
 import { MarktSektion } from "./Weltkugel";
 import { Aufgaben } from "./Aufgaben";
+import { Ablauf, Spalten, BildKarten } from "./Strecken";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
@@ -43,14 +44,9 @@ const ADVERTISING_ZEICHEN: PiktogrammName[] = [
 ];
 const INTERNATIONAL_ZEICHEN: PiktogrammName[] = ["sprache", "seite", "kampagne", "wiederholen"];
 const KATALOG_ZEICHEN: PiktogrammName[] = ["katalog", "suche", "struktur", "wiederholen"];
-const FBA_ZEICHEN: PiktogrammName[] = ["sendung", "bestand", "katalog", "weiche"];
-const COMPLIANCE_ZEICHEN: PiktogrammName[] = [
-  "wiederholen",
-  "richtlinie",
-  "zertifikat",
-  "ticket",
-  "sperre",
-];
+const FBA_ZEICHEN: PiktogrammName[] = ["weiche", "vorlage", "sendung", "bestand"];
+const PFLICHT_ZEICHEN: PiktogrammName[] = ["verpackung", "schutz", "zertifikat"];
+const SPERRE_ZEICHEN: PiktogrammName[] = ["sperre", "richtlinie", "ticket", "buybox"];
 const AUFGABEN_ZEICHEN: PiktogrammName[] = [
   "buybox",
   "bestand",
@@ -270,6 +266,7 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
         title={w.problem.titel}
         points={w.problem.punkte}
         bridge={w.problem.bruecke}
+        brueckeGruen
       />
       <SplitCards
         tone="white"
@@ -289,43 +286,52 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
           body: a.text,
         }))}
       />
-      <Cards
-        tone="white"
+      <Ablauf
         eyebrow={w.fba.eyebrow}
         title={w.fba.titel}
         description={w.fba.lead}
-        cols={2}
-        items={w.fba.karten.map((k, i) => ({
+        schritte={w.fba.karten.map((k, i) => ({
           piktogramm: FBA_ZEICHEN[i],
-          title: k.titel,
-          subtitle: k.unterzeile,
-          body: k.text,
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
         }))}
       />
-      <Cards
-        tone="blue"
+      <Spalten
         eyebrow={w.compliance.eyebrow}
         title={w.compliance.titel}
         description={w.compliance.lead}
-        cols={3}
-        items={w.compliance.karten.map((k, i) => ({
-          piktogramm: COMPLIANCE_ZEICHEN[i],
-          title: k.titel,
-          subtitle: k.unterzeile,
-          body: k.text,
+        items={w.compliance.pflichten.map((k, i) => ({
+          piktogramm: PFLICHT_ZEICHEN[i],
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
         }))}
       />
-      <Cards
-        tone="white"
+      <Ablauf
+        dunkel
+        endeGruen
+        eyebrow={w.compliance.sperre.eyebrow}
+        title={w.compliance.sperre.titel}
+        description={w.compliance.sperre.lead}
+        schritte={w.compliance.sperre.schritte.map((k, i) => ({
+          piktogramm: SPERRE_ZEICHEN[i],
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
+        }))}
+      />
+      <BildKarten
         eyebrow={w.katalog.eyebrow}
         title={w.katalog.titel}
         description={w.katalog.lead}
-        cols={2}
+        image="/bilder/s-content-ansatz.webp"
+        imageAlt={w.katalog.bildAlt}
         items={w.katalog.karten.map((k, i) => ({
           piktogramm: KATALOG_ZEICHEN[i],
-          title: k.titel,
-          subtitle: k.unterzeile,
-          body: k.text,
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
         }))}
       />
       <ResultBlock

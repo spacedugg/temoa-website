@@ -42,6 +42,7 @@ export const de = {
        den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
       label: "Marken, die wir betreut haben",
+      zeile: "Amazon ist bei ihnen ein Vertriebsweg von mehreren.",
     },
 
     leistungen: {
@@ -654,14 +655,9 @@ export const de = {
         lead: "Wir arbeiten im Konto: Sendungen planen, Bestand steuern, Versandwege festlegen. Etikettieren und Verpacken bleibt bei eurem Lager oder Prep-Partner.",
         karten: [
           {
-            titel: "Sendungsvorbereitung",
-            unterzeile: "Sendungspläne in Seller Central",
-            text: "Wir legen den Sendungsplan an, verteilen die Mengen auf die Artikel und reichen ihn ein. Die Ware kommt mit stimmigen Angaben im Lager an.",
-          },
-          {
-            titel: "Inventory Management",
-            unterzeile: "Reichweite, Nachschub, Überbestand",
-            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer. Lagerkosten für Ladenhüter bleiben klein.",
+            titel: "Entscheidung FBA oder FBM",
+            unterzeile: "Je Artikel durchgerechnet",
+            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt. Danach steht fest, was über FBA und was über FBM läuft.",
           },
           {
             titel: "Versandvorlagen",
@@ -669,17 +665,22 @@ export const de = {
             text: "Einmal sauber angelegt, stimmen die Angaben bei jeder Sendung. Gebührenkorrekturen und Verzögerungen im Wareneingang fallen weg.",
           },
           {
-            titel: "Entscheidung FBA oder FBM",
-            unterzeile: "Je Artikel durchgerechnet",
-            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt. Danach steht fest, was über FBA und was über FBM läuft.",
+            titel: "Sendungsvorbereitung",
+            unterzeile: "Sendungspläne in Seller Central",
+            text: "Wir legen den Sendungsplan an, verteilen die Mengen auf die Artikel und reichen ihn ein. Die Ware kommt mit stimmigen Angaben im Lager an.",
+          },
+          {
+            titel: "Inventory Management",
+            unterzeile: "Laufend: Reichweite, Nachschub, Überbestand",
+            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer. Lagerkosten für Ladenhüter bleiben klein.",
           },
         ],
       },
       compliance: {
         eyebrow: "Compliance",
         titel: "Produkte, die auf Amazon bleiben dürfen.",
-        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell und klären Sperren, bevor sie Umsatz kosten.",
-        karten: [
+        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell.",
+        pflichten: [
           {
             titel: "LUCID",
             unterzeile: "Verpackungsregister Deutschland",
@@ -695,20 +696,38 @@ export const de = {
             unterzeile: "Prüfberichte, Zertifikate, Konformität",
             text: "Wir fordern die Nachweise an und bereiten sie so auf, wie Amazon es verlangt. Hochgeladen werden sie beim richtigen Artikel.",
           },
-          {
-            titel: "Fallmanagement",
-            unterzeile: "Anfragen an den Amazon-Support",
-            text: "Wir eröffnen die Fälle, reichen Nachweise nach, halten Fristen ein und eskalieren, wenn eine Antwort ausbleibt. Bis der Fall gelöst ist.",
-          },
-          {
-            titel: "Gesperrte Artikel",
-            unterzeile: "Ursache beheben, Freigabe beantragen",
-            text: "Wir klären, welche Vorgabe den Artikel stoppt, beheben die Ursache im Listing oder bei den Nachweisen und beantragen die Freigabe.",
-          },
         ],
+        sperre: {
+          eyebrow: "Fallmanagement",
+          titel: "Gesperrte Artikel, vom Fall bis zur Freigabe.",
+          lead: "Jeder Tag mit gesperrtem Artikel ist ein Tag ohne Verkauf. Wir übernehmen den Fall von der ersten Meldung bis zur Freigabe.",
+          schritte: [
+            {
+              titel: "Sperre erkannt",
+              unterzeile: "Gesperrte Artikel",
+              text: "Wir erkennen die Sperre und klären, welche Vorgabe den Artikel stoppt.",
+            },
+            {
+              titel: "Ursache behoben",
+              unterzeile: "Listing und Nachweise",
+              text: "Fehlende Angaben und Dokumente werden ergänzt, das Listing wird angepasst.",
+            },
+            {
+              titel: "Fall eröffnet",
+              unterzeile: "Fallmanagement",
+              text: "Wir reichen die Nachweise beim Amazon-Support ein, halten Fristen und eskalieren, wenn eine Antwort ausbleibt.",
+            },
+            {
+              titel: "Artikel freigegeben",
+              unterzeile: "Zurück im Verkauf",
+              text: "Sobald Amazon freigibt, geht der Artikel zurück in den Verkauf. Die Rückmeldung bekommt ihr von uns.",
+            },
+          ],
+        },
       },
       katalog: {
         eyebrow: "Katalog und Backend",
+        bildAlt: "Produktreihe mit hervorgehobenem Artikel, verbunden mit einer Auswertung",
         titel: "Ein sauberer Katalog, bis ins letzte Attribut.",
         lead: "Vieles, was über die Auffindbarkeit eines Produkts entscheidet, steht in Feldern, die auf der Detailseite gar nicht auftauchen. Wir pflegen sie für euer ganzes Sortiment.",
         karten: [
@@ -880,7 +899,7 @@ export const de = {
     marken: {
       label: "Eure Marke",
       titel: "Eure Marke gibt es auch außerhalb von Amazon.",
-      lead: "Wir arbeiten mit Marken, die vor Amazon entstanden sind und daneben in weiteren Kanälen verkaufen. Amazon ist dort ein Kanal im Vertrieb. So planen wir ihn.",
+      lead: "Wir arbeiten mit Marken, bei denen Amazon ein Vertriebsweg von mehreren ist: weitere Marktplätze, eigener Online-Shop, Handel und B2B. So planen wir Amazon auch, als einen Kanal im Vertrieb.",
       karten: [
         {
           titel: "Weitere Marktplätze",
@@ -917,7 +936,7 @@ export const de = {
         },
         {
           titel: "Ihr sucht den günstigsten Anbieter",
-          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 100.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
+          text: "Wir liefern Qualitätsarbeit. Listings, Kampagnen und Fälle bearbeiten Menschen mit Erfahrung, Schritt für Schritt und ohne Schnelldurchlauf per KI. Das hat seinen Preis.",
         },
         {
           titel: "Entscheidungen dauern bei euch Monate",
@@ -1255,7 +1274,7 @@ export const de = {
       ],
       neinLabel: "Passt nicht, wenn",
       nein: [
-        "Euer Amazon-Umsatz liegt unter 100.000 € im Monat, dann fehlt den Produkten der Traffic.",
+        "Euer Amazon-Umsatz liegt unter 100.000 € im Monat.",
         "Ihr sucht den günstigsten Anbieter.",
         "Ihr wollt garantierte Rankings und schnelle Tricks.",
         "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
@@ -1302,7 +1321,7 @@ export const de = {
       {
         frage: "Für wen lohnt sich das?",
         antwort:
-          "Für etablierte Marken mit eigenem Sortiment und ab etwa 100.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
+          "Für etablierte Marken mit eigenem Sortiment und ab etwa 100.000 € Amazon-Umsatz im Monat. Dann ist Substanz da, auf der wir aufbauen können: Produkt, Konzept und Traffic.",
       },
     ],
 

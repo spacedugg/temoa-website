@@ -1549,3 +1549,55 @@ beide Sprachen, sofern hier nichts anderes steht.
   Kunden vorgegeben und bleibt, bis er sie selbst aendert. Offen: eine kurze
   Zeile dazu auf der Startseite.
 
+## Siebenunddreissigste Feedbackrunde (verbindlich)
+
+- **Die Absage-Karte „Ihr sucht den guenstigsten Anbieter" nennt keine
+  Umsatzschwelle.** Der Satz „unter 100.000 € rechnet sich das nicht" ist raus.
+  Die Begruendung ist die Arbeitsweise: Qualitaetsarbeit von Menschen mit
+  Erfahrung, kein Schnelldurchlauf per KI. Die Grenze von 100.000 € steht nur
+  noch in der Liste „Passt das zu eurer Marke?" und auf der Buchungsseite.
+- **Wir arbeiten mit Marken, bei denen Amazon ein Vertriebsweg von mehreren
+  ist.** Nicht nur mit Marken, die ausserhalb von Amazon entstanden sind. Die
+  Sektion `Marken` sagt das im Lead; die Startseite sagt es im Kundenband
+  (`start.kundenband.zeile`).
+- **Die Reihenfolge der Full-Service-Seite ist: Marken, Passt das zu eurer
+  Marke?, Wann es nicht passt.** „Und wann wir absagen" beginnt mit „Und" und
+  braucht die Zusage unmittelbar davor. Dazwischen steht nichts.
+- **Vier Sektionen mit demselben Aufbau hintereinander sind ein Fehler.** Auf
+  der Account-Seite folgten Aufgaben, FBA, Compliance und Katalog als Eyebrow,
+  Ueberschrift und weisse Kachelreihe. Jetzt haben sie eigene Formen
+  (`service/Strecken`): `Ablauf` (Schritte auf einer leuchtenden Verbindung,
+  hell auf einer Platte oder dunkel auf dem Podest), `Spalten` (drei Pflichten
+  in einer Platte) und `BildKarten` (Bild und Karten nebeneinander). Wer eine
+  weitere Sektion einfuegt, prueft zuerst, ob die Nachbarn dieselbe Form haben.
+- **Die Schlusszeile der Problem-Sektion der Account-Seite ist gruen**
+  (`Points`, `brueckeGruen`). Sie ist die Antwort auf das Problem, nicht ein
+  weiterer Missstand. Auf den vier uebrigen Leistungsseiten bleibt sie
+  orange, bis der Kunde etwas anderes sagt.
+- **Kein Bild zweimal auf einer Seite.** Die Katalog-Sektion zeigt
+  `s-content-ansatz`, die Sektion „Wie wir arbeiten" `s-account-monitor`. Das
+  Bild aus dem Katalog steht auch auf der Seite Produktbilder & SEO.
+- **Drei weitere Piktogramme** in `service/Piktogramme`: `vorlage`,
+  `verpackung`, `schutz`.
+
+## Achtunddreissigste Feedbackrunde (verbindlich)
+
+- **Die Umsatzgrenze steht ohne Begruendung auf der Buchungsseite.** „Euer
+  Amazon-Umsatz liegt unter 100.000 € im Monat." steht allein, ohne „dann fehlt
+  den Produkten der Traffic". Der Kunde will keinen Grund nennen, der nach
+  „das koennt ihr euch erst dann leisten" klingt. Die FAQ „Fuer wen lohnt sich
+  das?" sagt stattdessen, was ab dieser Grenze da ist: Substanz, auf der wir
+  aufbauen koennen, also Produkt, Konzept und Traffic. Kein Satz darueber, was
+  darunter nicht funktioniert.
+- **Die Listings auf der Seite Designbeispiele stehen in neuer Reihenfolge.**
+  Positionen im Sales Room: 1, 3, 4, 2, 5. Das sechste Listing (Fahrrad-
+  schlaeuche) erscheint nicht. Was danach kommt, folgt in seiner Reihenfolge.
+  Die Regel steht in `lib/designbeispiele-ordnung` und wirkt nur auf die
+  Kategorie Listings; `/api/references-snapshot` bleibt unberuehrt.
+- **Die Regel arbeitet nach Position, nicht nach Kennung.** Die Bibliothek
+  liegt im Sales Room, im Repo ist `src/data/references.json` leer, und die
+  Live-Seite ist von hier aus nicht erreichbar. Sie greift erst ab sechs
+  Listings. Wer die Reihenfolge im Sales Room selbst aendert oder das sechste
+  Listing dort auf inaktiv setzt, loescht die Regel, sonst wird doppelt
+  umsortiert. Geprueft mit sieben Testlistings: Ausgabe 1, 3, 4, 2, 5, 7.
+

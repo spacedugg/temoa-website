@@ -150,6 +150,7 @@ export function Kundenband({ w, logoAlt }: { w: W["kundenband"]; logoAlt: string
               {w.label}
             </span>
           </span>
+          <span className="text-small text-white/70">{w.zeile}</span>
         </div>
         <div className="mt-8 space-y-6">
           <LogoRow row={logoRows[0]} duration={58} altMuster={logoAlt} />

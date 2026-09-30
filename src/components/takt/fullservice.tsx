@@ -88,7 +88,7 @@ export function FullServiceKopf({ sprache, w }: { sprache: Sprache; w: W["kopf"]
 /* ---------- 01 · Für wen ---------- */
 export function FuerWen({ w }: { w: W["fuerWen"] }) {
   return (
-    <Station label={w.label} tone="tint">
+    <Station label={w.label} tone="paper">
       <StationTitle>{w.titel}</StationTitle>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {w.punkte.map((t, i) => (
@@ -102,7 +102,7 @@ export function FuerWen({ w }: { w: W["fuerWen"] }) {
 /* ---------- Marken mit Vertrieb außerhalb von Amazon ---------- */
 export function Marken({ w }: { w: W["marken"] }) {
   return (
-    <Station label={w.label} tone="paper">
+    <Station label={w.label} tone="tint">
       <StationTitle>{w.titel}</StationTitle>
       <StationLead>{w.lead}</StationLead>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
