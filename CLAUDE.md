@@ -1616,3 +1616,20 @@ beide Sprachen, sofern hier nichts anderes steht.
   der alte Server laeuft weiter und antwortet mit dem alten Build, auch nach
   `rm -rf .next`.
 
+## Neununddreissigste Feedbackrunde (verbindlich)
+
+- **Die Sechs aus den Bildern sind im Sales Room geloescht, die Website
+  blendet nichts nach Position aus.** Die Fassung mit „die ersten sechs
+  Positionen" hat nach dem Loeschen sechs andere Listings versteckt und ist
+  raus. Die Regel sortiert nur noch um (fuenf Abschnitte, Folge 1, 3, 4, 2, 5).
+- **`NACH_OBEN` in `lib/designbeispiele-ordnung` setzt Listings in
+  vorgegebener Folge an den Anfang.** Ein Eintrag ist eine Kennung oder ein
+  Teil des Titels. Die uebrigen Listings folgen in der Abschnittsfolge. Die
+  Liste ist leer, bis die Kennungen bekannt sind: der Kunde beschreibt die
+  Listings nach ihrem Produkt (Scotty Grill, Kamera-Attrappe, Dreier-Koffer-Set,
+  Munddusche, 40-lbs-Aussenbordmotor, Quiet Extractor Fan, Einhell Power
+  X-Change), die Titel im Sales Room kennen wir von hier aus nicht.
+- **`/design-beispiele?debug` zeigt eine Zeile je Listing:** Position im Sales
+  Room, Position auf der Website, Kennung, Titel und Name der ersten Bilddatei.
+  Daraus lassen sich die Kennungen fuer `NACH_OBEN` und `AUSBLENDEN` ablesen.
+
