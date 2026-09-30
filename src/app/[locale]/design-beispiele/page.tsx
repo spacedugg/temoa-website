@@ -4,7 +4,7 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 import { DesignGallery } from "@/components/design/DesignGallery";
 import { getReferencesRaw } from "@/lib/references";
-import { ordneReferenzen } from "@/lib/designbeispiele-ordnung";
+import { ordneReferenzen, beschreibeOrdnung } from "@/lib/designbeispiele-ordnung";
 import { ServiceCTA } from "@/components/service/Blocks";
 import { istSprache, sprachAngaben } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
@@ -63,6 +63,11 @@ export default async function DesignBeispielePage({
           <div className="container-x">
             <pre className="overflow-x-auto rounded-2xl bg-navy p-5 text-xs leading-relaxed text-white">
               {JSON.stringify(diag, null, 2)}
+            </pre>
+            {/* Welches Listing steht wo und welches erscheint nicht. `anzeige`
+                ist null, wenn die Regel das Listing ausblendet. */}
+            <pre className="mt-4 overflow-x-auto rounded-2xl bg-navy p-5 text-xs leading-relaxed text-white">
+              {JSON.stringify(beschreibeOrdnung(roh.main_images), null, 2)}
             </pre>
           </div>
         )}

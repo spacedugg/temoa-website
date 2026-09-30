@@ -1589,15 +1589,33 @@ beide Sprachen, sofern hier nichts anderes steht.
   das?" sagt stattdessen, was ab dieser Grenze da ist: Substanz, auf der wir
   aufbauen koennen, also Produkt, Konzept und Traffic. Kein Satz darueber, was
   darunter nicht funktioniert.
-- **Die Listings auf der Seite Designbeispiele stehen in neuer Reihenfolge.**
-  Positionen im Sales Room: 1, 3, 4, 2, 5. Das sechste Listing (Fahrrad-
-  schlaeuche) erscheint nicht. Was danach kommt, folgt in seiner Reihenfolge.
-  Die Regel steht in `lib/designbeispiele-ordnung` und wirkt nur auf die
-  Kategorie Listings; `/api/references-snapshot` bleibt unberuehrt.
+- **Die Listings auf der Seite Designbeispiele werden automatisch umsortiert.**
+  Die ersten sechs Listings des Sales Room (die sechs, die der Kunde per Bild
+  gezeigt hat) erscheinen nicht auf der Website. Den Rest teilt der Code
+  gedanklich in fuenf gleich grosse Abschnitte und zeigt sie in der Folge 1, 3,
+  4, 2, 5. Wer sonst erst nach mehrmaligem „Mehr laden" kommt, steht weiter
+  vorn, und niemand muss von Hand verschieben. Bei Rest teilen die vorderen
+  Abschnitte je ein Listing mehr.
+- **Die Abschnitte sind ein Rechenweg und auf der Seite nicht zu sehen.** Keine
+  Ueberschriften, keine Trenner: die Liste ist nur anders sortiert. Der Kunde
+  hat das ausdruecklich klargestellt, nachdem ein Missverstaendnis eine erste
+  Fassung nach festen Positionen (1, 3, 4, 2, 5 und das sechste weg) ergeben
+  hatte.
+- **Die Regel steht in `lib/designbeispiele-ordnung` und wirkt nur auf die
+  Kategorie Listings.** `/api/references-snapshot` bleibt unberuehrt. Nichts
+  wird geloescht: die Listings bleiben im Sales Room, sie erscheinen nur nicht
+  auf der Website. Hat die Liste nicht mehr als sechs Eintraege, bleibt sie
+  unangetastet, sonst stuende dort nur das erfundene Beispielprodukt.
 - **Die Regel arbeitet nach Position, nicht nach Kennung.** Die Bibliothek
   liegt im Sales Room, im Repo ist `src/data/references.json` leer, und die
-  Live-Seite ist von hier aus nicht erreichbar. Sie greift erst ab sechs
-  Listings. Wer die Reihenfolge im Sales Room selbst aendert oder das sechste
-  Listing dort auf inaktiv setzt, loescht die Regel, sonst wird doppelt
-  umsortiert. Geprueft mit sieben Testlistings: Ausgabe 1, 3, 4, 2, 5, 7.
+  Live-Seite ist von hier aus nicht erreichbar. `/design-beispiele?debug` zeigt
+  je Listing die Position im Sales Room, die Position auf der Website (null =
+  ausgeblendet), Kennung, Titel und erstes Bild. Wer die Reihenfolge im Sales
+  Room selbst aendert oder die sechs dort auf inaktiv setzt, loescht die Regel,
+  sonst wird doppelt sortiert und verworfen. Geprueft mit 26 Testlistings:
+  Sales-Room-Positionen 7 bis 10, 15 bis 18, 19 bis 22, 11 bis 14, 23 bis 26.
+- **`lsof` fehlt in dieser Umgebung.** Ein Server auf einem Port wird mit
+  `fuser -k 3111/tcp` beendet. Mit `lsof -ti ... | xargs kill` passiert nichts,
+  der alte Server laeuft weiter und antwortet mit dem alten Build, auch nach
+  `rm -rf .next`.
 
