@@ -661,7 +661,7 @@ export const de = {
           {
             titel: "Inventory Management",
             unterzeile: "Reichweite, Nachschub, Überbestand",
-            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer, und Lagerkosten für Ladenhüter bleiben klein.",
+            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer. Lagerkosten für Ladenhüter bleiben klein.",
           },
           {
             titel: "Versandvorlagen",
@@ -671,7 +671,7 @@ export const de = {
           {
             titel: "Entscheidung FBA oder FBM",
             unterzeile: "Je Artikel durchgerechnet",
-            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt, und legen fest, was über FBA und was über FBM läuft.",
+            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt. Danach steht fest, was über FBA und was über FBM läuft.",
           },
         ],
       },
@@ -693,7 +693,7 @@ export const de = {
           {
             titel: "Sicherheitsdokumente",
             unterzeile: "Prüfberichte, Zertifikate, Konformität",
-            text: "Wir fordern die Nachweise an, bereiten sie so auf, wie Amazon sie verlangt, und laden sie beim richtigen Artikel hoch.",
+            text: "Wir fordern die Nachweise an und bereiten sie so auf, wie Amazon es verlangt. Hochgeladen werden sie beim richtigen Artikel.",
           },
           {
             titel: "Fallmanagement",
@@ -880,7 +880,7 @@ export const de = {
     marken: {
       label: "Eure Marke",
       titel: "Eure Marke gibt es auch außerhalb von Amazon.",
-      lead: "Wir arbeiten mit Marken, die vor Amazon entstanden sind und daneben in weiteren Kanälen verkaufen. Amazon ist dort ein Kanal im Vertrieb, und so planen wir ihn.",
+      lead: "Wir arbeiten mit Marken, die vor Amazon entstanden sind und daneben in weiteren Kanälen verkaufen. Amazon ist dort ein Kanal im Vertrieb. So planen wir ihn.",
       karten: [
         {
           titel: "Weitere Marktplätze",
