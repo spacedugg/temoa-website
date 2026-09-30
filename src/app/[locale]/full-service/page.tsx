@@ -5,6 +5,7 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import {
   FullServiceKopf,
   FuerWen,
+  Marken,
   Ausgangslage,
   Bereiche,
   Reporting,
@@ -47,6 +48,9 @@ export default async function FullServicePage({
       <main id="inhalt">
         <FullServiceKopf sprache={locale} w={w.kopf} />
         <FuerWen w={w.fuerWen} />
+        {/* Die Marken, mit denen wir arbeiten, gibt es auch ausserhalb von
+            Amazon: weitere Marktplaetze, eigener Shop, Handel. */}
+        <Marken w={w.marken} />
         {/* Direkt hinter „fuer wen es passt" steht, fuer wen es nicht passt.
             Eine Auswahl, die niemanden ausschliesst, ist keine Auswahl. */}
         <NichtFuerWen w={w.nichtFuerWen} />

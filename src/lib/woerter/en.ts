@@ -229,7 +229,7 @@ export const en: Woerterbuch = {
       account: {
         name: "Account Management",
         beschreibung:
-          "Buy Box, inventory, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
+          "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
       international: {
         name: "International Expansion",
@@ -539,7 +539,7 @@ export const en: Woerterbuch = {
         eyebrow: "Account Management",
         titelVor: "You build the brand. The ",
         titelEm: "day-to-day is on us.",
-        lead: "Buy Box, inventory, account health and pricing, run like a department of our own. That gives you time for product and catalog.",
+        lead: "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of our own. That gives you time for product and catalog.",
         bildAlt: "The day-to-day run from a console",
       },
       problem: {
@@ -605,6 +605,65 @@ export const en: Woerterbuch = {
           {
             titel: "Fixed calls with you",
             text: "Regular, with clear next steps.",
+          },
+        ],
+      },
+      fba: {
+        eyebrow: "FBA and logistics",
+        titel: "The way of your goods into the Amazon warehouse, planned instead of improvised.",
+        lead: "We work in the account: planning shipments, steering inventory, setting shipping routes. Labelling and packing stay with your warehouse or prep partner.",
+        karten: [
+          {
+            titel: "Shipment preparation",
+            unterzeile: "Shipping plans in Seller Central",
+            text: "We create the shipping plan, split the quantities across items and submit it. The goods arrive at the warehouse with consistent data.",
+          },
+          {
+            titel: "Inventory management",
+            unterzeile: "Coverage, resupply, excess stock",
+            text: "Coverage per item in view, resupply scheduled, slow movers spotted early. No bestseller runs out, and storage costs for dead stock stay small.",
+          },
+          {
+            titel: "Shipping templates",
+            unterzeile: "Dimensions, weight, packaging type",
+            text: "Set up cleanly once, the data is right on every shipment. Fee corrections and delays at receiving drop out.",
+          },
+          {
+            titel: "FBA or FBM decision",
+            unterzeile: "Calculated per item",
+            text: "We calculate per item which route leaves more after fees, storage and returns, and decide what runs through FBA and what through FBM.",
+          },
+        ],
+      },
+      compliance: {
+        eyebrow: "Compliance",
+        titel: "Products that are allowed to stay on Amazon.",
+        lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current and resolve blocks before they cost revenue.",
+        karten: [
+          {
+            titel: "LUCID",
+            unterzeile: "German packaging register",
+            text: "Amazon asks for the LUCID registration number for packaging. We enter it in the account, check the data and clear open cases before listings get blocked.",
+          },
+          {
+            titel: "GPSR",
+            unterzeile: "Product safety in the EU",
+            text: "Manufacturer, EU responsible person, contact data and safety notices belong on every listing. We maintain them for the whole range.",
+          },
+          {
+            titel: "Safety documents",
+            unterzeile: "Test reports, certificates, conformity",
+            text: "We request the proofs, prepare them the way Amazon requires and upload them to the right item.",
+          },
+          {
+            titel: "Case management",
+            unterzeile: "Requests to Amazon support",
+            text: "We open the cases, submit proofs, keep deadlines and escalate when no answer comes. Until the case is solved.",
+          },
+          {
+            titel: "Blocked items",
+            unterzeile: "Fix the cause, request release",
+            text: "We find out which requirement stops the item, fix the cause in the listing or the proofs and request release.",
           },
         ],
       },
@@ -764,6 +823,30 @@ export const en: Woerterbuch = {
         "Strong products, but little Amazon knowledge in house",
         "The catalog grows faster than the team",
         "Several hundred items across several marketplaces",
+      ],
+    },
+
+    marken: {
+      label: "Your brand",
+      titel: "Your brand exists outside of Amazon too.",
+      lead: "We work with brands that existed before Amazon and sell through other channels alongside it. Amazon is one channel in that distribution, and that is how we plan it.",
+      karten: [
+        {
+          titel: "Other marketplaces",
+          text: "Prices, range and brand presence on Amazon stay in line with your other marketplaces.",
+        },
+        {
+          titel: "Your own online shop",
+          text: "Promotions and prices on Amazon do not run against the shop that gives you your customer data.",
+        },
+        {
+          titel: "Retail and B2B",
+          text: "Retailers and large customers see your Amazon price. We steer pricing so it does not strain partnerships.",
+        },
+        {
+          titel: "One warehouse, several channels",
+          text: "Resupply for Amazon competes with shop and retail for the same goods. We plan it with you.",
+        },
       ],
     },
 
@@ -1075,7 +1158,7 @@ export const en: Woerterbuch = {
       ],
       neinLabel: "Not a fit when",
       nein: [
-        "Your Amazon revenue is below €50,000 a month, then the products lack the traffic.",
+        "Your Amazon revenue is below €100,000 a month, then the products lack the traffic.",
         "You are looking for the cheapest provider.",
         "You want guaranteed rankings and quick tricks.",
         "Amazon is a side channel for you that nothing goes into.",
@@ -1122,7 +1205,7 @@ export const en: Woerterbuch = {
       {
         frage: "Who is this worth it for?",
         antwort:
-          "For established brands with their own catalog and from around €50,000 Amazon revenue a month. Below that, too little traffic runs over the products to draw reliable conclusions from.",
+          "For established brands with their own catalog and from around €100,000 Amazon revenue a month. Below that, too little traffic runs over the products to draw reliable conclusions from.",
       },
     ],
 
