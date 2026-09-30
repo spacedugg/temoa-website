@@ -760,7 +760,7 @@ export const en: Woerterbuch = {
       label: "Who we work with",
       titel: "Is this a fit for your brand?",
       punkte: [
-        "Your own brand, from €50,000 revenue a month",
+        "Your own brand, from €100,000 revenue a month",
         "Strong products, but little Amazon knowledge in house",
         "The catalog grows faster than the team",
         "Several hundred items across several marketplaces",
@@ -783,7 +783,7 @@ export const en: Woerterbuch = {
         },
         {
           titel: "You are looking for the cheapest provider",
-          text: "Staffing five areas full time costs money. Below €50,000 monthly revenue on Amazon it does not pay off for you.",
+          text: "Staffing five areas full time costs money. Below €100,000 monthly revenue on Amazon it does not pay off for you.",
         },
         {
           titel: "Decisions take months with you",

@@ -811,7 +811,7 @@ export const de = {
       /* Die Ueberschrift traegt die Aussage allein, dafuer ein paar Woerter
          laenger, und das Icon wird gross. */
       punkte: [
-        "Eigene Marke, ab 50.000 € Umsatz im Monat",
+        "Eigene Marke, ab 100.000 € Umsatz im Monat",
         "Starke Produkte, aber wenig Amazon-Wissen im Haus",
         "Das Sortiment wächst schneller als das Team",
         "Mehrere hundert Artikel auf mehreren Marktplätzen",
@@ -834,7 +834,7 @@ export const de = {
         },
         {
           titel: "Ihr sucht den günstigsten Anbieter",
-          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 50.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
+          text: "Fünf Bereiche hauptberuflich zu besetzen, kostet Geld. Unter 100.000 € Monatsumsatz auf Amazon rechnet sich das für euch nicht.",
         },
         {
           titel: "Entscheidungen dauern bei euch Monate",
