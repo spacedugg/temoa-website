@@ -1,61 +1,72 @@
 import type { RefData, RefListing } from "./references";
 
 /* ============================================================
-   Auswahl und Reihenfolge der Listings auf der Seite Designbeispiele.
+   Reihenfolge der Listings auf der Seite Designbeispiele.
 
    Die Listings kommen aus dem Sales Room, die Reihenfolge dort ist
-   `reference_listings."order"`. Die Regel hier ist eine Uebergangsloesung und
-   arbeitet nach Position, nicht nach Kennung: im Repo liegt keine Kopie der
-   Bibliothek (`src/data/references.json` ist leer), die Kennungen sind von hier
-   aus nicht zu sehen.
+   `reference_listings."order"`. Was dort geloescht oder auf inaktiv gesetzt
+   ist, erscheint hier nicht: die Seite liest nur aktive Listings.
 
-   Zwei Schritte, nur fuer die Kategorie Listings:
+   Die Regel sortiert nur um, sie blendet nichts nach Position aus. Die
+   Bibliothek wird gedanklich in fuenf gleich grosse Abschnitte geteilt (bei
+   Rest bekommen die vorderen Abschnitte je eins mehr) und in der Folge 1, 3,
+   4, 2, 5 angezeigt. Damit rutschen Listings, die sonst erst nach mehrmaligem
+   „Mehr laden" kommen, nach vorn, ohne dass jemand sie von Hand verschiebt.
+   Kommen Listings dazu, teilen sich die Abschnitte von selbst neu auf.
 
-   1. Die ersten `ENTFERNE_ERSTE` Listings erscheinen nicht. Das sind die
-      sechs, die der Kunde als Beispiele gezeigt hat und die weg sollen.
-   2. Der Rest wird in `ABSCHNITT_FOLGE.length` Abschnitte gleicher Groesse
-      geteilt (bei Rest bekommen die vorderen Abschnitte je eins mehr) und in
-      der Folge der Abschnitte angezeigt: 1, 3, 4, 2, 5. Damit rutschen Listings,
-      die sonst erst nach mehrmaligem „Mehr laden" kommen, nach vorn, ohne dass
-      jemand sie von Hand verschiebt. Kommen Listings dazu, teilen sich die
-      Abschnitte von selbst neu auf.
+   Die Abschnitte sind ein Rechenweg. Auf der Seite ist davon nichts zu sehen.
 
-   Hier wird nichts geloescht. Die Listings bleiben im Sales Room, sie
-   erscheinen nur nicht auf der Website.
+   `AUSBLENDEN` ist fuer ein Listing, das auf der Website fehlen soll, im Sales
+   Room aber bleibt. Es wirkt ueber die Kennung, nicht ueber eine Position.
+   Die Kennungen zeigt `/design-beispiele?debug`.
 
-   Sobald die Bibliothek im Sales Room selbst so gepflegt ist (die sechs auf
-   inaktiv, Reihenfolge gesetzt), gehoert diese Regel geloescht. Sonst wird
-   doppelt sortiert und verworfen.
+   `NACH_OBEN` setzt ausgewaehlte Listings in genau dieser Folge an den Anfang.
+   Ein Eintrag ist eine Kennung oder ein Teil des Titels (Gross- und
+   Kleinschreibung egal). Ein Eintrag ohne Treffer wird uebersprungen. Die
+   uebrigen Listings folgen in der Abschnittsfolge.
 
-   Hat die Liste nicht mehr Eintraege als `ENTFERNE_ERSTE`, bleibt sie
-   unangetastet: sonst stuende auf der Seite nur noch das erfundene
-   Beispielprodukt.
+   Mit weniger Listings als Abschnitten bleibt die Reihenfolge, wie sie ist.
    ============================================================ */
 
-export const ENTFERNE_ERSTE = 6;
 export const ABSCHNITT_FOLGE = [1, 3, 4, 2, 5] as const;
+export const AUSBLENDEN: readonly string[] = [];
+export const NACH_OBEN: readonly string[] = [];
 
-export function ordneListings<T>(
-  listings: T[],
-  entferneErste: number = ENTFERNE_ERSTE,
-  folge: readonly number[] = ABSCHNITT_FOLGE,
-): T[] {
-  if (listings.length <= entferneErste) return listings;
-  const rest = listings.slice(entferneErste);
+type MitKennung = { id: string; title?: string | null };
+
+function passt(l: MitKennung, schluessel: string): boolean {
+  return l.id === schluessel || (l.title ?? "").toLowerCase().includes(schluessel.toLowerCase());
+}
+
+function inAbschnitten<T>(liste: T[], folge: readonly number[]): T[] {
   const n = folge.length;
-  /* Weniger Listings als Abschnitte: Umsortieren waere sinnlos. */
-  if (rest.length < n) return rest;
-
-  const basis = Math.floor(rest.length / n);
-  const mehr = rest.length % n;
+  if (liste.length < n) return liste;
+  const basis = Math.floor(liste.length / n);
+  const mehr = liste.length % n;
   const abschnitte: T[][] = [];
   let start = 0;
   for (let i = 0; i < n; i++) {
     const laenge = basis + (i < mehr ? 1 : 0);
-    abschnitte.push(rest.slice(start, start + laenge));
+    abschnitte.push(liste.slice(start, start + laenge));
     start += laenge;
   }
   return folge.flatMap((f) => abschnitte[f - 1] ?? []);
+}
+
+export function ordneListings<T extends MitKennung>(
+  listings: T[],
+  folge: readonly number[] = ABSCHNITT_FOLGE,
+  ausblenden: readonly string[] = AUSBLENDEN,
+  nachOben: readonly string[] = NACH_OBEN,
+): T[] {
+  const sichtbar = listings.filter((l) => !ausblenden.includes(l.id));
+  const oben: T[] = [];
+  for (const schluessel of nachOben) {
+    const treffer = sichtbar.find((l) => !oben.includes(l) && passt(l, schluessel));
+    if (treffer) oben.push(treffer);
+  }
+  const rest = sichtbar.filter((l) => !oben.includes(l));
+  return [...oben, ...inAbschnitten(rest, folge)];
 }
 
 /** Wendet die Regel auf die Kategorie Listings an. Die anderen bleiben, wie sie sind. */
