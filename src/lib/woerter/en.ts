@@ -1177,7 +1177,7 @@ export const en: Woerterbuch = {
       ],
       neinLabel: "Not a fit when",
       nein: [
-        "Your Amazon revenue is below €100,000 a month, then the products lack the traffic.",
+        "Your Amazon revenue is below €100,000 a month.",
         "You are looking for the cheapest provider.",
         "You want guaranteed rankings and quick tricks.",
         "Amazon is a side channel for you that nothing goes into.",
@@ -1224,7 +1224,7 @@ export const en: Woerterbuch = {
       {
         frage: "Who is this worth it for?",
         antwort:
-          "For established brands with their own catalog and from around €100,000 Amazon revenue a month. Below that, too little traffic runs over the products to draw reliable conclusions from.",
+          "For established brands with their own catalog and from around €100,000 Amazon revenue a month. From there, substance is in place for us to build on: product, concept and traffic.",
       },
     ],
 

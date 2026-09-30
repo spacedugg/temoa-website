@@ -1580,3 +1580,24 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Drei weitere Piktogramme** in `service/Piktogramme`: `vorlage`,
   `verpackung`, `schutz`.
 
+## Achtunddreissigste Feedbackrunde (verbindlich)
+
+- **Die Umsatzgrenze steht ohne Begruendung auf der Buchungsseite.** „Euer
+  Amazon-Umsatz liegt unter 100.000 € im Monat." steht allein, ohne „dann fehlt
+  den Produkten der Traffic". Der Kunde will keinen Grund nennen, der nach
+  „das koennt ihr euch erst dann leisten" klingt. Die FAQ „Fuer wen lohnt sich
+  das?" sagt stattdessen, was ab dieser Grenze da ist: Substanz, auf der wir
+  aufbauen koennen, also Produkt, Konzept und Traffic. Kein Satz darueber, was
+  darunter nicht funktioniert.
+- **Die Listings auf der Seite Designbeispiele stehen in neuer Reihenfolge.**
+  Positionen im Sales Room: 1, 3, 4, 2, 5. Das sechste Listing (Fahrrad-
+  schlaeuche) erscheint nicht. Was danach kommt, folgt in seiner Reihenfolge.
+  Die Regel steht in `lib/designbeispiele-ordnung` und wirkt nur auf die
+  Kategorie Listings; `/api/references-snapshot` bleibt unberuehrt.
+- **Die Regel arbeitet nach Position, nicht nach Kennung.** Die Bibliothek
+  liegt im Sales Room, im Repo ist `src/data/references.json` leer, und die
+  Live-Seite ist von hier aus nicht erreichbar. Sie greift erst ab sechs
+  Listings. Wer die Reihenfolge im Sales Room selbst aendert oder das sechste
+  Listing dort auf inaktiv setzt, loescht die Regel, sonst wird doppelt
+  umsortiert. Geprueft mit sieben Testlistings: Ausgabe 1, 3, 4, 2, 5, 7.
+

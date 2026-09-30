@@ -1274,7 +1274,7 @@ export const de = {
       ],
       neinLabel: "Passt nicht, wenn",
       nein: [
-        "Euer Amazon-Umsatz liegt unter 100.000 € im Monat, dann fehlt den Produkten der Traffic.",
+        "Euer Amazon-Umsatz liegt unter 100.000 € im Monat.",
         "Ihr sucht den günstigsten Anbieter.",
         "Ihr wollt garantierte Rankings und schnelle Tricks.",
         "Amazon ist bei euch ein Nebenkanal, in den nichts investiert wird.",
@@ -1321,7 +1321,7 @@ export const de = {
       {
         frage: "Für wen lohnt sich das?",
         antwort:
-          "Für etablierte Marken mit eigenem Sortiment und ab etwa 100.000 € Amazon-Umsatz im Monat. Darunter läuft zu wenig Traffic über die Produkte, um daraus verlässliche Schlüsse zu ziehen.",
+          "Für etablierte Marken mit eigenem Sortiment und ab etwa 100.000 € Amazon-Umsatz im Monat. Dann ist Substanz da, auf der wir aufbauen können: Produkt, Konzept und Traffic.",
       },
     ],
 

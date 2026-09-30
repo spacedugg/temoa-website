@@ -4,6 +4,7 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { PageHero } from "@/components/ui/PageHero";
 import { DesignGallery } from "@/components/design/DesignGallery";
 import { getReferencesRaw } from "@/lib/references";
+import { ordneReferenzen } from "@/lib/designbeispiele-ordnung";
 import { ServiceCTA } from "@/components/service/Blocks";
 import { istSprache, sprachAngaben } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
@@ -38,7 +39,10 @@ export default async function DesignBeispielePage({
   const { locale } = await params;
   if (!istSprache(locale)) notFound();
   const w = woerter(locale).design;
-  const { data: references, diag } = await getReferencesRaw();
+  const { data: roh, diag } = await getReferencesRaw();
+  /* Reihenfolge und Auswahl der Listings: siehe `designbeispiele-ordnung`.
+     Der Export unter /api/references-snapshot bleibt davon unberuehrt. */
+  const references = ordneReferenzen(roh);
   const showDebug = (await searchParams)?.debug != null;
   return (
     <>
