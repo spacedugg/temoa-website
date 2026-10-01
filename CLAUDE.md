@@ -1652,3 +1652,14 @@ beide Sprachen, sofern hier nichts anderes steht.
   `AUSBLENDEN` und `NACH_OBEN`, die Positionen werden geleert.
 - **Der Grund bleibt:** die Website liest einen alten Turso-Stand, Aenderungen
   im Sales Room (Postgres) kommen dort nicht an.
+
+## Einundvierzigste Feedbackrunde (verbindlich)
+
+- **Die Ausgangslage der Startseite hat vier Kacheln in dieser Folge:** „Zu viele
+  Produkte", „Zu viele Marktplätze", „Zu wenig Zeit", „Kampagnen ohne
+  Struktur" (`start.befund.karten`, Symbole `regal`, `globus`, `uhr`,
+  `streuung`). „Seit dem Launch nichts verändert" ist in „Zu wenig Zeit"
+  aufgegangen, „Berichte, die niemand auswertet" ist raus.
+- **Dass die Kunden nicht nur auf Amazon verkaufen, steht in der Kachel „Zu viele
+  Marktplätze"**, als Teil der Lage der Marke. Die Zeile im Kundenband bleibt
+  gestrichen.

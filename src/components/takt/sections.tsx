@@ -165,7 +165,7 @@ export function Kundenband({ w, logoAlt }: { w: W["kundenband"]; logoAlt: string
    ============================================================ */
 
 /* Die Symbole in der Reihenfolge der vier Karten im Woerterbuch. */
-const befundIcons: IconName[] = ["uhr", "bild", "streuung", "bericht"];
+const befundIcons: IconName[] = ["regal", "globus", "uhr", "streuung"];
 
 export function Befund({ w }: { w: W["befund"] }) {
   const reduce = useReducedMotion();
