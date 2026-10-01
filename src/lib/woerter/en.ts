@@ -786,10 +786,10 @@ export const en: Woerterbuch = {
       },
       ergebnis: {
         titel: "Miganeo, summer 2026",
-        zeile: "Five marketplaces built in ten weeks, four loose campaigns became 120.",
+        zeile: "Five marketplaces built in ten weeks, with thirty times as many campaigns as before.",
         werte: [
-          { wert: "×20", label: "Revenue abroad", sub: "€8,967 to €179,287" },
-          { wert: "9.9%", label: "ACoS", sub: "€299,184 revenue on €29,490 spend" },
+          { wert: "×20", label: "Revenue abroad", sub: "within one summer" },
+          { wert: "+20.6%", label: "Revenue on the same ad spend", sub: "in Germany, through the new structure" },
           {
             wert: "98.9%",
             label: "outside the brand's own name",

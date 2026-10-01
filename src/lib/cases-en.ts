@@ -50,7 +50,7 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
   miganeo: {
     industry: "Pool, garden and outdoor",
     timeframe: "May to August 2026",
-    headline: "Four campaigns abroad became 120",
+    headline: "Thirty times the campaigns abroad, twenty times the revenue",
     subheadline:
       "Five marketplaces were running on the side. After one summer, most of the growth comes from them.",
     preview: { value: "×20", label: "Revenue abroad" },
@@ -59,8 +59,8 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
         heading: "The starting point",
         body: "In Germany the account was doing well. Abroad it was running on the side.",
         punkte: [
-          "€8,967 revenue abroad in one quarter",
-          "Four single campaigns for five open marketplaces",
+          "Hardly any revenue came in abroad",
+          "A handful of single campaigns for five open marketplaces",
           "Nobody in house had the time to build them out",
         ],
       },
@@ -69,8 +69,7 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
         body: "Every marketplace got the full work from scratch.",
         punkte: [
           "Its own keyword research and its own copy in the local language",
-          "Four campaigns abroad became 120, and 157 across all six marketplaces",
-          "66 advertised items",
+          "Thirty times as many campaigns abroad, restructured on all six marketplaces",
           "New main images and detail pages for the most important items",
         ],
       },
@@ -78,15 +77,15 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
         heading: "Result",
         body: "Most of the growth comes from abroad today.",
         punkte: [
-          "Revenue abroad from €8,967 to €179,287",
+          "Revenue abroad around twenty times as high",
           "98.9 percent of it through search terms outside the brand name",
           "The new structure in Germany gets 20.6 percent more revenue out of the same ad spend",
         ],
       },
     ],
     heroStats: [
-      { value: "×20", label: "Revenue abroad", sublabel: "€8,967 to €179,287" },
-      { value: "€299,184", label: "Revenue through advertising", sublabel: "on €29,490 spend" },
+      { value: "×20", label: "Revenue abroad", sublabel: "within one summer" },
+      { value: "+20.6%", label: "Revenue on the same ad spend", sublabel: "in Germany, through the new structure" },
       {
         value: "98.9%",
         label: "Revenue outside the brand's own name",
@@ -94,13 +93,11 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
       },
     ],
     kennzahlen: [
-      { name: "Advertising Cost of Sales", wert: "9.9%", hinweis: "across all six marketplaces" },
-      { name: "Total Advertising Cost of Sales", wert: "6.02%", hinweis: "ad spend against total revenue" },
       { name: "Conversion Rate", wert: "+24.7%", hinweis: "sand filter systems, after new product images" },
     ],
     subStats: [
-      { value: "+149.5%", label: "Revenue, trampoline accessories", sublabel: "€11,059 to €27,587" },
-      { value: "+38.3%", label: "Revenue, boat motors", sublabel: "€269,759 to €372,998" },
+      { value: "+149.5%", label: "Revenue, trampoline accessories" },
+      { value: "+38.3%", label: "Revenue, boat motors" },
     ],
     badges: ["Client's efficiency target beaten"],
     produkte: [

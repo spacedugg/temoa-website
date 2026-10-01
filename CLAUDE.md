@@ -1663,3 +1663,19 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Dass die Kunden nicht nur auf Amazon verkaufen, steht in der Kachel „Zu viele
   Marktplätze"**, als Teil der Lage der Marke. Die Zeile im Kundenband bleibt
   gestrichen.
+
+## Zweiundvierzigste Feedbackrunde (verbindlich, ersetzt die Ausnahme fuer Miganeo)
+
+- **Auch bei Miganeo stehen keine absoluten Zahlen.** Die Ausnahme aus der
+  vierundzwanzigsten und sechsundzwanzigsten Runde ist aufgehoben. Raus sind
+  Betraege (8.967 €, 179.287 €, 299.184 €, 29.490 €, die Umsaetze von
+  Trampolin-Zubehoer und Bootsmotoren), die Kampagnenzahlen (4, 120, 157),
+  die Zahl der beworbenen Artikel (66) und die ACoS- und TACoS-Staende
+  (9,9 % und 6,02 %), zu denen kein Ausgangswert vorliegt. Bei Bachgold bleibt
+  nur der Umsatz von 1,68 Mio. Euro.
+- **Verhaeltnisse und Anteile bleiben**, weil sie keinen Stand verraten: ×20
+  beim Umsatz im Ausland, 30-mal so viele Kampagnen (4 auf 120, ohne die
+  beiden Zahlen), +20,6 % Umsatz bei gleichem Werbeeinsatz, +24,7 % CVR,
+  98,9 % ausserhalb der Marke, +149,5 % und +38,3 % bei den Produktgruppen.
+- **Die Kennzahlenreihe bei Miganeo hat nur noch CVR.** ACoS und TACoS fehlen,
+  weil nur der Stand vorliegt; derselbe Grundsatz wie bei HaA.

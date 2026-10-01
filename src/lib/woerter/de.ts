@@ -826,10 +826,10 @@ export const de = {
       },
       ergebnis: {
         titel: "Miganeo, Sommer 2026",
-        zeile: "Fünf Marktplätze in zehn Wochen aufgebaut, aus vier losen Kampagnen wurden 120.",
+        zeile: "Fünf Marktplätze in zehn Wochen aufgebaut, mit 30-mal so vielen Kampagnen wie vorher.",
         werte: [
-          { wert: "×20", label: "Umsatz im Ausland", sub: "8.967 € auf 179.287 €" },
-          { wert: "9,9 %", label: "ACoS", sub: "299.184 € Umsatz bei 29.490 € Einsatz" },
+          { wert: "×20", label: "Umsatz im Ausland", sub: "innerhalb eines Sommers" },
+          { wert: "+20,6 %", label: "Umsatz bei gleichem Werbeeinsatz", sub: "in Deutschland, durch die neue Struktur" },
           {
             wert: "98,9 %",
             label: "außerhalb der eigenen Marke",
