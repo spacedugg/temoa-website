@@ -50,10 +50,10 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
   miganeo: {
     industry: "Pool, garden and outdoor",
     timeframe: "May to August 2026",
-    headline: "Thirty times the campaigns abroad, twenty times the revenue",
+    headline: "30x the campaigns abroad, 20x the revenue",
     subheadline:
       "Five marketplaces were running on the side. After one summer, most of the growth comes from them.",
-    preview: { value: "×20", label: "Revenue abroad" },
+    preview: { value: "20x", label: "Revenue abroad" },
     sections: [
       {
         heading: "The starting point",
@@ -69,7 +69,7 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
         body: "Every marketplace got the full work from scratch.",
         punkte: [
           "Its own keyword research and its own copy in the local language",
-          "Thirty times as many campaigns abroad, restructured on all six marketplaces",
+          "30x as many campaigns abroad, restructured on all six marketplaces",
           "New main images and detail pages for the most important items",
         ],
       },
@@ -77,15 +77,15 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
         heading: "Result",
         body: "Most of the growth comes from abroad today.",
         punkte: [
-          "Revenue abroad around twenty times as high",
+          "Revenue abroad around 20x as high",
           "98.9 percent of it through search terms outside the brand name",
           "The new structure in Germany gets 20.6 percent more revenue out of the same ad spend",
         ],
       },
     ],
     heroStats: [
-      { value: "×20", label: "Revenue abroad", sublabel: "within one summer" },
-      { value: "+20.6%", label: "Revenue on the same ad spend", sublabel: "in Germany, through the new structure" },
+      { value: "20x", label: "Revenue abroad", sublabel: "within one summer" },
+      { value: "+20.6%", label: "Revenue growth on the same ad spend", sublabel: "through the new campaign structure" },
       {
         value: "98.9%",
         label: "Revenue outside the brand's own name",
@@ -197,7 +197,7 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
     ],
     heroStats: [
       { value: "+147%", label: "Revenue", sublabel: "comparing the two quarters" },
-      { value: "×3.2", label: "Orders", sublabel: "over the same period" },
+      { value: "3.2x", label: "Orders", sublabel: "over the same period" },
       {
         value: "−19.4%",
         label: "Advertising's share of revenue",
@@ -268,7 +268,7 @@ export const faelleEn: Record<CaseStudy["slug"], FallEn> = {
       },
     ],
     heroStats: [
-      { value: "×14", label: "Orders per week", sublabel: "launch week to peak" },
+      { value: "14x", label: "Orders per week", sublabel: "launch week to peak" },
       { value: "+900%", label: "Clicks per week", sublabel: "without a large ad budget" },
       { value: "17", label: "Weeks from launch to peak" },
     ],

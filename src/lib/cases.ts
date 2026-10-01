@@ -26,6 +26,10 @@ export type CaseStat = {
   value: string;
   label: string;
   sublabel?: string;
+  /** Marktplaetze, auf die sich die Zahl bezieht. Stehen als Fahnen in der
+   *  Kachel, damit man nicht bis zur dritten Zeile lesen muss, fuer welche
+   *  Laender sie gilt. */
+  maerkte?: string[];
   trend: Trend;
 };
 
@@ -193,10 +197,10 @@ export const cases: CaseStudy[] = [
     marketplaces: ["DE", "FR", "IT", "ES", "NL", "BE"],
     timeframe: "Mai bis August 2026",
     accent: "#12A0A8",
-    headline: "Im Ausland 30-mal so viele Kampagnen, 20-mal so viel Umsatz",
+    headline: "Im Ausland 30x so viele Kampagnen, 20x so viel Umsatz",
     subheadline:
       "Fünf Marktplätze liefen nebenher. Nach einem Sommer kommt der größte Teil des Wachstums von dort.",
-    preview: { value: "×20", label: "Umsatz im Ausland", trend: "up" },
+    preview: { value: "20x", label: "Umsatz im Ausland", trend: "up" },
     sections: [
       {
         heading: "Ausgangslage",
@@ -212,7 +216,7 @@ export const cases: CaseStudy[] = [
         body: "Jeder Marktplatz bekam die volle Arbeit neu.",
         punkte: [
           "Eigene Keyword-Recherche und eigene Texte in der Landessprache",
-          "Im Ausland 30-mal so viele Kampagnen, auf allen sechs Marktplätzen neu strukturiert",
+          "Im Ausland 30x so viele Kampagnen, auf allen sechs Marktplätzen neu strukturiert",
           "Hauptbilder und Produktdetailseiten der wichtigsten Artikel neu",
         ],
       },
@@ -220,19 +224,20 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Der größte Teil des Wachstums kommt heute aus dem Ausland.",
         punkte: [
-          "Umsatz im Ausland rund das Zwanzigfache",
+          "Umsatz im Ausland rund 20x so hoch",
           "98,9 % davon über Suchbegriffe außerhalb des Markennamens",
           "Die neue Struktur in Deutschland holt 20,6 % mehr Umsatz aus dem gleichen Werbeeinsatz",
         ],
       },
     ],
     heroStats: [
-      { value: "×20", label: "Umsatz im Ausland", sublabel: "innerhalb eines Sommers", trend: "up" },
-      { value: "+20,6 %", label: "Umsatz bei gleichem Werbeeinsatz", sublabel: "in Deutschland, durch die neue Struktur", trend: "up" },
+      { value: "20x", label: "Umsatz im Ausland", sublabel: "innerhalb eines Sommers", maerkte: ["FR", "IT", "ES", "NL", "BE"], trend: "up" },
+      { value: "+20,6 %", label: "Umsatzwachstum bei gleichem Werbeeinsatz", sublabel: "durch die neue Kampagnenstruktur", maerkte: ["DE"], trend: "up" },
       {
         value: "98,9 %",
         label: "Umsatz außerhalb der eigenen Marke",
         sublabel: "neu gewonnen, nicht umgebucht",
+        maerkte: ["FR", "IT", "ES", "NL", "BE"],
         trend: "up",
       },
     ],
@@ -416,7 +421,7 @@ export const cases: CaseStudy[] = [
     ],
     heroStats: [
       { value: "+147 %", label: "Umsatz", sublabel: "im Vergleich der beiden Quartale", trend: "up" },
-      { value: "×3,2", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
+      { value: "3,2x", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
       { value: "−19,4 %", label: "Anteil der Werbung am Umsatz", sublabel: "das Wachstum kommt organisch", trend: "down" },
     ],
     kennzahlen: [
@@ -504,7 +509,7 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "×14", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
+      { value: "14x", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
       { value: "+900 %", label: "Klicks pro Woche", sublabel: "ohne großes Werbebudget", trend: "up" },
       { value: "17", label: "Wochen vom Launch zur Spitze", trend: "neutral" },
     ],

@@ -1679,3 +1679,14 @@ beide Sprachen, sofern hier nichts anderes steht.
   98,9 % ausserhalb der Marke, +149,5 % und +38,3 % bei den Produktgruppen.
 - **Die Kennzahlenreihe bei Miganeo hat nur noch CVR.** ACoS und TACoS fehlen,
   weil nur der Stand vorliegt; derselbe Grundsatz wie bei HaA.
+- **Vielfache stehen als „20x", nie als „×20".** „×20 Umsatz im Ausland" liest
+  sich verdreht, gemeint ist „20x Umsatz im Ausland". Das gilt fuer alle Faelle
+  und Leistungsseiten, auch in Ueberschriften („30x so viele Kampagnen") und in
+  Fliesstext; ausgeschriebene Fassungen („30-mal", „das Zwanzigfache") gibt es
+  nicht mehr.
+- **Gilt eine Zahl nur fuer bestimmte Marktplaetze, stehen deren Fahnen in der
+  Kachel**, ueber der Zahl (`maerkte` an `CaseStat` und an den Werten des
+  `Ergebnis`-Blocks, gezeichnet mit `ui/Flagge`). Bei Miganeo sind das FR, IT,
+  ES, NL und BE fuer 20x Umsatz und 98,9 %, und DE fuer +20,6 %. Wer
+  nebeneinanderstehende Zahlen auf verschiedene Maerkte bezieht, soll das nicht
+  erst in der dritten Textzeile erfahren.

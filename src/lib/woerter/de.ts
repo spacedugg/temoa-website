@@ -502,7 +502,7 @@ export const de = {
         zeile: "Ohne Rankings, ohne Bewertungen gestartet. Das Wachstum kam aus Conversion, nicht aus Budget.",
         werte: [
           { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
-          { wert: "×14", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
+          { wert: "14x", label: "Bestellungen pro Woche", sub: "im selben Zeitraum" },
           { wert: "+46 %", label: "Click-Through-Rate", sub: "nach neuem Hauptbild" },
         ],
       },
@@ -826,14 +826,15 @@ export const de = {
       },
       ergebnis: {
         titel: "Miganeo, Sommer 2026",
-        zeile: "Fünf Marktplätze in zehn Wochen aufgebaut, mit 30-mal so vielen Kampagnen wie vorher.",
+        zeile: "Fünf Marktplätze in zehn Wochen aufgebaut, mit 30x so vielen Kampagnen wie vorher.",
         werte: [
-          { wert: "×20", label: "Umsatz im Ausland", sub: "innerhalb eines Sommers" },
-          { wert: "+20,6 %", label: "Umsatz bei gleichem Werbeeinsatz", sub: "in Deutschland, durch die neue Struktur" },
+          { wert: "20x", label: "Umsatz im Ausland", sub: "innerhalb eines Sommers", maerkte: ["FR", "IT", "ES", "NL", "BE"] },
+          { wert: "+20,6 %", label: "Umsatzwachstum bei gleichem Werbeeinsatz", sub: "durch die neue Kampagnenstruktur", maerkte: ["DE"] },
           {
             wert: "98,9 %",
             label: "außerhalb der eigenen Marke",
             sub: "neu gewonnen, nicht umgebucht",
+            maerkte: ["FR", "IT", "ES", "NL", "BE"],
           },
         ],
       },

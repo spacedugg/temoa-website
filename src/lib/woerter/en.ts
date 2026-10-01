@@ -463,7 +463,7 @@ export const en: Woerterbuch = {
         zeile: "Started with no rankings and no reviews. The growth came from conversion, not from budget.",
         werte: [
           { wert: "+439%", label: "Conversion Rate", sub: "launch week to peak" },
-          { wert: "×14", label: "Orders per week", sub: "over the same period" },
+          { wert: "14x", label: "Orders per week", sub: "over the same period" },
           { wert: "+46%", label: "Click-through rate", sub: "after a new main image" },
         ],
       },
@@ -786,14 +786,15 @@ export const en: Woerterbuch = {
       },
       ergebnis: {
         titel: "Miganeo, summer 2026",
-        zeile: "Five marketplaces built in ten weeks, with thirty times as many campaigns as before.",
+        zeile: "Five marketplaces built in ten weeks, with 30x as many campaigns as before.",
         werte: [
-          { wert: "×20", label: "Revenue abroad", sub: "within one summer" },
-          { wert: "+20.6%", label: "Revenue on the same ad spend", sub: "in Germany, through the new structure" },
+          { wert: "20x", label: "Revenue abroad", sub: "within one summer", maerkte: ["FR", "IT", "ES", "NL", "BE"] },
+          { wert: "+20.6%", label: "Revenue growth on the same ad spend", sub: "through the new campaign structure", maerkte: ["DE"] },
           {
             wert: "98.9%",
             label: "outside the brand's own name",
             sub: "newly won, not shifted around",
+            maerkte: ["FR", "IT", "ES", "NL", "BE"],
           },
         ],
       },
