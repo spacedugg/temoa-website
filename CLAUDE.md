@@ -1558,8 +1558,10 @@ beide Sprachen, sofern hier nichts anderes steht.
   noch in der Liste „Passt das zu eurer Marke?" und auf der Buchungsseite.
 - **Wir arbeiten mit Marken, bei denen Amazon ein Vertriebsweg von mehreren
   ist.** Nicht nur mit Marken, die ausserhalb von Amazon entstanden sind. Die
-  Sektion `Marken` sagt das im Lead; die Startseite sagt es im Kundenband
-  (`start.kundenband.zeile`).
+  Sektion `Marken` sagt das im Lead. Die Zeile im Kundenband der Startseite
+  („Amazon ist bei ihnen ein Vertriebsweg von mehreren.") ist auf Wunsch des
+  Kunden raus: sie wirkte fehl am Platz und klang komisch. Offen bleibt nur
+  die Frage, ob die Aussage an anderer Stelle der Startseite stehen soll.
 - **Die Reihenfolge der Full-Service-Seite ist: Marken, Passt das zu eurer
   Marke?, Wann es nicht passt.** „Und wann wir absagen" beginnt mit „Und" und
   braucht die Zusage unmittelbar davor. Dazwischen steht nichts.
