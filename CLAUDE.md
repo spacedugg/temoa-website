@@ -1673,8 +1673,8 @@ beide Sprachen, sofern hier nichts anderes steht.
   die Zahl der beworbenen Artikel (66) und die ACoS- und TACoS-Staende
   (9,9 % und 6,02 %), zu denen kein Ausgangswert vorliegt. Bei Bachgold bleibt
   nur der Umsatz von 1,68 Mio. Euro.
-- **Verhaeltnisse und Anteile bleiben**, weil sie keinen Stand verraten: ×20
-  beim Umsatz im Ausland, 30-mal so viele Kampagnen (4 auf 120, ohne die
+- **Verhaeltnisse und Anteile bleiben**, weil sie keinen Stand verraten: 20x
+  beim Umsatz im Ausland, 30x so viele Kampagnen (4 auf 120, ohne die
   beiden Zahlen), +20,6 % Umsatz bei gleichem Werbeeinsatz, +24,7 % CVR,
   98,9 % ausserhalb der Marke, +149,5 % und +38,3 % bei den Produktgruppen.
 - **Die Kennzahlenreihe bei Miganeo hat nur noch CVR.** ACoS und TACoS fehlen,
