@@ -29,13 +29,36 @@ import type { RefData, RefListing } from "./references";
    ============================================================ */
 
 export const ABSCHNITT_FOLGE = [1, 3, 4, 2, 5] as const;
-export const AUSBLENDEN: readonly string[] = [];
-export const NACH_OBEN: readonly string[] = [];
+/* Die sechs Listings, die im Sales Room geloescht sind, auf der Website aber
+   noch stehen (alter Stand der Datenbank). Gesucht wird ueber Teile von Titel
+   oder Bilddatei, solange die Kennungen nicht bekannt sind. */
+export const AUSBLENDEN: readonly string[] = [
+  "Blumtal",
+  "Trachea",
+  "Zimmerpflanze",
+  "Teak",
+  "Cookeez",
+  "Fincci",
+];
+export const NACH_OBEN: readonly string[] = [
+  "Scotty",
+  "Camera",
+  "Störte",
+  "Harkam",
+  "Koffer",
+  "Munddusche",
+  "Motor",
+  "Extractor",
+  "Power X-Change",
+];
 
-type MitKennung = { id: string; title?: string | null };
+type MitKennung = { id: string; title?: string | null; images?: { url: string }[] };
 
 function passt(l: MitKennung, schluessel: string): boolean {
-  return l.id === schluessel || (l.title ?? "").toLowerCase().includes(schluessel.toLowerCase());
+  const k = schluessel.toLowerCase();
+  if (l.id === schluessel) return true;
+  const text = `${l.title ?? ""} ${l.images?.[0]?.url ?? ""}`.toLowerCase();
+  return text.includes(k);
 }
 
 function inAbschnitten<T>(liste: T[], folge: readonly number[]): T[] {
@@ -59,7 +82,7 @@ export function ordneListings<T extends MitKennung>(
   ausblenden: readonly string[] = AUSBLENDEN,
   nachOben: readonly string[] = NACH_OBEN,
 ): T[] {
-  const sichtbar = listings.filter((l) => !ausblenden.includes(l.id));
+  const sichtbar = listings.filter((l) => !ausblenden.some((a) => passt(l, a)));
   const oben: T[] = [];
   for (const schluessel of nachOben) {
     const treffer = sichtbar.find((l) => !oben.includes(l) && passt(l, schluessel));
