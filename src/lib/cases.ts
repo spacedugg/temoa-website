@@ -5,10 +5,12 @@
  * Weg von X auf Y ist die Zahl, die ein Wettbewerber mitliest, und einem
  * Besucher sagt sie ohne Marge und Sortiment nichts.
  *
- * Zwei Faelle sind ausgenommen, beide auf ausdruecklichen Wunsch des Kunden:
- * Miganeo steht in allem so, wie es ist, und bei Bachgold bleibt der Umsatz
- * von 1,68 Mio. Euro, weil er die Aussage des Falls traegt (ein Produkt, nur
- * Content).
+ * Ein Fall ist ausgenommen, auf ausdruecklichen Wunsch des Kunden: bei
+ * Bachgold bleibt der Umsatz von 1,68 Mio. Euro, weil er die Aussage des
+ * Falls traegt (ein Produkt, nur Content). Miganeo war bis zur
+ * zweiundvierzigsten Runde ebenfalls ausgenommen und steht jetzt unter
+ * derselben Regel: keine Betraege, keine Stueckzahlen, keine Kampagnenzahlen,
+ * kein Weg von X auf Y.
  *
  * Echte Case-Study-Daten (6 Marken). Zahlen und Struktur stammen aus den
  * vom Kunden freigegebenen Fällen. Einzelne Formulierungen wurden an die
@@ -24,6 +26,10 @@ export type CaseStat = {
   value: string;
   label: string;
   sublabel?: string;
+  /** Marktplaetze, auf die sich die Zahl bezieht. Stehen als Fahnen in der
+   *  Kachel, damit man nicht bis zur dritten Zeile lesen muss, fuer welche
+   *  Laender sie gilt. */
+  maerkte?: string[];
   trend: Trend;
 };
 
@@ -191,17 +197,17 @@ export const cases: CaseStudy[] = [
     marketplaces: ["DE", "FR", "IT", "ES", "NL", "BE"],
     timeframe: "Mai bis August 2026",
     accent: "#12A0A8",
-    headline: "Aus vier Kampagnen im Ausland wurden 120",
+    headline: "Im Ausland 30x so viele Kampagnen, 20x so viel Umsatz",
     subheadline:
       "Fünf Marktplätze liefen nebenher. Nach einem Sommer kommt der größte Teil des Wachstums von dort.",
-    preview: { value: "×20", label: "Umsatz im Ausland", trend: "up" },
+    preview: { value: "20x", label: "Umsatz im Ausland", trend: "up" },
     sections: [
       {
         heading: "Ausgangslage",
         body: "In Deutschland lief der Account gut. Im Ausland lief er nebenher.",
         punkte: [
-          "8.967 € Umsatz im Ausland in einem Vierteljahr",
-          "Vier einzelne Kampagnen für fünf offene Marktplätze",
+          "Im Ausland kam kaum Umsatz zusammen",
+          "Eine Handvoll einzelner Kampagnen für fünf offene Marktplätze",
           "Niemand im Haus hatte die Zeit, sie aufzubauen",
         ],
       },
@@ -210,8 +216,7 @@ export const cases: CaseStudy[] = [
         body: "Jeder Marktplatz bekam die volle Arbeit neu.",
         punkte: [
           "Eigene Keyword-Recherche und eigene Texte in der Landessprache",
-          "Aus 4 Kampagnen im Ausland wurden 120, über sechs Marktplätze 157",
-          "66 beworbene Artikel",
+          "Im Ausland 30x so viele Kampagnen, auf allen sechs Marktplätzen neu strukturiert",
           "Hauptbilder und Produktdetailseiten der wichtigsten Artikel neu",
         ],
       },
@@ -219,30 +224,29 @@ export const cases: CaseStudy[] = [
         heading: "Ergebnis",
         body: "Der größte Teil des Wachstums kommt heute aus dem Ausland.",
         punkte: [
-          "Umsatz im Ausland von 8.967 € auf 179.287 €",
+          "Umsatz im Ausland rund 20x so hoch",
           "98,9 % davon über Suchbegriffe außerhalb des Markennamens",
           "Die neue Struktur in Deutschland holt 20,6 % mehr Umsatz aus dem gleichen Werbeeinsatz",
         ],
       },
     ],
     heroStats: [
-      { value: "×20", label: "Umsatz im Ausland", sublabel: "8.967 € auf 179.287 €", trend: "up" },
-      { value: "299.184 €", label: "Umsatz über Werbung", sublabel: "bei 29.490 € Einsatz", trend: "up" },
+      { value: "20x", label: "Umsatz im Ausland", sublabel: "innerhalb eines Sommers", maerkte: ["FR", "IT", "ES", "NL", "BE"], trend: "up" },
+      { value: "+20,6 %", label: "Umsatzwachstum bei gleichem Werbeeinsatz", sublabel: "durch die neue Kampagnenstruktur", maerkte: ["DE"], trend: "up" },
       {
         value: "98,9 %",
         label: "Umsatz außerhalb der eigenen Marke",
         sublabel: "neu gewonnen, nicht umgebucht",
+        maerkte: ["FR", "IT", "ES", "NL", "BE"],
         trend: "up",
       },
     ],
     kennzahlen: [
-      { kuerzel: "ACoS", name: "Advertising Cost of Sales", wert: "9,9 %", hinweis: "über alle sechs Marktplätze", trend: "down" },
-      { kuerzel: "TACoS", name: "Total Advertising Cost of Sales", wert: "6,02 %", hinweis: "Werbekosten am Gesamtumsatz", trend: "down" },
       { kuerzel: "CVR", name: "Conversion Rate", wert: "+24,7 %", hinweis: "Sandfilteranlagen, nach neuen Produktbildern", trend: "up" },
     ],
     subStats: [
-      { value: "+149,5 %", label: "Umsatz Trampolin-Zubehör", sublabel: "11.059 € auf 27.587 €", trend: "up" },
-      { value: "+38,3 %", label: "Umsatz Bootsmotoren", sublabel: "269.759 € auf 372.998 €", trend: "up" },
+      { value: "+149,5 %", label: "Umsatz Trampolin-Zubehör", trend: "up" },
+      { value: "+38,3 %", label: "Umsatz Bootsmotoren", trend: "up" },
     ],
     badges: [{ art: "hinweis", label: "Effizienzziel des Kunden übertroffen", icon: "trophy" }],
   },
@@ -417,7 +421,7 @@ export const cases: CaseStudy[] = [
     ],
     heroStats: [
       { value: "+147 %", label: "Umsatz", sublabel: "im Vergleich der beiden Quartale", trend: "up" },
-      { value: "×3,2", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
+      { value: "3,2x", label: "Bestellungen", sublabel: "im selben Zeitraum", trend: "up" },
       { value: "−19,4 %", label: "Anteil der Werbung am Umsatz", sublabel: "das Wachstum kommt organisch", trend: "down" },
     ],
     kennzahlen: [
@@ -505,7 +509,7 @@ export const cases: CaseStudy[] = [
       },
     ],
     heroStats: [
-      { value: "×14", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
+      { value: "14x", label: "Bestellungen pro Woche", sublabel: "Launch-Woche bis Spitze", trend: "up" },
       { value: "+900 %", label: "Klicks pro Woche", sublabel: "ohne großes Werbebudget", trend: "up" },
       { value: "17", label: "Wochen vom Launch zur Spitze", trend: "neutral" },
     ],

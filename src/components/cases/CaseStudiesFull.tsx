@@ -10,7 +10,7 @@ import {
   type Trend,
 } from "@/lib/cases";
 import type { Woerterbuch } from "@/lib/woerter";
-import { Flaggenreihe } from "../ui/Flagge";
+import { Flagge, Flaggenreihe } from "../ui/Flagge";
 import { Markenlogo } from "../ui/Markenlogo";
 import { Reveal, RevealGroup, RevealItem } from "../ui/Reveal";
 import { Icon, type IconName } from "../takt/Icons";
@@ -93,6 +93,16 @@ function AmazonAbzeichen({
 function HeroStat({ stat }: { stat: CaseStat }) {
   return (
     <div className="px-6 py-5 md:px-7">
+      {/* Gilt die Zahl fuer bestimmte Marktplaetze, stehen deren Fahnen ueber
+          ihr: so sieht man auf den ersten Blick, wofuer sie gilt, ohne bis zur
+          dritten Zeile zu lesen. */}
+      {stat.maerkte && stat.maerkte.length > 0 && (
+        <div className="mb-3 flex flex-wrap items-center gap-1">
+          {stat.maerkte.map((code) => (
+            <Flagge key={code} code={code} className="h-4 w-[1.4rem] text-navy" />
+          ))}
+        </div>
+      )}
       {/* `whitespace-nowrap` an der Zahl: „1.677.538 €" brach sonst vor dem
           Eurozeichen um. Lange Werte werden stattdessen eine Stufe kleiner
           gesetzt. */}

@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { KachelVerlaufDefs, Piktogramm, type PiktogrammName } from "./Piktogramme";
 import { ZahlText } from "../takt/Zahl";
 import { Markenlogo } from "../ui/Markenlogo";
+import { Flagge } from "../ui/Flagge";
 import { cases } from "@/lib/cases";
 import { Gespraech } from "../takt/Gespraech";
 
@@ -889,7 +890,7 @@ export function Ergebnis({
   eyebrow: string;
   title: string;
   zeile: string;
-  werte: { wert: string; label: string; sub?: string; runter?: boolean }[];
+  werte: { wert: string; label: string; sub?: string; maerkte?: string[]; runter?: boolean }[];
   href: string;
   /** Beschriftung des Links auf die Fallseite. */
   mehr: string;
@@ -950,6 +951,14 @@ export function Ergebnis({
                     boxShadow: "inset 0 0 0 1px rgba(74,222,128,0.32), 0 14px 34px -20px rgba(34,197,94,0.7)",
                   }}
                 >
+                  {/* Fahnen der Marktplaetze, fuer die die Zahl gilt. */}
+                  {w.maerkte && w.maerkte.length > 0 && (
+                    <div className="mb-3 flex flex-wrap items-center gap-1">
+                      {w.maerkte.map((code) => (
+                        <Flagge key={code} code={code} className="h-4 w-[1.4rem] text-white" />
+                      ))}
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <ZahlText
                       text={w.wert}

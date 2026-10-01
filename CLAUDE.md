@@ -1663,3 +1663,30 @@ beide Sprachen, sofern hier nichts anderes steht.
 - **Dass die Kunden nicht nur auf Amazon verkaufen, steht in der Kachel „Zu viele
   Marktplätze"**, als Teil der Lage der Marke. Die Zeile im Kundenband bleibt
   gestrichen.
+
+## Zweiundvierzigste Feedbackrunde (verbindlich, ersetzt die Ausnahme fuer Miganeo)
+
+- **Auch bei Miganeo stehen keine absoluten Zahlen.** Die Ausnahme aus der
+  vierundzwanzigsten und sechsundzwanzigsten Runde ist aufgehoben. Raus sind
+  Betraege (8.967 €, 179.287 €, 299.184 €, 29.490 €, die Umsaetze von
+  Trampolin-Zubehoer und Bootsmotoren), die Kampagnenzahlen (4, 120, 157),
+  die Zahl der beworbenen Artikel (66) und die ACoS- und TACoS-Staende
+  (9,9 % und 6,02 %), zu denen kein Ausgangswert vorliegt. Bei Bachgold bleibt
+  nur der Umsatz von 1,68 Mio. Euro.
+- **Verhaeltnisse und Anteile bleiben**, weil sie keinen Stand verraten: 20x
+  beim Umsatz im Ausland, 30x so viele Kampagnen (4 auf 120, ohne die
+  beiden Zahlen), +20,6 % Umsatz bei gleichem Werbeeinsatz, +24,7 % CVR,
+  98,9 % ausserhalb der Marke, +149,5 % und +38,3 % bei den Produktgruppen.
+- **Die Kennzahlenreihe bei Miganeo hat nur noch CVR.** ACoS und TACoS fehlen,
+  weil nur der Stand vorliegt; derselbe Grundsatz wie bei HaA.
+- **Vielfache stehen als „20x", nie als „×20".** „×20 Umsatz im Ausland" liest
+  sich verdreht, gemeint ist „20x Umsatz im Ausland". Das gilt fuer alle Faelle
+  und Leistungsseiten, auch in Ueberschriften („30x so viele Kampagnen") und in
+  Fliesstext; ausgeschriebene Fassungen („30-mal", „das Zwanzigfache") gibt es
+  nicht mehr.
+- **Gilt eine Zahl nur fuer bestimmte Marktplaetze, stehen deren Fahnen in der
+  Kachel**, ueber der Zahl (`maerkte` an `CaseStat` und an den Werten des
+  `Ergebnis`-Blocks, gezeichnet mit `ui/Flagge`). Bei Miganeo sind das FR, IT,
+  ES, NL und BE fuer 20x Umsatz und 98,9 %, und DE fuer +20,6 %. Wer
+  nebeneinanderstehende Zahlen auf verschiedene Maerkte bezieht, soll das nicht
+  erst in der dritten Textzeile erfahren.
