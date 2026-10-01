@@ -41,7 +41,6 @@ export const en: Woerterbuch = {
 
     kundenband: {
       label: "Brands we've worked with",
-      zeile: "For them, Amazon is one sales channel of several.",
     },
 
     leistungen: {

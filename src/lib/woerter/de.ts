@@ -42,7 +42,6 @@ export const de = {
        den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
       label: "Marken, die wir betreut haben",
-      zeile: "Amazon ist bei ihnen ein Vertriebsweg von mehreren.",
     },
 
     leistungen: {
