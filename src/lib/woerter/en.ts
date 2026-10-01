@@ -75,20 +75,20 @@ export const en: Woerterbuch = {
       titel: "The bare minimum does not sell on Amazon.",
       karten: [
         {
-          titel: "Too many products, too little time",
+          titel: "Too many products",
           text: "Several hundred items sit with one or two people who handle ten other things as well.",
         },
         {
-          titel: "Nothing has changed since launch",
-          text: "Images, titles and A+ content look exactly as they did on day one.",
+          titel: "Too many marketplaces",
+          text: "Amazon is one channel next to the shop, retail and B2B. On top of that, every Amazon marketplace has its own rules and needs its own care.",
+        },
+        {
+          titel: "Too little time",
+          text: "Uploaded once and never touched again: images, titles and A+ content look the way they did on launch day.",
         },
         {
           titel: "Campaigns without structure",
           text: "Auto, phrase and exact run side by side and bid against each other.",
-        },
-        {
-          titel: "Reports nobody evaluates",
-          text: "The Search Query report and the advertising data sit in the account and stay unopened.",
         },
       ],
       ursacheLabel: "The cause",

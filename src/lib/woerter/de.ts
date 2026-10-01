@@ -75,20 +75,20 @@ export const de = {
       titel: "Das Nötigste reicht auf Amazon nicht.",
       karten: [
         {
-          titel: "Zu viele Produkte, zu wenig Zeit",
+          titel: "Zu viele Produkte",
           text: "Mehrere hundert Artikel liegen bei ein, zwei Leuten, die daneben zehn andere Dinge machen.",
         },
         {
-          titel: "Seit dem Launch nichts verändert",
-          text: "Bilder, Titel und A+ Content stehen genau so da wie am ersten Tag.",
+          titel: "Zu viele Marktplätze",
+          text: "Amazon ist ein Kanal neben Shop, Handel und B2B. Dazu kommt jeder Amazon-Markt mit eigenen Regeln und eigener Pflege.",
+        },
+        {
+          titel: "Zu wenig Zeit",
+          text: "Einmal hochgeladen und nicht mehr angefasst: Bilder, Titel und A+ Content stehen da wie am Tag des Launches.",
         },
         {
           titel: "Kampagnen ohne Struktur",
           text: "Auto, Phrase und Exact laufen nebeneinander und bieten gegeneinander.",
-        },
-        {
-          titel: "Berichte, die niemand auswertet",
-          text: "Search Query Bericht und Ads-Performance liegen im Konto und werden nicht gelesen.",
         },
       ],
       ursacheLabel: "Die Ursache",
