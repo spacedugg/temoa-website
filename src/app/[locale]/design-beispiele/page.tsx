@@ -67,11 +67,11 @@ export default async function DesignBeispielePage({
             {/* Welches Listing steht wo und welches erscheint nicht. `anzeige`
                 ist null, wenn die Regel das Listing ausblendet. */}
             <pre className="mt-4 overflow-x-auto rounded-2xl bg-navy p-5 text-xs leading-relaxed text-white">
-              {"Sales Room > Website | Kennung | Titel | Bilddatei\n" +
+              {"Sales Room > live > Website | Kennung | Titel | Bilddatei\n" +
                 beschreibeOrdnung(roh.main_images)
                   .map(
                     (z) =>
-                      `${z.quelle} > ${z.anzeige ?? "-"} | ${z.id} | ${z.title ?? "(ohne Titel)"} | ${
+                      `${z.quelle} > ${z.live} > ${z.anzeige ?? "-"} | ${z.id} | ${z.title ?? "(ohne Titel)"} | ${
                         z.bild?.split("?")[0].split("/").pop() ?? ""
                       }`,
                   )

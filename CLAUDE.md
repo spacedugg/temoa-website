@@ -1633,3 +1633,20 @@ beide Sprachen, sofern hier nichts anderes steht.
   Room, Position auf der Website, Kennung, Titel und Name der ersten Bilddatei.
   Daraus lassen sich die Kennungen fuer `NACH_OBEN` und `AUSBLENDEN` ablesen.
 
+
+## Vierzigste Feedbackrunde (verbindlich)
+
+- **Entfernt und nach oben gesetzt wird ueber die Nummer auf der Live-Seite.**
+  Der Kunde hat die Listings auf temoa.de abgezaehlt: Nummer 36, 37, 38, 42,
+  43, 45, 50 und 60 fallen weg, Nummer 65 und 71 stehen danach ganz oben
+  (`POSITION_AUSBLENDEN` und `POSITION_NACH_OBEN` in
+  `lib/designbeispiele-ordnung`). Die Nummern gelten fuer die Reihenfolge vor
+  diesem Eingriff (Sales Room in fuenf Abschnitten, Folge 1, 3, 4, 2, 5), die
+  Spalte „live" in `/design-beispiele?debug` zeigt sie. Die Stichwortlisten
+  der Vorfassung sind leer.
+- **Positionen sind nur ein Notbehelf.** Kommt im Sales Room ein Listing dazu
+  oder faellt eins weg, verschieben sich die Nummern und es trifft ein
+  anderes. Sobald die Kennungen aus `?debug` vorliegen, gehoeren sie in
+  `AUSBLENDEN` und `NACH_OBEN`, die Positionen werden geleert.
+- **Der Grund bleibt:** die Website liest einen alten Turso-Stand, Aenderungen
+  im Sales Room (Postgres) kommen dort nicht an.
