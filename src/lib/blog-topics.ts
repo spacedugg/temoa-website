@@ -16,12 +16,12 @@ export type BlogTopic = {
 export const blogTopics: BlogTopic[] = [
   {
     slug: "ppc-advertising",
-    label: { de: "Amazon PPC & Werbekosten", en: "Amazon PPC & ad costs" },
+    label: { de: "Amazon-Werbung & ACoS", en: "Amazon ads & ACoS" },
     title: { de: "Amazon PPC: Kennzahlen, Kosten und Kampagnen", en: "Amazon PPC: metrics, costs and campaigns" },
     intro: { de: "Amazon PPC ist Werbung, bei der ihr pro Klick bezahlt. Ob sie sich rechnet, hängt von eurer Marge, der Conversion des Listings und dem Beitrag zum Gesamtumsatz ab. Hier findet ihr Erklärungen zu den Kennzahlen und Anleitungen für eure Kampagnen.", en: "Amazon PPC means paying for each ad click. Whether it pays off depends on your margins, listing conversion and the contribution to total sales. These guides explain the metrics and the decisions behind campaign management." },
     service: "/leistungen/ppc-advertising", serviceLabel: { de: "Amazon PPC betreuen lassen", en: "Amazon PPC management" },
     starts: [
-      { slug: "acos-erklaert", question: { de: "Was bedeutet ACoS?", en: "What does ACoS mean?" }, answer: { de: "ACoS setzt Werbekosten ins Verhältnis zum zugerechneten Werbeumsatz. Der Beitrag erklärt Berechnung und Einordnung.", en: "ACoS compares ad spend with attributed ad sales. Learn how to calculate and interpret it." } },
+      { slug: "acos-erklaert", question: { de: "Was ist ACoS?", en: "What is ACoS?" }, answer: { de: "ACoS setzt Werbekosten ins Verhältnis zum zugerechneten Werbeumsatz. Der Beitrag erklärt Berechnung und Einordnung.", en: "ACoS compares ad spend with attributed ad sales. Learn how to calculate and interpret it." } },
       { slug: "guter-acos-benchmarks", question: { de: "Welcher ACoS ist gut?", en: "What is a good ACoS?" }, answer: { de: "Ein sinnvoller Zielwert hängt von Marge und Kampagnenziel ab. Ein pauschaler Branchenwert reicht dafür nicht.", en: "A useful target depends on your margin and campaign goal. An industry average alone cannot set it." } },
       { slug: "tacos-erklaert", question: { de: "Wie unterscheiden sich ACoS und TACoS?", en: "How do ACoS and TACoS differ?" }, answer: { de: "TACoS bezieht die Werbekosten auf den gesamten Amazon-Umsatz. Zusammen zeigen beide Kennzahlen unterschiedliche Seiten der Werbeleistung.", en: "TACoS measures ad spend against total Amazon sales. Used together, the two metrics show different aspects of performance." } },
     ],
@@ -52,7 +52,7 @@ export const blogTopics: BlogTopic[] = [
   },
   {
     slug: "marke-account",
-    label: { de: "Markenschutz & Kontoprobleme", en: "Brand protection & account issues" },
+    label: { de: "Markenschutz & Verkäuferkonto", en: "Brand protection & seller accounts" },
     title: { de: "Amazon Markenschutz und Account Health", en: "Amazon brand protection and account health" },
     intro: { de: "Markenrechte, Listingprobleme und Kontosperrungen brauchen unterschiedliche Lösungen. Wählt den Ratgeber passend zum konkreten Hinweis in Seller Central. Er führt euch zu den Informationen und Unterlagen, die ihr für die weitere Klärung braucht.", en: "Brand rights, listing issues and account suspensions require different responses. Choose the guide that matches the notice in Seller Central, then identify the information and documents needed to resolve it." },
     service: "/leistungen/compliance-account-health", serviceLabel: { de: "Unterstützung bei Compliance und Account Health", en: "Compliance and account health support" },
@@ -75,20 +75,8 @@ export const blogTopics: BlogTopic[] = [
     ],
   },
   {
-    slug: "operativ-service",
-    label: { de: "Retouren & Kundenservice", en: "Returns & customer service" },
-    title: { de: "Amazon Retouren und Kundenservice für Verkäufer", en: "Amazon returns and customer service for sellers" },
-    intro: { de: "Bei falschen Artikeln, fehlenden Paketen und Geschenkretouren kommt es auf Bestelldetails und Versandmodell an. Diese Beiträge richten sich an Verkäufer und helfen, Kundenanfragen dem passenden Ablauf zuzuordnen.", en: "Wrong items, missing parcels and gift returns depend on order details and the fulfilment model. These guides are for sellers handling customer questions and choosing the appropriate process." },
-    service: "/leistungen/account-management", serviceLabel: { de: "Amazon Account Management", en: "Amazon account management" },
-    starts: [
-      { slug: "paket-gestohlen", question: { de: "Ein Paket fehlt: Was könnt ihr prüfen?", en: "A parcel is missing: what can you check?" }, answer: { de: "Versandart, Zustellinformationen und der konkrete Kundenhinweis bestimmen, wie ihr den Vorgang klärt.", en: "Fulfilment method, delivery information and the customer report determine how to investigate." } },
-      { slug: "falscher-artikel", question: { de: "Was tun bei einem falsch gelieferten Artikel?", en: "What if the customer receives the wrong item?" }, answer: { de: "Der Beitrag ordnet die Klärung der Bestellung und mögliche Ursachen im Versand ein.", en: "The guide covers checking the order and possible causes in fulfilment." } },
-      { slug: "gift-return", question: { de: "Wie laufen Geschenkretouren ab?", en: "How do gift returns work?" }, answer: { de: "Hier findet ihr eine Einordnung des Ablaufs und der Fragen, die für Verkäufer dabei entstehen.", en: "Read an overview of the process and the questions it raises for sellers." } },
-    ],
-  },
-  {
     slug: "ki-zukunft",
-    label: { de: "KI-Suche & Kundenfragen", en: "AI search & shopper questions" },
+    label: { de: "KI-Suche & Listing-Optimierung", en: "AI search & listing optimization" },
     title: { de: "Amazon KI-Suche: Listings und Kundenfragen", en: "Amazon AI search: listings and shopper questions" },
     intro: { de: "Bei einer Produktsuche in Alltagssprache müssen Eigenschaften, Anwendung und Grenzen eines Produkts verständlich sein. Hier verbindet ihr den Überblick zur KI-Suche mit praktischen Ratgebern zu Kundenfragen und visueller Produktsuche. Eine bestimmte Platzierung lässt sich daraus nicht ableiten.", en: "Conversational product search needs clear information about features, uses and limitations. Connect the AI search overview with practical guides on shopper questions and visual search. These changes do not guarantee placement." },
     service: "/leistungen/listing-seo", serviceLabel: { de: "Verständliche Listings und Produktbilder", en: "Clear listings and product images" },

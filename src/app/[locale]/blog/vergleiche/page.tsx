@@ -1,3 +1,4 @@
+import { BlogSupport, BlogContact } from "@/components/blog/BlogSupport";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -61,7 +62,9 @@ export default async function ComparisonsPage({ params }: Props) {
             </div>
           </section>
         ))}
+        <BlogSupport sprache={locale} />
         <TopicNavigation sprache={locale} />
+        <BlogContact sprache={locale} />
       </main>
       <Fusszeile />
     </>

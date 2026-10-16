@@ -1,3 +1,4 @@
+import { BlogSupport, BlogContact } from "@/components/blog/BlogSupport";
 import { getTopic } from "@/lib/blog-topics";
 import { TopicIntro, TopicNavigation } from "@/components/blog/TopicIntro";
 import { CollectionData } from "@/components/seo/CollectionData";
@@ -118,7 +119,9 @@ export default async function CategoryPage({
             </RevealGroup>
           </div>
         </section>
+        <BlogSupport sprache={locale} categoryKey={cat.key} categorySlug={slug} />
         <TopicNavigation sprache={locale} current={slug} />
+        <BlogContact sprache={locale} categorySlug={slug} />
       </main>
       <Fusszeile />
     </>

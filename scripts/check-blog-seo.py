@@ -37,6 +37,9 @@ def check(condition, message):
     if not condition: errors.append(message)
 
 slugs = [p.stem.split('_', 1)[1] for p in sorted((ROOT / 'content/blog').glob('[0-9]*_*.md'))]
+policy = json.loads((ROOT / 'content/blog-editorial-policy.json').read_text())
+retired = set(policy['retiredArticles'])
+active = set(slugs) - retired
 alt = json.loads((ROOT / 'content/blog-cover-alt.json').read_text())
 for slug in slugs:
     check((ROOT / f'public/blog/covers/{slug}.webp').exists(), f'Missing cover: {slug}')
@@ -65,12 +68,28 @@ for locale in ['de', 'en']:
                 check(page.meta.get('og:image') == image, f'{path}: incorrect social image')
                 check(page.meta.get('og:url') == BASE + path, f'{path}: incorrect social URL')
                 check(page.meta.get('og:type') == 'article', f'{path}: incorrect social type')
-                check(any(data.get('@type') == 'BlogPosting' and data.get('image') == image for data in page.scripts if isinstance(data, dict)), f'{path}: article schema image')
+                if slug not in retired: check(any(data.get('@type') == 'BlogPosting' and data.get('image') == image for data in page.scripts if isinstance(data, dict)), f'{path}: article schema image')
                 check(any(f'/blog/covers/{slug}.webp' in a.get('src','') or f'%2Fblog%2Fcovers%2F{slug}.webp' in a.get('src','') for a in page.images), f'{path}: visible cover missing')
+
+# Editorial guardrail: consumer-intent URLs cannot leak back into acquisition paths.
+for path, page in pages.items():
+    slug = path.rsplit('/', 1)[-1]
+    if slug in retired:
+        check('noindex' in page.meta.get('robots', ''), f'{path}: retired article can be indexed')
+        continue
+    if '/blog' in path:
+        check('noindex' not in page.meta.get('robots', ''), f'{path}: active page incorrectly noindexed')
+        prefix = '/en' if path.startswith('/en/') else ''
+        check(prefix + '/gespraech-vereinbaren' in page.anchors, f'{path}: missing contact path')
+        check(prefix + '/blog/grundlagen' in page.anchors, f'{path}: missing basics path')
+    for href in page.anchors:
+        target = urlsplit(href).path
+        check(not any(target == prefix + '/blog/' + old for old in retired for prefix in ['', '/en']), f'{path}: promotes retired article {target}')
+        check(not target.endswith('/blog/kategorie/operativ-service'), f'{path}: promotes retired category')
 
 # Topic entry points must resolve to existing pages, including cross-category recommendations.
 for path, page in pages.items():
-    if '/blog/kategorie/' in path or path.endswith('/blog/vergleiche'):
+    if '/blog/kategorie/' in path or path.endswith(('/blog/vergleiche', '/blog/grundlagen')):
         for href in page.anchors:
             if not href.startswith('/') or href.startswith('//'): continue
             target = urlsplit(href).path
@@ -88,14 +107,22 @@ urls = {item.find('s:loc', ns).text: item for item in sitemap}
 check(len(urls) == len(list(sitemap)), 'Duplicate sitemap URLs')
 for locale in ['de', 'en']:
     prefix = '/en' if locale == 'en' else ''
-    for slug in slugs:
+    for slug in active:
         url = BASE + prefix + '/blog/' + slug
         check(url in urls, f'Missing sitemap URL: {url}')
     check(BASE + prefix + '/blog/vergleiche' in urls, 'Missing comparisons sitemap URL')
+    check(BASE + prefix + '/blog/grundlagen' in urls, 'Missing basics sitemap URL')
+    for slug in retired:
+        check(BASE + prefix + '/blog/' + slug not in urls, f'Retired article in sitemap: {slug}')
+    check(BASE + prefix + '/blog/kategorie/operativ-service' not in urls, 'Retired category in sitemap')
+    for slug, service, case in [('acos-erklaert', '/leistungen/ppc-advertising', '/ergebnisse/vitaworld'), ('a-plus-content', '/leistungen/listing-seo', '/ergebnisse/bachgold')]:
+        page = pages[prefix + '/blog/' + slug]
+        check(prefix + service in page.anchors and prefix + case in page.anchors, f'{slug}: missing relevant service/case')
+    check(prefix + '/design-beispiele' in pages[prefix + '/blog/a-plus-content'].anchors, 'Content article missing design examples')
 for url, item in urls.items():
     for alternate in item.findall('x:link', ns):
         check(alternate.get('href') in urls, f'Sitemap alternate without canonical entry: {alternate.get("href")}')
 
-report = {'articles_per_language': len(slugs), 'built_pages_checked': len(pages), 'sitemap_urls': len(urls), 'errors': errors}
+report = {'active_articles_per_language': len(active), 'retired_articles_per_language': len(retired), 'built_pages_checked': len(pages), 'sitemap_urls': len(urls), 'errors': errors}
 print(json.dumps(report, ensure_ascii=False, indent=2))
 raise SystemExit(bool(errors))

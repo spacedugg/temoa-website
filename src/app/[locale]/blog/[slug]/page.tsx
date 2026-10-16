@@ -8,11 +8,10 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
-import { ServiceCTA } from "@/components/service/Blocks";
+import { BlogSupport, BlogContact } from "@/components/blog/BlogSupport";
 import { istSprache, pfad, sprachAngaben, sprachen } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
 import { suchTitel } from "@/lib/blog-seo";
-import { beitragsLinks } from "@/lib/blog-links";
 import { ArtikelDaten } from "@/components/seo/StrukturierteDaten";
 
 /* Je Sprache nur die Beitraege, die es dort gibt. Solange ein Beitrag nicht
@@ -20,7 +19,7 @@ import { ArtikelDaten } from "@/components/seo/StrukturierteDaten";
    keiner Liste auf. */
 export function generateStaticParams() {
   return sprachen.flatMap((locale) =>
-    getAllPosts(locale).map((p) => ({ locale, slug: p.slug }))
+    getAllPosts(locale, true).map((p) => ({ locale, slug: p.slug }))
   );
 }
 
@@ -37,6 +36,7 @@ export async function generateMetadata({
     title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
     description: post.description,
     keywords: post.keywords,
+    ...(post.retired && { robots: { index: false, follow: true } }),
     /* `hreflang` nur, wenn es die andere Fassung wirklich gibt: eine Angabe
        auf eine Seite, die 404 liefert, ist schlechter als keine. */
     alternates: getPost(slug, locale === "de" ? "en" : "de")
@@ -138,12 +138,11 @@ export default async function ArticlePage({
   if (!post) notFound();
   const { html, toc } = withToc(post.html);
   const related = getRelatedPosts(slug, locale, 3);
-  const verweise = beitragsLinks(slug, post.categoryKey, locale);
 
   return (
     <>
       <Kopfzeile />
-      <ArtikelDaten
+      {!post.retired && <ArtikelDaten
         sprache={locale}
         slug={slug}
         titel={post.title}
@@ -152,7 +151,7 @@ export default async function ArticlePage({
         kategorie={post.categoryLabel}
         kategorieSlug={post.categorySlug}
         blogName={w.kopf.eyebrow}
-      />
+      />}
       <main id="inhalt">
         {/* Hero */}
         <section className="relative overflow-hidden ground pt-32 md:pt-40">
@@ -166,11 +165,11 @@ export default async function ArticlePage({
                 <a href={pfad(locale, "/blog")} className="hover:text-ink">{w.kopf.eyebrow}</a>
                 <span className="text-ink-faint">/</span>
                 <a
-                  href={pfad(locale, `/blog/kategorie/${post.categorySlug}`)}
+                  href={pfad(locale, post.retired ? "/blog/grundlagen" : `/blog/kategorie/${post.categorySlug}`)}
                   className="font-semibold text-navy underline decoration-2 underline-offset-2 hover:decoration-navy"
                   style={{ textDecorationColor: post.accent }}
                 >
-                  {post.categoryLabel}
+                  {post.retired ? (locale === "de" ? "Grundlagen für Verkäufer" : "Seller basics") : post.categoryLabel}
                 </a>
               </nav>
             </Reveal>
@@ -225,24 +224,6 @@ export default async function ArticlePage({
                   </details>
                 )}
                 <article className="article-body" dangerouslySetInnerHTML={{ __html: html }} />
-                {/* Interne Links auf die passende Leistung und, wo es passt,
-                    einen Fall. Der Text nennt das Ziel statt „hier klicken". */}
-                <aside className="panel mt-12 p-6 md:p-8" aria-label={w.verweise}>
-                  <h2 className="text-lg font-bold tracking-tight text-ink">{w.verweise}</h2>
-                  <ul className="mt-4 space-y-4">
-                    {verweise.map((v) => (
-                      <li key={v.href}>
-                        <a
-                          href={pfad(locale, v.href)}
-                          className="font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-4 hover:decoration-navy"
-                        >
-                          {v.anker}
-                        </a>
-                        <p className="mt-1 text-small leading-relaxed text-ink-muted">{v.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </aside>
               </div>
               {toc.length > 2 && (
                 <aside className="hidden lg:block">
@@ -264,6 +245,8 @@ export default async function ArticlePage({
           </div>
         </section>
 
+        {!post.retired && <BlogSupport sprache={locale} categoryKey={post.categoryKey} categorySlug={post.categorySlug} articleSlug={slug} />}
+
         {/* Related */}
         {related.length > 0 && (
           <section className="ground-tint relative py-16 md:py-20">
@@ -280,9 +263,7 @@ export default async function ArticlePage({
           </section>
         )}
 
-        <ServiceCTA
-          title={w.beitragCta}
-        />
+        <BlogContact sprache={locale} categorySlug={post.categorySlug} articleSlug={slug} />
       </main>
       <Fusszeile />
     </>

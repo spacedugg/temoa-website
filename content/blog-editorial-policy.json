@@ -1,0 +1,12 @@
+{
+  "retiredArticles": {
+    "paket-gestohlen": "Privates Lieferproblem als Suchintention, vom Kunden ausdrücklich ausgeschlossen.",
+    "falscher-artikel": "Einzelfall einer Käuferreklamation, kein Einstieg für die Agenturkundengewinnung.",
+    "gift-return": "Geschenkrücksendung mit überwiegender Käuferabsicht.",
+    "amazon-prints": "Amazon-Fotodruck für Endverbraucher, kein eigener Verkaufskanal für Marken.",
+    "unclaimed-packages": "Paketkauf und Mystery-Box-Thema ohne passenden Bezug zum Markenaufbau."
+  },
+  "retiredCategories": [
+    "operativ-service"
+  ]
+}

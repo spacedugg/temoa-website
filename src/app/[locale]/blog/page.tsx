@@ -88,6 +88,18 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           </div>
         )}
 
+        <section className="ground-tint py-10">
+          <div className="container-x">
+            <a href={pfad(locale, "/blog/grundlagen")} className="panel panel-lift flex flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center">
+              <div>
+                <h2 className="text-xl font-extrabold text-ink">{locale === "de" ? "Amazon einfach erklärt: die Grundlagen" : "Amazon explained simply: the basics"}</h2>
+                <p className="mt-2 text-ink-muted">{locale === "de" ? "ACoS, FBA, A+ Content: Startet mit den wichtigsten Begriffen für euer Amazon-Geschäft." : "ACoS, FBA, A+ content: start with the key terms for your Amazon business."}</p>
+              </div>
+              <span className="shrink-0 font-bold text-navy">{locale === "de" ? "Zu den Grundlagen" : "Explore the basics"} <span aria-hidden>↗</span></span>
+            </a>
+          </div>
+        </section>
+
         {/* Themen.
             Drei Fassungen. Erst acht weisse Kacheln mit Icon, Ueberschrift,
             Beschreibungssatz und einer Linkzeile: acht Absaetze, bevor der

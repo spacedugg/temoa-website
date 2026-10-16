@@ -20,10 +20,7 @@ export function TopicIntro({ slug, sprache }: { slug: string; sprache: Sprache }
             </a>
           ))}
         </div>
-        <div className="panel mt-6 flex flex-col items-start justify-between gap-4 p-6 sm:flex-row sm:items-center">
-          <p className="text-small text-ink-muted">{sprache === "de" ? "Ihr möchtet das Thema gemeinsam mit uns angehen?" : "Looking for support putting this into practice?"}</p>
-          <a href={pfad(sprache, topic.service)} className="inline-flex min-h-12 items-center font-bold text-navy underline decoration-brand-500 underline-offset-4">{topic.serviceLabel[sprache]} <span aria-hidden className="ml-2">↗</span></a>
-        </div>
+
       </div>
     </section>
   );
@@ -33,6 +30,7 @@ export function TopicNavigation({ sprache, current }: { sprache: Sprache; curren
   return (
     <nav aria-label={sprache === "de" ? "Weitere Amazon-Themen" : "More Amazon topics"} className="ground-tint py-10">
       <div className="container-x flex flex-wrap gap-3">
+        {current !== "grundlagen" && <a href={pfad(sprache, "/blog/grundlagen")} className="inline-flex min-h-12 items-center rounded-full border border-navy/15 bg-white px-5 py-2 text-small font-bold text-navy hover:border-navy">{sprache === "de" ? "Amazon-Grundlagen" : "Amazon basics"}</a>}
         {blogTopics.filter((topic) => topic.slug !== current).map((topic) => (
           <a key={topic.slug} href={pfad(sprache, `/blog/kategorie/${topic.slug}`)} className="inline-flex min-h-12 items-center rounded-full border border-navy/15 bg-white px-5 py-2 text-small text-navy hover:border-navy">{topic.label[sprache]}</a>
         ))}

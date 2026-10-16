@@ -1,3 +1,4 @@
+import editorialPolicy from "../../content/blog-editorial-policy.json";
 import coverAlts from "../../content/blog-cover-alt.json";
 import fs from "node:fs";
 import path from "node:path";
@@ -180,11 +181,11 @@ function aufloesen(c: Category, sprache: Sprache): Kategorie {
 }
 
 export function kategorien(sprache: Sprache): Kategorie[] {
-  return categories.map((c) => aufloesen(c, sprache));
+  return categories.filter((c) => !editorialPolicy.retiredCategories.includes(c.slug)).map((c) => aufloesen(c, sprache));
 }
 
 export function getCategory(slug: string, sprache: Sprache): Kategorie | undefined {
-  const c = categories.find((x) => x.slug === slug);
+  const c = categories.find((x) => x.slug === slug && !editorialPolicy.retiredCategories.includes(x.slug));
   return c && aufloesen(c, sprache);
 }
 
@@ -204,6 +205,8 @@ export type PostMeta = {
   /** Optional generated cover image; falls back to the SVG cover when absent. */
   image?: string;
   imageAlt: string;
+  /** Existing off-topic URLs remain accessible but are not promoted or indexed. */
+  retired: boolean;
 };
 
 export type Post = PostMeta & { html: string };
@@ -266,6 +269,7 @@ function parseFile(filename: string, sprache: Sprache): Post {
     accent: cat?.accent ?? "#0E7CA0",
     readingMinutes,
     order,
+    retired: Object.hasOwn(editorialPolicy.retiredArticles, slug),
     image: findCover(slug),
     imageAlt: (coverAlts as Record<string, Record<Sprache, string>>)[slug]?.[sprache] ?? "",
     html,
@@ -292,8 +296,8 @@ function allPosts(sprache: Sprache): Post[] {
 
 const stripHtml = ({ html, ...meta }: Post): PostMeta => meta;
 
-export function getAllPosts(sprache: Sprache): PostMeta[] {
-  return allPosts(sprache).map(stripHtml);
+export function getAllPosts(sprache: Sprache, includeRetired = false): PostMeta[] {
+  return allPosts(sprache).filter((post) => includeRetired || !post.retired).map(stripHtml);
 }
 
 export function getPost(slug: string, sprache: Sprache): Post | undefined {

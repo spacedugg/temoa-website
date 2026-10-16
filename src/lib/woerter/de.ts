@@ -1549,16 +1549,16 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Amazon Blog: PPC, Listing, FBA und Strategie · temoa",
+      titel: "Amazon-Wissen für Marken und Händler · temoa",
       beschreibung:
-        "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
+        "Amazon-Grundlagen für Marken und Händler: ACoS, Werbung, FBA, Produktlistings und Verkaufsstrategie verständlich erklärt.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Klartext zu ",
-      titelEm: "Amazon.",
-      lead: "Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext.",
+      titelVor: "Amazon-Wissen für ",
+      titelEm: "eure Marke.",
+      lead: "Was ist ACoS? Wie funktioniert FBA? Welche Gebühren fallen beim Verkauf an? Verständliche Antworten für Marken und Händler, die auf Amazon verkaufen oder damit starten möchten.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
     /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von

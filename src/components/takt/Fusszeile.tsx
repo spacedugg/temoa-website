@@ -189,13 +189,18 @@ export function Fusszeile() {
         <nav aria-label={sprache === "de" ? "Amazon-Ratgeber nach Thema" : "Amazon guides by topic"} className="border-t border-white/10 py-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span className="text-label font-bold uppercase text-chalk-faint">
-              {sprache === "de" ? "Amazon-Wissen für eure nächsten Schritte" : "Amazon guides for your next steps"}
+              {sprache === "de" ? "Amazon-Wissen für Marken und Händler" : "Amazon guides for brands and sellers"}
             </span>
             <a href={pfad(sprache, "/blog")} className="inline-flex min-h-12 items-center text-small text-chalk-muted hover:text-brand-500">
               {sprache === "de" ? "Alle Ratgeber ansehen" : "Browse all guides"} <span aria-hidden className="ml-2">↗</span>
             </a>
           </div>
           <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+            <li>
+              <a href={pfad(sprache, "/blog/grundlagen")} className="flex min-h-12 items-center text-small font-bold text-white transition-colors hover:text-brand-500">
+                {sprache === "de" ? "Amazon-Grundlagen: einfach erklärt" : "Amazon basics: simply explained"}
+              </a>
+            </li>
             {blogTopics.map((topic) => (
               <li key={topic.slug}>
                 <a href={pfad(sprache, `/blog/kategorie/${topic.slug}`)} className="flex min-h-12 items-center text-small text-chalk-muted transition-colors hover:text-brand-500">

@@ -1436,16 +1436,16 @@ export const en: Woerterbuch = {
 
   blog: {
     meta: {
-      titel: "Amazon Blog: PPC, Listing, FBA and Strategy · temoa",
+      titel: "Amazon guides for brands and sellers · temoa",
       beschreibung:
-        "Straight talk about Amazon: PPC, listing and SEO, FBA, brand protection and strategy. Sorted by topic.",
+        "Amazon basics for brands and sellers: ACoS, advertising, FBA, product listings and selling strategy explained clearly.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Straight talk about ",
-      titelEm: "Amazon.",
-      lead: "Articles on advertising, listings, logistics and strategy. Sorted by topic, with no filler.",
+      titelVor: "Amazon knowledge for ",
+      titelEm: "your brand.",
+      lead: "What is ACoS? How does FBA work? What does selling cost? Clear answers for brands and retailers selling on Amazon or planning their first steps.",
     },
     themaTitel: "All articles on {thema}",
     einBeitrag: "1 article",

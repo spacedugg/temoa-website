@@ -26,6 +26,7 @@ const FESTE_SEITEN = [
   "/gespraech-vereinbaren",
   "/blog",
   "/blog/vergleiche",
+  "/blog/grundlagen",
   "/impressum",
   "/datenschutz",
   "/agb",
