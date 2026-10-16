@@ -9,6 +9,7 @@ import {
   ServiceCTA,
   Lieferung,
   Ergebnis,
+  Verweis,
 } from "./Blocks";
 import { MarktSektion } from "./Weltkugel";
 import { Aufgaben } from "./Aufgaben";
@@ -45,6 +46,8 @@ const ADVERTISING_ZEICHEN: PiktogrammName[] = [
 const INTERNATIONAL_ZEICHEN: PiktogrammName[] = ["sprache", "seite", "kampagne", "wiederholen"];
 const KATALOG_ZEICHEN: PiktogrammName[] = ["katalog", "suche", "struktur", "wiederholen"];
 const FBA_ZEICHEN: PiktogrammName[] = ["weiche", "vorlage", "sendung", "bestand"];
+const FBA_DETAIL_ZEICHEN: PiktogrammName[] = ["bestand", "sendung", "pricing"];
+const COMPLIANCE_KERN_ZEICHEN: PiktogrammName[] = ["richtlinie", "zertifikat", "ticket", "katalog"];
 const PFLICHT_ZEICHEN: PiktogrammName[] = ["verpackung", "schutz", "zertifikat"];
 const SPERRE_ZEICHEN: PiktogrammName[] = ["sperre", "richtlinie", "ticket", "buybox"];
 const AUFGABEN_ZEICHEN: PiktogrammName[] = [
@@ -286,40 +289,44 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
           body: a.text,
         }))}
       />
-      <Ablauf
-        eyebrow={w.fba.eyebrow}
-        title={w.fba.titel}
-        description={w.fba.lead}
-        schritte={w.fba.karten.map((k, i) => ({
-          piktogramm: FBA_ZEICHEN[i],
-          titel: k.titel,
-          unterzeile: k.unterzeile,
-          text: k.text,
+      {/* Der Anker `#fba` ist das Ziel des Links in der Fusszeile. FBA ist
+          eine Sektion dieser Seite und keine eigene Seite. */}
+      <div id="fba" className="scroll-mt-24">
+        <Ablauf
+          eyebrow={w.fba.eyebrow}
+          title={w.fba.titel}
+          description={w.fba.lead}
+          schritte={w.fba.karten.map((k, i) => ({
+            piktogramm: FBA_ZEICHEN[i],
+            titel: k.titel,
+            unterzeile: k.unterzeile,
+            text: k.text,
+          }))}
+        />
+      </div>
+      <Cards
+        tone="white"
+        eyebrow={w.fbaDetail.eyebrow}
+        title={w.fbaDetail.titel}
+        description={w.fbaDetail.lead}
+        cols={3}
+        items={w.fbaDetail.karten.map((k, i) => ({
+          piktogramm: FBA_DETAIL_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          bullets: k.punkte,
         }))}
+        callout={w.fbaDetail.klarstellung}
       />
-      <Spalten
+      {/* Compliance steht auf einer eigenen Seite. Hier nur der Absatz mit
+          Verweis: derselbe Inhalt an zwei Stellen waere ein Duplikat. */}
+      <Verweis
+        tone="blue"
         eyebrow={w.compliance.eyebrow}
         title={w.compliance.titel}
-        description={w.compliance.lead}
-        items={w.compliance.pflichten.map((k, i) => ({
-          piktogramm: PFLICHT_ZEICHEN[i],
-          titel: k.titel,
-          unterzeile: k.unterzeile,
-          text: k.text,
-        }))}
-      />
-      <Ablauf
-        dunkel
-        endeGruen
-        eyebrow={w.compliance.sperre.eyebrow}
-        title={w.compliance.sperre.titel}
-        description={w.compliance.sperre.lead}
-        schritte={w.compliance.sperre.schritte.map((k, i) => ({
-          piktogramm: SPERRE_ZEICHEN[i],
-          titel: k.titel,
-          unterzeile: k.unterzeile,
-          text: k.text,
-        }))}
+        text={w.compliance.lead}
+        linkLabel={w.compliance.link}
+        href={pfad(sprache, "/leistungen/compliance-account-health")}
       />
       <BildKarten
         eyebrow={w.katalog.eyebrow}
@@ -345,6 +352,94 @@ export function AccountBody({ sprache }: { sprache: Sprache }) {
         zeile={w.ergebnis.zeile}
         werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: i === 0 }))}
         href={pfad(sprache, "/ergebnisse/marke-gartenzubehoer")}
+        mehr={b.fallLesen}
+      />
+      <ServiceCTA title={w.cta} />
+    </>
+  );
+}
+
+/* ============ COMPLIANCE & ACCOUNT HEALTH ============ */
+export function ComplianceBody({ sprache }: { sprache: Sprache }) {
+  const alle = woerter(sprache).leistungen;
+  const w = alle.compliance;
+  const b = alle.bausteine;
+
+  return (
+    <>
+      <ServiceHero
+        eyebrow={w.hero.eyebrow}
+        title={
+          <>
+            {w.hero.titelVor}
+            <span className="text-gradient">{w.hero.titelEm}</span>
+          </>
+        }
+        sub={w.hero.lead}
+        image="/bilder/s-account-monitor.webp"
+        imageAlt={w.hero.bildAlt}
+        knopf={b.knopf}
+        knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
+      />
+      <Points
+        tone="blue"
+        eyebrow={b.dasProblem}
+        title={w.problem.titel}
+        points={w.problem.punkte}
+        bridge={w.problem.bruecke}
+        brueckeGruen
+      />
+      <Cards
+        tone="white"
+        eyebrow={w.kern.eyebrow}
+        title={w.kern.titel}
+        cols={2}
+        items={w.kern.karten.map((k, i) => ({
+          piktogramm: COMPLIANCE_KERN_ZEICHEN[i],
+          title: k.titel,
+          subtitle: k.unterzeile,
+          bullets: k.punkte,
+        }))}
+      />
+      <Spalten
+        eyebrow={w.pflichten.eyebrow}
+        title={w.pflichten.titel}
+        description={w.pflichten.lead}
+        items={w.pflichten.karten.map((k, i) => ({
+          piktogramm: PFLICHT_ZEICHEN[i],
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
+        }))}
+      />
+      <Ablauf
+        dunkel
+        endeGruen
+        eyebrow={w.sperre.eyebrow}
+        title={w.sperre.titel}
+        description={w.sperre.lead}
+        schritte={w.sperre.schritte.map((k, i) => ({
+          piktogramm: SPERRE_ZEICHEN[i],
+          titel: k.titel,
+          unterzeile: k.unterzeile,
+          text: k.text,
+        }))}
+      />
+      <TextMedia tone="blue" eyebrow={w.abgrenzung.eyebrow} title={w.abgrenzung.titel} text={w.abgrenzung.text} />
+      <ResultBlock badge={w.nutzen.badge} title={w.nutzen.titel} benefits={w.nutzen.punkte} />
+      <Cards
+        tone="blue"
+        eyebrow={w.expertise.eyebrow}
+        title={w.expertise.titel}
+        cols={3}
+        items={w.expertise.karten.map((k) => ({ title: k.titel, body: k.text }))}
+      />
+      <Ergebnis
+        eyebrow={b.ausDerPraxis}
+        title={w.ergebnis.titel}
+        zeile={w.ergebnis.zeile}
+        werte={w.ergebnis.werte.map((v, i) => ({ ...v, runter: false }))}
+        href={pfad(sprache, "/ergebnisse/haa")}
         mehr={b.fallLesen}
       />
       <ServiceCTA title={w.cta} />

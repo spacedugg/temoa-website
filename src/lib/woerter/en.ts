@@ -33,14 +33,14 @@ export const en: Woerterbuch = {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitable growth",
       titelRest: " for your Amazon brand",
-      lead: "With professional execution in content, advertising and account management, more revenue is not a question of a bigger ad budget.",
+      lead: "Build listings that convert. Then scale with advertising that earns its budget. Content, ads and account management from one team.",
       ctaZweit: "See the case studies",
       bildAlt:
         "A product page on a phone held in one hand, with six listing images showing product benefits beside it",
     },
 
     kundenband: {
-      label: "Brands we've worked with",
+      label: "Ambitious brands we've worked with",
     },
 
     leistungen: {
@@ -54,9 +54,9 @@ export const en: Woerterbuch = {
          audience is brands selling on Amazon worldwide, and amazon.com is the
          largest of those marketplaces. */
       liste: [
-        { titel: "Strategy", text: "Data first, then the plan." },
-        { titel: "Product Images & SEO", text: "Clicks turn into orders." },
-        { titel: "PPC Advertising", text: "Scale profitably." },
+        { titel: "Strategy", text: "Not sure where it breaks? Data first, then the plan." },
+        { titel: "Product Images & SEO", text: "Clicks without orders? We rebuild the listing." },
+        { titel: "PPC Advertising", text: "More budget, less margin? We scale profitably." },
         { titel: "Account Management", text: "Inventory, Buy Box, troubleshooting under control." },
         { titel: "International Expansion", text: "Localize instead of translate." },
       ],
@@ -230,6 +230,11 @@ export const en: Woerterbuch = {
         name: "Account Management",
         beschreibung:
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
+      },
+      compliance: {
+        name: "Compliance & Account Health",
+        beschreibung:
+          "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case through with Amazon until it is decided.",
       },
       international: {
         name: "International Expansion",
@@ -539,7 +544,7 @@ export const en: Woerterbuch = {
         eyebrow: "Account Management",
         titelVor: "You build the brand. The ",
         titelEm: "day-to-day is on us.",
-        lead: "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of our own. That gives you time for product and catalog.",
+        lead: "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of our own, in Seller Central and Vendor Central. That gives you time for product and catalog.",
         bildAlt: "The day-to-day run from a console",
       },
       problem: {
@@ -636,53 +641,49 @@ export const en: Woerterbuch = {
         ],
       },
       compliance: {
-        eyebrow: "Compliance",
+        eyebrow: "Compliance & Account Health",
         titel: "Products that are allowed to stay on Amazon.",
-        lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current.",
-        pflichten: [
+        lead: "Missing proofs and registrations stop listings from one day to the next. We monitor account health, keep the mandatory data for your range current and carry cases through with Amazon until they are decided.",
+        link: "Compliance & account health in detail",
+      },
+      fbaDetail: {
+        eyebrow: "FBA and inventory in detail",
+        titel: "What we steer on an ongoing basis in FBA and inventory.",
+        lead: "Inventory, shipments and fees come together in the account. We keep them in view and step in before an item runs out or a mistake costs money.",
+        karten: [
           {
-            titel: "LUCID",
-            unterzeile: "German packaging register",
-            text: "Amazon asks for the LUCID registration number for packaging. We enter it in the account, check the data and clear open cases before listings get blocked.",
+            titel: "Monitor inventory",
+            unterzeile: "In view every day",
+            punkte: [
+              "FBA inventory monitoring per item and marketplace",
+              "Days-of-supply analysis and stockout monitoring",
+              "Inventory health and overstock",
+              "Inventory discrepancies between account and warehouse",
+            ],
           },
           {
-            titel: "GPSR",
-            unterzeile: "Product safety in the EU",
-            text: "Manufacturer, EU responsible person, contact data and safety notices belong on every listing. We maintain them for the whole range.",
+            titel: "Follow shipments",
+            unterzeile: "From plan to receiving",
+            punkte: [
+              "Inbound shipment monitoring and shipment status",
+              "Spotting and resolving stranded inventory",
+              "Support with digital FBA shipment processes",
+              "Handling receiving and quantity discrepancy cases with Amazon",
+            ],
           },
           {
-            titel: "Safety documents",
-            unterzeile: "Test reports, certificates, conformity",
-            text: "We request the proofs and prepare them the way Amazon requires. They are uploaded to the right item.",
+            titel: "Plan and control costs",
+            unterzeile: "Resupply and fees",
+            punkte: [
+              "Replenishment planning by days of supply and lead time",
+              "Monitoring FBA availability",
+              "FBA fee monitoring and fee discrepancies",
+              "FBA or FBM decision per item",
+            ],
           },
         ],
-        sperre: {
-          eyebrow: "Case management",
-          titel: "Blocked items, from case to release.",
-          lead: "Every day with a blocked item is a day without sales. We take the case from the first notice to the release.",
-          schritte: [
-            {
-              titel: "Block spotted",
-              unterzeile: "Blocked items",
-              text: "We spot the block and find out which requirement stops the item.",
-            },
-            {
-              titel: "Cause fixed",
-              unterzeile: "Listing and proofs",
-              text: "Missing data and documents are added, the listing is adjusted.",
-            },
-            {
-              titel: "Case opened",
-              unterzeile: "Case management",
-              text: "We submit the proofs to Amazon support, keep deadlines and escalate when no answer comes.",
-            },
-            {
-              titel: "Item released",
-              unterzeile: "Back on sale",
-              text: "Once Amazon releases it, the item goes back on sale. You hear the outcome from us.",
-            },
-          ],
-        },
+        klarstellung:
+          "Physical work on the goods is not part of our services: no labeling, packaging or bundling and no quality control in the warehouse. Our core service is the digital and operational management of FBA and inventory in the Amazon account.",
       },
       katalog: {
         eyebrow: "Catalogue and backend",
@@ -732,6 +733,166 @@ export const en: Woerterbuch = {
         ],
       },
       cta: "Hand the day-to-day over to us.",
+    },
+
+    compliance: {
+      hero: {
+        eyebrow: "Compliance & Account Health",
+        titelVor: "When Amazon asks for proof, ",
+        titelEm: "we carry the case.",
+        lead: "We monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central. We find the affected ASINs, coordinate the documents and carry the case through with Amazon.",
+        bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
+      },
+      problem: {
+        titel: "A block costs revenue before anyone notices it.",
+        punkte: [
+          "A listing is suppressed, and the notice sits unread in the inbox.",
+          "Amazon asks for certificates and test reports, and nobody knows in what form.",
+          "A new requirement hits dozens of ASINs, but only a few stand out.",
+          "Account health drops, and the reason appears in no report.",
+        ],
+        bruecke: "We spot it earlier and carry the case until Amazon decides.",
+      },
+      kern: {
+        eyebrow: "Core services",
+        titel: "What we do for compliance and account health.",
+        karten: [
+          {
+            titel: "Account health monitoring",
+            unterzeile: "Always in view",
+            punkte: [
+              "Account health and policy notices across all marketplaces",
+              "Finding blocked and suppressed listings",
+              "Evaluating compliance notifications from Amazon",
+              "Recording the affected ASINs and SKUs",
+            ],
+          },
+          {
+            titel: "Proofs and documents",
+            unterzeile: "Collected and checked",
+            punkte: [
+              "Requesting certificates and checking that they match Amazon's requirement",
+              "Coordinating declarations of conformity",
+              "Assembling test reports and product safety documents",
+              "Uploading documents to the right item",
+            ],
+          },
+          {
+            titel: "Cases with Amazon",
+            unterzeile: "From the first notice to the decision",
+            punkte: [
+              "Handling product compliance requests",
+              "Running restricted product cases",
+              "Following up open cases and escalating when nothing moves",
+              "Bringing items back on sale once Amazon releases them",
+            ],
+          },
+          {
+            titel: "Catalog and prevention",
+            unterzeile: "Before it becomes a block",
+            punkte: [
+              "Maintaining compliance-relevant product attributes",
+              "Checking mandatory data per category",
+              "Catalog and compliance checks before a launch",
+              "Checking changes in Amazon's requirements against your range",
+            ],
+          },
+        ],
+      },
+      pflichten: {
+        eyebrow: "Mandatory data",
+        titel: "Products that are allowed to stay on Amazon.",
+        lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current.",
+        karten: [
+          {
+            titel: "LUCID",
+            unterzeile: "German packaging register",
+            text: "Amazon asks for the LUCID registration number for packaging. We enter it in the account, check the data and clear open cases before listings get blocked.",
+          },
+          {
+            titel: "GPSR",
+            unterzeile: "Product safety in the EU",
+            text: "Manufacturer, EU responsible person, contact data and safety notices belong on every listing. We maintain them for the whole range.",
+          },
+          {
+            titel: "Safety documents",
+            unterzeile: "Test reports, certificates, conformity",
+            text: "We request the proofs and prepare them the way Amazon requires. They are uploaded to the right item.",
+          },
+        ],
+      },
+      sperre: {
+        eyebrow: "Case management",
+        titel: "Blocked items, from case to release.",
+        lead: "Every day with a blocked item is a day without sales. We take the case from the first notice to the release.",
+        schritte: [
+          {
+            titel: "Block spotted",
+            unterzeile: "Blocked items",
+            text: "We spot the block and find out which requirement stops the item.",
+          },
+          {
+            titel: "Cause fixed",
+            unterzeile: "Listing and proofs",
+            text: "Missing data and documents are added, the listing is adjusted.",
+          },
+          {
+            titel: "Case opened",
+            unterzeile: "Case management",
+            text: "We submit the proofs to Amazon support, keep deadlines and escalate when no answer comes.",
+          },
+          {
+            titel: "Item released",
+            unterzeile: "Back on sale",
+            text: "Once Amazon releases it, the item goes back on sale. You hear the outcome from us.",
+          },
+        ],
+      },
+      abgrenzung: {
+        eyebrow: "Scope",
+        titel: "Where our work ends.",
+        text: "We are not a testing lab, a certification body, a public authority or a legal advisor. Our focus is operational compliance management on the Amazon marketplace: we identify Amazon's requirements, coordinate the required proofs and handle the cases with Amazon. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel.",
+      },
+      nutzen: {
+        badge: "Your benefit",
+        titel: "Fewer interruptions, faster answers.",
+        punkte: [
+          "Lower risk of unplanned sales interruptions",
+          "Amazon's requirements handled faster",
+          "Documents coordinated in one place",
+          "Better account health",
+          "Compliance risks spotted earlier",
+          "Fewer recurring catalog problems",
+        ],
+      },
+      expertise: {
+        eyebrow: "Our Amazon expertise",
+        titel: "Experience from the day-to-day.",
+        karten: [
+          {
+            titel: "Over 1,000 products",
+            text: "optimized on Amazon, from the main image to the campaign structure.",
+          },
+          {
+            titel: "60+ brands served",
+            text: "on at least five marketplaces.",
+          },
+          {
+            titel: "Seller Central and Vendor Central",
+            text: "We work in both models and know the case paths on both sides.",
+          },
+        ],
+      },
+      ergebnis: {
+        titel: "HaA, account block in week 10",
+        zeile: "In week 10 the account was blocked. Two weeks later the block was resolved.",
+        werte: [
+          { wert: "2 weeks", label: "until the account block was resolved", sub: "Block in week 10" },
+          { wert: "14x", label: "Orders per week", sub: "launch week to peak" },
+          { wert: "+439%", label: "Conversion Rate", sub: "launch week to peak" },
+        ],
+      },
+      cta: "Is a block or a request for proof open at your end?",
     },
 
     international: {
@@ -830,7 +991,7 @@ export const en: Woerterbuch = {
       eyebrow: "Amazon Full Service",
       titelVor: "One team that works together on your ",
       titelMark: "entire Amazon account.",
-      lead: "We take on your Amazon account completely, from the analysis to the day-to-day. For every area you get somebody who does it full time.",
+      lead: "We work with ambitious brands that want to move something on Amazon, from the analysis to the day-to-day. For every area you get somebody who does it full time.",
       bildAlt: "Five workstations on a platform, all connected to one shared evaluation",
     },
 
@@ -971,6 +1132,33 @@ export const en: Woerterbuch = {
           ],
         },
       ],
+    },
+
+    technologie: {
+      label: "Technology",
+      titel: "Our own platform for Amazon accounts, under construction.",
+      lead: "We are building software that brings account, catalog, advertising and inventory data together in one place. It is meant to show our team and our customers what is happening in the account, and to steer the work in it. The platform is not yet open to customers.",
+      status: "In development",
+      bereiche: [
+        {
+          titel: "Catalog and content",
+          text: "Create and update products and items, create and manage content and transfer it to Amazon.",
+        },
+        {
+          titel: "Advertising",
+          text: "Evaluate and adjust campaigns, steer search terms and bids.",
+        },
+        {
+          titel: "Margins and reporting",
+          text: "Margin per product and variation, plus revenue, costs and key figures as a dashboard.",
+        },
+        {
+          titel: "Account health and inventory",
+          text: "Listing status, Buy Box, prices, inventory and FBA in view, with alerts for anything unusual.",
+        },
+      ],
+      datenHinweis:
+        "For authorized customers the software processes Amazon data only to provide the services and functions they have commissioned. Access is based on the authorization given by the customer and on the roles and permissions approved by Amazon. Connection through the Amazon Selling Partner API (SP-API) is planned for this.",
     },
 
     reporting: {

@@ -757,6 +757,52 @@ export function ResultBlock({
   );
 }
 
+/* ---------------- Verweis auf eine eigene Seite ---------------- */
+
+/**
+ * Kurzer Absatz mit Link auf eine Seite, die das Thema ausfuehrt.
+ *
+ * Gebraucht, wo ein Thema auf einer Seite nur anklingen soll, waehrend sein
+ * voller Inhalt woanders steht. Dieselben Absaetze an zwei Stellen waeren ein
+ * Duplikat, und beide Seiten konkurrierten um dieselbe Suche.
+ */
+export function Verweis({
+  eyebrow,
+  title,
+  text,
+  linkLabel,
+  href,
+  tone = "blue",
+}: {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  linkLabel: string;
+  href: string;
+  tone?: Tone;
+}) {
+  return (
+    <Shell tone={tone}>
+      <Reveal>
+        <div className="panel mx-auto grid max-w-5xl gap-8 p-8 md:grid-cols-[1.4fr_1fr] md:items-center md:gap-12 md:p-12">
+          <div>
+            <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0" />
+            <p className="mt-4 max-w-[52ch] text-pretty text-base leading-relaxed text-ink-muted md:text-lg">{text}</p>
+          </div>
+          <div className="md:justify-self-end">
+            <a href={href} className="btn-text">
+              {linkLabel}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </Shell>
+  );
+}
+
 /* ---------------- final CTA ---------------- */
 
 /**
@@ -959,10 +1005,12 @@ export function Ergebnis({
                       ))}
                     </div>
                   )}
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
+                    {/* nowrap: sonst bricht "+439 %" hinter dem Leerzeichen
+                        und das Prozentzeichen steht allein in Zeile zwei. */}
                     <ZahlText
                       text={w.wert}
-                      className="num text-[clamp(1.9rem,1.3rem+1.5vw,2.5rem)] leading-none text-[#6EE7A0]"
+                      className="num whitespace-nowrap text-[clamp(1.9rem,1.3rem+1.2vw,2.2rem)] leading-none text-[#6EE7A0]"
                     />
                     <span
                       aria-hidden

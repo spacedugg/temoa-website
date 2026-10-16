@@ -34,6 +34,7 @@ const FESTE_SEITEN = [
   "/leistungen/listing-seo",
   "/leistungen/ppc-advertising",
   "/leistungen/account-management",
+  "/leistungen/compliance-account-health",
   "/leistungen/internationalisierung",
   "/ergebnisse",
   "/design-beispiele",

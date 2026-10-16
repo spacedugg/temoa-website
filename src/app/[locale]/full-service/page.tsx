@@ -9,6 +9,7 @@ import {
   Ausgangslage,
   Bereiche,
   Reporting,
+  Technologie,
   Unterschied,
   NichtFuerWen,
 } from "@/components/takt/fullservice";
@@ -56,6 +57,7 @@ export default async function FullServicePage({
         <Ausgangslage w={w.ausgangslage} />
         <Bereiche w={w.bereiche} />
         <Reporting w={w.reporting} />
+        <Technologie w={w.technologie} />
         <Unterschied w={w.unterschied} zusammenlauf={w.zusammenlauf} />
         {/* Der Fahrplan als letzte Sektion vor dem Abschluss-CTA, dieselbe
             Sektion wie auf der Buchungsseite. Sie ersetzt `Onboarding` mit

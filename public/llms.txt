@@ -29,6 +29,7 @@ Verbindlich sind die deutschen Fassungen der Rechtstexte.
 - [Produktbilder & SEO](https://temoa.de/leistungen/listing-seo): Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content, ausgerichtet auf Klickrate und Conversion.
 - [PPC Advertising](https://temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
 - [Account Management](https://temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
+- [Compliance & Account Health](https://temoa.de/leistungen/compliance-account-health): LUCID, GPSR, Sicherheitsdokumente, Fallmanagement bei Sperrungen, Richtlinien- und Katalogfälle (keine Rechtsberatung, kein Prüflabor).
 - [Internationalisierung](https://temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
 
 ## Weiteres

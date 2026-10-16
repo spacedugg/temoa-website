@@ -58,7 +58,8 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
       addressCountry: SEITE.anschrift.land,
     },
     sameAs: SEITE.profile,
-    /* Die fuenf Leistungen, wie sie in der Navigation stehen. Die Adressen
+    /* Die fuenf Leistungen aus der Navigation plus die Compliance-Seite
+       aus der Fusszeile. Die Adressen
        bleiben in beiden Sprachen deutsch, die Sprache steckt im Praefix. */
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -69,6 +70,7 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
         ["PPC Advertising", "PPC advertising", "/leistungen/ppc-advertising"],
         ["Account Management", "Account management", "/leistungen/account-management"],
         ["Internationalisierung", "International expansion", "/leistungen/internationalisierung"],
+        ["Compliance & Account Health", "Compliance & account health", "/leistungen/compliance-account-health"],
       ].map(([de, en, ziel]) => ({
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: sprache === "de" ? de : en },

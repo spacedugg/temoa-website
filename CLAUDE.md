@@ -1690,3 +1690,48 @@ beide Sprachen, sofern hier nichts anderes steht.
   ES, NL und BE fuer 20x Umsatz und 98,9 %, und DE fuer +20,6 %. Wer
   nebeneinanderstehende Zahlen auf verschiedene Maerkte bezieht, soll das nicht
   erst in der dritten Textzeile erfahren.
+
+## Dreiundvierzigste Feedbackrunde (verbindlich, Amazon-Verifizierung)
+
+Anlass: Amazon prueft das Entwicklerprofil und das Solution Provider Network
+anhand dieser Website. Die Copy muss zeigen, was wir tatsaechlich tun. Quelle
+ist das Briefing `Briefing_Eddie_Amazon_SPP_SPAPI_Website.md`.
+
+- **Compliance steht auf einer eigenen Seite**, `/leistungen/compliance-account-health`
+  (`service/bodies` `ComplianceBody`). Sie ist nur in der Fusszeile verlinkt,
+  nicht im Hauptmenue. Die Account-Seite behaelt einen Verweisblock (`Verweis`),
+  der Detailinhalt (LUCID, GPSR, Sicherheitsdokumente, Fallmanagement) liegt nur
+  noch dort: zweimal derselbe Text auf zwei Seiten waere Duplicate Content.
+- **FBA und Inventory sind eine Sektion der Account-Seite** (`#fba`), keine
+  eigene Seite. Die Fusszeile verlinkt auf den Anker.
+- **Software steht als Sektion auf der Full-Service-Seite** (`#technologie`,
+  `takt/fullservice` `Technologie`), ausdruecklich mit der Pille „In
+  Entwicklung". Keine Funktion laeuft produktiv. Die Sektion beschreibt nur,
+  was geplant ist, und nennt die SP-API als vorgesehen, nicht als aktiv.
+- **Nichts behaupten, was nicht belegt ist.** Der Compliance-Nachweis ist der
+  HaA-Fall (Accountsperrung in KW 10, nach zwei Wochen erledigt). Keine
+  Sicherheitszertifizierungen, keine Pruefstelle, keine Rechtsberatung: ein
+  Absatz „Wo unsere Arbeit endet" sagt das ausdruecklich.
+- **Wir bereiten keine Ware physisch vor.** Gilt weiter: FBA heisst Planung,
+  Bestand und Sendungen im Konto.
+- **Vendor und Seller.** Die Texte nennen beide (Seller Central und Vendor
+  Central), weil wir beide betreuen.
+- **Compliance-Text ist nach bestem Wissen als Best Case geschrieben** und
+  braucht die Pruefung durch den Anwalt des Kunden, bevor er als endgueltig
+  gilt. Dasselbe gilt fuer die Datenschutzerklaerung, die Dienste nennt, die
+  nicht eingebunden sind.
+- **Hero-Unterzeile, Leistungskacheln der Startseite und Kopf der
+  Full-Service-Seite sind problem-first formuliert** (erst die Reibung, dann
+  die Arbeit). Aufbau und Design blieben unveraendert. Inspiration kam nur aus
+  dem Ton einer Fremdseite, nichts davon wurde uebernommen.
+- **Ergebnis-Kacheln brechen nicht mehr um.** Der Wert steht mit
+  `whitespace-nowrap`, der Pfeil rutscht bei Platzmangel darunter. Vorher stand
+  das Prozentzeichen von „+439 %" allein in Zeile zwei.
+- **Neue Seiten stehen in Sitemap, `llms.txt` und strukturierten Daten.** Die
+  Compliance-Seite steht als sechster Eintrag im `OfferCatalog`.
+- **Offen:** Canonical-Basis mit oder ohne `www` (live leitet `temoa.de` per 308
+  auf `www.temoa.de`, `SEITE.url` steht auf `https://temoa.de`); Search-Console-
+  Exporte fuer die Long-Tail-Arbeit (siehe `docs/seo-masterprompt.md`); ein
+  Hydration-Hinweis (React #418) tritt auf einzelnen Seiten sporadisch auf und
+  ist nicht auf diese Runde zurueckzufuehren (er erscheint auch auf unveraenderten
+  Seiten).
