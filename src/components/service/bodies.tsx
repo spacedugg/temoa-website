@@ -10,6 +10,8 @@ import {
   Lieferung,
   Ergebnis,
   Verweise,
+  Einstieg,
+  Faq,
 } from "./Blocks";
 import { MarktSektion } from "./Weltkugel";
 import { Aufgaben } from "./Aufgaben";
@@ -356,6 +358,7 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
         knopf={b.knopf}
         knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
+      <Einstieg eyebrow={w.einstieg.eyebrow} title={w.einstieg.titel} absaetze={w.einstieg.absaetze} />
       <Points
         tone="blue"
         eyebrow={b.dasProblem}
@@ -373,6 +376,7 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
           piktogramm: COMPLIANCE_KERN_ZEICHEN[i],
           title: k.titel,
           subtitle: k.unterzeile,
+          body: k.text,
           bullets: k.punkte,
         }))}
       />
@@ -417,6 +421,7 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
         href={pfad(sprache, "/ergebnisse/haa")}
         mehr={b.fallLesen}
       />
+      <Faq eyebrow={w.faq.eyebrow} title={w.faq.titel} fragen={w.faq.fragen} />
       <Stimmenband sprache={sprache} />
       <ServiceCTA title={w.cta} />
     </>
@@ -552,6 +557,7 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
         knopf={b.knopf}
         knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
+      <Einstieg eyebrow={w.einstieg.eyebrow} title={w.einstieg.titel} absaetze={w.einstieg.absaetze} />
       <Points
         tone="blue"
         eyebrow={b.dasProblem}
@@ -570,6 +576,7 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
           piktogramm: DIENST_KERN_ZEICHEN[art][i],
           title: k.titel,
           subtitle: k.unterzeile,
+          body: k.text,
           bullets: k.punkte,
         }))}
       />
@@ -605,6 +612,7 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
           mehr={b.fallLesen}
         />
       )}
+      <Faq eyebrow={w.faq.eyebrow} title={w.faq.titel} fragen={w.faq.fragen} />
       <Stimmenband sprache={sprache} />
       <ServiceCTA title={w.cta} />
     </>

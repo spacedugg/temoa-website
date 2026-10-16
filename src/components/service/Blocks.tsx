@@ -1080,3 +1080,99 @@ export function Ergebnis({
     </section>
   );
 }
+
+/* ---------------- Einstieg: erklaerender Text zur Leistung ---------------- */
+
+/**
+ * Zwei bis drei Absaetze, die sagen, was die Leistung ist, warum sie Umsatz
+ * beeinflusst und was wir dabei tun. Die Seiten bestanden vorher aus
+ * Stichpunkten in Karten: wer den Begriff nicht kannte, bekam ihn nirgends
+ * erklaert, und eine Suchmaschine fand keinen Fliesstext. Der Text liegt auf
+ * einer Platte, nie frei auf dem Grund.
+ */
+export function Einstieg({
+  eyebrow,
+  title,
+  absaetze,
+  tone = "white",
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  absaetze: string[];
+  tone?: Tone;
+}) {
+  return (
+    <Shell tone={tone}>
+      <div className="panel mx-auto max-w-4xl px-7 py-10 md:px-14 md:py-14">
+        <SectionHeading eyebrow={eyebrow} size="compact" align="left" title={title} className="md:mx-0 md:max-w-3xl" />
+        <div className="mt-7 space-y-5">
+          {absaetze.map((a, i) => (
+            <Reveal key={i} delay={0.05 + i * 0.05}>
+              <p className="max-w-3xl text-base leading-relaxed text-ink-muted md:text-[1.08rem] md:leading-[1.75]">{a}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Shell>
+  );
+}
+
+/* ---------------- FAQ: Fragen, die vor einem Gespraech gestellt werden ---------------- */
+
+/**
+ * Akkordeon aus echten Suchfragen. Die Antworten stehen im HTML, auch wenn sie
+ * zugeklappt sind (`<details>`), und dieselben Texte gehen als `FAQPage` in die
+ * strukturierten Daten: Google wertet die Angabe nur, wenn sie mit dem
+ * sichtbaren Text uebereinstimmt, deshalb kommen beide aus derselben Liste.
+ */
+export function Faq({
+  eyebrow,
+  title,
+  fragen,
+  tone = "blue",
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  fragen: { frage: string; antwort: string }[];
+  tone?: Tone;
+}) {
+  const daten = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fragen.map((f) => ({
+      "@type": "Question",
+      name: f.frage,
+      acceptedAnswer: { "@type": "Answer", text: f.antwort },
+    })),
+  };
+
+  return (
+    <Shell tone={tone}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(daten).replace(/</g, "\\u003c") }}
+      />
+      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+      <div className="mx-auto mt-10 max-w-3xl space-y-3">
+        {fragen.map((f, i) => (
+          <Reveal key={f.frage} delay={i * 0.04}>
+            <details className="group panel overflow-hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 text-left text-[1.02rem] font-bold leading-snug text-ink marker:content-none md:px-7 md:text-[1.1rem] [&::-webkit-details-marker]:hidden">
+                <span>{f.frage}</span>
+                <span
+                  aria-hidden
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M7 1v12M1 7h12" />
+                  </svg>
+                </span>
+              </summary>
+              <p className="px-6 pb-6 text-base leading-relaxed text-ink-muted md:px-7">{f.antwort}</p>
+            </details>
+          </Reveal>
+        ))}
+      </div>
+    </Shell>
+  );
+}

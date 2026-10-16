@@ -29,10 +29,10 @@ Verbindlich sind die deutschen Fassungen der Rechtstexte.
 - [Produktbilder & SEO](https://www.temoa.de/leistungen/listing-seo): Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content, ausgerichtet auf Klickrate und Conversion.
 - [PPC Advertising](https://www.temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
 - [Account Management](https://www.temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
-- [Compliance & Account Health](https://www.temoa.de/leistungen/compliance-account-health): LUCID, GPSR, Sicherheitsdokumente, Fallmanagement bei Sperrungen, Richtlinien- und Katalogfälle (keine Rechtsberatung, kein Prüflabor).
-- [FBA & Inventory Management](https://www.temoa.de/leistungen/fba-inventory-management): Bestand, Sendungen und FBA-Gebühren im Konto planen und überwachen, Fälle zum Wareneingang führen. Keine physische Warenvorbereitung.
-- [Katalog & Listing Management](https://www.temoa.de/leistungen/katalog-listing-management): Produkte, Varianten, Attribute, Backend-Suchbegriffe und Flat Files anlegen und pflegen.
-- [Analytics & Reporting](https://www.temoa.de/leistungen/analytics-reporting): Umsatz, Marge, ACoS, TACoS und Search Query Report aufbereitet und eingeordnet.
+- [Compliance & Account Health](https://www.temoa.de/leistungen/compliance-account-health): Gesperrtes Amazon Listing: Account Health überwachen, GPSR, LUCID und Sicherheitsdokumente klären, Fälle beim Amazon Support führen (keine Rechtsberatung, kein Prüflabor).
+- [FBA & Inventory Management](https://www.temoa.de/leistungen/fba-inventory-management): Amazon FBA Bestandsplanung: Reichweite berechnen, Nachschub und Sendungen planen, Stranded Inventory auflösen, Fälle zum Wareneingang führen. Keine physische Warenvorbereitung.
+- [Katalog & Listing Management](https://www.temoa.de/leistungen/katalog-listing-management): Amazon Katalogpflege: Produkte, Varianten, Attribute, Backend-Suchbegriffe und Flat Files anlegen und pflegen.
+- [Analytics & Reporting](https://www.temoa.de/leistungen/analytics-reporting): Amazon Reporting: Umsatz, Marge, ACoS, TACoS und Search Query Report erklärt, mit Einordnung und nächsten Schritten.
 - [Internationalisierung](https://www.temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
 
 ## Weiteres

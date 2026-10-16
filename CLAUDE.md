@@ -1853,3 +1853,43 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
   nicht lesen. Eine eigene Neufassung mit den drei Leistungsnamen hat der
   Kunde verworfen. Nicht eigenmaechtig wieder verlaengern: der Hero soll
   knapp bleiben.
+
+## Achtundvierzigste Feedbackrunde (verbindlich, Copy der Leistungsseiten)
+
+Anlass: Der Kunde fand die Texte der vier Seiten aus Runde 43 und 46 (FBA &
+Inventory, Katalog & Listing, Analytics & Reporting, Compliance & Account
+Health) „sehr, sehr schlecht": komische Wortwahl, schiefe Satzbauten, zu wenig
+Text, Ankündigungen ohne Auflösung, wahrscheinlich keine relevanten Keywords.
+
+- **Jede Ankündigung wird im selben Absatz aufgelöst.** Wer „drei Fragen"
+  ankündigt, nennt sie sofort („Was ist passiert? Woran hat es gelegen? Was
+  tun wir als Nächstes?"), und die Zahl stimmt mit der Zahl der folgenden
+  Elemente überein. Eine Brückenzeile, die auf etwas verweist, das vier
+  Sektionen später steht, ist ein Fehler. Gilt ab jetzt für alle Seiten.
+- **Jeder Fachbegriff wird beim ersten Auftreten erklärt** (Reichweite,
+  Stockout, Stranded Inventory, FBM, Flat File, Backend-Suchbegriffe,
+  Parent-Child, Deckungsbeitrag, ACoS, TACoS, Search Query Report, GPSR,
+  LUCID, Account Health). Der Leser ist Marke, nicht Amazon-Insider.
+- **Jede der vier Seiten hat einen `Einstieg` und eine `Faq`**
+  (`service/Blocks`). Der Einstieg (zwei bis drei Absätze auf einer Platte)
+  definiert die Leistung, erklärt den Zusammenhang zu Umsatz und Ranking und
+  trägt das Hauptkeyword der Seite im Fließtext. Die FAQ (sechs echte
+  Suchfragen) geht als `FAQPage`-JSON-LD in die Seite und liest dieselbe Liste
+  wie der sichtbare Text. Karten tragen zusätzlich zu den Punkten einen
+  erklärenden Satz (`text`).
+- **Umfang: rund 1.000 bis 1.300 Wörter je Seite und Sprache.** Weniger war der
+  Befund der Beschwerde. Mehr Text ersetzt keine Struktur: Sektionen bleiben
+  kurz und scannbar.
+- **Keywords je Seite** stehen natürlich im Einstieg, in Kartenüberschriften
+  und in der FAQ: FBA Bestandsplanung, Inventory Management, Reichweite,
+  Stranded Inventory (FBA); Katalogpflege, Listing Management, Flat File,
+  Variantenstruktur, Backend-Suchbegriffe (Katalog); Amazon Reporting,
+  Performance Report, ACoS und TACoS, Search Query Report, Deckungsbeitrag
+  (Reporting); Listing gesperrt, Account Health, GPSR, LUCID, Amazon Support
+  (Compliance). Titel nennen das Thema zuerst und bleiben unter 60 Zeichen.
+- **Kein Komma vor „und" in deutschen Texten**, auch zwischen zwei
+  Hauptsätzen: dort zwei Sätze schreiben. Das Prüfskript dazu liegt nicht im
+  Repo, die Suche nach `, und ` im Woerterbuch genügt.
+- **Die englischen Fassungen sind eigenständig geschrieben**, nicht übersetzt,
+  mit eigenen Suchbegriffen („Amazon FBA inventory planning", „Amazon catalog
+  management", „Amazon reporting", „listing suppressed").
