@@ -249,7 +249,7 @@ export const de = {
         titel: "Amazon Listing optimieren: Bilder, SEO, A+ Content · temoa",
         name: "Produktbilder & SEO",
         beschreibung:
-          "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
+          "Amazon Hauptbild, Listingbilder, Titel, A+ Content und Brand Story, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
       },
       advertising: {
         titel: "Amazon PPC Advertising: ACoS und TACoS steuern · temoa",
@@ -264,7 +264,7 @@ export const de = {
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
       compliance: {
-        titel: "Amazon Compliance und Account Health · temoa",
+        titel: "Amazon Support: Gesperrte Listings und Compliance · temoa",
         name: "Compliance & Account Health",
         beschreibung:
           "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
@@ -317,7 +317,7 @@ export const de = {
       eyebrow: "Content",
       titelVor: "Jedes Element eurer ",
       titelEm: "Produktseite.",
-      lead: "Vom ersten Bild im Suchergebnis bis zum Feld, das nur Amazon liest.",
+      lead: "Hauptbild, Listingbilder, A+ Content, Brand Story und Backend: vom ersten Bild im Suchergebnis bis zum Feld, das nur Amazon liest.",
       backend: "Backend",
       kacheln: [
         {
@@ -326,19 +326,19 @@ export const de = {
           text: "Neben drei anderen Treffern habt ihr eine Sekunde. Das Hauptbild entscheidet, ob geklickt wird.",
         },
         {
-          kicker: "Listing",
+          kicker: "Listingbilder",
           titel: "Sieben Bilder, die zusammen erzählen.",
           text: "Größe, Anwendung, Material, Lieferumfang. Wer scrollt, hat danach keine Frage mehr offen.",
         },
         {
-          kicker: "A+ und Premium A+",
+          kicker: "A+ Content und Premium A+ Content",
           titel: "Der Teil unter den Bullets.",
           text: "Liegende Module, eines unter dem anderen. Hier beantwortet ihr, woran der Kauf sonst scheitert.",
         },
         {
-          kicker: "Brand Story",
+          kicker: "Brand Story und Brand Store",
           titel: "Aus einem Produkt wird eine Marke.",
-          text: "Das Band über der Detailseite führt zu euren anderen Produkten, statt zum nächsten Anbieter.",
+          text: "Brand Story und Brand Store führen zu euren anderen Produkten, statt zum nächsten Anbieter.",
         },
         {
           kicker: "Titel, Bullets, Backend",
@@ -393,9 +393,9 @@ export const de = {
     strategie: {
       hero: {
         eyebrow: "Individuelle Amazon-Strategie",
-        titelVor: "Die Antworten liegen ",
+        titelVor: "Amazon Strategie: Die Antworten liegen ",
         titelEm: "in eurem Konto.",
-        lead: "Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte.",
+        lead: "Eure Amazon Strategie baut auf Search Query Bericht, Ads-Performance, Verkäufen und Traffic auf. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte.",
         bildAlt: "Aus den Berichten im Konto entsteht eine Reihenfolge",
       },
       problem: {
@@ -479,9 +479,9 @@ export const de = {
     content: {
       hero: {
         eyebrow: "Produktbilder & SEO",
-        titelVor: "Content, der aus Klicks ",
-        titelEm: "Käufer macht.",
-        lead: "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
+        titelVor: "Amazon Produktbilder, A+ Content und SEO, die aus Klicks ",
+        titelEm: "Käufer machen.",
+        lead: "Ein Amazon Listing zu optimieren heißt, Hauptbild, Listingbilder, Titel, Bullets und A+ Content auf die beiden Zahlen auszurichten, an denen Amazon euch misst: Klickrate und Conversion.",
         bildAlt: "Produktseite aus Hauptbild, Textblöcken und weiteren Bildern",
       },
       ansatz: {
@@ -523,9 +523,9 @@ export const de = {
     advertising: {
       hero: {
         eyebrow: "PPC Advertising",
-        titelVor: "Skalieren, ohne die ",
+        titelVor: "Amazon PPC skalieren, ohne die ",
         titelEm: "Marge zu verlieren.",
-        lead: "Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
+        lead: "Bei Amazon PPC rechnen wir jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
         bildAlt: "Budget geht dorthin, wo nach Kosten Gewinn bleibt",
       },
       problem: {
@@ -587,8 +587,8 @@ export const de = {
     account: {
       hero: {
         eyebrow: "Account Management",
-        titelVor: "Ihr baut die Marke. Das ",
-        titelEm: "Tagesgeschäft liegt bei uns.",
+        titelVor: "Amazon Account Management: Wir steuern ",
+        titelEm: "euer Tagesgeschäft.",
         lead: "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich, in Seller Central und Vendor Central. So gewinnt ihr Zeit für Produkt und Sortiment.",
         bildAlt: "Tagesgeschäft an einem Pult gesteuert",
       },
@@ -784,9 +784,9 @@ export const de = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "Wenn Amazon Nachweise verlangt, ",
-        titelEm: "führen wir den Fall.",
-        lead: "Wir überwachen Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central. Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall bei Amazon zu Ende.",
+        titelVor: "Amazon Support bei gesperrten Listings: ",
+        titelEm: "fehlende Dokumente und neue Richtlinien.",
+        lead: "Wird ein Listing gesperrt, weil Dokumente fehlen oder Amazon Richtlinien angepasst hat, führen wir den Fall beim Amazon Support zu Ende. Dafür überwachen wir Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central, finden die betroffenen ASINs und koordinieren die Dokumente.",
         bildAlt: "Konto-Gesundheit, Buy-Box und Bestand nebeneinander, eine Warnleuchte meldet",
       },
       problem: {
@@ -944,9 +944,9 @@ export const de = {
     international: {
       hero: {
         eyebrow: "Internationalisierung",
-        titelVor: "Jedes Land sucht ",
-        titelEm: "anders.",
-        lead: "Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen.",
+        titelVor: "Wir lokalisieren eure Amazon Listings, ",
+        titelEm: "statt sie zu übersetzen.",
+        lead: "Internationalisierung auf Amazon heißt: Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen. Was in Deutschland verkauft, verkauft in Italien nicht automatisch: andere Suchbegriffe, andere Preise, anderer Wettbewerb.",
         bildAlt: "Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern",
       },
       problem: {
