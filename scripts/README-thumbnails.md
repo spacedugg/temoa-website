@@ -23,3 +23,17 @@ kostenpflichtiger Durchlauf, deshalb vorher ein paar Slugs mit `ONLY` prüfen.
 
 Für die Bilder der Website selbst gilt ein eigenes Script,
 `scripts/gen-bilder-openai.mjs`, siehe `copy/bildbriefing.md`.
+
+## Motivbasierte Cover (aktueller Weg)
+
+Die frueheren Prompts in `content/thumbnail-prompts.json` sind generisch. Besser
+passt `content/blog-cover-motive.json`: ein gemeinsamer Stilblock (weiches 3D in
+Navy und Orange auf hellem Grund, ohne Schrift, Szene mittig und kompakt, damit
+der Zuschnitt auf 2:1 und 16:10 nichts abschneidet) plus ein Motiv je Beitrag.
+
+    ONLY=acos-erklaert,negative-keywords,produkttitel-optimieren node scripts/gen-blog-covers.mjs
+    node scripts/gen-blog-covers.mjs
+
+Das Skript schreibt WebP (1400 Pixel breit) nach `public/blog/covers/<slug>.webp`
+und legt die PNG-Originale in `blog-cover-originale/` ab (nicht im Repo).
+Neuer Beitrag: Motiv in der JSON ergaenzen und das Skript erneut laufen lassen.
