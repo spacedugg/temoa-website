@@ -50,7 +50,7 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
   3. `objekt`: die frueheren matten Einzelgegenstaende, abgeloest, nur noch Archiv.
 - **Schrift gehoert nie ins generierte Bild.** Bildmodelle setzen Schrift fehlerhaft. Der Bildgrund kommt aus der Datei, jede Beschriftung zeichnet der Code darueber. Gilt auch fuer A+ Module und Listing-Nachbauten.
 - **Listing-Nachbauten ohne Amazon-Oberflaeche.** Kein Amazon-Logo, kein Prime, keine Amazon-Chrome. Nur der Aufbau einer Produktseite. Beispiel-Listings werden als erfunden gekennzeichnet.
-- **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 60+ Marken, 5+ Marktplaetze, 98 % Kundenbindung), nicht als Fantasiewert in einer Grafik.
+- **Keine erfundenen Leistungszahlen im Bild.** Kennzahlen stehen als belegte Angabe im Text (Ø +30 %, 21 Mio. EUR, 5+ Marktplaetze, 98 % Kundenbindung; „60+ Marken" und „über 1.000 Produkte" stehen nirgends mehr, siehe neunundvierzigste Runde), nicht als Fantasiewert in einer Grafik.
 
 ## Farben und Sektionsfarben (Stand nach der zweiten Feedbackrunde)
 
@@ -288,7 +288,7 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 Navigation (sticky): Logo · Full Service (Mega-Menue, klappt 5 Services aus, selbst klickbar zur Uebersichtsseite) · Case Studies · Designbeispiele · CTA "Potenzialanalyse buchen"
 
 1. Hero (Amazon in der ersten Zeile, Versprechen, CTA "Potenzialanalyse buchen", Zweit-CTA "Case Studies ansehen", rechts ein Listing-Nachbau mit echten Produktbildern)
-2. Credibility-Band (Kundenlogos + Zahlen: Ø +30 % Profitabilitaet, 21 Mio EUR betreuter Jahresumsatz, 60+ betreute Marken, 5+ Marktplaetze)
+2. Credibility-Band (Kundenlogos + Zahlen: Ø +30 % Profitabilitaet, 21 Mio EUR betreuter Jahresumsatz, 5+ Marktplaetze; die 60+ Marken sind raus, siehe neunundvierzigste Runde)
 3. Problem (kurz, knackig, visuell: "Das Noetigste reicht nicht" + Pain-Liste, fuehrt mit Zeitmangel; KEIN "nebenbei")
 4. Mechanismus Organic First, PPC Second + Alt/Neu-Tabelle (Spalten "Wie es jetzt laeuft" vs "Wie temoa arbeitet"; kein Wort "Agentur")
 5. Full Service (5 Leistungen, Link zur Uebersicht)
@@ -1704,7 +1704,7 @@ ist das Briefing `Briefing_Eddie_Amazon_SPP_SPAPI_Website.md`.
   noch dort: zweimal derselbe Text auf zwei Seiten waere Duplicate Content.
 - **FBA und Inventory sind eine Sektion der Account-Seite** (`#fba`), keine
   eigene Seite. Die Fusszeile verlinkt auf den Anker.
-- **Software steht als Sektion auf der Full-Service-Seite** (`#technologie`,
+- **Software stand als Sektion auf der Full-Service-Seite, seit der neunundvierzigsten Runde entfernt** (`#technologie`,
   `takt/fullservice` `Technologie`), ausdruecklich mit der Pille „In
   Entwicklung". Keine Funktion laeuft produktiv. Die Sektion beschreibt nur,
   was geplant ist, und nennt die SP-API als vorgesehen, nicht als aktiv.
@@ -1809,7 +1809,7 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
   Detail und Katalog sind aus dem Account Management herausgenommen, dort steht
   ein Block mit drei Verweisen (`Verweise`: Compliance, FBA, Katalog). Auf der
   Full-Service-Seite bleibt Reporting als kurze Sektion mit Link zur
-  Detailseite, Technologie ohne Link. Derselbe Text an zwei Stellen waere ein
+  Detailseite (die Sektion Technologie ist seit Runde 49 gestrichen). Derselbe Text an zwei Stellen waere ein
   Duplikat.
 - **Die Software hat keine eigene Seite.** Eine vierte Seite
   `/leistungen/software-account-intelligence` war angelegt und ist auf Wunsch
@@ -1893,3 +1893,46 @@ Text, Ankündigungen ohne Auflösung, wahrscheinlich keine relevanten Keywords.
 - **Die englischen Fassungen sind eigenständig geschrieben**, nicht übersetzt,
   mit eigenen Suchbegriffen („Amazon FBA inventory planning", „Amazon catalog
   management", „Amazon reporting", „listing suppressed").
+
+## Neunundvierzigste Feedbackrunde (verbindlich, Leistungsseiten wie Unterseiten bauen)
+
+Anlass: Die vier Seiten FBA & Inventory, Katalog & Listing, Analytics &
+Reporting und Compliance & Account Health lasen sich nach Runde 48 wie
+Blogbeitraege. Jede Sektion war eine Mini-Abhandlung, die Problem-Sektion
+sprang mit dem Auge von links oben nach rechts und wieder nach links unten,
+und der Zeitstrahl enthielt Dinge, die keine Schritte sind.
+
+- **Die Problem-Sektion (`Points`) liest von oben nach unten.** Zentrierte
+  Ueberschrift, darunter die Missstaende als Raster (zwei Spalten bei vier
+  Punkten, sonst drei), dann ein kurzer leuchtender Strich und die Antwort als
+  volle Breite. Mit Diagramm (`aside`, Advertising): Ueberschrift links und
+  Diagramm rechts, Raster und Antwort darunter. Gilt fuer alle acht Seiten,
+  die `Points` benutzen. Die Antwort steht nie weit weg von dem, worauf sie
+  antwortet.
+- **Ein Zeitstrahl ist nur ein Zeitstrahl, wenn ein Schritt aus dem anderen
+  folgt.** Was sich wiederholt (Monatsbericht, Besprechung) steht als eigener
+  Streifen mit Wiederholungssymbol unter dem Ablauf (`zusatz`), nicht als
+  weiterer Schritt. Drei Teile, die nebeneinander stehen (die drei Fragen eines
+  Reports), sind `Spalten`, kein `Ablauf`. `Dienst.vorgehen.art` waehlt.
+- **Der Einstieg besteht aus Lead und Begriffskacheln** (`service/Dienst`,
+  `Erklaert`): hoechstens zwei Saetze, rechts drei bis vier Fachbegriffe mit
+  je einer Zeile. Keine Absaetze. Die Leistungen stehen als Reiter
+  (`Schwerpunkte`), auf dem Telefon als Liste, die Inhalte stehen immer im HTML.
+  Die Abgrenzung sind zwei Platten (`Grenzen`): was wir tun, was bei euch oder
+  Dritten liegt.
+- **Folge der Sektionen auf diesen Seiten:** Hero, Kurz erklaert, Problem
+  (dunkel), Schwerpunkte, Ablauf oder Spalten, Grenzen, Nutzen, Fall, FAQ,
+  Stimmen, CTA. Keine zwei gleich gefaerbten Sektionen direkt hintereinander:
+  `Spalten` hat dafuer `hell`, `Grenzen` `tone`.
+- **Umfang:** der eigene Text je Seite liegt bei rund 900 Woertern (ohne
+  Stimmen und Fall), FAQ mit fuenf bis sechs Fragen und Antworten von zwei bis
+  drei Saetzen. Runde 48 verlangte 1.000 bis 1.300 Woerter: das war zu viel.
+- **Raus von der ganzen Website:** die Sektion Technologie auf der
+  Full-Service-Seite, die Sektion „Unsere Amazon-Expertise" (60+ Marken,
+  1.000 Produkte) auf allen Leistungsseiten, die Zahl im Team-Lead der
+  Startseite und die Zeile in `llms.txt`. „60+ betreute Marken" ist falsch,
+  „ueber 1.000 Produkte" ist nicht mehr gewollt. Offen: das Kennzahlenband der
+  Startseite und der Seite Case Studies traegt die Zahl 60 weiter
+  (`KENNZAHL_WERTE`), bis der Kunde die richtige Zahl nennt.
+- **Offen beim Kunden:** Die Software-Sektion war Teil der Amazon-Verifizierung
+  (SP-API), Datenschutz Abschnitt 10.3 nennt sie weiter.

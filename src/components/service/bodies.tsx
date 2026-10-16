@@ -10,12 +10,12 @@ import {
   Lieferung,
   Ergebnis,
   Verweise,
-  Einstieg,
   Faq,
 } from "./Blocks";
 import { MarktSektion } from "./Weltkugel";
 import { Aufgaben } from "./Aufgaben";
 import { Ablauf, Spalten } from "./Strecken";
+import { Erklaert, Grenzen, Schwerpunkte } from "./Dienst";
 import { ContentShowcase } from "./ContentShowcase";
 import { ContentResultBand } from "./ContentResultBand";
 import { BudgetSplitDiagram, MargenDiagramm } from "./Diagrams";
@@ -358,7 +358,12 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
         knopf={b.knopf}
         knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
-      <Einstieg eyebrow={w.einstieg.eyebrow} title={w.einstieg.titel} absaetze={w.einstieg.absaetze} />
+      <Erklaert
+        eyebrow={w.einstieg.eyebrow}
+        title={w.einstieg.titel}
+        lead={w.einstieg.lead}
+        begriffe={w.einstieg.begriffe}
+      />
       <Points
         tone="blue"
         eyebrow={b.dasProblem}
@@ -367,20 +372,14 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
         bridge={w.problem.bruecke}
         brueckeGruen
       />
-      <Cards
-        tone="white"
+      <Schwerpunkte
         eyebrow={w.kern.eyebrow}
         title={w.kern.titel}
-        cols={2}
-        items={w.kern.karten.map((k, i) => ({
-          piktogramm: COMPLIANCE_KERN_ZEICHEN[i],
-          title: k.titel,
-          subtitle: k.unterzeile,
-          body: k.text,
-          bullets: k.punkte,
-        }))}
+        karten={w.kern.karten}
+        zeichen={COMPLIANCE_KERN_ZEICHEN}
       />
       <Spalten
+        hell
         eyebrow={w.pflichten.eyebrow}
         title={w.pflichten.titel}
         description={w.pflichten.lead}
@@ -404,15 +403,8 @@ export function ComplianceBody({ sprache }: { sprache: Sprache }) {
           text: k.text,
         }))}
       />
-      <TextMedia tone="blue" eyebrow={w.abgrenzung.eyebrow} title={w.abgrenzung.titel} text={w.abgrenzung.text} />
+      <Grenzen eyebrow={w.grenzen.eyebrow} title={w.grenzen.titel} ja={w.grenzen.ja} nein={w.grenzen.nein} />
       <ResultBlock badge={w.nutzen.badge} title={w.nutzen.titel} benefits={w.nutzen.punkte} />
-      <Cards
-        tone="blue"
-        eyebrow={w.expertise.eyebrow}
-        title={w.expertise.titel}
-        cols={3}
-        items={w.expertise.karten.map((k) => ({ title: k.titel, body: k.text }))}
-      />
       <Ergebnis
         eyebrow={b.ausDerPraxis}
         title={w.ergebnis.titel}
@@ -557,7 +549,12 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
         knopf={b.knopf}
         knopfHref={pfad(sprache, "/gespraech-vereinbaren")}
       />
-      <Einstieg eyebrow={w.einstieg.eyebrow} title={w.einstieg.titel} absaetze={w.einstieg.absaetze} />
+      <Erklaert
+        eyebrow={w.einstieg.eyebrow}
+        title={w.einstieg.titel}
+        lead={w.einstieg.lead}
+        begriffe={w.einstieg.begriffe}
+      />
       <Points
         tone="blue"
         eyebrow={b.dasProblem}
@@ -566,42 +563,52 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
         bridge={w.problem.bruecke}
         brueckeGruen
       />
-      <Cards
-        tone="white"
+      <Schwerpunkte
         eyebrow={w.kern.eyebrow}
         title={w.kern.titel}
         description={w.kern.lead}
-        cols={2}
-        items={w.kern.karten.map((k, i) => ({
-          piktogramm: DIENST_KERN_ZEICHEN[art][i],
-          title: k.titel,
-          subtitle: k.unterzeile,
-          body: k.text,
-          bullets: k.punkte,
-        }))}
+        karten={w.kern.karten}
+        zeichen={DIENST_KERN_ZEICHEN[art]}
       />
-      <Ablauf
-        dunkel
-        endeGruen
-        eyebrow={w.vorgehen.eyebrow}
-        title={w.vorgehen.titel}
-        description={w.vorgehen.lead}
-        schritte={w.vorgehen.schritte.map((k, i) => ({
-          piktogramm: DIENST_ABLAUF_ZEICHEN[art][i],
-          titel: k.titel,
-          unterzeile: k.unterzeile,
-          text: k.text,
-        }))}
+      {w.vorgehen.art === "ablauf" ? (
+        <Ablauf
+          dunkel
+          endeGruen
+          eyebrow={w.vorgehen.eyebrow}
+          title={w.vorgehen.titel}
+          description={w.vorgehen.lead}
+          schritte={w.vorgehen.schritte.map((k, i) => ({
+            piktogramm: DIENST_ABLAUF_ZEICHEN[art][i],
+            titel: k.titel,
+            unterzeile: k.unterzeile,
+            text: k.text,
+          }))}
+          zusatz={w.vorgehen.zusatz}
+        />
+      ) : (
+        <Spalten
+          hell
+          eyebrow={w.vorgehen.eyebrow}
+          title={w.vorgehen.titel}
+          description={w.vorgehen.lead}
+          items={w.vorgehen.schritte.map((k, i) => ({
+            piktogramm: DIENST_ABLAUF_ZEICHEN[art][i],
+            titel: k.titel,
+            unterzeile: k.unterzeile,
+            text: k.text,
+          }))}
+          zusatz={w.vorgehen.zusatz}
+        />
+      )}
+      <Grenzen
+        tone={w.vorgehen.art === "ablauf" ? "white" : "blue"}
+        eyebrow={w.grenzen.eyebrow}
+        title={w.grenzen.titel}
+        ja={w.grenzen.ja}
+        nein={w.grenzen.nein}
+        link={w.grenzen.link ? { text: w.grenzen.link.text, href: pfad(sprache, w.grenzen.link.href) } : undefined}
       />
-      <TextMedia tone="blue" eyebrow={w.abgrenzung.eyebrow} title={w.abgrenzung.titel} text={w.abgrenzung.text} />
       <ResultBlock badge={w.nutzen.badge} title={w.nutzen.titel} benefits={w.nutzen.punkte} />
-      <Cards
-        tone="blue"
-        eyebrow={w.expertise.eyebrow}
-        title={w.expertise.titel}
-        cols={3}
-        items={w.expertise.karten.map((k) => ({ title: k.titel, body: k.text }))}
-      />
       {fall && erg && (
         <Ergebnis
           eyebrow={b.ausDerPraxis}

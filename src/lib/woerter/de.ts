@@ -217,9 +217,9 @@ export const de = {
          schliesst weitere Marktplaetze aus, und die will der Kunde bedienen.
          Auch die Zahl der Mitarbeiter steht nicht mehr da.
 
-         Was bleibt, ist die Arbeit selbst. Die Zahl der optimierten Produkte
-         ist eine Angabe des Kunden und muss belegbar bleiben. */
-      lead: "Über 1.000 Produkte haben wir auf Amazon optimiert, vom Hauptbild bis zur Kampagnenstruktur. Dieselben Leute arbeiten an eurem Sortiment.",
+         Was bleibt, ist die Arbeit selbst. Zahlen stehen hier nicht mehr:
+         „1.000 Produkte" und „60+ Marken" sind vom Kunden zurueckgenommen. */
+      lead: "Vom Hauptbild bis zur Kampagnenstruktur arbeiten dieselben Leute an eurem Sortiment.",
       bildAlt: "Die Gründer von temoa",
       /* Beschreibt den Kranz kleiner Portraits um das Gründerbild. Die
          Kacheln selbst tragen keinen Alternativtext: neun Namen, die auf der
@@ -733,12 +733,14 @@ export const de = {
         bildAlt: "Konto-Gesundheit, Buy-Box und Bestand nebeneinander, eine Warnleuchte meldet",
       },
       einstieg: {
-        eyebrow: "Worum es geht",
-        titel: "Was Compliance und Account Health auf Amazon bedeuten",
-        absaetze: [
-          "Amazon prüft laufend, ob Produkte und Konten die eigenen Vorgaben erfüllen. Fehlt für ein Produkt ein Nachweis, ein Pflichtfeld oder eine Registrierung, nimmt Amazon das Angebot aus der Suche: Das Listing ist dann gesperrt oder unterdrückt. Die Seite existiert weiter, gekauft werden kann dort aber nichts. Jeder Tag ohne Verkauf kostet Umsatz und Ranking.",
-          "Zwei Vorgaben treffen Marken in Europa besonders häufig. Die GPSR (General Product Safety Regulation) ist die EU-Produktsicherheitsverordnung. Sie verlangt zu jedem Produkt Angaben zum Hersteller, eine verantwortliche Person in der EU und Sicherheitshinweise. LUCID ist das deutsche Verpackungsregister: Wer verpackte Ware in Deutschland verkauft, muss sich dort registrieren und die Nummer bei Amazon hinterlegen.",
-          "Die Account Health ist Amazons Bewertung, wie sauber ein Konto arbeitet. Sie fasst Richtlinienverstöße, Kundenbeschwerden und Dokumentenanfragen zusammen. Sinkt sie, droht im schlimmsten Fall eine Kontosperre. Wir lesen diese Meldungen laufend, finden die betroffenen Produkte, besorgen die fehlenden Nachweise und führen den Fall beim Amazon Support bis zur Entscheidung. Rechtsberatung und Prüfungen durch akkreditierte Stellen gehören nicht dazu, dazu mehr unter „Wo unsere Arbeit endet“.",
+        eyebrow: "Kurz erklärt",
+        titel: "Was bei einer Amazon-Sperre passiert und woran sie liegt",
+        lead: "Fehlt bei einem Produkt ein Nachweis, ein Pflichtfeld oder eine Registrierung, nimmt Amazon das Angebot aus der Suche. Jeder Tag ohne Verkauf kostet Umsatz und Ranking.",
+        begriffe: [
+          { begriff: "Gesperrtes Listing", text: "Die Produktseite besteht weiter, gekauft werden kann dort aber nichts." },
+          { begriff: "GPSR", text: "Die EU-Produktsicherheitsverordnung. Sie verlangt Hersteller, eine verantwortliche Person in der EU und Sicherheitshinweise." },
+          { begriff: "LUCID", text: "Das deutsche Verpackungsregister. Wer verpackte Ware in Deutschland verkauft, muss sich dort registrieren." },
+          { begriff: "Account Health", text: "Amazons Bewertung, wie sauber ein Konto arbeitet. Sinkt sie, droht im schlimmsten Fall eine Kontosperre." },
         ],
       },
       problem: {
@@ -758,45 +760,41 @@ export const de = {
           {
             titel: "Account Health Monitoring",
             unterzeile: "Immer im Blick",
-            text: "Amazon meldet Probleme verstreut: im Account-Health-Dashboard, in Benachrichtigungen und in einzelnen Listings. Wir führen diese Quellen täglich zusammen und sehen, welche Produkte gesperrt oder unterdrückt sind und warum.",
+            text: "Wir führen Dashboard, Benachrichtigungen und Listings täglich zusammen und sehen, welche Produkte gesperrt sind und warum.",
             punkte: [
               "Account Health und Policy-Meldungen über alle Marktplätze",
               "Gesperrte und unterdrückte Listings finden",
-              "Compliance Notifications von Amazon auswerten",
               "Betroffene ASINs und SKUs erfassen",
             ],
           },
           {
             titel: "Nachweise und Dokumente",
             unterzeile: "Gesammelt und geprüft",
-            text: "Amazon akzeptiert nur Nachweise in einer bestimmten Form. Wir prüfen vor dem Hochladen, ob Zertifikat, Prüfbericht oder Konformitätserklärung zur Vorgabe passt. So wird ein Dokument nicht ein zweites Mal abgelehnt.",
+            text: "Vor dem Hochladen prüfen wir, ob Zertifikat, Prüfbericht oder Konformitätserklärung zu Amazons Vorgabe passt.",
             punkte: [
-              "Zertifikate anfordern und prüfen, ob sie zu Amazons Vorgabe passen",
+              "Zertifikate anfordern und prüfen",
               "Konformitätserklärungen koordinieren",
-              "Prüfberichte und Produktsicherheitsunterlagen zusammenstellen",
               "Dokumente beim richtigen Artikel hochladen",
             ],
           },
           {
             titel: "Fälle bei Amazon",
             unterzeile: "Von der ersten Meldung bis zur Entscheidung",
-            text: "Ein Fall bei Amazon ist ein Vorgang im Support-System mit Fristen und wechselnden Ansprechpartnern. Wir eröffnen ihn, halten ihn am Laufen und fassen nach, wenn keine Antwort kommt.",
+            text: "Wir eröffnen den Fall im Support-System, halten ihn am Laufen und fassen nach, wenn keine Antwort kommt.",
             punkte: [
-              "Product Compliance Requests bearbeiten",
-              "Restricted Product Cases führen",
-              "Offene Fälle nachverfolgen und bei Stillstand eskalieren",
+              "Product Compliance Requests und Restricted Product Cases führen",
+              "Offene Fälle nachverfolgen und eskalieren",
               "Artikel nach der Freigabe wieder in den Verkauf bringen",
             ],
           },
           {
             titel: "Katalog und Vorbeugung",
             unterzeile: "Bevor es zur Sperre wird",
-            text: "Die meisten Sperren lassen sich verhindern. Vor einem Launch und bei jeder neuen Vorgabe prüfen wir, ob Pflichtfelder und Nachweise für das Sortiment vollständig sind.",
+            text: "Vor einem Launch und bei jeder neuen Vorgabe prüfen wir, ob Pflichtfelder und Nachweise für das Sortiment vollständig sind.",
             punkte: [
-              "Compliance-relevante Produktattribute pflegen",
+              "Compliance-relevante Attribute pflegen",
               "Pflichtangaben je Kategorie prüfen",
-              "Katalog- und Compliance-Checks vor dem Launch",
-              "Änderungen an Amazons Vorgaben gegen das Sortiment prüfen",
+              "Neue Vorgaben von Amazon gegen das Sortiment prüfen",
             ],
           },
         ],
@@ -806,21 +804,9 @@ export const de = {
         titel: "Produkte, die auf Amazon bleiben dürfen.",
         lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell.",
         karten: [
-          {
-            titel: "LUCID",
-            unterzeile: "Verpackungsregister Deutschland",
-            text: "LUCID ist das Verpackungsregister der Zentralen Stelle Verpackungsregister. Wer verpackte Ware in Deutschland verkauft, muss sich dort eintragen und die Nummer bei Amazon hinterlegen. Fehlt sie, kann Amazon Angebote sperren. Wir hinterlegen die Nummer im Konto und prüfen, dass sie zur Marke und zum Marktplatz passt. Offene Anfragen klären wir.",
-          },
-          {
-            titel: "GPSR",
-            unterzeile: "Produktsicherheit in der EU",
-            text: "Die GPSR gilt seit Dezember 2024. Zu jedem Angebot gehören Hersteller, eine verantwortliche Person in der EU mit Kontaktdaten und Sicherheitshinweise. Fehlen sie, kann Amazon das Angebot sperren. Wir prüfen die Angaben je Produkt, ergänzen sie im Listing und halten sie für das ganze Sortiment aktuell.",
-          },
-          {
-            titel: "Sicherheitsdokumente",
-            unterzeile: "Prüfberichte, Zertifikate, Konformität",
-            text: "Je nach Produkt verlangt Amazon Prüfberichte, Zertifikate oder eine Konformitätserklärung des Herstellers. Wir fordern die Unterlagen bei Hersteller oder Prüfstelle an und bereiten sie so auf, wie Amazon sie akzeptiert. Hochgeladen werden sie beim richtigen Artikel.",
-          },
+          { titel: "LUCID", unterzeile: "Verpackungsregister Deutschland", text: "Wir hinterlegen die Nummer im Konto und prüfen, dass sie zu Marke und Marktplatz passt. Offene Anfragen klären wir. Die Registrierung selbst übernimmt die Marke oder ein Lizenzdienstleister." },
+          { titel: "GPSR", unterzeile: "Produktsicherheit in der EU", text: "Seit Dezember 2024 gehören zu jedem Angebot Hersteller, eine verantwortliche Person in der EU und Sicherheitshinweise. Wir prüfen die Angaben je Produkt und ergänzen sie im Listing." },
+          { titel: "Sicherheitsdokumente", unterzeile: "Prüfberichte, Zertifikate, Konformität", text: "Wir fordern Prüfberichte, Zertifikate oder Konformitätserklärungen bei Hersteller oder Prüfstelle an und bereiten sie so auf, wie Amazon sie akzeptiert." },
         ],
       },
       sperre: {
@@ -850,10 +836,19 @@ export const de = {
           },
         ],
       },
-      abgrenzung: {
+      grenzen: {
         eyebrow: "Abgrenzung",
         titel: "Wo unsere Arbeit endet.",
-        text: "Wir sind kein Prüflabor, keine Zertifizierungsstelle, keine Behörde und keine Rechtsberatung. Unser Schwerpunkt ist das operative Compliance-Management auf dem Amazon Marketplace: Wir erkennen die Anforderungen von Amazon, koordinieren die nötigen Nachweise und bearbeiten die Fälle bei Amazon. Prüfberichte und Zertifikate stellen akkreditierte Stellen aus, rechtliche Fragen klärt eure Rechtsberatung.",
+        ja: { titel: "Das übernehmen wir", punkte: [
+          "Anforderungen von Amazon erkennen und Meldungen auswerten",
+          "Nachweise koordinieren und auf Passung zur Vorgabe prüfen",
+          "Fälle bei Amazon bis zur Entscheidung führen",
+        ] },
+        nein: { titel: "Das liegt bei anderen", punkte: [
+          "Prüfberichte und Zertifikate: ausstellen akkreditierte Stellen",
+          "Rechtsberatung: klärt eure Rechtsberatung",
+          "Entscheidungen von Amazon und Behörden",
+        ] },
       },
       nutzen: {
         badge: "Euer Nutzen",
@@ -865,24 +860,6 @@ export const de = {
           "Bessere Account Health",
           "Compliance-Risiken früher erkannt",
           "Weniger wiederkehrende Katalogprobleme",
-        ],
-      },
-      expertise: {
-        eyebrow: "Unsere Amazon-Expertise",
-        titel: "Erfahrung aus dem Tagesgeschäft.",
-        karten: [
-          {
-            titel: "Über 1.000 Produkte",
-            text: "auf Amazon optimiert, vom Hauptbild bis zur Kampagnenstruktur.",
-          },
-          {
-            titel: "60+ betreute Marken",
-            text: "auf mindestens fünf Marktplätzen.",
-          },
-          {
-            titel: "Seller Central und Vendor Central",
-            text: "Wir arbeiten in beiden Modellen und kennen die Fallwege auf beiden Seiten.",
-          },
         ],
       },
       ergebnis: {
@@ -898,30 +875,12 @@ export const de = {
         eyebrow: "Häufige Fragen",
         titel: "Fragen zu gesperrten Listings und Account Health",
         fragen: [
-          {
-            frage: "Warum sperrt Amazon ein Listing?",
-            antwort: "Meist fehlt etwas: ein Sicherheitsnachweis, eine GPSR-Angabe, die LUCID-Nummer oder ein Pflichtfeld. Dazu kommen Richtlinienänderungen, die ein Produkt plötzlich in eine geprüfte Kategorie schieben. Die Meldung dazu steht in Seller Central unter Account Health oder in den Benachrichtigungen. Wir lesen sie aus, klären die Ursache und sagen, was fehlt.",
-          },
-          {
-            frage: "Was ist die GPSR und was muss ich dafür tun?",
-            antwort: "Die GPSR ist die EU-Produktsicherheitsverordnung und gilt seit Dezember 2024. Zu jedem Produkt braucht Amazon den Hersteller, eine verantwortliche Person in der EU, Kontaktdaten und Sicherheitshinweise. Die Angaben müssen für jedes Angebot im Konto hinterlegt sein. Wir prüfen Katalog und Listings gegen diese Liste und ergänzen, was fehlt.",
-          },
-          {
-            frage: "Was ist LUCID und wer braucht die Nummer?",
-            antwort: "LUCID ist das Verpackungsregister der Zentralen Stelle Verpackungsregister. Jede Marke, die verpackte Ware in Deutschland verkauft, muss sich dort registrieren. Die Registriernummer wird im Konto hinterlegt. Ohne sie kann das Angebot gesperrt werden. Die Registrierung selbst übernimmt die Marke oder ein Dienstleister für Verpackungslizenzen, wir sorgen für die richtige Hinterlegung im Konto.",
-          },
-          {
-            frage: "Wie lange dauert es, bis ein gesperrter Artikel wieder verkauft?",
-            antwort: "Das hängt vom Fall ab. Fehlt nur ein Feld, ist der Artikel nach der Korrektur oft binnen Tagen zurück. Verlangt Amazon Prüfberichte, hängt es davon ab, wie schnell Hersteller oder Prüfstelle liefern. Danach kommt die Bearbeitungszeit im Support. Wir halten Fristen, fassen nach und melden uns bei euch, sobald Amazon entschieden hat.",
-          },
-          {
-            frage: "Prüft und zertifiziert ihr Produkte selbst?",
-            antwort: "Nein. Prüfberichte und Zertifikate stellen akkreditierte Stellen aus, rechtliche Fragen klärt eure Rechtsberatung. Wir erkennen, welchen Nachweis Amazon verlangt, besorgen ihn über euren Hersteller oder eine Prüfstelle, prüfen ihn auf Passung zur Vorgabe und reichen ihn bei Amazon ein.",
-          },
-          {
-            frage: "Arbeitet ihr in Seller Central und Vendor Central?",
-            antwort: "Ja, in beiden. Seller Central ist das Konto für Händler, die selbst an Amazon-Kunden verkaufen. Vendor Central ist das Konto für Lieferanten, die an Amazon verkaufen. Die Wege bei Sperren und Nachweisen unterscheiden sich, wir kennen beide und führen die Fälle auf dem richtigen Weg.",
-          },
+          { frage: "Warum sperrt Amazon ein Listing?", antwort: "Meist fehlt etwas: ein Sicherheitsnachweis, eine GPSR-Angabe, die LUCID-Nummer oder ein Pflichtfeld. Die Meldung steht in Seller Central unter Account Health. Wir lesen sie aus und sagen, was fehlt." },
+          { frage: "Was ist die GPSR und was muss ich dafür tun?", antwort: "Die EU-Produktsicherheitsverordnung, seit Dezember 2024 in Kraft. Amazon braucht zu jedem Produkt Hersteller, verantwortliche Person in der EU, Kontaktdaten und Sicherheitshinweise. Wir prüfen Katalog und Listings gegen diese Liste und ergänzen, was fehlt." },
+          { frage: "Was ist LUCID und wer braucht die Nummer?", antwort: "Das Verpackungsregister der Zentralen Stelle Verpackungsregister. Jede Marke, die verpackte Ware in Deutschland verkauft, muss sich dort registrieren und die Nummer im Konto hinterlegen. Ohne sie kann das Angebot gesperrt werden." },
+          { frage: "Wie lange dauert es, bis ein gesperrter Artikel wieder verkauft?", antwort: "Das hängt vom Fall ab. Fehlt nur ein Feld, ist der Artikel oft binnen Tagen zurück. Bei Prüfberichten kommt es darauf an, wie schnell Hersteller oder Prüfstelle liefern. Wir halten Fristen und melden uns, sobald Amazon entschieden hat." },
+          { frage: "Prüft und zertifiziert ihr Produkte selbst?", antwort: "Nein. Prüfberichte und Zertifikate stellen akkreditierte Stellen aus, rechtliche Fragen klärt eure Rechtsberatung. Wir erkennen, welchen Nachweis Amazon verlangt, besorgen ihn über Hersteller oder Prüfstelle und reichen ihn bei Amazon ein." },
+          { frage: "Arbeitet ihr in Seller Central und Vendor Central?", antwort: "Ja, in beiden. Seller Central ist das Konto für Händler, die selbst an Kunden verkaufen, Vendor Central das für Lieferanten, die an Amazon verkaufen. Die Wege bei Sperren unterscheiden sich, wir führen die Fälle auf dem richtigen Weg." },
         ],
       },
       cta: "Liegt bei euch eine Sperre oder Nachweisanfrage offen?",
@@ -1178,33 +1137,6 @@ export const de = {
           ],
         },
       ],
-    },
-
-    technologie: {
-      label: "Technologie",
-      titel: "Eine eigene Plattform für Amazon-Accounts, im Aufbau.",
-      lead: "Wir entwickeln eine Software, die Konto-, Katalog-, Werbe- und Bestandsdaten an einer Stelle zusammenführt. Unser Team und unsere Kunden sollen damit sehen, was im Konto passiert, und die Arbeit daran steuern. Die Plattform ist noch nicht für Kunden freigeschaltet.",
-      status: "In Entwicklung",
-      bereiche: [
-        {
-          titel: "Katalog und Content",
-          text: "Produkte und Artikel anlegen und aktualisieren, Content erstellen, verwalten und an Amazon übertragen.",
-        },
-        {
-          titel: "Advertising",
-          text: "Kampagnen auswerten und anpassen, Suchbegriffe und Gebote steuern.",
-        },
-        {
-          titel: "Margen und Reporting",
-          text: "Marge je Produkt und Variante, dazu Umsatz, Kosten und Kennzahlen als Dashboard.",
-        },
-        {
-          titel: "Account Health und Bestand",
-          text: "Listing-Status, Buy-Box, Preise, Bestand und FBA im Blick, mit Hinweisen bei Auffälligkeiten.",
-        },
-      ],
-      datenHinweis:
-        "Für autorisierte Kunden verarbeitet die Software Amazon-Daten ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Vorgesehen ist dafür die Anbindung über die Amazon Selling Partner API (SP-API).",
     },
 
     reporting: {

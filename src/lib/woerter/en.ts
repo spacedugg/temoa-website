@@ -205,7 +205,7 @@ export const en: Woerterbuch = {
     mannschaft: {
       label: "Team",
       titel: "The team behind temoa.",
-      lead: "We have optimised more than 1,000 products on Amazon, from the main image to the campaign structure. The same people work on your range.",
+      lead: "From the main image to the campaign structure, the same people work on your range.",
       bildAlt: "The founders of temoa",
       teamAlt: "Portraits of the people who work at temoa",
     },
@@ -692,12 +692,14 @@ export const en: Woerterbuch = {
         bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
       },
       einstieg: {
-        eyebrow: "What this is about",
-        titel: "What compliance and account health mean on Amazon",
-        absaetze: [
-          "Amazon constantly checks whether products and accounts meet its requirements. If a proof, a mandatory field or a registration is missing, Amazon takes the offer out of search: the listing is suppressed or blocked. The page stays online, but nothing can be bought there, and every day without sales costs revenue and ranking.",
-          "Two requirements hit brands in Europe particularly often. The GPSR (General Product Safety Regulation) is the EU product safety regulation. For every product it requires details on the manufacturer, a responsible person in the EU and safety information. LUCID is the German packaging register: anyone who sells packaged goods in Germany has to register there and store the number with Amazon.",
-          "Account health is Amazon's rating of how cleanly an account operates. It combines policy violations, customer complaints and document requests. If it drops, the worst case is an account suspension. We read these notices continuously, find the affected products, obtain the missing proofs and take the case through Amazon Support to a decision. Legal advice and tests by accredited bodies are not part of it, more on that under “Where our work ends”.",
+        eyebrow: "In brief",
+        titel: "What happens in an Amazon suspension and why it happens",
+        lead: "If a product lacks a proof, a required field or a registration, Amazon removes the offer from search. Every day without sales costs revenue and ranking.",
+        begriffe: [
+          { begriff: "Blocked listing", text: "The product page still exists, but nothing can be bought there." },
+          { begriff: "GPSR", text: "The EU product safety regulation. It requires the manufacturer, a responsible person in the EU and safety information." },
+          { begriff: "LUCID", text: "The German packaging register. Anyone selling packaged goods in Germany has to register there." },
+          { begriff: "Account health", text: "Amazon's rating of how cleanly an account operates. If it drops, the worst case is an account suspension." },
         ],
       },
       problem: {
@@ -717,45 +719,41 @@ export const en: Woerterbuch = {
           {
             titel: "Account health monitoring",
             unterzeile: "Always in view",
-            text: "Amazon reports problems in scattered places: the account health dashboard, notifications and individual listings. We combine these sources every day and see which products are blocked or suppressed and why.",
+            text: "We combine dashboard, notifications and listings every day and see which products are blocked and why.",
             punkte: [
               "Account health and policy notices across all marketplaces",
-              "Finding blocked and suppressed listings",
-              "Evaluating compliance notifications from Amazon",
-              "Recording the affected ASINs and SKUs",
+              "Find blocked and suppressed listings",
+              "Record affected ASINs and SKUs",
             ],
           },
           {
             titel: "Proofs and documents",
             unterzeile: "Collected and checked",
-            text: "Amazon only accepts proofs in a certain form. Before uploading, we check whether the certificate, test report or declaration of conformity matches the requirement, so a document is not rejected a second time.",
+            text: "Before uploading we check whether the certificate, test report or declaration of conformity matches Amazon's requirement.",
             punkte: [
-              "Requesting certificates and checking that they match Amazon's requirement",
-              "Coordinating declarations of conformity",
-              "Assembling test reports and product safety documents",
-              "Uploading documents to the right item",
+              "Request and check certificates",
+              "Coordinate declarations of conformity",
+              "Upload documents to the right item",
             ],
           },
           {
             titel: "Cases with Amazon",
-            unterzeile: "From the first notice to the decision",
-            text: "A case at Amazon is a ticket in the support system with deadlines and changing contacts. We open it, keep it moving and follow up when no answer comes.",
+            unterzeile: "From the first notice to a decision",
+            text: "We open the case in the support system, keep it moving and follow up when no answer comes.",
             punkte: [
-              "Handling product compliance requests",
-              "Running restricted product cases",
-              "Following up open cases and escalating when nothing moves",
-              "Bringing items back on sale once Amazon releases them",
+              "Handle product compliance requests and restricted product cases",
+              "Track open cases and escalate",
+              "Bring items back on sale after release",
             ],
           },
           {
             titel: "Catalog and prevention",
             unterzeile: "Before it becomes a block",
-            text: "Most blocks can be prevented. Before a launch and with every new requirement, we check that mandatory fields and proofs are complete for the range.",
+            text: "Before a launch and with every new requirement we check that required fields and proofs are complete for the range.",
             punkte: [
-              "Maintaining compliance-relevant product attributes",
-              "Checking mandatory data per category",
-              "Catalog and compliance checks before a launch",
-              "Checking changes in Amazon's requirements against your range",
+              "Maintain compliance-relevant attributes",
+              "Check required details per category",
+              "Check new Amazon requirements against the range",
             ],
           },
         ],
@@ -765,21 +763,9 @@ export const en: Woerterbuch = {
         titel: "Products that are allowed to stay on Amazon.",
         lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current.",
         karten: [
-          {
-            titel: "LUCID",
-            unterzeile: "German packaging register",
-            text: "LUCID is the packaging register run by the Zentrale Stelle Verpackungsregister. Anyone selling packaged goods in Germany has to register there and store the number with Amazon. Without it Amazon can block listings. We store the number in the account, check that it matches brand and marketplace, and clear open requests.",
-          },
-          {
-            titel: "GPSR",
-            unterzeile: "Product safety in the EU",
-            text: "The GPSR has applied since December 2024. Every offer needs the manufacturer, a responsible person in the EU with contact details, and safety information. Without them Amazon can block the offer. We check the details per product, add them to the listing and keep them current for the whole range.",
-          },
-          {
-            titel: "Safety documents",
-            unterzeile: "Test reports, certificates, conformity",
-            text: "Depending on the product, Amazon asks for test reports, certificates or a declaration of conformity from the manufacturer. We request the documents from the manufacturer or test body, prepare them the way Amazon accepts them and upload them to the right item.",
-          },
+          { titel: "LUCID", unterzeile: "German packaging register", text: "We store the number in the account, check that it matches brand and marketplace, and clear open queries. The registration itself is done by the brand or a licensing provider." },
+          { titel: "GPSR", unterzeile: "Product safety in the EU", text: "Since December 2024 every offer needs the manufacturer, a responsible person in the EU and safety information. We check the details per product and add them to the listing." },
+          { titel: "Safety documents", unterzeile: "Test reports, certificates, conformity", text: "We request test reports, certificates or declarations of conformity from the manufacturer or test body and prepare them the way Amazon accepts them." },
         ],
       },
       sperre: {
@@ -809,10 +795,19 @@ export const en: Woerterbuch = {
           },
         ],
       },
-      abgrenzung: {
+      grenzen: {
         eyebrow: "Scope",
         titel: "Where our work ends.",
-        text: "We are not a testing lab, a certification body, a public authority or a legal advisor. Our focus is operational compliance management on the Amazon marketplace: we identify Amazon's requirements, coordinate the required proofs and handle the cases with Amazon. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel.",
+        ja: { titel: "What we handle", punkte: [
+          "Identify Amazon's requirements and evaluate notices",
+          "Coordinate proofs and check they match the requirement",
+          "Take cases with Amazon through to a decision",
+        ] },
+        nein: { titel: "What sits with others", punkte: [
+          "Test reports and certificates: issued by accredited bodies",
+          "Legal advice: your legal counsel",
+          "Decisions by Amazon and authorities",
+        ] },
       },
       nutzen: {
         badge: "Your benefit",
@@ -824,24 +819,6 @@ export const en: Woerterbuch = {
           "Better account health",
           "Compliance risks spotted earlier",
           "Fewer recurring catalog problems",
-        ],
-      },
-      expertise: {
-        eyebrow: "Our Amazon expertise",
-        titel: "Experience from the day-to-day.",
-        karten: [
-          {
-            titel: "Over 1,000 products",
-            text: "optimized on Amazon, from the main image to the campaign structure.",
-          },
-          {
-            titel: "60+ brands served",
-            text: "on at least five marketplaces.",
-          },
-          {
-            titel: "Seller Central and Vendor Central",
-            text: "We work in both models and know the case paths on both sides.",
-          },
         ],
       },
       ergebnis: {
@@ -857,30 +834,12 @@ export const en: Woerterbuch = {
         eyebrow: "Frequently asked",
         titel: "Questions about suppressed listings and account health",
         fragen: [
-          {
-            frage: "Why does Amazon block a listing?",
-            antwort: "Usually something is missing: a safety proof, a GPSR detail, the LUCID number or a mandatory field. Policy changes can also push a product into a category that is checked. The notice appears in Seller Central under Account Health or in the notifications. We read it out, find the cause and tell you what is missing.",
-          },
-          {
-            frage: "What is the GPSR and what do I have to do?",
-            antwort: "The GPSR is the EU product safety regulation and has applied since December 2024. For every product Amazon needs the manufacturer, a responsible person in the EU, contact details and safety information. The details must be stored for every offer in the account. We check catalog and listings against this list and fill the gaps.",
-          },
-          {
-            frage: "What is LUCID and who needs the number?",
-            antwort: "LUCID is the packaging register run by the Zentrale Stelle Verpackungsregister. Every brand that sells packaged goods in Germany has to register there, and the registration number is stored in the account. Without it the offer can be blocked. The registration itself is done by the brand or a packaging licence provider, we make sure it is stored correctly in the account.",
-          },
-          {
-            frage: "How long until a blocked item sells again?",
-            antwort: "It depends on the case. If only a field is missing, the item is often back within days after the fix. If Amazon asks for test reports, it depends on how fast manufacturer or test body deliver, and then on the processing time at support. We keep deadlines, follow up and tell you as soon as Amazon has decided.",
-          },
-          {
-            frage: "Do you test and certify products yourselves?",
-            antwort: "No. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel. We identify which proof Amazon requires, obtain it through your manufacturer or a test body, check that it matches the requirement and submit it to Amazon.",
-          },
-          {
-            frage: "Do you work in Seller Central and Vendor Central?",
-            antwort: "Yes, in both. Seller Central is the account for merchants who sell to Amazon customers themselves. Vendor Central is the account for suppliers who sell to Amazon. The paths for blocks and proofs differ, we know both and take the cases down the right one.",
-          },
+          { frage: "Why does Amazon block a listing?", antwort: "Usually something is missing: a safety proof, a GPSR detail, the LUCID number or a required field. The notice appears in Seller Central under Account Health. We read it out and say what is missing." },
+          { frage: "What is the GPSR and what do I have to do?", antwort: "The EU product safety regulation, in force since December 2024. For every product Amazon needs the manufacturer, a responsible person in the EU, contact details and safety information. We check the catalog and listings against this list and add what is missing." },
+          { frage: "What is LUCID and who needs the number?", antwort: "The packaging register run by the Zentrale Stelle Verpackungsregister. Every brand that sells packaged goods in Germany has to register there and store the number in the account. Without it the offer can be blocked." },
+          { frage: "How long until a blocked item sells again?", antwort: "It depends on the case. If only a field is missing, the item is often back within days. With test reports it depends on how fast the manufacturer or test body delivers. We keep deadlines and get back to you as soon as Amazon has decided." },
+          { frage: "Do you test and certify products yourselves?", antwort: "No. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel. We identify which proof Amazon requires, obtain it through the manufacturer or a test body and submit it to Amazon." },
+          { frage: "Do you work in Seller Central and Vendor Central?", antwort: "Yes, in both. Seller Central is the account for merchants who sell to customers themselves, Vendor Central the one for suppliers who sell to Amazon. The routes for blocks differ, and we take the cases down the right one." },
         ],
       },
       cta: "Is a block or a request for proof open at your end?",
@@ -1123,33 +1082,6 @@ export const en: Woerterbuch = {
           ],
         },
       ],
-    },
-
-    technologie: {
-      label: "Technology",
-      titel: "Our own platform for Amazon accounts, under construction.",
-      lead: "We are building software that brings account, catalog, advertising and inventory data together in one place. Our team and our customers should use it to see what is happening in the account and to steer the work on it. The platform is not yet open to customers.",
-      status: "In development",
-      bereiche: [
-        {
-          titel: "Catalog and content",
-          text: "Create and update products and items, create and manage content and transfer it to Amazon.",
-        },
-        {
-          titel: "Advertising",
-          text: "Evaluate and adjust campaigns, steer search terms and bids.",
-        },
-        {
-          titel: "Margins and reporting",
-          text: "Margin per product and variation, plus revenue, costs and key figures as a dashboard.",
-        },
-        {
-          titel: "Account health and inventory",
-          text: "Listing status, Buy Box, prices, inventory and FBA in view, with alerts for anything unusual.",
-        },
-      ],
-      datenHinweis:
-        "For authorized customers the software processes Amazon data only to provide the services and functions they have commissioned. Access is based on the authorization given by the customer and on the roles and permissions approved by Amazon. Connection through the Amazon Selling Partner API (SP-API) is planned for this.",
     },
 
     reporting: {

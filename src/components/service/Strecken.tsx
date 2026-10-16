@@ -31,6 +31,43 @@ type Schritt = {
 
 const GRUEN = "#6EE7A0";
 
+
+/* ---------------- Streifen: was sich wiederholt ---------------- */
+
+/**
+ * Ein Monatsbericht oder eine Besprechung ist kein Schritt im Ablauf, er
+ * kommt in jedem Monat wieder. Als vierter Punkt auf einem Zeitstrahl las sich
+ * das, als folge er auf die Laufzeit. Ein eigener Streifen mit dem
+ * Wiederholungszeichen sagt es richtig.
+ */
+function Zusatz({ titel, text, dunkel = false }: { titel: string; text: string; dunkel?: boolean }) {
+  return (
+    <Reveal delay={0.15} className="mt-8 md:mt-10">
+      <div
+        className={`flex flex-col gap-4 rounded-[1.5rem] px-6 py-5 sm:flex-row sm:items-center sm:gap-6 md:px-8 md:py-6 ${
+          dunkel ? "panel-dark" : "panel"
+        }`}
+      >
+        <span
+          aria-hidden
+          className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-navy text-white ring-2 ring-brand-500"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 11a8 8 0 0 1 13.7-5.6L19 8" />
+            <path d="M19 4v4h-4" />
+            <path d="M21 13a8 8 0 0 1-13.7 5.6L5 16" />
+            <path d="M5 20v-4h4" />
+          </svg>
+        </span>
+        <div className="min-w-0">
+          <p className={`text-[1.1rem] font-bold ${dunkel ? "text-white" : "text-ink"}`}>{titel}</p>
+          <p className={`mt-1 text-small leading-relaxed ${dunkel ? "text-white/80" : "text-ink-muted"}`}>{text}</p>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
 /* ---------------- Ablauf ---------------- */
 
 export function Ablauf({
@@ -40,11 +77,14 @@ export function Ablauf({
   schritte,
   dunkel = false,
   endeGruen = false,
+  zusatz,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   schritte: Schritt[];
+  /** Was sich wiederholt: ein Streifen unter dem Ablauf, kein weiterer Schritt. */
+  zusatz?: { titel: string; text: string };
   /** Dunkles Podest statt heller Platte. */
   dunkel?: boolean;
   /** Der letzte Schritt ist das Ergebnis und traegt Gruen. */
@@ -145,6 +185,7 @@ export function Ablauf({
         <Reveal delay={0.1} className="mt-12">
           {dunkel ? inhalt : <div className="panel p-6 md:p-10">{inhalt}</div>}
         </Reveal>
+        {zusatz && <Zusatz titel={zusatz.titel} text={zusatz.text} dunkel={dunkel} />}
       </div>
     </section>
   );
@@ -157,15 +198,21 @@ export function Spalten({
   title,
   description,
   items,
+  zusatz,
+  hell = false,
 }: {
   eyebrow?: string;
   title: string;
   description?: string;
   items: Schritt[];
+  /** Was sich wiederholt oder dazukommt: ein Streifen unter den Spalten. */
+  zusatz?: { titel: string; text: string };
+  /** Heller Grund statt getoent, wenn die Nachbarsektion schon getoent ist. */
+  hell?: boolean;
 }) {
   const liste = items;
   return (
-    <section className="relative isolate ground-tint py-20 md:py-24">
+    <section className={`relative isolate py-20 md:py-24 ${hell ? "ground" : "ground-tint"}`}>
       <KachelVerlaufDefs />
       <div className="container-x">
         <SectionHeading eyebrow={eyebrow} size="compact" title={title} description={description} />
@@ -190,6 +237,7 @@ export function Spalten({
             ))}
           </div>
         </Reveal>
+        {zusatz && <Zusatz titel={zusatz.titel} text={zusatz.text} />}
       </div>
     </section>
   );
