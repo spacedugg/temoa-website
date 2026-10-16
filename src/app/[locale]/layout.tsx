@@ -17,11 +17,11 @@ import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
 const caros = localFont({
   src: [
-    { path: "../fonts/Caros-Thin.otf", weight: "200", style: "normal" },
-    { path: "../fonts/Caros-Light.otf", weight: "300", style: "normal" },
-    { path: "../fonts/Caros.otf", weight: "400", style: "normal" },
-    { path: "../fonts/Caros-Bold.otf", weight: "700", style: "normal" },
-    { path: "../fonts/Caros-ExtraBold.otf", weight: "800", style: "normal" },
+    { path: "../fonts/Caros-Thin.woff2", weight: "200", style: "normal" },
+    { path: "../fonts/Caros-Light.woff2", weight: "300", style: "normal" },
+    { path: "../fonts/Caros.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Caros-Bold.woff2", weight: "700", style: "normal" },
+    { path: "../fonts/Caros-ExtraBold.woff2", weight: "800", style: "normal" },
   ],
   variable: "--font-caros",
   display: "swap",

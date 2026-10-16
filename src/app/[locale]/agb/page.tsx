@@ -8,6 +8,10 @@ import { AGB } from "@/lib/recht/agb";
 export const metadata: Metadata = {
   title: "AGB · temoa",
   description: "Allgemeine Geschäftsbedingungen der Temoa GmbH.",
+  /* Rechtstexte gibt es nur auf Deutsch. Die englische Adresse zeigt
+     denselben Text und verweist deshalb auf die deutsche: zwei Adressen mit
+     identischem Inhalt konkurrieren sonst miteinander. */
+  alternates: { canonical: "/agb" },
 };
 
 export default function AgbPage() {

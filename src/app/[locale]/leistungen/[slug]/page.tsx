@@ -39,7 +39,7 @@ export async function generateMetadata({
   if (!istSprache(locale) || !schluessel) return {};
   const m = woerter(locale).leistungen.meta[schluessel];
   return {
-    title: `${m.name} · temoa`,
+    title: m.titel,
     description: m.beschreibung,
     alternates: sprachAngaben(locale, `/leistungen/${slug}`),
   };

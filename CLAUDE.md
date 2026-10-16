@@ -1735,3 +1735,30 @@ ist das Briefing `Briefing_Eddie_Amazon_SPP_SPAPI_Website.md`.
   Hydration-Hinweis (React #418) tritt auf einzelnen Seiten sporadisch auf und
   ist nicht auf diese Runde zurueckzufuehren (er erscheint auch auf unveraenderten
   Seiten).
+
+## Vierundvierzigste Feedbackrunde (verbindlich, SEO fuer die ganze Website)
+
+Grundlage: `docs/seo-masterprompt.md`, Befunde und Massnahmen in
+`docs/seo-audit-2026-10-16.md`.
+
+- **Titel stehen im Woerterbuch und nennen das Thema zuerst.** Leistungsseiten
+  tragen ein eigenes Feld `titel` (`leistungen.meta.*.titel`), getrennt vom
+  Namen. Hoechstens 60 Zeichen einschliesslich „· temoa". Ein Titel wie „Full
+  Service · temoa" sagt Google und Besuchern nichts.
+- **Blogbeitraege haben einen Suchtitel** in `lib/blog-seo.ts`, die H1 bleibt der
+  lange Titel. Neuer Beitrag: Eintrag dort ergaenzen, sonst gilt der lange
+  Titel und wird in der Anzeige abgeschnitten.
+- **Jeder Blogbeitrag verlinkt auf die passende Leistung** (`lib/blog-links.ts`,
+  Block „Passend dazu bei temoa"). Faelle stehen nur dort, wo sie das Thema
+  zeigen. Neuer Beitrag: Kategorie genuegt, Ausnahmen je Slug eintragen.
+- **Rechtstexte gibt es nur deutsch.** Die englischen Adressen haben die deutsche
+  als Canonical und stehen nicht in der Sitemap.
+- **Strukturierte Daten je Beitrag:** `BlogPosting` und `BreadcrumbList`. Ohne
+  Veroeffentlichungsdatum, solange die Beitraege keines tragen. Kein Datum
+  erfinden.
+- **Schriften sind WOFF2** (`src/app/fonts`). Zwei OTF-Dateien bleiben liegen,
+  weil das Vorschaubild (`opengraph-image`) sie zur Laufzeit liest und die
+  Bildausgabe kein WOFF2 liest.
+- **Offen beim Kunden:** Search-Console-Exporte, Hostvariante mit oder ohne
+  `www`, Umgang mit dem Wort „Agentur" in Titeln, Lizenz der Schrift fuer die
+  Umpackung nach WOFF2.

@@ -45,7 +45,15 @@ const FESTE_SEITEN = [
   "/agb",
 ];
 
+/* Rechtstexte gibt es nur auf Deutsch. Die englische Adresse zeigt denselben
+   Text und hat die deutsche als Canonical, deshalb steht sie nicht in der
+   Sitemap und die Seite hat keine Sprachpaare. */
+const NUR_DEUTSCH = new Set(["/impressum", "/datenschutz", "/agb"]);
+
 function eintrag(ziel: string, geaendert?: Date): MetadataRoute.Sitemap[number] {
+  if (NUR_DEUTSCH.has(ziel)) {
+    return { url: `${SEITE.url}${pfad(STANDARD, ziel)}`, lastModified: geaendert };
+  }
   const bilder = bilderDerSeite(ziel);
   return {
     url: `${SEITE.url}${pfad(STANDARD, ziel)}`,

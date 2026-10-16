@@ -11,7 +11,7 @@ import type { Woerterbuch } from "./de";
 
 export const en: Woerterbuch = {
   meta: {
-    titel: "temoa \u00b7 Amazon Full Service Growth Partner",
+    titel: "temoa \u00b7 Amazon Full Service: Content, PPC and Account",
     beschreibung:
       "We get your Amazon listing to the point where it sells without advertising. After that, PPC scales what already converts. Organic First, PPC Second.",
     ogBeschreibung:
@@ -212,31 +212,37 @@ export const en: Woerterbuch = {
   leistungen: {
     meta: {
       strategie: {
+        titel: "Amazon Strategy and Account Analysis · temoa",
         name: "Strategy",
         beschreibung:
           "Search Query report, advertising performance, sales and traffic, all evaluated. Out of that comes the order of the next steps for your Amazon account.",
       },
       content: {
+        titel: "Amazon Listing Optimization: Images, SEO, A+ Content · temoa",
         name: "Product Images & SEO",
         beschreibung:
           "Main image, listing images, title, bullets and A+ content, built around the two numbers Amazon measures you by: click-through rate and conversion.",
       },
       advertising: {
+        titel: "Amazon PPC Advertising: Managing ACoS and TACoS · temoa",
         name: "PPC Advertising",
         beschreibung:
           "Every product costed out on what is left after fees, FBA and cost of goods. More budget goes only to what turns a profit after that.",
       },
       account: {
+        titel: "Amazon Account Management: Buy Box, FBA, Pricing · temoa",
         name: "Account Management",
         beschreibung:
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
       compliance: {
+        titel: "Amazon Compliance and Account Health · temoa",
         name: "Compliance & Account Health",
         beschreibung:
-          "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case through with Amazon until it is decided.",
+          "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case.",
       },
       international: {
+        titel: "Amazon International Expansion: New Marketplaces · temoa",
         name: "International Expansion",
         beschreibung:
           "Every marketplace is its own market. Its own keyword research, its own content and its own campaigns, built from scratch for each country.",
@@ -982,7 +988,7 @@ export const en: Woerterbuch = {
 
   fullService: {
     meta: {
-      titel: "Full Service · temoa",
+      titel: "Amazon Full Service for Brands · temoa",
       beschreibung:
         "Strategy, content, advertising, account management and new marketplaces for your Amazon account. Five areas, one team, all working from the same numbers.",
     },
@@ -1207,10 +1213,10 @@ export const en: Woerterbuch = {
 
   faelle: {
     meta: {
-      titel: "Case Studies · temoa",
+      titel: "Amazon Case Studies: Results for Brands · temoa",
       beschreibung:
-        "Six brands on Amazon with their starting point, the work and the result: revenue grown profitably, one product built from nothing, a bestseller rank and four marketplaces in parallel.",
-      fallTitel: "Case Study · temoa",
+        "Six brands on Amazon with their starting point, the work and the result: profitable revenue, a product built from scratch, a bestseller rank, four marketplaces.",
+      fallTitel: "Amazon Case Study · temoa",
     },
 
     kopf: {
@@ -1302,7 +1308,7 @@ export const en: Woerterbuch = {
 
   buchung: {
     meta: {
-      titel: "Book an account review · temoa",
+      titel: "Book a Free Amazon Account Review · temoa",
       beschreibung:
         "A free account review: 30 minutes to get to know each other, then a second call with your numbers prepared. No obligation.",
     },
@@ -1485,7 +1491,7 @@ export const en: Woerterbuch = {
 
   design: {
     meta: {
-      titel: "Our Work · temoa",
+      titel: "Amazon Listing Design Examples: Images and A+ · temoa",
       beschreibung:
         "Amazon content by temoa: main image, image strip, A+ and Premium A+, brand store and brand story, each laid out the way it sells on Amazon.",
     },
@@ -1515,10 +1521,10 @@ export const en: Woerterbuch = {
 
   blog: {
     meta: {
-      titel: "Blog · temoa",
+      titel: "Amazon Blog: PPC, Listing, FBA and Strategy · temoa",
       beschreibung:
         "Straight talk about Amazon: PPC, listing and SEO, FBA, brand protection and strategy. Sorted by topic.",
-      beitragTitel: "Blog · temoa",
+      beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
@@ -1533,6 +1539,7 @@ export const en: Woerterbuch = {
     alleThemen: "All topics",
     inhalt: "Contents",
     weiterlesen: "Keep reading",
+    verweise: "Related at temoa",
     lesezeit: "{n} min read",
     lesen: "Read",
     cta: "Would you rather talk about your account directly?",

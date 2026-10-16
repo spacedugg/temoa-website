@@ -10,7 +10,7 @@
 
 export const de = {
   meta: {
-    titel: "temoa \u00b7 Amazon Full Service Wachstumspartner",
+    titel: "temoa \u00b7 Amazon Full Service: Content, PPC und Account",
     beschreibung:
       "Wir bringen euer Amazon-Listing dahin, dass es auch ohne Werbung verkauft. Danach skaliert PPC, was bereits konvertiert. Organic First, PPC Second.",
     ogBeschreibung:
@@ -240,31 +240,37 @@ export const de = {
   leistungen: {
     meta: {
       strategie: {
+        titel: "Amazon Strategie und Account-Analyse · temoa",
         name: "Strategie",
         beschreibung:
           "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
       },
       content: {
+        titel: "Amazon Listing optimieren: Bilder, SEO, A+ Content · temoa",
         name: "Produktbilder & SEO",
         beschreibung:
           "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
       },
       advertising: {
+        titel: "Amazon PPC Advertising: ACoS und TACoS steuern · temoa",
         name: "PPC Advertising",
         beschreibung:
           "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
       },
       account: {
+        titel: "Amazon Account Management: Buy-Box, FBA, Pricing · temoa",
         name: "Account Management",
         beschreibung:
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
       compliance: {
+        titel: "Amazon Compliance und Account Health · temoa",
         name: "Compliance & Account Health",
         beschreibung:
-          "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall bei Amazon bis zur Entscheidung.",
+          "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
       },
       international: {
+        titel: "Amazon Internationalisierung: Neue Marktplätze · temoa",
         name: "Internationalisierung",
         beschreibung:
           "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
@@ -1030,7 +1036,7 @@ export const de = {
      ============================================================ */
   fullService: {
     meta: {
-      titel: "Full Service · temoa",
+      titel: "Amazon Full Service für Marken · temoa",
       beschreibung:
         "Strategie, Content, Advertising, Account Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
     },
@@ -1275,11 +1281,11 @@ export const de = {
      ============================================================ */
   faelle: {
     meta: {
-      titel: "Case Studies · temoa",
+      titel: "Amazon Case Studies: Ergebnisse für Marken · temoa",
       beschreibung:
-        "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang und vier Marktplätze parallel.",
+        "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabler Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang, vier Marktplätze.",
       /* Steht vor „· Case Study · temoa" im Titel einer Fallseite. */
-      fallTitel: "Case Study · temoa",
+      fallTitel: "Amazon Case Study · temoa",
     },
 
     kopf: {
@@ -1395,7 +1401,7 @@ export const de = {
      ============================================================ */
   buchung: {
     meta: {
-      titel: "Potenzialanalyse buchen · temoa",
+      titel: "Kostenlose Amazon Potenzialanalyse buchen · temoa",
       beschreibung:
         "Kostenlose Potenzialanalyse: 30 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
     },
@@ -1591,7 +1597,7 @@ export const de = {
 
   design: {
     meta: {
-      titel: "Designbeispiele · temoa",
+      titel: "Amazon Listing Designbeispiele: Bilder und A+ · temoa",
       beschreibung:
         "Amazon-Content von temoa: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
     },
@@ -1627,10 +1633,10 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Blog · temoa",
+      titel: "Amazon Blog: PPC, Listing, FBA und Strategie · temoa",
       beschreibung:
         "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
-      beitragTitel: "Blog · temoa",
+      beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
@@ -1648,6 +1654,7 @@ export const de = {
     alleThemen: "Alle Themen",
     inhalt: "Inhalt",
     weiterlesen: "Weiterlesen",
+    verweise: "Passend dazu bei temoa",
     lesezeit: "{n} Min. Lesezeit",
     lesen: "Lesen",
     cta: "Lieber direkt über euren Account sprechen?",
