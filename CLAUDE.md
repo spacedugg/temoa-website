@@ -1762,3 +1762,30 @@ Grundlage: `docs/seo-masterprompt.md`, Befunde und Massnahmen in
 - **Offen beim Kunden:** Search-Console-Exporte, Hostvariante mit oder ohne
   `www`, Umgang mit dem Wort „Agentur" in Titeln, Lizenz der Schrift fuer die
   Umpackung nach WOFF2.
+
+## Fuenfundvierzigste Feedbackrunde (verbindlich, offene SEO-Punkte nach Prompt)
+
+Der Kunde hat die noch offenen SEO-Entscheidungen an den Prompt
+(`docs/seo-masterprompt.md`) uebergeben. Umgesetzt und begruendet in
+`docs/seo-audit-2026-10-16.md` und `docs/seo-longtail-2026-10-16.md`.
+
+- **Die Adresse der Website ist `https://www.temoa.de`.** Modul K1 verlangt,
+  dass Canonical, hreflang, Sitemap, robots.txt und strukturierte Daten die
+  Adresse nennen, die tatsaechlich ausgeliefert wird. Live leitet `temoa.de`
+  per 308 auf `www`. `SEITE.url` und die Links in `public/llms.txt` stehen
+  jetzt auf `www`. Die Search Console zeigte 16 Pfade unter beiden Hosts. Wer
+  die Weiterleitung aendert, aendert `SEITE.url` mit.
+- **Die Search-Console-Daten (3 Monate, Anfragen ab drei Woertern) sind
+  ausgewertet.** Ergebnis: Stichprobe, 2.194 Impressionen, 4 Klicks, fast alles
+  aus den letzten vier Wochen. Die Seiten mit den meisten Impressionen
+  beantworten ihre Anfrage bereits in Title, H1 und Einstieg, deshalb keine
+  Textaenderung. Export nach vier bis acht Wochen wiederholen.
+- **Titel und Beschreibungen werden nicht auf einzelne Anfragen zugeschnitten.**
+  Der Prompt (Regel 15) erlaubt Title, H1 und Slug nur dort, wo die Anfrage die
+  Hauptabsicht der Seite beschreibt. Nach den Daten ist das bei den
+  Kandidaten schon der Fall.
+- **Unveraendert, weil keine Datengrundlage:** H1-Slogans (vom Kunden
+  vorgegeben, nennen Amazon), das Wort „Agentur" (Projektregel bleibt),
+  sichtbare Daten an Blogbeitraegen (keine echten Daten, nichts erfinden),
+  Bing Webmaster Tools (kein Konto, Weg steht im Audit), Backlinks (kein
+  Linkbericht, drei Ideen ohne Umsetzung im Audit).
