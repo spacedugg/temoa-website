@@ -10,7 +10,6 @@ import {
   ComplianceBody,
   FbaBody,
   KatalogBody,
-  SoftwareBody,
   ReportingBody,
   InternationalisierungBody,
 } from "@/components/service/bodies";
@@ -28,7 +27,6 @@ const SEITEN: Record<string, keyof Woerterbuch["leistungen"]["meta"]> = {
   "compliance-account-health": "compliance",
   "fba-inventory-management": "fba",
   "katalog-listing-management": "katalog",
-  "software-account-intelligence": "software",
   "analytics-reporting": "reporting",
   internationalisierung: "international",
 };
@@ -72,8 +70,6 @@ function Body({ slug, sprache }: { slug: string; sprache: Sprache }) {
       return <FbaBody sprache={sprache} />;
     case "katalog-listing-management":
       return <KatalogBody sprache={sprache} />;
-    case "software-account-intelligence":
-      return <SoftwareBody sprache={sprache} />;
     case "analytics-reporting":
       return <ReportingBody sprache={sprache} />;
     case "internationalisierung":

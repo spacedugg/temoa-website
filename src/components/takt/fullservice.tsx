@@ -264,7 +264,6 @@ const TECHNOLOGIE: IconName[] = ["regal", "ziel", "bericht", "schild"];
 
 export function Technologie({ w }: { w: W["technologie"] }) {
   const reduce = useReducedMotion();
-  const sprache = spracheAusPfad(usePathname());
   return (
     <Station label={w.label} tone="warm" id="technologie">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
@@ -292,12 +291,6 @@ export function Technologie({ w }: { w: W["technologie"] }) {
       </div>
 
       <p className="mt-10 max-w-[70ch] text-pretty text-small leading-relaxed text-ink-muted">{w.datenHinweis}</p>
-      <a href={pfad(sprache, "/leistungen/software-account-intelligence")} className="btn-text mt-6">
-        {w.link}
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-      </a>
     </Station>
   );
 }

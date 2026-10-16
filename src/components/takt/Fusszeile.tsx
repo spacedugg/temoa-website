@@ -57,13 +57,12 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
         { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
         { label: w.leistungen.account, href: p("/leistungen/account-management") },
         { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
-        /* Diese fuenf stehen bewusst nur hier und nicht im Hauptmenue. Die
+        /* Diese vier stehen bewusst nur hier und nicht im Hauptmenue. Die
            Fusszeile ist der Ort fuer Seiten, die auffindbar sein muessen,
            ohne die Navigation zu verlaengern. */
         { label: w.leistungen.compliance, href: p("/leistungen/compliance-account-health") },
         { label: w.leistungen.fba, href: p("/leistungen/fba-inventory-management") },
         { label: w.leistungen.katalog, href: p("/leistungen/katalog-listing-management") },
-        { label: w.leistungen.technologie, href: p("/leistungen/software-account-intelligence") },
         { label: w.leistungen.reporting, href: p("/leistungen/analytics-reporting") },
       ],
     },

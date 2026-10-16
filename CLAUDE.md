@@ -1791,17 +1791,16 @@ Der Kunde hat die noch offenen SEO-Entscheidungen an den Prompt
   Linkbericht, drei Ideen ohne Umsetzung im Audit).
 
 
-## Sechsundvierzigste Feedbackrunde (verbindlich, vier neue Leistungsseiten)
+## Sechsundvierzigste Feedbackrunde (verbindlich, drei neue Leistungsseiten)
 
 Anlass: die Amazon-Pruefung fuer SP-API und Solution Provider Network. Das
 Briefing von Eddie verlangt zu jeder Leistung eine eigene Seite mit
 Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
 
-- **Vier neue Seiten**, alle mit einer gemeinsamen Komponente (`DienstBody` in
+- **Drei neue Seiten**, alle mit einer gemeinsamen Komponente (`DienstBody` in
   `service/bodies`) und gemeinsamer Copy (`lib/woerter/dienste.ts`, Deutsch und
   Englisch nebeneinander): `/leistungen/fba-inventory-management`,
   `/leistungen/katalog-listing-management`,
-  `/leistungen/software-account-intelligence`,
   `/leistungen/analytics-reporting`. Sie stehen nur in der Fusszeile, nicht im
   Hauptmenue, wie die Compliance-Seite. Neue Seite = Eintrag in `SEITEN`
   (`leistungen/[slug]/page.tsx`), Meta im Woerterbuch, Sitemap,
@@ -1809,12 +1808,16 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
 - **Der Inhalt liegt nur auf der neuen Seite.** Die Sektionen FBA, FBA im
   Detail und Katalog sind aus dem Account Management herausgenommen, dort steht
   ein Block mit drei Verweisen (`Verweise`: Compliance, FBA, Katalog). Auf der
-  Full-Service-Seite bleiben Reporting und Technologie als kurze Sektionen,
-  jeweils mit Link zur Detailseite. Derselbe Text an zwei Stellen waere ein
+  Full-Service-Seite bleibt Reporting als kurze Sektion mit Link zur
+  Detailseite, Technologie ohne Link. Derselbe Text an zwei Stellen waere ein
   Duplikat.
-- **Die Software ist nicht produktiv.** Die Seite sagt „in Entwicklung" und
-  „soll" oder „vorgesehen", der Datenfluss nennt die SP-API ausdruecklich als
-  vorgesehen. Kein Ergebnisblock (es gibt keinen Fall), keine Zertifikate.
+- **Die Software hat keine eigene Seite.** Eine vierte Seite
+  `/leistungen/software-account-intelligence` war angelegt und ist auf Wunsch
+  des Kunden wieder geloescht: sie beschrieb nur, dass ein Tool geplant ist,
+  und hatte keinen Inhalt. Die Adresse liefert 404. Die Sektion
+  `#technologie` auf der Full-Service-Seite bleibt (Status „In Entwicklung",
+  ohne Link), ebenso Abschnitt 10.3 der Datenschutzerklaerung. Eine eigene
+  Seite kommt erst, wenn es eine Funktion gibt, die Kunden nutzen.
 - **FBA: weiter keine physische Warenvorbereitung.** Die Abgrenzung steht auf
   der Seite. Das Briefing nennt auch Prep als moegliche Leistung im Projekt;
   das haben wir bewusst nicht uebernommen, solange es nicht entschieden ist.

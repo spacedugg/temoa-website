@@ -254,12 +254,6 @@ export const en: Woerterbuch = {
         beschreibung:
           "Create and maintain products, variations, attributes and backend search terms cleanly, one by one or by flat file, for Seller Central and Vendor Central.",
       },
-      software: {
-        titel: "Amazon Software & Account Intelligence · temoa",
-        name: "Software & account intelligence",
-        beschreibung:
-          "A platform in development that brings catalog, advertising, stock and account data together. Data access only after authorization by the customer.",
-      },
       reporting: {
         titel: "Amazon Analytics & Reporting · temoa",
         name: "Analytics & reporting",
@@ -1111,7 +1105,6 @@ export const en: Woerterbuch = {
           text: "Listing status, Buy Box, prices, inventory and FBA in view, with alerts for anything unusual.",
         },
       ],
-      link: "Software & account intelligence in detail",
       datenHinweis:
         "For authorized customers the software processes Amazon data only to provide the services and functions they have commissioned. Access is based on the authorization given by the customer and on the roles and permissions approved by Amazon. Connection through the Amazon Selling Partner API (SP-API) is planned for this.",
     },

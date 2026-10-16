@@ -1,8 +1,7 @@
 /* ============================================================
-   Die vier Leistungsseiten, die aus dem Account Management und der
+   Die drei Leistungsseiten, die aus dem Account Management und der
    Full-Service-Seite herausgewachsen sind: FBA & Inventory, Katalog &
-   Listing Management, Software & Account Intelligence, Analytics &
-   Reporting.
+   Listing Management, Analytics & Reporting.
 
    Sie teilen einen Aufbau (`DienstBody`), deshalb teilen sie auch die Form
    der Copy. Die Texte stehen hier und nicht in de.ts / en.ts, weil beide
@@ -12,8 +11,6 @@
    Grundsaetze, die fuer diese Seiten gelten:
    - Es steht nur, was wir tun oder was ausdruecklich als „in Entwicklung"
      gekennzeichnet ist. Keine Zertifikate, keine erfundenen Zahlen.
-   - Die Software ist nicht produktiv. Jeder Satz dazu steht im Konjunktiv
-     oder sagt „soll", „geplant", „vorgesehen".
    - Wir bereiten keine Ware physisch vor.
    ============================================================ */
 
@@ -41,7 +38,6 @@ export type Dienst = {
 export type DiensteWoerter = {
   fba: Dienst;
   katalog: Dienst;
-  software: Dienst;
   reporting: Dienst;
 };
 
@@ -296,133 +292,6 @@ export const diensteDe: DiensteWoerter = {
       ],
     },
     cta: "Wie sauber ist euer Katalog?",
-  },
-
-  /* ------------------------------------------------------------
-     Software & Account Intelligence
-     ------------------------------------------------------------ */
-  software: {
-    hero: {
-      eyebrow: "Software",
-      titelVor: "Amazon Software und Account Intelligence: ",
-      titelEm: "alle Daten an einer Stelle.",
-      lead: "Wir entwickeln eine Software, die Amazon-Daten aus Katalog, Werbung, Bestand und Account Health an einer Stelle zusammenführt. Sie ist in Entwicklung und noch nicht für Kunden freigeschaltet.",
-      bildAlt: "Mehrere Auswertungen zu einer Übersicht zusammengeführt",
-    },
-    problem: {
-      titel: "Die Daten liegen verteilt.",
-      punkte: [
-        "Katalog, Werbung und Bestand stehen in getrennten Oberflächen.",
-        "Für jede Auswertung werden Zahlen zusammengesucht.",
-        "Auffälligkeiten fallen erst auf, wenn jemand nachschaut.",
-        "Änderungen an vielen Produkten kosten Tage.",
-      ],
-      bruecke: "Eine Plattform soll das an einer Stelle zusammenführen.",
-    },
-    kern: {
-      eyebrow: "Geplanter Funktionsumfang",
-      titel: "Was die Plattform können soll.",
-      lead: "Die Funktionen folgen den Aufgaben, die wir in betreuten Konten täglich erledigen. Sie sollen unserem Team und unseren Kunden zeigen, was im Konto passiert, und die Arbeit darin steuern.",
-      karten: [
-        {
-          titel: "Katalog und Content",
-          unterzeile: "In Entwicklung",
-          punkte: [
-            "Produkte und Artikel anlegen und aktualisieren",
-            "Content erstellen, verwalten und an Amazon übertragen",
-            "Freigabe durch den Kunden vor der Übertragung",
-          ],
-        },
-        {
-          titel: "Advertising",
-          unterzeile: "In Entwicklung",
-          punkte: [
-            "Kampagnen auswerten und anpassen",
-            "Suchbegriffe und Gebote steuern",
-            "Neue Kampagnen nach festem Namensschema anlegen",
-          ],
-        },
-        {
-          titel: "Margen und Reporting",
-          unterzeile: "In Entwicklung",
-          punkte: [
-            "Marge je Produkt und Variante",
-            "Umsatz, Kosten und Kennzahlen als Dashboard",
-            "Search Query Report und Zeitraumvergleiche",
-          ],
-        },
-        {
-          titel: "Account Health und Bestand",
-          unterzeile: "In Entwicklung",
-          punkte: [
-            "Listing-Status, Buy-Box und Preise im Blick",
-            "Bestand und FBA mit Hinweisen bei Auffälligkeiten",
-            "Übersicht über offene Fälle",
-          ],
-        },
-      ],
-    },
-    vorgehen: {
-      eyebrow: "Datenfluss",
-      titel: "So sollen die Daten in die Plattform kommen.",
-      lead: "Der Weg ist so angelegt, dass Kunden jeden Schritt selbst erteilen und jederzeit entziehen können.",
-      schritte: [
-        {
-          titel: "Autorisierung",
-          unterzeile: "Durch den Kunden",
-          text: "Der Kunde erteilt den Zugriff in seinem Amazon-Konto und legt fest, welche Daten freigegeben sind.",
-        },
-        {
-          titel: "Abruf",
-          unterzeile: "Selling Partner API",
-          text: "Die Daten sollen über die Amazon Selling Partner API (SP-API) abgerufen werden, im Rahmen der von Amazon genehmigten Rollen.",
-        },
-        {
-          titel: "Auswertung",
-          unterzeile: "Je Konto getrennt",
-          text: "Die Daten werden je Kunde getrennt ausgewertet und nur für die beauftragten Services genutzt.",
-        },
-        {
-          titel: "Steuerung",
-          unterzeile: "Durch unser Team",
-          text: "Unser Team nutzt die Auswertung, um Maßnahmen im Konto zu planen und umzusetzen.",
-        },
-      ],
-    },
-    abgrenzung: {
-      eyebrow: "Stand und Datennutzung",
-      titel: "In Entwicklung, nicht produktiv.",
-      text: "Für autorisierte Kunden soll die Software Amazon-Daten ausschließlich verarbeiten, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Derzeit ist keine Funktion für Kunden freigeschaltet.",
-    },
-    nutzen: {
-      badge: "Ziel der Plattform",
-      titel: "Eine Übersicht statt vieler Oberflächen.",
-      punkte: [
-        "Katalog, Werbung und Bestand an einer Stelle",
-        "Auffälligkeiten melden sich, ihr müsst nicht suchen",
-        "Freigaben und Änderungen laufen nachvollziehbar",
-        "Unser Team arbeitet mit denselben Zahlen wie ihr",
-      ],
-    },
-    expertise: {
-      eyebrow: "Einordnung",
-      titel: "Wie wir die Plattform sehen.",
-      karten: [
-        {
-          titel: "Aus der Praxis gebaut",
-          text: "Jede Funktion entsteht aus einer Aufgabe, die wir in betreuten Konten täglich erledigen.",
-        },
-        {
-          titel: "Ergänzung, kein Ersatz",
-          text: "Die Plattform unterstützt die Arbeit unseres Teams. Entscheidungen im Konto treffen weiter Menschen.",
-        },
-        {
-          titel: "Schrittweise",
-          text: "Funktionen werden einzeln freigeschaltet, sobald sie fertig sind. Bis dahin arbeiten wir in den bestehenden Werkzeugen.",
-        },
-      ],
-    },
-    cta: "Welche Zahlen fehlen euch im Alltag?",
   },
 
   /* ------------------------------------------------------------
@@ -791,130 +660,6 @@ export const diensteEn: DiensteWoerter = {
       ],
     },
     cta: "How clean is your catalog?",
-  },
-
-  software: {
-    hero: {
-      eyebrow: "Software",
-      titelVor: "Amazon software and account intelligence: ",
-      titelEm: "all data in one place.",
-      lead: "We are developing software that brings Amazon data from catalog, advertising, stock and account health into one place. It is in development and not yet available to customers.",
-      bildAlt: "Several analyses merged into a single overview",
-    },
-    problem: {
-      titel: "The data is scattered.",
-      punkte: [
-        "Catalog, advertising and stock sit in separate interfaces.",
-        "Every analysis means gathering numbers first.",
-        "Anomalies are only noticed when someone looks.",
-        "Changes across many products cost days.",
-      ],
-      bruecke: "A platform is meant to bring this together in one place.",
-    },
-    kern: {
-      eyebrow: "Planned scope",
-      titel: "What the platform is meant to do.",
-      lead: "The functions follow the tasks we handle in managed accounts every day. They are meant to show our team and our customers what is happening in the account, and to steer the work in it.",
-      karten: [
-        {
-          titel: "Catalog and content",
-          unterzeile: "In development",
-          punkte: [
-            "Create and update products and items",
-            "Create, manage and transfer content to Amazon",
-            "Customer approval before the transfer",
-          ],
-        },
-        {
-          titel: "Advertising",
-          unterzeile: "In development",
-          punkte: [
-            "Analyze and adjust campaigns",
-            "Steer search terms and bids",
-            "Create new campaigns following a fixed naming scheme",
-          ],
-        },
-        {
-          titel: "Margins and reporting",
-          unterzeile: "In development",
-          punkte: [
-            "Margin per product and variation",
-            "Revenue, costs and metrics as a dashboard",
-            "Search Query Report and period comparisons",
-          ],
-        },
-        {
-          titel: "Account health and stock",
-          unterzeile: "In development",
-          punkte: [
-            "Listing status, Buy Box and prices at a glance",
-            "Stock and FBA with alerts on anomalies",
-            "Overview of open cases",
-          ],
-        },
-      ],
-    },
-    vorgehen: {
-      eyebrow: "Data flow",
-      titel: "How data is meant to reach the platform.",
-      lead: "The path is designed so that customers grant each step themselves and can withdraw it at any time.",
-      schritte: [
-        {
-          titel: "Authorization",
-          unterzeile: "By the customer",
-          text: "The customer grants access in their Amazon account and decides which data is shared.",
-        },
-        {
-          titel: "Retrieval",
-          unterzeile: "Selling Partner API",
-          text: "The data is meant to be retrieved through the Amazon Selling Partner API (SP-API), within the roles approved by Amazon.",
-        },
-        {
-          titel: "Analysis",
-          unterzeile: "Separate per account",
-          text: "Data is analyzed separately per customer and used only for the services that were ordered.",
-        },
-        {
-          titel: "Steering",
-          unterzeile: "By our team",
-          text: "Our team uses the analysis to plan and carry out measures in the account.",
-        },
-      ],
-    },
-    abgrenzung: {
-      eyebrow: "Status and data use",
-      titel: "In development, not live.",
-      text: "For authorized customers, the software is meant to process Amazon data solely to provide the services and functions that were ordered. Access is based on the authorization granted by the customer and on the roles and permissions approved by Amazon. At present, no function is available to customers.",
-    },
-    nutzen: {
-      badge: "Goal of the platform",
-      titel: "One overview instead of many interfaces.",
-      punkte: [
-        "Catalog, advertising and stock in one place",
-        "Anomalies report themselves, you do not have to search",
-        "Approvals and changes stay traceable",
-        "Our team works with the same numbers you see",
-      ],
-    },
-    expertise: {
-      eyebrow: "Perspective",
-      titel: "How we see the platform.",
-      karten: [
-        {
-          titel: "Built from practice",
-          text: "Every function starts with a task we handle in managed accounts every day.",
-        },
-        {
-          titel: "A supplement, not a replacement",
-          text: "The platform supports our team's work. People still make the decisions in the account.",
-        },
-        {
-          titel: "Step by step",
-          text: "Functions are released one at a time, once they are ready. Until then we work in the existing tools.",
-        },
-      ],
-    },
-    cta: "Which numbers are you missing day to day?",
   },
 
   reporting: {

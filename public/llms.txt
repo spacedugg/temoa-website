@@ -32,7 +32,6 @@ Verbindlich sind die deutschen Fassungen der Rechtstexte.
 - [Compliance & Account Health](https://www.temoa.de/leistungen/compliance-account-health): LUCID, GPSR, Sicherheitsdokumente, Fallmanagement bei Sperrungen, Richtlinien- und Katalogfälle (keine Rechtsberatung, kein Prüflabor).
 - [FBA & Inventory Management](https://www.temoa.de/leistungen/fba-inventory-management): Bestand, Sendungen und FBA-Gebühren im Konto planen und überwachen, Fälle zum Wareneingang führen. Keine physische Warenvorbereitung.
 - [Katalog & Listing Management](https://www.temoa.de/leistungen/katalog-listing-management): Produkte, Varianten, Attribute, Backend-Suchbegriffe und Flat Files anlegen und pflegen.
-- [Software & Account Intelligence](https://www.temoa.de/leistungen/software-account-intelligence): Plattform in Entwicklung für Katalog-, Werbe-, Bestands- und Account-Daten, noch nicht für Kunden freigeschaltet.
 - [Analytics & Reporting](https://www.temoa.de/leistungen/analytics-reporting): Umsatz, Marge, ACoS, TACoS und Search Query Report aufbereitet und eingeordnet.
 - [Internationalisierung](https://www.temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
 

@@ -283,12 +283,6 @@ export const de = {
         beschreibung:
           "Produkte, Varianten, Attribute und Backend-Suchbegriffe sauber anlegen und pflegen, einzeln oder per Flat File, für Seller Central und Vendor Central.",
       },
-      software: {
-        titel: "Amazon Software & Account Intelligence · temoa",
-        name: "Software & Account Intelligence",
-        beschreibung:
-          "Eine Plattform in Entwicklung, die Katalog-, Werbe-, Bestands- und Account-Daten zusammenführt. Datenzugriff nur nach Autorisierung durch den Kunden.",
-      },
       reporting: {
         titel: "Amazon Analytics & Reporting · temoa",
         name: "Analytics & Reporting",
@@ -1166,7 +1160,6 @@ export const de = {
           text: "Listing-Status, Buy-Box, Preise, Bestand und FBA im Blick, mit Hinweisen bei Auffälligkeiten.",
         },
       ],
-      link: "Software & Account Intelligence im Detail",
       datenHinweis:
         "Für autorisierte Kunden verarbeitet die Software Amazon-Daten ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Vorgesehen ist dafür die Anbindung über die Amazon Selling Partner API (SP-API).",
     },

@@ -491,40 +491,36 @@ export function InternationalisierungBody({ sprache }: { sprache: Sprache }) {
   );
 }
 
-/* ============ FBA, KATALOG, SOFTWARE, REPORTING ============ */
+/* ============ FBA, KATALOG, REPORTING ============ */
 
 /**
- * Die vier Seiten, die aus dem Account Management und der Full-Service-Seite
+ * Die drei Seiten, die aus dem Account Management und der Full-Service-Seite
  * herausgewachsen sind, teilen einen Aufbau: Problem, Leistungen, Ablauf,
  * Abgrenzung, Nutzen, Erfahrung, ein Fall (wenn es einen gibt), Stimmen,
  * Abschluss. Die Copy steht in `woerter/dienste`, hier nur, was ohne Sprache
  * ist: Bilder, Piktogramme, der zugehoerige Fall.
  */
-type DienstSchluessel = "fba" | "katalog" | "software" | "reporting";
+type DienstSchluessel = "fba" | "katalog" | "reporting";
 
 const DIENST_BILD: Record<DienstSchluessel, string> = {
   fba: "/bilder/s-account-monitor.webp",
   katalog: "/bilder/s-content-ansatz.webp",
-  software: "/bilder/n-leistungen.webp",
   reporting: "/bilder/n-reporting.webp",
 };
 
 const DIENST_KERN_ZEICHEN: Record<DienstSchluessel, PiktogrammName[]> = {
   fba: ["bestand", "sendung", "weiche", "ticket"],
   katalog: ["katalog", "suche", "struktur", "wiederholen"],
-  software: ["katalog", "kampagne", "marge", "buybox"],
   reporting: ["marge", "pricing", "ranking", "bestand"],
 };
 
 const DIENST_ABLAUF_ZEICHEN: Record<DienstSchluessel, PiktogrammName[]> = {
   fba: ["analyse", "vorlage", "sendung", "termin"],
   katalog: ["analyse", "vorlage", "katalog", "test"],
-  software: ["schutz", "sendung", "analyse", "fahrplan"],
   reporting: ["marge", "analyse", "fahrplan", "termin"],
 };
 
-/* Aus welchem Fall der Ergebnisblock kommt. Fuer die Software gibt es keinen:
-   sie ist nicht produktiv, und ein Ergebnis dazu waere erfunden. */
+/* Aus welchem Fall der Ergebnisblock kommt. */
 const DIENST_FALL: Partial<
   Record<DienstSchluessel, { quelle: "account" | "content" | "advertising"; href: string }>
 > = {
@@ -620,9 +616,6 @@ export function FbaBody({ sprache }: { sprache: Sprache }) {
 }
 export function KatalogBody({ sprache }: { sprache: Sprache }) {
   return <DienstBody sprache={sprache} art="katalog" />;
-}
-export function SoftwareBody({ sprache }: { sprache: Sprache }) {
-  return <DienstBody sprache={sprache} art="software" />;
 }
 export function ReportingBody({ sprache }: { sprache: Sprache }) {
   return <DienstBody sprache={sprache} art="reporting" />;

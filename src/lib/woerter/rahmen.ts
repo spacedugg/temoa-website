@@ -54,7 +54,6 @@ type Rahmen = {
     compliance: string;
     fba: string;
     katalog: string;
-    technologie: string;
     reporting: string;
   };
   /* Der Abschluss-CTA steht auf jeder Seite. Deshalb liegt seine Copy hier
@@ -147,7 +146,6 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       compliance: "Compliance & Account Health",
       fba: "FBA & Inventory",
       katalog: "Katalog & Listing",
-      technologie: "Software",
       reporting: "Analytics & Reporting",
     },
     gespraech: {
@@ -232,7 +230,6 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       compliance: "Compliance & Account Health",
       fba: "FBA & Inventory",
       katalog: "Catalog & Listing",
-      technologie: "Software",
       reporting: "Analytics & Reporting",
     },
     gespraech: {
