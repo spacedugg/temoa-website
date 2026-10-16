@@ -21,11 +21,11 @@ Eine skalierbare Struktur trennt Kampagnen nach ihrer Funktion, nicht nach Zufal
 - **Performance (Ernte):** Exakt ausgesteuerte Kampagnen für die Keywords, von denen du bereits weißt, dass sie verkaufen. Hier gibst du gezielt mehr Budget und höhere Gebote.
 - **Defense/Brand (Verteidigung):** Kampagnen auf deine eigenen Marken-Keywords, um Wettbewerber von deinen Käufern fernzuhalten.
 
-Diese Trennung ist das Rückgrat. Sie verhindert, dass dieselben Keywords in mehreren Kampagnen gegeneinander bieten.
+Diese Trennung ist das Rückgrat. Sie macht Budgetzuständigkeit und Auswertung klarer. Überschneidungen bedeuten nicht automatisch, dass ihr eure eigenen Klickpreise hochtreibt.
 
 ## Das Keyword-Trichter-Prinzip
 
-Der Motor einer guten Struktur ist ein Kreislauf: In den Discovery-Kampagnen findest du über den Suchbegriffsbericht heraus, welche Suchen konvertieren. Diese „Gewinner" überführst du in eine exakte Performance-Kampagne – und schließt sie in der Discovery-Kampagne als negatives Keyword aus. So wandert jedes Keyword vom Suchen ins Ernten, und deine Kampagnen kannibalisieren sich nicht gegenseitig. Dieser Trichter ist es, der ein Konto über die Zeit sauber und steuerbar hält.
+Der Motor einer guten Struktur ist ein Kreislauf: In den Discovery-Kampagnen findest du über den Suchbegriffsbericht heraus, welche Suchen konvertieren. Diese „Gewinner" überführst du in eine exakte Performance-Kampagne – und schließt sie in der Discovery-Kampagne als negatives Keyword aus. Überführt nur dann mit Negativsetzung, wenn die Zielkampagne genügend Budget hat und tatsächlich ausliefert. Sonst kann die Umstellung profitable Reichweite kosten. Dieser Trichter ist es, der ein Konto über die Zeit sauber und steuerbar hält.
 
 ## Eine Kampagne, ein Ziel
 
@@ -37,7 +37,20 @@ Was banal klingt, ist bei großen Konten entscheidend: ein einheitliches Benennu
 
 ## Sauber neu aufbauen oder umbauen?
 
-Wenn dein Konto bereits unübersichtlich ist, stellt sich die Frage: aufräumen oder neu strukturieren? Ein kompletter Neuaufbau ist riskant, weil du Ranking-Historie verlierst. Meist besser ist ein schrittweiser Umbau: Erst die Top-Performer in eine saubere Struktur überführen, dann die Discovery sauber aufsetzen, dann den Rest nachziehen. Verändere nicht alles auf einmal, sondern in kontrollierten Etappen, damit du die Wirkung jeder Änderung beurteilen kannst.
+Wenn dein Konto bereits unübersichtlich ist, stellt sich die Frage: aufräumen oder neu strukturieren? Ein kompletter Neuaufbau verändert Auslieferung und Vergleichbarkeit. Er löscht nicht automatisch die organische Historie einer ASIN, kann aber Budgetverteilung und Kampagnenleistung stark verschieben. Meist besser ist ein schrittweiser Umbau: Erst die Top-Performer in eine saubere Struktur überführen, dann die Discovery sauber aufsetzen, dann den Rest nachziehen. Verändere nicht alles auf einmal, sondern in kontrollierten Etappen, damit du die Wirkung jeder Änderung beurteilen kannst.
+
+## Praxis: Struktur nach wirtschaftlichen Unterschieden
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Struktur nach wirtschaftlichen Unterschieden</h3>
+<p>Eine Kampagne enthält drei ASINs mit Beiträgen vor Werbung von 4 €, 9 € und 15 €. Ein gemeinsamer Budgettopf verschleiert, wo Ausgaben tragfähig sind. Gruppiert zuerst nach vergleichbarer Produktökonomie und Kaufabsicht; nicht jede ASIN braucht automatisch ein eigenes Kampagnennetz.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Dokumentiert Zweck, ASIN-Gruppe, Zielwert und Budgetverantwortung je Kampagne.
+2. Migriert in Etappen. Prüft Auslieferung und Budget der Zielkampagne, bevor ihr erfolgreiche Suchanfragen in der alten Kampagne ausschließt.
 
 ## Fazit
 

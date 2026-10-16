@@ -38,6 +38,25 @@ Aktionsformate wie Lightning Deals, Coupons oder Rabattaktionen können in der P
 
 Mehr Verkäufe bedeuten mehr Kundenanfragen, mehr Retouren und mehr potenzielle Probleme. Sorge dafür, dass dein Kundenservice schnell reagieren kann, halte Prozesse für Retouren bereit und behalte deine Kennzahlen im Blick – gerade in der Hochsaison kann ein Leistungsabfall besonders schaden.
 
+## Q4-Gebühren nicht vergessen
+
+Für betroffene FBA-Sendungen gelten im deutschen und britischen Store saisonale Versandgebühren vom 15. Oktober 2026 bis 14. Januar 2027. Prüft eure Größenklasse im aktuellen Gebührenblatt und kalkuliert eure Aktion mit dem tatsächlich geltenden Satz.
+
+[Primärquelle und Details](https://sellercentral.amazon.de/seller-forums/discussions/t/8805b3a2-c65b-4b0e-9bc9-c22ef13c2782) · geprüft am 17. Oktober 2026.
+
+## Praxis: Q4 mit Reichweiten statt Hoffnung planen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Q4 mit Reichweiten statt Hoffnung planen</h3>
+<p>1.800 verfügbare Einheiten reichen bei 30 Verkäufen pro Tag für 60 Tage. Steigt der Absatz auf 60, bleiben nur 30 Tage. Ein Werbebudget für 45 Tage Spitzenabsatz passt dann nicht zur Lieferfähigkeit.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Rechnet Absatz, verfügbare Ware und bestätigten Nachschub pro Woche zusammen.
+2. Legt vor der Aktion fest, wann Budget, Preis oder Promo angepasst werden. Inbound-Bestand zählt erst mit realistisch erreichbarem Verfügbarkeitstermin als Absicherung.
+
 ## Fazit
 
 Die Peak Season ist die wichtigste Zeit des Amazon-Jahres – und sie wird im Sommer und Frühherbst gewonnen, nicht im Dezember. Entscheidend ist ausreichender Bestand mit Blick auf Vorlaufzeiten und Einlieferungsfristen. Dazu kommen rechtzeitig optimierte Listings, vorbereitete Werbung mit höheren Budgets, geplante Deals und ein belastbarer operativer Betrieb. Wer früh und gründlich plant, verwandelt die Hochsaison in den stärksten Teil seines Jahres – statt in eine Serie teurer Versäumnisse.

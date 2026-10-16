@@ -35,6 +35,19 @@ FBA passt zu Menschen, die bereit sind, es als echtes Geschäft zu behandeln: mi
 
 Wer schnelles, passives Einkommen ohne Kapital und Aufwand erwartet, wird enttäuscht. Wer ein beliebiges Billigprodukt ohne Differenzierung in eine gesättigte Kategorie werfen will, kämpft gegen etablierte Anbieter mit laufendem Flywheel – ein meist aussichtsloser Preiskampf. Und wer unterkapitalisiert startet, riskiert, mitten im Aufbau zahlungsunfähig zu werden.
 
+## Praxis: Ein wirtschaftliches Mindestvolumen bestimmen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein wirtschaftliches Mindestvolumen bestimmen</h3>
+<p>Bei 6 € Beitrag je Einheit nach variablen Kosten und Werbung müssen im Modell 250 Einheiten verkauft werden, um 1.500 € monatliche Fixkosten zu decken. Eine attraktive prozentuale Marge ersetzt also keine realistische Absatzannahme.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Rechnet zunächst die Stückökonomie, dann das erforderliche Volumen.
+2. Prüft Lieferfähigkeit und Finanzierung eines zweiten Einkaufs. Der erste profitable Warenkorb bedeutet noch kein nachhaltig tragfähiges Geschäft.
+
 ## Fazit
 
-Lohnt sich FBA noch? Ja – aber als ernsthaftes Geschäft, nicht als Abkürzung zum schnellen Geld. Der Markt ist reifer und härter, was bedeutet, dass kluge Produktwahl, echte Differenzierung, solide Kalkulation, ausreichend Kapital und Durchhaltevermögen heute über Erfolg entscheiden. Wer das mitbringt, kann weiterhin ein profitables Geschäft aufbauen. Wer auf den Hype hereinfällt, gehört zur großen Mehrheit, die wieder aufgibt. Die ehrliche Antwort ist also: Es lohnt sich für die, die es richtig angehen.
+Lohnt sich FBA noch? Ja – aber als ernsthaftes Geschäft, nicht als Abkürzung zum schnellen Geld. Der Markt ist reifer und härter, was bedeutet, dass kluge Produktwahl, echte Differenzierung, solide Kalkulation, ausreichend Kapital und Durchhaltevermögen heute über Erfolg entscheiden. Wer das mitbringt, kann weiterhin ein profitables Geschäft aufbauen. Ein Geschäftsmodell ohne belastbare Kalkulation kann auch bei steigendem Umsatz Geld verlieren. Die ehrliche Antwort ist also: Es lohnt sich für die, die es richtig angehen.

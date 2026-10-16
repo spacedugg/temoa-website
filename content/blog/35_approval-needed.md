@@ -40,6 +40,19 @@ Viele Anträge scheitern an vermeidbaren Details: Rechnungen von nicht anerkannt
 
 Bevor du ein Produkt einkaufst, prüfe, ob es gated ist und welche Nachweise nötig wären. So vermeidest du, Ware zu beschaffen, die du am Ende nicht listen darfst. Bei markenrechtlich geschützten Produkten gilt: Ohne legitime Bezugsquelle und Berechtigung solltest du gar nicht erst einkaufen.
 
+## Praxis: Freischaltung vor dem Wareneinkauf
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Freischaltung vor dem Wareneinkauf</h3>
+<p>Eine Marke plant 2.000 Einheiten, stellt aber erst nach Anlieferung fest, dass ein produktspezifischer Nachweis fehlt. Das Kapital ist gebunden, obwohl die Ware noch nicht verkauft werden kann.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Prüft den geplanten Produkttyp und den aktuellen Antragsdialog vor verbindlicher Bestellung.
+2. Haltet je Anforderung Dokument, Aussteller, Gültigkeit und betroffene Modelle fest. Eine Freischaltung für ein Produkt ist nicht automatisch eine Freigabe für das gesamte Sortiment.
+
 ## Fazit
 
 „Approval needed" ist selten eine echte Sackgasse, sondern eine Frage der richtigen Nachweise. Verstehe, welche Art von Freischaltung verlangt wird, beschaffe vollständige und konsistente Dokumente – allen voran saubere Großhandelsrechnungen und ggf. eine Markenberechtigung – und reiche exakt das Geforderte ein. Wer die Anforderungen vor dem Einkauf prüft und seine Belege sorgfältig zusammenstellt, verwandelt eine geschützte Kategorie von einem Hindernis in einen Wettbewerbsvorteil.

@@ -11,7 +11,7 @@ Wenn der Umsatz stockt, ist der erste Reflex vieler Verkäufer, den Preis zu sen
 
 ## Warum die CVR unterschätzt wird
 
-Eine höhere Conversion-Rate wirkt doppelt. Erstens machst du aus demselben Traffic mehr Umsatz – ohne einen Cent mehr für Werbung. Zweitens belohnt Amazons Algorithmus Listings, die gut konvertieren, mit besseren organischen Platzierungen, weil sie aus Sicht der Plattform die Kundenbedürfnisse besser treffen. Und drittens sinkt dein ACoS automatisch, weil mehr Klicks zu Käufen werden. Eine Preissenkung dagegen wirkt nur über den Preis – und kostet dich bei jedem Verkauf.
+Eine höhere Conversion-Rate wirkt doppelt. Erstens machst du aus demselben Traffic mehr Umsatz – ohne einen Cent mehr für Werbung. Zweitens kann eine bessere Kauferfahrung die Wettbewerbsfähigkeit unterstützen; ein bestimmter Ranking-Effekt lässt sich daraus nicht garantieren. Bei gleichem CPC, Umsatz je Kauf und Attributionsmodell reduziert eine höhere Anzeigen-Conversion rechnerisch den ACoS. Eine Preissenkung dagegen wirkt nur über den Preis – und kostet dich bei jedem Verkauf.
 
 ## Was die Conversion am stärksten bewegt
 
@@ -26,7 +26,7 @@ Nicht alle Elemente einer Detailseite wirken gleich stark. Diese haben den grö�
 
 ## Bei den Reviews ansetzen – aber regelkonform
 
-Bewertungen sind ein zentraler Conversion-Treiber, deshalb lohnt es sich, sie aktiv und regelkonform zu fördern. Amazon erlaubt automatisierte Bewertungsanfragen und Programme wie „Vine" für frühe, verifizierte Reviews. Wichtig: Finger weg von gekauften oder incentivierten Fake-Bewertungen – das verstößt gegen die Richtlinien und kann zur Sperrung führen. Setze stattdessen auf gutes Produkt, guten Service und konsequente, erlaubte Bewertungsanfragen.
+Bewertungen sind ein zentraler Conversion-Treiber, deshalb lohnt es sich, sie aktiv und regelkonform zu fördern. Amazon erlaubt automatisierte Bewertungsanfragen und Programme wie „Vine" für frühe, als Vine gekennzeichnete Rezensionen. Wichtig: Finger weg von gekauften oder incentivierten Fake-Bewertungen – das verstößt gegen die Richtlinien und kann zur Sperrung führen. Setze stattdessen auf gutes Produkt, guten Service und konsequente, erlaubte Bewertungsanfragen.
 
 ## Strukturiert testen statt raten
 
@@ -36,6 +36,24 @@ Conversion-Optimierung ist ein Prozess, kein einmaliger Anstrich. Verändere mö
 
 Beginne dort, wo die Wirkung am größten und der Aufwand am kleinsten ist: meist beim Hauptbild und der Bildergalerie, dann bei Bulletpoints und A+ Content, dann bei der gezielten Förderung von Bewertungen. Erst wenn diese Elemente stark sind, lohnt das Feintuning an Details. So holst du die größten Gewinne zuerst.
 
+## Praxis: Mehr Einheiten pro Sitzung ist nicht Käufer-Conversion
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Mehr Einheiten pro Sitzung ist nicht Käufer-Conversion</h3>
+<p>Bei 2.000 Sitzungen und 240 bestellten Einheiten beträgt die Unit Session Percentage 12 %. Das bedeutet nicht zwingend, dass 12 % aller Besucher gekauft haben: Eine Bestellung kann mehrere Einheiten enthalten. Auch ein Variantenmix kann die Kennzahl verschieben.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht dieselben Child-ASINs, den gleichen Preisbereich und einen ähnlichen Traffic-Mix.
+2. Formuliert den Test präzise: etwa ein Maßbild gegen das bisherige Galeriebild. Betrachtet neben Einheiten pro Sitzung auch Deckungsbeitrag und passende Retourengründe.
+
 ## Fazit
 
 Die Conversion-Rate zu verbessern ist fast immer profitabler, als den Preis zu senken – weil sie auf jeden Besucher wirkt und gleichzeitig Ranking und Werbeeffizienz hebt, ohne die Marge anzutasten. Am stärksten wirken Hauptbild, Bildergalerie, überzeugende Bulletpoints, A+ Content und Bewertungen. Wer diese systematisch und testbasiert verbessert, wächst aus demselben Traffic heraus – und muss seltener über den Preis kämpfen.
+
+
+## Programm und Voraussetzungen
+
+[Amazon: Manage Your Experiments](https://sell.amazon.com/tools/manage-your-experiments) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

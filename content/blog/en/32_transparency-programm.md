@@ -43,3 +43,8 @@ Transparency is powerful, but it does not do everything. It works best as part o
 ## Conclusion
 
 Amazon Transparency turns every unit into a verifiable original and stops counterfeits before they reach the customer. For established brands in counterfeit-prone categories it is strong proactive protection, and it comes with extra effort and possible cost. If you have a real counterfeit problem, look at it seriously as part of a layered protection concept. If you do not have one yet, start with Brand Registry and add to it later.
+
+
+## Programme and eligibility
+
+[Amazon: Transparency](https://sell.amazon.com/brand-registry/transparency) – check the conditions applicable to your marketplace and account role.

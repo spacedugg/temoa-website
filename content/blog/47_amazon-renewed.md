@@ -39,6 +39,24 @@ Dem stehen Anforderungen gegenüber: Du brauchst verlässliche Bezugsquellen fü
 
 Amazon Renewed passt besonders zu Händlern, die ohnehin im Bereich generalüberholter Elektronik oder Geräte tätig sind, Zugang zu geeigneter Ware haben und Aufbereitung professionell beherrschen. Für reine Neuware-Verkäufer ohne refurbished-Erfahrung ist der Einstieg aufwendig. Wer aber die Voraussetzungen mitbringt, findet hier einen wachsenden Markt mit weniger Konkurrenz.
 
+## Praxis: Refurbished-Marge mit Prüfaufwand rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Refurbished-Marge mit Prüfaufwand rechnen</h3>
+<p>Ein Gerät bringt im Modell 80 € Nettoerlös. Ankauf 30 €, Aufbereitung 15 €, Gebühren und Logistik 16 € sowie erwartete Servicekosten 7 € lassen 12 € vor weiteren Kosten. Ohne Serviceansatz sähe die Marge deutlich besser aus, wäre aber unvollständig.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erfasst Testzeit, Ersatzteile, Zustandsklasse und Seriennummer je Einheit.
+2. Prüft die aktuellen Programmstandards für Produkt und Markt. Ein höherer Abverkauf hilft wenig, wenn ungeplante Gewährleistungs- und Servicefälle den Beitrag aufzehren.
+
 ## Fazit
 
 Amazon Renewed ist ein spezialisierter Marktplatz für geprüfte, generalüberholte Produkte mit Garantie – attraktiv durch geringeren Wettbewerb und wachsende Nachfrage nach günstigeren, nachhaltigen Alternativen. Der Preis dafür sind strenge Qualitätsanforderungen, Teilnahmevoraussetzungen und operativer Aufwand bei Beschaffung und Aufbereitung. Für Händler mit dem richtigen Know-how und verlässlichen Bezugsquellen ist es eine lohnende Nische; für Einsteiger ohne refurbished-Erfahrung eher ein anspruchsvolles Projekt.
+
+
+## Programm und Voraussetzungen
+
+[Amazon Deutschland: Renewed](https://sell.amazon.de/programme/renewed) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

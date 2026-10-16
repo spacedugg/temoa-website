@@ -19,7 +19,7 @@ Für Bücher stehen im Wesentlichen die bekannten Sponsored-Formate zur Verfügu
 
 - **Sponsored Products:** Bewerben einen einzelnen Titel in den Suchergebnissen und auf Detailseiten. Das Arbeitspferd auch für Bücher.
 - **Sponsored Brands:** Für Autoren oder Verlage mit mehreren Titeln – ideal, um eine ganze Reihe oder ein Autorenprofil zu bewerben.
-- **Lockscreen Ads:** Eine Besonderheit im Buchbereich – Anzeigen, die auf Kindle-E-Readern und in der App erscheinen und gezielt Leser ansprechen.
+- **Kindle-Lockscreen-Platzierungen:** Amazon hat 2026 Zugang über Amazon DSP angekündigt. Das ist kein pauschal verfügbares zusätzliches Sponsored-Format für jedes deutsche Autorenkonto. Prüft Zugang und Markt vor der Planung. [Amazon zur DSP-Verfügbarkeit](https://advertising.amazon.com/en-gb/resources/whats-new/kindle-e-reader-lockscreen-ads-now-available-through-adsp).
 
 ## Keyword- vs. Produkt-Targeting
 
@@ -32,6 +32,19 @@ Wegen der dünnen Marge ist ein hoher ACoS bei Büchern normal – manchmal lieg
 ## Worauf du achten solltest
 
 Ein gutes Cover und eine überzeugende Produktbeschreibung sind bei Büchern besonders wichtig – das Cover ist quasi das Hauptbild und entscheidet über die Klickrate. Achte außerdem auf eine saubere Kategorie- und Keyword-Zuordnung, damit dein Buch bei den richtigen Lesern erscheint. Und gib Kampagnen genug Zeit: Der Buchmarkt hat oft längere Entscheidungswege, gerade bei unbekannten Autoren.
+
+## Praxis: Mit Tantiemen statt Buchpreis planen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Mit Tantiemen statt Buchpreis planen</h3>
+<p>Ein Titel kostet im Modell 12 €, dem Verlag bleiben nach den relevanten variablen Kosten 3 €. Bei 2 € Werbekosten je zugerechnetem Verkauf bleiben 1 €. Der auf 12 € Umsatz berechnete ACoS von 16,7 % beschreibt die Wirtschaftlichkeit daher nur unvollständig.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Hinterlegt den tatsächlichen Nettoertrag je Format und Markt.
+2. Folgebände und Leseerlöse nur mit belastbaren Daten einrechnen. Trennt deren Zeitverlauf, statt jeden Erstkauf pauschal mit einem erhofften Leserwert aufzuwerten.
 
 ## Fazit
 

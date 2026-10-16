@@ -1,48 +1,34 @@
 ---
-title: "ACoS explained: definition, calculation and what the metric actually tells you"
-meta_description: "What does ACoS mean in Amazon advertising? How to calculate Advertising Cost of Sales, what counts as a good value and which mistakes to avoid."
+title: "ACoS explained: calculation and profitability"
+meta_description: "Calculate ACoS, align the revenue basis and make advertising decisions using contribution, attribution and stock availability."
 keywords: ["ACoS", "Amazon advertising", "Advertising Cost of Sales", "Amazon PPC"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# ACoS explained: definition, calculation and what the metric actually tells you
+# ACoS explained: calculation and profitability
 
-Anyone running ads on Amazon meets four letters within minutes of opening the campaign manager: ACoS. It stands for *Advertising Cost of Sales* and is probably the most quoted metric in Amazon marketing. It also keeps causing misunderstandings, because many people read it on its own instead of in context. This article explains what ACoS is, how you calculate it, and which conclusions you may draw from it (and which you may not).
+ACoS is useful when its reporting basis and business purpose are clear. It does not, by itself, establish profitability or prove that advertising generated incremental sales.
 
-## What ACoS means
+## Calculation and scope
 
-ACoS measures how much of the revenue your advertising produced goes back into that same advertising. Put simply: of every euro an ad brings in, ACoS says what share flows back out as ad cost. A low ACoS means your ads work efficiently, a high one means a lot of revenue is burning for little advertising return.
+**Ad spend ÷ attributed sales × 100**
 
-The formula is simple:
+Use the same marketplace, currency, scope and reporting period. For ACoS comparisons, also align attribution settings and allow recent click cohorts to mature. Do not divide when the denominator is zero.
 
-**ACoS = (ad spend ÷ ad-attributed revenue) × 100**
+## Connect the metric to contribution
 
-An example: you spend €200 on a campaign and it brings in €1,000 in revenue. Your ACoS is 200 ÷ 1,000 × 100 = **20%**. That means 20 cents of every advertising euro went straight back into the ads.
+Start with net revenue less product cost, selling and fulfilment fees, packaging, variable storage and expected return costs. This is contribution before advertising. Deduct the amount you need for overhead and profit to find affordable advertising cost. The revenue basis in the denominator must match the ad report: a margin calculated on net revenue cannot be compared unchanged with an ACoS calculated on gross sales.
 
-## ACoS and ROAS are the same thing, seen from opposite ends
+> **Illustrative calculation:** Net revenue of €30 less €21 in variable costs leaves €9 before advertising. If the report also uses €30 revenue per unit, break-even ACoS is 30%. Reserving €3 for overhead and profit leaves €6 for ads and a 20% target. These are model inputs, not Amazon fee quotes or category benchmarks.
 
-Many people confuse ACoS with ROAS (return on advertising spend). Both describe the same relationship, only from opposite directions. ACoS gives a percentage of the *cost*, ROAS shows the *return* per euro spent. In the example above, an ACoS of 20% is a ROAS of 5 (€1,000 revenue ÷ €200 spend). Which one you use is a matter of taste. What matters is that you stay with one of them.
+## Read the trend before changing budgets
 
-## The decisive error in thinking: "lower is always better"
+Separate brand defence, generic acquisition and launch tests. A strong brand-search result can hide weak generic performance. Set a loss cap and decision date for launch tests; buying ads does not guarantee rankings or reviews.
 
-The most common mistake is assuming that the lowest possible ACoS is automatically the goal. That only holds if pure efficiency is what you want to maximize. In practice the "right" ACoS depends on your margin and your objective.
+A falling TACoS can reflect seasonality, price, product mix or budget cuts. It is not proof of organic growth. Subtracting ad-attributed sales from total sales may mix attribution windows, dates and products. Check definitions before treating the difference as organic revenue.
 
-If you sell a product at a 40% margin, you can afford a higher ACoS than on a product at 15%. And when you launch a new product and want to build visibility, a temporarily high ACoS is often a deliberate investment: you are buying ranking and reviews that pay off later. An extremely low ACoS can even be a warning sign, because you may be bidding too cautiously and leaving profitable revenue on the table.
+## A useful management report
 
-## Break-even ACoS: the line you have to know
+Track total revenue, absolute contribution after advertising, ad spend, ACoS, TACoS and stock availability by product group. Compare settled periods and document promotions. Review target values when fees, prices or returns change. No universal category percentage can replace this calculation.
 
-The most important derived figure is the break-even ACoS, the point at which your advertising makes neither profit nor loss. It equals your profit margin before advertising.
-
-A worked example: your product sells for €30. After cost of goods, Amazon fees and shipping you are left with €9 contribution margin, a 30% margin. Your break-even ACoS is therefore **30%**. Everything below that is profitable, everything above costs you money per unit sold. You should know this number for every product before you set a single bid.
-
-## What ACoS does *not* tell you
-
-Useful as the metric is, it has blind spots. ACoS only counts revenue that Amazon attributes directly to an ad. The organic revenue your ads set in motion indirectly, through better rankings and more brand awareness, does not show up in it. That is exactly why TACoS (total ACoS) exists, which sets ad spend against *total* revenue. Whoever looks only at ACoS sometimes optimizes the ads to death and then wonders why total revenue is falling.
-
-## Practical steps to get started
-
-Begin by working out your break-even ACoS per product properly, because that is your compass. Then define an objective: is this about profit (ACoS clearly below break-even) or about growth (ACoS at or above break-even, chosen deliberately)? Watch ACoS over periods of one to two weeks rather than daily, because single days swing hard. And always bring TACoS in as a second metric, to see whether your advertising is carrying the business as a whole.
-
-## In short
-
-ACoS is a simple but powerful metric, as long as you read it in context. It shows you how efficient your ads are, but it is no substitute for thinking about margin and objective. Whoever looks at break-even ACoS, margin and TACoS together makes considerably better decisions than someone who only pushes the percentage in the campaign manager down.
+[Amazon Ads explains ACoS](https://advertising.amazon.com/library/guides/acos-advertising-cost-of-sales). Our [PPC service](/en/leistungen/ppc-advertising) connects campaign decisions with product economics.

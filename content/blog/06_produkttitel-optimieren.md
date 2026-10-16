@@ -1,50 +1,73 @@
 ---
-title: "Amazon-Produkttitel schreiben, der rankt und konvertiert"
-meta_description: "Der Produkttitel ist das wichtigste Textfeld deines Listings. So baust du Titel, die der Algorithmus liebt und Käufer zum Klicken bringen – inklusive Struktur."
+title: "Amazon-Titel 2026: 75 Zeichen und 125 Zeichen Item Highlights"
+meta_description: "Amazon-Produkttitel auf 75 Zeichen umstellen: Titel und Item Highlights sinnvoll aufteilen, Beispiele prüfen und Änderungen im Katalog sicher ausrollen."
 keywords: ["Amazon Produkttitel", "Listing Optimierung", "Amazon SEO", "Titel optimieren"]
 kategorie: "Listing, SEO & Conversion"
 ---
 
-# Amazon-Produkttitel schreiben, der rankt und konvertiert
+# Amazon-Titel 2026: 75 Zeichen und 125 Zeichen Item Highlights
 
-Dein Produkttitel erledigt drei Aufgaben gleichzeitig: Er muss Amazons Suchalgorithmus zufriedenstellen, in unter einer Sekunde von einem menschlichen Auge erfasst werden und den Käufer überzeugen, ausgerechnet dein Listing anzuklicken – nicht das darüber oder darunter. Die meisten Titel scheitern an mindestens zwei dieser drei Punkte. Das ist teuer, denn der Titel ist das am stärksten gewichtete Textfeld in Amazons Suche und erscheint in den Ergebnissen, in Sponsored-Products-Anzeigen und sogar bei Google.
+Amazon-Produkttitel dürfen seit dem 27. Juli 2026 in allen Kategorien außer Medien höchstens **75 Zeichen inklusive Leerzeichen** umfassen. Für **Item Highlights stehen zusätzlich 125 Zeichen** zur Verfügung. Beide Felder sind durchsuchbar. Die Aufgabe für Marken ist deshalb größer als das Kürzen alter Titel: Produktidentität, Varianten und Kaufargumente müssen auf zwei Felder verteilt werden, ohne dass wichtige Informationen verloren gehen.
 
-## Warum der Titel so viel Gewicht hat
+## Was Amazon geändert hat
 
-Amazon nutzt den Titel als primäres Signal dafür, wofür dein Produkt relevant ist. Tauchen wichtige Suchbegriffe nicht im Titel auf, fällt es deinem Listing schwerer, dafür zu ranken. Gleichzeitig ist der Titel das Erste, was ein Käufer in den Suchergebnissen liest. Ein schwacher Titel kostet dich also doppelt: schlechtere Rankings und eine niedrigere Klickrate.
+Die [offizielle Ankündigung von Amazon Deutschland](https://sellercentral.amazon.de/seller-forums/discussions/t/d24be94b-9ca5-437f-a7c2-1f4f7462a15f) nennt die Grenzen und den Rollout. Zu lange Titel werden schrittweise durch KI-Empfehlungen aktualisiert; laut Ankündigung bleiben Angebote dabei aktiv. Markeninhaber erhalten für angekündigte KI-Änderungen ein Prüfzeitfenster von 14 Tagen. Kontrolliert daher nicht nur eure Uploads, sondern auch den Bereich für Angebotsänderungen.
 
-## Die richtige Struktur
+Item Highlights sind ein eigenes Feld. Sie ersetzen weder die Bulletpoints noch strukturierte Produktattribute. Ein Titel mit 75 Zeichen plus ein Highlight mit 125 Zeichen ist auch kein Freibrief für eine 200 Zeichen lange Eingabe im Titelfeld.
 
-Ein starker Titel folgt einer klaren Logik – vom Wichtigsten zum Spezifischen. Eine bewährte Reihenfolge:
+## Welche Information gehört wohin?
 
-1. **Marke** – schafft Vertrauen und Wiedererkennung.
-2. **Hauptprodukt / Kernbegriff** – das, wonach Menschen tatsächlich suchen.
-3. **Wichtigste Eigenschaften / Keywords** – Material, Größe, Menge, Kompatibilität.
-4. **Differenzierung / Nutzen** – was dich vom Wettbewerb abhebt.
-5. **Variantenangabe** – Farbe, Packungsgröße, Modell.
+| Feld | Aufgabe | Prüffrage |
+|---|---|---|
+| Titel | Produkt eindeutig identifizierbar machen | Erkennt man Produkttyp, relevante Variante und Marke ohne Zusatztext? |
+| Item Highlights | Kaufentscheidende Eigenschaften ergänzen | Welches belegbare Merkmal hilft beim Vergleich? |
+| Attribute | Präzise Produktdaten pflegen | Stimmen Material, Maße, Menge und Kompatibilität mit der Ware überein? |
+| Bulletpoints und A+ | Anwendung und Einwände erklären | Welche Frage bleibt vor dem Kauf offen? |
 
-Beispiel (schematisch): *Marke – Edelstahl-Trinkflasche 750 ml, auslaufsicher, doppelwandig isoliert, hält 24 h kalt – BPA-frei, mattschwarz*.
+Die Reihenfolge im Titel folgt dem Produkt und den geltenden Kategorieanforderungen. Bei Ersatzteilen kann eine Modellnummer wichtiger sein als ein allgemeiner Nutzen. Bei Varianten darf die Kürzung nicht dazu führen, dass verschiedene Größen identisch wirken. Eine pauschale Ranking-Gewichtung einzelner Titelpositionen veröffentlicht Amazon nicht.
 
-## Keywords sinnvoll platzieren – ohne Stuffing
+## Praxis: ein Titel, der auch ohne Highlights verständlich ist
 
-Die wichtigsten Suchbegriffe gehören möglichst weit nach vorne, weil sowohl der Algorithmus als auch der Leser die ersten Wörter am stärksten gewichten. Wichtig: Jedes relevante Keyword muss nur **einmal** im Titel stehen. Wiederholungen bringen kein zusätzliches Ranking, kosten aber Lesbarkeit. Keyword-Stuffing – das Aneinanderreihen von Begriffen ohne Sinn – schadet sogar, weil es die Klickrate senkt und gegen Amazons Stilrichtlinien verstößt.
+<aside class="article-example">
+<p class="example-label">Fiktives Produkt · Textbeispiel</p>
+<h3>Produktidentität zuerst, Details danach</h3>
+<p><strong>Titel:</strong> Nordquell Edelstahl-Trinkflasche 750 ml, Schwarz</p>
+<p><strong>Item Highlights:</strong> Doppelwandig isoliert, Schraubverschluss, 7,5 cm Durchmesser; für kalte und heiße Getränke</p>
+<p>Der Titel bleibt unter 75, das Highlight unter 125 Zeichen. Maße und Produkteigenschaften sind hier Beispielannahmen: Verwendet sie nur, wenn eure Produktspezifikation sie belegt.</p>
+</aside>
 
-## Lesbarkeit für Menschen
+Das Beispiel spart weder durch unverständliche Abkürzungen noch durch Weglassen der Füllmenge. Es trennt Identifikation von Erklärung. Statt einer unbelegten Aussage wie „hält garantiert 24 Stunden kalt“ nennt es überprüfbare Eigenschaften. Bei einem anderen Produkt können Kompatibilität oder Stückzahl den Platz beanspruchen, den hier Material und Farbe nutzen.
 
-Ein Titel, der nur für den Algorithmus geschrieben ist, verkauft schlecht. Achte deshalb auf echte Lesbarkeit: sinnvolle Wortreihenfolge, klare Trennung der Informationsblöcke (oft mit Kommas oder Bindestrichen) und keine kryptischen Abkürzungen. Denk an das Smartphone-Display: Auf mobilen Geräten wird der Titel oft nach wenigen Wörtern abgeschnitten. Die ersten 60–70 Zeichen müssen deshalb für sich allein überzeugen.
+## Ein belastbarer Ablauf für größere Sortimente
 
-## Amazons Regeln beachten
+1. **Katalog exportieren:** Pro Child-ASIN Marktplatz, Produkttyp, aktuellen Titel, Highlight, Variante und führendes Quellsystem erfassen. Parent-Titel getrennt behandeln.
+2. **Probleme priorisieren:** Zuerst umsatzstarke ASINs und Titel mit verlorenen Modellnummern oder Mengenangaben. Nicht nur nach Überschreitung sortieren.
+3. **Suchintention prüfen:** Eigene Suchbegriffs- und Suchanfragedaten zeigen, welche Produktbegriffe Käufer tatsächlich verwenden. Relevanz geht vor Suchvolumen.
+4. **Texte freigeben:** Produktverantwortliche prüfen Aussagen und Varianten; das Marketing prüft Verständlichkeit. Zeichenzählung einschließlich Leerzeichen automatisieren.
+5. **Kleine Gruppe ausrollen:** Änderungen an einem überschaubaren Sortiment testen, Verarbeitungsberichte kontrollieren und die tatsächlich angezeigte Detailseite prüfen.
+6. **Quellsystem synchronisieren:** PIM, Feed, Übersetzungen und Seller Central müssen dieselbe freigegebene Fassung verwenden. Sonst überschreibt der nächste Import die Korrektur.
 
-Amazon hat konkrete Vorgaben für Titel, und Verstöße können zur Unterdrückung des Listings führen. Übliche Regeln: keine Werbephrasen wie „Bestseller" oder „Sale", keine Sonderzeichen oder Emojis, kein durchgängiges Großschreiben, und Einhaltung der kategoriespezifischen Zeichenlänge (häufig rund 200 Zeichen, in vielen Kategorien aber kürzer empfohlen). Prüfe immer die aktuellen Vorgaben deiner Kategorie, da sie variieren.
+## Nach der Umstellung richtig messen
 
-## Länge: so lang wie nötig, so kurz wie möglich
+Sichert vor dem Upload eine Vergleichsperiode mit Impressionen, Klicks, Bestellungen, Preis, Verfügbarkeit und Werbedruck. Vergleicht danach dieselben Suchanfragen und Varianten. Eine bessere Klickrate bei gleichzeitig verändertem Hauptbild lässt sich nicht sauber dem Titel zuschreiben. Ebenso kann eine Aktion einen Texttest überlagern.
 
-Längere Titel bieten Platz für mehr Keywords, riskieren aber, gestelzt und unübersichtlich zu wirken – besonders mobil. Kürzere Titel lesen sich sauberer, lassen aber Ranking-Chancen liegen. Die Lösung ist kein fixes Limit, sondern Priorisierung: Packe die kaufentscheidenden Informationen und Top-Keywords nach vorne, ergänze sekundäre Details danach und schneide alles ab, was weder rankt noch verkauft.
+Wo eure ASIN für Manage Your Experiments geeignet ist, nutzt einen kontrollierten Test. Bei einem einfachen Vorher-nachher-Vergleich dokumentiert ihr mindestens Preisaktionen, Lieferzeit und Kampagnenänderungen. Rollt einen vermeintlichen Gewinner erst breiter aus, wenn die Datenmenge und der Beobachtungszeitraum für eine Entscheidung reichen.
 
-## Testen und iterieren
+## Der nächste Schritt für eure Listings
 
-Ein Titel ist nie endgültig. Beobachte nach Änderungen deine Klickrate und Conversion. Steigt die Klickrate, hat der Titel als Anzeige besser funktioniert; steigt die Conversion, passt er besser zur Erwartung der Klickenden. Verändere möglichst nur eine Variable zur Zeit, damit du die Wirkung zuordnen kannst.
+Die Titelumstellung ist ein guter Anlass für einen Katalogcheck: Welche Varianten sind unklar, welche Angaben widersprechen sich, welche Kaufargumente fehlen in den Bildern? Unser Bereich [Listing & SEO](/leistungen/listing-seo) verbindet Texte, Produktdaten und Content. In den [Designbeispielen](/design-beispiele) seht ihr, wie aus überprüfbaren Eigenschaften verständliche Kaufargumente werden.
 
-## Fazit
+*Regelstand geprüft am 17. Oktober 2026. Quelle: Amazon Deutschland, oben verlinkte Titelankündigung.*
 
-Ein guter Amazon-Titel ist ein Balanceakt aus drei Zielen: Ranking, Klickrate und Glaubwürdigkeit. Wer die wichtigsten Keywords weit vorne, ohne Wiederholung und in lesbarer Reihenfolge platziert, Amazons Regeln einhält und regelmäßig testet, holt aus dem wichtigsten Textfeld seines Listings das Maximum heraus – und verschafft sich einen Vorsprung gegenüber den vielen Titeln, die nur für den Algorithmus geschrieben wurden.
+## Praxis: Der Feed darf die Titelkorrektur nicht zurückdrehen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Der Feed darf die Titelkorrektur nicht zurückdrehen</h3>
+<p>Eine Marke korrigiert 40 Titel in Seller Central. Nachts schreibt ihr PIM die alten Fassungen wieder hinein. Die Oberfläche wurde richtig bearbeitet, aber der Prozess bleibt fehlerhaft. Ein Titelprojekt ist erst abgeschlossen, wenn die freigegebene Fassung im führenden System und auf der Produktseite übereinstimmt.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Hinterlegt je Feld Quellsystem, Freigabeverantwortlichen und Datum.
+2. Kontrolliert nach dem nächsten regulären Import dieselben Test-ASINs erneut – einschließlich Child-Varianten und Übersetzungen.

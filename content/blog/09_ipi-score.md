@@ -11,18 +11,18 @@ Es gibt eine Zahl, die im Hintergrund darüber entscheidet, wie viel Ware du üb
 
 ## Was der IPI-Score ist
 
-IPI steht für *Inventory Performance Index*. Es ist ein Wert auf einer Skala (üblicherweise 0 bis 1000), den Amazon jedem FBA-Verkäufer zuweist. Er bildet ab, wie effizient du deinen Lagerplatz im Verhältnis zu deinen Verkäufen nutzt. Vereinfacht: Amazon will, dass sein Lager mit Ware gefüllt ist, die sich auch verkauft – nicht mit Ladenhütern. Der IPI ist Amazons Urteil darüber, wie gut du genau das hinbekommst.
+IPI steht für Inventory Performance Index und wird auf einer Skala von 0 bis 1.000 angegeben. Er beschreibt die Lagerbestandseffizienz berechtigter FBA-Konten. Neue Konten haben nicht zwingend sofort einen Score.
 
-Liegst du über der jeweils geltenden Schwelle, hast du in der Regel unbegrenzte (oder großzügige) Lagerkapazität. Fällst du darunter, drohen Restriktionen.
+Der IPI ist ein Faktor der FBA-Kapazitätsplanung. Ein hoher Wert garantiert keine unbegrenzte Lagerfläche. Beachtet zusätzlich die im Kapazitätsmonitor ausgewiesenen Limits, bereits belegten Platz, geplante Anlieferungen und den jeweiligen Lagertyp. [Amazon erklärt das monatliche Kapazitätssystem](https://sell.amazon.com/blog/announcements/fba-capacity).
 
 ## Die vier Faktoren, die den Score treiben
 
-Der IPI setzt sich aus mehreren Komponenten zusammen. Diese vier wiegen am schwersten:
+Der IPI setzt sich aus mehreren Komponenten zusammen. Das Dashboard zeigt vier nützliche Einfluss- und Diagnosebereiche; deren exakte Gewichtung veröffentlicht Amazon nicht:
 
 1. **Überbestand (Excess Inventory):** Zu viel Ware im Verhältnis zur Verkaufsgeschwindigkeit drückt den Score. Kapital, das in liegender Ware gebunden ist, ist aus Amazons Sicht ineffizient genutzter Platz.
 2. **Sell-Through-Rate (Abverkaufsrate):** Wie viele Einheiten du im Verhältnis zum durchschnittlichen Lagerbestand über einen Zeitraum verkaufst. Hohe Drehung = guter Score.
 3. **Hängende Bestände (Stranded Inventory):** Ware, die im Lager liegt, aber wegen eines Listing-Problems nicht verkäuflich ist (z. B. deaktiviertes Angebot). Solche Bestände ziehen den Score nach unten.
-4. **Verfügbarkeit (In-Stock Rate):** Wie zuverlässig deine gut laufenden Produkte verfügbar sind. Häufige Ausverkäufe schaden – sowohl dem Umsatz als auch dem Score.
+4. **Verfügbarkeit (In-Stock Rate):** Wie zuverlässig deine gut laufenden Produkte verfügbar sind. Ausverkäufe gefährden Umsatz und Verfügbarkeit. Die In-Stock-Rate ist ein wichtiger Diagnosewert, aber kein einfacher direkter Abzug pro Stockout vom IPI.
 
 ## Warum der Score fällt
 
@@ -41,6 +41,19 @@ Der Score reagiert nicht über Nacht, lässt sich aber systematisch heben:
 ## Geduld und Routine
 
 Der IPI ist kein Wert, den man einmal repariert. Er ist eine fortlaufende Disziplin: regelmäßig Bestände prüfen, hängende Einheiten beheben, Nachschub maßvoll planen. Mache daraus eine wöchentliche oder zweiwöchentliche Routine, dann gerätst du gar nicht erst in die Nähe der kritischen Schwelle.
+
+## Praxis: Erst nicht verkäufliche Ware lösen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Erst nicht verkäufliche Ware lösen</h3>
+<p>Von 1.000 eingelagerten Einheiten sind 120 wegen eines Katalogfehlers nicht kaufbar. Mehr Werbung für andere Produkte löst diesen Engpass nicht. Prüft für die 120 Einheiten zuerst Angebotsstatus, erforderliche Dokumente und verfügbare Wiederherstellungswege.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Führt eine Liste aus ASIN, Einheiten, Einstandswert, Ursache und verantwortlicher Person.
+2. Priorisiert nach gebundenem Kapital und Lösbarkeit. Betrachtet den Kapazitätsmonitor zusätzlich zum IPI; eine Scoreverbesserung ist keine sofortige Zusage für mehr Platz.
 
 ## Fazit
 

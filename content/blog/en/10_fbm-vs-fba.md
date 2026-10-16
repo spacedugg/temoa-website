@@ -17,11 +17,12 @@ With **FBM** you store the goods yourself (or through an external provider) and 
 
 ## The central differences
 
-- **Cost:** FBA bundles many costs into fees (shipping, storage, returns handling) that rise with size and weight. FBM can be cheaper when you have your own shipping rates or storage capacity, particularly with large, heavy or slow-moving products.
-- **Prime and the Buy Box:** FBA offers are automatically Prime eligible and tend to have better chances at the Buy Box. FBM sellers can only reach Prime through the demanding Seller Fulfilled Prime programme, which sets strict performance requirements.
-- **Effort and scaling:** FBA scales effortlessly, because Amazon handles the logistics through volume peaks too. FBM ties up more and more of your own resources as volume grows.
-- **Control and brand:** FBM allows your own packaging, inserts and a branded unboxing experience. With FBA the packaging is standardized.
-- **Inventory risk:** with FBA you are subject to storage fees, limits and the IPI score. With FBM you steer your own warehouse and carry the full stock risk.
+- **Costs:** compare fulfilment, storage, packaging, labour, service and returns for the same SKU and delivery standard.
+- **Prime and Featured Offer:** FBA can support Prime-eligible delivery but does not guarantee the badge or Featured Offer. Check the actual delivery promise and programme requirements.
+- **Capacity:** FBA still needs replenishment, inbound and capacity planning. FBM needs reliable warehouse and carrier performance.
+- **Packaging:** your product packaging remains relevant in both models; eligible SIPP products can ship without an additional Amazon box.
+
+For Germany, Amazon expects an on-time delivery rate of at least 90% from 15 July 2026 and announced enforcement measures from 1 September. [Official FBM update](https://sellercentral.amazon.de/seller-forums/discussions/t/df8547c7-5e56-4ad5-ae84-4b30834c932f).
 
 ## When FBA is the better choice
 

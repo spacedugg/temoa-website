@@ -17,26 +17,15 @@ A classic example: you sell high-quality stainless steel water bottles. Through 
 
 ## The two match types
 
-Amazon offers two kinds of negative keyword, and the difference matters:
-
-- **Negative exact:** blocks only that exact search. "water bottle kids" blocks that phrase precisely, but not "water bottle for kids". Useful when you want to exclude a single clearly unprofitable keyword without hitting related searches.
-- **Negative phrase:** blocks every search containing that phrase. "kids" as a negative phrase blocks "water bottle kids", "kids water bottle colourful" and so on. More powerful and riskier too, because you can accidentally exclude relevant searches with it.
-
-Rule of thumb: start with negative exact for single offenders, and reach for negative phrase only when a whole topic area consistently does not fit.
+Negative exact excludes the exact phrase and close variations; it is not a strictly character-for-character filter. Negative phrase can exclude a broader family containing the phrase. Check the impact on relevant longer searches before applying broad exclusions. [Amazon defines the match types](https://advertising.amazon.com/help/GHTRFDZRJPW6764R).
 
 ## How to find candidates
 
-The gold mine is the **search term report**. It shows you the actual customer searches that triggered your ads, not just the keywords you booked. Watch for three patterns:
-
-1. **Many clicks, no sales:** a search term with, say, 30 clicks and zero orders is a clear candidate.
-2. **A high ACoS outlier:** search terms that do sell, but at a completely unprofitable ACoS.
-3. **Terms that do not fit the topic:** searches for properties your product does not have (wrong size, wrong material, wrong use case).
-
-Patience matters here: do not exclude anything after two clicks. Wait until you have enough data, usually at least 10 to 15 clicks with no sale, and more when the product price is high.
+Separate clear product mismatch from uncertain performance. Irrelevant terms can be excluded on relevance grounds. Performance decisions need settled attribution, expected conversion and an explicit spend limit. There is no universal rule to stop after 10, 15 or 30 clicks.
 
 ## Negative keywords as campaign steering
 
-Negative keywords are not only about saving money, they are about structure. A widespread approach is the keyword funnel: in a broad auto or broad campaign you discover which search terms convert. You move those into their own exactly targeted campaign and exclude them as negatives in the broad one. That way your own campaigns do not compete with each other and each one has a clear job.
+Move proven search terms only when the destination campaign actually delivers and has sufficient budget. Negating them in the original campaign too soon can remove useful reach. Separation improves budget ownership and interpretation; overlapping campaigns do not automatically bid up their own CPC.
 
 ## Common mistakes
 

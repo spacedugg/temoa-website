@@ -11,7 +11,7 @@ Viele Verkäufer kennen ihre wahre Marge nicht – nicht, weil sie nicht rechnen
 
 ## Kontogebühren
 
-Die Basis bildet die Wahl deines Verkäufertarifs. Beim **Professional-Tarif** zahlst du eine feste monatliche Grundgebühr, hast dafür aber Zugang zu allen Funktionen und keine Stückgebühr. Beim **Einzelanbieter-Tarif** entfällt die Monatsgebühr, dafür wird pro verkauftem Artikel ein fester Betrag fällig. Faustregel: Ab einer bestimmten monatlichen Stückzahl lohnt sich der Professional-Tarif – wer regelmäßig verkauft, fährt damit fast immer besser.
+Die Basis bildet die Wahl deines Verkäufertarifs. Beim **Professional-Tarif** zahlst du eine feste monatliche Grundgebühr, erhältst zusätzliche Verkaufsfunktionen; weitere Programme haben eigene Voraussetzungen und keine Stückgebühr. Beim **Einzelanbieter-Tarif** entfällt die Monatsgebühr, dafür wird pro verkauftem Artikel ein fester Betrag fällig. Faustregel: Ab einer bestimmten monatlichen Stückzahl lohnt sich der Professional-Tarif – wer regelmäßig verkauft, fährt damit fast immer besser.
 
 ## Die Referral-Gebühr (Verkaufsprovision)
 
@@ -23,7 +23,7 @@ Wenn Amazon Lagerung und Versand übernimmt, kommen mehrere Posten hinzu:
 
 - **Fulfillment Fee (Versandgebühr):** pro Einheit, abhängig von Größe und Gewicht. Große und schwere Artikel kosten deutlich mehr.
 - **Lagergebühren:** monatlich nach belegtem Volumen, mit saisonalen Aufschlägen in den umsatzstarken Monaten.
-- **Einlagerungs-/Platzierungsgebühren:** Kosten für die Verteilung deiner Ware auf Amazons Lager – ein neuerer Posten, der ältere Kalkulationen oft überrascht.
+- **Anlieferung und programmspezifische Kosten:** Transport zum Lager und nur die für euren Marktplatz tatsächlich geltenden Zusatzgebühren. US-Inbound-Placement-Gebühren sind keine pauschale deutsche FBA-Gebühr.
 - **Langzeitlager-Gebühren:** Aufschläge für Ware, die zu lange liegt.
 - **Rücksendungs-/Entsorgungsgebühren:** für Retouren-Abwicklung oder das Zurückholen/Entsorgen von Beständen.
 
@@ -42,6 +42,25 @@ Einzeln wirkt jede Gebühr überschaubar – in Summe können sie einen erheblic
 ## Gebühren aktiv niedrig halten
 
 Du kannst einige Posten beeinflussen. Optimiere Verpackungsgröße und Gewicht, um in günstigere FBA-Größenklassen zu fallen. Halte deine Lagerbestände gesund (siehe IPI-Score), um Lager- und Langzeitgebühren zu vermeiden. Prüfe bei großen, schweren oder langsam drehenden Produkten, ob FBM günstiger ist. Und reiche Lieferungen sauber vorbereitet ein, um Sondergebühren zu sparen.
+
+## Aktuelle Konditionen prüfen
+
+Die deutsche Preisübersicht nennt 39 € monatlich ohne Umsatzsteuer für Professional beziehungsweise 0,99 € pro verkaufter Einheit im Einzelanbieter-Tarif, jeweils zuzüglich weiterer Gebühren. Prüft die konkrete Gebührenkategorie und die im Rechner berücksichtigten Zuschläge pro ASIN.
+
+[Primärquelle und Details](https://sell.amazon.de/en/preisgestaltung) · geprüft am 17. Oktober 2026.
+
+## Praxis: Gebührenabweichungen systematisch finden
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Gebührenabweichungen systematisch finden</h3>
+<p>Im Gebührenreport steigt der Betrag einer SKU, obwohl Preis und Absatz stabil sind. Eine mögliche Ursache ist eine geänderte Größenklasse. Der erste Schritt ist der Abgleich mit hinterlegten Maßen und tatsächlicher Verpackung, nicht eine pauschale Preiserhöhung.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Speichert Gebühren je SKU und Monat mit Größenklasse, Gewicht und Programm.
+2. Priorisiert Abweichungen nach Euroeffekt. Reicht nachvollziehbare Nachweise ein, wenn Daten falsch sind, und aktualisiert die Margenrechnung nach der Klärung.
 
 ## Fazit
 

@@ -38,6 +38,19 @@ Externe Finanzierung (Lieferantenkredite, Working-Capital-Linien, spezialisierte
 
 Führe eine einfache Liquiditätsplanung, die Einkäufe, erwartete Auszahlungen und laufende Kosten über die nächsten Monate abbildet. So erkennst du Engpässe, bevor sie entstehen, und kannst Bestellungen oder Wachstum entsprechend steuern. Wer nur auf Umsatz und Gewinn schaut, übersieht genau die Kennzahl, die über das Überleben entscheidet: das Geld auf dem Konto.
 
+## Praxis: Bestellmenge gegen Liquidität testen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Bestellmenge gegen Liquidität testen</h3>
+<p>Ein zusätzlicher Einkauf von 2.000 Einheiten zu 8 € bindet im Modell 16.000 €, bevor Werbung und Transport bezahlt sind. Ein positiver späterer Stückgewinn macht diese Zahlung heute nicht verfügbar.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Verbindet jede größere Bestellung mit einer rollierenden 13-Wochen-Liquiditätsvorschau.
+2. Vergleicht Basis- und Verzögerungsfall für Anlieferung, Verkauf und Auszahlung. Legt fest, welcher Mindestbestand an Liquidität vor einer Budgeterhöhung erhalten bleiben muss.
+
 ## Fazit
 
 Das Wachstumsparadox ist real: Profit ist nicht gleich Liquidität, und schnelles Wachstum bindet Kapital, bevor es Geld einbringt. Wer den Cash-Conversion-Zyklus versteht und gezielt verkürzt – über Lieferantenkonditionen, kluge Bestandsplanung, schnelleren Abverkauf und bewusst dosiertes Wachstum –, bleibt zahlungsfähig, während er wächst. Inventar- und Cashflow-Management ist damit keine Buchhaltungsnebensache, sondern eine der wichtigsten Überlebensdisziplinen im Amazon-Geschäft.

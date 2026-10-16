@@ -31,8 +31,8 @@ Die Brand Registry schaltet eine Reihe wertvoller Funktionen frei:
 - **A+ Content:** gestaltete Produktbeschreibungen mit Bildern und Modulen, die die Conversion heben.
 - **Sponsored Brands & Brand Store:** Markenanzeigen und ein eigener Markenshop für Markenaufbau und Funnel.
 - **Brand Analytics:** wertvolle Daten zu Suchbegriffen, Wettbewerb und Kaufverhalten.
-- **Schutzwerkzeuge:** Mechanismen, um gefälschte oder unautorisierte Angebote und Markenrechtsverletzungen zu melden und entfernen zu lassen.
-- **Mehr Kontrolle über Listings:** Deine Angaben gelten als maßgeblich, was Manipulation durch Dritte erschwert.
+- **Schutzwerkzeuge:** Werkzeuge zum Melden belegter Rechtsverletzungen und Fälschungen. Fehlende Händlerautorisierung allein macht ein Angebot nicht automatisch rechtswidrig.
+- **Mehr Kontrolle über Listings:** Markeninhaber können Inhalte besser verwalten; die Registry garantiert aber keine ausschließliche Hoheit über jedes Katalogfeld.
 
 ## Der Anmeldeprozess
 
@@ -44,8 +44,26 @@ Die Registry zu haben reicht nicht – du musst die Schutzfunktionen auch nutzen
 
 ## Warum sich das lohnt
 
-Ohne Brand Registry bist du auf Amazon weitgehend wehrlos gegen Trittbrettfahrer und verlierst Zugang zu den stärksten Verkaufs- und Datenwerkzeugen. Mit ihr baust du eine echte, verteidigbare Marke – die nicht nur besser verkauft, sondern auch wertvoller und widerstandsfähiger ist, etwa beim späteren Verkauf des Geschäfts.
+Auch ohne Brand Registry bestehen gesetzliche Rechte und Meldewege; die Registry bündelt zusätzliche Schutzwerkzeuge und verlierst Zugang zu den stärksten Verkaufs- und Datenwerkzeugen. Mit ihr baust du eine echte, verteidigbare Marke – die nicht nur besser verkauft, sondern auch wertvoller und widerstandsfähiger ist, etwa beim späteren Verkauf des Geschäfts.
+
+## Praxis: Rechte und Rollen getrennt verwalten
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Rechte und Rollen getrennt verwalten</h3>
+<p>Eine Marke ist erfolgreich registriert, aber die neue Mitarbeiterin sieht das Analysewerkzeug nicht. Die Markenregistrierung und die zugewiesenen Benutzerrollen sind unterschiedliche Ebenen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Pflegt eine Matrix mit Markeninhaber, Kontorollen, Agenturzugriffen und benötigten Funktionen.
+2. Prüft Zugänge beim Onboarding und beim Ausscheiden einer Person. Die Registry ersetzt weder eine saubere Rechteverwaltung noch die Prüfung tatsächlicher Schutzrechtsverletzungen.
 
 ## Fazit
 
 Die Brand Registry ist für jede ernsthafte Marke auf Amazon kein Nice-to-have, sondern Grundausstattung. Sie schaltet A+ Content, Markenwerbung, Analytics und – entscheidend – Schutzwerkzeuge gegen Fälscher und Listing-Diebe frei. Die wichtigste Voraussetzung ist eine eingetragene Marke, deren Registrierung Zeit braucht. Wer früh anmeldet und die Schutzfunktionen aktiv nutzt, legt das Fundament für eine Marke, die man verteidigen und ausbauen kann.
+
+
+## Programm und Voraussetzungen
+
+[Amazon Deutschland: Markeninhaber](https://sell.amazon.de/markeninhaber) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

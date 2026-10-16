@@ -38,6 +38,19 @@ Wettbewerbsdaten sind Indizien, keine Gewissheiten. Tools schätzen Verkäufe un
 
 Mache aus Wettbewerbsbeobachtung eine regelmäßige Gewohnheit statt einer einmaligen Aktion. Prüfe in festen Abständen die Top-Platzierungen deiner wichtigsten Keywords, beobachte neue Anbieter, und gleiche Preis- und Bewertungsentwicklung deiner stärksten Konkurrenten ab. So erkennst du Verschiebungen früh – etwa wenn ein neuer Wettbewerber Druck aufbaut – und kannst reagieren, bevor es deine Zahlen spürbar trifft.
 
+## Praxis: Wettbewerbersignal als Hypothese behandeln
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Wettbewerbersignal als Hypothese behandeln</h3>
+<p>Ein Konkurrent erscheint bei drei Stichproben oben in der Suche. Daraus kennt ihr weder sein Tagesbudget noch seine Conversion oder Profitabilität. Die Beobachtung liefert eine Testidee, aber keine belastbare Gebotsempfehlung.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erfasst Suchanfrage, Zeitpunkt, Standort, Gerät und beobachtetes Angebot.
+2. Prüft anschließend eure eigenen Suchbegriffs- und Platzierungsdaten. Testet eine Lücke mit Budgetgrenze, statt vermutete Wettbewerbergebote nachzubauen.
+
 ## Fazit
 
 PPC-Intelligence bedeutet, den Markt nicht nur durch die Brille der eigenen Zahlen zu sehen, sondern den Wettbewerb als Teil der Gleichung zu begreifen. Wer beobachtet, welche Keywords und Platzierungen Konkurrenten besetzen, deckt Chancen und Risiken auf, die in den eigenen Daten unsichtbar bleiben. Die Kunst liegt darin, diese Signale als Hypothesen zu nutzen und an der eigenen Performance zu validieren – dann wird aus Beobachtung ein echter Vorteil.

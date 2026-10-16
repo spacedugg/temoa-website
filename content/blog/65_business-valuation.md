@@ -11,7 +11,7 @@ Ein erfolgreiches Amazon-Geschäft ist nicht nur eine Einnahmequelle – es ist 
 
 ## Wie der Wert grundsätzlich berechnet wird
 
-Die gängigste Bewertungslogik basiert auf dem Gewinn, multipliziert mit einem Faktor (Multiple). Üblich ist die Kennzahl **SDE** (Seller's Discretionary Earnings) – vereinfacht der bereinigte Gewinn, den ein Eigentümer-Geschäftsführer tatsächlich aus dem Geschäft zieht. Auf diesen Gewinn wird ein Multiple angewandt, das je nach Qualität und Risiko des Geschäfts variiert. Vereinfacht: Wert = bereinigter Jahresgewinn × Multiple. Am Multiple entscheidet sich alles.
+Die gängigste Bewertungslogik basiert auf dem Gewinn, multipliziert mit einem Faktor (Multiple). Üblich ist die Kennzahl **SDE** (Seller’s Discretionary Earnings) – vereinfacht der bereinigte Gewinn, den ein Eigentümer-Geschäftsführer tatsächlich aus dem Geschäft zieht. Auf diesen Gewinn wird ein Multiple angewandt, das je nach Qualität und Risiko des Geschäfts variiert. Vereinfacht: Wert = bereinigter Jahresgewinn × Multiple. Am Multiple entscheidet sich alles.
 
 ## Was das Multiple treibt
 
@@ -19,7 +19,7 @@ Zwei Geschäfte mit gleichem Gewinn können sehr unterschiedliche Preise erziele
 
 - **Stabile, wachsende Umsätze** über mehrere Jahre statt sprunghafter Spitzen.
 - **Diversifikation:** mehrere Produkte und Umsatzquellen statt Abhängigkeit von einem einzigen Bestseller.
-- **Niedrige Werbeabhängigkeit:** ein gesunder organischer Anteil (sichtbar an einem niedrigen, stabilen TACoS) ist sehr wertvoll.
+- **Niedrige Werbeabhängigkeit:** belegbare Nachfrage und tragfähige Deckungsbeiträge können wertvoll sein. Ein niedriger TACoS allein belegt keinen organischen Umsatzanteil.
 - **Eingetragene Marke und Schutz:** Brand Registry, eigene Marke, ggf. Patente erhöhen die Verteidigbarkeit.
 - **Saubere Zahlen und Prozesse:** nachvollziehbare Buchhaltung, dokumentierte Abläufe, geringe Abhängigkeit vom Gründer.
 - **Gute Konto-Gesundheit:** keine Sperren, gute Kennzahlen, saubere Historie.
@@ -39,6 +39,19 @@ Wertsteigerung beginnt idealerweise ein bis zwei Jahre vor dem geplanten Exit. K
 ## Den Verkauf vorbereiten
 
 Wenn der Verkauf näher rückt, lohnt es sich, alle Unterlagen aufzubereiten (Finanzen, Lieferantenverträge, Markenrechte, Prozessdokumentation) und gegebenenfalls über einen spezialisierten Broker oder Marktplatz zu verkaufen. Eine saubere, transparente Datenlage schafft Vertrauen und rechtfertigt ein höheres Multiple. Ziehe für die rechtlichen und steuerlichen Aspekte des Verkaufs fachkundige Beratung hinzu.
+
+## Praxis: Bereinigungen nachvollziehbar machen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Bereinigungen nachvollziehbar machen</h3>
+<p>Ein Verkäufer addiert sein gesamtes Gehalt zum Ergebnis zurück. Der Käufer muss aber künftig eine operative Leitung bezahlen. Nicht jede als einmalig bezeichnete Ausgabe ist deshalb vollständig werterhöhend.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Belegt jede Ergebnisbereinigung mit Dokument, Grund und realistischer Ersatzkostenannahme.
+2. Trennt Unternehmenswert, Warenbestand, Schulden und tatsächlich zufließenden Kaufpreis. Ein Multiple ohne diese Definitionen ist keine belastbare Bewertung.
 
 ## Fazit
 

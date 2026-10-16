@@ -18,9 +18,9 @@ Bei **FBM** lagerst du die Ware selbst (oder über einen externen Dienstleister)
 ## Die zentralen Unterschiede
 
 - **Kosten:** FBA bündelt viele Kosten in Gebühren (Versand, Lagerung, Retourenbearbeitung), die mit Größe und Gewicht steigen. FBM kann günstiger sein, wenn du eigene Versandkonditionen oder Lagerkapazität hast – besonders bei großen, schweren oder langsam drehenden Produkten.
-- **Prime & Buy Box:** FBA-Angebote sind automatisch Prime-fähig und haben tendenziell bessere Chancen auf die Buy Box. FBM-Verkäufer können Prime nur über das anspruchsvolle Programm „Seller Fulfilled Prime" erreichen, das strenge Leistungsanforderungen stellt.
-- **Aufwand & Skalierung:** FBA skaliert mühelos – Amazon übernimmt die Logistik auch bei Volumenspitzen. FBM bindet mit wachsendem Volumen immer mehr eigene Ressourcen.
-- **Kontrolle & Marke:** FBM erlaubt eigene Verpackung, Beilagen und ein markentypisches Auspackerlebnis. Bei FBA ist die Verpackung standardisiert.
+- **Prime & Buy Box:** FBA kann Prime-fähige Lieferung ermöglichen. Die tatsächliche Anzeige hängt unter anderem vom konkreten Lieferangebot ab; FBA garantiert weder Prime-Badge noch Featured Offer. FBM-Verkäufer können Prime nur über das anspruchsvolle Programm „Seller Fulfilled Prime" erreichen, das strenge Leistungsanforderungen stellt.
+- **Aufwand & Skalierung:** FBA kann Versandvolumen skalieren, erfordert aber Kapazitäts-, Bestands- und Anlieferungsplanung – Amazon übernimmt die Logistik auch bei Volumenspitzen. FBM bindet mit wachsendem Volumen immer mehr eigene Ressourcen.
+- **Kontrolle & Marke:** FBM erlaubt eigene Verpackung, Beilagen und ein markentypisches Auspackerlebnis. Bei FBA bleibt eure Produktverpackung relevant; mit geeigneten SIPP-Produkten kann der Versand auch ohne zusätzlichen Amazon-Karton erfolgen.
 - **Lagerrisiko:** Bei FBA unterliegst du Lagergebühren, Limits und dem IPI-Score. Bei FBM steuerst du dein Lager selbst, trägst aber auch das volle Bestandsrisiko.
 
 ## Wann FBA die bessere Wahl ist
@@ -38,6 +38,25 @@ Die Entscheidung ist nicht entweder-oder. Viele erfahrene Verkäufer nutzen eine
 ## Entscheidungshilfe
 
 Frage dich der Reihe nach: Ist Prime für meine Kategorie kaufentscheidend? Wie groß und schwer ist das Produkt? Wie schnell dreht es sich? Habe ich Lager- und Versandkapazität? Wie stehen FBA-Gebühren zu meiner Marge? Wenn Prime wichtig, Produkt klein und drehfreudig ist, spricht vieles für FBA. Wenn das Produkt groß, schwer oder langsam ist und du selbst effizient versenden kannst, prüfe FBM ernsthaft.
+
+## FBM-Lieferleistung 2026
+
+Amazon.de erwartet seit 15. Juli 2026 mindestens 90 % pünktliche Lieferungen. Seit 1. September können bei Unterschreitung Angebote deaktiviert oder neue FBM-Angebote eingeschränkt werden. Plant deshalb nicht nur Versandkosten, sondern belastbare Lieferzusagen.
+
+[Primärquelle und Details](https://sellercentral.amazon.de/seller-forums/discussions/t/df8547c7-5e56-4ad5-ae84-4b30834c932f) · geprüft am 17. Oktober 2026.
+
+## Praxis: FBA und FBM je SKU vergleichen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>FBA und FBM je SKU vergleichen</h3>
+<p>Für eine sperrige SKU werden im Modell 8 € FBA-Abwicklung angesetzt. Eigenversand kostet 5,20 € Porto plus 1,10 € Pick-and-Pack, 0,60 € Verpackung und 0,80 € Service-/Retourenanteil: 7,70 €. Der scheinbare Vorteil von 2,80 € schrumpft auf 0,30 €.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht dieselbe Zustellqualität und ergänzt Lager-, Personal- und Ausfallkosten.
+2. Testet einen realistischen Spitzenabsatz, bevor ihr umstellt. Ein kleiner Kostenvorteil rechtfertigt keine Lieferzusagen, die operativ nicht gehalten werden.
 
 ## Fazit
 

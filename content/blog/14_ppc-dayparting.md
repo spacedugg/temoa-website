@@ -35,6 +35,24 @@ Der erste Fehler ist übermäßiges Feintuning auf Basis zu kleiner Datenmengen 
 
 Dayparting ist Feinarbeit, kein Wundermittel. Bei den meisten Konten bringt eine saubere Kampagnenstruktur, gute Keywords und konsequente Negativ-Keyword-Pflege mehr als Tageszeit-Optimierung. Dayparting ist die Kür, nicht die Pflicht – sinnvoll, wenn das Fundament steht und du mit hohem Volumen die letzten Effizienzprozente heben willst.
 
+## Praxis: Klickzeit und Kaufzeit auseinanderhalten
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Klickzeit und Kaufzeit auseinanderhalten</h3>
+<p>Ein Report zeigt morgens viele Klicks und abends mehr Käufe. Daraus folgt nicht, dass die Morgenstunden unprofitabel sind: Ein Teil der Käufer könnte nach dem morgendlichen Kontakt später bestellen. Eine Auswertung nach Kaufzeit würde dann das falsche Zeitfenster abschalten.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Prüft Zeitzone, Zeitbezug und Attributionsverzögerung der Datenquelle.
+2. Beginnt mit breiten Zeitblöcken und einem begrenzten Test. Vergleicht mehrere gleichartige Wochentage und berücksichtigt Budgetausfälle sowie saisonale Aktionen.
+
 ## Fazit
 
 Dayparting kann Streuverluste reduzieren und Budget in die kaufstärksten Zeiten lenken – aber nur, wenn es auf belastbaren Daten beruht und du genug Volumen hast, damit Stundenmuster überhaupt aussagekräftig sind. Miss zuerst, steuere dann grob, schalte profitable Fenster nicht vorschnell ab und überprüfe regelmäßig. Als Ergänzung zu einem soliden Konto ist es ein nützlicher Feinschliff, als Ersatz für die Grundlagen taugt es nicht.
+
+
+## Programm und Voraussetzungen
+
+[Amazon Ads: Budget rules](https://advertising.amazon.com/library/guides/budget-rules) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

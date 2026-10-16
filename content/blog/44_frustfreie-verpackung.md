@@ -40,6 +40,25 @@ Der Wechsel zu frustfreier Verpackung erfordert Vorarbeit. Die Verpackung muss b
 
 Besonders sinnvoll ist frustfreie Verpackung für Produkte, die sich gut ohne Überkarton versenden lassen, für Marken mit Nachhaltigkeitsanspruch und für Artikel, bei denen die Verpackung bisher überdimensioniert war. Bei sehr fragiler Ware oder komplexen Sets ist der Aufwand höher und sollte gegen den Nutzen abgewogen werden.
 
+## SIPP und Verpackungsrecht getrennt prüfen
+
+Ships in Product Packaging (SIPP) ist Amazons Programm für Versand in der Produktverpackung. Das ersetzt keine Verpackungs- oder Produktsicherheitspflichten. Seit 12. August 2026 gelten neue PPWR-Regeln; für Onlineverpackungen muss die Herstellerrolle anhand der konkreten Lieferkette geprüft werden. Eigene Marke, fertig bezogene Verpackung und selbst zusammengestellte Versandverpackung können unterschiedlich zu beurteilen sein.
+
+[Primärquelle und Details](https://www.verpackungsregister.org/themen/versand-und-onlinehandel) · geprüft am 17. Oktober 2026.
+
+## Praxis: Verpackungsersparnis gegen Schäden rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Verpackungsersparnis gegen Schäden rechnen</h3>
+<p>Eine neue Verpackung spart im Modell 0,25 € je Einheit. Steigt die Schadensquote um zwei Prozentpunkte und kostet ein Schaden durchschnittlich 18 €, entstehen 0,36 € zusätzliche Kosten je Einheit. Die scheinbare Ersparnis wird zum Verlust.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Testet Versandtauglichkeit und Dokumentation vor dem breiten Wechsel.
+2. Kalkuliert Material, Arbeit, Gebühren und Schäden zusammen. Amazon-Zertifizierung und gesetzliche Verpackungspflichten bleiben getrennte Prüfpunkte.
+
 ## Fazit
 
 Frustfreie Verpackung ist ein Programm, das Umweltnutzen und Geschäftsvorteile verbindet: weniger Material, potenziell niedrigere Kosten, eine bessere Kundenerfahrung und ein Nachhaltigkeitsargument für deine Marke. Der Preis dafür ist Entwicklungsaufwand und die Notwendigkeit, dass die Verpackung versandtauglich und zertifiziert ist. Für viele Produkte – besonders gut versendbare und nachhaltig positionierte – ist das eine lohnende Investition; bei fragiler Ware lohnt eine genaue Abwägung.

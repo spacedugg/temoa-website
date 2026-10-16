@@ -35,10 +35,19 @@ Stelle konkrete Fragen: Wie strukturiert ihr meine Kampagnen? Wie geht ihr mit s
 
 Sei skeptisch bei garantierten ACoS- oder Umsatzwerten (im Auktionsumfeld unmöglich seriös zu versprechen), bei reinem Fokus auf einen niedrigen ACoS ohne Margen- und TACoS-Kontext, bei undurchsichtigen Methoden und bei fehlenden, konkreten Fallbeispielen. Auch wenn eine Agentur den organischen Effekt der Werbung ignoriert, fehlt ihr ein zentrales Stück Strategie.
 
+## Praxis: PPC-Angebote um den Margenbezug prüfen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>PPC-Angebote um den Margenbezug prüfen</h3>
+<p>Eine Agentur verspricht einen niedrigeren ACoS, möchte dafür aber nur die Werbekonsole sehen. Ohne Produktkosten, Retouren und Bestand kann sie Effizienz steuern, aber keine belastbare Profitabilität zusagen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Fragt, wie Zielwerte je SKU entstehen und wie Marken- von Neukundensuche getrennt wird.
+2. Lasst euch Änderungsprotokoll, Budgetfreigaben und eine Beispielentscheidung zeigen. Entscheidend ist, wie der Report die nächste Maßnahme begründet.
+
 ## Fazit
 
 Eine PPC-Agentur auszuwählen heißt, einen Werbe-Spezialisten an einer entscheidenden Stellschraube deines Geschäfts zu beteiligen. Achte auf strategisches Denken (ACoS *und* TACoS, Margenbewusstsein, saubere Kampagnenstruktur), Transparenz und nachweisbare Ergebnisse – und kläre, ob ein Spezialist oder eine integrierte Full-Service-Lösung besser zu deinem Reifegrad passt. Wer Garantieversprechen und reine ACoS-Fixierung als Warnsignale erkennt und die richtigen Fragen stellt, findet einen Partner, der Werbung als profitablen Wachstumstreiber führt – nicht nur als Kostenstelle.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Wenn du deine Amazon-Werbung professionalisieren willst, unterstützen wir dich dabei.*

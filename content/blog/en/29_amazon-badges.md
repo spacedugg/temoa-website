@@ -26,7 +26,7 @@ Most badges cannot be bought or applied for directly, because they are awarded a
 
 ## Badges as a side effect of good work
 
-The most important thought: badges are usually the result, not the goal. Whoever works toward good reviews, availability, conversion and sales gets the badges almost automatically. It is therefore more worthwhile to work on the underlying factors than to chase the badge itself. Choosing a fitting, not overcrowded category (see category positioning) also raises the chance of a Best Seller badge.
+The most important thought: badges are usually the result, not the goal. Whoever works toward good reviews, availability, conversion and sales improves the offer, but still has no guarantee of receiving a badge. It is therefore more worthwhile to work on the underlying factors than to chase the badge itself. Choosing a fitting, not overcrowded category (see category positioning) also raises the chance of a Best Seller badge.
 
 ## What not to do
 

@@ -21,7 +21,7 @@ Wer nur die Conversion-Stufe bewirbt, kämpft um Käufer, die bereits am Ende ih
 
 ## Warum nur „ernten" an Grenzen stößt
 
-Wenn alle Wettbewerber auf dieselben kaufbereiten Keywords bieten, steigen die Klickpreise immer weiter. Irgendwann zahlst du Höchstpreise für eine begrenzte Menge an Nachfrage, die sich nicht vergrößert. Der einzige Weg, dieser Spirale zu entkommen, ist, weiter oben anzusetzen: neue Käufer auf deine Marke aufmerksam zu machen, bevor sie überhaupt vergleichen. So vergrößerst du den Pool an Menschen, die später bei dir kaufen.
+Wenn alle Wettbewerber auf dieselben kaufbereiten Keywords bieten, steigen die Klickpreise immer weiter. Irgendwann zahlst du Höchstpreise für eine begrenzte Menge an Nachfrage, die sich nicht vergrößert. Ein möglicher zusätzlicher Ansatz ist, weiter oben anzusetzen: neue Käufer auf deine Marke aufmerksam zu machen, bevor sie überhaupt vergleichen. So vergrößerst du den Pool an Menschen, die später bei dir kaufen.
 
 ## Welche Werkzeuge auf welche Stufe gehören
 
@@ -33,7 +33,7 @@ Amazon bietet für jede Funnel-Stufe passende Formate:
 
 ## Wie die Stufen ineinandergreifen
 
-Eine Full-Funnel-Strategie ist kein Nebeneinander, sondern ein Kreislauf. Awareness-Kampagnen füllen oben den Trichter mit neuen Kontakten. Consideration-Kampagnen halten dich präsent, während der Käufer vergleicht. Retargeting fängt diejenigen ein, die abgesprungen sind. Und die Conversion-Kampagnen ernten – jetzt aber aus einem größeren Pool, den du selbst aufgebaut hast. Der entscheidende Effekt: Mehr obere Funnel-Aktivität senkt langfristig die Kosten unten, weil mehr Käufer dich schon kennen.
+Eine Full-Funnel-Strategie ist kein Nebeneinander, sondern ein Kreislauf. Awareness-Kampagnen füllen oben den Trichter mit neuen Kontakten. Consideration-Kampagnen halten dich präsent, während der Käufer vergleicht. Retargeting fängt diejenigen ein, die abgesprungen sind. Und die Conversion-Kampagnen ernten – jetzt aber aus einem größeren Pool, den du selbst aufgebaut hast. Die Hypothese: Zusätzliche Bekanntheit kann spätere Nachfrage unterstützen. Ob sie zusätzliche profitable Käufe erzeugt, muss ein Test zeigen; niedrigere Kosten sind nicht garantiert.
 
 ## Messung: jede Stufe braucht eigene Maßstäbe
 
@@ -41,7 +41,20 @@ Der häufigste Fehler beim Full-Funnel-Ansatz ist, alles am ACoS der Conversion-
 
 ## Schrittweiser Aufbau
 
-Du musst nicht alles gleichzeitig starten. Ein pragmatischer Weg: Beginne mit einer soliden Conversion-Basis (Sponsored Products + Marken-Verteidigung). Ergänze dann Retargeting über Sponsored Display, weil es den schnellsten Zusatznutzen liefert. Erst danach baust du obere Funnel-Aktivität mit Sponsored Brands und – bei entsprechendem Budget – DSP aus. So wächst die Strategie mit deinem Geschäft.
+Du musst nicht alles gleichzeitig starten. Ein pragmatischer Weg: Beginne mit einer soliden Conversion-Basis (Sponsored Products + Marken-Verteidigung). Ergänze dann Retargeting über Sponsored Display, wenn ausreichende Zielgruppengröße und eine überprüfbare Zusatznutzen-Hypothese vorliegen. Erst danach baust du obere Funnel-Aktivität mit Sponsored Brands und – bei entsprechendem Budget – DSP aus. So wächst die Strategie mit deinem Geschäft.
+
+## Praxis: Reichweite braucht eine prüfbare Hypothese
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Reichweite braucht eine prüfbare Hypothese</h3>
+<p>Eine Marke reserviert im Modell 3.000 € für neue Zielgruppen. Die Hypothese lautet: Die Kampagne erhöht qualifizierte Erstkäufe in einer bestimmten Produktlinie. Ein höherer Gesamtumsatz während einer gleichzeitigen Rabattaktion würde diese Hypothese allein nicht bestätigen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Legt vor dem Start Messzeitraum, Vergleichsgruppe soweit möglich und Verlustobergrenze fest.
+2. Dokumentiert Aktionen, Bestandsänderungen und Markenwerbung. Reichweite ist ein Zwischenergebnis; die Entscheidung zur Verlängerung braucht eine Verbindung zum Geschäftsziel.
 
 ## Fazit
 

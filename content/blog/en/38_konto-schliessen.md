@@ -11,7 +11,7 @@ Whether you are winding the business down, moving to a different model or simply
 
 ## First check: close or pause?
 
-Before you close for good, ask whether closing is really necessary. If you only need a break, there are gentler routes. Vacation mode deactivates your listings temporarily without dissolving the account. Switching from the Professional to the Individual plan lowers running fees if you simply want to sell less. Closure is final and much harder to undo, so think about whether a reversible option is enough.
+Vacation settings can pause merchant-fulfilled offers; FBA offers generally continue and need separate attention. Pausing does not end all fees or existing obligations. Check offers, advertising, stock and customer-service coverage separately. Permanent closure requires its own documented process.
 
 ## Settle these before you close
 

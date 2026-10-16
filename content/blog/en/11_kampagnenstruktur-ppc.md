@@ -21,7 +21,7 @@ A scalable structure separates campaigns by their function, not by accident. Thr
 - **Performance (the harvest):** exactly targeted campaigns for the keywords you already know sell. This is where you deliberately put more budget and higher bids.
 - **Defense and brand:** campaigns on your own brand keywords, to keep competitors away from your buyers.
 
-This separation is the backbone. It stops the same keywords bidding against each other across several campaigns.
+This separation is the backbone. It makes budget ownership and reporting clearer. Overlap does not automatically mean that your own campaigns raise their own CPC.
 
 ## The keyword funnel principle
 
@@ -37,7 +37,7 @@ It sounds trivial and it is decisive in large accounts: one naming scheme throug
 
 ## Rebuild cleanly or restructure?
 
-If your account is already a mess, the question is: tidy up or rebuild? A complete rebuild is risky because you lose ranking history. A step-by-step restructure is usually better: first move the top performers into a clean structure, then set up discovery properly, then bring the rest across. Do not change everything at once but in controlled stages, so you can judge the effect of each change.
+Restructuring changes delivery, budgets and comparability. It does not automatically delete an ASIN's organic ranking history. Migrate in stages, preserve baseline exports and confirm that new campaigns deliver before negating successful terms in old campaigns.
 
 ## In short
 

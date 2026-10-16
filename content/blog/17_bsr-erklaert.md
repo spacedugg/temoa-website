@@ -37,6 +37,19 @@ Drei Missverständnisse halten sich hartnäckig:
 
 Verwende den BSR als groben Nachfrage-Indikator in der Recherche, immer im Verlauf und immer kategoriebezogen. Achte auf Stabilität: Ein dauerhaft niedriger BSR signalisiert verlässliche Nachfrage, ein stark springender eher unregelmäßige Verkäufe (etwa durch Aktionen). Kombiniere ihn mit anderen Signalen – Bewertungsmenge, Preisniveau, Wettbewerbsdichte –, statt Entscheidungen allein an dieser einen Zahl festzumachen.
 
+## Praxis: BSR nur innerhalb desselben Umfelds lesen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>BSR nur innerhalb desselben Umfelds lesen</h3>
+<p>Ein Produkt liegt in einer kleinen Unterkategorie auf Rang 20, ein anderes in einer großen Kategorie auf Rang 2.000. Daraus lässt sich weder ein gleicher Absatz noch eine Überlegenheit des ersten Produkts ableiten. Auch ein Tageswert nach einer Aktion kann den normalen Bedarf überzeichnen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erfasst Kategoriepfad, Preis, Verfügbarkeit und Rangverlauf gemeinsam.
+2. Nutzt daraus abgeleitete Absatzschätzungen nur als Szenario. Bestellmengen brauchen zusätzlich eigene Verkaufsdaten oder einen begrenzten Markttest.
+
 ## Fazit
 
 Der Best Sellers Rank ist ein nützlicher, aber oft missverstandener Indikator. Er zeigt die relative Verkaufsposition in einer Kategorie, reagiert schnell auf Verkäufe und hilft bei der Einschätzung von Nachfrage – sagt aber nichts über Gewinn und ist nur im Verlauf und im Kategoriekontext aussagekräftig. Wer ihn als groben Kompass statt als absolute Wahrheit liest, zieht den größten Nutzen daraus.

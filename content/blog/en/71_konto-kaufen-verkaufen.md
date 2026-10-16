@@ -1,34 +1,30 @@
 ---
-title: "Buying or selling an Amazon account: what is actually allowed and what to watch for"
-meta_description: "Trading Amazon seller accounts is delicate. What Amazon's rules say, which risks exist and how selling a business runs cleanly rather than dangerously."
+title: "Buying an Amazon business: separate the account and the transaction"
+meta_description: "An Amazon business acquisition does not automatically transfer the seller account. Clarify structure, verification and platform requirements before completion."
 keywords: ["buy Amazon account", "sell Amazon account", "buying a seller account", "Amazon business acquisition"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---
 
-# Buying or selling an Amazon account: what is actually allowed and what to watch for
+# Buying an Amazon business: separate the account and the transaction
 
-Plenty of offers circulate around buying and selling Amazon seller accounts, and just as many misunderstandings. Some advertise "established accounts with history", others want to sell their business and wonder whether the account simply transfers with it. The topic is delicate, because Amazon's rules and everyday reality often diverge. This article sets out soberly what works, what is risky and what a clean sale looks like.
+An Amazon business can be sold, but its seller account is not a freely transferable asset. Amazon describes seller accounts as generally non-transferable. A business acquisition therefore needs a separate assessment of transaction structure, contracting entity, verification and the applicable platform process.
 
-## The distinction that matters: account vs. business
+## Define what changes
 
-First a decisive clarification. There is a difference between **trading a bare seller account** (often to get around a suspension or a waiting list) and **selling a whole business** (brand, products, listings and, where applicable, the associated account). The first is usually problematic, the second an established and legitimate transaction when it is done properly.
+An asset purchase can transfer trademarks, stock, creative rights and contracts. A share purchase may retain the legal entity while changing its owners or beneficial owners. These are different situations. Neither justifies a blanket instruction to hand over credentials and continue trading.
 
-## Why trading accounts alone is risky
+## Resolve the platform process before completion
 
-Amazon ties accounts closely to the identity of the holder and looks critically at changes of ownership. Buying a ready-made account purely to bypass a suspension, a verification or a category restriction generally breaches Amazon's terms and can lead to a suspension, often exactly once you have already invested. Practical risks come with that: hidden baggage such as policy breaches, poor metrics or outstanding claims that you take on without knowing about them. Buy an account blind and you may be buying a problem.
+Document the current contract and account position. Clarify the appropriate route with Amazon and qualified transaction advisers. A broker can coordinate the deal but cannot guarantee Amazon's approval. The contract should address dependencies, responsibilities and the consequences of a delayed or unsuccessful change.
 
-## The legitimate case: selling a business
+## Perform operational due diligence
 
-The picture is different when a complete Amazon business changes hands, meaning brand, products, supplier relationships and listings. That is a normal company sale, an exit, and there is a mature market of brokers and platforms for it. It is not about getting around rules, it is about transferring a real asset with value. How a valuation comes about and how to raise it is a large topic of its own.
+Check account health, outstanding issues, reserves and reimbursements. Match ASINs, trademarks and supplier contracts to the assets being sold. Verify rights to images, copy and software. Review Brand Registry and Advertising permissions separately.
 
-## How a clean transfer runs
+Financial records should reconcile with bookkeeping and payment reports. Returns, variable costs and dependence on a few ASINs matter as much as the headline revenue.
 
-In a serious sale of a business, handle the change of ownership openly and correctly: prepare all documents (finances, supplier agreements, trademark rights), settle the sale properly by contract and, where required, inform Amazon of the change of holder or carry out the transfer under the applicable rules. Many transactions run through specialist brokers or marketplaces that structure the process and protect both sides.
+## Plan the handover
 
-## Due diligence: check before you buy
+Agree a sequence for evidence, verification, permissions, bank details and operating responsibility. Avoid uncontrolled simultaneous changes. Assign an owner and a contingency plan for delays.
 
-Anyone buying a business should check thoroughly: real (not dressed-up) financials, account health and history, dependence on individual products or suppliers, the trademark position, advertising dependency (TACoS) and any open policy problems. That due diligence protects you from buying hidden risks. On larger transactions, take legal and tax advice.
-
-## Conclusion
-
-On buying or selling an Amazon account the rule is this: trading accounts purely to get around rules, suspensions or restrictions is risky and usually against the terms, with a real danger of suspension and hidden baggage. Selling a complete business with genuine value, by contrast, is a legitimate and established transaction when it runs transparently, on clean contracts and with thorough due diligence. Understand the difference and you avoid expensive mistakes, and treat your Amazon business as the asset it is. This article does not replace legal or tax advice.
+[Amazon's explanation of general non-transferability](https://sellercentral.amazon.com/seller-forums/discussions/t/95d0345b-f838-4855-8a78-f87cc47d60a1), reviewed on 17 October 2026. This article does not approve any specific transaction. See [business valuation](/en/blog/business-valuation) for financial preparation.

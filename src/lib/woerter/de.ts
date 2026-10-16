@@ -1549,16 +1549,16 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Amazon-Wissen für Marken und Händler · temoa",
+      titel: "Amazon Insights: Profitabilität und Wachstum · temoa",
       beschreibung:
-        "Amazon-Grundlagen für Marken und Händler: ACoS, Werbung, FBA, Produktlistings und Verkaufsstrategie verständlich erklärt.",
+        "Amazon-Wachstum fundiert steuern: Analysen zu PPC, Conversion, Profitabilität und Bestand. Mit Praxisbeispielen für etablierte Marken.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Amazon-Wissen für ",
-      titelEm: "eure Marke.",
-      lead: "Was ist ACoS? Wie funktioniert FBA? Welche Gebühren fallen beim Verkauf an? Verständliche Antworten für Marken und Händler, die auf Amazon verkaufen oder damit starten möchten.",
+      titelVor: "Mehr aus eurem ",
+      titelEm: "Amazon-Geschäft.",
+      lead: "Wo verliert eure Marke Marge, Sichtbarkeit oder Umsatz? Analysen, Rechenbeispiele und konkrete Vorgehensweisen für bessere Listings, wirksamere Werbung und planbares Wachstum.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
     /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von
@@ -1566,7 +1566,7 @@ export const de = {
     themaTitel: "Alle Beiträge zu {thema}",
     einBeitrag: "1 Beitrag",
     beitraege: "{n} Beiträge",
-    empfohlen: "Empfohlene Beiträge",
+    empfohlen: "Hebel für die nächste Wachstumsphase",
     alleThemen: "Alle Themen",
     inhalt: "Inhalt",
     weiterlesen: "Weiterlesen",

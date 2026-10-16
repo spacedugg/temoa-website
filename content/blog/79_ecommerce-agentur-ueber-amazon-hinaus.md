@@ -35,10 +35,19 @@ Hier gilt eine ähnliche Abwägung wie bei Full-Service vs. Spezialist: Eine bre
 
 Bei einer breiteren Agentur gelten dieselben Grundkriterien wie immer – nachweisbare Ergebnisse, Transparenz, faire Verträge, Eigentum an Konten und Daten – plus zwei Zusatzfragen: Wie tief ist die Amazon-Kompetenz wirklich? Und wie gut können sie die Kanäle tatsächlich integrieren, statt sie nur nebeneinander zu betreuen? Lass dir kanalübergreifende Fallbeispiele zeigen.
 
+## Praxis: Multichannel ohne doppelte Erfolgsmeldung
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Multichannel ohne doppelte Erfolgsmeldung</h3>
+<p>Eine Kampagne wird von Social Ads und Amazon jeweils mit Umsatz bedacht. Werden beide Reports addiert, kann derselbe Kauf mehrfach als Erfolg erscheinen. Dazu kommen unterschiedliche Zeitfenster und Umsatzdefinitionen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vereinbart eine gemeinsame Finanzsicht und separate Kanaldiagnosen.
+2. Klärt Datenhoheit und Verantwortlichkeit für Abweichungen. Ein integrierter Partner sollte die Verbindung erklären können, nicht nur mehrere Dashboards liefern.
+
 ## Fazit
 
 Eine E-Commerce-Agentur über Amazon hinaus lohnt sich, wenn du dein Geschäft als Marke über mehrere Kanäle denkst – um Abhängigkeit zu reduzieren, eigene Kundenbeziehungen aufzubauen und breiter zu wachsen. Der Preis dieser Breite kann geringere Spezialtiefe auf Amazon sein, weshalb du deren Amazon-Kompetenz genau prüfen solltest. Für reine Amazon-Skalierung bleibt ein Spezialist oft die tiefere Wahl; für echtes Multichannel-Wachstum ist ein integrierter E-Commerce-Partner der strategisch klügere Weg. Entscheidend ist, ob deine Ambition bei Amazon endet – oder darüber hinausgeht.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Ob Amazon DE/EU, weitere Marktplätze oder eigener Shop – wir denken dein E-Commerce-Geschäft kanalübergreifend.*

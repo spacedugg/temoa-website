@@ -26,13 +26,7 @@ Each group calls for a different emphasis in your appeal.
 
 ## The Plan of Action
 
-The central instrument for reinstatement is the Plan of Action: a structured appeal that convinces Amazon the problem is understood and permanently solved. A good one has three parts:
-
-1. **Root cause:** what exactly happened and why. Honest and specific, with no excuses.
-2. **Immediate steps:** what you have *already* done to fix the concrete problem.
-3. **Prevention:** which permanent processes you have introduced so it does not recur.
-
-Tone matters: factual, solution-oriented, with no blame pointed at Amazon or at customers. Back your statements with documents where you can, for example manufacturer invoices when authenticity is in question.
+Follow the exact process requested in the notification. Not every deactivation requires a Plan of Action: identity verification, specific documents or a substantiated appeal may be appropriate instead. Where a plan is requested, document the verified cause, completed corrective actions and prevention. Do not invent an admission when the allegation is factually wrong.
 
 ## Common mistakes in the appeal
 

@@ -38,6 +38,19 @@ Der größte Fehler ist die „Einmal-und-fertig"-Haltung: Store bauen, vergesse
 
 Beginne mit der Startseite: Definiere zwei bis vier klare Wege, die unterschiedliche Käufertypen abbilden, und leite Besucher dorthin. Richte dann mindestens eine Sponsored-Brands-Kampagne ein, die in den Store statt auf ein Einzelprodukt führt. Beobachte über die Store-Insights, welche Seiten funktionieren, und überarbeite die schwächste zuerst. Wiederhole das in Zyklen.
 
+## Praxis: Eine Anzeige braucht das passende Store-Ziel
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Eine Anzeige braucht das passende Store-Ziel</h3>
+<p>Eine Anzeige für platzsparende Küchenhelfer führt auf die allgemeine Store-Startseite mit 60 Produkten. Dort muss der Käufer erneut suchen. Eine Unterseite mit den passenden Produkten, Größenvergleich und klarer Anwendung verkürzt den Weg.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ordnet jeder wichtigen Werbeabsicht eine konkrete Store-Zielseite zu.
+2. Vergleicht die Seiten mit ähnlichen Traffic-Quellen. Mehr Seitenaufrufe sind kein Selbstzweck; prüft Produktklicks, zugerechnete Verkäufe und den tatsächlichen Warenkorb.
+
 ## Fazit
 
 Ein Brand Store entfaltet sein Potenzial erst, wenn er als Funnel gedacht ist – mit Routing nach Absicht, käuferorientierten Kategorien, shoppable Content und gezielt zugeführtem Traffic. Wer ihn als lebendige, gemessene und laufend optimierte Fläche behandelt statt als einmalige Broschüre, verwandelt vorhandenen Traffic in echten Umsatz. Der Unterschied liegt nicht im Aussehen, sondern in der Absicht hinter jedem Element.

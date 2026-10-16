@@ -41,7 +41,20 @@ Versuche niemals, eine schlechte Bewertung durch Kontaktieren des Käufers mit D
 
 ## Mit berechtigter Kritik richtig umgehen
 
-Die meisten negativen Bewertungen verstoßen gegen keine Regel – und genau hier liegt die eigentliche Chance. Berechtigte Kritik ist wertvolles Feedback: Sie zeigt dir, wo dein Produkt oder deine Beschreibung schwächelt. Reagiere, wo möglich, sachlich und hilfsbereit (Amazon erlaubt teils öffentliche Antworten oder Service-Kontakt), behebe die Ursache und arbeite an mehr positiven Bewertungen über die erlaubten Wege. Ein einzelner kritischer Stern in einem Meer guter Bewertungen schadet kaum – und wirkt sogar glaubwürdiger als ausschließlich Lob.
+Die meisten negativen Bewertungen verstoßen gegen keine Regel – und genau hier liegt die eigentliche Chance. Berechtigte Kritik ist wertvolles Feedback: Sie zeigt dir, wo dein Produkt oder deine Beschreibung schwächelt. Reagiere, wo möglich, sachlich und hilfsbereit (es gibt keinen allgemeinen Verkäufer-Reply-Button für öffentliche Antworten auf Produktrezensionen; nutzt nur die für euer Konto verfügbaren zulässigen Servicefunktionen), behebe die Ursache und arbeite an mehr positiven Bewertungen über die erlaubten Wege. Ein einzelner kritischer Stern in einem Meer guter Bewertungen schadet kaum – und wirkt sogar glaubwürdiger als ausschließlich Lob.
+
+## Praxis: Kritik in zwei Arbeitslisten aufteilen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Kritik in zwei Arbeitslisten aufteilen</h3>
+<p>Zehn negative Rezensionen enthalten acht konkrete Produktkritiken, eine reine Versandbeschwerde und einen möglichen Richtlinienverstoß. Alle zehn pauschal zur Löschung zu melden würde die eigentliche Produktarbeit verdrängen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Legt eine Liste für belegbare Meldegründe und eine zweite für wiederkehrende Produktprobleme an.
+2. Meldet präzise und ohne Löschversprechen. Die Produktliste geht mit Verantwortlichem und Termin an Qualitätssicherung oder Content-Team.
 
 ## Fazit
 

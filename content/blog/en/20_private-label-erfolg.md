@@ -27,7 +27,7 @@ A good product with a weak listing does not sell. Main image, image gallery, con
 
 ## 5. Build reviews within the rules
 
-Reviews are one of the strongest conversion drivers and, at launch, your biggest bottleneck, because you start at zero. Use the routes Amazon permits: automated review requests and programmes such as Vine for early verified reviews. Stay away from bought or manipulated reviews. The risk of a suspension is real and the damage is not repairable.
+Reviews are one of the strongest conversion drivers and, at launch, your biggest bottleneck, because you start at zero. Use the routes Amazon permits: automated review requests and programmes such as Vine for early reviews labelled as Vine reviews. Stay away from bought or manipulated reviews. The risk of a suspension is real and the damage is not repairable.
 
 ## 6. Treat the launch as a push, not a payday
 

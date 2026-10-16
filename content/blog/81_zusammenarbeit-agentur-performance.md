@@ -7,11 +7,11 @@ kategorie: "Agentur & Zusammenarbeit"
 
 # Vom guten Kunden zum starken Partner: So holst du Top-Performance aus deiner Amazon-Agentur
 
-Das Ergebnis einer Agenturpartnerschaft hängt nicht nur vom Talent der Agentur ab – sondern mindestens ebenso davon, wie gut der Kunde die Zusammenarbeit ermöglicht. Man sieht es immer wieder: Zwei Marken mit gleichem Budget und derselben Agentur erzielen völlig unterschiedliche Ergebnisse. Die eine skaliert stark, die andere tritt auf der Stelle und gibt am Ende der Agentur die Schuld. Der Unterschied liegt oft nicht an der Agentur, sondern an der Art der Zusammenarbeit. Dieser Beitrag zeigt, wie du als Marke zum Partner wirst, der Spitzenleistung ermöglicht.
+Eine produktive Zusammenarbeit mit eurer Amazon-Agentur braucht messbare Verantwortung auf beiden Seiten. Die Agentur verantwortet Diagnose, Priorisierung, Umsetzung und transparentes Reporting. Die Marke liefert Produktkalkulation, Bestandsplanung und Entscheidungen. Dieser Beitrag zeigt, wie daraus ein Arbeitsrhythmus mit klaren Zuständigkeiten, Fristen und überprüfbaren Ergebnissen wird.
 
 ## Warum der Kunde mitentscheidet
 
-Eine Agentur kann nur so gut arbeiten, wie der Kunde es zulässt. Fehlende Informationen, langsame Freigaben, unklare Ziele oder ständig wechselnde Prioritäten bremsen selbst die beste Agentur aus. Umgekehrt verstärkt ein gut vorbereiteter, klar kommunizierender Kunde die Leistung seiner Agentur erheblich. „Client Enablement" – also dein Beitrag zur Zusammenarbeit – ist ein unterschätzter Erfolgsfaktor.
+Die Agentur verantwortet Diagnose, Priorisierung und Umsetzung; die Marke liefert Produktwissen, Freigaben und betriebliche Rahmenbedingungen. Beide Seiten brauchen klare Zuständigkeiten. Fehlende Informationen, langsame Freigaben, unklare Ziele oder ständig wechselnde Prioritäten bremsen selbst die beste Agentur aus. Umgekehrt verstärkt ein gut vorbereiteter, klar kommunizierender Kunde die Leistung seiner Agentur erheblich. „Client Enablement" – also dein Beitrag zur Zusammenarbeit – ist ein unterschätzter Erfolgsfaktor.
 
 ## Klare Ziele und Prioritäten geben
 
@@ -33,10 +33,19 @@ Ergebnisse brauchen Zeit – besonders, wenn ein Konto erst aufgeräumt oder ein
 
 Die besten Ergebnisse entstehen, wenn beide Seiten als Team agieren. Behandle die Agentur als verlängerten Teil deines Unternehmens: teile Erfolge und Probleme offen, gib konstruktives Feedback statt nur Kritik, und beziehe sie früh in strategische Überlegungen ein. Eine Agentur, die sich als Partner verstanden fühlt, investiert mehr Engagement als eine, die nur eine Aufgabenliste abarbeitet.
 
+## Praxis: Eine Entscheidungsliste statt endloser Statuscalls
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Eine Entscheidungsliste statt endloser Statuscalls</h3>
+<p>Das Team diskutiert wöchentlich dieselben drei offenen Punkte. Ein Report allein löst sie nicht. Jede Entscheidung braucht eine Empfehlung, wirtschaftlichen Kontext, Verantwortlichen und einen Termin.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Führt im gemeinsamen Termin zuerst Entscheidungen, dann Abweichungen und danach neue Tests durch.
+2. Dokumentiert auch Pflichten der Agentur: klare Empfehlungen, Umsetzung und Eskalation. Gute Zusammenarbeit ist gegenseitige Verantwortung, keine pauschale Schuldzuweisung an den Kunden.
+
 ## Fazit
 
 Top-Performance einer Amazon-Agentur ist eine gemeinsame Leistung. Klare, stabile Ziele, offen geteilte Informationen (besonders zu Margen und Beständen), schnelle Entscheidungen, realistische Erwartungen und echtes Partnerschaftsdenken machen den Unterschied zwischen einer Zusammenarbeit, die skaliert, und einer, die auf der Stelle tritt. Die Agentur bringt das Handwerk – du lieferst Richtung, Kontext und Tempo. Wer vom bloßen Auftraggeber zum aktiven Partner wird, holt aus derselben Agentur deutlich mehr heraus. Und genau das ist oft der unsichtbare Grund, warum zwei Marken mit gleichem Budget so unterschiedlich abschneiden.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Als dein Partner für den europäischen Amazon-Markt holen wir gemeinsam mit dir das Maximum heraus.*

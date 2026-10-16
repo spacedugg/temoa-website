@@ -37,6 +37,19 @@ Eine Position, die nur in deinem Kopf existiert, wirkt nicht. Sie muss in jedem 
 
 Eine klare Position gibt dir Preisspielraum. Wer als „die beste Wahl für X" wahrgenommen wird, muss nicht der Billigste sein – im Gegenteil, ein zu niedriger Preis kann die Premium-Position sogar untergraben. Umgekehrt: Wer keine Position hat, kann sich nur über den Preis behaupten und landet im Margenkampf. Positionierung ist damit auch ein Werkzeug zum Schutz deiner Marge.
 
+## Praxis: Ein Nutzenversprechen braucht einen Nachweis
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein Nutzenversprechen braucht einen Nachweis</h3>
+<p>„Für kleine Küchen“ wird erst konkret, wenn Käufer die Stellfläche, Höhe und Aufbewahrung erkennen. „Premium“ allein beantwortet keine dieser Fragen. Eine belegte Größenangabe und eine passende Anwendungsszene können den Mehrpreis verständlicher machen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Formuliert Zielgruppe, Problem, unterscheidendes Merkmal und Beleg in je einem Satz.
+2. Prüft jedes Bild und jeden Text gegen diese vier Punkte. Streicht Behauptungen, die eure Ware nicht nachweislich trägt.
+
 ## Fazit
 
 Positionierung ist die strategische Grundlage, auf der alles andere aufbaut – Listing, Werbung, Preis. Sie beantwortet, für wen dein Produkt die beste Wahl ist und warum. Wer den Mut zum Fokus hat, seine Position aus den Schwächen der Wettbewerber ableitet und sie konsistent durch das gesamte Listing zieht, entkommt der Austauschbarkeit und dem reinen Preiswettbewerb. In einem überfüllten Markt ist Klarheit über das eigene „Warum ich" der wertvollste Vorsprung.

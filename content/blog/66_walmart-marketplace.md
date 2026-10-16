@@ -41,6 +41,19 @@ Walmart Marketplace passt besonders zu Verkäufern, die auf Amazon bereits stabi
 
 Expansion ist eine Frage des Timings. Der ideale Moment ist, wenn dein Amazon-Geschäft stabil und profitabel läuft, deine Lieferkette zuverlässig ist und du Bestände sicher über mehrere Kanäle steuern kannst. Starte am besten mit einer ausgewählten Zahl bewährter Produkte, sammle Erfahrung und skaliere dann – statt sofort dein ganzes Sortiment zu übertragen.
 
+## Praxis: Einen zweiten Marktplatz als Pilot rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Einen zweiten Marktplatz als Pilot rechnen</h3>
+<p>Eine Marke überträgt zehn geeignete SKUs in einen neuen Markt. Neben Gebühren entstehen lokale Content-, Service-, Retouren- und Logistikkosten. Ein bloßer Vergleich der Verkaufsprovision unterschätzt den Aufwand.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Definiert Sortiment, Einsatzgebiet, Verantwortliche und ein begrenztes Pilotbudget.
+2. Messt Beitrag nach lokalen Kosten und den zusätzlichen Betriebsaufwand. Übertragt US-Anforderungen nicht auf europäische Marktplätze oder umgekehrt.
+
 ## Fazit
 
 Walmart Marketplace ist für etablierte Amazon-Verkäufer ein naheliegender und oft lohnender zweiter Kanal: weniger Wettbewerb, neue Kunden und vor allem geringere Plattformabhängigkeit. Die Herausforderungen – preisbewusste Kundschaft, Multichannel-Bestandsmanagement, Preisparität und operativer Mehraufwand – sind beherrschbar, verlangen aber Vorbereitung. Wer auf Amazon stabil aufgestellt ist und mit ausgewählten Produkten startet, kann mit Walmart sein Risiko streuen und neue Wachstumsquellen erschließen.

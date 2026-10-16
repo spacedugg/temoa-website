@@ -40,6 +40,24 @@ Transparency bringt operativen Mehraufwand mit: Codes müssen verlässlich auf j
 
 Transparency ist mächtig, aber kein Alleskönner. Sinnvoll ist es als Teil eines Gesamtkonzepts: Brand Registry als Fundament und Meldewerkzeug, Transparency zur einheitengenauen Authentifizierung, dazu konsequente Beobachtung deiner Listings auf unautorisierte Anbieter. Erst das Zusammenspiel ergibt einen robusten Schutz.
 
+## Praxis: Serialisierung beginnt in der Produktion
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Serialisierung beginnt in der Produktion</h3>
+<p>Bei einem Pilotlauf werden Codes lesbar gedruckt, aber versehentlich doppelt aufgebracht. Das Problem ist kein Listingfehler, sondern eine Prozesslücke. Eine Serienlösung braucht Zuordnung, Druckprüfung und Umgang mit Ausschuss.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Testet eine kleine Charge vom Codebezug bis zur fertigen versandfähigen Einheit.
+2. Dokumentiert Verantwortliche für Nachdruck, beschädigte Etiketten und Retouren. Kalkuliert Personal- und Prüfaufwand zusätzlich zu eventuellen Codekosten.
+
 ## Fazit
 
 Amazon Transparency verwandelt jede Produkteinheit in ein eindeutig prüfbares Original und stoppt Fälschungen, bevor sie den Kunden erreichen. Für etablierte Marken in fälschungsanfälligen Kategorien ist es ein starker, proaktiver Schutz – verbunden mit zusätzlichem Aufwand und möglichen Kosten. Wer ein echtes Fälschungsproblem hat, sollte es als Teil eines mehrschichtigen Schutzkonzepts ernsthaft prüfen; wer (noch) keines hat, kann mit der Brand Registry beginnen und später aufrüsten.
+
+
+## Programm und Voraussetzungen
+
+[Amazon: Transparency](https://sell.amazon.com/brand-registry/transparency) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

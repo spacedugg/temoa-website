@@ -35,6 +35,19 @@ Geh schrittweise vor. Automatisiere zuerst die zeitfressenden, regelbasierten Ro
 
 Der nützlichste Gedanke: Automatisierung ist ein Werkzeug, das deine Zeit vervielfacht, kein Ersatz für Verständnis und Kontrolle. Die erfolgreichsten Verkäufer automatisieren das Repetitive und investieren die gewonnene Zeit in das, was Maschinen nicht können – Produktentscheidungen, Differenzierung, Beziehungen und Strategie. Wer dagegen die Verantwortung komplett abgibt, verliert die Kontrolle über sein eigenes Geschäft.
 
+## Praxis: Automatisierung braucht eine Rückfallregel
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Automatisierung braucht eine Rückfallregel</h3>
+<p>Eine Gebotsregel erhöht Ausgaben, sobald der ACoS günstig ist. Der Report enthält aber noch nicht vollständig zugerechnete Verkäufe und eine zeitgleiche Rabattaktion. Ohne Kontext kann die Regel auf ein verzerrtes Signal reagieren.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Definiert Mindestdaten, Verzögerung, Änderungsgrenze und Ausschlussbedingungen.
+2. Protokolliert jede automatische Änderung und benennt eine verantwortliche Person. Führt neue Regeln zunächst in einer kleinen Produktgruppe oder als Vorschlagsmodus ein.
+
 ## Fazit
 
 Amazon-Automatisierung ist sinnvoll und oft notwendig, um zu skalieren – aber gezielt eingesetzt. Repricing, Bewertungsanfragen, Nachschub und Reporting lassen sich gut automatisieren; strategische und kreative Entscheidungen sowie die Werbesteuerung brauchen weiterhin menschliche Aufsicht. Größte Vorsicht ist bei teuren „Done-for-you"-Versprechen geboten, die passives Einkommen suggerieren und reale Risiken verschleiern. Richtig genutzt, schenkt Automatisierung dir Zeit für das Wesentliche; falsch verstanden, kostet sie dich die Kontrolle.

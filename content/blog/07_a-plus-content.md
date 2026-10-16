@@ -15,7 +15,9 @@ A+ Content ersetzt die schlichte Textbeschreibung deines Listings durch ein gest
 
 ## Wer A+ Content nutzen kann
 
-Voraussetzung ist die Teilnahme an der Amazon Brand Registry – also eine eingetragene Marke. Für Verkäufer ist die Standardvariante von A+ Content in der Regel kostenlos. Darüber hinaus gibt es erweiterte Formate (oft „Premium A+" oder „A+ Brand Story" genannt) mit zusätzlichen Modulen wie Videos, interaktiven Elementen oder einem markenübergreifenden Banner. Welche Optionen verfügbar sind, hängt von deinem Markenstatus und Amazons aktuellen Programmbedingungen ab.
+Für berechtigte Seller hängt der Zugang von Brand Registry, Kontorolle und Programmvoraussetzungen ab; auch bestimmte andere Teilnehmer können Zugang haben. Brand Registry akzeptiert neben registrierten auch geeignete angemeldete Marken. Prüft den A+ Content Manager für eure konkrete Berechtigung.
+
+Basic A+, Brand Story und Premium A+ sind unterschiedliche Funktionen. Premium hat eigene Freischaltbedingungen. Eine Markenregistrierung allein bedeutet daher nicht automatisch Zugang zu jedem Modul. [Amazon erläutert die verfügbaren A+-Funktionen](https://sell.amazon.com/tools/a-content).
 
 ## Warum A+ Content die Conversion hebt
 
@@ -26,7 +28,7 @@ Drei Mechanismen wirken zusammen. Erstens reduziert visuelle Information die kog
 A+ Content wird aus vorgefertigten Modulen zusammengesetzt. Besonders nützlich sind:
 
 - **Bild + Text:** Kombiniert eine Anwendungsszene mit einer kurzen Nutzenbotschaft – ideal, um Vorteile statt Specs zu zeigen.
-- **Vergleichstabelle:** Stellt deine Produktvarianten (oder dich gegenüber generischen Alternativen) gegenüber und lenkt Käufer zur passenden Wahl – zugleich eine gute Gelegenheit für Cross-Selling.
+- **Vergleichstabelle:** Stellt zulässige Produkte und Varianten eurer eigenen Marke gegenüber und lenkt Käufer zur passenden Wahl – zugleich eine gute Gelegenheit für Cross-Selling.
 - **Banner / Markenkopf:** Verankert Logo und Markenwelt oben im Bereich.
 - **Feature-Raster:** Mehrere Kacheln mit Icon und kurzem Text für die wichtigsten Eigenschaften auf einen Blick.
 
@@ -40,7 +42,20 @@ Vermeide reine Wiederholung deiner Bulletpoints – A+ Content soll ergänzen, n
 
 ## A+ Content und SEO
 
-Ein verbreitetes Missverständnis: A+ Content ranke direkt in der Amazon-Suche. Der Text in den A+-Modulen wird in der Regel **nicht** vom Suchalgorithmus indexiert. Der SEO-Effekt ist indirekt – über bessere Conversion und niedrigere Absprungraten, die wiederum dein organisches Ranking stützen. Deine wichtigsten Keywords gehören also weiterhin in Titel, Bulletpoints und Backend-Suchbegriffe, nicht primär in den A+ Content.
+Plant A+ Content für Produktverständnis und Kaufentscheidung. Verlasst euch nicht auf eine pauschale Aussage, dass sämtliche A+-Inhalte von jeder Amazon-Such- oder KI-Funktion immer oder nie ausgewertet werden. Eine vollständige öffentliche Gewichtungsformel gibt es nicht. Relevante Suchbegriffe und Produktdaten müssen in den dafür vorgesehenen Listingfeldern stehen, einschließlich Titel, Item Highlights, Attributen und zulässigen Suchbegriffen. Messbare Conversion-Effekte prüft ihr separat; ein besseres Ranking ist kein garantierter Folgeeffekt.
+
+## Praxis: Aus einer Käuferfrage ein A+-Modul machen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Aus einer Käuferfrage ein A+-Modul machen</h3>
+<p>Eine Küchenmarke erhält wiederholt die Frage, ob ein Behälter in ein bestimmtes Fach passt. Ein allgemeines Lifestyle-Banner löst das Problem nicht. Ein Modul mit Innen- und Außenmaßen, Messpunkten und einer klaren Abgrenzung der Größen liefert die fehlende Entscheidungshilfe.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ordnet jedem Modul genau eine Käuferfrage und einen belegten Produktnachweis zu.
+2. Prüft die mobile Ansicht und messt bei einem Test auch größenbedingte Rückgaben. Mehr Conversion bei zugleich mehr Fehlkäufen wäre kein überzeugender Erfolg.
 
 ## Fazit
 

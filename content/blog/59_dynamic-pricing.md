@@ -37,6 +37,19 @@ Mehrere Risiken solltest du kennen. Der Preiskrieg nach unten ist die größte G
 
 Für wenige Produkte ohne Mitanbieter reicht oft manuelle Preispflege. Sobald du dir Listings teilst oder viele SKUs hast, ist ein Repricing-Tool oder Amazons automatisierte Preisfunktion sinnvoll. Wichtig ist, dass du die Logik verstehst und die Grenzen selbst kontrollierst – ein Tool ist nur so gut wie die Regeln, die du ihm gibst.
 
+## Praxis: Repricing mit einem wirtschaftlichen Boden
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Repricing mit einem wirtschaftlichen Boden</h3>
+<p>Die Untergrenze einer SKU wurde vor einem Gebührenanstieg gesetzt. Das Tool hält die Regel korrekt ein und verkauft trotzdem unter dem neuen Zielbeitrag. Der Fehler liegt in einer veralteten Eingabe.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Berechnet die Preisuntergrenze aus aktueller Steuerbasis, Gebühren, Retouren und Zielbeitrag.
+2. Versioniert Regeländerungen und definiert Alarme für ungewöhnliche Preissprünge. Preis, Lieferzeit und Verkäuferleistung müssen gemeinsam betrachtet werden.
+
 ## Fazit
 
 Dynamische Preisgestaltung hilft, in einem beweglichen Markt wettbewerbsfähig zu bleiben, ohne ständig manuell nachzusteuern – besonders bei geteilten Listings. Der Schlüssel ist eine durchdachte Strategie mit klarer Preisuntergrenze, die deine Marge schützt, statt blind den günstigsten Anbieter zu unterbieten. Wer Repricing als margenbewusstes, regelbasiertes Werkzeug einsetzt und den Preis nicht als einzigen Buy-Box-Faktor missversteht, gewinnt öfter die Buy Box, ohne sich in einen ruinösen Preiskampf zu verstricken.

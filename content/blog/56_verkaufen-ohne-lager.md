@@ -33,6 +33,19 @@ Gerade beim Dropshipping ist Vorsicht geboten, weil viele kursierende Anleitunge
 
 FBA passt für alle, die ein skalierbares Geschäft mit eigener (aber ausgelagerter) Ware wollen und die Vorfinanzierung tragen können. Regelkonformes Dropshipping eignet sich für Einsteiger mit wenig Kapital, die eine verlässliche, kontrollierte Lieferquelle haben und die Margen- und Servicethematik im Griff behalten. Print-on-Demand ist ideal für kreative Anbieter mit Designs, die kein Bestandsrisiko eingehen wollen.
 
+## Praxis: Ohne Lager bedeutet nicht ohne Verantwortung
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ohne Lager bedeutet nicht ohne Verantwortung</h3>
+<p>Ein Lieferant versendet direkt, meldet seinen Bestand aber nur einmal täglich. Nach einem ausverkauften Artikel entstehen Stornos, obwohl euer Angebot noch aktiv ist. Das Risiko liegt weiter beim Verkäufer.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vereinbart Bestandsabgleich, Bearbeitungsfristen, Tracking und einen Retourenprozess.
+2. Prüft mit echten Testbestellungen, wer auf Verpackung und Unterlagen als Verkäufer erscheint. Eine technische Anbindung ersetzt keine verlässliche Lieferkette.
+
 ## Fazit
 
 „Ohne eigenes Lager verkaufen" ist auf Amazon möglich – über FBA (ausgelagerte Lagerhaltung), regelkonformes Dropshipping (du als alleiniger, die Lieferkette kontrollierender Verkäufer) oder Print-on-Demand (Produktion auf Bestellung). Keines dieser Modelle ist mühelos, und besonders beim Dropshipping entscheidet die Einhaltung von Amazons Regeln über Erfolg oder Kontosperre. Wer das passende Modell zu Kapital, Zielen und Risikobereitschaft wählt und regelkonform arbeitet, kann tatsächlich ohne eigenes Lager ein funktionierendes Geschäft aufbauen.

@@ -1,57 +1,49 @@
 ---
-title: "Was ist ein guter ACoS? Realistische Benchmarks und die Rechnung dahinter"
-meta_description: "Gibt es den einen guten ACoS-Wert? Warum Benchmarks nach Kategorie nur ein Startpunkt sind und wie du dein eigenes Ziel über die Marge bestimmst."
+title: "Guter ACoS: Zielwerte aus Marge und Wachstumsziel ableiten"
+meta_description: "Welcher ACoS ist für eure Marke tragfähig? Zielwerte mit Nettoerlös, Retouren und Deckungsbeitrag berechnen statt pauschalen Branchenwerten folgen."
 keywords: ["guter ACoS", "ACoS Benchmark", "ACoS Zielwert", "Amazon PPC Marge"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Was ist ein guter ACoS? Realistische Benchmarks und die Rechnung dahinter
+# Guter ACoS: Zielwerte aus Marge und Wachstumsziel ableiten
 
-„Was sollte mein ACoS sein?" ist eine der ersten Fragen, die sich Amazon-Verkäufer stellen. Verständlich – und trotzdem führt sie oft in die Irre. Denn der gleiche ACoS kann für die eine Marke ein hervorragendes Ergebnis sein und für die andere ein margenfressendes Problem. Dieser Beitrag erklärt, warum es den einen „guten" Wert nicht gibt, welche groben Orientierungswerte trotzdem helfen und wie du dein eigenes, belastbares Ziel berechnest.
+Ein guter ACoS ist der Wert, der zu eurer Produktökonomie und zur Aufgabe einer Kampagne passt. Ein Kontodurchschnitt von 25 % kann profitable und verlustreiche ASINs gleichzeitig enthalten. Deshalb beginnt die Zielsetzung bei der SKU und endet nicht bei einer Benchmark-Tabelle.
 
-## Warum pauschale Antworten nicht funktionieren
+## Warum wir keine pauschalen Branchenbänder empfehlen
 
-Stell dir zwei Verkäufer vor. Beide erreichen einen ACoS von 35 %. Der erste verkauft Kosmetik mit 55 % Marge – für ihn ist das ein gesunder, profitabler Wert mit Luft nach oben. Der zweite verkauft Elektronikzubehör mit 25 % Marge – für ihn bedeutet derselbe ACoS, dass er bei jedem beworbenen Verkauf draufzahlt. Gleiche Zahl, gegensätzliche Bedeutung. Genau deshalb ist die Frage nach dem „guten ACoS" ohne Kontext kaum zu beantworten.
+Kategorievergleiche vermischen häufig Marktplätze, Markenbekanntheit, Produktpreise, Attributionsfenster und Kampagnenarten. Ohne diese Angaben ist ein Durchschnitt kaum belastbar. Nutzt externe Benchmarks als Anlass für Fragen, nicht als Gebotsregel. Euer sinnvollster Vergleich sind ähnliche eigene Produkte mit derselben Kampagnenaufgabe und vollständig nachgereiften Daten.
 
-Drei Faktoren entscheiden über deinen Zielwert: deine **Marge**, dein **Ziel** (Profit oder Wachstum) und die **Phase im Produktlebenszyklus** (Launch, Skalierung, Reife).
+## Vom Deckungsbeitrag zum Zielwert
 
-## Grobe Benchmarks nach Kategorie – als Startpunkt
+Berechnet zunächst den Nettoerlös abzüglich aller variablen Kosten vor Werbung. Zieht dann den gewünschten Beitrag für Fixkosten und Ergebnis ab. Der Rest ist das zulässige Werbebudget je verkauftem Produkt. Teilt diesen Betrag durch den Umsatz je Einheit auf derselben Basis, die euer Anzeigenbericht verwendet.
 
-Branchenweite Durchschnittswerte schwanken stark, geben aber eine erste Orientierung. In der Praxis bewegen sich viele Konten in diesen Bändern:
+**Ziel-ACoS = erlaubte Werbekosten je Einheit ÷ Berichtserlös je Einheit × 100**
 
-- **Niedrigpreisige Verbrauchsgüter** (z. B. Drogerie, Lebensmittel): oft 15–25 %, weil hohe Wiederkaufraten den Werbedruck rechtfertigen.
-- **Hartwaren mit mittlerer Marge** (z. B. Haushalt, Küche): häufig 20–30 %.
-- **Mode & Accessoires**: 25–35 %, mit großen Schwankungen je nach Wettbewerb.
-- **Elektronik / Zubehör**: häufig 15–25 %, weil die Margen dünn sind.
-- **Hochpreisige Nischenprodukte**: können 30 %+ tragen, wenn die absolute Marge hoch ist.
+Bei mehreren im Report zugerechneten Produkten braucht ihr deren gewichtete Kostenbasis. Die beworbene ASIN allein bildet einen Halo-Umsatz mit anderen Margen nicht korrekt ab.
 
-Diese Zahlen sind keine Zielvorgaben, sondern ein Realitätscheck: Liegst du weit außerhalb des typischen Bandes deiner Kategorie, lohnt sich ein genauer Blick.
+## Drei unterschiedliche Kampagnenaufgaben
 
-## Die Rechnung, die wirklich zählt: dein Break-even-ACoS
+**Ergebnis sichern:** Hier zählt der Deckungsbeitrag nach Werbung. Mehr Budget bekommt nur, was innerhalb der wirtschaftlichen Grenze zusätzliches Volumen liefert.
 
-Statt dich an fremden Durchschnitten zu orientieren, berechne deinen eigenen Break-even-Punkt. Er entspricht deiner Gewinnmarge vor Werbekosten.
+**Neue Nachfrage testen:** Ein Test darf einen höheren ACoS haben, wenn Budget, Laufzeit und Lernfrage vorher feststehen. Das Ergebnis kann auch lauten, einen Begriff nicht weiter zu verfolgen.
 
-So gehst du vor:
+**Marke schützen:** Markenbegriffe getrennt ausweisen. Ihr niedriger ACoS darf schwache generische Kampagnen nicht verdecken. Prüft bei Budgetänderungen auch den gesamten Markenumsatz und die Präsenz anderer Anbieter.
 
-1. **Verkaufspreis** notieren (z. B. 40 €).
-2. **Alle Kosten abziehen**: Wareneinsatz (COGS), Amazon-Referral-Gebühr, FBA-Versandgebühr, Verpackung, Retouren-Anteil.
-3. Der verbleibende Betrag ist dein **Deckungsbeitrag**. Beispiel: bleiben 14 €, sind das 35 % vom Preis.
-4. Dieser Prozentsatz – hier **35 %** – ist dein Break-even-ACoS.
+## Zielwerte pflegen statt einmal festschreiben
 
-Alles darunter ist profitabel beworben, alles darüber kostet pro Verkauf Geld.
+Ändern sich Preis, Gebühren, Retouren oder Einkaufskosten, ändert sich euer Spielraum. Verbindet die Zielwerttabelle deshalb mit dem monatlichen Margenreport. Hinterlegt pro SKU einen normalen Zielwert und gegebenenfalls ein separat genehmigtes Testbudget. So wird aus einer pauschalen Prozentvorgabe ein nachvollziehbarer Steuerungsrahmen.
 
-## Vom Break-even zum Zielwert
+[Amazon Ads zur Bedeutung von ACoS](https://advertising.amazon.com/library/guides/acos-advertising-cost-of-sales); die praktische Kostenrechnung vertieft unser Beitrag zu [FBA-Gebühren und Profitabilität](/blog/fba-gebuehren-rechner).
 
-Der Break-even ist die Obergrenze, nicht das Ziel. Wie weit du darunter zielst, hängt von deiner Absicht ab:
+## Praxis: Gleicher ACoS, unterschiedliche Entscheidung
 
-- **Profit-Modus**: Ziel deutlich unter Break-even, z. B. bei 35 % Break-even ein Ziel-ACoS von 20–25 %. Du nimmst etwas weniger Volumen in Kauf, sicherst dir aber Gewinn pro Einheit.
-- **Wachstums-/Launch-Modus**: Ziel nahe am oder bewusst über dem Break-even. Du kaufst dir Sichtbarkeit, Ranking und erste Reviews – ein kalkulierter Verlust, der sich über organischen Umsatz amortisieren soll.
-- **Verteidigungs-Modus**: Bei umkämpften Marken-Keywords oder Bestsellern akzeptierst du manchmal einen höheren ACoS, um Platzierungen nicht an Wettbewerber zu verlieren.
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Gleicher ACoS, unterschiedliche Entscheidung</h3>
+<p>Zwei ASINs erzielen je 10.000 € Berichtserlös und kosten je 2.500 € Werbung. Ihr ACoS ist jeweils 25 %. Vor Werbung bleiben bei A aber 3.500 €, bei B nur 2.000 € Beitrag. Nach Werbung sind es 1.000 € beziehungsweise minus 500 € – noch vor Fixkosten.</p>
+</aside>
 
-## Der blinde Fleck: ACoS allein reicht nicht
+**So setzt ihr es um:**
 
-Ein niedriger ACoS sieht gut aus, kann aber täuschen. Wenn du den Werbedruck so weit senkst, dass auch dein organischer Umsatz einbricht, hast du auf dem Papier optimiert und im Ergebnis verloren. Deshalb gehört TACoS (das Verhältnis von Werbeausgaben zum Gesamtumsatz) immer mit auf den Tisch. Ein leicht steigender ACoS bei gleichzeitig sinkendem TACoS ist oft ein sehr gutes Zeichen – die Werbung zieht organischen Umsatz nach.
-
-## Fazit
-
-Es gibt keinen universell „guten" ACoS. Branchen-Benchmarks taugen als grober Realitätscheck, dein echtes Ziel ergibt sich aber aus deiner Marge, deinem Geschäftsziel und der Produktphase. Berechne deinen Break-even-ACoS, leite daraus einen bewussten Zielwert ab und kontrolliere ihn immer gemeinsam mit TACoS. Dann hörst du auf, nach einer Wunschzahl zu suchen, und triffst Entscheidungen, die zu deinem Geschäft passen.
+1. Trennt die Produkte in der Steuerung, statt dem gesamten Konto ein einheitliches Ziel zu geben.
+2. Prüft bei B zunächst Preis, Gebühren und Retouren; zusätzliche Ausgaben lösen eine negative Stückökonomie nicht.

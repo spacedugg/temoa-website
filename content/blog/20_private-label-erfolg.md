@@ -27,7 +27,7 @@ Ein gutes Produkt mit schlechtem Listing verkauft sich nicht. Hauptbild, Bilderg
 
 ## 5. Bewertungen regelkonform aufbauen
 
-Reviews sind einer der stärksten Conversion-Treiber – und beim Launch dein größter Engpass, weil du bei null startest. Nutze Amazons erlaubte Wege: automatisierte Bewertungsanfragen und Programme wie Vine für frühe, verifizierte Bewertungen. Finger weg von gekauften oder manipulierten Reviews; das Risiko einer Kontosperre ist real und der Schaden irreparabel.
+Reviews sind einer der stärksten Conversion-Treiber – und beim Launch dein größter Engpass, weil du bei null startest. Nutze Amazons erlaubte Wege: automatisierte Bewertungsanfragen und Programme wie Vine für frühe, als Vine gekennzeichnete Rezensionen. Finger weg von gekauften oder manipulierten Reviews; das Risiko einer Kontosperre ist real und der Schaden irreparabel.
 
 ## 6. Den Launch als Anschub verstehen
 
@@ -36,6 +36,19 @@ Ein neues Produkt hat kein Schwungrad. Die erste Phase dient dazu, es in Bewegun
 ## 7. Marke und Schutz mitdenken
 
 Private Label heißt „eigene Marke" – also baue auch eine. Markenregistrierung schaltet A+ Content, Sponsored Brands, Brand Analytics und Schutzwerkzeuge gegen Trittbrettfahrer frei. Eine echte Marke mit Wiedererkennung und Kundenbindung ist außerdem deutlich wertvoller und widerstandsfähiger als ein austauschbares Generikum – und beim späteren Verkauf des Geschäfts entscheidend.
+
+## Praxis: Differenzierung zuerst am Muster prüfen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Differenzierung zuerst am Muster prüfen</h3>
+<p>Kunden bemängeln bei Konkurrenzprodukten einen undichten Verschluss. Ein neuer Markenname und bessere Bilder beheben das nicht. Der Produktauftrag muss einen messbaren Prüfaufbau, zulässige Abweichungen und eine Chargenkontrolle enthalten.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Übersetzt die häufigste Beschwerde in eine konkrete Produktspezifikation.
+2. Gebt die Werbeaussage erst nach belastbarer Prüfung frei. Die Differenzierung muss an der gelieferten Ware erkennbar sein, nicht nur im Listing.
 
 ## Fazit
 

@@ -39,6 +39,19 @@ Spezialisierte Tools schätzen Verkäufe, Keywords und Werbeaktivität deiner We
 
 Wettbewerbsanalyse ist keine einmalige Aktion vor dem Launch, sondern eine laufende Disziplin. Märkte bewegen sich: Neue Anbieter treten auf, Preise verschieben sich, Listings werden überarbeitet. Beobachte deine wichtigsten Konkurrenten in regelmäßigen Abständen, damit du Veränderungen früh erkennst – etwa wenn ein Wettbewerber aggressiv die Preise senkt oder ein überlegenes Listing launcht – und reagieren kannst, bevor es deine Zahlen trifft.
 
+## Praxis: Aus einer Wettbewerberbeschwerde eine Testidee machen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Aus einer Wettbewerberbeschwerde eine Testidee machen</h3>
+<p>Mehrere Rezensionen bemängeln eine komplizierte Montage. Das ist eine Hypothese für euer eigenes Produktbriefing, noch kein Beweis für eine Marktlücke. Vielleicht betrifft das Problem nur eine alte Variante.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ordnet Rückmeldungen nach Datum, Modell und wiederkehrendem Problem.
+2. Prüft die Hypothese an Produktmustern und eigenen Kundenfragen. Übernehmt weder fremde Bilder noch Behauptungen; entwickelt eine belegbare eigene Lösung.
+
 ## Fazit
 
 Competitor Intelligence verwandelt die Konkurrenz in deine wertvollste Marktforschung. Wer Listings, Keywords, Preise, Sichtbarkeit und vor allem Bewertungen der Wettbewerber systematisch auswertet, lernt aus deren Erfolgen und Fehlern, deckt Lücken auf und schärft die eigene Positionierung. Der Schlüssel ist, nicht zu kopieren, sondern bewusst anders und besser zu sein – und die Analyse zur laufenden Gewohnheit zu machen statt zur einmaligen Übung.

@@ -985,3 +985,42 @@ footer :where(a, button):focus-visible,
     -webkit-backdrop-filter: none;
   }
 }
+
+/* Editorial examples: readable on mobile, visibly distinct from article prose. */
+.article-body .article-example {
+  margin-block: 1.75rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #d2e3eb;
+  border-left: 4px solid #ff9900;
+  border-radius: 1.1rem;
+  background: #eff6fa;
+  color: #163b4f;
+}
+.article-body .article-example .example-label {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: #375b70;
+}
+.article-body .article-example h3 { margin: .75rem 0; color: #023047; }
+.article-body .article-example p + p { margin-top: .8rem; }
+.article-body .article-figure {
+  margin-block: 2rem;
+  padding: 1.5rem;
+  border-radius: 1.1rem;
+  background: #023047;
+  color: #fff;
+}
+.article-body .article-figure figcaption { margin-bottom: 1.5rem; font-weight: 700; }
+.article-body .article-figure p { margin-top: 1.25rem; font-size: .85rem; color: #d2e3eb; }
+.article-body .metric-row { display: grid; grid-template-columns: 1fr auto; gap: .5rem; margin-top: 1rem; }
+.article-body .metric-row strong { color: #fff; }
+.article-body .metric-track { grid-column: 1 / -1; display: block; height: .75rem; border-radius: 1rem; background: #365567; overflow: hidden; }
+.article-body .metric-track > span { display: block; height: 100%; border-radius: inherit; background: #ffb547; }
+.article-body .article-table { overflow-x: auto; margin-block: 1.5rem; border: 1px solid #d2e3eb; border-radius: .75rem; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: .92rem; line-height: 1.6; }
+.article-body th, .article-body td { min-width: 9rem; padding: .85rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid #d2e3eb; }
+.article-body th { background: #eff6fa; color: #023047; font-weight: 700; }
+.article-body tr:last-child td { border-bottom: 0; }
+.article-body .article-table:focus-visible { outline: 3px solid #e58700; outline-offset: 3px; }

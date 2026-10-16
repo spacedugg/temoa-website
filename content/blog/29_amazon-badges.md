@@ -26,11 +26,24 @@ Die meisten Badges lassen sich nicht direkt „kaufen" oder beantragen – sie w
 
 ## Badges als Nebeneffekt guter Arbeit
 
-Der wichtigste Gedanke: Badges sind meist das Ergebnis, nicht das Ziel. Wer auf gute Bewertungen, Verfügbarkeit, Conversion und Verkäufe hinarbeitet, bekommt die Badges fast automatisch. Es lohnt sich deshalb mehr, an den zugrunde liegenden Faktoren zu arbeiten, als den Badge selbst zu jagen. Die Wahl einer passenden, nicht zu überfüllten Kategorie (siehe Kategorie-Positionierung) erhöht zudem die Chance auf einen Bestseller-Badge.
+Der wichtigste Gedanke: Badges sind meist das Ergebnis, nicht das Ziel. Wer auf gute Bewertungen, Verfügbarkeit, Conversion und Verkäufe hinarbeitet, verbessert die Produktqualität; ein Badge bleibt trotzdem eine Entscheidung Amazons ohne Garantie. Es lohnt sich deshalb mehr, an den zugrunde liegenden Faktoren zu arbeiten, als den Badge selbst zu jagen. Die Wahl einer passenden, nicht zu überfüllten Kategorie (siehe Kategorie-Positionierung) erhöht zudem die Chance auf einen Bestseller-Badge.
 
 ## Was du nicht tun solltest
 
 Vermeide Tricks, um Badges zu erzwingen – etwa künstliche Verkaufsspitzen durch manipulierte Bestellungen oder Fake-Bewertungen. Solche Methoden verstoßen gegen Amazons Richtlinien und können zur Sperrung führen. Ein Badge, der auf manipulierten Signalen beruht, ist ohnehin nicht stabil. Setze auf echte Leistung.
+
+## Praxis: Badge nicht in den Business Case einpreisen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Badge nicht in den Business Case einpreisen</h3>
+<p>Eine Aktion rechnet sich nur, wenn danach dauerhaft ein Bestseller-Badge bestehen bleibt. Diese Annahme ist nicht belastbar, weil Amazon die Anzeige bestimmt und Wettbewerber sich verändern.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Kalkuliert die Aktion zuerst ohne Badge- und Rankingbonus.
+2. Beobachtet einen möglichen Nachlaufeffekt getrennt und dokumentiert Preis sowie Bestand. Einen späteren Vorteil dürft ihr erst mit Daten in weitere Entscheidungen übernehmen.
 
 ## Fazit
 

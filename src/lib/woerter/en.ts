@@ -1436,21 +1436,21 @@ export const en: Woerterbuch = {
 
   blog: {
     meta: {
-      titel: "Amazon guides for brands and sellers · temoa",
+      titel: "Amazon insights: profitability and growth · temoa",
       beschreibung:
-        "Amazon basics for brands and sellers: ACoS, advertising, FBA, product listings and selling strategy explained clearly.",
+        "Practical Amazon analysis for established brands: improve profitability, diagnose conversion losses and connect advertising, inventory and growth.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Amazon knowledge for ",
-      titelEm: "your brand.",
-      lead: "What is ACoS? How does FBA work? What does selling cost? Clear answers for brands and retailers selling on Amazon or planning their first steps.",
+      titelVor: "Get more from your ",
+      titelEm: "Amazon business.",
+      lead: "Find where your brand loses margin, visibility or sales. Practical analysis, worked examples and clear decisions for listings, advertising and sustainable growth.",
     },
     themaTitel: "All articles on {thema}",
     einBeitrag: "1 article",
     beitraege: "{n} articles",
-    empfohlen: "Recommended articles",
+    empfohlen: "Decisions for your next growth phase",
     alleThemen: "All topics",
     inhalt: "Contents",
     weiterlesen: "Keep reading",

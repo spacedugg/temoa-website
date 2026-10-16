@@ -11,7 +11,7 @@ You built a product, optimized it and advertised it, and suddenly other sellers 
 
 ## What hijacking is
 
-On Amazon several sellers often share the same product listing (the same ASIN). With generic products that is normal. It becomes a problem when somebody attaches themselves to *your* branded product without authorization, often with counterfeit or different goods. The hijacker then takes your Buy Box (through a lower price, for instance) and sells under your name. The damage: lost revenue, price pressure and, worst of all, bad reviews for goods that never came from you.
+Several sellers may offer the same genuine product on one ASIN. A lower price or lack of direct distribution authorisation is not, by itself, evidence of counterfeiting. Separate genuine resale, materially different goods and substantiated rights violations. For the European market, consider trademark exhaustion under [§ 24 MarkenG](https://www.gesetze-im-internet.de/markeng/__24.html) before making a complaint.
 
 ## Spotting hijackers early
 

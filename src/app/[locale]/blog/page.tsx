@@ -88,15 +88,21 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           </div>
         )}
 
-        <section className="ground-tint py-10">
+        {/* Featured */}
+        <section className="ground-tint relative py-16 md:py-20">
           <div className="container-x">
-            <a href={pfad(locale, "/blog/grundlagen")} className="panel panel-lift flex flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center">
-              <div>
-                <h2 className="text-xl font-extrabold text-ink">{locale === "de" ? "Amazon einfach erklärt: die Grundlagen" : "Amazon explained simply: the basics"}</h2>
-                <p className="mt-2 text-ink-muted">{locale === "de" ? "ACoS, FBA, A+ Content: Startet mit den wichtigsten Begriffen für euer Amazon-Geschäft." : "ACoS, FBA, A+ content: start with the key terms for your Amazon business."}</p>
+            <Reveal>
+              <div className="flex items-end justify-between gap-4">
+                <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{w.empfohlen}</h2>
               </div>
-              <span className="shrink-0 font-bold text-navy">{locale === "de" ? "Zu den Grundlagen" : "Explore the basics"} <span aria-hidden>↗</span></span>
-            </a>
+            </Reveal>
+            <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
+              {featured.map((p) => (
+                <RevealItem key={p.slug} className="h-full">
+                  <PostCard post={p} sprache={locale} w={w} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
           </div>
         </section>
 
@@ -160,21 +166,15 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
           </div>
         </section>
 
-        {/* Featured */}
-        <section className="ground-tint relative py-16 md:py-20">
+        <section className="ground-tint py-10">
           <div className="container-x">
-            <Reveal>
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{w.empfohlen}</h2>
+            <a href={pfad(locale, "/blog/grundlagen")} className="panel panel-lift flex flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center">
+              <div>
+                <h2 className="text-xl font-extrabold text-ink">{locale === "de" ? "Begriffe und Grundlagen nachschlagen" : "Look up terms and fundamentals"}</h2>
+                <p className="mt-2 text-ink-muted">{locale === "de" ? "Für neue Teammitglieder und einzelne Verständnisfragen: ACoS, FBA und weitere Begriffe kompakt erklärt." : "For new team members and specific questions: concise explanations of ACoS, FBA and related terms."}</p>
               </div>
-            </Reveal>
-            <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
-              {featured.map((p) => (
-                <RevealItem key={p.slug} className="h-full">
-                  <PostCard post={p} sprache={locale} w={w} />
-                </RevealItem>
-              ))}
-            </RevealGroup>
+              <span className="shrink-0 font-bold text-navy">{locale === "de" ? "Zu den Grundlagen" : "Explore the basics"} <span aria-hidden>↗</span></span>
+            </a>
           </div>
         </section>
 

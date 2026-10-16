@@ -11,7 +11,7 @@ Ob du das Geschäft aufgibst, auf ein anderes Modell wechselst oder einfach paus
 
 ## Erst prüfen: Schließen oder pausieren?
 
-Bevor du endgültig schließt, lohnt die Frage, ob eine Schließung wirklich nötig ist. Wenn du nur eine Pause brauchst, gibt es schonendere Wege: Du kannst in den „Urlaubsmodus" wechseln, der deine Listings vorübergehend deaktiviert, ohne das Konto aufzulösen. Auch ein Wechsel vom Professional- zum Einzelanbieter-Tarif kann laufende Gebühren senken, wenn du nur weniger verkaufen willst. Eine Schließung ist endgültiger und schwerer rückgängig zu machen – überlege also, ob eine reversible Option ausreicht.
+Bevor du endgültig schließt, lohnt die Frage, ob eine Schließung wirklich nötig ist. Wenn du nur eine Pause brauchst, gibt es schonendere Wege: Der Urlaubsmodus kann selbst versendete Angebote pausieren; FBA-Angebote laufen grundsätzlich weiter und müssen separat geprüft werden. Er beendet weder alle Gebühren noch bestehende Pflichten. Auch ein Wechsel vom Professional- zum Einzelanbieter-Tarif kann laufende Gebühren senken, wenn du nur weniger verkaufen willst. Eine Schließung ist endgültiger und schwerer rückgängig zu machen – überlege also, ob eine reversible Option ausreicht.
 
 ## Vor der Schließung erledigen
 
@@ -29,11 +29,24 @@ Ist alles vorbereitet, läuft die Schließung über den Support bzw. die Kontoei
 
 ## Folgen der Schließung
 
-Mach dir die Konsequenzen bewusst. Mit der Schließung verlierst du Zugriff auf Verkaufsdaten, Bewertungen und Verkaufshistorie. In vielen Fällen ist eine spätere Neueröffnung mit denselben Daten schwierig, da Amazon Mehrfachkonten und reaktivierte Identitäten kritisch prüft. Wenn du also nicht sicher bist, ob du endgültig aufhören willst, ist eine reversible Option oft die klügere Wahl.
+Mach dir die Konsequenzen bewusst. Mit der Schließung verlierst du Zugriff auf Verkaufsdaten, Bewertungen und Verkaufshistorie. Ein geschlossenes Konto lässt sich nicht einfach wiederherstellen. Eine spätere Registrierung ist ein eigener Vorgang und ersetzt nicht die Klärung offener Sperren oder Verpflichtungen. Wenn du also nicht sicher bist, ob du endgültig aufhören willst, ist eine reversible Option oft die klügere Wahl.
 
 ## Sonderfall: Schließung bei Problemen
 
 Wenn dein Konto bereits gesperrt ist oder Streitfälle offen sind, ist die Lage komplizierter. Eine Schließung löst offene Forderungen oder Sperrgründe nicht automatisch auf. Kläre solche Fälle möglichst vor der Schließung, da nachträgliche Klärungen ohne Kontozugang schwieriger sind.
+
+## Praxis: Pausieren ist nicht Schließen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Pausieren ist nicht Schließen</h3>
+<p>Ein Händler aktiviert den Urlaubsmodus und nimmt an, alle Verkäufe und Gebühren seien beendet. FBA-Angebote und laufende Verpflichtungen können aber weiterbestehen. Deshalb braucht die Pause eine eigene operative Liste.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Prüft FBM- und FBA-Angebote, Werbekampagnen, Bestände, Gebühren und Kundenkommunikation getrennt.
+2. Vor einer endgültigen Schließung Berichte sichern und offene Fälle abarbeiten. Dokumentiert, welche Verpflichtungen auch nach dem letzten Verkauf bestehen bleiben.
 
 ## Fazit
 

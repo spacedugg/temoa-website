@@ -40,6 +40,19 @@ Deals müssen bestimmte Anforderungen erfüllen (z. B. Bewertungsniveau, Preisge
 
 Der größte Fehler ist, den Deal isoliert zu betrachten. Begleite ihn mit Werbung, um zusätzliche Sichtbarkeit zu erzeugen, und beobachte nach dem Deal dein Ranking. Wenn der Schub dein Produkt nach oben gespült hat, kannst du diesen Vorsprung mit gezielter Werbung halten. So wird aus dem kurzfristigen Deal ein nachhaltiger Ranking-Gewinn.
 
+## Praxis: Deal-Umsatz gegen entgangenen Normalbeitrag rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Deal-Umsatz gegen entgangenen Normalbeitrag rechnen</h3>
+<p>Ohne Aktion werden im Modell 100 Einheiten mit je 8 € Beitrag erwartet: 800 €. Im Deal sind es 180 Einheiten mit je 5 €: 900 €. Bei zusätzlichen 150 € Aktionskosten bleiben 750 € – trotz 80 % mehr Stückzahl weniger als ohne Deal.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Rechnet Aktionskosten, Werbung und mögliche Vorzieheffekte mit ein.
+2. Bewertet Lagerabbau oder spätere Nachfrage getrennt und nur mit nachvollziehbaren Annahmen. Ein Rankinggewinn darf nicht ungeprüft die Rechnung retten.
+
 ## Fazit
 
 Lightning Deals und Blitzangebote sind kraftvolle Werkzeuge für Sichtbarkeit, Verkaufsschübe und Ranking-Momentum – vorausgesetzt, du rechnest sie ehrlich durch und setzt sie strategisch ein. Sie lohnen sich vor allem für Produktlaunches, zum Anschieben vor wichtigen Zeitfenstern und zum Bestandsabbau bei gesunder Marge. Wer früh plant, genug Bestand sichert und den Deal mit Werbung flankiert, verwandelt einen kurzfristigen Rabatt in einen dauerhaften Vorteil – statt nur Marge zu verschenken.

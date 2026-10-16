@@ -33,6 +33,19 @@ Produkte können oft in mehreren Kategorien bzw. über mehrere Browse-Knoten auf
 
 Märkte verändern sich, neue Unterkategorien entstehen, Wettbewerb verschiebt sich. Eine Kategorie, die beim Launch optimal war, kann später suboptimal sein. Mach es zur Gewohnheit, die Kategorie-Zuordnung deiner wichtigsten Produkte gelegentlich zu überprüfen – besonders wenn Ranking oder Sichtbarkeit nachlassen.
 
+## Praxis: Kategoriefehler über Attribute aufdecken
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Kategoriefehler über Attribute aufdecken</h3>
+<p>Ein Zubehörartikel liegt in einer unpassenden Produktart. Dadurch fehlen relevante Kompatibilitätsfelder, obwohl der Titel die Modelle nennt. Mehr Keywords können diese Struktur nicht reparieren.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht Produkttyp, Browse-Zuordnung und Pflichtattribute mit der tatsächlichen Funktion.
+2. Dokumentiert eine Korrektur mit Produktnachweisen. Wählt keine sachfremde Nische, nur weil dort ein Bestseller-Rang leichter erreichbar erscheint.
+
 ## Fazit
 
 Die Kategorie ist kein Verwaltungsdetail, sondern eine strategische Entscheidung über dein Wettbewerbsumfeld. Die richtige Wahl – relevant für den Käufer und realistisch im Wettbewerb – kann dein Ranking, deinen Bestseller-Rang und deine Sichtbarkeit deutlich verbessern. Wer Kategorien bewusst wählt, statt sie nebenbei zu setzen, verschafft demselben Produkt eine bessere Bühne. Und manchmal ist die kleinere, spezifischere Kategorie die größere Chance.

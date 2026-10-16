@@ -40,6 +40,19 @@ Eine kluge Sichtweise ist, Amazon nicht als einziges Standbein, sondern als eine
 
 Lohnenswert ist Amazon besonders für Anbieter mit margenstarken, differenzierten Produkten, die schnelle Reichweite und ausgelagerte Logistik schätzen. Weniger geeignet ist es für extrem preissensible Massenware ohne Alleinstellung, für Geschäfte, die zwingend direkte Kundenbeziehungen brauchen, oder für Anbieter, die das Plattformrisiko (Regel- und Gebührenänderungen, Sperrgefahr) nicht tragen wollen.
 
+## Praxis: Amazon als zusätzlichen Kanal bewerten
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Amazon als zusätzlichen Kanal bewerten</h3>
+<p>Eine Marke erwartet 20.000 € zusätzlichen Monatsumsatz. Wenn gleichzeitig 8.000 € aus dem eigenen Shop verlagert werden, ist der gesamte Mehrumsatz geringer. Auch die Kosten der beiden Kanäle unterscheiden sich.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht den Beitrag über alle betroffenen Kanäle und erfasst mögliche Verlagerungen.
+2. Startet mit einem klar definierten Sortiment und einer Messperiode. Ein neuer Vertriebskanal muss zum Gesamtergebnis beitragen, nicht nur eine eigene Umsatzkurve liefern.
+
 ## Fazit
 
 Der Verkauf auf Amazon lohnt sich für viele – aber nicht für alle und nicht bedingungslos. Die enorme Reichweite, das Käufervertrauen und die Logistik stehen Gebühren, Wettbewerb und Plattformabhängigkeit gegenüber. Entscheidend sind eine tragfähige Marge und echte Differenzierung. Am stärksten ist Amazon, wenn du es als einen wichtigen Kanal in einer breiteren Strategie nutzt – nicht als alleinigen Verkaufsweg. Wer das beherzigt, kann die Größe der Plattform für sich arbeiten lassen, statt von ihr abhängig zu werden.

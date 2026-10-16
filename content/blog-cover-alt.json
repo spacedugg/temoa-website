@@ -326,5 +326,13 @@
   "amazon-marketingstrategie-ueberblick": {
     "de": "Mehrere Symbolkacheln, verbunden mit einer zentralen orangefarbenen Kachel.",
     "en": "Symbol tiles connected to a central orange tile."
+  },
+  "search-query-performance": {
+    "de": "Lupe prüft Produktkarten; orange Markierungen führen zum Warenkorb als Symbol für Suchanfragenanalyse.",
+    "en": "Magnifying glass inspecting product cards with orange markers leading to a basket, symbolising search analysis."
+  },
+  "business-reports": {
+    "de": "Dreidimensionales Klemmbrett mit abstrakten Balken, Diagnoseinstrument und Produktpaketen.",
+    "en": "Three-dimensional clipboard with abstract bars, a diagnostic dial and product parcels."
   }
 }

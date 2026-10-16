@@ -195,25 +195,43 @@ export function Fusszeile() {
               {sprache === "de" ? "Alle Ratgeber ansehen" : "Browse all guides"} <span aria-hidden className="ml-2">↗</span>
             </a>
           </div>
-          <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
-            <li>
-              <a href={pfad(sprache, "/blog/grundlagen")} className="flex min-h-12 items-center text-small font-bold text-white transition-colors hover:text-brand-500">
-                {sprache === "de" ? "Amazon-Grundlagen: einfach erklärt" : "Amazon basics: simply explained"}
-              </a>
-            </li>
-            {blogTopics.map((topic) => (
-              <li key={topic.slug}>
-                <a href={pfad(sprache, `/blog/kategorie/${topic.slug}`)} className="flex min-h-12 items-center text-small text-chalk-muted transition-colors hover:text-brand-500">
-                  {topic.label[sprache]}
-                </a>
-              </li>
+          <div className="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: sprache === "de" ? "Werbung & Profitabilität" : "Advertising & profitability", links: [
+                ["ppc-kosten-senken", "PPC-Kosten senken", "Reduce PPC costs"],
+                ["kampagnenstruktur-ppc", "Kampagnen strukturieren", "Structure campaigns"],
+                ["business-reports", "Business Reports auswerten", "Analyse Business Reports"],
+                ["fba-gebuehren-rechner", "Deckungsbeitrag kalkulieren", "Calculate contribution"],
+              ] },
+              { title: sprache === "de" ? "Content & Conversion" : "Content & conversion", links: [
+                ["search-query-performance", "Suchanfragen analysieren", "Analyse search queries"],
+                ["produkttitel-optimieren", "Amazon-Titel & Item Highlights", "Amazon titles & Item Highlights"],
+                ["conversion-rate-optimierung", "Conversion verbessern", "Improve conversion"],
+                ["brand-store-funnel", "Brand Store optimieren", "Optimise your Brand Store"],
+              ] },
+              { title: sprache === "de" ? "Wachstum & Betrieb" : "Growth & operations", links: [
+                ["skalierung-ueber-1-5m", "Wachstumsplateaus lösen", "Resolve growth constraints"],
+                ["inventar-cashflow", "Bestand & Cashflow planen", "Plan stock & cash flow"],
+                ["wie-oft-zahlt-amazon", "Auszahlung & DD+7", "Payments & DD+7"],
+                ["support-cases-loesen", "Support-Fälle lösen", "Resolve support cases"],
+              ] },
+            ].map((group) => (
+              <div key={group.title}>
+                <h3 className="font-bold text-white">{group.title}</h3>
+                <ul className="mt-3 space-y-1">{group.links.map(([slug, de, en]) => <li key={slug}>
+                  <a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/${slug}`)}>{sprache === "de" ? de : en}</a>
+                </li>)}</ul>
+              </div>
             ))}
-            <li>
-              <a href={pfad(sprache, "/blog/vergleiche")} className="flex min-h-12 items-center text-small font-bold text-white transition-colors hover:text-brand-500">
-                {sprache === "de" ? "Amazon-Vergleiche & Entscheidungshilfen" : "Amazon comparisons & decision guides"}
-              </a>
-            </li>
-          </ul>
+            <div>
+              <h3 className="font-bold text-white">{sprache === "de" ? "Themen & Entscheidungen" : "Topics & decisions"}</h3>
+              <ul className="mt-3 space-y-1">
+                {blogTopics.map((topic) => <li key={topic.slug}><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/kategorie/${topic.slug}`)}>{topic.label[sprache]}</a></li>)}
+                <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/vergleiche")}>{sprache === "de" ? "Vergleiche & Partnerwahl" : "Comparisons & partners"}</a></li>
+                <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/grundlagen")}>{sprache === "de" ? "Begriffe & Grundlagen" : "Terms & fundamentals"}</a></li>
+              </ul>
+            </div>
+          </div>
         </nav>
 
         {/* Band drei: Baujahr und Sprache. Der Umschalter stand vorher als

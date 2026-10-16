@@ -26,7 +26,7 @@ Die Quellen liegen offen vor dir:
 
 Sobald du die wiederkehrenden Fragen kennst, baust du sie gezielt in dein Listing ein – an den passenden Stellen:
 
-- **Bulletpoints:** Beantworte die drängendsten Fragen direkt. Wenn viele nach Dichtigkeit fragen, gehört „garantiert auslaufsicher" prominent nach oben.
+- **Bulletpoints:** Beantworte die drängendsten Fragen direkt. Wenn viele nach Dichtigkeit fragen, erklärt den geprüften Verschluss und seine Einsatzgrenzen. Eine Garantie oder Produkteigenschaft darf nur versprochen werden, wenn sie belegt ist.
 - **A+ Content:** Nutze Module, um häufige Einwände visuell auszuräumen (z. B. ein Bild, das die Größe im Alltag zeigt).
 - **Beschreibung und Backend-Keywords:** Greife die tatsächlichen Formulierungen der Kunden auf – oft suchen sie mit anderen Worten, als Tools vorschlagen.
 
@@ -39,6 +39,19 @@ Ein Listing, das die unausgesprochenen Fragen beantwortet, bevor der Käufer sie
 ## Eine wiederholbare Methode
 
 Mache daraus einen festen Prozess. Sammle regelmäßig Fragen und Beschwerden aus den genannten Quellen, gruppiere sie nach Häufigkeit, und überarbeite dein Listing entlang der Top-Themen. Wiederhole das in Abständen, denn Kundenbedürfnisse und Wettbewerb verändern sich. Besonders ergiebig ist die Analyse der Wettbewerber-Reviews vor einem Launch: Ihre häufigsten Schwächen sind die Versprechen, mit denen du dich differenzieren kannst.
+
+## Praxis: Kundenfragen in ein Content-Briefing übersetzen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Kundenfragen in ein Content-Briefing übersetzen</h3>
+<p>Von 50 untersuchten Rückmeldungen betreffen 18 die Größe. Das ist ein stärkeres Briefingsignal als ein weiteres generisches Markenbanner. Die Lösung kann ein Maßbild mit realer Anwendung und klarer Modellabgrenzung sein.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Notiert Frage, Häufigkeit, betroffene Variante, belegte Antwort und vorgesehenes Modul.
+2. Prüft nach Veröffentlichung passende Rückgabegründe und Serviceanfragen. Rückmeldungen sind eine qualitative Stichprobe und kein repräsentativer Beweis für sämtliche Käufer.
 
 ## Fazit
 

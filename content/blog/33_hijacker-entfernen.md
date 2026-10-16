@@ -11,7 +11,9 @@ Du hast ein Produkt aufgebaut, optimiert und beworben – und plötzlich verkauf
 
 ## Was Hijacking ist
 
-Auf Amazon teilen sich mehrere Anbieter oft dasselbe Produktlisting (dieselbe ASIN). Bei generischen Produkten ist das normal. Problematisch wird es, wenn jemand sich an *dein* Markenprodukt anhängt – ohne Berechtigung, oft mit gefälschter oder abweichender Ware. Der Hijacker greift dann deine Buy Box ab (etwa durch einen niedrigeren Preis) und verkauft unter deinem Namen. Der Schaden: entgangener Umsatz, Preisdruck und – am schlimmsten – schlechte Bewertungen für Ware, die gar nicht von dir stammt.
+Mehrere Verkäufer dürfen grundsätzlich Angebote für dieselbe ASIN führen, wenn sie tatsächlich das passende Produkt anbieten und die geltenden Voraussetzungen erfüllen. Ein zusätzlicher Händler oder ein niedrigerer Preis ist für sich genommen kein Nachweis einer Fälschung.
+
+Trennt Originalware, abweichende Ware und nachweisbare Rechtsverletzungen. Für den europäischen Markt ist insbesondere die markenrechtliche Erschöpfung relevant: Eine fehlende direkte Vertriebsfreigabe allein genügt nicht für jede Beschwerde. Prüft den konkreten Sachverhalt anhand von [§ 24 MarkenG](https://www.gesetze-im-internet.de/markeng/__24.html), bevor ihr Rechteverletzungen behauptet.
 
 ## Hijacker früh erkennen
 
@@ -40,6 +42,19 @@ Der beste Schutz besteht darin, Hijacking von vornherein zu erschweren:
 ## Den Schaden begrenzen
 
 Falls durch einen Hijacker schlechte Bewertungen für fremde Ware entstanden sind, kannst du diese mit Beweisen bei Amazon thematisieren, da sie nicht dein tatsächliches Produkt betreffen. Konzentriere dich parallel darauf, die Buy Box zurückzugewinnen und dein Listing wieder zu stabilisieren.
+
+## Praxis: Fälschung und legitimen Händler unterscheiden
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Fälschung und legitimen Händler unterscheiden</h3>
+<p>Ein neuer Anbieter verkauft dasselbe Originalprodukt günstiger. Das allein ist noch kein Fälschungsnachweis. Eine Testbestellung zeigt dagegen möglicherweise abweichende Seriennummern, Verpackung oder Produkteigenschaften.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Sichert Bestellbezug und objektive Unterschiede, bevor ihr eine Meldung einreicht.
+2. Wählt den Meldegrund nach belegtem Sachverhalt. Eine unbegründete Rechtebeschwerde ist kein Instrument zur Preissteuerung oder zur pauschalen Entfernung weiterer Händler.
 
 ## Fazit
 

@@ -27,7 +27,7 @@ So niedrig die Hürde, so klar die Grenzen:
 
 - **Nicht skalierbar:** Jeder Deal ist einmalig. Du kannst nicht einfach „mehr" von einem günstigen Fund kaufen, wenn das Angebot weg ist. Das Modell verlangt ständiges neues Suchen.
 - **Zeitintensiv:** Das Aufspüren profitabler Ware kostet viel Zeit – es ist eher ein Job als ein passives Geschäft.
-- **Verkaufsbeschränkungen:** Viele Marken und Kategorien sind „gated"; nicht alles, was du günstig findest, darfst du auch verkaufen. Markeninhaber können zudem gegen ungewollte Wiederverkäufer vorgehen.
+- **Verkaufsbeschränkungen:** Viele Marken und Kategorien sind „gated"; nicht alles, was du günstig findest, darfst du auch verkaufen. Eine fehlende Vertriebsautorisierung allein begründet nicht automatisch eine Markenrechtsverletzung; legitimen Wiederverkauf und tatsächliche Verstöße unterscheiden.
 - **Dünne, schwankende Margen:** Gebühren und Wettbewerb auf bestehenden Listings drücken die Spanne.
 - **Kein Markenaufbau:** Du baust kein eigenes Asset auf, das an Wert gewinnt.
 
@@ -38,6 +38,19 @@ Retail Arbitrage eignet sich gut für Menschen mit wenig Startkapital, die das A
 ## Der Übergang zu nachhaltigeren Modellen
 
 Viele nutzen Retail Arbitrage als Startphase und wechseln später zu Modellen mit mehr Spielraum: Wholesale (planbarer Nachschub gleicher Produkte) oder Private Label (eigene Marke, skalierbar und als Asset verkaufbar). Diese verlangen mehr Kapital und Know-how, lösen aber die zentralen Grenzen der Arbitrage – fehlende Skalierbarkeit und fehlender Markenwert.
+
+## Praxis: Arbitrage mit Arbeitszeit rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Arbitrage mit Arbeitszeit rechnen</h3>
+<p>Ein Fund verspricht im Modell 4 € Beitrag pro Artikel. Einkauf, Prüfung und Vorbereitung dauern aber durchschnittlich zwölf Minuten. Fünf Artikel pro Stunde ergeben 20 € vor Fahrt, Tools und weiteren Fixkosten.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Dokumentiert tatsächliche Arbeitszeit und Belege neben der Stückmarge.
+2. Prüft Verkaufsberechtigung und Echtheitsnachweise vor dem Kauf. Ein günstiger Kassenbon ist nicht automatisch ein ausreichender Nachweis für jedes Amazon-Verfahren.
 
 ## Fazit
 

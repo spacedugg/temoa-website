@@ -30,11 +30,7 @@ Which metric you prefer is ultimately habit. People who come from classic online
 
 ## The most common mistake: reading ROAS without the margin
 
-A high ROAS always sounds good, and without your margin the number is worthless. What counts is the **break-even ROAS**, the point at which your advertising covers its cost. It follows from your margin.
-
-A worked example: your product has a 25% margin after every cost. Your break-even ROAS is then 1 ÷ 0.25 = **4**. A ROAS of 4 therefore means break-even. Only above a ROAS of 4 do you earn money on advertised sales, below it you pay in.
-
-That explains why "a ROAS of 3 is bad" need not be true: at a 40% margin (break-even ROAS 2.5) a ROAS of 3 would be profitable.
+ROAS measures revenue, not profit. Divide reported revenue per unit by contribution before advertising to estimate break-even ROAS, using consistent products and tax bases. With €30 reported revenue and €7.50 contribution, the result is 4. It does not yet cover additional fixed costs or prove incremental sales. If the report attributes other ASINs, include their actual margins.
 
 ## Using ROAS sensibly as a steering figure
 

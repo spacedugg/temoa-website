@@ -7,7 +7,7 @@ kategorie: "Amazon PPC & Advertising"
 
 # Steigende Amazon-PPC-Kosten: So bekommst du deinen ACoS wieder in den Griff
 
-Die Klickpreise auf Amazon kennen über die Jahre vor allem eine Richtung: nach oben. Immer mehr Verkäufer konkurrieren um dieselben Platzierungen, und das treibt die Kosten. Viele reagieren mit dem falschen Reflex – sie kürzen einfach das Budget und verlieren damit Sichtbarkeit und Ranking. Es gibt bessere Wege. Dieser Beitrag zeigt, warum dein ACoS steigt und womit du Effizienz zurückholst.
+Steigende Amazon-PPC-Kosten müssen auf Ebene eurer Suchbegriffe und Platzierungen analysiert werden. Ein allgemeiner Markttrend erklärt euren Account noch nicht. Immer mehr Verkäufer konkurrieren um dieselben Platzierungen, und das treibt die Kosten. Viele reagieren mit dem falschen Reflex – sie kürzen einfach das Budget und verlieren damit Sichtbarkeit und Ranking. Es gibt bessere Wege. Dieser Beitrag zeigt, warum dein ACoS steigt und womit du Effizienz zurückholst.
 
 ## Warum die Kosten steigen
 
@@ -36,6 +36,19 @@ Wenn der Wettbewerb am unteren Funnel-Ende zu teuer wird, kann es paradox helfen
 ## Was du nicht tun solltest
 
 Der häufigste Fehler ist die Panik-Kürzung: Budget radikal runter, Gebote runter, Kampagnen aus. Das senkt zwar kurzfristig die Ausgaben, kostet aber Sichtbarkeit, Verkäufe und – über das Flywheel – organisches Ranking, das du später teuer zurückkaufen musst. Reagiere gezielt statt mit dem Rasenmäher.
+
+## Praxis: Den ACoS in seine Treiber zerlegen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Den ACoS in seine Treiber zerlegen</h3>
+<p>Bei 1 € CPC, 10 % Anzeigen-Kaufquote und 40 € zugerechnetem Umsatz je Kauf ergibt sich näherungsweise 25 % ACoS. Fällt die Kaufquote auf 8 %, steigt er bei gleichem CPC auf 31,25 %. Das Kostenproblem liegt in diesem Modell nicht am teureren Klick.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht CPC, Kaufquote und Umsatz je Kauf für dieselben Suchbegriffe und Zeitfenster.
+2. Prüft bei sinkender Kaufquote zuerst Lieferzeit, Preis, Featured Offer, Varianten und Content. Erst danach entscheidet ihr, ob niedrigere Gebote die richtige Antwort sind.
 
 ## Fazit
 

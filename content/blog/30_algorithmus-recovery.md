@@ -41,6 +41,19 @@ Sobald die Ursache klar ist, handelst du gezielt:
 
 Vermeide hektische Komplettumbauten des Listings, mehrere gleichzeitige Änderungen (du weißt sonst nie, was gewirkt hat) und überstürzte Preisschlachten. Ranking-Erholung braucht meist etwas Zeit – das Flywheel muss wieder Schwung aufnehmen. Geduld und gezielte, einzeln messbare Maßnahmen schlagen Aktionismus.
 
+## Praxis: Umsatzeinbruch in der richtigen Reihenfolge prüfen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Umsatzeinbruch in der richtigen Reihenfolge prüfen</h3>
+<p>Der Umsatz einer ASIN fällt um 35 %. Die Sitzungen bleiben stabil, gleichzeitig steigt die Lieferzusage von zwei auf sieben Tage. Ein großer SEO-Umbau würde hier die naheliegende Angebotsursache übergehen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Prüft Kaufbarkeit, Featured Offer, Lieferzeit, Bestand und Preis vor Textänderungen.
+2. Vergleicht anschließend Suchanfragen und Child-Varianten. Dokumentiert die Zeitpunkte der Änderungen, damit eine spätere Erholung nicht vorschnell dem Algorithmus zugeschrieben wird.
+
 ## Fazit
 
 Ein Ranking-Einbruch ist beunruhigend, aber selten ein Rätsel, wenn man systematisch vorgeht. Diagnostiziere zuerst – technisches Problem, Verfügbarkeit, Wettbewerb, Bewertungen oder Algorithmus? –, und handle dann gezielt statt panisch. Wer die Fundamente (Relevanz, Conversion, Verfügbarkeit, Bewertungen) stark hält, ist gegen Algorithmus-Schwankungen am besten gewappnet und erholt sich am schnellsten. Ruhe und Methode sind hier dein größter Vorteil.

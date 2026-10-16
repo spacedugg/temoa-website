@@ -1,0 +1,621 @@
+{
+  "updated": "2026-10-17",
+  "examples": {
+    "acos-erklaert": {
+      "title": "ACoS auf derselben Umsatzbasis rechnen",
+      "example": "30 € Nettoerlös minus 21 € variable Kosten lassen 9 € vor Werbung. Verwendet auch der Anzeigenbericht 30 € je Einheit, liegt die rechnerische Grenze bei 30 %. Sollen 3 € für Fixkosten und Ergebnis bleiben, dürfen 6 € in Werbung fließen: Ziel-ACoS 20 %. Bei einem anderen Berichtserlös muss der Nenner angepasst werden.",
+      "steps": [
+        "Erfasst Erlösbasis und Kosten je SKU ausdrücklich in der Zielwerttabelle.",
+        "Vergleicht anschließend den absoluten Deckungsbeitrag nach Werbung, nicht nur die Prozentzahl."
+      ]
+    },
+    "guter-acos-benchmarks": {
+      "title": "Gleicher ACoS, unterschiedliche Entscheidung",
+      "example": "Zwei ASINs erzielen je 10.000 € Berichtserlös und kosten je 2.500 € Werbung. Ihr ACoS ist jeweils 25 %. Vor Werbung bleiben bei A aber 3.500 €, bei B nur 2.000 € Beitrag. Nach Werbung sind es 1.000 € beziehungsweise minus 500 € – noch vor Fixkosten.",
+      "steps": [
+        "Trennt die Produkte in der Steuerung, statt dem gesamten Konto ein einheitliches Ziel zu geben.",
+        "Prüft bei B zunächst Preis, Gebühren und Retouren; zusätzliche Ausgaben lösen eine negative Stückökonomie nicht."
+      ]
+    },
+    "tacos-erklaert": {
+      "title": "Ein besserer TACoS bei weniger Ergebnis",
+      "example": "Periode A: 100.000 € Umsatz und 10.000 € Werbung ergeben 10 % TACoS. Periode B: 80.000 € Umsatz und 6.000 € Werbung ergeben 7,5 %. Bei angenommenen 30 % Beitrag vor Werbung sinkt der Beitrag nach Werbung trotzdem von 20.000 € auf 18.000 €.",
+      "steps": [
+        "Zeigt TACoS und absoluten Beitrag nebeneinander.",
+        "Klärt vor weiteren Kürzungen, ob Nachfrage, Preis, Bestand oder Werbereduktion den Umsatz verändert haben. Die Rechnung beweist keine einzelne Ursache."
+      ]
+    },
+    "roas-berechnen": {
+      "title": "ROAS-Gewinner kann Ergebnis-Verlierer sein",
+      "example": "Kampagne A erzielt bei 1.000 € Werbung 5.000 € Umsatz, B erzielt 4.000 €. A gewinnt mit ROAS 5 gegen 4. Bei 15 % Beitrag vor Werbung für A und 40 % für B bleiben nach Werbung jedoch minus 250 € und plus 600 €. Alle Modellbeträge nutzen dieselbe Umsatzbasis.",
+      "steps": [
+        "Verknüpft die zugerechneten Produkte mit ihren tatsächlichen Kosten.",
+        "Priorisiert den zusätzlichen Beitrag und kontrolliert, ob ein hoher Markenanteil den ROAS beschönigt."
+      ]
+    },
+    "negative-keywords": {
+      "title": "Warum 30 Klicks kein universelles Stoppsignal sind",
+      "example": "Bei einer angenommenen Kaufwahrscheinlichkeit von 5 % beträgt die Wahrscheinlichkeit für null Käufe nach 30 unabhängigen Klicks rund 21 %: 0,95 hoch 30. Null Verkäufe sind also noch kein sicherer Beweis für einen unbrauchbaren Suchbegriff. Fachlich irrelevante Begriffe dürfen dagegen ohne langen Test ausgeschlossen werden.",
+      "steps": [
+        "Trennt Relevanzentscheidungen von Entscheidungen wegen schwacher Performance.",
+        "Definiert ein monetäres Testlimit und wartet auf nachgereifte Attribution. Prüft vor Negative Phrase, welche sinnvollen längeren Suchanfragen mit betroffen wären."
+      ]
+    },
+    "produkttitel-optimieren": {
+      "title": "Der Feed darf die Titelkorrektur nicht zurückdrehen",
+      "example": "Eine Marke korrigiert 40 Titel in Seller Central. Nachts schreibt ihr PIM die alten Fassungen wieder hinein. Die Oberfläche wurde richtig bearbeitet, aber der Prozess bleibt fehlerhaft. Ein Titelprojekt ist erst abgeschlossen, wenn die freigegebene Fassung im führenden System und auf der Produktseite übereinstimmt.",
+      "steps": [
+        "Hinterlegt je Feld Quellsystem, Freigabeverantwortlichen und Datum.",
+        "Kontrolliert nach dem nächsten regulären Import dieselben Test-ASINs erneut – einschließlich Child-Varianten und Übersetzungen."
+      ]
+    },
+    "a-plus-content": {
+      "title": "Aus einer Käuferfrage ein A+-Modul machen",
+      "example": "Eine Küchenmarke erhält wiederholt die Frage, ob ein Behälter in ein bestimmtes Fach passt. Ein allgemeines Lifestyle-Banner löst das Problem nicht. Ein Modul mit Innen- und Außenmaßen, Messpunkten und einer klaren Abgrenzung der Größen liefert die fehlende Entscheidungshilfe.",
+      "steps": [
+        "Ordnet jedem Modul genau eine Käuferfrage und einen belegten Produktnachweis zu.",
+        "Prüft die mobile Ansicht und messt bei einem Test auch größenbedingte Rückgaben. Mehr Conversion bei zugleich mehr Fehlkäufen wäre kein überzeugender Erfolg."
+      ]
+    },
+    "fba-gebuehren-rechner": {
+      "title": "Das Modell muss einen Belastungstest aushalten",
+      "example": "Bei 25 € Nettoerlös, 6 € Wareneinsatz, 7 € Gebühren und Logistik, 1 € erwarteten Retourenkosten und 5 € Werbung bleiben 6 €. Steigen Werbung um 1,50 € und Retourenkosten um 0,50 €, schrumpft der Beitrag auf 4 €. Die Werte sind Annahmen, keine Amazon-Tarife.",
+      "steps": [
+        "Speichert je Kostenzeile Quelle, Gültigkeitsdatum und Steuerbasis.",
+        "Rechnet vor dem Einkauf einen schwächeren Abverkauf mit längerer Lagerdauer durch. Ein positiver Stückbeitrag verhindert noch keinen Liquiditätsengpass."
+      ]
+    },
+    "ipi-score": {
+      "title": "Erst nicht verkäufliche Ware lösen",
+      "example": "Von 1.000 eingelagerten Einheiten sind 120 wegen eines Katalogfehlers nicht kaufbar. Mehr Werbung für andere Produkte löst diesen Engpass nicht. Prüft für die 120 Einheiten zuerst Angebotsstatus, erforderliche Dokumente und verfügbare Wiederherstellungswege.",
+      "steps": [
+        "Führt eine Liste aus ASIN, Einheiten, Einstandswert, Ursache und verantwortlicher Person.",
+        "Priorisiert nach gebundenem Kapital und Lösbarkeit. Betrachtet den Kapazitätsmonitor zusätzlich zum IPI; eine Scoreverbesserung ist keine sofortige Zusage für mehr Platz."
+      ]
+    },
+    "fbm-vs-fba": {
+      "title": "FBA und FBM je SKU vergleichen",
+      "example": "Für eine sperrige SKU werden im Modell 8 € FBA-Abwicklung angesetzt. Eigenversand kostet 5,20 € Porto plus 1,10 € Pick-and-Pack, 0,60 € Verpackung und 0,80 € Service-/Retourenanteil: 7,70 €. Der scheinbare Vorteil von 2,80 € schrumpft auf 0,30 €.",
+      "steps": [
+        "Vergleicht dieselbe Zustellqualität und ergänzt Lager-, Personal- und Ausfallkosten.",
+        "Testet einen realistischen Spitzenabsatz, bevor ihr umstellt. Ein kleiner Kostenvorteil rechtfertigt keine Lieferzusagen, die operativ nicht gehalten werden."
+      ]
+    },
+    "kampagnenstruktur-ppc": {
+      "title": "Struktur nach wirtschaftlichen Unterschieden",
+      "example": "Eine Kampagne enthält drei ASINs mit Beiträgen vor Werbung von 4 €, 9 € und 15 €. Ein gemeinsamer Budgettopf verschleiert, wo Ausgaben tragfähig sind. Gruppiert zuerst nach vergleichbarer Produktökonomie und Kaufabsicht; nicht jede ASIN braucht automatisch ein eigenes Kampagnennetz.",
+      "steps": [
+        "Dokumentiert Zweck, ASIN-Gruppe, Zielwert und Budgetverantwortung je Kampagne.",
+        "Migriert in Etappen. Prüft Auslieferung und Budget der Zielkampagne, bevor ihr erfolgreiche Suchanfragen in der alten Kampagne ausschließt."
+      ]
+    },
+    "sponsored-brands-display": {
+      "title": "Ein Anzeigenformat mit einer klaren Aufgabe testen",
+      "example": "Ein Sponsored-Brands-Test führt auf eine Store-Unterseite für eine bestimmte Anwendung. Wenn Anzeige und Zielseite jeweils das gesamte Sortiment zeigen, bleibt unklar, ob Format, Botschaft oder Zielseite scheitern. Ein enger Anwendungsfall macht den Test auswertbar.",
+      "steps": [
+        "Definiert vorher Zielgruppe, Botschaft, Zielseite, Budgetgrenze und Erfolgskriterium.",
+        "Vergleicht nicht nur ROAS, sondern auch qualifizierten Traffic und Beitrag. Günstigere Klicks sind kein Vorteil, wenn daraus keine wirtschaftlich relevanten Käufe entstehen."
+      ]
+    },
+    "full-funnel-advertising": {
+      "title": "Reichweite braucht eine prüfbare Hypothese",
+      "example": "Eine Marke reserviert im Modell 3.000 € für neue Zielgruppen. Die Hypothese lautet: Die Kampagne erhöht qualifizierte Erstkäufe in einer bestimmten Produktlinie. Ein höherer Gesamtumsatz während einer gleichzeitigen Rabattaktion würde diese Hypothese allein nicht bestätigen.",
+      "steps": [
+        "Legt vor dem Start Messzeitraum, Vergleichsgruppe soweit möglich und Verlustobergrenze fest.",
+        "Dokumentiert Aktionen, Bestandsänderungen und Markenwerbung. Reichweite ist ein Zwischenergebnis; die Entscheidung zur Verlängerung braucht eine Verbindung zum Geschäftsziel."
+      ]
+    },
+    "ppc-dayparting": {
+      "title": "Klickzeit und Kaufzeit auseinanderhalten",
+      "example": "Ein Report zeigt morgens viele Klicks und abends mehr Käufe. Daraus folgt nicht, dass die Morgenstunden unprofitabel sind: Ein Teil der Käufer könnte nach dem morgendlichen Kontakt später bestellen. Eine Auswertung nach Kaufzeit würde dann das falsche Zeitfenster abschalten.",
+      "steps": [
+        "Prüft Zeitzone, Zeitbezug und Attributionsverzögerung der Datenquelle.",
+        "Beginnt mit breiten Zeitblöcken und einem begrenzten Test. Vergleicht mehrere gleichartige Wochentage und berücksichtigt Budgetausfälle sowie saisonale Aktionen."
+      ]
+    },
+    "conversion-rate-optimierung": {
+      "title": "Mehr Einheiten pro Sitzung ist nicht Käufer-Conversion",
+      "example": "Bei 2.000 Sitzungen und 240 bestellten Einheiten beträgt die Unit Session Percentage 12 %. Das bedeutet nicht zwingend, dass 12 % aller Besucher gekauft haben: Eine Bestellung kann mehrere Einheiten enthalten. Auch ein Variantenmix kann die Kennzahl verschieben.",
+      "steps": [
+        "Vergleicht dieselben Child-ASINs, den gleichen Preisbereich und einen ähnlichen Traffic-Mix.",
+        "Formuliert den Test präzise: etwa ein Maßbild gegen das bisherige Galeriebild. Betrachtet neben Einheiten pro Sitzung auch Deckungsbeitrag und passende Retourengründe."
+      ]
+    },
+    "brand-store-funnel": {
+      "title": "Eine Anzeige braucht das passende Store-Ziel",
+      "example": "Eine Anzeige für platzsparende Küchenhelfer führt auf die allgemeine Store-Startseite mit 60 Produkten. Dort muss der Käufer erneut suchen. Eine Unterseite mit den passenden Produkten, Größenvergleich und klarer Anwendung verkürzt den Weg.",
+      "steps": [
+        "Ordnet jeder wichtigen Werbeabsicht eine konkrete Store-Zielseite zu.",
+        "Vergleicht die Seiten mit ähnlichen Traffic-Quellen. Mehr Seitenaufrufe sind kein Selbstzweck; prüft Produktklicks, zugerechnete Verkäufe und den tatsächlichen Warenkorb."
+      ]
+    },
+    "bsr-erklaert": {
+      "title": "BSR nur innerhalb desselben Umfelds lesen",
+      "example": "Ein Produkt liegt in einer kleinen Unterkategorie auf Rang 20, ein anderes in einer großen Kategorie auf Rang 2.000. Daraus lässt sich weder ein gleicher Absatz noch eine Überlegenheit des ersten Produkts ableiten. Auch ein Tageswert nach einer Aktion kann den normalen Bedarf überzeichnen.",
+      "steps": [
+        "Erfasst Kategoriepfad, Preis, Verfügbarkeit und Rangverlauf gemeinsam.",
+        "Nutzt daraus abgeleitete Absatzschätzungen nur als Szenario. Bestellmengen brauchen zusätzlich eigene Verkaufsdaten oder einen begrenzten Markttest."
+      ]
+    },
+    "amazon-flywheel": {
+      "title": "Ein Launchbudget mit Abbruchregel",
+      "example": "Eine Marke akzeptiert im Modell maximal 2.000 € negativen Beitrag für einen Launchtest. Nach vier Wochen stehen nicht nur Verkäufe, sondern auch wiederkehrende Qualitätsbeschwerden im Report. Weiteres Budget würde das Produktproblem nicht beheben.",
+      "steps": [
+        "Definiert vor dem Start Budgetgrenze, Mindestdaten und überprüfbare Produktannahmen.",
+        "Stoppt oder korrigiert bei Qualitäts- und Complianceproblemen unabhängig vom erhofften Rankingeffekt. Ein Flywheel ist ein Denkmodell, keine Zusage späterer Gewinne."
+      ]
+    },
+    "vendor-vs-seller-central": {
+      "title": "1P und 3P auf gleicher Basis rechnen",
+      "example": "Ein Vendor-Angebot bringt nach vereinbarten Abzügen 14 € Erlös je Einheit. Ein Seller-Modell liefert 25 € Nettoerlös, benötigt aber 11 € für Gebühren, Logistik und operative Kosten vor identischem Wareneinsatz. Beide starten damit bei 14 € – der Endkundenpreis allein entscheidet nichts.",
+      "steps": [
+        "Vergleicht zusätzlich Zahlungsziele, Retourenrisiken, Werbeleistungen und interne Kapazität.",
+        "Rechnet SKU-Gruppen getrennt. Ein Hybridmodell braucht klare Verantwortlichkeiten und eine Planung für Preis-, Bestands- und Katalogkonflikte."
+      ]
+    },
+    "private-label-erfolg": {
+      "title": "Differenzierung zuerst am Muster prüfen",
+      "example": "Kunden bemängeln bei Konkurrenzprodukten einen undichten Verschluss. Ein neuer Markenname und bessere Bilder beheben das nicht. Der Produktauftrag muss einen messbaren Prüfaufbau, zulässige Abweichungen und eine Chargenkontrolle enthalten.",
+      "steps": [
+        "Übersetzt die häufigste Beschwerde in eine konkrete Produktspezifikation.",
+        "Gebt die Werbeaussage erst nach belastbarer Prüfung frei. Die Differenzierung muss an der gelieferten Ware erkennbar sein, nicht nur im Listing."
+      ]
+    },
+    "ppc-intelligence-wettbewerb": {
+      "title": "Wettbewerbersignal als Hypothese behandeln",
+      "example": "Ein Konkurrent erscheint bei drei Stichproben oben in der Suche. Daraus kennt ihr weder sein Tagesbudget noch seine Conversion oder Profitabilität. Die Beobachtung liefert eine Testidee, aber keine belastbare Gebotsempfehlung.",
+      "steps": [
+        "Erfasst Suchanfrage, Zeitpunkt, Standort, Gerät und beobachtetes Angebot.",
+        "Prüft anschließend eure eigenen Suchbegriffs- und Platzierungsdaten. Testet eine Lücke mit Budgetgrenze, statt vermutete Wettbewerbergebote nachzubauen."
+      ]
+    },
+    "amazon-attribution": {
+      "title": "Externe Kampagnen sauber benennen",
+      "example": "Zwei Creator teilen denselben Attribution-Link. Im Report lässt sich danach nicht erkennen, welcher Beitrag Käufe begleitet hat. Auch identische Links für Story und Video vermischen unterschiedliche Formate.",
+      "steps": [
+        "Vergebt eigene Tags je Quelle, Kampagne und Creative und dokumentiert deren Verwendung.",
+        "Ergänzt Honorare und Mediakosten aus externen Systemen. Vergleicht nur gleichartige Attributionsfenster; zugerechnete Umsätze aus mehreren Plattformen dürfen nicht einfach addiert werden."
+      ]
+    },
+    "ppc-kosten-senken": {
+      "title": "Den ACoS in seine Treiber zerlegen",
+      "example": "Bei 1 € CPC, 10 % Anzeigen-Kaufquote und 40 € zugerechnetem Umsatz je Kauf ergibt sich näherungsweise 25 % ACoS. Fällt die Kaufquote auf 8 %, steigt er bei gleichem CPC auf 31,25 %. Das Kostenproblem liegt in diesem Modell nicht am teureren Klick.",
+      "steps": [
+        "Vergleicht CPC, Kaufquote und Umsatz je Kauf für dieselben Suchbegriffe und Zeitfenster.",
+        "Prüft bei sinkender Kaufquote zuerst Lieferzeit, Preis, Featured Offer, Varianten und Content. Erst danach entscheidet ihr, ob niedrigere Gebote die richtige Antwort sind."
+      ]
+    },
+    "kindle-ads": {
+      "title": "Mit Tantiemen statt Buchpreis planen",
+      "example": "Ein Titel kostet im Modell 12 €, dem Verlag bleiben nach den relevanten variablen Kosten 3 €. Bei 2 € Werbekosten je zugerechnetem Verkauf bleiben 1 €. Der auf 12 € Umsatz berechnete ACoS von 16,7 % beschreibt die Wirtschaftlichkeit daher nur unvollständig.",
+      "steps": [
+        "Hinterlegt den tatsächlichen Nettoertrag je Format und Markt.",
+        "Folgebände und Leseerlöse nur mit belastbaren Daten einrechnen. Trennt deren Zeitverlauf, statt jeden Erstkauf pauschal mit einem erhofften Leserwert aufzuwerten."
+      ]
+    },
+    "kundenfragen-seo": {
+      "title": "Kundenfragen in ein Content-Briefing übersetzen",
+      "example": "Von 50 untersuchten Rückmeldungen betreffen 18 die Größe. Das ist ein stärkeres Briefingsignal als ein weiteres generisches Markenbanner. Die Lösung kann ein Maßbild mit realer Anwendung und klarer Modellabgrenzung sein.",
+      "steps": [
+        "Notiert Frage, Häufigkeit, betroffene Variante, belegte Antwort und vorgesehenes Modul.",
+        "Prüft nach Veröffentlichung passende Rückgabegründe und Serviceanfragen. Rückmeldungen sind eine qualitative Stichprobe und kein repräsentativer Beweis für sämtliche Käufer."
+      ]
+    },
+    "visual-search-optimierung": {
+      "title": "Eine Variante visuell eindeutig halten",
+      "example": "Im Hauptbild ist das Produkt schwarz, in der Galerie dunkelblau, im Farbattribut steht grau. Unabhängig von jeder KI-Suche entsteht eine falsche Erwartung. Die erste Optimierung ist daher ein konsistenter Datensatz pro Variante.",
+      "steps": [
+        "Vergleicht Farbe, Material, Lieferumfang und Perspektiven gegen ein freigegebenes Produktmuster.",
+        "Prüft Such- und Kaufverhalten anschließend separat. Eine garantierte Lens-Platzierung lässt sich aus einer bestimmten Bildgestaltung nicht ableiten."
+      ]
+    },
+    "amazon-positionierung": {
+      "title": "Ein Nutzenversprechen braucht einen Nachweis",
+      "example": "„Für kleine Küchen“ wird erst konkret, wenn Käufer die Stellfläche, Höhe und Aufbewahrung erkennen. „Premium“ allein beantwortet keine dieser Fragen. Eine belegte Größenangabe und eine passende Anwendungsszene können den Mehrpreis verständlicher machen.",
+      "steps": [
+        "Formuliert Zielgruppe, Problem, unterscheidendes Merkmal und Beleg in je einem Satz.",
+        "Prüft jedes Bild und jeden Text gegen diese vier Punkte. Streicht Behauptungen, die eure Ware nicht nachweislich trägt."
+      ]
+    },
+    "kategorie-positionierung": {
+      "title": "Kategoriefehler über Attribute aufdecken",
+      "example": "Ein Zubehörartikel liegt in einer unpassenden Produktart. Dadurch fehlen relevante Kompatibilitätsfelder, obwohl der Titel die Modelle nennt. Mehr Keywords können diese Struktur nicht reparieren.",
+      "steps": [
+        "Vergleicht Produkttyp, Browse-Zuordnung und Pflichtattribute mit der tatsächlichen Funktion.",
+        "Dokumentiert eine Korrektur mit Produktnachweisen. Wählt keine sachfremde Nische, nur weil dort ein Bestseller-Rang leichter erreichbar erscheint."
+      ]
+    },
+    "amazon-badges": {
+      "title": "Badge nicht in den Business Case einpreisen",
+      "example": "Eine Aktion rechnet sich nur, wenn danach dauerhaft ein Bestseller-Badge bestehen bleibt. Diese Annahme ist nicht belastbar, weil Amazon die Anzeige bestimmt und Wettbewerber sich verändern.",
+      "steps": [
+        "Kalkuliert die Aktion zuerst ohne Badge- und Rankingbonus.",
+        "Beobachtet einen möglichen Nachlaufeffekt getrennt und dokumentiert Preis sowie Bestand. Einen späteren Vorteil dürft ihr erst mit Daten in weitere Entscheidungen übernehmen."
+      ]
+    },
+    "algorithmus-recovery": {
+      "title": "Umsatzeinbruch in der richtigen Reihenfolge prüfen",
+      "example": "Der Umsatz einer ASIN fällt um 35 %. Die Sitzungen bleiben stabil, gleichzeitig steigt die Lieferzusage von zwei auf sieben Tage. Ein großer SEO-Umbau würde hier die naheliegende Angebotsursache übergehen.",
+      "steps": [
+        "Prüft Kaufbarkeit, Featured Offer, Lieferzeit, Bestand und Preis vor Textänderungen.",
+        "Vergleicht anschließend Suchanfragen und Child-Varianten. Dokumentiert die Zeitpunkte der Änderungen, damit eine spätere Erholung nicht vorschnell dem Algorithmus zugeschrieben wird."
+      ]
+    },
+    "brand-registry": {
+      "title": "Rechte und Rollen getrennt verwalten",
+      "example": "Eine Marke ist erfolgreich registriert, aber die neue Mitarbeiterin sieht das Analysewerkzeug nicht. Die Markenregistrierung und die zugewiesenen Benutzerrollen sind unterschiedliche Ebenen.",
+      "steps": [
+        "Pflegt eine Matrix mit Markeninhaber, Kontorollen, Agenturzugriffen und benötigten Funktionen.",
+        "Prüft Zugänge beim Onboarding und beim Ausscheiden einer Person. Die Registry ersetzt weder eine saubere Rechteverwaltung noch die Prüfung tatsächlicher Schutzrechtsverletzungen."
+      ]
+    },
+    "transparency-programm": {
+      "title": "Serialisierung beginnt in der Produktion",
+      "example": "Bei einem Pilotlauf werden Codes lesbar gedruckt, aber versehentlich doppelt aufgebracht. Das Problem ist kein Listingfehler, sondern eine Prozesslücke. Eine Serienlösung braucht Zuordnung, Druckprüfung und Umgang mit Ausschuss.",
+      "steps": [
+        "Testet eine kleine Charge vom Codebezug bis zur fertigen versandfähigen Einheit.",
+        "Dokumentiert Verantwortliche für Nachdruck, beschädigte Etiketten und Retouren. Kalkuliert Personal- und Prüfaufwand zusätzlich zu eventuellen Codekosten."
+      ]
+    },
+    "hijacker-entfernen": {
+      "title": "Fälschung und legitimen Händler unterscheiden",
+      "example": "Ein neuer Anbieter verkauft dasselbe Originalprodukt günstiger. Das allein ist noch kein Fälschungsnachweis. Eine Testbestellung zeigt dagegen möglicherweise abweichende Seriennummern, Verpackung oder Produkteigenschaften.",
+      "steps": [
+        "Sichert Bestellbezug und objektive Unterschiede, bevor ihr eine Meldung einreicht.",
+        "Wählt den Meldegrund nach belegtem Sachverhalt. Eine unbegründete Rechtebeschwerde ist kein Instrument zur Preissteuerung oder zur pauschalen Entfernung weiterer Händler."
+      ]
+    },
+    "account-gesperrt": {
+      "title": "Ein Nachweispaket statt eines Standard-POA",
+      "example": "Amazon beanstandet die Echtheit einer bestimmten ASIN und fordert Einkaufsbelege. Ein allgemeiner Text über künftig bessere Prozesse beantwortet die Frage nicht. Entscheidend sind die angeforderten, zur Ware und Kontoinhaberschaft passenden Unterlagen.",
+      "steps": [
+        "Ordnet jeder Forderung aus der Benachrichtigung einen konkreten Beleg zu.",
+        "Trennt einen sachlich begründeten Widerspruch von einem Maßnahmenplan. Reicht keine erfundenen Ursachen oder nachträglich veränderten Rechnungen ein."
+      ]
+    },
+    "approval-needed": {
+      "title": "Freischaltung vor dem Wareneinkauf",
+      "example": "Eine Marke plant 2.000 Einheiten, stellt aber erst nach Anlieferung fest, dass ein produktspezifischer Nachweis fehlt. Das Kapital ist gebunden, obwohl die Ware noch nicht verkauft werden kann.",
+      "steps": [
+        "Prüft den geplanten Produkttyp und den aktuellen Antragsdialog vor verbindlicher Bestellung.",
+        "Haltet je Anforderung Dokument, Aussteller, Gültigkeit und betroffene Modelle fest. Eine Freischaltung für ein Produkt ist nicht automatisch eine Freigabe für das gesamte Sortiment."
+      ]
+    },
+    "support-cases-loesen": {
+      "title": "Ein Support-Case, der sich prüfen lässt",
+      "example": "„Unser Listing ist kaputt“ ist schwer bearbeitbar. Besser: „ASIN X, Marktplatz DE: Der übermittelte Wert im Feld Material wird trotz erfolgreicher Verarbeitung vom Datum Y nicht angezeigt. Erwarteter Wert und Produktnachweis liegen bei.“",
+      "steps": [
+        "Ergänzt Upload-/Feed-ID, genaue Uhrzeit, aktuellen Screenshot und die gewünschte Korrektur.",
+        "Beantwortet Rückfragen im bestehenden Zusammenhang. Eine Chronologie mit zwei relevanten Belegen hilft mehr als zehn neue Tickets zum selben Fehler."
+      ]
+    },
+    "message-center": {
+      "title": "Serviceantwort ohne Bewertungsdruck",
+      "example": "Ein Käufer meldet ein fehlendes Teil. Die Antwort erklärt den zulässigen Lösungsweg und die benötigten Bestelldaten. Sie verknüpft die Hilfe weder mit einer Sternebewertung noch mit dem Entfernen einer Rezension.",
+      "steps": [
+        "Erstellt Vorlagen für reale Servicefälle und lasst Werbesätze konsequent weg.",
+        "Prüft regelmäßig Stichproben, auch bei automatisierten Antworten. Eine technisch erfolgreiche Nachricht ist noch keine hilfreiche oder richtliniengerechte Kommunikation."
+      ]
+    },
+    "konto-schliessen": {
+      "title": "Pausieren ist nicht Schließen",
+      "example": "Ein Händler aktiviert den Urlaubsmodus und nimmt an, alle Verkäufe und Gebühren seien beendet. FBA-Angebote und laufende Verpflichtungen können aber weiterbestehen. Deshalb braucht die Pause eine eigene operative Liste.",
+      "steps": [
+        "Prüft FBM- und FBA-Angebote, Werbekampagnen, Bestände, Gebühren und Kundenkommunikation getrennt.",
+        "Vor einer endgültigen Schließung Berichte sichern und offene Fälle abarbeiten. Dokumentiert, welche Verpflichtungen auch nach dem letzten Verkauf bestehen bleiben."
+      ]
+    },
+    "rezension-loeschen": {
+      "title": "Kritik in zwei Arbeitslisten aufteilen",
+      "example": "Zehn negative Rezensionen enthalten acht konkrete Produktkritiken, eine reine Versandbeschwerde und einen möglichen Richtlinienverstoß. Alle zehn pauschal zur Löschung zu melden würde die eigentliche Produktarbeit verdrängen.",
+      "steps": [
+        "Legt eine Liste für belegbare Meldegründe und eine zweite für wiederkehrende Produktprobleme an.",
+        "Meldet präzise und ohne Löschversprechen. Die Produktliste geht mit Verantwortlichem und Termin an Qualitätssicherung oder Content-Team."
+      ]
+    },
+    "bewertungen-aufbauen": {
+      "title": "Vine nicht als Sternegarantie kalkulieren",
+      "example": "Eine Marke plant einen Launch mit Produkten für Vine. Produktkosten, Versand und gegebenenfalls Programmgebühren fallen an; eine bestimmte Anzahl positiver Rezensionen ist damit nicht gekauft. Kritisches Feedback muss im Ablauf vorgesehen sein.",
+      "steps": [
+        "Prüft die aktuelle ASIN-Berechtigung und die im Konto angebotene Gebühr vor Anmeldung.",
+        "Gebt nur geprüfte Ware frei und dokumentiert Beschwerden nach Charge. Nutzt reguläre Bewertungsanfragen neutral und ohne Auswahl nach erwarteter Zufriedenheit."
+      ]
+    },
+    "seller-gebuehren-ueberblick": {
+      "title": "Gebührenabweichungen systematisch finden",
+      "example": "Im Gebührenreport steigt der Betrag einer SKU, obwohl Preis und Absatz stabil sind. Eine mögliche Ursache ist eine geänderte Größenklasse. Der erste Schritt ist der Abgleich mit hinterlegten Maßen und tatsächlicher Verpackung, nicht eine pauschale Preiserhöhung.",
+      "steps": [
+        "Speichert Gebühren je SKU und Monat mit Größenklasse, Gewicht und Programm.",
+        "Priorisiert Abweichungen nach Euroeffekt. Reicht nachvollziehbare Nachweise ein, wenn Daten falsch sind, und aktualisiert die Margenrechnung nach der Klärung."
+      ]
+    },
+    "inventar-cashflow": {
+      "title": "Bestellmenge gegen Liquidität testen",
+      "example": "Ein zusätzlicher Einkauf von 2.000 Einheiten zu 8 € bindet im Modell 16.000 €, bevor Werbung und Transport bezahlt sind. Ein positiver späterer Stückgewinn macht diese Zahlung heute nicht verfügbar.",
+      "steps": [
+        "Verbindet jede größere Bestellung mit einer rollierenden 13-Wochen-Liquiditätsvorschau.",
+        "Vergleicht Basis- und Verzögerungsfall für Anlieferung, Verkauf und Auszahlung. Legt fest, welcher Mindestbestand an Liquidität vor einer Budgeterhöhung erhalten bleiben muss."
+      ]
+    },
+    "peak-season": {
+      "title": "Q4 mit Reichweiten statt Hoffnung planen",
+      "example": "1.800 verfügbare Einheiten reichen bei 30 Verkäufen pro Tag für 60 Tage. Steigt der Absatz auf 60, bleiben nur 30 Tage. Ein Werbebudget für 45 Tage Spitzenabsatz passt dann nicht zur Lieferfähigkeit.",
+      "steps": [
+        "Rechnet Absatz, verfügbare Ware und bestätigten Nachschub pro Woche zusammen.",
+        "Legt vor der Aktion fest, wann Budget, Preis oder Promo angepasst werden. Inbound-Bestand zählt erst mit realistisch erreichbarem Verfügbarkeitstermin als Absicherung."
+      ]
+    },
+    "frustfreie-verpackung": {
+      "title": "Verpackungsersparnis gegen Schäden rechnen",
+      "example": "Eine neue Verpackung spart im Modell 0,25 € je Einheit. Steigt die Schadensquote um zwei Prozentpunkte und kostet ein Schaden durchschnittlich 18 €, entstehen 0,36 € zusätzliche Kosten je Einheit. Die scheinbare Ersparnis wird zum Verlust.",
+      "steps": [
+        "Testet Versandtauglichkeit und Dokumentation vor dem breiten Wechsel.",
+        "Kalkuliert Material, Arbeit, Gebühren und Schäden zusammen. Amazon-Zertifizierung und gesetzliche Verpackungspflichten bleiben getrennte Prüfpunkte."
+      ]
+    },
+    "restocking-fee": {
+      "title": "Retourenquote in Kosten je Verkauf übersetzen",
+      "example": "Von 1.000 Einheiten kommen im Modell 80 zurück. Bei 6 € durchschnittlichem wirtschaftlichem Verlust je Retoure entstehen 480 € beziehungsweise 0,48 € je ausgelieferter Einheit. Dieser Betrag ist ein interner Kostenansatz, keine zulässige Gebühr gegenüber Käufern.",
+      "steps": [
+        "Trennt wieder verkäufliche Rückläufer, Aufbereitung und vollständigen Warenverlust.",
+        "Verknüpft Kosten und Rückgabegrund mit der Child-ASIN. So erkennt ihr, ob eine bessere Größeninformation oder eine Produktkorrektur den größeren Hebel hat."
+      ]
+    },
+    "amazon-pallets": {
+      "title": "Liquidation gegen weiteres Lagern vergleichen",
+      "example": "300 langsam drehende Einheiten kosten im Modell monatlich 90 € Lagerung. Ein sofortiger Netto-Liquidationserlös von 600 € muss gegen erwarteten späteren Nettoerlös abzüglich weiterer Lager-, Werbe- und Abwicklungskosten gerechnet werden.",
+      "steps": [
+        "Nutzt realistische Erlöse und dokumentiert Verwertungskosten sowie Zeitbedarf.",
+        "Berücksichtigt Markenwirkung und zulässige Wiederverkaufswege. Der ursprüngliche Verkaufspreis ist kein belastbarer Wert einer Retourenpalette."
+      ]
+    },
+    "amazon-renewed": {
+      "title": "Refurbished-Marge mit Prüfaufwand rechnen",
+      "example": "Ein Gerät bringt im Modell 80 € Nettoerlös. Ankauf 30 €, Aufbereitung 15 €, Gebühren und Logistik 16 € sowie erwartete Servicekosten 7 € lassen 12 € vor weiteren Kosten. Ohne Serviceansatz sähe die Marge deutlich besser aus, wäre aber unvollständig.",
+      "steps": [
+        "Erfasst Testzeit, Ersatzteile, Zustandsklasse und Seriennummer je Einheit.",
+        "Prüft die aktuellen Programmstandards für Produkt und Markt. Ein höherer Abverkauf hilft wenig, wenn ungeplante Gewährleistungs- und Servicefälle den Beitrag aufzehren."
+      ]
+    },
+    "small-and-light": {
+      "title": "Eine Tarifgrenze ist kein automatischer Gewinn",
+      "example": "Eine Preissenkung reduziert im Modell den Nettoerlös um 0,80 € und die Versandgebühr um 0,35 €. Pro Einheit fehlen zunächst 0,45 €. Eine bessere Gebührenklasse allein macht den niedrigeren Preis nicht wirtschaftlicher.",
+      "steps": [
+        "Vergleicht den vollständigen Beitrag bei beiden Preisen mit aktuellen Tarifdaten.",
+        "Berechnet den nötigen Mehrabsatz und testet begrenzt. Prüft auch Kategorieausnahmen und Maße; eine Preisgrenze allein belegt keine Low-Price-Berechtigung."
+      ]
+    },
+    "wie-oft-zahlt-amazon": {
+      "title": "DD+7 auf einer Zeitachse abbilden",
+      "example": "Eine Bestellung erfolgt am 1. Oktober, die Zustellung am 4. Oktober. Sieben Tage nach Zustellung wäre der 11. Oktober – nicht der 8. Oktober. Auch dieses rechnerische Freigabedatum ist noch kein garantierter Bankeingang.",
+      "steps": [
+        "Plant Freigabe, Auszahlungsanforderung und Bankverarbeitung als getrennte Schritte.",
+        "Gleicht die Vorschau mit dem tatsächlichen Zahlungskonto ab. Zusätzliche Einbehalte, Gebühren und Erstattungen dürfen nicht als bereits verfügbare Liquidität behandelt werden."
+      ]
+    },
+    "lohnt-sich-fba": {
+      "title": "Ein wirtschaftliches Mindestvolumen bestimmen",
+      "example": "Bei 6 € Beitrag je Einheit nach variablen Kosten und Werbung müssen im Modell 250 Einheiten verkauft werden, um 1.500 € monatliche Fixkosten zu decken. Eine attraktive prozentuale Marge ersetzt also keine realistische Absatzannahme.",
+      "steps": [
+        "Rechnet zunächst die Stückökonomie, dann das erforderliche Volumen.",
+        "Prüft Lieferfähigkeit und Finanzierung eines zweiten Einkaufs. Der erste profitable Warenkorb bedeutet noch kein nachhaltig tragfähiges Geschäft."
+      ]
+    },
+    "lohnt-sich-verkauf-amazon": {
+      "title": "Amazon als zusätzlichen Kanal bewerten",
+      "example": "Eine Marke erwartet 20.000 € zusätzlichen Monatsumsatz. Wenn gleichzeitig 8.000 € aus dem eigenen Shop verlagert werden, ist der gesamte Mehrumsatz geringer. Auch die Kosten der beiden Kanäle unterscheiden sich.",
+      "steps": [
+        "Vergleicht den Beitrag über alle betroffenen Kanäle und erfasst mögliche Verlagerungen.",
+        "Startet mit einem klar definierten Sortiment und einer Messperiode. Ein neuer Vertriebskanal muss zum Gesamtergebnis beitragen, nicht nur eine eigene Umsatzkurve liefern."
+      ]
+    },
+    "skalierung-ueber-1-5m": {
+      "title": "Den Engpass vor dem Skalierungsprojekt bestimmen",
+      "example": "Eine Marke investiert mehr in PPC, obwohl ihre drei Bestseller nur noch 18 Tage Reichweite haben und Nachschub erst in sechs Wochen kommt. Mehr Nachfrage verschärft den bestehenden Engpass.",
+      "steps": [
+        "Ordnet jede Wachstumsinitiative einem Problem zu: Nachfrage, Conversion, Sortiment, Bestand, Kapital oder Umsetzung.",
+        "Wählt zuerst den Engpass mit dem größten begrenzenden Effekt. Für jede Maßnahme gehören Verantwortlicher, erwarteter Beitrag und Abhängigkeiten in den 90-Tage-Plan."
+      ]
+    },
+    "retail-arbitrage": {
+      "title": "Arbitrage mit Arbeitszeit rechnen",
+      "example": "Ein Fund verspricht im Modell 4 € Beitrag pro Artikel. Einkauf, Prüfung und Vorbereitung dauern aber durchschnittlich zwölf Minuten. Fünf Artikel pro Stunde ergeben 20 € vor Fahrt, Tools und weiteren Fixkosten.",
+      "steps": [
+        "Dokumentiert tatsächliche Arbeitszeit und Belege neben der Stückmarge.",
+        "Prüft Verkaufsberechtigung und Echtheitsnachweise vor dem Kauf. Ein günstiger Kassenbon ist nicht automatisch ein ausreichender Nachweis für jedes Amazon-Verfahren."
+      ]
+    },
+    "wholesale": {
+      "title": "Nachbestellbarkeit ist Teil der Marge",
+      "example": "Ein Großhandelsartikel bietet rechnerisch 3 € Beitrag, aber der günstige Einkaufspreis gilt nur für eine einmalige Restmenge. Eine darauf aufgebaute Kampagne kann später nicht profitabel fortgeführt werden.",
+      "steps": [
+        "Trennt wiederkehrende Konditionen von Sonderposten und prüft Lieferfähigkeit.",
+        "Rechnet Preiswettbewerb und realistische Featured-Offer-Anteile ein. Die gesamte Nachfrage einer ASIN steht nicht automatisch eurem eigenen Angebot zur Verfügung."
+      ]
+    },
+    "verkaufen-ohne-lager": {
+      "title": "Ohne Lager bedeutet nicht ohne Verantwortung",
+      "example": "Ein Lieferant versendet direkt, meldet seinen Bestand aber nur einmal täglich. Nach einem ausverkauften Artikel entstehen Stornos, obwohl euer Angebot noch aktiv ist. Das Risiko liegt weiter beim Verkäufer.",
+      "steps": [
+        "Vereinbart Bestandsabgleich, Bearbeitungsfristen, Tracking und einen Retourenprozess.",
+        "Prüft mit echten Testbestellungen, wer auf Verpackung und Unterlagen als Verkäufer erscheint. Eine technische Anbindung ersetzt keine verlässliche Lieferkette."
+      ]
+    },
+    "fba-vs-dropshipping": {
+      "title": "Vorfinanzierung auch beim Dropshipping planen",
+      "example": "Der Lieferant verlangt im Modell 40 € sofort, Amazon gibt den Erlös erst nach Zustellung und Reserve frei. Bei 200 offenen Bestellungen sind 8.000 € gebunden, obwohl kein eigenes Lager existiert.",
+      "steps": [
+        "Plant Einkauf, Lieferzeit, Reserve und Retouren als Geldfluss.",
+        "Vergleicht FBA und Direktversand mit denselben Serviceanforderungen. Der Unterschied liegt nicht nur in Lagerkosten, sondern auch in Kontrolle und Ausfallrisiko."
+      ]
+    },
+    "alibaba-import": {
+      "title": "Ein freigegebenes Muster reicht nicht für jede Charge",
+      "example": "Das erste Muster erfüllt die Spezifikation. Die Seriencharge verwendet später ein anderes Material, das im Listing unverändert beworben wird. Ohne Änderungsfreigabe entsteht ein Qualitäts- und möglicherweise Complianceproblem.",
+      "steps": [
+        "Vereinbart Referenzmuster, Prüfmerkmale, zulässige Abweichungen und Freigaben schriftlich.",
+        "Prüft Produktunterlagen, Kennzeichnung und erforderliche Onlineangaben vor der Bestellung. Eine erfolgreiche Qualitätsstichprobe ersetzt keine produktspezifische Konformitätsprüfung."
+      ]
+    },
+    "dynamic-pricing": {
+      "title": "Repricing mit einem wirtschaftlichen Boden",
+      "example": "Die Untergrenze einer SKU wurde vor einem Gebührenanstieg gesetzt. Das Tool hält die Regel korrekt ein und verkauft trotzdem unter dem neuen Zielbeitrag. Der Fehler liegt in einer veralteten Eingabe.",
+      "steps": [
+        "Berechnet die Preisuntergrenze aus aktueller Steuerbasis, Gebühren, Retouren und Zielbeitrag.",
+        "Versioniert Regeländerungen und definiert Alarme für ungewöhnliche Preissprünge. Preis, Lieferzeit und Verkäuferleistung müssen gemeinsam betrachtet werden."
+      ]
+    },
+    "amazon-automation": {
+      "title": "Automatisierung braucht eine Rückfallregel",
+      "example": "Eine Gebotsregel erhöht Ausgaben, sobald der ACoS günstig ist. Der Report enthält aber noch nicht vollständig zugerechnete Verkäufe und eine zeitgleiche Rabattaktion. Ohne Kontext kann die Regel auf ein verzerrtes Signal reagieren.",
+      "steps": [
+        "Definiert Mindestdaten, Verzögerung, Änderungsgrenze und Ausschlussbedingungen.",
+        "Protokolliert jede automatische Änderung und benennt eine verantwortliche Person. Führt neue Regeln zunächst in einer kleinen Produktgruppe oder als Vorschlagsmodus ein."
+      ]
+    },
+    "competitor-intelligence": {
+      "title": "Aus einer Wettbewerberbeschwerde eine Testidee machen",
+      "example": "Mehrere Rezensionen bemängeln eine komplizierte Montage. Das ist eine Hypothese für euer eigenes Produktbriefing, noch kein Beweis für eine Marktlücke. Vielleicht betrifft das Problem nur eine alte Variante.",
+      "steps": [
+        "Ordnet Rückmeldungen nach Datum, Modell und wiederkehrendem Problem.",
+        "Prüft die Hypothese an Produktmustern und eigenen Kundenfragen. Übernehmt weder fremde Bilder noch Behauptungen; entwickelt eine belegbare eigene Lösung."
+      ]
+    },
+    "lightning-deals": {
+      "title": "Deal-Umsatz gegen entgangenen Normalbeitrag rechnen",
+      "example": "Ohne Aktion werden im Modell 100 Einheiten mit je 8 € Beitrag erwartet: 800 €. Im Deal sind es 180 Einheiten mit je 5 €: 900 €. Bei zusätzlichen 150 € Aktionskosten bleiben 750 € – trotz 80 % mehr Stückzahl weniger als ohne Deal.",
+      "steps": [
+        "Rechnet Aktionskosten, Werbung und mögliche Vorzieheffekte mit ein.",
+        "Bewertet Lagerabbau oder spätere Nachfrage getrennt und nur mit nachvollziehbaren Annahmen. Ein Rankinggewinn darf nicht ungeprüft die Rechnung retten."
+      ]
+    },
+    "llc-firma-amazon": {
+      "title": "Vor Pan-EU die Warenbewegung aufzeichnen",
+      "example": "Eine deutsche Marke aktiviert Lagerung in einem weiteren EU-Land und betrachtet nur die zusätzlichen Verkäufe. Die Verbringung eigener Ware und lokale Lagerbestände können aber eigene steuerliche Folgen auslösen.",
+      "steps": [
+        "Zeichnet Lagerländer, Warenbewegungen, Verkaufswege und beteiligte Gesellschaften auf.",
+        "Gebt dieses Bild vor Aktivierung an die Steuerberatung. OSS ist kein Ersatz für die Prüfung aller lokalen Registrierungs- und Meldepflichten."
+      ]
+    },
+    "storefront-einrichten": {
+      "title": "Den Store mit einem konkreten Kaufweg starten",
+      "example": "Ein Sortiment mit 30 Produkten braucht nicht automatisch 30 Menüpunkte. Drei verständliche Anwendungsbereiche können die Orientierung verbessern, wenn sie den tatsächlichen Kaufabsichten entsprechen.",
+      "steps": [
+        "Erstellt zuerst eine Seitenmatrix mit Zielgruppe, Sortiment und nächstem Klick.",
+        "Testet jede Unterseite mobil und kontrolliert Produktverfügbarkeit. Leere oder unpassende Zielseiten sollten nicht mit zusätzlichem Werbebudget versorgt werden."
+      ]
+    },
+    "business-valuation": {
+      "title": "Bereinigungen nachvollziehbar machen",
+      "example": "Ein Verkäufer addiert sein gesamtes Gehalt zum Ergebnis zurück. Der Käufer muss aber künftig eine operative Leitung bezahlen. Nicht jede als einmalig bezeichnete Ausgabe ist deshalb vollständig werterhöhend.",
+      "steps": [
+        "Belegt jede Ergebnisbereinigung mit Dokument, Grund und realistischer Ersatzkostenannahme.",
+        "Trennt Unternehmenswert, Warenbestand, Schulden und tatsächlich zufließenden Kaufpreis. Ein Multiple ohne diese Definitionen ist keine belastbare Bewertung."
+      ]
+    },
+    "walmart-marketplace": {
+      "title": "Einen zweiten Marktplatz als Pilot rechnen",
+      "example": "Eine Marke überträgt zehn geeignete SKUs in einen neuen Markt. Neben Gebühren entstehen lokale Content-, Service-, Retouren- und Logistikkosten. Ein bloßer Vergleich der Verkaufsprovision unterschätzt den Aufwand.",
+      "steps": [
+        "Definiert Sortiment, Einsatzgebiet, Verantwortliche und ein begrenztes Pilotbudget.",
+        "Messt Beitrag nach lokalen Kosten und den zusätzlichen Betriebsaufwand. Übertragt US-Anforderungen nicht auf europäische Marktplätze oder umgekehrt."
+      ]
+    },
+    "konto-kaufen-verkaufen": {
+      "title": "Die Übergabe als Bedingung der Transaktion planen",
+      "example": "Marke und Lagerbestand sind vertraglich geklärt, die Kontoumstellung jedoch nicht. Eine verzögerte Verifizierung kann dann das operative Geschäft blockieren, obwohl der Kaufpreis bereits bezahlt wurde.",
+      "steps": [
+        "Klärt mit Amazon und euren Beratern den vorgesehenen Prozess vor Abschluss.",
+        "Haltet Abhängigkeiten, Verantwortliche und Folgen einer Verzögerung vertraglich fest. Eine Zusage des Verkäufers oder Brokers ersetzt keine Plattformprüfung."
+      ]
+    },
+    "amazon-accelerate": {
+      "title": "Eine Ankündigung in eine Testkarte übersetzen",
+      "example": "Eine Konferenz stellt ein neues Analysewerkzeug vor. Für eure Marke zählt zuerst, ob es auf dem Zielmarktplatz, mit euren Rollen und für eure ASINs verfügbar ist. Erst danach lässt sich ein Nutzen testen.",
+      "steps": [
+        "Erfasst Ankündigung, offiziellen Link, Markt, Zugangsvoraussetzung und mögliche Anwendung.",
+        "Wählt einen kleinen Test mit klarer Frage. Plant keine verbindlichen Kundenleistungen auf Grundlage eines noch nicht verfügbaren Rollouts."
+      ]
+    },
+    "tarif-zoll-strategie": {
+      "title": "Warenursprung ist nicht Versandland",
+      "example": "Eine Ware wird über ein weiteres Land verschickt. Daraus folgt nicht automatisch ein anderer zollrechtlicher Ursprung oder ein niedrigerer Satz. Eine darauf beruhende Kalkulation kann zu Nachforderungen führen.",
+      "steps": [
+        "Dokumentiert Produktspezifikation, Einreihung, Ursprung und Lieferbedingungen.",
+        "Lasst unklare Fälle fachlich prüfen und rechnet Beschaffungsalternativen vollständig. Ein günstigerer Zollsatz allein gleicht Qualitäts-, Fracht- oder Kapitalnachteile nicht zwingend aus."
+      ]
+    },
+    "alexa-for-shopping-ki-suche": {
+      "title": "KI-Sichtbarkeit mit überprüfbaren Produktdaten beginnen",
+      "example": "Ein Assistent soll ein kompatibles Zubehör empfehlen, aber Titel, Attribut und PDF nennen unterschiedliche Modelle. Zusätzliche Werbewörter lösen diesen Widerspruch nicht.",
+      "steps": [
+        "Baut eine freigegebene Liste aus Modell, Maß, Material, Anwendung und belegten Grenzen auf.",
+        "Prüft Antworten auf konkrete Käuferfragen im verfügbaren Zielmarkt. Dokumentiert Fehlzuordnungen, ohne eine einzelne KI-Antwort als stabilen Rankingplatz zu behandeln."
+      ]
+    },
+    "amazon-agentur-waehlen": {
+      "title": "Agenturen anhand derselben Aufgabe vergleichen",
+      "example": "Gebt zwei Kandidaten dieselbe anonymisierte Ausgangslage: sinkender Beitrag trotz wachsendem Umsatz, drei Produktgruppen und begrenzter Bestand. Fragt nach Diagnose, Priorisierung und den zuerst benötigten Daten.",
+      "steps": [
+        "Bewertet Qualität der Rückfragen, wirtschaftliche Logik und konkrete Zuständigkeiten.",
+        "Lasst euch einen beispielhaften Maßnahmenplan erklären. Eine beeindruckende Umsatzfolie allein zeigt nicht, wie die Agentur mit eurem tatsächlichen Engpass umgehen würde."
+      ]
+    },
+    "ppc-agentur-auswahl": {
+      "title": "PPC-Angebote um den Margenbezug prüfen",
+      "example": "Eine Agentur verspricht einen niedrigeren ACoS, möchte dafür aber nur die Werbekonsole sehen. Ohne Produktkosten, Retouren und Bestand kann sie Effizienz steuern, aber keine belastbare Profitabilität zusagen.",
+      "steps": [
+        "Fragt, wie Zielwerte je SKU entstehen und wie Marken- von Neukundensuche getrennt wird.",
+        "Lasst euch Änderungsprotokoll, Budgetfreigaben und eine Beispielentscheidung zeigen. Entscheidend ist, wie der Report die nächste Maßnahme begründet."
+      ]
+    },
+    "fullservice-vs-spezialagentur": {
+      "title": "Schnittstellenkosten sichtbar machen",
+      "example": "PPC erkennt ein Conversionproblem, Content wartet auf ein Briefing, das interne Team erwartet eine Empfehlung von beiden. Die Spezialisten sind kompetent, aber niemand verantwortet die vollständige Lösung.",
+      "steps": [
+        "Legt für jede bereichsübergreifende Aufgabe eine entscheidungsbefugte Person fest.",
+        "Vergleicht Agenturmodelle einschließlich eurer internen Koordinationszeit. Full Service ist nur dann hilfreich, wenn die gemeinsame Steuerung tatsächlich im Leistungsumfang steht."
+      ]
+    },
+    "brand-management-agentur": {
+      "title": "Markenmanagement als Aufgabenmatrix prüfen",
+      "example": "Ein Angebot nennt Brand Management, enthält aber nur PPC und einen Monatsreport. Katalogfehler, Rechteverwaltung, Contentpflege und Bestandsprobleme bleiben dadurch möglicherweise ohne Zuständigkeit.",
+      "steps": [
+        "Ordnet jede relevante Aufgabe einem Verantwortlichen und einem Bearbeitungsrhythmus zu.",
+        "Fragt nach konkreten Ergebnissen: bereinigte Varianten, gelöste Fälle, freigegebener Content oder dokumentierte Entscheidungen. Der Leistungsname allein definiert keine Betreuungstiefe."
+      ]
+    },
+    "ecommerce-agentur-ueber-amazon-hinaus": {
+      "title": "Multichannel ohne doppelte Erfolgsmeldung",
+      "example": "Eine Kampagne wird von Social Ads und Amazon jeweils mit Umsatz bedacht. Werden beide Reports addiert, kann derselbe Kauf mehrfach als Erfolg erscheinen. Dazu kommen unterschiedliche Zeitfenster und Umsatzdefinitionen.",
+      "steps": [
+        "Vereinbart eine gemeinsame Finanzsicht und separate Kanaldiagnosen.",
+        "Klärt Datenhoheit und Verantwortlichkeit für Abweichungen. Ein integrierter Partner sollte die Verbindung erklären können, nicht nur mehrere Dashboards liefern."
+      ]
+    },
+    "agentur-engagieren-ablauf": {
+      "title": "Onboarding mit einem 30-Tage-Ergebnis",
+      "example": "Ein guter Start endet nicht bei eingerichteten Zugängen. Nach 30 Tagen sollte klar sein, welche Probleme priorisiert sind, welche Daten fehlen, welche Maßnahmen laufen und wer entscheidet. Ein Umsatzsprung in diesem Zeitraum ist dagegen keine verlässliche Zusage.",
+      "steps": [
+        "Vereinbart konkrete Arbeitsergebnisse und Freigaben für die erste Phase.",
+        "Teilt Kontozugänge über Rollen, nicht über das Hauptpasswort. Klärt vorab Rechte an Kampagnen, Daten und Creative-Dateien für die gesamte Zusammenarbeit."
+      ]
+    },
+    "zusammenarbeit-agentur-performance": {
+      "title": "Eine Entscheidungsliste statt endloser Statuscalls",
+      "example": "Das Team diskutiert wöchentlich dieselben drei offenen Punkte. Ein Report allein löst sie nicht. Jede Entscheidung braucht eine Empfehlung, wirtschaftlichen Kontext, Verantwortlichen und einen Termin.",
+      "steps": [
+        "Führt im gemeinsamen Termin zuerst Entscheidungen, dann Abweichungen und danach neue Tests durch.",
+        "Dokumentiert auch Pflichten der Agentur: klare Empfehlungen, Umsetzung und Eskalation. Gute Zusammenarbeit ist gegenseitige Verantwortung, keine pauschale Schuldzuweisung an den Kunden."
+      ]
+    },
+    "amazon-marketingstrategie-ueberblick": {
+      "title": "Strategie auf eine messbare Priorität verdichten",
+      "example": "Eine Marke möchte gleichzeitig Umsatz, Marge, Sortiment und Internationalisierung maximieren. Bei begrenztem Kapital widersprechen sich diese Ziele teilweise. Für das nächste Quartal kann daher die Stabilisierung des Beitrags der Kernprodukte Vorrang haben.",
+      "steps": [
+        "Legt ein Hauptziel, unterstützende Kennzahlen und klare Grenzen für Bestand und Budget fest.",
+        "Ordnet Maßnahmen aus PPC, Content und Betrieb diesem Ziel zu. Projekte ohne erkennbaren Beitrag oder geklärte Abhängigkeit werden bewusst zurückgestellt."
+      ]
+    }
+  }
+}

@@ -22,7 +22,7 @@ A complete FBA model covers far more than two fees. These items belong in it:
 - **The referral fee:** a percentage of the selling price, typically around 8 to 15% depending on the category.
 - **The FBA fulfilment fee:** depends on the size and weight of the unit. Larger and heavier products cost considerably more.
 - **Storage fees:** monthly storage cost by volume, with seasonal surcharges in the high-revenue months at the end of the year.
-- **Inbound placement fees:** the cost of Amazon distributing your goods across its warehouses, a newer item that older calculations often do not include.
+- **Inbound transport and programme costs:** include the costs actually applicable to your marketplace. US inbound placement fees are not a universal German FBA charge.
 - **Long-term storage fees:** surcharges on goods that sit too long.
 - **Returns and refunds:** the share of units returned plus any handling costs.
 - **Advertising:** in most categories effectively compulsory in order to get visibility at all, so it must be in the margin model.

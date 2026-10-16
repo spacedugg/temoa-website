@@ -38,6 +38,19 @@ Schnelligkeit und Ton zahlen sich aus. Amazon erwartet, dass Verkäufer zeitnah 
 
 Behalte den Posteingang regelmäßig im Blick und richte – wo möglich – Benachrichtigungen ein, damit dir keine Anfrage entgeht. Formuliere wiederkehrende Antworten als Vorlagen, aber personalisiere sie für den konkreten Fall. Dokumentiere wichtige Vorgänge, falls es später zu einem Konflikt oder einer A-bis-Z-Garantieanfrage kommt. Und prüfe im Zweifel die aktuellen Kommunikationsrichtlinien, da Amazon sie anpasst.
 
+## Praxis: Serviceantwort ohne Bewertungsdruck
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Serviceantwort ohne Bewertungsdruck</h3>
+<p>Ein Käufer meldet ein fehlendes Teil. Die Antwort erklärt den zulässigen Lösungsweg und die benötigten Bestelldaten. Sie verknüpft die Hilfe weder mit einer Sternebewertung noch mit dem Entfernen einer Rezension.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erstellt Vorlagen für reale Servicefälle und lasst Werbesätze konsequent weg.
+2. Prüft regelmäßig Stichproben, auch bei automatisierten Antworten. Eine technisch erfolgreiche Nachricht ist noch keine hilfreiche oder richtliniengerechte Kommunikation.
+
 ## Fazit
 
 Das Message Center ist ein wertvolles Werkzeug für Service und Problemlösung – aber ein streng regulierter Raum. Nutze es ausschließlich für bestellbezogene, hilfreiche Kommunikation, verzichte auf jegliche Werbung und manipulative Bewertungsbitten, und fördere Reviews nur über die offiziellen, neutralen Funktionen. Wer schnell, professionell und regelkonform kommuniziert, baut Vertrauen auf, vermeidet Retouren und negative Bewertungen – und hält sein Konto sauber.

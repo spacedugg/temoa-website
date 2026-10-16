@@ -37,10 +37,19 @@ Kläre zu Beginn, wie ihr zusammenarbeitet: Wie oft gibt es Reports und Calls? W
 
 Gib der Zusammenarbeit eine realistische Anlaufzeit – Ergebnisse brauchen meist einige Monate, besonders wenn das Konto erst aufgeräumt werden muss. Bewerte dann anhand der vereinbarten Ziele: Stimmt die Richtung? Ist die Kommunikation gut? Werden Fortschritte sichtbar? So erkennst du früh, ob die Partnerschaft trägt – ohne nach zwei Wochen ungeduldig zu werden oder nach einem Jahr blind weiterzumachen.
 
+## Praxis: Onboarding mit einem 30-Tage-Ergebnis
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Onboarding mit einem 30-Tage-Ergebnis</h3>
+<p>Ein guter Start endet nicht bei eingerichteten Zugängen. Nach 30 Tagen sollte klar sein, welche Probleme priorisiert sind, welche Daten fehlen, welche Maßnahmen laufen und wer entscheidet. Ein Umsatzsprung in diesem Zeitraum ist dagegen keine verlässliche Zusage.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vereinbart konkrete Arbeitsergebnisse und Freigaben für die erste Phase.
+2. Teilt Kontozugänge über Rollen, nicht über das Hauptpasswort. Klärt vorab Rechte an Kampagnen, Daten und Creative-Dateien für die gesamte Zusammenarbeit.
+
 ## Fazit
 
 Eine Amazon-Agentur zu engagieren ist mehr als eine Unterschrift – es ist ein Prozess: Bedarf klären, Kandidaten strukturiert vergleichen, im Gespräch die richtigen Fragen stellen, einen fairen Vertrag mit klarem Eigentum an Konto und Daten schließen, sauber onboarden und Erwartungen festlegen. Wer diese Schritte ernst nimmt, legt das Fundament für eine produktive Zusammenarbeit. Der nächste Schritt ist dann, aus dem Dienstleisterverhältnis eine echte Partnerschaft zu machen – denn dort entstehen die besten Ergebnisse.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Wenn du eine Agentur für den deutschen und europäischen Markt suchst, melde dich gern bei uns.*

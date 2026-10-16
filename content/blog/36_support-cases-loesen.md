@@ -38,6 +38,19 @@ Hartnäckigkeit zahlt sich aus – aber strukturiert, nicht durch Spam. Dokument
 
 Nicht jedes Anliegen ist lösbar, und manche Entscheidungen liegen außerhalb dessen, was der Support ändern kann. Konzentriere deine Energie auf die Fälle mit echtem Geschäftsimpact (z. B. Erstattungen, fälschliche Sperren einzelner Listings, falsch berechnete Gebühren) und akzeptiere, wo eine weitere Eskalation keinen Sinn ergibt.
 
+## Praxis: Ein Support-Case, der sich prüfen lässt
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein Support-Case, der sich prüfen lässt</h3>
+<p>„Unser Listing ist kaputt“ ist schwer bearbeitbar. Besser: „ASIN X, Marktplatz DE: Der übermittelte Wert im Feld Material wird trotz erfolgreicher Verarbeitung vom Datum Y nicht angezeigt. Erwarteter Wert und Produktnachweis liegen bei.“</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ergänzt Upload-/Feed-ID, genaue Uhrzeit, aktuellen Screenshot und die gewünschte Korrektur.
+2. Beantwortet Rückfragen im bestehenden Zusammenhang. Eine Chronologie mit zwei relevanten Belegen hilft mehr als zehn neue Tickets zum selben Fehler.
+
 ## Fazit
 
 Festgefahrene Support-Cases sind oft das Ergebnis unklarer Kommunikation – und genau dort kannst du ansetzen. Ein Problem pro Case, klar formuliert, mit Belegen und richtiger Kategorie, dazu gezieltes Reagieren auf unpassende Antworten und ein sauberer Eskalationsweg bringen die meisten Tickets weiter als wiederholtes Nachhaken im selben Ton. Wer Cases strukturiert führt und dokumentiert, kommt schneller aus der Warteschleife – und spart sich viel Frust.

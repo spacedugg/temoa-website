@@ -26,7 +26,7 @@ Jede Gruppe verlangt einen anderen Schwerpunkt im Antrag.
 
 ## Der Plan of Action (POA)
 
-Das zentrale Instrument zur Wiederherstellung ist der „Plan of Action" – ein strukturierter Antrag, mit dem du Amazon überzeugst, dass das Problem verstanden und dauerhaft gelöst ist. Ein guter POA folgt drei Teilen:
+Folgt zuerst dem in der Benachrichtigung verlangten Verfahren. Nicht jede Deaktivierung verlangt einen Plan of Action: Identitätsprüfung, Dokumentennachweis oder ein begründeter Einspruch können stattdessen nötig sein. Wenn Amazon einen Maßnahmenplan anfordert, strukturiert ihn nachvollziehbar. Ein guter POA folgt drei Teilen:
 
 1. **Ursache (Root Cause):** Was genau ist passiert und warum? Ehrlich und konkret, ohne Ausreden.
 2. **Sofortmaßnahmen:** Was du *bereits* getan hast, um das konkrete Problem zu beheben.
@@ -36,7 +36,7 @@ Wichtig ist der Ton: sachlich, lösungsorientiert, ohne Schuldzuweisungen an Ama
 
 ## Häufige Fehler beim Antrag
 
-Viele Wiederherstellungsversuche scheitern an vermeidbaren Fehlern: emotionale, lange Beschwerden statt sachlicher Analyse; das Leugnen des Problems; vage Versprechen ohne konkrete Maßnahmen; oder das wiederholte Einreichen desselben schwachen Antrags. Amazon will sehen, dass du die Ursache verstanden hast und glaubhaft abstellst – nicht, dass du dich beschwerst.
+Viele Wiederherstellungsversuche scheitern an vermeidbaren Fehlern: emotionale, lange Beschwerden statt sachlicher Analyse; unbelegte Behauptungen oder ein vorschnelles Schuldeingeständnis bei einer tatsächlich falschen Beanstandung; vage Versprechen ohne konkrete Maßnahmen; oder das wiederholte Einreichen desselben schwachen Antrags. Amazon will sehen, dass du die Ursache verstanden hast und glaubhaft abstellst – nicht, dass du dich beschwerst.
 
 ## Geduld und Eskalation
 
@@ -45,6 +45,19 @@ Die Bearbeitung kann dauern, und manchmal sind mehrere, jeweils verbesserte Antr
 ## Vorbeugen: das beste Mittel
 
 Die meisten Sperrungen lassen sich vermeiden. Halte deine Leistungskennzahlen im grünen Bereich, kenne und befolge die Richtlinien, beziehe Ware nur aus nachweisbar legitimen Quellen (und hebe Rechnungen auf), und reagiere früh auf Warnungen. Ein gut geführtes Konto mit sauberer Dokumentation ist gegen Sperrungen am besten geschützt – und kann sie im Ernstfall schneller auflösen.
+
+## Praxis: Ein Nachweispaket statt eines Standard-POA
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein Nachweispaket statt eines Standard-POA</h3>
+<p>Amazon beanstandet die Echtheit einer bestimmten ASIN und fordert Einkaufsbelege. Ein allgemeiner Text über künftig bessere Prozesse beantwortet die Frage nicht. Entscheidend sind die angeforderten, zur Ware und Kontoinhaberschaft passenden Unterlagen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ordnet jeder Forderung aus der Benachrichtigung einen konkreten Beleg zu.
+2. Trennt einen sachlich begründeten Widerspruch von einem Maßnahmenplan. Reicht keine erfundenen Ursachen oder nachträglich veränderten Rechnungen ein.
 
 ## Fazit
 

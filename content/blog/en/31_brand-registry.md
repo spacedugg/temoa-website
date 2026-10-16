@@ -26,13 +26,7 @@ Because Amazon adjusts the exact requirements, check the current rules in the Br
 
 ## The most important benefits
 
-Brand Registry unlocks a set of valuable functions:
-
-- **A+ content:** designed product descriptions with images and modules that lift conversion.
-- **Sponsored Brands and a brand store:** brand ads and your own store for brand building and a funnel.
-- **Brand Analytics:** valuable data on search terms, competition and buying behaviour.
-- **Protection tools:** mechanisms for reporting and removing counterfeit or unauthorized offers and trademark infringements.
-- **More control over listings:** your information counts as authoritative, which makes manipulation by third parties harder.
+Brand Registry provides eligible brand owners with content, analytics and protection tools, subject to role and programme requirements. It can accept eligible pending as well as registered trademarks. It does not create an exclusive right to every catalogue field or justify removing legitimate resellers. Report substantiated infringement, not simply an unwanted competing offer. [Amazon Germany's brand-owner overview](https://sell.amazon.de/markeninhaber).
 
 ## The enrolment process
 

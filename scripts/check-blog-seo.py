@@ -89,7 +89,7 @@ for path, page in pages.items():
 
 # Topic entry points must resolve to existing pages, including cross-category recommendations.
 for path, page in pages.items():
-    if '/blog/kategorie/' in path or path.endswith(('/blog/vergleiche', '/blog/grundlagen')):
+    if '/blog' in path:
         for href in page.anchors:
             if not href.startswith('/') or href.startswith('//'): continue
             target = urlsplit(href).path
@@ -99,6 +99,22 @@ for path, page in pages.items():
             compiled_route = '/[locale]' + plain + '/page'
             app_routes = json.loads((BUILD.parent / 'app-paths-manifest.json').read_text())
             check(target in pages or compiled_route in app_routes, f'{path}: unresolved internal link {target}')
+
+
+# Editorial coverage and the visible index order are part of this release.
+for slug in active:
+    files = list((ROOT / 'content/blog').glob('*_' + slug + '.md'))
+    source = files[0].read_text()
+    check('class="article-example"' in source, f'{slug}: missing practical example')
+    check('Dieser Beitrag stammt von' not in source, f'{slug}: boilerplate attribution remains')
+    html = (BUILD / 'de/blog' / (slug + '.html')).read_text()
+    check('class="article-example"' in html, f'{slug}: example was not rendered')
+for locale in ['de', 'en']:
+    html = (BUILD / locale / 'blog.html').read_text()
+    # Navigation/footer links are excluded: compare the sections inside main.
+    main = html.split('<main', 1)[1].split('</main>', 1)[0]
+    check(main.index('/blog/search-query-performance') < main.index('/blog/grundlagen'), f'{locale}: basics precede advanced recommendations')
+    check(main.index('/blog/business-reports') < main.index('/blog/grundlagen'), f'{locale}: retail analytics not featured')
 
 
 sitemap = ET.fromstring((BUILD / 'sitemap.xml.body').read_text())

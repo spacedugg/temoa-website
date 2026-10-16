@@ -19,9 +19,9 @@ Amazon Attribution ist ein kostenloses Mess-Tool für markenregistrierte Verkäu
 
 ## Warum das strategisch wertvoll ist
 
-Mit Attribution kannst du externe Kanäle endlich wie Performance-Marketing behandeln: messen, vergleichen, optimieren. Du erkennst, ob ein Influencer wirklich Käufe bringt oder nur Reichweite, ob sich Google Ads auf dein Produkt rechnen, und welcher Social-Kanal die beste Conversion liefert. So verschiebst du Budget gezielt dorthin, wo es Umsatz erzeugt.
+Attribution hilft, externe Quellen auf vergleichbarer Basis zu untersuchen. Die ausgewiesenen Käufe sind dem jeweiligen Modell zugerechnete Ereignisse, kein Beweis, dass sie ohne den externen Kontakt ausgeblieben wären. Kosten aus dem Werbekanal ergänzt ihr separat.
 
-Es gibt noch einen zweiten Effekt: Externer Traffic, der konvertiert, sendet positive Signale an Amazons Algorithmus und kann dein organisches Ranking stützen. Amazon hat das früher sogar mit dem „Brand Referral Bonus" belohnt (einer Rückvergütung auf extern zugeführte Verkäufe). Ob und in welcher Form solche Programme aktuell gelten, solltest du in deinem Konto prüfen, da sich die Konditionen ändern können.
+Prüft Verfügbarkeit und Berechtigung für euren Marktplatz. Ein US-Programm wie Brand Referral Bonus ist keine allgemeine Gebührenrückvergütung für Amazon.de. [Amazon Attribution beschreibt die Messmöglichkeiten](https://advertising.amazon.com/solutions/products/amazon-attribution).
 
 ## So gehst du vor
 
@@ -30,6 +30,19 @@ Der Ablauf ist überschaubar. Du legst in Amazon Attribution eine Kampagne an, d
 ## Häufige Fehler
 
 Der erste Fehler ist, externen Traffic ohne Attribution-Links zu schicken – dann fehlt jede Messgrundlage. Der zweite ist, zu früh zu urteilen: Externe Kanäle brauchen oft mehr Datenpunkte, bis ein Muster erkennbar ist. Der dritte ist, nur auf den letzten Klick zu schauen und die Rolle von Kanälen für die frühe Markenbekanntheit zu unterschätzen. Und schließlich: externen Traffic auf ein schwaches Listing zu leiten – auch hier gilt, erst Conversion-Stärke herstellen, dann Traffic kaufen.
+
+## Praxis: Externe Kampagnen sauber benennen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Externe Kampagnen sauber benennen</h3>
+<p>Zwei Creator teilen denselben Attribution-Link. Im Report lässt sich danach nicht erkennen, welcher Beitrag Käufe begleitet hat. Auch identische Links für Story und Video vermischen unterschiedliche Formate.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergebt eigene Tags je Quelle, Kampagne und Creative und dokumentiert deren Verwendung.
+2. Ergänzt Honorare und Mediakosten aus externen Systemen. Vergleicht nur gleichartige Attributionsfenster; zugerechnete Umsätze aus mehreren Plattformen dürfen nicht einfach addiert werden.
 
 ## Fazit
 

@@ -254,7 +254,9 @@ function parseFile(filename: string, sprache: Sprache): Post {
   const cat = catByKey.get(kategorie);
 
   marked.setOptions({ gfm: true, breaks: false });
-  const html = marked.parse(body) as string;
+  const html = (marked.parse(body) as string)
+    .replace(/<table>/g, `<div class="article-table" role="region" aria-label="${sprache === "de" ? "Vergleichstabelle" : "Comparison table"}" tabindex="0"><table>`)
+    .replace(/<\/table>/g, "</table></div>");
 
   return {
     slug,
@@ -305,7 +307,7 @@ export function getPost(slug: string, sprache: Sprache): Post | undefined {
 }
 
 export function getPostsByCategory(categorySlug: string, sprache: Sprache): PostMeta[] {
-  return getAllPosts(sprache).filter((p) => p.categorySlug === categorySlug);
+  return getAllPosts(sprache).filter((p) => p.categorySlug === categorySlug).sort((a, b) => editorialPriority(a) - editorialPriority(b));
 }
 
 export function getRelatedPosts(slug: string, sprache: Sprache, limit = 3): PostMeta[] {
@@ -313,6 +315,7 @@ export function getRelatedPosts(slug: string, sprache: Sprache, limit = 3): Post
   if (!post) return [];
   return getAllPosts(sprache)
     .filter((p) => p.categorySlug === post.categorySlug && p.slug !== slug)
+    .sort((a, b) => editorialPriority(a) - editorialPriority(b))
     .slice(0, limit);
 }
 
@@ -324,13 +327,25 @@ export function categoryCounts(sprache: Sprache): Record<string, number> {
 
 /** Curated, most useful articles for the homepage strip. */
 const FEATURED = [
-  "amazon-marketingstrategie-ueberblick",
-  "acos-erklaert",
-  "a-plus-content",
-  "kampagnenstruktur-ppc",
-  "amazon-flywheel",
-  "amazon-agentur-waehlen",
+  "search-query-performance",
+  "business-reports",
+  "ppc-kosten-senken",
+  "conversion-rate-optimierung",
+  "inventar-cashflow",
+  "skalierung-ueber-1-5m",
 ];
+
+// Foundational articles remain discoverable but follow operational decisions.
+const FOUNDATIONAL = new Set([
+  "acos-erklaert", "tacos-erklaert", "roas-berechnen", "bsr-erklaert",
+  "lohnt-sich-fba", "lohnt-sich-verkauf-amazon", "retail-arbitrage",
+  "verkaufen-ohne-lager", "fba-vs-dropshipping", "llc-firma-amazon",
+  "storefront-einrichten", "alibaba-import",
+]);
+function editorialPriority(post: PostMeta) {
+  const featured = FEATURED.indexOf(post.slug);
+  return featured >= 0 ? featured : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
+}
 
 export function getFeaturedPosts(sprache: Sprache, limit = 6): PostMeta[] {
   const all = getAllPosts(sprache);

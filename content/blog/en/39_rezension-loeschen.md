@@ -41,7 +41,7 @@ Never try to get a bad review removed by contacting the buyer with pressure, inc
 
 ## Handling justified criticism
 
-Most negative reviews breach no rule at all, and that is where the real opportunity sits. Fair criticism is valuable feedback: it shows you where the product or the description falls short. Respond factually and helpfully where the format allows, fix the underlying cause, and build more positive reviews through the permitted routes. A single critical star in a sea of good reviews does little harm, and it makes the whole set read as more credible than unbroken praise.
+There is no general public seller-reply function for product reviews. Use only permitted service tools and never ask for a review change in exchange for help.
 
 ## Conclusion
 

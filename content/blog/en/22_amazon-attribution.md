@@ -19,9 +19,7 @@ Amazon Attribution is a free measurement tool for brand-registered sellers. It g
 
 ## Why that is strategically valuable
 
-With Attribution you can finally treat external channels like performance marketing: measure, compare, optimize. You see whether an influencer really brings purchases or only reach, whether Google Ads pay off on your product, and which social channel delivers the best conversion. That lets you move budget deliberately to where it produces revenue.
-
-There is a second effect. External traffic that converts sends positive signals to Amazon's algorithm and can support your organic ranking. Amazon has even rewarded this in the past through the "brand referral bonus", a rebate on externally driven sales. Whether and in what form such programmes currently apply is worth checking in your account, because the terms can change.
+Attribution lets you compare tagged external sources. Assigned purchases are not proof that the sales would not have occurred without the contact. Add external media and creator costs separately. Check marketplace eligibility; a US programme such as Brand Referral Bonus is not a general rebate for Amazon.de. [Amazon Attribution overview](https://advertising.amazon.com/solutions/products/amazon-attribution).
 
 ## How to go about it
 

@@ -38,3 +38,8 @@ Dayparting is fine work, not a miracle cure. For most accounts, a clean campaign
 ## In short
 
 Dayparting can reduce waste and steer budget into the hours that buy, but only when it rests on solid data and you have enough volume for hourly patterns to mean anything. Measure first, steer coarsely, do not switch profitable windows off in haste, and review regularly. As an addition to a solid account it is a useful refinement. As a substitute for the basics it is worth nothing.
+
+
+## Programme and eligibility
+
+[Amazon Ads: Budget rules](https://advertising.amazon.com/library/guides/budget-rules) – check the conditions applicable to your marketplace and account role.

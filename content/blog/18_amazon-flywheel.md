@@ -17,7 +17,7 @@ Ein Schwungrad ist anfangs schwer in Bewegung zu setzen – jeder Stoß kostet v
 
 Das Amazon-Flywheel besteht aus mehreren Elementen, die sich gegenseitig antreiben:
 
-1. **Verkäufe** verbessern dein organisches Ranking, weil Amazon verkaufsstarke Produkte weiter oben zeigt.
+1. **Verkäufe** können zusammen mit Relevanz und weiteren Faktoren die Sichtbarkeit beeinflussen; der Effekt ist nicht garantiert.
 2. **Besseres Ranking** bringt mehr Sichtbarkeit und damit mehr Traffic.
 3. **Mehr Traffic** führt – bei gutem Listing – zu mehr Verkäufen und mehr Bewertungen.
 4. **Mehr Bewertungen** erhöhen das Vertrauen und damit die Conversion-Rate.
@@ -27,7 +27,7 @@ Jeder Schritt speist den nächsten. Das ist der Grund, warum etablierte Bestsell
 
 ## Warum der Start so schwer ist
 
-Beim Launch hast du kein Schwungrad – du musst es erst antreiben. Es gibt noch keine Verkäufe, also kein Ranking; kein Ranking, also keinen organischen Traffic; keine Bewertungen, also wenig Vertrauen. Genau hier liegt die Aufgabe der ersten Phase: das Rad mit externer Kraft in Bewegung zu setzen. Diese Kraft kommt vor allem aus Werbung (PPC) und gezieltem Bewertungsaufbau – ein bewusster, oft unprofitabler Anschub, der sich später auszahlt.
+Beim Launch hast du kein Schwungrad – du musst es erst antreiben. Neue ASINs haben wenig eigene Verkaufshistorie und Käufervertrauen. Sie können trotzdem bereits indexiert sein und organische Sichtbarkeit erhalten. Genau hier liegt die Aufgabe der ersten Phase: das Rad mit externer Kraft in Bewegung zu setzen. Diese Kraft kommt vor allem aus Werbung (PPC) und gezieltem Bewertungsaufbau – ein bewusster, oft unprofitabler Anschub, der sich später auszahlt.
 
 ## Wie du das Flywheel anstößt
 
@@ -39,7 +39,20 @@ Ein drehendes Schwungrad bleibt nicht von allein in Bewegung, wenn man Fehler ma
 
 ## Was das für deine Strategie bedeutet
 
-Das Flywheel-Denken verändert, wie du Entscheidungen triffst. Ein hoher ACoS beim Launch ist kein Verlust, sondern Anschub. Verfügbarkeit ist nicht nur Logistik, sondern Ranking-Schutz. Conversion-Optimierung wirkt nicht isoliert, sondern verstärkt den gesamten Kreislauf. Und Geduld ist Teil der Strategie: Das Rad braucht Zeit, bis es trägt.
+Das Flywheel-Denken verändert, wie du Entscheidungen triffst. Ein hoher ACoS beim Launch kann einen echten Verlust bedeuten. Plant ihn nur als begrenztes Experiment mit nachvollziehbarer Hypothese und Abbruchkriterium. Verfügbarkeit ist nicht nur Logistik, sondern Ranking-Schutz. Conversion-Optimierung wirkt nicht isoliert, sondern verstärkt den gesamten Kreislauf. Und Geduld ist Teil der Strategie: Das Rad braucht Zeit, bis es trägt.
+
+## Praxis: Ein Launchbudget mit Abbruchregel
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein Launchbudget mit Abbruchregel</h3>
+<p>Eine Marke akzeptiert im Modell maximal 2.000 € negativen Beitrag für einen Launchtest. Nach vier Wochen stehen nicht nur Verkäufe, sondern auch wiederkehrende Qualitätsbeschwerden im Report. Weiteres Budget würde das Produktproblem nicht beheben.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Definiert vor dem Start Budgetgrenze, Mindestdaten und überprüfbare Produktannahmen.
+2. Stoppt oder korrigiert bei Qualitäts- und Complianceproblemen unabhängig vom erhofften Rankingeffekt. Ein Flywheel ist ein Denkmodell, keine Zusage späterer Gewinne.
 
 ## Fazit
 

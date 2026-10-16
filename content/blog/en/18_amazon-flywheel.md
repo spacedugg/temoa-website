@@ -39,7 +39,7 @@ A turning flywheel does not stay in motion on its own if you make mistakes. Stoc
 
 ## What this means for your strategy
 
-Thinking in flywheels changes how you make decisions. A high ACoS at launch is not a loss, it is the push. Availability is not only logistics, it is ranking protection. Conversion work does not act in isolation, it reinforces the whole loop. And patience is part of the strategy, because the wheel needs time before it carries.
+The flywheel is a useful model, not a guaranteed causal formula. A high launch ACoS can represent a real loss. Set a budget cap, timeframe and decision criteria; advertising does not buy guaranteed rankings or reviews. New ASINs can be indexed and receive organic visibility without an established sales history.
 
 ## In short
 

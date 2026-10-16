@@ -41,6 +41,19 @@ Der Kern des Wholesale-Geschäfts sind Beziehungen zu Herstellern und Großhänd
 
 Achte darauf, nur über legitime Quellen einzukaufen und alle Rechnungen aufzubewahren – sie sind dein Nachweis für Echtheit und Berechtigung, falls Amazon nachfragt oder eine Kategorie freigeschaltet werden muss. Graumarktware oder dubiose Quellen sind ein Risiko für Konto und Reputation. Saubere Belege sind im Wholesale Pflicht.
 
+## Praxis: Nachbestellbarkeit ist Teil der Marge
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Nachbestellbarkeit ist Teil der Marge</h3>
+<p>Ein Großhandelsartikel bietet rechnerisch 3 € Beitrag, aber der günstige Einkaufspreis gilt nur für eine einmalige Restmenge. Eine darauf aufgebaute Kampagne kann später nicht profitabel fortgeführt werden.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Trennt wiederkehrende Konditionen von Sonderposten und prüft Lieferfähigkeit.
+2. Rechnet Preiswettbewerb und realistische Featured-Offer-Anteile ein. Die gesamte Nachfrage einer ASIN steht nicht automatisch eurem eigenen Angebot zur Verfügung.
+
 ## Fazit
 
 Wholesale ist der pragmatische Mittelweg im Amazon-Geschäft: planbarer als Arbitrage, weniger riskant als Private Label. Du verkaufst etablierte, gefragte Markenprodukte aus legitimen Großhandelsquellen. Die Herausforderungen – geteilte Listings, Buy-Box-Wettbewerb, nötige Berechtigungen und Kapitalbindung – sind real, aber beherrschbar. Wer sorgfältig Produkte auswählt, seriöse Lieferantenbeziehungen aufbaut und sauber dokumentiert arbeitet, kann mit Wholesale ein stabiles, skalierbares Geschäft aufbauen.

@@ -40,6 +40,19 @@ Vendor Central kann sinnvoll sein, wenn du als Hersteller große, planbare Menge
 
 Manche Marken nutzen beide Modelle parallel – etwa Vendor für bestimmte Volumenprodukte und Seller Central für margenstarke oder neue Produkte, bei denen sie Preis und Werbung selbst steuern wollen. Das erhöht die Komplexität, kann aber das Beste aus beiden Welten verbinden.
 
+## Praxis: 1P und 3P auf gleicher Basis rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>1P und 3P auf gleicher Basis rechnen</h3>
+<p>Ein Vendor-Angebot bringt nach vereinbarten Abzügen 14 € Erlös je Einheit. Ein Seller-Modell liefert 25 € Nettoerlös, benötigt aber 11 € für Gebühren, Logistik und operative Kosten vor identischem Wareneinsatz. Beide starten damit bei 14 € – der Endkundenpreis allein entscheidet nichts.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht zusätzlich Zahlungsziele, Retourenrisiken, Werbeleistungen und interne Kapazität.
+2. Rechnet SKU-Gruppen getrennt. Ein Hybridmodell braucht klare Verantwortlichkeiten und eine Planung für Preis-, Bestands- und Katalogkonflikte.
+
 ## Fazit
 
 Es gibt kein pauschal „besseres" Modell. Vendor Central bietet operative Einfachheit, gibt aber Preis- und Kontrollhoheit ab. Seller Central gibt dir Kontrolle und potenziell mehr Marge, verlangt dafür aber vollen Einsatz. Die richtige Antwort ergibt sich nur aus einer nüchternen Modellrechnung deiner konkreten Produkte, Kosten und Kapazitäten – nicht aus Faustregeln. Wer wechseln will, sollte vorher beide Szenarien durchrechnen, statt dem Versprechen von „mehr Kontrolle" blind zu folgen.

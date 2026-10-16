@@ -30,11 +30,9 @@ Welche Kennzahl du bevorzugst, ist letztlich Gewohnheit. Wer aus dem klassischen
 
 ## Der häufigste Fehler: ROAS ohne Marge betrachten
 
-Ein hoher ROAS klingt immer gut – aber ohne deine Marge ist die Zahl wertlos. Entscheidend ist der **Break-even-ROAS**: der Punkt, an dem deine Werbung kostendeckend ist. Er ergibt sich aus deiner Marge.
+ROAS verwendet Umsatz, nicht Gewinn. Für eine vereinfachte Break-even-Rechnung teilt ihr den im Werbebericht verwendeten Erlös pro Einheit durch den Deckungsbeitrag vor Werbung. Beide Beträge müssen dieselben Produkte und dieselbe Steuerbasis abbilden. Bei 30 € Berichtserlös und 7,50 € Beitrag vor Werbung ergibt sich ein Break-even-ROAS von 4. Dieser Punkt deckt noch keine zusätzlichen Fixkosten und beweist keine inkrementelle Wirkung.
 
-Rechenbeispiel: Dein Produkt hat nach allen Kosten eine Marge von 25 %. Dein Break-even-ROAS liegt dann bei 1 ÷ 0,25 = **4**. Ein ROAS von 4 bedeutet also: ±0. Erst ab einem ROAS über 4 verdienst du an beworbenen Verkäufen Geld, darunter zahlst du drauf.
-
-Das erklärt, warum „ein ROAS von 3 ist schlecht" nicht stimmen muss: Bei einer Marge von 40 % (Break-even-ROAS 2,5) wäre ein ROAS von 3 profitabel.
+Prüft bei zugerechneten Verkäufen weiterer ASINs deren eigene Margen. Eine profitable beworbene ASIN kann sonst einen unprofitablen Mix verdecken.
 
 ## ROAS sinnvoll als Steuerungsgröße einsetzen
 
@@ -51,6 +49,19 @@ Wie ACoS erfasst ROAS nur werbeattribuierten Umsatz – nicht den organischen Ef
 ## Praktische Schritte
 
 Berechne zuerst deinen Break-even-ROAS pro Produkt – das ist deine Nulllinie. Lege darüber realistische Zielwerte je nach Kampagnenzweck (höher für Conversion, niedriger akzeptabel für Discovery). Vergleiche Kampagnen nur innerhalb derselben Funnel-Stufe miteinander. Und prüfe vor jeder Budgetkürzung, ob die betroffene Kampagne organischen Umsatz mitträgt.
+
+## Praxis: ROAS-Gewinner kann Ergebnis-Verlierer sein
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>ROAS-Gewinner kann Ergebnis-Verlierer sein</h3>
+<p>Kampagne A erzielt bei 1.000 € Werbung 5.000 € Umsatz, B erzielt 4.000 €. A gewinnt mit ROAS 5 gegen 4. Bei 15 % Beitrag vor Werbung für A und 40 % für B bleiben nach Werbung jedoch minus 250 € und plus 600 €. Alle Modellbeträge nutzen dieselbe Umsatzbasis.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Verknüpft die zugerechneten Produkte mit ihren tatsächlichen Kosten.
+2. Priorisiert den zusätzlichen Beitrag und kontrolliert, ob ein hoher Markenanteil den ROAS beschönigt.
 
 ## Fazit
 
