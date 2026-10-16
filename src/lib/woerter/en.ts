@@ -1022,8 +1022,6 @@ export const en: Woerterbuch = {
           text: "20 to 40 hours a week on a platform that keeps changing.",
         },
       ],
-      schluss:
-        "What hurts is not visible in the account: the search term you never showed up on, and the competitor who took the place from you.",
     },
 
     bereiche: {

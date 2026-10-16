@@ -1936,3 +1936,7 @@ und der Zeitstrahl enthielt Dinge, die keine Schritte sind.
   (`KENNZAHL_WERTE`), bis der Kunde die richtige Zahl nennt.
 - **Offen beim Kunden:** Die Software-Sektion war Teil der Amazon-Verifizierung
   (SP-API), Datenschutz Abschnitt 10.3 nennt sie weiter.
+- **Der Schlusssatz der Ausgangslage ist gestrichen.** Der Zitatblock mit
+  orangem Balken unter den Kacheln der Ausgangslage auf der Full-Service-Seite
+  („Was weh tut, sieht man nicht im Konto …") ist raus, samt Feld `schluss` in
+  beiden Woerterbuechern.

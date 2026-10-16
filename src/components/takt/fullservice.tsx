@@ -125,11 +125,6 @@ export function Ausgangslage({ w }: { w: W["ausgangslage"] }) {
           <Karte key={r.titel} icon={AUSGANGSLAGE[i]} title={r.titel} body={r.text} />
         ))}
       </div>
-      <div className="mt-12 border-l-2 border-brand-500 pl-6 md:pl-8">
-        <p className="max-w-[52ch] text-balance text-[1.2rem] font-bold leading-[1.4] text-ink md:text-[1.4rem]">
-          {w.schluss}
-        </p>
-      </div>
     </Station>
   );
 }

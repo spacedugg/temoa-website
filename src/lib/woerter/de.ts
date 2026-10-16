@@ -1074,8 +1074,6 @@ export const de = {
           text: "20 bis 40 Stunden pro Woche auf einer Plattform, die sich ständig verändert.",
         },
       ],
-      schluss:
-        "Was weh tut, sieht man nicht im Konto: der Suchbegriff, auf dem ihr nie aufgetaucht seid, und der Wettbewerber, der euch den Platz abgenommen hat.",
     },
 
     bereiche: {
