@@ -34,7 +34,7 @@ export const en: Woerterbuch = {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitable growth",
       titelRest: " for your Amazon brand",
-      lead: "Build listings that convert. Then scale with advertising that earns its budget. Content, ads and account management from one team.",
+      lead: "Build stronger marketplace listings, then scale with smarter advertising.",
       ctaZweit: "See the case studies",
       bildAlt:
         "A product page on a phone held in one hand, with six listing images showing product benefits beside it",

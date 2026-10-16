@@ -1839,3 +1839,17 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
   stehen.
 - **Titel und H1** folgen den SEO-Regeln: Titel nennen das Thema zuerst und
   bleiben unter 60 Zeichen, die H1 nennt dieselbe Leistung.
+
+## Siebenundvierzigste Feedbackrunde (verbindlich)
+
+- **Die Unterzeile im Hero ist ein Satz, vom Kunden vorgegeben.** Englisch:
+  „Build stronger marketplace listings, then scale with smarter advertising."
+  Deutsch vom Kunden selbst formuliert: „Erst auf starke Listings für
+  organische Rankings optimieren, dann mit effizienter Werbung profitabel
+  skalieren." (Die erste Fassung, umgangssprachlich uebersetzt, war „Erst
+  starke Listings bauen, dann mit cleverer Werbung richtig durchstarten.") Die Fassung
+  davor („Erst das Listing stark machen, dann mit Werbung skalieren, die sich
+  rechnet. Content, Ads und Account Management aus einer Hand.") liess sich
+  nicht lesen. Eine eigene Neufassung mit den drei Leistungsnamen hat der
+  Kunde verworfen. Nicht eigenmaechtig wieder verlaengern: der Hero soll
+  knapp bleiben.

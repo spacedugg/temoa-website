@@ -33,7 +33,7 @@ export const de = {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitables Wachstum",
       titelRest: " für deine Marke auf Amazon",
-      lead: "Erst das Listing stark machen, dann mit Werbung skalieren, die sich rechnet. Content, Ads und Account Management aus einer Hand.",
+      lead: "Erst auf starke Listings für organische Rankings optimieren, dann mit effizienter Werbung profitabel skalieren.",
       ctaZweit: "Case Studies ansehen",
       bildAlt:
         "Eine Produktseite auf einem Telefon in der Hand, daneben sechs Listingbilder mit Produktvorteilen",
