@@ -8,6 +8,10 @@ import {
   AdvertisingBody,
   AccountBody,
   ComplianceBody,
+  FbaBody,
+  KatalogBody,
+  SoftwareBody,
+  ReportingBody,
   InternationalisierungBody,
 } from "@/components/service/bodies";
 import { istSprache, sprachAngaben, sprachen, type Sprache } from "@/lib/i18n";
@@ -22,6 +26,10 @@ const SEITEN: Record<string, keyof Woerterbuch["leistungen"]["meta"]> = {
   "ppc-advertising": "advertising",
   "account-management": "account",
   "compliance-account-health": "compliance",
+  "fba-inventory-management": "fba",
+  "katalog-listing-management": "katalog",
+  "software-account-intelligence": "software",
+  "analytics-reporting": "reporting",
   internationalisierung: "international",
 };
 
@@ -60,6 +68,14 @@ function Body({ slug, sprache }: { slug: string; sprache: Sprache }) {
       return <AccountBody sprache={sprache} />;
     case "compliance-account-health":
       return <ComplianceBody sprache={sprache} />;
+    case "fba-inventory-management":
+      return <FbaBody sprache={sprache} />;
+    case "katalog-listing-management":
+      return <KatalogBody sprache={sprache} />;
+    case "software-account-intelligence":
+      return <SoftwareBody sprache={sprache} />;
+    case "analytics-reporting":
+      return <ReportingBody sprache={sprache} />;
     case "internationalisierung":
       return <InternationalisierungBody sprache={sprache} />;
     default:

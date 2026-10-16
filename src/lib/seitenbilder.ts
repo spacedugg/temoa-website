@@ -108,6 +108,11 @@ const FESTE_SEITEN: Record<string, string[]> = {
     "/bilder/s-account-monitor.webp",
     "/team/clemens-frei.webp",
   ],
+  "/leistungen/compliance-account-health": ["/bilder/s-account-monitor.webp", "/team/clemens-frei.webp"],
+  "/leistungen/fba-inventory-management": ["/bilder/s-account-monitor.webp", "/team/clemens-frei.webp"],
+  "/leistungen/katalog-listing-management": ["/bilder/s-content-ansatz.webp", "/team/clemens-frei.webp"],
+  "/leistungen/software-account-intelligence": ["/bilder/n-leistungen.webp", "/team/clemens-frei.webp"],
+  "/leistungen/analytics-reporting": ["/bilder/n-reporting.webp", "/team/clemens-frei.webp"],
   "/leistungen/internationalisierung": [
     "/bilder/s-international.webp",
     "/bilder/s-international-kugel.webp",

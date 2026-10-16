@@ -803,6 +803,47 @@ export function Verweis({
   );
 }
 
+/**
+ * Mehrere Verweise nebeneinander.
+ *
+ * Fuer die Leistungen, die aus einer Seite herausgewachsen sind und jetzt
+ * eine eigene haben. Ein einzelner Verweis pro Bereich waere dreimal derselbe
+ * Block untereinander; hier stehen sie als Spalten in einer Platte.
+ */
+export function Verweise({
+  eyebrow,
+  title,
+  items,
+  tone = "blue",
+}: {
+  eyebrow?: string;
+  title: string;
+  items: { titel: string; text: string; link: string; href: string }[];
+  tone?: Tone;
+}) {
+  return (
+    <Shell tone={tone}>
+      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        {items.map((it, i) => (
+          <Reveal key={it.href} delay={i * 0.06} className="h-full">
+            <div className="panel panel-lift flex h-full flex-col p-6 md:p-7">
+              <h3 className="text-[1.1rem] font-bold leading-snug text-ink">{it.titel}</h3>
+              <p className="mt-3 text-pretty text-small leading-relaxed text-ink-muted">{it.text}</p>
+              <a href={it.href} className="btn-text mt-auto pt-6">
+                {it.link}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </Shell>
+  );
+}
+
 /* ---------------- final CTA ---------------- */
 
 /**

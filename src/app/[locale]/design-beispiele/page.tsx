@@ -1,3 +1,5 @@
+import { Stimmen } from "@/components/takt/sections";
+import { stimmenFuer } from "@/lib/testimonials";
 import type { Metadata } from "next";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
@@ -80,6 +82,7 @@ export default async function DesignBeispielePage({
           </div>
         )}
         <DesignGallery data={references} sprache={locale} w={w} />
+        <Stimmen w={woerter(locale).start.stimmen} liste={stimmenFuer(locale)} />
         <ServiceCTA title={w.cta} />
       </main>
       <Fusszeile />

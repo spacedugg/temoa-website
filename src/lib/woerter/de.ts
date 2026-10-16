@@ -8,6 +8,8 @@
    damit jede Fassung einzeln zu pruefen ist.
    ============================================================ */
 
+import { diensteDe } from "./dienste";
+
 export const de = {
   meta: {
     titel: "temoa \u00b7 Amazon Full Service: Content, PPC und Account",
@@ -269,6 +271,30 @@ export const de = {
         beschreibung:
           "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
       },
+      fba: {
+        titel: "Amazon FBA & Inventory Management · temoa",
+        name: "FBA & Inventory",
+        beschreibung:
+          "Bestand, Sendungen und FBA-Gebühren im Amazon-Konto planen und überwachen: Reichweite, Nachschub, Stranded Inventory und Fälle zum Wareneingang.",
+      },
+      katalog: {
+        titel: "Amazon Katalog & Listing Management · temoa",
+        name: "Katalog & Listing Management",
+        beschreibung:
+          "Produkte, Varianten, Attribute und Backend-Suchbegriffe sauber anlegen und pflegen, einzeln oder per Flat File, für Seller Central und Vendor Central.",
+      },
+      software: {
+        titel: "Amazon Software & Account Intelligence · temoa",
+        name: "Software & Account Intelligence",
+        beschreibung:
+          "Eine Plattform in Entwicklung, die Katalog-, Werbe-, Bestands- und Account-Daten zusammenführt. Datenzugriff nur nach Autorisierung durch den Kunden.",
+      },
+      reporting: {
+        titel: "Amazon Analytics & Reporting · temoa",
+        name: "Analytics & Reporting",
+        beschreibung:
+          "Umsatz, Marge, ACoS, TACoS und Search Query Report aufbereitet und eingeordnet: Was passiert ist, woran es lag und was als Nächstes ansteht.",
+      },
       international: {
         titel: "Amazon Internationalisierung: Neue Marktplätze · temoa",
         name: "Internationalisierung",
@@ -276,6 +302,8 @@ export const de = {
           "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
       },
     },
+
+    dienste: diensteDe,
 
     bausteine: {
       knopf: "Potenzialanalyse buchen",
@@ -659,103 +687,24 @@ export const de = {
           },
         ],
       },
-      fba: {
-        eyebrow: "FBA und Logistik",
-        titel: "Der Weg der Ware ins Amazon-Lager, geplant statt improvisiert.",
-        lead: "Wir arbeiten im Konto: Sendungen planen, Bestand steuern, Versandwege festlegen. Etikettieren und Verpacken bleibt bei eurem Lager oder Prep-Partner.",
-        karten: [
+      verweise: {
+        eyebrow: "Eigene Seiten",
+        titel: "Drei Bereiche haben eine eigene Seite.",
+        eintraege: [
           {
-            titel: "Entscheidung FBA oder FBM",
-            unterzeile: "Je Artikel durchgerechnet",
-            text: "Wir rechnen pro Artikel, welcher Versandweg nach Gebühren, Lagerkosten und Retouren mehr übrig lässt. Danach steht fest, was über FBA und was über FBM läuft.",
+            titel: "Compliance & Account Health",
+            text: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir überwachen die Account Health, halten die Pflichtangaben für euer Sortiment aktuell und führen Fälle bei Amazon bis zur Entscheidung.",
+            link: "Compliance & Account Health im Detail",
           },
           {
-            titel: "Versandvorlagen",
-            unterzeile: "Maße, Gewicht, Verpackungsart",
-            text: "Einmal sauber angelegt, stimmen die Angaben bei jeder Sendung. Gebührenkorrekturen und Verzögerungen im Wareneingang fallen weg.",
+            titel: "FBA & Inventory Management",
+            text: "Sendungen planen, Bestand und Gebühren überwachen, Fälle zum Wareneingang führen. Die Arbeit findet im Konto statt, Etikettieren und Verpacken bleibt bei eurem Lager oder Prep-Partner.",
+            link: "FBA & Inventory im Detail",
           },
           {
-            titel: "Sendungsvorbereitung",
-            unterzeile: "Sendungspläne in Seller Central",
-            text: "Wir legen den Sendungsplan an, verteilen die Mengen auf die Artikel und reichen ihn ein. Die Ware kommt mit stimmigen Angaben im Lager an.",
-          },
-          {
-            titel: "Inventory Management",
-            unterzeile: "Laufend: Reichweite, Nachschub, Überbestand",
-            text: "Die Reichweite je Artikel im Blick, Nachschub terminiert, Langsamdreher früh erkannt. Kein Bestseller läuft leer. Lagerkosten für Ladenhüter bleiben klein.",
-          },
-        ],
-      },
-      compliance: {
-        eyebrow: "Compliance & Account Health",
-        titel: "Produkte, die auf Amazon bleiben dürfen.",
-        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir überwachen die Account Health, halten die Pflichtangaben für euer Sortiment aktuell und führen Fälle bei Amazon bis zur Entscheidung.",
-        link: "Compliance & Account Health im Detail",
-      },
-      fbaDetail: {
-        eyebrow: "FBA und Inventory im Detail",
-        titel: "Was wir bei FBA und Bestand laufend steuern.",
-        lead: "Bestand, Sendungen und Gebühren laufen im Konto zusammen. Wir halten sie im Blick und greifen ein, bevor ein Artikel leerläuft oder ein Fehler Geld kostet.",
-        karten: [
-          {
-            titel: "Bestand überwachen",
-            unterzeile: "Täglich im Blick",
-            punkte: [
-              "FBA Inventory Monitoring je Artikel und Marktplatz",
-              "Reichweitenanalyse und Stockout Monitoring",
-              "Inventory Health und Überbestand",
-              "Bestandsabweichungen zwischen Konto und Lager",
-            ],
-          },
-          {
-            titel: "Sendungen begleiten",
-            unterzeile: "Vom Plan bis zum Wareneingang",
-            punkte: [
-              "Inbound Shipment Monitoring und Sendungsstatus",
-              "Stranded Inventory erkennen und auflösen",
-              "Unterstützung bei digitalen FBA-Sendungsprozessen",
-              "Fälle zu Wareneingang und Mengenabweichungen bei Amazon führen",
-            ],
-          },
-          {
-            titel: "Planen und Kosten steuern",
-            unterzeile: "Nachschub und Gebühren",
-            punkte: [
-              "Replenishment-Planung nach Reichweite und Vorlaufzeit",
-              "Überwachung der FBA-Verfügbarkeit",
-              "FBA Fee Monitoring und Gebührenabweichungen",
-              "Entscheidung FBA oder FBM je Artikel",
-            ],
-          },
-        ],
-        klarstellung:
-          "Physische Arbeiten an der Ware gehören nicht zu unseren Leistungen: kein Etikettieren, Verpacken oder Bündeln und keine Qualitätskontrolle im Lager. Unser Kernservice ist die digitale und operative Steuerung von FBA und Inventory im Amazon-Konto.",
-      },
-      katalog: {
-        eyebrow: "Katalog und Backend",
-        bildAlt: "Produktreihe mit hervorgehobenem Artikel, verbunden mit einer Auswertung",
-        titel: "Ein sauberer Katalog, bis ins letzte Attribut.",
-        lead: "Vieles, was über die Auffindbarkeit eines Produkts entscheidet, steht in Feldern, die auf der Detailseite gar nicht auftauchen. Wir pflegen sie für euer ganzes Sortiment.",
-        karten: [
-          {
-            titel: "Attribute und Pflichtfelder",
-            unterzeile: "Produkttyp, Maße, Material",
-            text: "Jede Kategorie verlangt andere Angaben. Fehlen sie, fällt das Produkt aus Filtern und Suchergebnissen heraus.",
-          },
-          {
-            titel: "Backend-Suchbegriffe",
-            unterzeile: "250 Byte, einmal richtig gefüllt",
-            text: "Synonyme, Schreibweisen und Tippfehler liegen dort, wo sie den Titel nicht belasten.",
-          },
-          {
-            titel: "Varianten und Eltern-Kind",
-            unterzeile: "Größen, Farben, Mengen",
-            text: "Alle Varianten unter einer Detailseite. So sammeln sich Bewertungen und Ranking an einer Stelle.",
-          },
-          {
-            titel: "Flat Files und Massenpflege",
-            unterzeile: "Hunderte Artikel auf einmal",
-            text: "Änderungen laufen über Uploads statt per Hand. Dazu Katalogfehler: Dubletten, falsch zusammengeführte Angebote, tote ASINs.",
+            titel: "Katalog & Listing Management",
+            text: "Attribute, Backend-Suchbegriffe, Varianten und Flat Files: Vieles, was über die Auffindbarkeit entscheidet, steht in Feldern, die auf der Detailseite gar nicht auftauchen.",
+            link: "Katalog & Listing Management im Detail",
           },
         ],
       },
@@ -1217,6 +1166,7 @@ export const de = {
           text: "Listing-Status, Buy-Box, Preise, Bestand und FBA im Blick, mit Hinweisen bei Auffälligkeiten.",
         },
       ],
+      link: "Software & Account Intelligence im Detail",
       datenHinweis:
         "Für autorisierte Kunden verarbeitet die Software Amazon-Daten ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Vorgesehen ist dafür die Anbindung über die Amazon Selling Partner API (SP-API).",
     },
@@ -1226,6 +1176,7 @@ export const de = {
       titel: "Reporting, das ihr in fünf Minuten versteht.",
       lead: "Kein Datenexport zum Selbstauswerten. Ihr bekommt die Zahlen, auf die es ankommt, und dazu unsere Einordnung.",
       bildAlt: "Ein schwebendes Dashboard mit steigender Kurve, Balken und zwei Kennzahlkarten.",
+      link: "Analytics & Reporting im Detail",
       /* Ein Report, den eine Geschaeftsfuehrung liest, beantwortet drei
          verschiedene Fragen: Was ist passiert, warum, und was machen wir
          jetzt. Vorher stand hier dreimal derselbe Rueckblick. */

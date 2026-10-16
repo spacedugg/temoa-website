@@ -8,6 +8,13 @@
  * „Demografische Merkmale", „Google Signals" und „UserIDs" stehen als
  * Ueberschrift statt im Fliesstext. Kein Satz ist umformuliert.
  *
+ * Zwei Aenderungen stammen nicht vom Kunden und brauchen die Pruefung durch
+ * seinen Anwalt: der Satz unter 10.2 (vorher „genau einen" Dienst, es sind
+ * mehrere) und der neue Abschnitt 10.3 zu Amazon-Daten und zur Software. Die
+ * Zusagen darin (keine Weitergabe, Zugriff nach Bedarf, Loeschung nach Ende)
+ * stammen aus dem Briefing fuer die Amazon-Pruefung und muessen gegen die
+ * tatsaechlichen Prozesse abgeglichen sein, bevor der Text gilt.
+ *
  * Die Liste der auf DIESER Website eingebundenen Dienste steht nicht hier,
  * sondern kommt aus `lib/consent.ts` und wird unter Abschnitt 10.2
  * gerendert. Damit koennen Banner und Erklaerung nicht auseinanderlaufen.
@@ -347,9 +354,23 @@ Weitere Rechtsgrundlage für die Verarbeitung ist ferner Art. 6 Abs. 1 lit. c DS
 
 Soweit erforderlich, haben wir mit dem Anbieter einen Auftragsverarbeitungsvertrag geschlossen, der den Schutz der Daten unserer Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt.
 
-Diese Website bindet genau einen einwilligungspflichtigen Dienst ein. Welcher das ist und wofür er steht:
+Diese Website bindet die folgenden einwilligungspflichtigen Dienste ein. Welche das sind und wofür sie stehen:
 
 [[DIENSTE]]
+
+### 10.3 Amazon-Daten bei der Erbringung unserer Leistungen und in unserer Software
+
+Im Rahmen unserer Leistungen für Marken (Strategie, Produktbilder und SEO, PPC Advertising, Account Management, Internationalisierung, Katalog-, Bestands- und Reporting-Leistungen) arbeiten wir mit Daten aus den Amazon-Konten unserer Kunden (Seller Central, Vendor Central, Amazon Ads). Dazu gehören insbesondere Katalog- und Listing-Daten, Werbe- und Kampagnendaten, Verkaufs- und Traffic-Kennzahlen, Bestands- und Gebührendaten sowie Angaben zur Konto-Gesundheit. Wir erhalten diese Daten ausschließlich von unseren Kunden oder über Zugänge, die der jeweilige Kunde uns ausdrücklich erteilt hat.
+
+Für eine eigene Software, die diese Daten an einer Stelle zusammenführen soll, ist die Anbindung über die Amazon Selling Partner API (SP-API) vorgesehen. Die Software befindet sich in Entwicklung und ist derzeit nicht für Kunden freigeschaltet. Sobald sie eingesetzt wird, gilt für sie dieser Abschnitt.
+
+Wir verarbeiten Amazon-Daten nur für autorisierte Kunden und ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom jeweiligen Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Der Kunde kann die Autorisierung jederzeit in seinem Amazon-Konto widerrufen. Danach rufen wir keine weiteren Daten ab.
+
+Wir verkaufen Amazon-Daten nicht und geben sie nicht an Dritte weiter, außer soweit dies zur Erbringung der beauftragten Leistung erforderlich ist oder wir gesetzlich dazu verpflichtet sind. Innerhalb unseres Unternehmens erhalten nur diejenigen Mitarbeitenden Zugriff, die ihn für die jeweilige Leistung benötigen. Daten verschiedener Kunden werden getrennt voneinander verarbeitet.
+
+Soweit die Daten personenbezogen sind, erfolgt die Verarbeitung im Auftrag und nach Weisung des jeweiligen Kunden auf Grundlage eines Vertrags zur Auftragsverarbeitung gemäß Art. 28 DSGVO. Rechtsgrundlage ist die Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO. Nach Beendigung der Zusammenarbeit löschen wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+
+Fragen zum Umgang mit Daten und zur Informationssicherheit richten Sie bitte an info@temoa.de.
 
 ## 11) Rechte des Betroffenen
 

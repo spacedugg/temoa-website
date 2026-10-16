@@ -1,3 +1,5 @@
+import { Stimmen } from "@/components/takt/sections";
+import { stimmenFuer } from "@/lib/testimonials";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -62,6 +64,7 @@ export default async function CaseDetailPage({
         <CaseBlock c={c} index={0} w={w} />
         <CaseGallery c={c} w={w} />
         <OtherCases slug={c.slug} faelle={faelleFuer(locale)} sprache={locale} w={w} />
+        <Stimmen w={woerter(locale).start.stimmen} liste={stimmenFuer(locale)} />
         <ServiceCTA title={w.fallCta.titel} zusagen={w.fallCta.zusagen} />
       </main>
       <Fusszeile />
