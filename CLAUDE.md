@@ -1839,3 +1839,14 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
   stehen.
 - **Titel und H1** folgen den SEO-Regeln: Titel nennen das Thema zuerst und
   bleiben unter 60 Zeichen, die H1 nennt dieselbe Leistung.
+
+## Siebenundvierzigste Feedbackrunde (verbindlich)
+
+- **Die Unterzeile im Hero folgt der Reihenfolge Organic First, PPC Second.**
+  Die Fassung „Erst das Listing stark machen, dann mit Werbung skalieren, die
+  sich rechnet." liess sich nicht lesen: ein Infinitiv-Satz, in dem Werbung
+  skaliert wird, mit einem Relativsatz dahinter, und „Content, Ads" nannte
+  Dinge, die in der Navigation anders heissen. Jetzt steht ein Satz mit einer
+  Aussage (Listings konvertieren, dann skaliert die Werbung) und die drei
+  Leistungen mit ihren Namen aus der Navigation. „Profitabel" steht nicht
+  noch einmal darin, die Ueberschrift sagt es schon.
