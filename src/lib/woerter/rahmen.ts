@@ -53,7 +53,8 @@ type Rahmen = {
        Technologie. */
     compliance: string;
     fba: string;
-    technologie: string;
+    katalog: string;
+    reporting: string;
   };
   /* Der Abschluss-CTA steht auf jeder Seite. Deshalb liegt seine Copy hier
      und nicht im grossen Woerterbuch: `takt/Gespraech` erkennt die Sprache
@@ -144,7 +145,8 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       international: "Internationalisierung",
       compliance: "Compliance & Account Health",
       fba: "FBA & Inventory",
-      technologie: "Software",
+      katalog: "Katalog & Listing",
+      reporting: "Analytics & Reporting",
     },
     gespraech: {
       titel: "Wie viel Umsatz lässt euer Listing liegen?",
@@ -227,7 +229,8 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       international: "International Expansion",
       compliance: "Compliance & Account Health",
       fba: "FBA & Inventory",
-      technologie: "Software",
+      katalog: "Catalog & Listing",
+      reporting: "Analytics & Reporting",
     },
     gespraech: {
       titel: "How much revenue is your listing leaving on the table?",

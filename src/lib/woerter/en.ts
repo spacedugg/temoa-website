@@ -1,4 +1,5 @@
 import type { Woerterbuch } from "./de";
+import { diensteEn } from "./dienste";
 
 /* ============================================================
    English version of the page copy.
@@ -241,6 +242,24 @@ export const en: Woerterbuch = {
         beschreibung:
           "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case.",
       },
+      fba: {
+        titel: "Amazon FBA & Inventory Management · temoa",
+        name: "FBA & inventory",
+        beschreibung:
+          "Plan and monitor stock, shipments and FBA fees in the Amazon account: coverage, replenishment, stranded inventory and goods receipt cases.",
+      },
+      katalog: {
+        titel: "Amazon Catalog & Listing Management · temoa",
+        name: "Catalog & listing management",
+        beschreibung:
+          "Create and maintain products, variations, attributes and backend search terms cleanly, one by one or by flat file, for Seller Central and Vendor Central.",
+      },
+      reporting: {
+        titel: "Amazon Analytics & Reporting · temoa",
+        name: "Analytics & reporting",
+        beschreibung:
+          "Revenue, margin, ACoS, TACoS and Search Query Report prepared and put in context: what happened, what caused it and what comes next.",
+      },
       international: {
         titel: "Amazon International Expansion: New Marketplaces · temoa",
         name: "International Expansion",
@@ -248,6 +267,8 @@ export const en: Woerterbuch = {
           "Every marketplace is its own market. Its own keyword research, its own content and its own campaigns, built from scratch for each country.",
       },
     },
+
+    dienste: diensteEn,
 
     bausteine: {
       knopf: "Book an account review",
@@ -619,103 +640,24 @@ export const en: Woerterbuch = {
           },
         ],
       },
-      fba: {
-        eyebrow: "FBA and logistics",
-        titel: "The way of your goods into the Amazon warehouse, planned instead of improvised.",
-        lead: "We work in the account: planning shipments, steering inventory, setting shipping routes. Labelling and packing stay with your warehouse or prep partner.",
-        karten: [
+      verweise: {
+        eyebrow: "Dedicated pages",
+        titel: "Three areas have their own page.",
+        eintraege: [
           {
-            titel: "FBA or FBM decision",
-            unterzeile: "Calculated per item",
-            text: "We calculate per item which route leaves more after fees, storage and returns. After that it is settled what runs through FBA and what through FBM.",
+            titel: "Compliance & account health",
+            text: "Missing proofs and registrations stop listings from one day to the next. We monitor account health, keep the mandatory data for your range current and carry cases through with Amazon until they are decided.",
+            link: "Compliance & account health in detail",
           },
           {
-            titel: "Shipping templates",
-            unterzeile: "Dimensions, weight, packaging type",
-            text: "Set up cleanly once, the data is right on every shipment. Fee corrections and delays at receiving drop out.",
+            titel: "FBA & inventory management",
+            text: "Plan shipments, monitor stock and fees, handle goods receipt cases. The work happens in the account, while labelling and packing stay with your warehouse or prep partner.",
+            link: "FBA & inventory in detail",
           },
           {
-            titel: "Shipment preparation",
-            unterzeile: "Shipping plans in Seller Central",
-            text: "We create the shipping plan, split the quantities across items and submit it. The goods arrive at the warehouse with consistent data.",
-          },
-          {
-            titel: "Inventory management",
-            unterzeile: "Ongoing: coverage, resupply, excess stock",
-            text: "Coverage per item in view, resupply scheduled, slow movers spotted early. No bestseller runs out. Storage costs for dead stock stay small.",
-          },
-        ],
-      },
-      compliance: {
-        eyebrow: "Compliance & Account Health",
-        titel: "Products that are allowed to stay on Amazon.",
-        lead: "Missing proofs and registrations stop listings from one day to the next. We monitor account health, keep the mandatory data for your range current and carry cases through with Amazon until they are decided.",
-        link: "Compliance & account health in detail",
-      },
-      fbaDetail: {
-        eyebrow: "FBA and inventory in detail",
-        titel: "What we steer on an ongoing basis in FBA and inventory.",
-        lead: "Inventory, shipments and fees come together in the account. We keep them in view and step in before an item runs out or a mistake costs money.",
-        karten: [
-          {
-            titel: "Monitor inventory",
-            unterzeile: "In view every day",
-            punkte: [
-              "FBA inventory monitoring per item and marketplace",
-              "Days-of-supply analysis and stockout monitoring",
-              "Inventory health and overstock",
-              "Inventory discrepancies between account and warehouse",
-            ],
-          },
-          {
-            titel: "Follow shipments",
-            unterzeile: "From plan to receiving",
-            punkte: [
-              "Inbound shipment monitoring and shipment status",
-              "Spotting and resolving stranded inventory",
-              "Support with digital FBA shipment processes",
-              "Handling receiving and quantity discrepancy cases with Amazon",
-            ],
-          },
-          {
-            titel: "Plan and control costs",
-            unterzeile: "Resupply and fees",
-            punkte: [
-              "Replenishment planning by days of supply and lead time",
-              "Monitoring FBA availability",
-              "FBA fee monitoring and fee discrepancies",
-              "FBA or FBM decision per item",
-            ],
-          },
-        ],
-        klarstellung:
-          "Physical work on the goods is not part of our services: no labeling, packaging or bundling and no quality control in the warehouse. Our core service is the digital and operational management of FBA and inventory in the Amazon account.",
-      },
-      katalog: {
-        eyebrow: "Catalogue and backend",
-        bildAlt: "Product row with one highlighted item, connected to a report",
-        titel: "A clean catalogue, down to the last attribute.",
-        lead: "A lot of what decides whether a product is found sits in fields that never show on the detail page. We maintain them across your whole range.",
-        karten: [
-          {
-            titel: "Attributes and required fields",
-            unterzeile: "Product type, size, material",
-            text: "Every category asks for different data. When it is missing, the product drops out of filters and search results.",
-          },
-          {
-            titel: "Backend search terms",
-            unterzeile: "250 bytes, filled properly once",
-            text: "Synonyms, spellings and common typos sit where they do not weigh down the title.",
-          },
-          {
-            titel: "Variations and parent-child",
-            unterzeile: "Sizes, colours, quantities",
-            text: "All variations under one detail page, so reviews and ranking build up in one place.",
-          },
-          {
-            titel: "Flat files and bulk edits",
-            unterzeile: "Hundreds of items at once",
-            text: "Changes run through uploads instead of item by item. Plus catalogue errors: duplicates, wrongly merged offers, dead ASINs.",
+            titel: "Catalog & listing management",
+            text: "Attributes, backend search terms, variations and flat files: much of what decides findability sits in fields that never appear on the detail page.",
+            link: "Catalog & listing management in detail",
           },
         ],
       },
@@ -1172,6 +1114,7 @@ export const en: Woerterbuch = {
       titel: "Reporting you understand in five minutes.",
       lead: "No data export for you to evaluate yourself. You get the numbers that matter, and our reading of them.",
       bildAlt: "A floating dashboard with a rising curve, bars and two metric cards.",
+      link: "Analytics & reporting in detail",
       punkte: [
         {
           titel: "What the month brought in",

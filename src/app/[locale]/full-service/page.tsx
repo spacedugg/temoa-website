@@ -1,3 +1,5 @@
+import { Stimmen } from "@/components/takt/sections";
+import { stimmenFuer } from "@/lib/testimonials";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -65,6 +67,7 @@ export default async function FullServicePage({
             statt ueber drei Wochen, und zwei Ablaeufe auf einer Website
             waeren zwei Versprechen. */}
         <Fahrplan w={alle.fahrplan} />
+        <Stimmen w={woerter(locale).start.stimmen} liste={stimmenFuer(locale)} />
         <Termin title={w.cta} />
       </main>
       <Fusszeile />

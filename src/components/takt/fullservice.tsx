@@ -4,7 +4,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Station, StationTitle, StationLead, Eyebrow, Karte } from "./Station";
 import { Icon, type IconName } from "./Icons";
 import { Zusammenlauf } from "./Zusammenlauf";
-import { pfad, type Sprache } from "@/lib/i18n";
+import { usePathname } from "next/navigation";
+import { pfad, spracheAusPfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
@@ -191,6 +192,7 @@ export function Bereiche({ w }: { w: W["bereiche"] }) {
  */
 export function Reporting({ w }: { w: W["reporting"] }) {
   const reduce = useReducedMotion();
+  const sprache = spracheAusPfad(usePathname());
   const auf = (delay: number) =>
     ({
           initial: reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
@@ -226,6 +228,12 @@ export function Reporting({ w }: { w: W["reporting"] }) {
               </motion.div>
             ))}
           </div>
+          <a href={pfad(sprache, "/leistungen/analytics-reporting")} className="btn-text mt-8">
+            {w.link}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
         </div>
 
         <motion.div {...auf(0.12)} className="relative flex items-center justify-center">

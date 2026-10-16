@@ -30,6 +30,9 @@ Verbindlich sind die deutschen Fassungen der Rechtstexte.
 - [PPC Advertising](https://www.temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
 - [Account Management](https://www.temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
 - [Compliance & Account Health](https://www.temoa.de/leistungen/compliance-account-health): LUCID, GPSR, Sicherheitsdokumente, Fallmanagement bei Sperrungen, Richtlinien- und Katalogfälle (keine Rechtsberatung, kein Prüflabor).
+- [FBA & Inventory Management](https://www.temoa.de/leistungen/fba-inventory-management): Bestand, Sendungen und FBA-Gebühren im Konto planen und überwachen, Fälle zum Wareneingang führen. Keine physische Warenvorbereitung.
+- [Katalog & Listing Management](https://www.temoa.de/leistungen/katalog-listing-management): Produkte, Varianten, Attribute, Backend-Suchbegriffe und Flat Files anlegen und pflegen.
+- [Analytics & Reporting](https://www.temoa.de/leistungen/analytics-reporting): Umsatz, Marge, ACoS, TACoS und Search Query Report aufbereitet und eingeordnet.
 - [Internationalisierung](https://www.temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
 
 ## Weiteres

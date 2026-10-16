@@ -259,7 +259,7 @@ Das frühere Theme hiess „Taktplan": eine mitlaufende orange Linie am linken R
 - Verbotenes Wort: "Hebel" und jede Hebel-Analogie. Wir "hebeln" nichts; PPC wird nicht "zum Hebel".
 - Verbotene Woerter: "ausrollen" / "Rollout" und "erprobt" / "erprobtes Setup". Wir "rollen" nichts aus und nennen nichts "erprobt".
 - Internationalisierung: NIE behaupten, was in einem Markt verkauft, verkaufe automatisch im naechsten (das ist falsch). Kernaussage: Jeder Marktplatz ist ein eigener Markt und bekommt die komplette Arbeit neu (eigene Keyword-Recherche, eigener Content, eigene Kampagnen). Nicht auf Europa/USA begrenzen, es geht um Amazon-Marktplaetze weltweit.
-- Kundenstimmen/Reviews: Es gibt GENAU EINE Bewertungssektion (die Homepage-Section), keine abgespeckte 3-Karten-Variante. Sie steht nur noch auf der Homepage und auf der Buchungsseite. Auf allen anderen Seiten ist sie entfernt: der Kunde findet Bewertungen auf jeder Seite zu viel.
+- Kundenstimmen/Reviews: Es gibt GENAU EINE Bewertungssektion (die Komponente `Stimmen` aus `takt/sections`), keine abgespeckte 3-Karten-Variante. Seit der sechsundvierzigsten Runde steht sie auch auf jeder Leistungsseite, auf Full Service, den Fallseiten und den Designbeispielen (Amazon verlangt zu jeder Leistung eine Kundenstimme). Frueher war sie auf Homepage und Buchungsseite begrenzt, weil der Kunde sie auf jeder Seite zu viel fand: wer sie wieder entfernt, muss das mit dem Amazon-Hinweis abwaegen.
 - KI-Suche mitdenken: Content KI-ready fuer Rufus, COSMO und A10 (nicht Keywords stapeln, sondern Relevanz zeigen).
 - Kern-Argument Organic First: Listing zuerst auf Klickrate (CTR) und Conversion (CVR) optimieren, das sind die wichtigsten Ranking-Signale. Sonst bleibt PPC-Abhaengigkeit, Klicks werden jaehrlich teurer, Margen enger (Negativspirale).
 - Ueberschriften kurz, knackig, konkret. Keine generischen Floskeln, die nach etwas klingen, aber nichts sagen (Negativbeispiele: "Klarheit ueber Zahlen, Markt und Ziele", "Werbung, die Profitabilitaet bringt").
@@ -833,9 +833,9 @@ jedes Element, das ueber den rechten Rand steht, und jedes Klickziel unter
   Datenschutzerklaerung rendern dieselbe Liste, deshalb koennen sie nicht
   auseinander laufen. Ein neuer Dienst kommt in dieses Verzeichnis und
   erscheint an beiden Stellen.
-- **Es gibt genau zwei Kategorien: Notwendig und Externe Dienste.** Die Website
-  misst nichts, es gibt keine Analyse und kein Marketing-Pixel, die Schriften
-  liegen selbst auf dem Server. Ein Banner, das „Statistik" anbietet, wo nichts
+- **Es gibt drei Kategorien: Notwendig, Externe Dienste und Messung** (Stand
+  nach dem Google Tag Manager, Quelle `lib/consent.ts`). Aeltere Fassung dieses
+  Satzes sprach von zwei Kategorien und keiner Messung, das stimmt nicht mehr. Ein Banner, das „Statistik" anbietet, wo nichts
   gemessen wird, waere eine Behauptung. Kommt Analyse dazu, kommt die Kategorie
   dazu und `VERSION` wird erhoeht: dann wird neu gefragt.
 - **Nichts von einem Dritten wird vor der Zustimmung geladen.** Der Ladecode
@@ -1789,3 +1789,53 @@ Der Kunde hat die noch offenen SEO-Entscheidungen an den Prompt
   sichtbare Daten an Blogbeitraegen (keine echten Daten, nichts erfinden),
   Bing Webmaster Tools (kein Konto, Weg steht im Audit), Backlinks (kein
   Linkbericht, drei Ideen ohne Umsetzung im Audit).
+
+
+## Sechsundvierzigste Feedbackrunde (verbindlich, drei neue Leistungsseiten)
+
+Anlass: die Amazon-Pruefung fuer SP-API und Solution Provider Network. Das
+Briefing von Eddie verlangt zu jeder Leistung eine eigene Seite mit
+Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
+
+- **Drei neue Seiten**, alle mit einer gemeinsamen Komponente (`DienstBody` in
+  `service/bodies`) und gemeinsamer Copy (`lib/woerter/dienste.ts`, Deutsch und
+  Englisch nebeneinander): `/leistungen/fba-inventory-management`,
+  `/leistungen/katalog-listing-management`,
+  `/leistungen/analytics-reporting`. Sie stehen nur in der Fusszeile, nicht im
+  Hauptmenue, wie die Compliance-Seite. Neue Seite = Eintrag in `SEITEN`
+  (`leistungen/[slug]/page.tsx`), Meta im Woerterbuch, Sitemap,
+  `StrukturierteDaten`, `seitenbilder`, `llms.txt`, Fusszeile.
+- **Der Inhalt liegt nur auf der neuen Seite.** Die Sektionen FBA, FBA im
+  Detail und Katalog sind aus dem Account Management herausgenommen, dort steht
+  ein Block mit drei Verweisen (`Verweise`: Compliance, FBA, Katalog). Auf der
+  Full-Service-Seite bleibt Reporting als kurze Sektion mit Link zur
+  Detailseite, Technologie ohne Link. Derselbe Text an zwei Stellen waere ein
+  Duplikat.
+- **Die Software hat keine eigene Seite.** Eine vierte Seite
+  `/leistungen/software-account-intelligence` war angelegt und ist auf Wunsch
+  des Kunden wieder geloescht: sie beschrieb nur, dass ein Tool geplant ist,
+  und hatte keinen Inhalt. Die Adresse liefert 404. Die Sektion
+  `#technologie` auf der Full-Service-Seite bleibt (Status „In Entwicklung",
+  ohne Link), ebenso Abschnitt 10.3 der Datenschutzerklaerung. Eine eigene
+  Seite kommt erst, wenn es eine Funktion gibt, die Kunden nutzen.
+- **FBA: weiter keine physische Warenvorbereitung.** Die Abgrenzung steht auf
+  der Seite. Das Briefing nennt auch Prep als moegliche Leistung im Projekt;
+  das haben wir bewusst nicht uebernommen, solange es nicht entschieden ist.
+- **Ergebnisbloecke kommen aus bestehenden Faellen**: FBA aus dem Fall
+  Gartenzubehoer, Katalog aus HaA, Reporting aus Vitaworld. Keine neuen Zahlen.
+- **Kundenstimmen auf allen Leistungsseiten**, vor dem Abschluss-CTA
+  (`Stimmenband` in `service/bodies`), dazu Full Service, Fallseiten und
+  Designbeispiele. Die Ergebnisse-Uebersicht hat schon eine Stimme im Kopf und
+  bekommt kein Band.
+- **Datenschutzerklaerung**: der Satz unter 10.2 sagte „genau einen
+  einwilligungspflichtigen Dienst", es sind mehrere, jetzt korrigiert. Neu ist
+  Abschnitt 10.3 zu Amazon-Daten und zur Software (Zweckbindung, Autorisierung
+  und Widerruf durch den Kunden, keine Weitergabe, Zugriff nach Bedarf,
+  Auftragsverarbeitung nach Art. 28, Loeschung nach Ende). Beides stammt nicht
+  vom Kunden. Die Zusagen stehen im Briefing nur „wenn intern abgestimmt":
+  gegen die tatsaechlichen Prozesse abgleichen und vom Anwalt pruefen lassen.
+  Die Abschnitte zu Diensten, die nicht eingebunden sind (YouTube, Trusted
+  Shops, Typeform, Google Forms, Bewerbungsformular), bleiben unveraendert
+  stehen.
+- **Titel und H1** folgen den SEO-Regeln: Titel nennen das Thema zuerst und
+  bleiben unter 60 Zeichen, die H1 nennt dieselbe Leistung.
