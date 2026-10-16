@@ -1842,11 +1842,12 @@ Beschreibung, Kernleistungen, Nutzen, Erfahrung und einer Kundenstimme.
 
 ## Siebenundvierzigste Feedbackrunde (verbindlich)
 
-- **Die Unterzeile im Hero folgt der Reihenfolge Organic First, PPC Second.**
-  Die Fassung „Erst das Listing stark machen, dann mit Werbung skalieren, die
-  sich rechnet." liess sich nicht lesen: ein Infinitiv-Satz, in dem Werbung
-  skaliert wird, mit einem Relativsatz dahinter, und „Content, Ads" nannte
-  Dinge, die in der Navigation anders heissen. Jetzt steht ein Satz mit einer
-  Aussage (Listings konvertieren, dann skaliert die Werbung) und die drei
-  Leistungen mit ihren Namen aus der Navigation. „Profitabel" steht nicht
-  noch einmal darin, die Ueberschrift sagt es schon.
+- **Die Unterzeile im Hero ist ein Satz, vom Kunden vorgegeben.** Englisch:
+  „Build stronger marketplace listings, then scale with smarter advertising."
+  Deutsch bewusst umgangssprachlich uebersetzt, nicht woertlich: „Erst starke
+  Listings bauen, dann mit cleverer Werbung richtig durchstarten." Die Fassung
+  davor („Erst das Listing stark machen, dann mit Werbung skalieren, die sich
+  rechnet. Content, Ads und Account Management aus einer Hand.") liess sich
+  nicht lesen. Eine eigene Neufassung mit den drei Leistungsnamen hat der
+  Kunde verworfen. Nicht eigenmaechtig wieder verlaengern: der Hero soll
+  knapp bleiben.
