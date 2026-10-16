@@ -198,18 +198,30 @@ export function Fusszeile() {
           <div className="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { title: sprache === "de" ? "Werbung & Profitabilität" : "Advertising & profitability", links: [
+                ["amazon-werbung-inkrementalitaet", "Zusätzliche Werbewirkung messen", "Measure incremental ad impact"],
+                ["amazon-dsp-budget", "DSP-Testbudget planen", "Plan a DSP test budget"],
+                ["amazon-cpc-conversion-analyse", "CPC & Conversion analysieren", "Analyse CPC & conversion"],
                 ["ppc-kosten-senken", "PPC-Kosten senken", "Reduce PPC costs"],
                 ["kampagnenstruktur-ppc", "Kampagnen strukturieren", "Structure campaigns"],
                 ["business-reports", "Business Reports auswerten", "Analyse Business Reports"],
                 ["fba-gebuehren-rechner", "Deckungsbeitrag kalkulieren", "Calculate contribution"],
               ] },
               { title: sprache === "de" ? "Content & Conversion" : "Content & conversion", links: [
+                ["amazon-content-experimente", "Content-Experimente planen", "Plan content experiments"],
+                ["amazon-keyword-recherche", "Keywords priorisieren", "Prioritise keywords"],
+                ["amazon-ki-sichtbarkeit", "Produktdaten & KI-Sichtbarkeit", "Product facts & AI visibility"],
+                ["amazon-vine-kalkulation", "Vine wirtschaftlich einsetzen", "Evaluate Vine economics"],
                 ["search-query-performance", "Suchanfragen analysieren", "Analyse search queries"],
                 ["produkttitel-optimieren", "Amazon-Titel & Item Highlights", "Amazon titles & Item Highlights"],
                 ["conversion-rate-optimierung", "Conversion verbessern", "Improve conversion"],
                 ["brand-store-funnel", "Brand Store optimieren", "Optimise your Brand Store"],
               ] },
               { title: sprache === "de" ? "Wachstum & Betrieb" : "Growth & operations", links: [
+                ["amazon-produktlaunch", "Produktlaunch planen", "Plan a product launch"],
+                ["amazon-kanalstrategie-marken", "Vertriebskanäle abstimmen", "Align sales channels"],
+                ["amazon-featured-offer-analyse", "Featured Offer analysieren", "Analyse the Featured Offer"],
+                ["amazon-account-health", "Account-Risiken steuern", "Manage account risks"],
+                ["amazon-awd-us-logistik", "AWD & US-Logistik planen", "Plan AWD & US logistics"],
                 ["skalierung-ueber-1-5m", "Wachstumsplateaus lösen", "Resolve growth constraints"],
                 ["inventar-cashflow", "Bestand & Cashflow planen", "Plan stock & cash flow"],
                 ["wie-oft-zahlt-amazon", "Auszahlung & DD+7", "Payments & DD+7"],
@@ -226,6 +238,7 @@ export function Fusszeile() {
             <div>
               <h3 className="font-bold text-white">{sprache === "de" ? "Themen & Entscheidungen" : "Topics & decisions"}</h3>
               <ul className="mt-3 space-y-1">
+                <li><a className="flex min-h-11 items-center text-small font-bold text-white hover:text-brand-500" href={pfad(sprache, "/blog/deep-dives")}>{sprache === "de" ? "Deep Dives für etablierte Marken" : "Deep dives for established brands"}</a></li>
                 {blogTopics.map((topic) => <li key={topic.slug}><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/kategorie/${topic.slug}`)}>{topic.label[sprache]}</a></li>)}
                 <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/vergleiche")}>{sprache === "de" ? "Vergleiche & Partnerwahl" : "Comparisons & partners"}</a></li>
                 <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/grundlagen")}>{sprache === "de" ? "Begriffe & Grundlagen" : "Terms & fundamentals"}</a></li>

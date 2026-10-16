@@ -30,11 +30,12 @@ export function TopicNavigation({ sprache, current }: { sprache: Sprache; curren
   return (
     <nav aria-label={sprache === "de" ? "Weitere Amazon-Themen" : "More Amazon topics"} className="ground-tint py-10">
       <div className="container-x flex flex-wrap gap-3">
-        {current !== "grundlagen" && <a href={pfad(sprache, "/blog/grundlagen")} className="inline-flex min-h-12 items-center rounded-full border border-navy/15 bg-white px-5 py-2 text-small font-bold text-navy hover:border-navy">{sprache === "de" ? "Amazon-Grundlagen" : "Amazon basics"}</a>}
+        {current !== "deep-dives" && <a href={pfad(sprache, "/blog/deep-dives")} className="inline-flex min-h-12 items-center rounded-full bg-navy px-5 py-2 text-small font-bold text-white">{sprache === "de" ? "Deep Dives für Marken" : "Deep dives for brands"}</a>}
         {blogTopics.filter((topic) => topic.slug !== current).map((topic) => (
           <a key={topic.slug} href={pfad(sprache, `/blog/kategorie/${topic.slug}`)} className="inline-flex min-h-12 items-center rounded-full border border-navy/15 bg-white px-5 py-2 text-small text-navy hover:border-navy">{topic.label[sprache]}</a>
         ))}
         <a href={pfad(sprache, "/blog/vergleiche")} className="inline-flex min-h-12 items-center rounded-full bg-navy px-5 py-2 text-small text-white">{sprache === "de" ? "Vergleiche & Entscheidungshilfen" : "Comparisons & decision guides"}</a>
+        {current !== "grundlagen" && <a href={pfad(sprache, "/blog/grundlagen")} className="inline-flex min-h-12 items-center rounded-full border border-navy/15 bg-white px-5 py-2 text-small font-bold text-navy hover:border-navy">{sprache === "de" ? "Amazon-Grundlagen" : "Amazon basics"}</a>}
       </div>
     </nav>
   );

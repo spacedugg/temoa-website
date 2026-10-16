@@ -1,3 +1,4 @@
+import deepDives from "../../content/blog-deep-dives.json";
 import { cases, type CaseStudy } from "./cases";
 import { getAllPosts } from "./blog";
 import { STANDARD } from "./i18n";
@@ -137,6 +138,11 @@ export function bilderDerSeite(ziel: string): string[] {
     ? cases.find((c) => c.slug === ziel.slice("/ergebnisse/".length))
     : undefined;
   if (fall) return bilderEinesFalls(fall);
+
+  if (ziel === "/blog/deep-dives") {
+    const slugs = new Set(deepDives.groups.flatMap((group) => group.slugs));
+    return getAllPosts(STANDARD).filter((post) => slugs.has(post.slug)).flatMap((post) => post.image ? [post.image] : []);
+  }
 
   if (ziel.startsWith("/blog/") && !ziel.startsWith("/blog/kategorie/")) {
     const slug = ziel.slice("/blog/".length);

@@ -13,6 +13,19 @@
 import type { Sprache } from "@/lib/i18n";
 
 const DE: Record<string, string> = {
+  "amazon-dsp-budget": "Amazon DSP: Testbudget sinnvoll kalkulieren",
+  "amazon-cpc-conversion-analyse": "Amazon CPC und Conversion gemeinsam analysieren",
+  "amazon-werbung-inkrementalitaet": "Amazon-Werbung: Inkrementalität richtig messen",
+  "amazon-featured-offer-analyse": "Amazon Featured Offer: Verluste analysieren",
+  "amazon-keyword-recherche": "Amazon Keyword-Recherche für etablierte Marken",
+  "amazon-produktlaunch": "Amazon-Produktlaunch: Plan für die ersten 60 Tage",
+  "amazon-content-experimente": "Amazon Content-Experimente: Wirkung prüfen",
+  "amazon-kanalstrategie-marken": "Amazon-Kanalstrategie für etablierte Marken",
+  "amazon-ki-sichtbarkeit": "Amazon & KI: Produktinformationen optimieren",
+  "amazon-account-health": "Amazon Account Health: Risiken operativ steuern",
+  "amazon-vine-kalkulation": "Amazon Vine: Kosten und Nutzen kalkulieren",
+  "amazon-awd-us-logistik": "Amazon AWD: US-Bestände wirtschaftlich planen",
+
   "search-query-performance": "Search Query Performance richtig auswerten",
   "business-reports": "Amazon Business Reports richtig auswerten",
 
@@ -101,6 +114,19 @@ const DE: Record<string, string> = {
 };
 
 const EN: Record<string, string> = {
+  "amazon-dsp-budget": "Amazon DSP: budget a meaningful test",
+  "amazon-cpc-conversion-analyse": "Amazon CPC and conversion: diagnose performance",
+  "amazon-werbung-inkrementalitaet": "Amazon ad incrementality: measure added demand",
+  "amazon-featured-offer-analyse": "Amazon Featured Offer: diagnose lost share",
+  "amazon-keyword-recherche": "Amazon keyword research for established brands",
+  "amazon-produktlaunch": "Amazon product launch: a 60-day decision plan",
+  "amazon-content-experimente": "Amazon content experiments: test what matters",
+  "amazon-kanalstrategie-marken": "Amazon channel strategy for established brands",
+  "amazon-ki-sichtbarkeit": "Amazon and AI visibility: improve product facts",
+  "amazon-account-health": "Amazon Account Health: manage operational risks",
+  "amazon-vine-kalkulation": "Amazon Vine: evaluate costs and useful feedback",
+  "amazon-awd-us-logistik": "Amazon AWD: plan US inventory economics",
+
   "search-query-performance": "Search Query Performance: practical analysis",
   "business-reports": "Amazon Business Reports: diagnose sales changes",
 

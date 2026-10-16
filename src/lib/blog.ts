@@ -1,3 +1,4 @@
+import deepDives from "../../content/blog-deep-dives.json";
 import editorialPolicy from "../../content/blog-editorial-policy.json";
 import coverAlts from "../../content/blog-cover-alt.json";
 import fs from "node:fs";
@@ -329,11 +330,13 @@ export function categoryCounts(sprache: Sprache): Record<string, number> {
 const FEATURED = [
   "search-query-performance",
   "business-reports",
-  "ppc-kosten-senken",
-  "conversion-rate-optimierung",
-  "inventar-cashflow",
-  "skalierung-ueber-1-5m",
+  "amazon-werbung-inkrementalitaet",
+  "amazon-dsp-budget",
+  "amazon-content-experimente",
+  "amazon-produktlaunch",
 ];
+
+const DEEP_DIVES = deepDives.groups.flatMap((group) => group.slugs);
 
 // Foundational articles remain discoverable but follow operational decisions.
 const FOUNDATIONAL = new Set([
@@ -344,7 +347,8 @@ const FOUNDATIONAL = new Set([
 ]);
 function editorialPriority(post: PostMeta) {
   const featured = FEATURED.indexOf(post.slug);
-  return featured >= 0 ? featured : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
+  const deepDive = DEEP_DIVES.indexOf(post.slug);
+  return featured >= 0 ? featured : deepDive >= 0 ? 10 + deepDive : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
 }
 
 export function getFeaturedPosts(sprache: Sprache, limit = 6): PostMeta[] {

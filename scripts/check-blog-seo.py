@@ -117,6 +117,22 @@ for locale in ['de', 'en']:
     check(main.index('/blog/business-reports') < main.index('/blog/grundlagen'), f'{locale}: retail analytics not featured')
 
 
+# New editorial collection: complete, bilingual and discoverable in the main body.
+deep_dives = json.loads((ROOT / 'content/blog-deep-dives.json').read_text())
+deep_slugs = [slug for group in deep_dives['groups'] for slug in group['slugs']]
+check(len(deep_slugs) == len(set(deep_slugs)) == 12, 'Deep-dive collection must contain 12 distinct articles')
+for locale in ['de', 'en']:
+    prefix = '/en' if locale == 'en' else ''
+    hub_path = prefix + '/blog/deep-dives'
+    check(hub_path in pages, f'{locale}: missing deep-dive collection')
+    hub_html = (BUILD / locale / 'blog/deep-dives.html').read_text()
+    main = Page(hub_html.split('<main', 1)[1].split('</main>', 1)[0])
+    for slug in deep_slugs:
+        check(prefix + '/blog/' + slug in main.anchors, f'{locale}: deep dive missing from collection: {slug}')
+        check(prefix + '/blog/' + slug in pages[prefix + '/blog'].anchors, f'{locale}: new article missing from footer: {slug}')
+    collection = next((item for data in pages[hub_path].scripts for item in (data if isinstance(data, list) else [data]) if item.get('@type') == 'CollectionPage'), {})
+    check(len(collection.get('mainEntity', {}).get('itemListElement', [])) == 12, f'{locale}: incomplete collection schema')
+
 sitemap = ET.fromstring((BUILD / 'sitemap.xml.body').read_text())
 ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9', 'x': 'http://www.w3.org/1999/xhtml'}
 urls = {item.find('s:loc', ns).text: item for item in sitemap}
@@ -126,6 +142,7 @@ for locale in ['de', 'en']:
     for slug in active:
         url = BASE + prefix + '/blog/' + slug
         check(url in urls, f'Missing sitemap URL: {url}')
+    check(BASE + prefix + '/blog/deep-dives' in urls, 'Missing deep-dive sitemap URL')
     check(BASE + prefix + '/blog/vergleiche' in urls, 'Missing comparisons sitemap URL')
     check(BASE + prefix + '/blog/grundlagen' in urls, 'Missing basics sitemap URL')
     for slug in retired:

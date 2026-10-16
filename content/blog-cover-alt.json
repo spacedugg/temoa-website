@@ -334,5 +334,53 @@
   "business-reports": {
     "de": "Dreidimensionales Klemmbrett mit abstrakten Balken, Diagnoseinstrument und Produktpaketen.",
     "en": "Three-dimensional clipboard with abstract bars, a diagnostic dial and product parcels."
+  },
+  "amazon-dsp-budget": {
+    "de": "Drei Torbögen, ein Bildschirm und Münzen als Motiv für DSP-Budgetentscheidungen.",
+    "en": "Three archways, a screen and coins illustrating DSP budget choices."
+  },
+  "amazon-cpc-conversion-analyse": {
+    "de": "Cursor, Produktkarte, Einkaufswagen und Messanzeige für Klickkosten und Conversion.",
+    "en": "Cursor, product card, shopping basket and gauge for click cost and conversion."
+  },
+  "amazon-werbung-inkrementalitaet": {
+    "de": "Zwei Plattformen mit Waage und Megafon als Motiv für den Vergleich von Werbewirkung.",
+    "en": "Two platforms with scales and a megaphone illustrating comparison of advertising effects."
+  },
+  "amazon-featured-offer-analyse": {
+    "de": "Drei Produktangebote mit einer orange hervorgehobenen Karte.",
+    "en": "Three product offers with one card highlighted in orange."
+  },
+  "amazon-keyword-recherche": {
+    "de": "Lupe über verbundenen Such- und Produktkarten.",
+    "en": "Magnifying glass over connected search and product cards."
+  },
+  "amazon-produktlaunch": {
+    "de": "Produkt auf einer Strecke mit drei Kontrollpunkten vor einem Geschäft.",
+    "en": "Product on a route with three checkpoints leading to a storefront."
+  },
+  "amazon-content-experimente": {
+    "de": "Zwei Produktdarstellungen neben einer Waage als Motiv für Content-Experimente.",
+    "en": "Two product presentations beside scales illustrating content experiments."
+  },
+  "amazon-kanalstrategie-marken": {
+    "de": "Produkt mit verbundenen Vertriebskanälen und Geschäften.",
+    "en": "Product connected to distribution channels and storefronts."
+  },
+  "amazon-ki-sichtbarkeit": {
+    "de": "Kopfhörer, Produktinformationen und Sprechblasen als Motiv für KI-Produktsuche.",
+    "en": "Headphones, product information and speech bubbles illustrating AI product discovery."
+  },
+  "amazon-account-health": {
+    "de": "Schild vor Dokumenten und Produktkartons als Motiv für Account Health.",
+    "en": "Shield in front of documents and product boxes illustrating Account Health."
+  },
+  "amazon-vine-kalkulation": {
+    "de": "Produkt, Bewertungsstern, Münzen und Waage als Motiv für Vine-Kosten.",
+    "en": "Product, review star, coins and scales illustrating Vine costs."
+  },
+  "amazon-awd-us-logistik": {
+    "de": "Lagergebäude mit Förderband, Kartons und Uhr.",
+    "en": "Warehouse with conveyor, boxes and a clock."
   }
 }
