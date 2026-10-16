@@ -405,17 +405,16 @@ export function SplitCards({
 /**
  * Die Problem-Sektion jeder Leistungsseite.
  *
- * Vorher: vier weisse Karten in einem Raster, darunter ein blaugruener Kasten
- * mit der Schlussfolgerung. Dieselbe Form wie jede andere Kartenreihe der
- * Seite, nur mit anderem Inhalt, und auf jeder Leistungsseite noch einmal.
+ * Leserichtung von oben nach unten: Ueberschrift, die Missstaende, dann die
+ * Antwort. Die fruehere Fassung stellte die Ueberschrift links oben, die
+ * Punkte rechts daneben und die Antwort links unten: das Auge musste von
+ * links oben nach rechts und von dort wieder nach links unten springen, und
+ * die Antwort stand weit weg von dem, worauf sie antwortet.
  *
- * Jetzt ist es die einzige dunkle Stelle im oberen Drittel einer Leistungs-
- * seite, mit rot getoenten Nummern. Rot steht auf dieser Website fuer das,
- * was schiefgeht, gruen fuer Ergebnisse. Damit hat die Sektion eine eigene
- * Form und man sieht auf jeder Seite sofort, dass hier das Problem steht.
+ * Rot steht auf dieser Website fuer das, was schiefgeht, gruen fuer
+ * Ergebnisse. Die Sektion ist immer dunkel.
  *
- * `tone` bleibt in der Signatur, damit die Aufrufe unveraendert laufen; die
- * Sektion ist immer dunkel.
+ * `tone` bleibt in der Signatur, damit die Aufrufe unveraendert laufen.
  */
 export function Points({
   eyebrow,
@@ -432,94 +431,82 @@ export function Points({
   /** Schlusszeile in Gruen: die Antwort auf das Problem, nicht ein weiterer Missstand. */
   brueckeGruen?: boolean;
   tone?: Tone;
-  /** Optionales Diagramm neben der Liste. */
+  /** Optionales Diagramm neben der Ueberschrift. */
   aside?: ReactNode;
 }) {
-  const liste = (spalten: 1 | 2) => (
-    <div className={spalten === 2 ? "mt-10 grid gap-3.5 sm:grid-cols-2 sm:gap-4" : "grid gap-3.5 sm:gap-4"}>
-      {points.map((p, i) => {
-        const allein = spalten === 2 && points.length % 2 === 1 && i === points.length - 1;
-        return (
-          <Reveal key={p} delay={i * 0.05} className={allein ? "sm:col-span-2" : ""}>
-            <div className="panel-dark flex h-full items-center gap-4 p-5 md:gap-5 md:p-6">
-              <span
-                aria-hidden
-                className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.85rem] text-[0.9rem] font-extrabold"
-                style={{ background: "rgba(224,36,22,0.16)", color: "#FF8C7A" }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p className="text-[1rem] font-bold leading-snug text-white md:text-[1.1rem]">{p}</p>
-            </div>
-          </Reveal>
-        );
-      })}
+  /* Vier Punkte stehen in zwei Spalten, sonst in drei: so bleibt jede Zeile
+     gefuellt. Bei fuenf Punkten steht der letzte ueber die volle Breite. */
+  const spalten = points.length === 4 || points.length === 2 ? 2 : 3;
+  /* Bei fuenf Punkten ist die zweite Zeile mit zwei breiteren Kacheln gefuellt
+     (sechs Spalten: dreimal zwei, zweimal drei) statt mit einer Luecke. */
+  const fuenf = points.length === 5;
+  const liste = (
+    <div
+      className={`grid gap-3.5 sm:gap-4 ${
+        spalten === 2 ? "sm:grid-cols-2" : fuenf ? "sm:grid-cols-2 lg:grid-cols-6" : "sm:grid-cols-2 lg:grid-cols-3"
+      }`}
+    >
+      {points.map((p, i) => (
+        <Reveal key={p} delay={i * 0.05} className={fuenf ? (i < 3 ? "lg:col-span-2" : "lg:col-span-3") : ""}>
+          <div className="panel-dark flex h-full items-start gap-4 p-5 md:p-6">
+            <span
+              aria-hidden
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-[0.8rem] text-[0.85rem] font-extrabold"
+              style={{ background: "rgba(224,36,22,0.16)", color: "#FF8C7A" }}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <p className="text-[1rem] font-bold leading-snug text-white md:text-[1.05rem]">{p}</p>
+          </div>
+        </Reveal>
+      ))}
     </div>
   );
 
   const schluss = bridge && (
-    <Reveal delay={0.1}>
-      <div
-        className="flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-7"
-        style={
-          brueckeGruen
-            ? { background: "rgba(110,231,160,0.14)", boxShadow: "inset 0 0 0 1px rgba(110,231,160,0.45)" }
-            : { background: "rgba(255,153,0,0.12)", boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)" }
-        }
-      >
-        <span
-          className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${
-            brueckeGruen ? "text-navy" : "bg-navy text-white"
-          }`}
-          style={brueckeGruen ? { background: "#6EE7A0" } : undefined}
+    <div className="mt-2 flex flex-col items-center">
+      <span aria-hidden className="link-glow-v h-10 md:h-12" />
+      <Reveal delay={0.1} className="w-full">
+        <div
+          className="flex items-center gap-4 rounded-[1.25rem] px-6 py-5 text-left md:px-8 md:py-6"
+          style={
+            brueckeGruen
+              ? { background: "rgba(110,231,160,0.14)", boxShadow: "inset 0 0 0 1px rgba(110,231,160,0.45)" }
+              : { background: "rgba(255,153,0,0.12)", boxShadow: "inset 0 0 0 1px rgba(255,153,0,0.3)" }
+          }
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </span>
-        <p className="text-[1.05rem] font-bold leading-snug text-white md:text-[1.2rem]">{bridge}</p>
-      </div>
-    </Reveal>
+          <span
+            className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${
+              brueckeGruen ? "text-navy" : "bg-navy text-white"
+            }`}
+            style={brueckeGruen ? { background: "#6EE7A0" } : undefined}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+          <p className="text-[1.05rem] font-bold leading-snug text-white md:text-[1.2rem]">{bridge}</p>
+        </div>
+      </Reveal>
+    </div>
   );
 
   return (
-    <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
+    <section className="on-dark ground-deep relative isolate overflow-hidden py-16 md:py-24">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#C0241A" }} />
       <div className="container-x relative">
-        {/* Mit Diagramm: Kopf und Diagramm stehen nebeneinander, die Punkte
-            laufen darunter ueber die volle Breite in zwei Spalten. Vorher lag
-            das Diagramm rechts neben der kompletten Liste; weil die Liste
-            fuenf Punkte hat und das Diagramm kurz ist, stand rechts unten
-            eine halbe Bildschirmhoehe Leerraum. */}
         {aside ? (
-          <>
-            {/* Kopf und Schlusszeile tragen die linke Spalte, das Diagramm
-                steht daneben. Vorher stand der Kopf allein neben einem hohen
-                Diagramm und darunter blieb eine halbe Bildschirmhoehe leer. */}
-            <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
-              <div className="flex flex-col gap-9">
-                <ProblemKopf eyebrow={eyebrow} title={title} schmal />
-                {schluss}
-              </div>
-              <Reveal direction="left" delay={0.08}>
-                {aside}
-              </Reveal>
-            </div>
-            {liste(2)}
-          </>
-        ) : (
-          /* Ohne Diagramm stand der Kopf allein ueber der Sektion und rechts
-             daneben blieb die halbe Breite leer. Jetzt tragen Kopf und
-             Schlusszeile die linke Spalte, die Punkte laufen rechts
-             untereinander: gleiche Menge Inhalt, keine tote Flaeche. */
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-14">
-            <div className="flex flex-col justify-between gap-8">
-              <ProblemKopf eyebrow={eyebrow} title={title} schmal kompakt />
-              {schluss}
-            </div>
-            {liste(1)}
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr] lg:gap-14">
+            <ProblemKopf eyebrow={eyebrow} title={title} schmal />
+            <Reveal direction="left" delay={0.08}>
+              {aside}
+            </Reveal>
           </div>
+        ) : (
+          <ProblemKopf eyebrow={eyebrow} title={title} zentriert />
         )}
+        <div className="mt-10 md:mt-12">{liste}</div>
+        {schluss}
       </div>
     </section>
   );
@@ -536,19 +523,19 @@ function ProblemKopf({
   eyebrow,
   title,
   schmal,
-  kompakt,
+  zentriert,
 }: {
   eyebrow?: string;
   title: ReactNode;
   schmal?: boolean;
-  kompakt?: boolean;
+  zentriert?: boolean;
 }) {
   /* Die Breitengrenze gehoert an die Ueberschrift, nicht an die Huelle:
      `ch` rechnet mit der Schrift des Elements, und die Huelle traegt die
      Grundschrift. `max-w-[30ch]` ergab dort 240 Pixel, dadurch brach jede
      Ueberschrift in vier kurze Zeilen. */
   return (
-    <div>
+    <div className={zentriert ? "flex flex-col items-center text-center" : undefined}>
       {eyebrow && (
         <Reveal>
           <span
@@ -568,13 +555,9 @@ function ProblemKopf({
         {/* In der schmalen Spalte ohne Ausgleich umbrechen: `text-balance`
             macht dort aus zwei vollen Zeilen vier kurze Fetzen. */}
         <h2
-          className={
-            kompakt
-              ? "mt-5 max-w-[26ch] text-[clamp(1.75rem,1.2rem+1.3vw,2.4rem)] font-bold leading-tight tracking-tight text-white"
-              : `mt-5 text-balance text-[clamp(1.9rem,1.3rem+1.7vw,2.9rem)] font-bold leading-tight tracking-tight text-white ${
-                  schmal ? "max-w-[20ch]" : "max-w-[26ch]"
-                }`
-          }
+          className={`mt-5 text-balance text-[clamp(1.75rem,1.2rem+1.5vw,2.7rem)] font-bold leading-tight tracking-tight text-white ${
+            zentriert ? "max-w-[28ch]" : schmal ? "max-w-[20ch]" : "max-w-[26ch]"
+          }`}
         >
           {title}
         </h2>
@@ -1078,5 +1061,65 @@ export function Ergebnis({
         </div>
       </div>
     </section>
+  );
+}
+
+/* ---------------- FAQ: Fragen, die vor einem Gespraech gestellt werden ---------------- */
+
+/**
+ * Akkordeon aus echten Suchfragen. Die Antworten stehen im HTML, auch wenn sie
+ * zugeklappt sind (`<details>`), und dieselben Texte gehen als `FAQPage` in die
+ * strukturierten Daten: Google wertet die Angabe nur, wenn sie mit dem
+ * sichtbaren Text uebereinstimmt, deshalb kommen beide aus derselben Liste.
+ */
+export function Faq({
+  eyebrow,
+  title,
+  fragen,
+  tone = "blue",
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  fragen: { frage: string; antwort: string }[];
+  tone?: Tone;
+}) {
+  const daten = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fragen.map((f) => ({
+      "@type": "Question",
+      name: f.frage,
+      acceptedAnswer: { "@type": "Answer", text: f.antwort },
+    })),
+  };
+
+  return (
+    <Shell tone={tone}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(daten).replace(/</g, "\\u003c") }}
+      />
+      <SectionHeading eyebrow={eyebrow} size="compact" title={title} />
+      <div className="mx-auto mt-10 max-w-3xl space-y-3">
+        {fragen.map((f, i) => (
+          <Reveal key={f.frage} delay={i * 0.04}>
+            <details className="group panel overflow-hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 text-left text-[1.02rem] font-bold leading-snug text-ink marker:content-none md:px-7 md:text-[1.1rem] [&::-webkit-details-marker]:hidden">
+                <span>{f.frage}</span>
+                <span
+                  aria-hidden
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy text-white transition-transform duration-300 group-open:rotate-45"
+                >
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <path d="M7 1v12M1 7h12" />
+                  </svg>
+                </span>
+              </summary>
+              <p className="px-6 pb-6 text-base leading-relaxed text-ink-muted md:px-7">{f.antwort}</p>
+            </details>
+          </Reveal>
+        ))}
+      </div>
+    </Shell>
   );
 }

@@ -49,8 +49,7 @@ type Rahmen = {
     account: string;
     international: string;
     /* Drei weitere Ziele, die in der Fusszeile stehen, aber nicht im
-       Hauptmenue: die Seite zu Compliance und die beiden Sektionen FBA und
-       Technologie. */
+       Hauptmenue: Compliance, FBA, Katalog und Reporting. */
     compliance: string;
     fba: string;
     katalog: string;

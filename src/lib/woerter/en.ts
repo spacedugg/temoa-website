@@ -205,7 +205,7 @@ export const en: Woerterbuch = {
     mannschaft: {
       label: "Team",
       titel: "The team behind temoa.",
-      lead: "We have optimised more than 1,000 products on Amazon, from the main image to the campaign structure. The same people work on your range.",
+      lead: "From the main image to the campaign structure, the same people work on your range.",
       bildAlt: "The founders of temoa",
       teamAlt: "Portraits of the people who work at temoa",
     },
@@ -237,28 +237,28 @@ export const en: Woerterbuch = {
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
       compliance: {
-        titel: "Amazon Support: Suppressed Listings and Compliance · temoa",
+        titel: "Amazon Listing Suppressed: Compliance & Account Health · temoa",
         name: "Compliance & Account Health",
         beschreibung:
-          "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case.",
+          "Amazon listing suppressed? We monitor account health, clear GPSR, LUCID and proofs, and take the case through Amazon Support to the release.",
       },
       fba: {
         titel: "Amazon FBA & Inventory Management · temoa",
         name: "FBA & inventory",
         beschreibung:
-          "Plan and monitor stock, shipments and FBA fees in the Amazon account: coverage, replenishment, stranded inventory and goods receipt cases.",
+          "Amazon FBA inventory planning: calculate stock coverage, plan replenishment and shipments, clear stranded inventory and handle goods receipt cases.",
       },
       katalog: {
-        titel: "Amazon Catalog & Listing Management · temoa",
+        titel: "Amazon Catalog Management & Listing Management · temoa",
         name: "Catalog & listing management",
         beschreibung:
-          "Create and maintain products, variations, attributes and backend search terms cleanly, one by one or by flat file, for Seller Central and Vendor Central.",
+          "Amazon catalog management: create and maintain products, variations, attributes and backend search terms, one by one or by flat file, in Seller and Vendor Central.",
       },
       reporting: {
-        titel: "Amazon Analytics & Reporting · temoa",
+        titel: "Amazon Reporting & Performance Report · temoa",
         name: "Analytics & reporting",
         beschreibung:
-          "Revenue, margin, ACoS, TACoS and Search Query Report prepared and put in context: what happened, what caused it and what comes next.",
+          "Amazon reporting: revenue, margin, ACoS, TACoS and Search Query Report explained. What happened, what caused it and what comes next.",
       },
       international: {
         titel: "Amazon International Expansion: New Marketplaces · temoa",
@@ -646,17 +646,17 @@ export const en: Woerterbuch = {
         eintraege: [
           {
             titel: "Compliance & account health",
-            text: "Missing proofs and registrations stop listings from one day to the next. We monitor account health, keep the mandatory data for your range current and carry cases through with Amazon until they are decided.",
+            text: "Amazon blocks listings when proofs or mandatory data such as GPSR and LUCID are missing. We monitor account health, fill the gaps and take the case through Amazon Support to the release.",
             link: "Compliance & account health in detail",
           },
           {
             titel: "FBA & inventory management",
-            text: "Plan shipments, monitor stock and fees, handle goods receipt cases. The work happens in the account, while labelling and packing stay with your warehouse or prep partner.",
+            text: "We plan FBA shipments, calculate how long your stock lasts and handle cases for missing or damaged goods receipt. The work happens in the account, while labelling and packing stay with your warehouse or prep partner.",
             link: "FBA & inventory in detail",
           },
           {
             titel: "Catalog & listing management",
-            text: "Attributes, backend search terms, variations and flat files: much of what decides findability sits in fields that never appear on the detail page.",
+            text: "Every customer sees titles and images. Nobody sees attributes, backend search terms and variation structure, and yet they help decide findability. We create and maintain them, one by one or by flat file.",
             link: "Catalog & listing management in detail",
           },
         ],
@@ -691,6 +691,17 @@ export const en: Woerterbuch = {
         lead: "When a listing is suppressed because documents are missing or Amazon has changed its policies, we see the case through with Amazon Support. To do that we monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central, find the affected ASINs and coordinate the documents.",
         bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
       },
+      einstieg: {
+        eyebrow: "In brief",
+        titel: "What happens in an Amazon suspension and why it happens",
+        lead: "If a product lacks a proof, a required field or a registration, Amazon removes the offer from search. Every day without sales costs revenue and ranking.",
+        begriffe: [
+          { begriff: "Blocked listing", text: "The product page still exists, but nothing can be bought there." },
+          { begriff: "GPSR", text: "The EU product safety regulation. It requires the manufacturer, a responsible person in the EU and safety information." },
+          { begriff: "LUCID", text: "The German packaging register. Anyone selling packaged goods in Germany has to register there." },
+          { begriff: "Account health", text: "Amazon's rating of how cleanly an account operates. If it drops, the worst case is an account suspension." },
+        ],
+      },
       problem: {
         titel: "A block costs revenue before anyone notices it.",
         punkte: [
@@ -699,7 +710,7 @@ export const en: Woerterbuch = {
           "A new requirement hits dozens of ASINs, but only a few stand out.",
           "Account health drops, and the reason appears in no report.",
         ],
-        bruecke: "We spot it earlier and carry the case until Amazon decides.",
+        bruecke: "We read notices, account health and listing status continuously and take every case through to Amazon's decision.",
       },
       kern: {
         eyebrow: "Core services",
@@ -708,41 +719,41 @@ export const en: Woerterbuch = {
           {
             titel: "Account health monitoring",
             unterzeile: "Always in view",
+            text: "We combine dashboard, notifications and listings every day and see which products are blocked and why.",
             punkte: [
               "Account health and policy notices across all marketplaces",
-              "Finding blocked and suppressed listings",
-              "Evaluating compliance notifications from Amazon",
-              "Recording the affected ASINs and SKUs",
+              "Find blocked and suppressed listings",
+              "Record affected ASINs and SKUs",
             ],
           },
           {
             titel: "Proofs and documents",
             unterzeile: "Collected and checked",
+            text: "Before uploading we check whether the certificate, test report or declaration of conformity matches Amazon's requirement.",
             punkte: [
-              "Requesting certificates and checking that they match Amazon's requirement",
-              "Coordinating declarations of conformity",
-              "Assembling test reports and product safety documents",
-              "Uploading documents to the right item",
+              "Request and check certificates",
+              "Coordinate declarations of conformity",
+              "Upload documents to the right item",
             ],
           },
           {
             titel: "Cases with Amazon",
-            unterzeile: "From the first notice to the decision",
+            unterzeile: "From the first notice to a decision",
+            text: "We open the case in the support system, keep it moving and follow up when no answer comes.",
             punkte: [
-              "Handling product compliance requests",
-              "Running restricted product cases",
-              "Following up open cases and escalating when nothing moves",
-              "Bringing items back on sale once Amazon releases them",
+              "Handle product compliance requests and restricted product cases",
+              "Track open cases and escalate",
+              "Bring items back on sale after release",
             ],
           },
           {
             titel: "Catalog and prevention",
             unterzeile: "Before it becomes a block",
+            text: "Before a launch and with every new requirement we check that required fields and proofs are complete for the range.",
             punkte: [
-              "Maintaining compliance-relevant product attributes",
-              "Checking mandatory data per category",
-              "Catalog and compliance checks before a launch",
-              "Checking changes in Amazon's requirements against your range",
+              "Maintain compliance-relevant attributes",
+              "Check required details per category",
+              "Check new Amazon requirements against the range",
             ],
           },
         ],
@@ -752,21 +763,9 @@ export const en: Woerterbuch = {
         titel: "Products that are allowed to stay on Amazon.",
         lead: "Missing proofs and registrations stop listings from one day to the next. We keep the mandatory data for your range current.",
         karten: [
-          {
-            titel: "LUCID",
-            unterzeile: "German packaging register",
-            text: "Amazon asks for the LUCID registration number for packaging. We enter it in the account, check the data and clear open cases before listings get blocked.",
-          },
-          {
-            titel: "GPSR",
-            unterzeile: "Product safety in the EU",
-            text: "Manufacturer, EU responsible person, contact data and safety notices belong on every listing. We maintain them for the whole range.",
-          },
-          {
-            titel: "Safety documents",
-            unterzeile: "Test reports, certificates, conformity",
-            text: "We request the proofs and prepare them the way Amazon requires. They are uploaded to the right item.",
-          },
+          { titel: "LUCID", unterzeile: "German packaging register", text: "We store the number in the account, check that it matches brand and marketplace, and clear open queries. The registration itself is done by the brand or a licensing provider." },
+          { titel: "GPSR", unterzeile: "Product safety in the EU", text: "Since December 2024 every offer needs the manufacturer, a responsible person in the EU and safety information. We check the details per product and add them to the listing." },
+          { titel: "Safety documents", unterzeile: "Test reports, certificates, conformity", text: "We request test reports, certificates or declarations of conformity from the manufacturer or test body and prepare them the way Amazon accepts them." },
         ],
       },
       sperre: {
@@ -796,10 +795,19 @@ export const en: Woerterbuch = {
           },
         ],
       },
-      abgrenzung: {
+      grenzen: {
         eyebrow: "Scope",
         titel: "Where our work ends.",
-        text: "We are not a testing lab, a certification body, a public authority or a legal advisor. Our focus is operational compliance management on the Amazon marketplace: we identify Amazon's requirements, coordinate the required proofs and handle the cases with Amazon. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel.",
+        ja: { titel: "What we handle", punkte: [
+          "Identify Amazon's requirements and evaluate notices",
+          "Coordinate proofs and check they match the requirement",
+          "Take cases with Amazon through to a decision",
+        ] },
+        nein: { titel: "What sits with others", punkte: [
+          "Test reports and certificates: issued by accredited bodies",
+          "Legal advice: your legal counsel",
+          "Decisions by Amazon and authorities",
+        ] },
       },
       nutzen: {
         badge: "Your benefit",
@@ -813,24 +821,6 @@ export const en: Woerterbuch = {
           "Fewer recurring catalog problems",
         ],
       },
-      expertise: {
-        eyebrow: "Our Amazon expertise",
-        titel: "Experience from the day-to-day.",
-        karten: [
-          {
-            titel: "Over 1,000 products",
-            text: "optimized on Amazon, from the main image to the campaign structure.",
-          },
-          {
-            titel: "60+ brands served",
-            text: "on at least five marketplaces.",
-          },
-          {
-            titel: "Seller Central and Vendor Central",
-            text: "We work in both models and know the case paths on both sides.",
-          },
-        ],
-      },
       ergebnis: {
         titel: "HaA, account block in week 10",
         zeile: "In week 10 the account was blocked. Two weeks later the block was resolved.",
@@ -838,6 +828,18 @@ export const en: Woerterbuch = {
           { wert: "2 weeks", label: "until the account block was resolved", sub: "Block in week 10" },
           { wert: "14x", label: "Orders per week", sub: "launch week to peak" },
           { wert: "+439%", label: "Conversion Rate", sub: "launch week to peak" },
+        ],
+      },
+      faq: {
+        eyebrow: "Frequently asked",
+        titel: "Questions about suppressed listings and account health",
+        fragen: [
+          { frage: "Why does Amazon block a listing?", antwort: "Usually something is missing: a safety proof, a GPSR detail, the LUCID number or a required field. The notice appears in Seller Central under Account Health. We read it out and say what is missing." },
+          { frage: "What is the GPSR and what do I have to do?", antwort: "The EU product safety regulation, in force since December 2024. For every product Amazon needs the manufacturer, a responsible person in the EU, contact details and safety information. We check the catalog and listings against this list and add what is missing." },
+          { frage: "What is LUCID and who needs the number?", antwort: "The packaging register run by the Zentrale Stelle Verpackungsregister. Every brand that sells packaged goods in Germany has to register there and store the number in the account. Without it the offer can be blocked." },
+          { frage: "How long until a blocked item sells again?", antwort: "It depends on the case. If only a field is missing, the item is often back within days. With test reports it depends on how fast the manufacturer or test body delivers. We keep deadlines and get back to you as soon as Amazon has decided." },
+          { frage: "Do you test and certify products yourselves?", antwort: "No. Test reports and certificates are issued by accredited bodies, and legal questions are for your legal counsel. We identify which proof Amazon requires, obtain it through the manufacturer or a test body and submit it to Amazon." },
+          { frage: "Do you work in Seller Central and Vendor Central?", antwort: "Yes, in both. Seller Central is the account for merchants who sell to customers themselves, Vendor Central the one for suppliers who sell to Amazon. The routes for blocks differ, and we take the cases down the right one." },
         ],
       },
       cta: "Is a block or a request for proof open at your end?",
@@ -1020,8 +1022,6 @@ export const en: Woerterbuch = {
           text: "20 to 40 hours a week on a platform that keeps changing.",
         },
       ],
-      schluss:
-        "What hurts is not visible in the account: the search term you never showed up on, and the competitor who took the place from you.",
     },
 
     bereiche: {
@@ -1082,37 +1082,10 @@ export const en: Woerterbuch = {
       ],
     },
 
-    technologie: {
-      label: "Technology",
-      titel: "Our own platform for Amazon accounts, under construction.",
-      lead: "We are building software that brings account, catalog, advertising and inventory data together in one place. It is meant to show our team and our customers what is happening in the account, and to steer the work in it. The platform is not yet open to customers.",
-      status: "In development",
-      bereiche: [
-        {
-          titel: "Catalog and content",
-          text: "Create and update products and items, create and manage content and transfer it to Amazon.",
-        },
-        {
-          titel: "Advertising",
-          text: "Evaluate and adjust campaigns, steer search terms and bids.",
-        },
-        {
-          titel: "Margins and reporting",
-          text: "Margin per product and variation, plus revenue, costs and key figures as a dashboard.",
-        },
-        {
-          titel: "Account health and inventory",
-          text: "Listing status, Buy Box, prices, inventory and FBA in view, with alerts for anything unusual.",
-        },
-      ],
-      datenHinweis:
-        "For authorized customers the software processes Amazon data only to provide the services and functions they have commissioned. Access is based on the authorization given by the customer and on the roles and permissions approved by Amazon. Connection through the Amazon Selling Partner API (SP-API) is planned for this.",
-    },
-
     reporting: {
       label: "Always included",
-      titel: "Reporting you understand in five minutes.",
-      lead: "No data export for you to evaluate yourself. You get the numbers that matter, and our reading of them.",
+      titel: "Amazon reporting with context instead of a data export.",
+      lead: "Every month you get a report that answers three questions: What happened? What caused it? What do we do next? Plus the numbers that matter: revenue, margin, ACoS and TACoS per product group.",
       bildAlt: "A floating dashboard with a rising curve, bars and two metric cards.",
       link: "Analytics & reporting in detail",
       punkte: [
@@ -1126,7 +1099,7 @@ export const en: Woerterbuch = {
         },
         {
           titel: "What comes next",
-          text: "The three moves for the coming month, with the expected effect and what we need from you for them.",
+          text: "The most important moves for the coming month, with the expected effect and what we need from you for them.",
         },
       ],
     },
