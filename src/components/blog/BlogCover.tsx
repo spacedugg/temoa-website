@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { IconName } from "../ui/Icon";
 
 /* Deterministic, unified article cover built from the category accent.
@@ -27,7 +28,8 @@ export function BlogCover({
   label,
   className,
   image,
-  titel,
+  alt,
+  priority = false,
 }: {
   accent: string;
   icon: IconName;
@@ -36,19 +38,24 @@ export function BlogCover({
   className?: string;
   /** Optional generated cover; when set, it replaces the SVG motif. */
   image?: string;
-  /* Der Titel des Beitrags. Er steht als Alternativtext am Bild: ein
-     Beitragsbild ohne Beschreibung taucht in der Bildersuche nicht auf. */
-  titel?: string;
+  alt?: string;
+  priority?: boolean;
 }) {
   const h = hash(seed);
 
   if (image) {
     return (
       <div className={`relative overflow-hidden bg-navy ${className ?? ""}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={image} alt={titel ?? ""} className="h-full w-full object-cover" loading="lazy" />
+        <Image
+          src={image}
+          alt={alt ?? ""}
+          fill
+          sizes={priority ? "(max-width: 768px) 100vw, 896px" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
+          priority={priority}
+          className="object-cover"
+        />
         {label && (
-          <span className="absolute left-5 top-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+          <span className="absolute left-5 top-4 inline-flex items-center gap-2 rounded-full bg-navy/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-sm">
             {label}
           </span>
         )}

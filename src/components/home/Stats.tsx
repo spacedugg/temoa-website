@@ -16,7 +16,7 @@ import { RevealGroup, RevealItem } from "../ui/Reveal";
 /* Die Werte stehen hier und werden von der Startseite mitbenutzt: das
    Kennzahlenband laeuft dort im „Nachweis" mit, damit dieselben vier Zahlen
    nicht an zwei Stellen gepflegt werden muessen. */
-export const KENNZAHL_WERTE = [30, 21, 60, 5];
+export const KENNZAHL_WERTE = [30, 21, 5];
 const werte = KENNZAHL_WERTE;
 /* Die erste Zahl ist eine Steigerung und traegt deshalb Gruen. */
 export const WACHSTUM = 0;
@@ -60,7 +60,7 @@ export function Stats({
       />
       <div className="container-x relative">
         <RevealGroup
-          className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-white/[0.1]"
+          className="grid grid-cols-1 gap-y-8 sm:grid-cols-3 md:gap-y-0 md:divide-x md:divide-white/[0.1]"
           stagger={0.08}
         >
           {kennzahlen.map((k, i) => (

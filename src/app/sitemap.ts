@@ -1,30 +1,12 @@
 import type { MetadataRoute } from "next";
 import { SEITE } from "@/lib/seite";
 import { pfad, sprachen, htmlLang, STANDARD } from "@/lib/i18n";
-import { getAllPosts, kategorien } from "@/lib/blog";
+import { getAllPosts, kategorien, getPost } from "@/lib/blog";
 import { faelleFuer } from "@/lib/cases";
 import { bilderDerSeite } from "@/lib/seitenbilder";
 
-/* ============================================================
-   sitemap.xml
-
-   Jede Seite steht einmal drin, mit beiden Sprachfassungen als `alternates`.
-   Das ist die Form, die Google fuer mehrsprachige Seiten erwartet: ein
-   Eintrag je Inhalt, darin die Sprachen, nicht zwei getrennte Eintraege.
-
-   Die Adressen der Unterseiten bleiben in beiden Sprachen deutsch, die
-   Sprache steckt allein im Praefix. Deshalb reicht eine Liste von Pfaden.
-
-   `priority` steht bewusst nicht dabei. Google wertet den Wert seit Jahren
-   nicht aus, und ein erfundener Wert je Seite sagt nichts.
-
-   Zu jedem Eintrag stehen die Bilder der Seite. Ohne diese Zuordnung
-   indexiert Google Bilder kaum: es muss wissen, auf welcher Seite ein Bild
-   steht. Welche Bilder zu welcher Seite gehoeren, steht in
-   `lib/seitenbilder.ts`. Die Bilder stehen nur am deutschen Eintrag, nicht
-   noch einmal je Sprache: es sind dieselben Dateien unter denselben Adressen,
-   und zweimal dasselbe Bild in einer Sitemap ist ein Duplikat.
-   ============================================================ */
+/* Every canonical language URL gets its own entry with reciprocal alternates.
+   Image entries describe the actual assets on each page. No invented dates. */
 
 /* Seiten ohne eigenen Inhalt aus einer Datenquelle. */
 const FESTE_SEITEN = [
@@ -43,6 +25,7 @@ const FESTE_SEITEN = [
   "/design-beispiele",
   "/gespraech-vereinbaren",
   "/blog",
+  "/blog/vergleiche",
   "/impressum",
   "/datenschutz",
   "/agb",
@@ -53,34 +36,27 @@ const FESTE_SEITEN = [
    Sitemap und die Seite hat keine Sprachpaare. */
 const NUR_DEUTSCH = new Set(["/impressum", "/datenschutz", "/agb"]);
 
-function eintrag(ziel: string, geaendert?: Date): MetadataRoute.Sitemap[number] {
-  if (NUR_DEUTSCH.has(ziel)) {
-    return { url: `${SEITE.url}${pfad(STANDARD, ziel)}`, lastModified: geaendert };
-  }
+function eintraege(ziel: string, verfuegbar = [...sprachen]): MetadataRoute.Sitemap {
+  const locales = NUR_DEUTSCH.has(ziel) ? [STANDARD] : verfuegbar;
   const bilder = bilderDerSeite(ziel);
-  return {
-    url: `${SEITE.url}${pfad(STANDARD, ziel)}`,
-    lastModified: geaendert,
-    alternates: {
-      languages: Object.fromEntries(
-        sprachen.map((s) => [htmlLang[s], `${SEITE.url}${pfad(s, ziel)}`])
-      ),
-    },
-    ...(bilder.length > 0 && { images: bilder.map((b) => `${SEITE.url}${b}`) }),
-  };
+  const languages = Object.fromEntries([
+    ...locales.map((s) => [htmlLang[s], `${SEITE.url}${pfad(s, ziel)}`]),
+    ...(locales.includes(STANDARD) ? [["x-default", `${SEITE.url}${pfad(STANDARD, ziel)}`]] : []),
+  ]);
+  return locales.map((locale) => ({
+    url: `${SEITE.url}${pfad(locale, ziel)}`,
+    ...(!NUR_DEUTSCH.has(ziel) && { alternates: { languages } }),
+    ...(bilder.length > 0 && { images: bilder.map((bild) => `${SEITE.url}${bild}`) }),
+  }));
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  /* Beitraege und Kategorien liegen in beiden Sprachen unter demselben
-     Kuerzel. Was es nur auf Deutsch gibt, steht trotzdem drin: die englische
-     Fassung faellt dann auf die deutsche zurueck, und ein fehlender Eintrag
-     waere schlechter als ein Verweis auf die vorhandene Sprache. */
-  /* Ohne `lastModified`: die Beitraege tragen kein Datum, und ein erfundenes
-     waere schlechter als keins. Google faellt dann auf das zurueck, was es
-     beim Abruf sieht. */
-  const beitraege = getAllPosts(STANDARD).map((p) => eintrag(`/blog/${p.slug}`));
-  const themen = kategorien(STANDARD).map((k) => eintrag(`/blog/kategorie/${k.slug}`));
-  const faelle = faelleFuer(STANDARD).map((f) => eintrag(`/ergebnisse/${f.slug}`));
-
-  return [...FESTE_SEITEN.map((s) => eintrag(s)), ...faelle, ...themen, ...beitraege];
+  // List every canonical language URL. Never advertise a missing translation.
+  const slugs = new Set(sprachen.flatMap((locale) => getAllPosts(locale).map((post) => post.slug)));
+  const beitraege = [...slugs].flatMap((slug) =>
+    eintraege(`/blog/${slug}`, sprachen.filter((locale) => getPost(slug, locale)))
+  );
+  const themen = kategorien(STANDARD).flatMap((k) => eintraege(`/blog/kategorie/${k.slug}`));
+  const faelle = faelleFuer(STANDARD).flatMap((f) => eintraege(`/ergebnisse/${f.slug}`));
+  return [...FESTE_SEITEN.flatMap((ziel) => eintraege(ziel)), ...faelle, ...themen, ...beitraege];
 }

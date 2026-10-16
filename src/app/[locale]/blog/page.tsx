@@ -1,3 +1,4 @@
+import { getTopic } from "@/lib/blog-topics";
 import type { Metadata } from "next";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
 import { Fusszeile } from "@/components/takt/Fusszeile";
@@ -122,7 +123,7 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                         <Icon name={c.icon} size={30} />
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-[1.02rem] font-bold leading-snug text-white">{c.label}</span>
+                        <span className="block text-[1.02rem] font-bold leading-snug text-white">{getTopic(c.slug)?.label[locale] ?? c.label}</span>
                         <span className="mt-1 block text-small text-chalk-muted">
                           {zahl(counts[c.slug] ?? 0)}
                         </span>
@@ -132,6 +133,18 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                 );
               })}
             </RevealGroup>
+          </div>
+        </section>
+
+        <section className="ground py-10">
+          <div className="container-x">
+            <a href={pfad(locale, "/blog/vergleiche")} className="panel panel-lift flex flex-col justify-between gap-4 p-7 sm:flex-row sm:items-center">
+              <div>
+                <h2 className="text-xl font-extrabold text-ink">{locale === "de" ? "Welche Lösung passt zu eurer Marke?" : "Which option fits your brand?"}</h2>
+                <p className="mt-2 text-ink-muted">{locale === "de" ? "FBA oder FBM, Vendor oder Seller, Full Service oder Spezialist: Vergleiche nach Fragestellung." : "FBA or FBM, vendor or seller, full service or specialist: comparisons organised by question."}</p>
+              </div>
+              <span className="shrink-0 font-bold text-navy">{locale === "de" ? "Zu den Vergleichen" : "Browse comparisons"} <span aria-hidden>↗</span></span>
+            </a>
           </div>
         </section>
 

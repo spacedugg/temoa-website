@@ -1219,7 +1219,6 @@ export const de = {
     kennzahlen: [
       { vor: "Ø +", nach: " %", label: "Profitabilitätssteigerung" },
       { vor: "", nach: " Mio. €", label: "betreuter Amazon-Jahresumsatz" },
-      { vor: "", nach: "+", label: "betreute Marken" },
       { vor: "", nach: "+", label: "internationale Marktplätze" },
     ],
 

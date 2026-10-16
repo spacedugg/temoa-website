@@ -53,7 +53,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/api/"] },
-      ...KI_PROGRAMME.map((userAgent) => ({ userAgent, allow: "/" })),
+      ...KI_PROGRAMME.map((userAgent) => ({ userAgent, allow: "/", disallow: ["/api/"] })),
     ],
     sitemap: `${SEITE.url}/sitemap.xml`,
     host: SEITE.url,

@@ -43,7 +43,7 @@ const ZIELE = {
     },
   },
   fba: {
-    href: "/leistungen/account-management#fba",
+    href: "/leistungen/fba-inventory-management",
     anker: { de: "FBA und Inventory bei temoa", en: "FBA and inventory at temoa" },
     text: {
       de: "Sendungen planen, Bestand steuern und Versandwege festlegen, alles im Konto.",

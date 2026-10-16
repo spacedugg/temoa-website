@@ -1,3 +1,5 @@
+import { SEITE } from "@/lib/seite";
+import { ogLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -39,7 +41,22 @@ export async function generateMetadata({
        auf eine Seite, die 404 liefert, ist schlechter als keine. */
     alternates: getPost(slug, locale === "de" ? "en" : "de")
       ? sprachAngaben(locale, `/blog/${slug}`)
-      : undefined,
+      : { canonical: pfad(locale, `/blog/${slug}`) },
+    openGraph: {
+      title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
+      description: post.description,
+      type: "article",
+      url: `${SEITE.url}${pfad(locale, `/blog/${slug}`)}`,
+      siteName: SEITE.name,
+      locale: ogLocale[locale],
+      ...(post.image && { images: [{ url: post.image, alt: post.imageAlt, width: 1400, height: 788 }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
+      description: post.description,
+      ...(post.image && { images: [post.image] }),
+    },
   };
 }
 
@@ -99,7 +116,10 @@ function withToc(html: string) {
   const toc: { id: string; label: string }[] = [];
   const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner) => {
     const label = entitiesAuflösen(String(inner).replace(/<[^>]+>/g, "")).trim();
-    const id = slugify(label);
+    const base = slugify(label) || "abschnitt";
+    let id = base;
+    let suffix = 2;
+    while (toc.some((item) => item.id === id)) id = `${base}-${suffix++}`;
     toc.push({ id, label });
     return `<h2 id="${id}">${inner}</h2>`;
   });
@@ -142,7 +162,7 @@ export default async function ArticlePage({
           />
           <div className="container-x relative max-w-3xl">
             <Reveal>
-              <nav className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
+              <nav aria-label={locale === "de" ? "Brotkrumennavigation" : "Breadcrumb"} className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
                 <a href={pfad(locale, "/blog")} className="hover:text-ink">{w.kopf.eyebrow}</a>
                 <span className="text-ink-faint">/</span>
                 <a
@@ -181,8 +201,9 @@ export default async function ArticlePage({
                 seed={post.slug}
                 image={post.image}
                 label={post.categoryLabel}
-                titel={post.title}
-                className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
+                alt={post.imageAlt}
+                priority
+                className="aspect-video w-full rounded-3xl shadow-lift"
               />
             </Reveal>
           </div>
@@ -193,6 +214,16 @@ export default async function ArticlePage({
           <div className="container-x">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
               <div className="min-w-0 max-w-2xl">
+                {toc.length > 2 && (
+                  <details className="panel mb-8 p-5 lg:hidden">
+                    <summary className="cursor-pointer py-2 font-bold text-ink">{w.inhalt}</summary>
+                    <nav aria-label={w.inhalt}>
+                      <ul className="mt-3 space-y-1">
+                        {toc.map((t) => <li key={t.id}><a href={`#${t.id}`} className="flex min-h-12 items-center text-small text-ink-muted underline underline-offset-4">{t.label}</a></li>)}
+                      </ul>
+                    </nav>
+                  </details>
+                )}
                 <article className="article-body" dangerouslySetInnerHTML={{ __html: html }} />
                 {/* Interne Links auf die passende Leistung und, wo es passt,
                     einen Fall. Der Text nennt das Ziel statt „hier klicken". */}

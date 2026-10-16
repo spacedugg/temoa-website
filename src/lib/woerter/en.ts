@@ -1145,7 +1145,6 @@ export const en: Woerterbuch = {
     kennzahlen: [
       { vor: "Avg. +", nach: "%", label: "increase in profitability" },
       { vor: "€", nach: "M", label: "annual Amazon revenue under management" },
-      { vor: "", nach: "+", label: "brands we work with" },
       { vor: "", nach: "+", label: "international marketplaces" },
     ],
 

@@ -605,7 +605,7 @@ export function Leistungen({
           drei Bestandszahlen stehen in Navy. Das helle #6EE7A0 gilt nur auf
           dunklem Grund, hier waere es kaum zu lesen. */}
       <div className="mt-14 border-t border-ink/[0.12] pt-10 md:mt-16 md:pt-12">
-        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 md:gap-y-0 md:divide-x md:divide-ink/[0.1]">
+        <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-3 md:gap-y-0 md:divide-x md:divide-ink/[0.1]">
           {kennzahlen.map((k, i) => (
             <motion.div
               key={k.label}

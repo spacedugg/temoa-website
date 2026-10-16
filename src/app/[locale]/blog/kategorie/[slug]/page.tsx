@@ -1,3 +1,7 @@
+import { getTopic } from "@/lib/blog-topics";
+import { TopicIntro, TopicNavigation } from "@/components/blog/TopicIntro";
+import { CollectionData } from "@/components/seo/CollectionData";
+import { SEITE } from "@/lib/seite";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -26,13 +30,14 @@ export async function generateMetadata({
   const w = woerter(locale).blog;
   const cat = getCategory(slug, locale);
   if (!cat) return { title: w.meta.titel };
+  const topic = getTopic(slug);
+  const title = topic?.title[locale] ?? cat.label;
+  const description = topic?.intro[locale] ?? cat.blurb;
   return {
-    title: locale === "de" ? `Amazon ${cat.label}: Ratgeber · temoa` : `Amazon ${cat.label}: guides · temoa`,
-    description: `${cat.blurb} ${
-      locale === "de"
-        ? `${getPostsByCategory(slug, locale).length} Ratgeber-Beiträge zu Amazon im Überblick.`
-        : `${getPostsByCategory(slug, locale).length} Amazon guides at a glance.`
-    }`,
+    title: `${title} · temoa`,
+    description,
+    openGraph: { title: `${title} · temoa`, description, type: "website", siteName: SEITE.name, url: `${SEITE.url}${pfad(locale, `/blog/kategorie/${slug}`)}` },
+    twitter: { card: "summary_large_image", title: `${title} · temoa`, description },
     alternates: sprachAngaben(locale, `/blog/kategorie/${slug}`),
   };
 }
@@ -48,10 +53,14 @@ export default async function CategoryPage({
   const cat = getCategory(slug, locale);
   if (!cat) notFound();
   const posts = getPostsByCategory(slug, locale);
+  const topic = getTopic(slug);
+  const title = topic?.title[locale] ?? cat.label;
+  const description = topic?.intro[locale] ?? cat.blurb;
 
   return (
     <>
       <Kopfzeile />
+      <CollectionData sprache={locale} path={`/blog/kategorie/${slug}`} title={title} description={description} posts={posts} />
       <main id="inhalt">
         <section className="relative overflow-hidden ground pb-10 pt-36 md:pt-44">
           <div
@@ -76,7 +85,7 @@ export default async function CategoryPage({
                   <Icon name={cat.icon} size={28} />
                 </span>
                 <div>
-                  <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">{cat.label}</h1>
+                  <h1 className="text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">{title}</h1>
                   <p className="mt-1 text-sm font-medium text-ink-faint">
                     {posts.length === 1 ? w.einBeitrag : w.beitraege.replace("{n}", String(posts.length))}
                   </p>
@@ -84,12 +93,14 @@ export default async function CategoryPage({
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">{cat.blurb}</p>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-muted">{description}</p>
             </Reveal>
           </div>
         </section>
 
-        <section className="relative ground pb-24">
+        <TopicIntro slug={slug} sprache={locale} />
+
+        <section className="relative ground py-16 md:py-20">
           <div className="container-x">
             {/* Die Liste stand ohne Ueberschrift da. Jede Kachel traegt aber
                 eine h3: die Seite sprang damit von der h1 auf die h3. */}
@@ -107,6 +118,7 @@ export default async function CategoryPage({
             </RevealGroup>
           </div>
         </section>
+        <TopicNavigation sprache={locale} current={slug} />
       </main>
       <Fusszeile />
     </>

@@ -1,3 +1,4 @@
+import coverAlts from "../../content/blog-cover-alt.json";
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
@@ -202,6 +203,7 @@ export type PostMeta = {
   order: number;
   /** Optional generated cover image; falls back to the SVG cover when absent. */
   image?: string;
+  imageAlt: string;
 };
 
 export type Post = PostMeta & { html: string };
@@ -265,6 +267,7 @@ function parseFile(filename: string, sprache: Sprache): Post {
     readingMinutes,
     order,
     image: findCover(slug),
+    imageAlt: (coverAlts as Record<string, Record<Sprache, string>>)[slug]?.[sprache] ?? "",
     html,
   };
 }

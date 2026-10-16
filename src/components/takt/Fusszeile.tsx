@@ -8,6 +8,8 @@ import { Bewertungsband } from "../ui/Bewertungsband";
 import { pfad, spracheAusPfad, STANDARD, type Sprache } from "@/lib/i18n";
 import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
+import { blogTopics } from "@/lib/blog-topics";
+
 type Rahmen = (typeof rahmenWoerter)[Sprache];
 
 /* ============================================================
@@ -183,6 +185,31 @@ export function Fusszeile() {
             </nav>
           ))}
         </div>
+
+        <nav aria-label={sprache === "de" ? "Amazon-Ratgeber nach Thema" : "Amazon guides by topic"} className="border-t border-white/10 py-10">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <span className="text-label font-bold uppercase text-chalk-faint">
+              {sprache === "de" ? "Amazon-Wissen für eure nächsten Schritte" : "Amazon guides for your next steps"}
+            </span>
+            <a href={pfad(sprache, "/blog")} className="inline-flex min-h-12 items-center text-small text-chalk-muted hover:text-brand-500">
+              {sprache === "de" ? "Alle Ratgeber ansehen" : "Browse all guides"} <span aria-hidden className="ml-2">↗</span>
+            </a>
+          </div>
+          <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+            {blogTopics.map((topic) => (
+              <li key={topic.slug}>
+                <a href={pfad(sprache, `/blog/kategorie/${topic.slug}`)} className="flex min-h-12 items-center text-small text-chalk-muted transition-colors hover:text-brand-500">
+                  {topic.label[sprache]}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a href={pfad(sprache, "/blog/vergleiche")} className="flex min-h-12 items-center text-small font-bold text-white transition-colors hover:text-brand-500">
+                {sprache === "de" ? "Amazon-Vergleiche & Entscheidungshilfen" : "Amazon comparisons & decision guides"}
+              </a>
+            </li>
+          </ul>
+        </nav>
 
         {/* Band drei: Baujahr und Sprache. Der Umschalter stand vorher als
             vierte Spalte neben den Verzeichnissen und sah dort aus wie eins. */}
