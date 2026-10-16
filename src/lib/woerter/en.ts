@@ -236,7 +236,7 @@ export const en: Woerterbuch = {
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
       compliance: {
-        titel: "Amazon Support, Compliance and Account Health · temoa",
+        titel: "Amazon Support: Suppressed Listings and Compliance · temoa",
         name: "Compliance & Account Health",
         beschreibung:
           "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case.",
@@ -744,9 +744,9 @@ export const en: Woerterbuch = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "Amazon Support for a suspended account ",
-        titelEm: "and suppressed listings.",
-        lead: "We see your cases through with Amazon Support. To do that we monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central, find the affected ASINs and coordinate the documents.",
+        titelVor: "Amazon Support for suppressed listings: ",
+        titelEm: "missing documents and new policies.",
+        lead: "When a listing is suppressed because documents are missing or Amazon has changed its policies, we see the case through with Amazon Support. To do that we monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central, find the affected ASINs and coordinate the documents.",
         bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
       },
       problem: {

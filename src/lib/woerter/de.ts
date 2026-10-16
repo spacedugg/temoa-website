@@ -264,7 +264,7 @@ export const de = {
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
       compliance: {
-        titel: "Amazon Support, Compliance und Account Health · temoa",
+        titel: "Amazon Support: Gesperrte Listings und Compliance · temoa",
         name: "Compliance & Account Health",
         beschreibung:
           "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
@@ -784,9 +784,9 @@ export const de = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "Amazon Support bei gesperrtem Konto ",
-        titelEm: "und unterdrückten Listings.",
-        lead: "Wir führen eure Fälle beim Amazon Support zu Ende. Dafür überwachen wir Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central, finden die betroffenen ASINs und koordinieren die Dokumente.",
+        titelVor: "Amazon Support bei gesperrten Listings: ",
+        titelEm: "fehlende Dokumente und neue Richtlinien.",
+        lead: "Wird ein Listing gesperrt, weil Dokumente fehlen oder Amazon Richtlinien angepasst hat, führen wir den Fall beim Amazon Support zu Ende. Dafür überwachen wir Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central, finden die betroffenen ASINs und koordinieren die Dokumente.",
         bildAlt: "Konto-Gesundheit, Buy-Box und Bestand nebeneinander, eine Warnleuchte meldet",
       },
       problem: {
