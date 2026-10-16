@@ -58,7 +58,8 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
       addressCountry: SEITE.anschrift.land,
     },
     sameAs: SEITE.profile,
-    /* Die fuenf Leistungen, wie sie in der Navigation stehen. Die Adressen
+    /* Die fuenf Leistungen aus der Navigation plus die Compliance-Seite
+       aus der Fusszeile. Die Adressen
        bleiben in beiden Sprachen deutsch, die Sprache steckt im Praefix. */
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -69,6 +70,7 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
         ["PPC Advertising", "PPC advertising", "/leistungen/ppc-advertising"],
         ["Account Management", "Account management", "/leistungen/account-management"],
         ["Internationalisierung", "International expansion", "/leistungen/internationalisierung"],
+        ["Compliance & Account Health", "Compliance & account health", "/leistungen/compliance-account-health"],
       ].map(([de, en, ziel]) => ({
         "@type": "Offer",
         itemOffered: { "@type": "Service", name: sprache === "de" ? de : en },
@@ -91,6 +93,68 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
     <>
       <Daten inhalt={organisation} />
       <Daten inhalt={website} />
+    </>
+  );
+}
+
+/**
+ * Strukturierte Daten fuer einen Blogbeitrag: Artikel und Brotkrumenpfad.
+ *
+ * Der Pfad steht auch sichtbar ueber der Ueberschrift (Blog, Kategorie), die
+ * Angabe deckt sich also mit dem, was ein Besucher sieht. Ein Veroeffentlichungs-
+ * datum steht bewusst nicht darin: die Beitraege tragen keines, und ein
+ * erfundenes waere genau die Sorte Angabe, die Google als Verstoss wertet.
+ */
+export function ArtikelDaten({
+  sprache,
+  slug,
+  titel,
+  beschreibung,
+  bild,
+  kategorie,
+  kategorieSlug,
+  blogName,
+}: {
+  sprache: Sprache;
+  slug: string;
+  titel: string;
+  beschreibung: string;
+  bild?: string;
+  kategorie: string;
+  kategorieSlug: string;
+  blogName: string;
+}) {
+  const url = `${SEITE.url}${pfad(sprache, `/blog/${slug}`)}`;
+  const artikel = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#artikel`,
+    mainEntityOfPage: url,
+    headline: titel,
+    description: beschreibung,
+    inLanguage: sprache,
+    ...(bild && { image: bild.startsWith("http") ? bild : `${SEITE.url}${bild}` }),
+    author: { "@id": `${SEITE.url}/#organisation` },
+    publisher: { "@id": `${SEITE.url}/#organisation` },
+  };
+  const pfadDaten = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: blogName, item: `${SEITE.url}${pfad(sprache, "/blog")}` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: kategorie,
+        item: `${SEITE.url}${pfad(sprache, `/blog/kategorie/${kategorieSlug}`)}`,
+      },
+      { "@type": "ListItem", position: 3, name: titel, item: url },
+    ],
+  };
+  return (
+    <>
+      <Daten inhalt={artikel} />
+      <Daten inhalt={pfadDaten} />
     </>
   );
 }

@@ -27,8 +27,12 @@ export async function generateMetadata({
   const cat = getCategory(slug, locale);
   if (!cat) return { title: w.meta.titel };
   return {
-    title: `${cat.label} · temoa Blog`,
-    description: cat.blurb,
+    title: locale === "de" ? `Amazon ${cat.label}: Ratgeber · temoa` : `Amazon ${cat.label}: guides · temoa`,
+    description: `${cat.blurb} ${
+      locale === "de"
+        ? `${getPostsByCategory(slug, locale).length} Ratgeber-Beiträge zu Amazon im Überblick.`
+        : `${getPostsByCategory(slug, locale).length} Amazon guides at a glance.`
+    }`,
     alternates: sprachAngaben(locale, `/blog/kategorie/${slug}`),
   };
 }

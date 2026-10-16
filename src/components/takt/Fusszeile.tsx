@@ -57,6 +57,13 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
         { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
         { label: w.leistungen.account, href: p("/leistungen/account-management") },
         { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
+        /* Diese drei stehen bewusst nur hier und nicht im Hauptmenue. Die
+           Fusszeile ist der Ort fuer Seiten, die auffindbar sein muessen,
+           ohne die Navigation zu verlaengern. FBA und Software sind
+           Sektionen, keine eigenen Seiten, deshalb mit Anker. */
+        { label: w.leistungen.compliance, href: p("/leistungen/compliance-account-health") },
+        { label: w.leistungen.fba, href: p("/leistungen/account-management#fba") },
+        { label: w.leistungen.technologie, href: p("/full-service#technologie") },
       ],
     },
     {

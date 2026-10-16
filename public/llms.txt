@@ -17,26 +17,27 @@ Verbindlich sind die deutschen Fassungen der Rechtstexte.
 
 ## Kern
 
-- [Startseite](https://temoa.de/): Ausgangslage, Vorgehen, Leistungen, Belege.
-- [Full Service](https://temoa.de/full-service): alle fünf Leistungen im Zusammenhang.
-- [Case Studies](https://temoa.de/ergebnisse): Marken mit Zeitraum und den Zahlen aus dem Konto.
-- [Designbeispiele](https://temoa.de/design-beispiele): ausgelieferte Produktbilder und A+ Content.
-- [Potenzialanalyse buchen](https://temoa.de/gespraech-vereinbaren): 30 Minuten, kostenlos.
+- [Startseite](https://www.temoa.de/): Ausgangslage, Vorgehen, Leistungen, Belege.
+- [Full Service](https://www.temoa.de/full-service): alle fünf Leistungen im Zusammenhang.
+- [Case Studies](https://www.temoa.de/ergebnisse): Marken mit Zeitraum und den Zahlen aus dem Konto.
+- [Designbeispiele](https://www.temoa.de/design-beispiele): ausgelieferte Produktbilder und A+ Content.
+- [Potenzialanalyse buchen](https://www.temoa.de/gespraech-vereinbaren): 30 Minuten, kostenlos.
 
 ## Leistungen
 
-- [Strategie](https://temoa.de/leistungen/strategie): Search Query Report, Ads-Performance und Verkäufe ausgewertet, daraus die Reihenfolge der Schritte.
-- [Produktbilder & SEO](https://temoa.de/leistungen/listing-seo): Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content, ausgerichtet auf Klickrate und Conversion.
-- [PPC Advertising](https://temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
-- [Account Management](https://temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
-- [Internationalisierung](https://temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
+- [Strategie](https://www.temoa.de/leistungen/strategie): Search Query Report, Ads-Performance und Verkäufe ausgewertet, daraus die Reihenfolge der Schritte.
+- [Produktbilder & SEO](https://www.temoa.de/leistungen/listing-seo): Hauptbild, Listingbilder, Titel, Bullets, Backend-Felder und A+ Content, ausgerichtet auf Klickrate und Conversion.
+- [PPC Advertising](https://www.temoa.de/leistungen/ppc-advertising): jedes Produkt auf Deckungsbeitrag gerechnet, gesteuert über den TACoS.
+- [Account Management](https://www.temoa.de/leistungen/account-management): Buy-Box, Bestand, Pricing, Konto-Gesundheit, Katalog- und Backend-Pflege, Troubleshooting mit dem Amazon-Support.
+- [Compliance & Account Health](https://www.temoa.de/leistungen/compliance-account-health): LUCID, GPSR, Sicherheitsdokumente, Fallmanagement bei Sperrungen, Richtlinien- und Katalogfälle (keine Rechtsberatung, kein Prüflabor).
+- [Internationalisierung](https://www.temoa.de/leistungen/internationalisierung): jeder Marktplatz bekommt eigene Keyword-Recherche, eigenen Content und eigene Kampagnen.
 
 ## Weiteres
 
-- [Blog](https://temoa.de/blog): Beiträge zu Amazon-Themen.
-- [Impressum](https://temoa.de/impressum)
-- [Datenschutz](https://temoa.de/datenschutz)
-- [AGB](https://temoa.de/agb)
+- [Blog](https://www.temoa.de/blog): Beiträge zu Amazon-Themen.
+- [Impressum](https://www.temoa.de/impressum)
+- [Datenschutz](https://www.temoa.de/datenschutz)
+- [AGB](https://www.temoa.de/agb)
 
 ## Hinweise für Auswertungen
 

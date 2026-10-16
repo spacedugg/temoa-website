@@ -48,6 +48,12 @@ type Rahmen = {
     ppc: string;
     account: string;
     international: string;
+    /* Drei weitere Ziele, die in der Fusszeile stehen, aber nicht im
+       Hauptmenue: die Seite zu Compliance und die beiden Sektionen FBA und
+       Technologie. */
+    compliance: string;
+    fba: string;
+    technologie: string;
   };
   /* Der Abschluss-CTA steht auf jeder Seite. Deshalb liegt seine Copy hier
      und nicht im grossen Woerterbuch: `takt/Gespraech` erkennt die Sprache
@@ -136,6 +142,9 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       ppc: "PPC Advertising",
       account: "Account Management",
       international: "Internationalisierung",
+      compliance: "Compliance & Account Health",
+      fba: "FBA & Inventory",
+      technologie: "Software",
     },
     gespraech: {
       titel: "Wie viel Umsatz lässt euer Listing liegen?",
@@ -216,6 +225,9 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       ppc: "PPC Advertising",
       account: "Account Management",
       international: "International Expansion",
+      compliance: "Compliance & Account Health",
+      fba: "FBA & Inventory",
+      technologie: "Software",
     },
     gespraech: {
       titel: "How much revenue is your listing leaving on the table?",

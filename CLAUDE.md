@@ -1690,3 +1690,102 @@ beide Sprachen, sofern hier nichts anderes steht.
   ES, NL und BE fuer 20x Umsatz und 98,9 %, und DE fuer +20,6 %. Wer
   nebeneinanderstehende Zahlen auf verschiedene Maerkte bezieht, soll das nicht
   erst in der dritten Textzeile erfahren.
+
+## Dreiundvierzigste Feedbackrunde (verbindlich, Amazon-Verifizierung)
+
+Anlass: Amazon prueft das Entwicklerprofil und das Solution Provider Network
+anhand dieser Website. Die Copy muss zeigen, was wir tatsaechlich tun. Quelle
+ist das Briefing `Briefing_Eddie_Amazon_SPP_SPAPI_Website.md`.
+
+- **Compliance steht auf einer eigenen Seite**, `/leistungen/compliance-account-health`
+  (`service/bodies` `ComplianceBody`). Sie ist nur in der Fusszeile verlinkt,
+  nicht im Hauptmenue. Die Account-Seite behaelt einen Verweisblock (`Verweis`),
+  der Detailinhalt (LUCID, GPSR, Sicherheitsdokumente, Fallmanagement) liegt nur
+  noch dort: zweimal derselbe Text auf zwei Seiten waere Duplicate Content.
+- **FBA und Inventory sind eine Sektion der Account-Seite** (`#fba`), keine
+  eigene Seite. Die Fusszeile verlinkt auf den Anker.
+- **Software steht als Sektion auf der Full-Service-Seite** (`#technologie`,
+  `takt/fullservice` `Technologie`), ausdruecklich mit der Pille „In
+  Entwicklung". Keine Funktion laeuft produktiv. Die Sektion beschreibt nur,
+  was geplant ist, und nennt die SP-API als vorgesehen, nicht als aktiv.
+- **Nichts behaupten, was nicht belegt ist.** Der Compliance-Nachweis ist der
+  HaA-Fall (Accountsperrung in KW 10, nach zwei Wochen erledigt). Keine
+  Sicherheitszertifizierungen, keine Pruefstelle, keine Rechtsberatung: ein
+  Absatz „Wo unsere Arbeit endet" sagt das ausdruecklich.
+- **Wir bereiten keine Ware physisch vor.** Gilt weiter: FBA heisst Planung,
+  Bestand und Sendungen im Konto.
+- **Vendor und Seller.** Die Texte nennen beide (Seller Central und Vendor
+  Central), weil wir beide betreuen.
+- **Compliance-Text ist nach bestem Wissen als Best Case geschrieben** und
+  braucht die Pruefung durch den Anwalt des Kunden, bevor er als endgueltig
+  gilt. Dasselbe gilt fuer die Datenschutzerklaerung, die Dienste nennt, die
+  nicht eingebunden sind.
+- **Hero-Unterzeile, Leistungskacheln der Startseite und Kopf der
+  Full-Service-Seite sind problem-first formuliert** (erst die Reibung, dann
+  die Arbeit). Aufbau und Design blieben unveraendert. Inspiration kam nur aus
+  dem Ton einer Fremdseite, nichts davon wurde uebernommen.
+- **Ergebnis-Kacheln brechen nicht mehr um.** Der Wert steht mit
+  `whitespace-nowrap`, der Pfeil rutscht bei Platzmangel darunter. Vorher stand
+  das Prozentzeichen von „+439 %" allein in Zeile zwei.
+- **Neue Seiten stehen in Sitemap, `llms.txt` und strukturierten Daten.** Die
+  Compliance-Seite steht als sechster Eintrag im `OfferCatalog`.
+- **Offen:** Canonical-Basis mit oder ohne `www` (live leitet `temoa.de` per 308
+  auf `www.temoa.de`, `SEITE.url` steht auf `https://temoa.de`); Search-Console-
+  Exporte fuer die Long-Tail-Arbeit (siehe `docs/seo-masterprompt.md`); ein
+  Hydration-Hinweis (React #418) tritt auf einzelnen Seiten sporadisch auf und
+  ist nicht auf diese Runde zurueckzufuehren (er erscheint auch auf unveraenderten
+  Seiten).
+
+## Vierundvierzigste Feedbackrunde (verbindlich, SEO fuer die ganze Website)
+
+Grundlage: `docs/seo-masterprompt.md`, Befunde und Massnahmen in
+`docs/seo-audit-2026-10-16.md`.
+
+- **Titel stehen im Woerterbuch und nennen das Thema zuerst.** Leistungsseiten
+  tragen ein eigenes Feld `titel` (`leistungen.meta.*.titel`), getrennt vom
+  Namen. Hoechstens 60 Zeichen einschliesslich „· temoa". Ein Titel wie „Full
+  Service · temoa" sagt Google und Besuchern nichts.
+- **Blogbeitraege haben einen Suchtitel** in `lib/blog-seo.ts`, die H1 bleibt der
+  lange Titel. Neuer Beitrag: Eintrag dort ergaenzen, sonst gilt der lange
+  Titel und wird in der Anzeige abgeschnitten.
+- **Jeder Blogbeitrag verlinkt auf die passende Leistung** (`lib/blog-links.ts`,
+  Block „Passend dazu bei temoa"). Faelle stehen nur dort, wo sie das Thema
+  zeigen. Neuer Beitrag: Kategorie genuegt, Ausnahmen je Slug eintragen.
+- **Rechtstexte gibt es nur deutsch.** Die englischen Adressen haben die deutsche
+  als Canonical und stehen nicht in der Sitemap.
+- **Strukturierte Daten je Beitrag:** `BlogPosting` und `BreadcrumbList`. Ohne
+  Veroeffentlichungsdatum, solange die Beitraege keines tragen. Kein Datum
+  erfinden.
+- **Schriften sind WOFF2** (`src/app/fonts`). Zwei OTF-Dateien bleiben liegen,
+  weil das Vorschaubild (`opengraph-image`) sie zur Laufzeit liest und die
+  Bildausgabe kein WOFF2 liest.
+- **Offen beim Kunden:** Search-Console-Exporte, Hostvariante mit oder ohne
+  `www`, Umgang mit dem Wort „Agentur" in Titeln, Lizenz der Schrift fuer die
+  Umpackung nach WOFF2.
+
+## Fuenfundvierzigste Feedbackrunde (verbindlich, offene SEO-Punkte nach Prompt)
+
+Der Kunde hat die noch offenen SEO-Entscheidungen an den Prompt
+(`docs/seo-masterprompt.md`) uebergeben. Umgesetzt und begruendet in
+`docs/seo-audit-2026-10-16.md` und `docs/seo-longtail-2026-10-16.md`.
+
+- **Die Adresse der Website ist `https://www.temoa.de`.** Modul K1 verlangt,
+  dass Canonical, hreflang, Sitemap, robots.txt und strukturierte Daten die
+  Adresse nennen, die tatsaechlich ausgeliefert wird. Live leitet `temoa.de`
+  per 308 auf `www`. `SEITE.url` und die Links in `public/llms.txt` stehen
+  jetzt auf `www`. Die Search Console zeigte 16 Pfade unter beiden Hosts. Wer
+  die Weiterleitung aendert, aendert `SEITE.url` mit.
+- **Die Search-Console-Daten (3 Monate, Anfragen ab drei Woertern) sind
+  ausgewertet.** Ergebnis: Stichprobe, 2.194 Impressionen, 4 Klicks, fast alles
+  aus den letzten vier Wochen. Die Seiten mit den meisten Impressionen
+  beantworten ihre Anfrage bereits in Title, H1 und Einstieg, deshalb keine
+  Textaenderung. Export nach vier bis acht Wochen wiederholen.
+- **Titel und Beschreibungen werden nicht auf einzelne Anfragen zugeschnitten.**
+  Der Prompt (Regel 15) erlaubt Title, H1 und Slug nur dort, wo die Anfrage die
+  Hauptabsicht der Seite beschreibt. Nach den Daten ist das bei den
+  Kandidaten schon der Fall.
+- **Unveraendert, weil keine Datengrundlage:** H1-Slogans (vom Kunden
+  vorgegeben, nennen Amazon), das Wort „Agentur" (Projektregel bleibt),
+  sichtbare Daten an Blogbeitraegen (keine echten Daten, nichts erfinden),
+  Bing Webmaster Tools (kein Konto, Weg steht im Audit), Backlinks (kein
+  Linkbericht, drei Ideen ohne Umsetzung im Audit).

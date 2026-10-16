@@ -19,3 +19,6 @@ next-env.d.ts
 # TypeScript-Zwischenstand. Ein Cache, der bei jedem Typcheck neu
 # geschrieben wird und im Repo nur Rauschen erzeugt.
 tsconfig.tsbuildinfo
+
+# Originale der Blog-Thumbnails (PNG, Rohfassung vor der WebP-Umrechnung)
+/blog-cover-originale

@@ -9,8 +9,13 @@
    Die Anschrift ist die des Impressums (`lib/recht/impressum.ts`).
    ============================================================ */
 
+/* Die Adresse mit www ist die, die tatsaechlich ausgeliefert wird: die Seite
+   ohne www leitet per 308 dorthin. Canonical, hreflang, Sitemap, robots.txt
+   und strukturierte Daten muessen dieselbe Adresse nennen (Modul K1 im
+   SEO-Prompt). Die Search-Console-Daten vom 16.10.2026 zeigten 16 Pfade unter
+   beiden Hostnamen. Wer die Weiterleitung aendert, aendert auch diese Zeile. */
 export const SEITE = {
-  url: "https://temoa.de",
+  url: "https://www.temoa.de",
   name: "temoa",
   firma: "Temoa GmbH",
   email: "info@temoa.de",

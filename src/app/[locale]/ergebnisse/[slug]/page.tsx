@@ -15,6 +15,17 @@ export function generateStaticParams() {
   return sprachen.flatMap((locale) => cases.map((c) => ({ locale, slug: c.slug })));
 }
 
+/* Ueberschrift und Unterzeile stehen ohne Satzzeichen nebeneinander, deshalb
+   las sich die Beschreibung als ein Satz ohne Punkt. Dazu kappt Google ab
+   etwa 155 Zeichen: lieber hier an einer Wortgrenze schneiden. */
+function fallBeschreibung(ueberschrift: string, unterzeile: string) {
+  const kopf = /[.!?]$/.test(ueberschrift.trim()) ? ueberschrift.trim() : `${ueberschrift.trim()}.`;
+  const voll = `${kopf} ${unterzeile.trim()}`;
+  if (voll.length <= 158) return voll;
+  const kurz = voll.slice(0, 157);
+  return kurz.slice(0, kurz.lastIndexOf(" ")).replace(/[,;:]$/, "") + "…";
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -26,8 +37,8 @@ export async function generateMetadata({
   const c = fallFuer(locale, slug);
   if (!c) return { title: w.meta.fallTitel };
   return {
-    title: `${c.displayName} · ${w.meta.fallTitel}`,
-    description: `${c.headline} ${c.subheadline}`,
+    title: `${c.displayName}: ${w.meta.fallTitel}`,
+    description: fallBeschreibung(c.headline, c.subheadline),
     alternates: sprachAngaben(locale, `/ergebnisse/${slug}`),
   };
 }

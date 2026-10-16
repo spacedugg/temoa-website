@@ -10,7 +10,7 @@
 
 export const de = {
   meta: {
-    titel: "temoa \u00b7 Amazon Full Service Wachstumspartner",
+    titel: "temoa \u00b7 Amazon Full Service: Content, PPC und Account",
     beschreibung:
       "Wir bringen euer Amazon-Listing dahin, dass es auch ohne Werbung verkauft. Danach skaliert PPC, was bereits konvertiert. Organic First, PPC Second.",
     ogBeschreibung:
@@ -31,7 +31,7 @@ export const de = {
       eyebrow: "Amazon Full Service",
       titelMark: "Profitables Wachstum",
       titelRest: " für deine Marke auf Amazon",
-      lead: "Durch Profi-Umsetzung in Content, Ads, Account Betreuung & Co. ist mehr Umsatz keine Frage von mehr Werbebudget.",
+      lead: "Erst das Listing stark machen, dann mit Werbung skalieren, die sich rechnet. Content, Ads und Account Management aus einer Hand.",
       ctaZweit: "Case Studies ansehen",
       bildAlt:
         "Eine Produktseite auf einem Telefon in der Hand, daneben sechs Listingbilder mit Produktvorteilen",
@@ -41,7 +41,7 @@ export const de = {
        „5+ Marktplaetze" standen hier und noch einmal im Kennzahlenband unter
        den Case Studies; sie stehen jetzt nur noch dort. */
     kundenband: {
-      label: "Marken, die wir betreut haben",
+      label: "Ambitionierte Marken, die wir betreut haben",
     },
 
     leistungen: {
@@ -54,9 +54,9 @@ export const de = {
       /* Die Reihenfolge ist die der Seite und entspricht den Adressen in
          `sections.tsx`. Namen wie in Kopf- und Fusszeile, elfte Runde. */
       liste: [
-        { titel: "Strategie", text: "Erst die Daten, dann der Plan." },
-        { titel: "Produktbilder & SEO", text: "Aus Klicks werden Käufe." },
-        { titel: "PPC Advertising", text: "Profitabel skalieren." },
+        { titel: "Strategie", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan." },
+        { titel: "Produktbilder & SEO", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf." },
+        { titel: "PPC Advertising", text: "Budget rauf, Marge runter? Wir skalieren profitabel." },
         { titel: "Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff." },
         { titel: "Internationalisierung", text: "Lokalisieren statt übersetzen." },
       ],
@@ -240,26 +240,37 @@ export const de = {
   leistungen: {
     meta: {
       strategie: {
+        titel: "Amazon Strategie und Account-Analyse · temoa",
         name: "Strategie",
         beschreibung:
           "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
       },
       content: {
+        titel: "Amazon Listing optimieren: Bilder, SEO, A+ Content · temoa",
         name: "Produktbilder & SEO",
         beschreibung:
           "Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
       },
       advertising: {
+        titel: "Amazon PPC Advertising: ACoS und TACoS steuern · temoa",
         name: "PPC Advertising",
         beschreibung:
           "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
       },
       account: {
+        titel: "Amazon Account Management: Buy-Box, FBA, Pricing · temoa",
         name: "Account Management",
         beschreibung:
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
+      compliance: {
+        titel: "Amazon Compliance und Account Health · temoa",
+        name: "Compliance & Account Health",
+        beschreibung:
+          "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
+      },
       international: {
+        titel: "Amazon Internationalisierung: Neue Marktplätze · temoa",
         name: "Internationalisierung",
         beschreibung:
           "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
@@ -578,7 +589,7 @@ export const de = {
         eyebrow: "Account Management",
         titelVor: "Ihr baut die Marke. Das ",
         titelEm: "Tagesgeschäft liegt bei uns.",
-        lead: "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
+        lead: "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich, in Seller Central und Vendor Central. So gewinnt ihr Zeit für Produkt und Sortiment.",
         bildAlt: "Tagesgeschäft an einem Pult gesteuert",
       },
       problem: {
@@ -676,53 +687,49 @@ export const de = {
         ],
       },
       compliance: {
-        eyebrow: "Compliance",
+        eyebrow: "Compliance & Account Health",
         titel: "Produkte, die auf Amazon bleiben dürfen.",
-        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell.",
-        pflichten: [
+        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir überwachen die Account Health, halten die Pflichtangaben für euer Sortiment aktuell und führen Fälle bei Amazon bis zur Entscheidung.",
+        link: "Compliance & Account Health im Detail",
+      },
+      fbaDetail: {
+        eyebrow: "FBA und Inventory im Detail",
+        titel: "Was wir bei FBA und Bestand laufend steuern.",
+        lead: "Bestand, Sendungen und Gebühren laufen im Konto zusammen. Wir halten sie im Blick und greifen ein, bevor ein Artikel leerläuft oder ein Fehler Geld kostet.",
+        karten: [
           {
-            titel: "LUCID",
-            unterzeile: "Verpackungsregister Deutschland",
-            text: "Amazon verlangt die LUCID-Registrierungsnummer für Verpackungen. Wir hinterlegen sie im Konto, prüfen die Angaben und klären offene Fälle, bevor Angebote gesperrt werden.",
+            titel: "Bestand überwachen",
+            unterzeile: "Täglich im Blick",
+            punkte: [
+              "FBA Inventory Monitoring je Artikel und Marktplatz",
+              "Reichweitenanalyse und Stockout Monitoring",
+              "Inventory Health und Überbestand",
+              "Bestandsabweichungen zwischen Konto und Lager",
+            ],
           },
           {
-            titel: "GPSR",
-            unterzeile: "Produktsicherheit in der EU",
-            text: "Hersteller, verantwortliche Person in der EU, Kontaktdaten und Sicherheitshinweise gehören zu jedem Angebot. Wir pflegen die Angaben für das gesamte Sortiment.",
+            titel: "Sendungen begleiten",
+            unterzeile: "Vom Plan bis zum Wareneingang",
+            punkte: [
+              "Inbound Shipment Monitoring und Sendungsstatus",
+              "Stranded Inventory erkennen und auflösen",
+              "Unterstützung bei digitalen FBA-Sendungsprozessen",
+              "Fälle zu Wareneingang und Mengenabweichungen bei Amazon führen",
+            ],
           },
           {
-            titel: "Sicherheitsdokumente",
-            unterzeile: "Prüfberichte, Zertifikate, Konformität",
-            text: "Wir fordern die Nachweise an und bereiten sie so auf, wie Amazon es verlangt. Hochgeladen werden sie beim richtigen Artikel.",
+            titel: "Planen und Kosten steuern",
+            unterzeile: "Nachschub und Gebühren",
+            punkte: [
+              "Replenishment-Planung nach Reichweite und Vorlaufzeit",
+              "Überwachung der FBA-Verfügbarkeit",
+              "FBA Fee Monitoring und Gebührenabweichungen",
+              "Entscheidung FBA oder FBM je Artikel",
+            ],
           },
         ],
-        sperre: {
-          eyebrow: "Fallmanagement",
-          titel: "Gesperrte Artikel, vom Fall bis zur Freigabe.",
-          lead: "Jeder Tag mit gesperrtem Artikel ist ein Tag ohne Verkauf. Wir übernehmen den Fall von der ersten Meldung bis zur Freigabe.",
-          schritte: [
-            {
-              titel: "Sperre erkannt",
-              unterzeile: "Gesperrte Artikel",
-              text: "Wir erkennen die Sperre und klären, welche Vorgabe den Artikel stoppt.",
-            },
-            {
-              titel: "Ursache behoben",
-              unterzeile: "Listing und Nachweise",
-              text: "Fehlende Angaben und Dokumente werden ergänzt, das Listing wird angepasst.",
-            },
-            {
-              titel: "Fall eröffnet",
-              unterzeile: "Fallmanagement",
-              text: "Wir reichen die Nachweise beim Amazon-Support ein, halten Fristen und eskalieren, wenn eine Antwort ausbleibt.",
-            },
-            {
-              titel: "Artikel freigegeben",
-              unterzeile: "Zurück im Verkauf",
-              text: "Sobald Amazon freigibt, geht der Artikel zurück in den Verkauf. Die Rückmeldung bekommt ihr von uns.",
-            },
-          ],
-        },
+        klarstellung:
+          "Physische Arbeiten an der Ware gehören nicht zu unseren Leistungen: kein Etikettieren, Verpacken oder Bündeln und keine Qualitätskontrolle im Lager. Unser Kernservice ist die digitale und operative Steuerung von FBA und Inventory im Amazon-Konto.",
       },
       katalog: {
         eyebrow: "Katalog und Backend",
@@ -772,6 +779,166 @@ export const de = {
         ],
       },
       cta: "Gebt das Tagesgeschäft an uns ab.",
+    },
+
+    compliance: {
+      hero: {
+        eyebrow: "Compliance & Account Health",
+        titelVor: "Wenn Amazon Nachweise verlangt, ",
+        titelEm: "führen wir den Fall.",
+        lead: "Wir überwachen Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central. Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall bei Amazon zu Ende.",
+        bildAlt: "Konto-Gesundheit, Buy-Box und Bestand nebeneinander, eine Warnleuchte meldet",
+      },
+      problem: {
+        titel: "Eine Sperre kostet Umsatz, bevor jemand sie bemerkt.",
+        punkte: [
+          "Ein Listing ist unterdrückt, die Meldung liegt ungelesen im Postfach.",
+          "Amazon fordert Zertifikate und Prüfberichte an. Niemand weiß, in welcher Form.",
+          "Eine neue Vorgabe trifft Dutzende ASINs, aber nur einzelne fallen auf.",
+          "Die Account Health sinkt. Der Grund steht in keinem Bericht.",
+        ],
+        bruecke: "Wir erkennen es früher und führen den Fall bis zur Entscheidung von Amazon.",
+      },
+      kern: {
+        eyebrow: "Kernleistungen",
+        titel: "Was wir bei Compliance und Account Health tun.",
+        karten: [
+          {
+            titel: "Account Health Monitoring",
+            unterzeile: "Immer im Blick",
+            punkte: [
+              "Account Health und Policy-Meldungen über alle Marktplätze",
+              "Gesperrte und unterdrückte Listings finden",
+              "Compliance Notifications von Amazon auswerten",
+              "Betroffene ASINs und SKUs erfassen",
+            ],
+          },
+          {
+            titel: "Nachweise und Dokumente",
+            unterzeile: "Gesammelt und geprüft",
+            punkte: [
+              "Zertifikate anfordern und prüfen, ob sie zu Amazons Vorgabe passen",
+              "Konformitätserklärungen koordinieren",
+              "Prüfberichte und Produktsicherheitsunterlagen zusammenstellen",
+              "Dokumente beim richtigen Artikel hochladen",
+            ],
+          },
+          {
+            titel: "Fälle bei Amazon",
+            unterzeile: "Von der ersten Meldung bis zur Entscheidung",
+            punkte: [
+              "Product Compliance Requests bearbeiten",
+              "Restricted Product Cases führen",
+              "Offene Fälle nachverfolgen und bei Stillstand eskalieren",
+              "Artikel nach der Freigabe wieder in den Verkauf bringen",
+            ],
+          },
+          {
+            titel: "Katalog und Vorbeugung",
+            unterzeile: "Bevor es zur Sperre wird",
+            punkte: [
+              "Compliance-relevante Produktattribute pflegen",
+              "Pflichtangaben je Kategorie prüfen",
+              "Katalog- und Compliance-Checks vor dem Launch",
+              "Änderungen an Amazons Vorgaben gegen das Sortiment prüfen",
+            ],
+          },
+        ],
+      },
+      pflichten: {
+        eyebrow: "Pflichtangaben",
+        titel: "Produkte, die auf Amazon bleiben dürfen.",
+        lead: "Fehlende Nachweise und Registrierungen stoppen Angebote von einem Tag auf den anderen. Wir halten die Pflichtangaben für euer Sortiment aktuell.",
+        karten: [
+          {
+            titel: "LUCID",
+            unterzeile: "Verpackungsregister Deutschland",
+            text: "Amazon verlangt die LUCID-Registrierungsnummer für Verpackungen. Wir hinterlegen sie im Konto, prüfen die Angaben und klären offene Fälle, bevor Angebote gesperrt werden.",
+          },
+          {
+            titel: "GPSR",
+            unterzeile: "Produktsicherheit in der EU",
+            text: "Hersteller, verantwortliche Person in der EU, Kontaktdaten und Sicherheitshinweise gehören zu jedem Angebot. Wir pflegen die Angaben für das gesamte Sortiment.",
+          },
+          {
+            titel: "Sicherheitsdokumente",
+            unterzeile: "Prüfberichte, Zertifikate, Konformität",
+            text: "Wir fordern die Nachweise an und bereiten sie so auf, wie Amazon es verlangt. Hochgeladen werden sie beim richtigen Artikel.",
+          },
+        ],
+      },
+      sperre: {
+        eyebrow: "Fallmanagement",
+        titel: "Gesperrte Artikel, vom Fall bis zur Freigabe.",
+        lead: "Jeder Tag mit gesperrtem Artikel ist ein Tag ohne Verkauf. Wir übernehmen den Fall von der ersten Meldung bis zur Freigabe.",
+        schritte: [
+          {
+            titel: "Sperre erkannt",
+            unterzeile: "Gesperrte Artikel",
+            text: "Wir erkennen die Sperre und klären, welche Vorgabe den Artikel stoppt.",
+          },
+          {
+            titel: "Ursache behoben",
+            unterzeile: "Listing und Nachweise",
+            text: "Fehlende Angaben und Dokumente werden ergänzt, das Listing wird angepasst.",
+          },
+          {
+            titel: "Fall eröffnet",
+            unterzeile: "Fallmanagement",
+            text: "Wir reichen die Nachweise beim Amazon-Support ein, halten Fristen und eskalieren, wenn eine Antwort ausbleibt.",
+          },
+          {
+            titel: "Artikel freigegeben",
+            unterzeile: "Zurück im Verkauf",
+            text: "Sobald Amazon freigibt, geht der Artikel zurück in den Verkauf. Die Rückmeldung bekommt ihr von uns.",
+          },
+        ],
+      },
+      abgrenzung: {
+        eyebrow: "Abgrenzung",
+        titel: "Wo unsere Arbeit endet.",
+        text: "Wir sind kein Prüflabor, keine Zertifizierungsstelle, keine Behörde und keine Rechtsberatung. Unser Schwerpunkt ist das operative Compliance-Management auf dem Amazon Marketplace: Wir erkennen die Anforderungen von Amazon, koordinieren die nötigen Nachweise und bearbeiten die Fälle bei Amazon. Prüfberichte und Zertifikate stellen akkreditierte Stellen aus, rechtliche Fragen klärt eure Rechtsberatung.",
+      },
+      nutzen: {
+        badge: "Euer Nutzen",
+        titel: "Weniger Unterbrechungen, schnellere Antworten.",
+        punkte: [
+          "Geringeres Risiko ungeplanter Verkaufsunterbrechungen",
+          "Anforderungen von Amazon schneller bearbeitet",
+          "Dokumente an einer Stelle koordiniert",
+          "Bessere Account Health",
+          "Compliance-Risiken früher erkannt",
+          "Weniger wiederkehrende Katalogprobleme",
+        ],
+      },
+      expertise: {
+        eyebrow: "Unsere Amazon-Expertise",
+        titel: "Erfahrung aus dem Tagesgeschäft.",
+        karten: [
+          {
+            titel: "Über 1.000 Produkte",
+            text: "auf Amazon optimiert, vom Hauptbild bis zur Kampagnenstruktur.",
+          },
+          {
+            titel: "60+ betreute Marken",
+            text: "auf mindestens fünf Marktplätzen.",
+          },
+          {
+            titel: "Seller Central und Vendor Central",
+            text: "Wir arbeiten in beiden Modellen und kennen die Fallwege auf beiden Seiten.",
+          },
+        ],
+      },
+      ergebnis: {
+        titel: "HaA, Accountsperrung in KW 10",
+        zeile: "In KW 10 wurde der Account gesperrt. Nach zwei Wochen war die Sperre erledigt.",
+        werte: [
+          { wert: "2 Wochen", label: "bis die Accountsperrung erledigt war", sub: "Sperre in KW 10" },
+          { wert: "14x", label: "Bestellungen pro Woche", sub: "Launch-Woche bis Spitze" },
+          { wert: "+439 %", label: "Conversion Rate", sub: "Launch-Woche bis Spitze" },
+        ],
+      },
+      cta: "Liegt bei euch eine Sperre oder Nachweisanfrage offen?",
     },
 
     international: {
@@ -869,7 +1036,7 @@ export const de = {
      ============================================================ */
   fullService: {
     meta: {
-      titel: "Full Service · temoa",
+      titel: "Amazon Full Service für Marken · temoa",
       beschreibung:
         "Strategie, Content, Advertising, Account Management und neue Marktplätze für euren Amazon-Account. Fünf Bereiche, ein Team, alle mit denselben Zahlen.",
     },
@@ -878,7 +1045,7 @@ export const de = {
       eyebrow: "Amazon Full Service",
       titelVor: "Ein eingespieltes Team für euren ",
       titelMark: "kompletten Amazon-Account.",
-      lead: "Wir übernehmen euren Amazon-Account vollständig, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht.",
+      lead: "Wir arbeiten mit ambitionierten Marken, die auf Amazon etwas bewegen wollen, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht.",
       bildAlt:
         "Fünf Arbeitsplätze auf einem Podest, alle verbunden mit einer gemeinsamen Auswertung",
     },
@@ -1027,6 +1194,33 @@ export const de = {
       ],
     },
 
+    technologie: {
+      label: "Technologie",
+      titel: "Eine eigene Plattform für Amazon-Accounts, im Aufbau.",
+      lead: "Wir entwickeln eine Software, die Account-, Katalog-, Werbe- und Bestandsdaten an einer Stelle zusammenführt. Sie soll unserem Team und unseren Kunden zeigen, was im Konto passiert. Außerdem soll sie die Arbeit darin steuern. Die Plattform ist noch nicht für Kunden freigeschaltet.",
+      status: "In Entwicklung",
+      bereiche: [
+        {
+          titel: "Katalog und Content",
+          text: "Produkte und Artikel anlegen und aktualisieren, Content erstellen, verwalten und an Amazon übertragen.",
+        },
+        {
+          titel: "Advertising",
+          text: "Kampagnen auswerten und anpassen, Suchbegriffe und Gebote steuern.",
+        },
+        {
+          titel: "Margen und Reporting",
+          text: "Marge je Produkt und Variante, dazu Umsatz, Kosten und Kennzahlen als Dashboard.",
+        },
+        {
+          titel: "Account Health und Bestand",
+          text: "Listing-Status, Buy-Box, Preise, Bestand und FBA im Blick, mit Hinweisen bei Auffälligkeiten.",
+        },
+      ],
+      datenHinweis:
+        "Für autorisierte Kunden verarbeitet die Software Amazon-Daten ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Vorgesehen ist dafür die Anbindung über die Amazon Selling Partner API (SP-API).",
+    },
+
     reporting: {
       label: "Immer enthalten",
       titel: "Reporting, das ihr in fünf Minuten versteht.",
@@ -1087,11 +1281,11 @@ export const de = {
      ============================================================ */
   faelle: {
     meta: {
-      titel: "Case Studies · temoa",
+      titel: "Amazon Case Studies: Ergebnisse für Marken · temoa",
       beschreibung:
-        "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabel ausgebauter Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang und vier Marktplätze parallel.",
+        "Sechs Marken auf Amazon mit Ausgangslage, Vorgehen und Ergebnis: profitabler Umsatz, ein Produkt von null aufgebaut, ein Bestseller-Rang, vier Marktplätze.",
       /* Steht vor „· Case Study · temoa" im Titel einer Fallseite. */
-      fallTitel: "Case Study · temoa",
+      fallTitel: "Amazon Case Study · temoa",
     },
 
     kopf: {
@@ -1207,7 +1401,7 @@ export const de = {
      ============================================================ */
   buchung: {
     meta: {
-      titel: "Potenzialanalyse buchen · temoa",
+      titel: "Kostenlose Amazon Potenzialanalyse buchen · temoa",
       beschreibung:
         "Kostenlose Potenzialanalyse: 30 Minuten zum Kennenlernen, danach ein zweiter Termin mit euren aufbereiteten Zahlen. Unverbindlich.",
     },
@@ -1403,7 +1597,7 @@ export const de = {
 
   design: {
     meta: {
-      titel: "Designbeispiele · temoa",
+      titel: "Amazon Listing Designbeispiele: Bilder und A+ · temoa",
       beschreibung:
         "Amazon-Content von temoa: Hauptbild, Bilderstrecke, A+ und Premium A+, Brand Store und Brand Story, jeweils so angeordnet, wie es auf Amazon verkauft.",
     },
@@ -1439,10 +1633,10 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Blog · temoa",
+      titel: "Amazon Blog: PPC, Listing, FBA und Strategie · temoa",
       beschreibung:
         "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
-      beitragTitel: "Blog · temoa",
+      beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
@@ -1460,6 +1654,7 @@ export const de = {
     alleThemen: "Alle Themen",
     inhalt: "Inhalt",
     weiterlesen: "Weiterlesen",
+    verweise: "Passend dazu bei temoa",
     lesezeit: "{n} Min. Lesezeit",
     lesen: "Lesen",
     cta: "Lieber direkt über euren Account sprechen?",

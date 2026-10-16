@@ -9,6 +9,10 @@ import { DATENSCHUTZ } from "@/lib/recht/datenschutz";
 export const metadata: Metadata = {
   title: "Datenschutz · temoa",
   description: "Informationen zur Verarbeitung personenbezogener Daten bei der Temoa GmbH.",
+  /* Rechtstexte gibt es nur auf Deutsch. Die englische Adresse zeigt
+     denselben Text und verweist deshalb auf die deutsche: zwei Adressen mit
+     identischem Inhalt konkurrieren sonst miteinander. */
+  alternates: { canonical: "/datenschutz" },
 };
 
 export default function DatenschutzPage() {

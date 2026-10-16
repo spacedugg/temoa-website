@@ -245,6 +245,48 @@ export function Reporting({ w }: { w: W["reporting"] }) {
   );
 }
 
+/* ---------- Technologie (in Entwicklung) ---------- */
+
+/**
+ * Die Plattform ist nicht produktiv. Die Sektion sagt das ausdruecklich
+ * (Status-Pille und letzter Absatz) und beschreibt nur, was geplant ist.
+ * Die Bereiche stehen direkt auf dem Grund, keine Platte um die Karten.
+ */
+const TECHNOLOGIE: IconName[] = ["regal", "ziel", "bericht", "schild"];
+
+export function Technologie({ w }: { w: W["technologie"] }) {
+  const reduce = useReducedMotion();
+  return (
+    <Station label={w.label} tone="warm" id="technologie">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+        <StationTitle className="!max-w-[26ch]">{w.titel}</StationTitle>
+      </div>
+      <span className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-navy py-2 pl-3 pr-4 text-label font-bold uppercase text-white">
+        <span aria-hidden className="node-glow" />
+        {w.status}
+      </span>
+      <StationLead>{w.lead}</StationLead>
+
+      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        {w.bereiche.map((b, i) => (
+          <motion.div
+            key={b.titel}
+            initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-12% 0px" }}
+            transition={{ duration: 0.6, delay: i * 0.06, ease: EASE }}
+            className="h-full"
+          >
+            <Karte icon={TECHNOLOGIE[i]} title={b.titel} body={b.text} />
+          </motion.div>
+        ))}
+      </div>
+
+      <p className="mt-10 max-w-[70ch] text-pretty text-small leading-relaxed text-ink-muted">{w.datenHinweis}</p>
+    </Station>
+  );
+}
+
 /* ---------- 05 · Der Unterschied ---------- */
 export function Unterschied({ w, zusammenlauf }: { w: W["unterschied"]; zusammenlauf: W["zusammenlauf"] }) {
   const reduce = useReducedMotion();

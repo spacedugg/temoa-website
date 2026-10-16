@@ -9,6 +9,9 @@ import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
 import { ServiceCTA } from "@/components/service/Blocks";
 import { istSprache, pfad, sprachAngaben, sprachen } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
+import { suchTitel } from "@/lib/blog-seo";
+import { beitragsLinks } from "@/lib/blog-links";
+import { ArtikelDaten } from "@/components/seo/StrukturierteDaten";
 
 /* Je Sprache nur die Beitraege, die es dort gibt. Solange ein Beitrag nicht
    uebersetzt ist, hat er unter `/en/blog` keine Seite und taucht auch in
@@ -29,7 +32,7 @@ export async function generateMetadata({
   const post = getPost(slug, locale);
   if (!post) return { title: woerter(locale).blog.meta.beitragTitel };
   return {
-    title: `${post.title} · temoa`,
+    title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
     description: post.description,
     keywords: post.keywords,
     /* `hreflang` nur, wenn es die andere Fassung wirklich gibt: eine Angabe
@@ -115,10 +118,21 @@ export default async function ArticlePage({
   if (!post) notFound();
   const { html, toc } = withToc(post.html);
   const related = getRelatedPosts(slug, locale, 3);
+  const verweise = beitragsLinks(slug, post.categoryKey, locale);
 
   return (
     <>
       <Kopfzeile />
+      <ArtikelDaten
+        sprache={locale}
+        slug={slug}
+        titel={post.title}
+        beschreibung={post.description}
+        bild={post.image}
+        kategorie={post.categoryLabel}
+        kategorieSlug={post.categorySlug}
+        blogName={w.kopf.eyebrow}
+      />
       <main id="inhalt">
         {/* Hero */}
         <section className="relative overflow-hidden ground pt-32 md:pt-40">
@@ -178,7 +192,27 @@ export default async function ArticlePage({
         <section className="relative ground py-14 md:py-16">
           <div className="container-x">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
-              <article className="article-body max-w-2xl" dangerouslySetInnerHTML={{ __html: html }} />
+              <div className="min-w-0 max-w-2xl">
+                <article className="article-body" dangerouslySetInnerHTML={{ __html: html }} />
+                {/* Interne Links auf die passende Leistung und, wo es passt,
+                    einen Fall. Der Text nennt das Ziel statt „hier klicken". */}
+                <aside className="panel mt-12 p-6 md:p-8" aria-label={w.verweise}>
+                  <h2 className="text-lg font-bold tracking-tight text-ink">{w.verweise}</h2>
+                  <ul className="mt-4 space-y-4">
+                    {verweise.map((v) => (
+                      <li key={v.href}>
+                        <a
+                          href={pfad(locale, v.href)}
+                          className="font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-4 hover:decoration-navy"
+                        >
+                          {v.anker}
+                        </a>
+                        <p className="mt-1 text-small leading-relaxed text-ink-muted">{v.text}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              </div>
               {toc.length > 2 && (
                 <aside className="hidden lg:block">
                   <div className="sticky top-28">
