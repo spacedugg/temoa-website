@@ -236,7 +236,7 @@ export const en: Woerterbuch = {
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
       compliance: {
-        titel: "Amazon Compliance and Account Health · temoa",
+        titel: "Amazon Support, Compliance and Account Health · temoa",
         name: "Compliance & Account Health",
         beschreibung:
           "Account health, suppressed listings and documentation requests on Amazon: we find the affected ASINs, coordinate the documents and carry the case.",
@@ -548,8 +548,8 @@ export const en: Woerterbuch = {
     account: {
       hero: {
         eyebrow: "Account Management",
-        titelVor: "Amazon account management: You build the brand. The ",
-        titelEm: "day-to-day is on us.",
+        titelVor: "Amazon account management: We run ",
+        titelEm: "your day-to-day.",
         lead: "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of our own, in Seller Central and Vendor Central. That gives you time for product and catalog.",
         bildAlt: "The day-to-day run from a console",
       },
@@ -744,9 +744,9 @@ export const en: Woerterbuch = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "Amazon compliance: When proof is requested, ",
-        titelEm: "we carry the case.",
-        lead: "We monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central. We find the affected ASINs, coordinate the documents and carry the case through with Amazon.",
+        titelVor: "Amazon Support for a suspended account ",
+        titelEm: "and suppressed listings.",
+        lead: "We see your cases through with Amazon Support. To do that we monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central, find the affected ASINs and coordinate the documents.",
         bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
       },
       problem: {
@@ -904,9 +904,9 @@ export const en: Woerterbuch = {
     international: {
       hero: {
         eyebrow: "International Expansion",
-        titelVor: "Amazon international expansion: Every country searches ",
-        titelEm: "differently.",
-        lead: "What sells in Germany does not automatically sell in Italy. Different search terms, different prices, different competition. Every country gets its own research, its own content and its own campaigns.",
+        titelVor: "We localize your Amazon listings ",
+        titelEm: "instead of translating them.",
+        lead: "Amazon international expansion means every country gets its own research, its own content and its own campaigns. What sells in Germany does not automatically sell in Italy: different search terms, different prices, different competition.",
         bildAlt: "Every marketplace with its own structure around a shared core",
       },
       problem: {

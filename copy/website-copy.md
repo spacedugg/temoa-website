@@ -465,7 +465,7 @@ Rhythmus: Hero, Problem, Wie wir arbeiten (3 Prinzipien), Was wir übernehmen (K
 
 ## 1 · Header
 - Eyebrow: Account-Management
-- Headline: Amazon Account Management: Ihr baut die Marke. Das Tagesgeschäft liegt bei uns.
+- Headline: Amazon Account Management: Wir steuern euer Tagesgeschäft.
 - Subline: Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.
 - CTA: Potenzialanalyse buchen
 - [Visual-Platzhalter, Bild rechts]
@@ -510,8 +510,8 @@ Argument dieser Seite: Jeder Marktplatz ist ein eigener Markt und bekommt die ko
 
 ## 1 · Header
 - Eyebrow: Internationalisierung
-- Headline: Amazon Internationalisierung: Jedes Land sucht anders.
-- Subline: Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu.
+- Headline: Wir lokalisieren eure Amazon Listings, statt sie zu übersetzen.
+- Subline: Internationalisierung auf Amazon heißt: Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen. Was in Deutschland verkauft, verkauft in Italien nicht automatisch: andere Suchbegriffe, andere Preise, anderer Wettbewerb.
 - CTA: Potenzialanalyse buchen
 
 ## 2 · Problem

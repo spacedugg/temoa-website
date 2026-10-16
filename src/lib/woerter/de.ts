@@ -264,7 +264,7 @@ export const de = {
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
       compliance: {
-        titel: "Amazon Compliance und Account Health · temoa",
+        titel: "Amazon Support, Compliance und Account Health · temoa",
         name: "Compliance & Account Health",
         beschreibung:
           "Account Health, gesperrte Listings und Nachweispflichten auf Amazon: Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall.",
@@ -587,8 +587,8 @@ export const de = {
     account: {
       hero: {
         eyebrow: "Account Management",
-        titelVor: "Amazon Account Management: Ihr baut die Marke. Das ",
-        titelEm: "Tagesgeschäft liegt bei uns.",
+        titelVor: "Amazon Account Management: Wir steuern ",
+        titelEm: "euer Tagesgeschäft.",
         lead: "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich, in Seller Central und Vendor Central. So gewinnt ihr Zeit für Produkt und Sortiment.",
         bildAlt: "Tagesgeschäft an einem Pult gesteuert",
       },
@@ -784,9 +784,9 @@ export const de = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "Amazon Compliance: Wenn Nachweise verlangt werden, ",
-        titelEm: "führen wir den Fall.",
-        lead: "Wir überwachen Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central. Wir finden die betroffenen ASINs, koordinieren die Dokumente und führen den Fall bei Amazon zu Ende.",
+        titelVor: "Amazon Support bei gesperrtem Konto ",
+        titelEm: "und unterdrückten Listings.",
+        lead: "Wir führen eure Fälle beim Amazon Support zu Ende. Dafür überwachen wir Account Health, Listing-Status und Meldungen von Amazon, für Marken und Hersteller in Seller Central und Vendor Central, finden die betroffenen ASINs und koordinieren die Dokumente.",
         bildAlt: "Konto-Gesundheit, Buy-Box und Bestand nebeneinander, eine Warnleuchte meldet",
       },
       problem: {
@@ -944,9 +944,9 @@ export const de = {
     international: {
       hero: {
         eyebrow: "Internationalisierung",
-        titelVor: "Amazon Internationalisierung: Jedes Land sucht ",
-        titelEm: "anders.",
-        lead: "Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Andere Suchbegriffe, andere Preise, anderer Wettbewerb. Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen.",
+        titelVor: "Wir lokalisieren eure Amazon Listings, ",
+        titelEm: "statt sie zu übersetzen.",
+        lead: "Internationalisierung auf Amazon heißt: Jedes Land bekommt eigene Recherche, eigenen Content und eigene Kampagnen. Was in Deutschland verkauft, verkauft in Italien nicht automatisch: andere Suchbegriffe, andere Preise, anderer Wettbewerb.",
         bildAlt: "Jeder Marktplatz mit eigenem Aufbau um einen gemeinsamen Kern",
       },
       problem: {
