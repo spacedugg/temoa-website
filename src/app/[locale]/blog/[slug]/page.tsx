@@ -7,6 +7,7 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
+import { ArticleSectionLink } from "@/components/blog/ArticleSectionLink";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
 import { BlogSupport, BlogContact } from "@/components/blog/BlogSupport";
 import { istSprache, pfad, sprachAngaben, sprachen } from "@/lib/i18n";
@@ -218,7 +219,7 @@ export default async function ArticlePage({
                     <summary className="cursor-pointer py-2 font-bold text-ink">{w.inhalt}</summary>
                     <nav aria-label={w.inhalt}>
                       <ul className="mt-3 space-y-1">
-                        {toc.map((t) => <li key={t.id}><a href={`#${t.id}`} className="flex min-h-12 items-center text-small text-ink-muted underline underline-offset-4">{t.label}</a></li>)}
+                        {toc.map((t) => <li key={t.id}><ArticleSectionLink id={t.id} className="flex min-h-12 items-center text-small text-ink-muted underline underline-offset-4">{t.label}</ArticleSectionLink></li>)}
                       </ul>
                     </nav>
                   </details>
@@ -232,9 +233,9 @@ export default async function ArticlePage({
                     <ul className="mt-4 space-y-2.5 border-l border-black/[0.08] pl-4 text-sm">
                       {toc.map((t) => (
                         <li key={t.id}>
-                          <a href={`#${t.id}`} className="text-ink-muted transition-colors hover:text-ink">
+                          <ArticleSectionLink id={t.id} className="text-ink-muted transition-colors hover:text-ink">
                             {t.label}
-                          </a>
+                          </ArticleSectionLink>
                         </li>
                       ))}
                     </ul>
