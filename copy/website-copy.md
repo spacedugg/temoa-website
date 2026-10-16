@@ -302,8 +302,8 @@ Intro: Eyebrow „Was wir übernehmen", Headline „Fünf Bereiche, jeder in vol
 
 ## 1 · Header
 - Eyebrow: Individuelle Amazon-Strategie
-- Headline: Die Antworten liegen in eurem Konto.
-- Subline: Search Query Bericht, Ads-Performance, Verkäufe und Traffic. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte.
+- Headline: Amazon Strategie: Die Antworten liegen in eurem Konto.
+- Subline: Eure Amazon Strategie baut auf Search Query Bericht, Ads-Performance, Verkäufen und Traffic auf. Wir werten die Daten aus, die ihr längst bezahlt habt. Daraus entsteht die Reihenfolge der nächsten Schritte.
 - Argument dieser Seite: Amazon ist ein Datenspiel. Einwand, den nur diese Seite beantwortet: „Wir wissen doch, was in unserem Konto läuft."
 - CTA: Potenzialanalyse buchen
 - [Visual-Platzhalter, Bild rechts]
@@ -347,8 +347,8 @@ Karte 2 · Strategie & Fahrplan
 
 ## 1 · Header
 - Eyebrow: Content & Listings
-- Headline: Content, der aus Klicks Käufer macht.
-- Subline: Hauptbild, Listingbilder, Titel, Bullets und A+ Content, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.
+- Headline: Amazon Produktbilder, A+ Content und SEO, die aus Klicks Käufer machen.
+- Subline: Ein Amazon Listing zu optimieren heißt, Hauptbild, Listingbilder, Titel, Bullets und A+ Content auf die beiden Zahlen auszurichten, an denen Amazon euch misst: Klickrate und Conversion.
 - Argument dieser Seite: Das Listing ist der Verkäufer. Einwand: „Unser Content sieht doch gut aus."
 - CTA: Potenzialanalyse buchen
 - [Visual-Platzhalter, Bild rechts]
@@ -399,8 +399,8 @@ Karte 2 · So arbeiten wir
 
 ## 1 · Header
 - Eyebrow: Advertising / PPC
-- Headline: Skalieren, ohne die Marge zu verlieren.
-- Subline: Wir rechnen jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.
+- Headline: Amazon PPC skalieren, ohne die Marge zu verlieren.
+- Subline: Bei Amazon PPC rechnen wir jedes Produkt darauf durch, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.
 - Argument dieser Seite: Gesteuert wird auf den Gewinn je Produkt. Einwand: „Mehr Budget löst das."
 - CTA: Potenzialanalyse buchen
 - [Visual-Platzhalter, Bild rechts]
@@ -465,7 +465,7 @@ Rhythmus: Hero, Problem, Wie wir arbeiten (3 Prinzipien), Was wir übernehmen (K
 
 ## 1 · Header
 - Eyebrow: Account-Management
-- Headline: Ihr baut die Marke. Das Tagesgeschäft liegt bei uns.
+- Headline: Amazon Account Management: Ihr baut die Marke. Das Tagesgeschäft liegt bei uns.
 - Subline: Buy-Box, Bestand, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.
 - CTA: Potenzialanalyse buchen
 - [Visual-Platzhalter, Bild rechts]
@@ -510,7 +510,7 @@ Argument dieser Seite: Jeder Marktplatz ist ein eigener Markt und bekommt die ko
 
 ## 1 · Header
 - Eyebrow: Internationalisierung
-- Headline: Jeder Marktplatz ist ein eigener Markt.
+- Headline: Amazon Internationalisierung: Jedes Land sucht anders.
 - Subline: Was in Deutschland verkauft, verkauft in Italien nicht automatisch. Eigene Keyword-Recherche, eigener Content, eigene Kampagnen, für jedes Land neu.
 - CTA: Potenzialanalyse buchen
 

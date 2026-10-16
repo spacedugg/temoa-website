@@ -221,7 +221,7 @@ export const en: Woerterbuch = {
         titel: "Amazon Listing Optimization: Images, SEO, A+ Content · temoa",
         name: "Product Images & SEO",
         beschreibung:
-          "Main image, listing images, title, bullets and A+ content, built around the two numbers Amazon measures you by: click-through rate and conversion.",
+          "Amazon main image, listing images, title, A+ content and Brand Story, built around the two numbers Amazon measures you by: click-through rate and conversion.",
       },
       advertising: {
         titel: "Amazon PPC Advertising: Managing ACoS and TACoS · temoa",
@@ -283,7 +283,7 @@ export const en: Woerterbuch = {
       eyebrow: "Content",
       titelVor: "Every element of your ",
       titelEm: "product page.",
-      lead: "From the first image in the search results to the field only Amazon reads.",
+      lead: "Main image, listing images, A+ content, Brand Story and backend: from the first image in the search results to the field only Amazon reads.",
       backend: "Backend",
       kacheln: [
         {
@@ -292,19 +292,19 @@ export const en: Woerterbuch = {
           text: "Next to three other results you have one second. The main image decides whether you are clicked.",
         },
         {
-          kicker: "Listing",
+          kicker: "Listing images",
           titel: "Seven images that tell one story.",
           text: "Size, use, material, what is in the box. Whoever scrolls through has no question left.",
         },
         {
-          kicker: "A+ and Premium A+",
+          kicker: "A+ content and Premium A+ content",
           titel: "The part below the bullets.",
           text: "Wide modules, one under the other. This is where you answer what the order otherwise fails on.",
         },
         {
-          kicker: "Brand Story",
+          kicker: "Brand Story and Brand Store",
           titel: "One product becomes a brand.",
-          text: "The band above the detail page leads to your other products instead of to the next seller.",
+          text: "Brand Story and Brand Store lead to your other products instead of to the next seller.",
         },
         {
           kicker: "Title, bullets, backend",
@@ -354,9 +354,9 @@ export const en: Woerterbuch = {
     strategie: {
       hero: {
         eyebrow: "Amazon strategy, built for you",
-        titelVor: "The answers are already ",
+        titelVor: "Amazon strategy: The answers are already ",
         titelEm: "in your account.",
-        lead: "Search Query report, advertising performance, sales and traffic. We evaluate the data you have long since paid for. Out of that comes the order of the next steps.",
+        lead: "Your Amazon strategy builds on the Search Query report, advertising performance, sales and traffic. We evaluate the data you have long since paid for. Out of that comes the order of the next steps.",
         bildAlt: "The reports in the account turn into an order of steps",
       },
       problem: {
@@ -440,9 +440,9 @@ export const en: Woerterbuch = {
     content: {
       hero: {
         eyebrow: "Product Images & SEO",
-        titelVor: "Content that turns clicks ",
+        titelVor: "Amazon product images, A+ content and SEO that turn clicks ",
         titelEm: "into buyers.",
-        lead: "Main image, listing images, title, bullets and A+ content, built around the two numbers Amazon measures you by: click-through rate and conversion.",
+        lead: "Optimizing an Amazon listing means building main image, listing images, title, bullets and A+ content around the two numbers Amazon measures you by: click-through rate and conversion.",
         bildAlt: "A product page made of main image, text blocks and further images",
       },
       ansatz: {
@@ -484,9 +484,9 @@ export const en: Woerterbuch = {
     advertising: {
       hero: {
         eyebrow: "PPC Advertising",
-        titelVor: "Scaling without losing ",
+        titelVor: "Scaling Amazon PPC without losing ",
         titelEm: "the margin.",
-        lead: "We cost every product out on what is left after fees, FBA and cost of goods. More budget goes only to what turns a profit after that.",
+        lead: "In Amazon PPC we cost every product out on what is left after fees, FBA and cost of goods. More budget goes only to what turns a profit after that.",
         bildAlt: "Budget goes where a profit is left after costs",
       },
       problem: {
@@ -548,7 +548,7 @@ export const en: Woerterbuch = {
     account: {
       hero: {
         eyebrow: "Account Management",
-        titelVor: "You build the brand. The ",
+        titelVor: "Amazon account management: You build the brand. The ",
         titelEm: "day-to-day is on us.",
         lead: "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of our own, in Seller Central and Vendor Central. That gives you time for product and catalog.",
         bildAlt: "The day-to-day run from a console",
@@ -744,7 +744,7 @@ export const en: Woerterbuch = {
     compliance: {
       hero: {
         eyebrow: "Compliance & Account Health",
-        titelVor: "When Amazon asks for proof, ",
+        titelVor: "Amazon compliance: When proof is requested, ",
         titelEm: "we carry the case.",
         lead: "We monitor account health, listing status and messages from Amazon for brands and manufacturers in Seller Central and Vendor Central. We find the affected ASINs, coordinate the documents and carry the case through with Amazon.",
         bildAlt: "Account health, Buy Box and inventory side by side, a warning light on",
@@ -904,7 +904,7 @@ export const en: Woerterbuch = {
     international: {
       hero: {
         eyebrow: "International Expansion",
-        titelVor: "Every country searches ",
+        titelVor: "Amazon international expansion: Every country searches ",
         titelEm: "differently.",
         lead: "What sells in Germany does not automatically sell in Italy. Different search terms, different prices, different competition. Every country gets its own research, its own content and its own campaigns.",
         bildAlt: "Every marketplace with its own structure around a shared core",
