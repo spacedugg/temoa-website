@@ -52,8 +52,14 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 
 ## Offener Umfang
 
-Damit sind alle 80 aktiven deutschen Beiträge in diesem Redaktionslauf bearbeitet (14 neue und 66 ältere), in unterschiedlicher Tiefe. Die meisten englischen Fassungen sind **noch nicht ebenso ausführlich**. Mehrere eigenständige AGL-Fachthemen fehlen noch als eigene Seiten; außerdem benötigen einzelne ältere Artikel eine weitere redaktionelle Verdichtung statt bloß zusätzlicher Abschnitte.
+Damit sind alle 80 aktiven deutschen Beiträge in diesem Redaktionslauf bearbeitet (14 neue und 66 ältere), in unterschiedlicher Tiefe. Die meisten englischen Fassungen sind **noch nicht ebenso ausführlich**. Die bis dahin fehlenden eigenständigen Fachthemen sind in der Ergänzung unten umgesetzt; einzelne ältere Artikel benötigen weiterhin eine redaktionelle Verdichtung statt bloß zusätzlicher Abschnitte.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
 
 Die bisherige Quellen-Zuordnung für Beitrag 82 war falsch: Die vorhandene Seite ist ein allgemeiner Marketingstrategie-Überblick, der zugeordnete AGL-Text aber ein Vergleich von Amazon-Marketingagenturen. Beide Themen sind eigenständig; der Vergleich ist noch als eigener Beitrag zu bearbeiten. Auch doppelt zugeordnete AGL-Quellen und weitere nicht abgedeckte Fachthemen brauchen eine Einzelprüfung, bevor das Archiv als vollständig gelten kann.
+
+## Ergänzung: eigenständige Themen 97–101
+
+Fünf weitere eigenständige, für Marken relevante Themen sind als reguläre Artikel in den vorhandenen Kategorien ergänzt: PPC-Auktion (97), KI-Kaufagenten (98), Gebühren 2026 (99), ACoS senken (100), Marketingagenturen vergleichen (101). Zu jeder deutschen Seite gibt es eine englische Gegenfassung, ein individuell generiertes Marken-Cover, ein Diagramm im Fließtext, ein hervorgehobenes Beispiel, interne Verweise und einen Kontaktweg. Die passenden Themen-Einstiege im Footer und die Blog-Reihenfolge wurden aktualisiert. Die SEO-Prüfung meldet 85 aktive und 16 zurückgestellte Artikel je Sprache, 268 gebaute Seiten und 235 Sitemap-Adressen ohne Fehler.
+
+Im erfassten AGL-Korpus sind weitere, bisher nicht als eigene Seite umgesetzte Beiträge überwiegend thematische Doppelungen (Produkttitel, A+ Content, Alibaba, FBA vs. Dropshipping, Verkauf ohne Lager, Unternehmensbewertung, Agenturzusammenarbeit) oder für unsere Zielgruppe ungeeignet beziehungsweise historisch (Paketzustellung, Geschenkretoure, Print-Produkte, Paletten, Kindle Ads, Early Reviewer, Accelerate 2024). Diese Einordnung bedeutet nicht, dass die älteren deutschen und englischen Beiträge durchgehend die redaktionelle Tiefe des Vorbilds erreicht haben. Besonders die englischen Fassungen und einzelne frühe deutsche Beiträge brauchen noch eine gleichwertige Neufassung. Der Vergleich in Beitrag 101 ersetzt die sachlich falsche Quellenzuordnung bei Beitrag 82.

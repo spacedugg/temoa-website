@@ -382,5 +382,25 @@
   "amazon-awd-us-logistik": {
     "de": "Lagergebäude mit Förderband, Kartons und Uhr.",
     "en": "Warehouse with conveyor, boxes and a clock."
+  },
+  "amazon-ppc-auktion": {
+    "de": "Abstrakte Gebotskarten und orangefarbener Klickpunkt als Motiv der PPC-Auktion.",
+    "en": "Abstract bid cards and orange click marker illustrating the PPC auction."
+  },
+  "amazon-ki-kaufagenten": {
+    "de": "Produktkarte mit Datenfeldern und Assistenzsymbol als Motiv für KI-Kaufagenten.",
+    "en": "Product card with data fields and assistant symbol illustrating AI shopping agents."
+  },
+  "amazon-gebuehren-2026": {
+    "de": "Produktkarton, Gebührenkarten und Münzen für Amazon-Kosten 2026.",
+    "en": "Product box, fee cards and coins illustrating Amazon costs in 2026."
+  },
+  "amazon-acos-senken": {
+    "de": "Werbekarte, Zielmarke und fallende Kostenkurve als ACoS-Motiv.",
+    "en": "Ad card, target and declining cost line illustrating ACoS optimization."
+  },
+  "amazon-marketingagenturen-vergleich": {
+    "de": "Vergleichende Leistungskarten und Auswahlmarke als Agenturvergleich.",
+    "en": "Service comparison cards and choice marker illustrating agency selection."
   }
 }

@@ -353,11 +353,12 @@ const EDITORIAL_PRIORITY = [
   "amazon-keyword-recherche", "amazon-kanalstrategie-marken", "amazon-produktlaunch",
   "amazon-featured-offer-analyse", "amazon-account-health", "amazon-vine-kalkulation",
   "amazon-awd-us-logistik", "amazon-ki-sichtbarkeit",
+  "amazon-ki-kaufagenten", "amazon-gebuehren-2026", "amazon-acos-senken", "amazon-marketingagenturen-vergleich",
 ];
 
 // Foundational articles remain discoverable but follow operational decisions.
 const FOUNDATIONAL = new Set([
-  "acos-erklaert", "tacos-erklaert", "roas-berechnen", "bsr-erklaert",
+  "amazon-ppc-auktion", "acos-erklaert", "tacos-erklaert", "roas-berechnen", "bsr-erklaert",
   "lohnt-sich-fba", "lohnt-sich-verkauf-amazon", "retail-arbitrage",
   "verkaufen-ohne-lager", "fba-vs-dropshipping", "llc-firma-amazon",
   "storefront-einrichten", "alibaba-import",
