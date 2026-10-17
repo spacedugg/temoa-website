@@ -43,7 +43,7 @@ Verfolgt die Historie statt auf einen einzelnen Preiswechsel zu reagieren. Ein K
 
 Teilt Wettbewerber in drei praktische Gruppen: etablierte Marken mit breiter Sichtbarkeit, aggressive Preisangebote und spezialisierte Nischenprodukte. Betrachtet pro Gruppe, welche generischen, mittleren und spezifischen Suchanfragen sie besetzen. Eine Positionsänderung bei einem stark saisonalen Keyword kann schlicht Nachfrageverschiebung sein; ein Rückgang über viele kaufnahe Queries bei gleichzeitig schlechterer Lieferzusage spricht eher für eine operative Schwäche.
 
-Prüft für eine mögliche Keyword-Lücke vier Bedingungen: Die Anfrage beschreibt eure Ware präzise; Käufer suchen sie in relevanter Menge; ihr habt eine glaubwürdige Antwort auf den Bedarf; und die Wirtschaftlichkeit passt nach CPC, Conversion und Stückbeitrag. „Alle Wettbewerber ranken dort“ ist allein kein Investitionsgrund. Bei längeren Suchanfragen wie „edelstahl trinkflasche 750 ml für fahrradhalter“ kann schon der nachgewiesene Flaschendurchmesser die bessere Positionierung sein. Verbindet die Änderungen im [Listing](/blog/amazon-listing-optimieren) mit einer begrenzten [Exact-Kampagne](/blog/amazon-ppc-kampagnenstruktur), statt sofort breite Gebote zu erhöhen.
+Prüft für eine mögliche Keyword-Lücke vier Bedingungen: Die Anfrage beschreibt eure Ware präzise; Käufer suchen sie in relevanter Menge; ihr habt eine glaubwürdige Antwort auf den Bedarf; und die Wirtschaftlichkeit passt nach CPC, Conversion und Stückbeitrag. „Alle Wettbewerber ranken dort“ ist allein kein Investitionsgrund. Bei längeren Suchanfragen wie „edelstahl trinkflasche 750 ml für fahrradhalter“ kann schon der nachgewiesene Flaschendurchmesser die bessere Positionierung sein. Verbindet die Änderungen im [Listing](/leistungen/listing-seo) mit einer begrenzten [Exact-Kampagne](/blog/kampagnenstruktur-ppc), statt sofort breite Gebote zu erhöhen.
 
 ## Anzeigenmuster als Hypothesen lesen
 
@@ -61,7 +61,7 @@ Rezensionen zeigen vor allem, **welcher Kaufzweifel konkret gelöst werden muss*
 
 ## Aus Beobachtungen einen Entscheidungsprozess machen
 
-Führt je Produktgruppe einen Wochenüberblick über Verfügbarkeit, effektiven Preis, Coupons und auffällige Anzeigenwechsel. Alle zwei bis vier Wochen beurteilt ihr Suchanteile, Rankings, Rezensionsthemen und die Entwicklung eurer eigenen Marge. Die längere Sicht verhindert, dass ein einzelner Coupon eure gesamte [Kanalstrategie](/blog/amazon-kanalstrategie) verschiebt.
+Führt je Produktgruppe einen Wochenüberblick über Verfügbarkeit, effektiven Preis, Coupons und auffällige Anzeigenwechsel. Alle zwei bis vier Wochen beurteilt ihr Suchanteile, Rankings, Rezensionsthemen und die Entwicklung eurer eigenen Marge. Die längere Sicht verhindert, dass ein einzelner Coupon eure gesamte [Kanalstrategie](/blog/amazon-kanalstrategie-marken) verschiebt.
 
 Für jeden Befund dokumentiert ihr **Signal → mögliche Erklärung → Gegenprobe → Maßnahme → Messpunkt**. Beispiel: Ein Wettbewerber taucht bei drei spezifischen Queries seltener auf. Gegenprobe: Waren die Varianten lieferbar, und ist eure eigene Impression Share dort stabil? Maßnahme: Ein enger Test mit zusätzlichem Budget nur auf diese Queries. Messpunkt: zusätzlicher Deckungsbeitrag und Anteil organischer Käufe, nicht allein Anzeigenimpressionen.
 
