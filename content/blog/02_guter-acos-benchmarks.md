@@ -15,6 +15,8 @@ Kategorievergleiche vermischen häufig Marktplätze, Markenbekanntheit, Produktp
 
 ## Vom Deckungsbeitrag zum Zielwert
 
+![Ziel-ACoS aus SKU-Beitrag und Kampagnenaufgabe ableiten](/blog/figures/acos-zielwerte-sku.svg)
+
 Berechnet zunächst den Nettoerlös abzüglich aller variablen Kosten vor Werbung. Zieht dann den gewünschten Beitrag für Fixkosten und Ergebnis ab. Der Rest ist das zulässige Werbebudget je verkauftem Produkt. Teilt diesen Betrag durch den Umsatz je Einheit auf derselben Basis, die euer Anzeigenbericht verwendet.
 
 **Ziel-ACoS = erlaubte Werbekosten je Einheit ÷ Berichtserlös je Einheit × 100**
@@ -47,3 +49,7 @@ Bei mehreren im Report zugerechneten Produkten braucht ihr deren gewichtete Kost
 
 1. Trennt die Produkte in der Steuerung, statt dem gesamten Konto ein einheitliches Ziel zu geben.
 2. Prüft bei B zunächst Preis, Gebühren und Retouren; zusätzliche Ausgaben lösen eine negative Stückökonomie nicht.
+
+## Zielwerte mit Budgetrollen verbinden
+
+Eine SKU kann für Brand-Verteidigung, generische Suche und einen neuen Anwendungsfall drei unterschiedliche Testgrenzen haben. Die **wirtschaftliche Obergrenze** bleibt durch den Beitrag vorgegeben; ein bewusst höheres Testbudget benötigt eine eigene Freigabe, Laufzeit und Auswertung. Vergleicht Kampagnen daher nicht allein am Kontodurchschnitt. [Search Query Performance](/blog/search-query-performance) zeigt, wo Sichtbarkeit und Kaufanteil auseinandergehen; [Inkrementalität](/blog/amazon-werbung-inkrementalitaet) hilft bei größeren Wachstumsinvestitionen. Im [Gespräch](/gespraech-vereinbaren) können wir eine SKU-Marge und die zugehörigen Query-Gruppen zusammen prüfen.

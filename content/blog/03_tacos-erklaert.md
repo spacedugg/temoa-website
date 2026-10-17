@@ -17,6 +17,8 @@ TACoS setzt eure Werbeausgaben ins Verhältnis zum gesamten Amazon-Umsatz eines 
 
 ## Warum sinkender TACoS kein Wachstumsbeweis ist
 
+![TACoS-Trend gegen Umsatz, Beitrag und Bestand prüfen](/blog/figures/tacos-diagnose-beitrag.svg)
+
 Der Wert fällt, wenn der Umsatz schneller steigt als die Werbeausgaben oder wenn die Ausgaben stärker sinken als der Umsatz. Dafür kommen bessere organische Sichtbarkeit, Saison, Preiserhöhungen, ein veränderter Sortimentsmix oder schlicht eine Werbekürzung infrage. Der TACoS allein unterscheidet diese Ursachen nicht.
 
 Auch „Gesamtumsatz minus Anzeigenumsatz“ ist nicht automatisch sauberer organischer Umsatz. Bestell- und Klickdatum, Attributionsfenster, zugeordnete weitere Produkte und Erstattungen können zwischen Berichten abweichen. Verwendet solche Differenzen nur mit abgeglichener Datenbasis und kennzeichnet ihre Grenzen.
@@ -48,3 +50,7 @@ Ein Ziel-TACoS entsteht aus eurer gesamten Kostenstruktur. Universelle „gesund
 
 1. Zeigt TACoS und absoluten Beitrag nebeneinander.
 2. Klärt vor weiteren Kürzungen, ob Nachfrage, Preis, Bestand oder Werbereduktion den Umsatz verändert haben. Die Rechnung beweist keine einzelne Ursache.
+
+## Die Produktgruppe ist oft die bessere Ebene
+
+Ein fallender Konto-TACoS kann dadurch entstehen, dass ein großer Bestseller wächst, während neue Produkte teuer und erfolglos bleiben. Trennt Kernsortiment, Launches und Abverkauf. Vergleicht je Gruppe Beitrag, generische Query-Präsenz und Verfügbarkeit über denselben Zeitraum. Das schafft einen Arbeitsauftrag: [Kampagnenstruktur](/blog/kampagnenstruktur-ppc) verbessern, [Conversion](/blog/conversion-rate-optimierung) beheben oder Budget auf lieferfähige Produkte verschieben. Wenn ihr euren Monatsreport auf diese Entscheidungen ausrichten wollt, zeigen wir euch im [Gespräch](/gespraech-vereinbaren) die [Analytics-Perspektive](/leistungen/analytics-reporting).

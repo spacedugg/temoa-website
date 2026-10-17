@@ -30,6 +30,8 @@ Welche Kennzahl du bevorzugst, ist letztlich Gewohnheit. Wer aus dem klassischen
 
 ## Der häufigste Fehler: ROAS ohne Marge betrachten
 
+![ROAS mit Produktbeitrag und Break-even-Grenze vergleichen](/blog/figures/roas-beitrag-grenze.svg)
+
 ROAS verwendet Umsatz, nicht Gewinn. Für eine vereinfachte Break-even-Rechnung teilt ihr den im Werbebericht verwendeten Erlös pro Einheit durch den Deckungsbeitrag vor Werbung. Beide Beträge müssen dieselben Produkte und dieselbe Steuerbasis abbilden. Bei 30 € Berichtserlös und 7,50 € Beitrag vor Werbung ergibt sich ein Break-even-ROAS von 4. Dieser Punkt deckt noch keine zusätzlichen Fixkosten und beweist keine inkrementelle Wirkung.
 
 Prüft bei zugerechneten Verkäufen weiterer ASINs deren eigene Margen. Eine profitable beworbene ASIN kann sonst einen unprofitablen Mix verdecken.
@@ -63,6 +65,10 @@ Berechne zuerst deinen Break-even-ROAS pro Produkt – das ist deine Nulllinie. 
 1. Verknüpft die zugerechneten Produkte mit ihren tatsächlichen Kosten.
 2. Priorisiert den zusätzlichen Beitrag und kontrolliert, ob ein hoher Markenanteil den ROAS beschönigt.
 
+## Die nächste Budgetentscheidung
+
+Ein ROAS von 5 auf Markensuchen und 3 auf generischen Queries beantwortet noch nicht, wohin der nächste Euro gehört. Prüft bei beiden **marginalen Beitrag**, Bestand und mögliche Überschneidung mit organischen Käufen. Legt für einen Test Laufzeit, Budgetobergrenze und Vergleichsgruppe fest. [ACoS-Zielwerte](/blog/guter-acos-benchmarks) liefern die SKU-Grenze, [Werbe-Inkrementalität](/blog/amazon-werbung-inkrementalitaet) den Prüfrahmen für zusätzliche Wirkung. Wir können eure Kampagnen im [Gespräch](/gespraech-vereinbaren) mit der [PPC-Arbeit](/leistungen/ppc-advertising) an diesen Fragen ordnen.
+
 ## Fazit
 
-ROAS ist eine intuitive, starke Kennzahl – aber nur mit Marge und Kontext. Der Break-even-ROAS aus deiner Marge ist der Maßstab, an dem sich alles misst. Wer ROAS differenziert nach Kampagnentyp und Funnel-Stufe liest und die organische Wirkung nicht vergisst, steuert sein Werbebudget deutlich präziser als jemand, der nur einen pauschalen Zielwert verfolgt.
+ROAS zeigt zugerechneten Umsatz je Werbe-Euro. Die Entscheidung über Budget braucht zusätzlich den Beitrag der verkauften Produkte, die Aufgabe der Kampagne und einen Test der möglichen zusätzlichen Wirkung. Ein hoher ROAS ist allein kein Investitionssignal.

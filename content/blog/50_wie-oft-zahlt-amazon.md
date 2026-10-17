@@ -21,6 +21,8 @@ Ein Abrechnungszyklus kann regelmäßig laufen, während ein Teil der Erlöse no
 
 ## Eine Vorschau mit drei getrennten Spalten
 
+![DD+7 als Zeitachse von Zustellung über Freigabe bis Bankeingang](/blog/figures/amazon-dd7-liquiditaet.svg)
+
 Legt pro Woche erwartete Freigaben, voraussichtliche Auszahlungen und erwartete Bankeingänge an. Daneben stehen Lieferantenzahlungen, Fracht, Steuern, Werbung und laufende Kosten. So wird sichtbar, ob ein profitabler Monat trotzdem eine Zahlungslücke enthält.
 
 Nutzt dafür die tatsächlichen Bestell- und Lieferdaten sowie den Zahlungsbericht. Wer nur den Gesamtumsatz um zwei Wochen verschiebt, übersieht unterschiedliche Lieferzeiten und Reserven. Prüft außerdem, welche Werbekosten tatsächlich über das Guthaben laufen und welche separat abgebucht werden.
@@ -45,3 +47,15 @@ Die Verbindung zur Bestandsplanung erklärt [Inventar und Cashflow](/blog/invent
 
 1. Plant Freigabe, Auszahlungsanforderung und Bankverarbeitung als getrennte Schritte.
 2. Gleicht die Vorschau mit dem tatsächlichen Zahlungskonto ab. Zusätzliche Einbehalte, Gebühren und Erstattungen dürfen nicht als bereits verfügbare Liquidität behandelt werden.
+
+## Eine Nachbestellung gegen den engsten Kontostand testen
+
+Die entscheidende Zahl einer 13-Wochen-Vorschau ist nicht der Kassenbestand am Quartalsende, sondern der **niedrigste verfügbare Betrag dazwischen**. Legt Lieferantenanzahlungen, Fracht, Ads, Steuern und erwartete Bankeingänge wöchentlich übereinander. Verschiebt dann in einem zweiten Szenario Zustellungen und Freigaben um eine Woche; prüft, ob die Nachbestellung noch tragfähig ist.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Liquidität</p>
+<h3>Profitabel im Monat, knapp in Woche drei</h3>
+<p>Eine Marke erwartet im Monat 120.000 € Umsatz und 20.000 € Beitrag. Die nächste Charge erfordert jedoch 45.000 € Anzahlung vor dem frühesten größeren Bankeingang. Ein Monats-P&L zeigt keinen Engpass, die wöchentliche Zahlungszeitachse schon. Das Team verschiebt einen Teil der Werbeausweitung und stimmt die Bestellung mit real verfügbaren Mitteln ab.</p>
+</aside>
+
+Die [Bestands- und Cashflow-Planung](/blog/inventar-cashflow) verbindet Reichweite, Lead Time und Kapital. Für eine kritische SKU können wir im [Gespräch](/gespraech-vereinbaren) prüfen, welche Werbe- und Nachbestellentscheidung euer tatsächlicher Auszahlungskalender trägt.

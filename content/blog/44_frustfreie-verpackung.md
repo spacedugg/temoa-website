@@ -59,6 +59,20 @@ Ships in Product Packaging (SIPP) ist Amazons Programm für Versand in der Produ
 1. Testet Versandtauglichkeit und Dokumentation vor dem breiten Wechsel.
 2. Kalkuliert Material, Arbeit, Gebühren und Schäden zusammen. Amazon-Zertifizierung und gesetzliche Verpackungspflichten bleiben getrennte Prüfpunkte.
 
+## Ein Verpackungstest pro Produktfamilie
+
+Wählt eine SKU mit nennenswertem Versandvolumen und stellt die aktuelle Verpackung einer SIPP-fähigen Alternative gegenüber. Dokumentiert **Produktgewicht, Außenmaße, Materialeinsatz, Packzeit, Schadensquote, Retouren und tatsächlich abgerechnete Amazon-Gebühren**. Ein Muster ohne reale Transportbeanspruchung beweist noch keine Serientauglichkeit; prüft die relevanten Test- und Zertifizierungsanforderungen vor dem Rollout.
+
+![Amazon-Verpackung: Materialersparnis gegen Transport- und Retourenschäden](/blog/figures/verpackung-sipp-entscheidung.svg)
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Verpackungswechsel</p>
+<h3>Ein dünnerer Karton verschiebt Kosten statt sie zu senken</h3>
+<p>Bei 10.000 Einheiten spart ein neuer Karton 0,18 € Material und 0,07 € Packzeit pro Stück. Gleichzeitig erhöht sich die Schadensquote von 0,5 auf 2,5 %. Bei 18 € wirtschaftlichem Verlust pro beschädigter Einheit stehen 2.500 € Einsparung 3.600 € zusätzlichen Schäden gegenüber. Vor eventuellen Gebühreneffekten verschlechtert sich das Ergebnis um 1.100 €. Der Test wird über Konstruktion und Polsterung fortgesetzt, nicht mit einem Nachhaltigkeitsclaim abgeschlossen.</p>
+</aside>
+
+Trennt drei Freigaben: **technische Versandfähigkeit**, **Amazon-Programmteilnahme** und **gesetzliche Verpackungspflichten**. Eine bestandene Transportsimulation ersetzt weder die tatsächliche Gebührenprüfung noch die Hersteller- und Registrierungspflichten. [Retourenkosten](/blog/restocking-fee) und [FBA-Gebühren](/blog/fba-gebuehren-rechner) gehören in die gleiche SKU-Rechnung. Für eine Produktlinie können wir Verpackungs- und Bestandswirkung mit euch im [Gespräch](/gespraech-vereinbaren) durchgehen.
+
 ## Fazit
 
-Frustfreie Verpackung ist ein Programm, das Umweltnutzen und Geschäftsvorteile verbindet: weniger Material, potenziell niedrigere Kosten, eine bessere Kundenerfahrung und ein Nachhaltigkeitsargument für deine Marke. Der Preis dafür ist Entwicklungsaufwand und die Notwendigkeit, dass die Verpackung versandtauglich und zertifiziert ist. Für viele Produkte – besonders gut versendbare und nachhaltig positionierte – ist das eine lohnende Investition; bei fragiler Ware lohnt eine genaue Abwägung.
+Eine neue Verpackung ist erfolgreich, wenn Produkt, Transport, tatsächliche Gebühren und rechtliche Pflichten zusammenpassen. Testet Schäden und Gesamtkosten an einer repräsentativen SKU, bevor ihr die neue Ausführung auf das ganze Sortiment übertragt.

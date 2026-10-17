@@ -54,6 +54,27 @@ Expansion ist eine Frage des Timings. Der ideale Moment ist, wenn dein Amazon-Ge
 1. Definiert Sortiment, Einsatzgebiet, Verantwortliche und ein begrenztes Pilotbudget.
 2. Messt Beitrag nach lokalen Kosten und den zusätzlichen Betriebsaufwand. Übertragt US-Anforderungen nicht auf europäische Marktplätze oder umgekehrt.
 
+## Ein US-Pilot mit sechs klaren Prüfungen
+
+Walmart Marketplace ist nur dann ein sinnvoller zweiter Kanal, wenn Produkt, Markt und Team für den US-Betrieb bereit sind. Prüft **Zugangsvoraussetzungen, Produkterlaubnis, lokalisierte Daten und Kennzeichnung, Fulfillment, Retourenservice, Werbebudget und gemeinsame Bestandssteuerung**. Ein Amazon.de-Bestseller ist kein Beweis für Nachfrage oder Wirtschaftlichkeit in den USA.
+
+![Walmart-Marktplatz-Pilot: Zugang, Sortiment, Logistik und Beitrag](/blog/figures/walmart-kanalpilot.svg)
+
+| Pilotfrage | Nachweis vor Skalierung |
+| --- | --- |
+| Ist die SKU für den US-Markt zulässig und attraktiv? | Produkt- und Marktprüfung, Wettbewerb, Preis und lokale Anforderungen |
+| Wer erfüllt die Bestellung? | WFS- oder Eigenversandkosten, Service und Retourenprozess |
+| Wie wird Bestand verteilt? | Getrennte Reichweite und Nachschub je Kanal |
+| Kann der Kanal neue Nachfrage schaffen? | Tests mit lokalem Beitrag und Vergleich zur Amazon-Entwicklung |
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Kapitalkonflikt</p>
+<h3>Der zweite Kanal startet, der erste läuft leer</h3>
+<p>Eine Marke teilt 4.000 verfügbare Einheiten zwischen Amazon US und Walmart auf. Der Walmart-Test verkauft anfangs langsamer als geplant, während Amazon vor dem Nachschub ausverkauft. Trotz Umsatz im neuen Kanal fällt der Gesamtbeitrag. Der nächste Pilot bekommt daher eine klare Bestandsobergrenze und einen Reallocation-Termin, bevor die Ware verteilt wird.</p>
+</aside>
+
+Für Marken ohne US-Infrastruktur kann ein zweiter europäischer Kanal geeigneter sein. Die Auswahl hängt von Produktkategorie, Kosten und Zielkunden ab, nicht von einer generellen Rangfolge der Marktplätze. Die [Kanalstrategie](/blog/amazon-kanalstrategie-marken) und [Importkosten](/blog/tarif-zoll-strategie) liefern die wirtschaftliche Grundlage. Wenn ihr Amazon und weitere Kanäle zusammen planen wollt, besprecht die [Strategie](/leistungen/strategie) mit uns im [Gespräch](/gespraech-vereinbaren).
+
 ## Fazit
 
-Walmart Marketplace ist für etablierte Amazon-Verkäufer ein naheliegender und oft lohnender zweiter Kanal: weniger Wettbewerb, neue Kunden und vor allem geringere Plattformabhängigkeit. Die Herausforderungen – preisbewusste Kundschaft, Multichannel-Bestandsmanagement, Preisparität und operativer Mehraufwand – sind beherrschbar, verlangen aber Vorbereitung. Wer auf Amazon stabil aufgestellt ist und mit ausgewählten Produkten startet, kann mit Walmart sein Risiko streuen und neue Wachstumsquellen erschließen.
+Ein zweiter Marktplatz lohnt sich nur, wenn sein eigener Beitrag und die Wirkung auf Bestand und Kapital im gesamten Geschäft tragfähig sind. Testet wenige geeignete SKUs mit lokalem Betriebsplan, bevor ihr das Sortiment ausrollt.

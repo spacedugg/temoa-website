@@ -45,12 +45,14 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - Marketingstrategie (82) vollständig als SKU-Engpass- und Quartalsentscheidungsmodell neu geschrieben. Die zuvor falsche AGL-Quellenzuordnung bleibt zu bereinigen.
 - Private Label (20) mit Produktanforderung, Chargenprüfung und Launch-Gate vertieft.
 - Produkttitel (06), Badges (29), Message Center (37), Rezensions-Triage (39) und Review-Aufbau (40) mit konkreten Varianten-, Service- und Qualitätsfällen und Bildern ergänzt.
+- Verpackung (44), Retourenkosten (45), Renewed (47), Low-Price FBA (49), Auszahlungen (50) und zweiter Marktplatz (66) mit SKU-Fällen, Entscheidungsbildern und Kontaktwegen vertieft.
+- Grundlagen und Entscheidungseinstiege (01–04, 17, 51, 52) um Wirtschaftlichkeitsgrenzen, konkrete Folgefragen, Bildstrecken und CTAs ergänzt. FBA-Artikel 51 auf bestehende Marken ausgerichtet.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Damit sind 67 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 53 ältere). Insgesamt bleiben 13 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Damit sind alle 80 aktiven deutschen Beiträge in diesem Redaktionslauf bearbeitet (14 neue und 66 ältere), in unterschiedlicher Tiefe. Die meisten englischen Fassungen sind **noch nicht ebenso ausführlich**. Mehrere eigenständige AGL-Fachthemen fehlen noch als eigene Seiten; außerdem benötigen einzelne ältere Artikel eine weitere redaktionelle Verdichtung statt bloß zusätzlicher Abschnitte.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
 

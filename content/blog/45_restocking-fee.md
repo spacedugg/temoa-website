@@ -25,6 +25,8 @@ Bei FBA prüft ihr Amazons Einstufung und die im konkreten Fall verfügbaren Ers
 
 ## Die wirtschaftliche Frage ist größer als der einzelne Abzug
 
+![Amazon-Retouren: Rechtsgrund, Warenzustand und SKU-Kosten trennen](/blog/figures/retourenkosten-entscheidungsweg.svg)
+
 Marken gewinnen häufig mehr, wenn sie Rückgabeursachen verringern: unklare Maße, irreführende Bilder, fehlende Kompatibilitätsangaben oder instabile Verpackungen. Verknüpft Rückgabegründe deshalb mit Child-ASIN und Produktionscharge. Erst diese Aufteilung zeigt, ob ein Contentproblem oder ein Qualitätsproblem vorliegt.
 
 Plant erwartete Retourenkosten als Kosten je ausgelieferter Einheit. Eine pauschale Retourenquote allein unterschätzt den Unterschied zwischen wieder verkäuflicher Ware und Totalverlust. Der Beitrag zu [FBA-Profitabilität](/blog/fba-gebuehren-rechner) zeigt, wo dieser Posten in die Kalkulation gehört.
@@ -45,3 +47,9 @@ Plant erwartete Retourenkosten als Kosten je ausgelieferter Einheit. Eine pausch
 
 1. Trennt wieder verkäufliche Rückläufer, Aufbereitung und vollständigen Warenverlust.
 2. Verknüpft Kosten und Rückgabegrund mit der Child-ASIN. So erkennt ihr, ob eine bessere Größeninformation oder eine Produktkorrektur den größeren Hebel hat.
+
+## Eine Retourenmatrix für das Sortiment
+
+Führt je Child-ASIN drei wirtschaftliche Ausgänge: **wieder verkäuflich**, **nach Aufbereitung verkäuflich** und **nicht verkäuflich**. Der Durchschnittsverlust je Rückgabe ergibt sich aus den tatsächlichen Anteilen und Kosten. Prüft die Verteilung getrennt nach Rückgabegrund und Charge. Eine plötzliche Verschiebung bei einer Variante kann ein Produktproblem anzeigen, auch wenn die gesamte Katalogquote stabil bleibt.
+
+Wenn dieselbe Käuferfrage mehrfach zu Rückgaben führt, verknüpft [Kundenfragen im Listing](/blog/kundenfragen-seo) mit einer Produkt- und Contentkorrektur. Für die wirtschaftliche Steuerung können wir im [Gespräch](/gespraech-vereinbaren) Retourengründe, [FBA-Gebühren](/blog/fba-gebuehren-rechner) und SKU-Beitrag zusammenführen. Die rechtliche Einzelfallprüfung bleibt beim dafür zuständigen Team.

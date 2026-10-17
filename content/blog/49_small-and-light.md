@@ -17,6 +17,8 @@ Die günstigeren Tarife werden bei geeigneten Artikeln automatisch angewendet. P
 
 ## Preisgrenzen brauchen eine vollständige Rechnung
 
+![Low-Price FBA: Preisgrenze, Gebührenklasse und SKU-Beitrag](/blog/figures/low-price-fba-preisentscheidung.svg)
+
 Eine Preissenkung kann eine günstigere Versandgebühr auslösen und gleichzeitig mehr Nettoerlös kosten, als sie spart. Ein Modell muss beide Effekte abbilden. Vergleicht deshalb Nettoerlös, Verkaufsgebühr, konkrete Versandgebühr, Werbekosten und erwartete Retouren bei jedem geplanten Preis.
 
 Ein Rabatt kann außerdem die spätere Aktionsplanung beeinflussen. Dokumentiert Preisänderungen und prüft die jeweiligen Anforderungen an Referenzpreise und Aktionen. Eine Gebührenschwelle allein ist kein guter Grund für häufige Preissprünge.
@@ -46,3 +48,9 @@ Wenn die Rechnung nur bei stark höherem Absatz aufgeht, behandelt die Preissenk
 
 1. Vergleicht den vollständigen Beitrag bei beiden Preisen mit aktuellen Tarifdaten.
 2. Berechnet den nötigen Mehrabsatz und testet begrenzt. Prüft auch Kategorieausnahmen und Maße; eine Preisgrenze allein belegt keine Low-Price-Berechtigung.
+
+## Den Break-even der Preissenkung berechnen
+
+Wenn der Beitrag vor der Änderung 3,00 € je Einheit beträgt und danach 2,55 €, braucht die SKU für denselben Gesamtbeitrag **rund 17,6 % mehr Einheiten** (3,00 ÷ 2,55 − 1). Das ist nur der rechnerische Schwellenwert; zusätzliche Werbekosten, Retouren oder ein anderer Mix können ihn verändern. Prüft deshalb zunächst einen begrenzten Preiszeitraum, die tatsächliche Gebührenklasse und den gesamten Produktbeitrag.
+
+Auch Verpackungsänderungen können Gewicht und Abmessungen beeinflussen, ohne den Listenpreis zu senken. Vergleicht dafür Produktqualität, [Verpackung und Schäden](/blog/frustfreie-verpackung) und den aktuellen Gebührenrechner. Wenn ihr mehrere günstige SKUs habt, kann unsere [FBA- und Bestandsarbeit](/leistungen/fba-inventory-management) die Tarifdaten mit Preis- und Bestandsentscheidung verbinden. Bringt eine betroffene ASIN ins [Gespräch](/gespraech-vereinbaren).

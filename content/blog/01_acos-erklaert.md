@@ -23,6 +23,8 @@ ROAS teilt den zugerechneten Umsatz durch die Werbeausgaben. Bei gleicher Datenb
 
 ## Break-even mit sauberer Umsatzbasis
 
+![ACoS mit Deckungsbeitrag und Zielpuffer auf derselben Umsatzbasis berechnen](/blog/figures/acos-beitrag-ziel.svg)
+
 Der Deckungsbeitrag vor Werbung ist euer maximaler Spielraum für die Werbung dieser Einheit. Berechnet ihn aus Nettoerlös abzüglich Wareneinsatz, Verkaufs- und Fulfillmentgebühren, Verpackung, variablen Lagerkosten und erwarteten Retourenkosten. Fixkosten und angestrebter Gewinn brauchen zusätzlich einen Puffer.
 
 Der entscheidende Punkt: Der Nenner muss zur Umsatzdefinition im Anzeigenbericht passen. Eine auf Nettoumsatz berechnete Marge lässt sich nicht unverändert mit einem auf Bruttoumsatz basierenden ACoS vergleichen. Prüft die Definition eures konkreten Exports, statt die Steuerbasis zu unterstellen.
@@ -51,3 +53,7 @@ Für die Budgetsteuerung ist anschließend der [eigene Ziel-ACoS](/blog/guter-ac
 
 1. Erfasst Erlösbasis und Kosten je SKU ausdrücklich in der Zielwerttabelle.
 2. Vergleicht anschließend den absoluten Deckungsbeitrag nach Werbung, nicht nur die Prozentzahl.
+
+## Eine sinnvolle nächste Frage
+
+Wenn der ACoS unter eurem Ziel liegt, prüft **zusätzliches** Budget nach Query und SKU: Steigt der absolute Beitrag oder kauft ihr vor allem bestehende Markennachfrage erneut ein? Bei einem ACoS über Ziel trennt zuerst CPC, Conversion und Berichtsbasis, bevor ihr alle Gebote kürzt. Der Beitrag [CPC und Conversion analysieren](/blog/amazon-cpc-conversion-analyse) zeigt den Diagnoseweg. Für eine konkrete Produktgruppe können wir die [PPC-Arbeit](/leistungen/ppc-advertising) mit euch im [Gespräch](/gespraech-vereinbaren) an der realen Marge ausrichten.
