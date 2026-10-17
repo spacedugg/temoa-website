@@ -20,10 +20,12 @@ export function CollectionData({ sprache, path, title, description, posts }: {
     },
     {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Blog", item: `${SEITE.url}${pfad(sprache, "/blog")}` },
-        { "@type": "ListItem", position: 2, name: title, item: url },
-      ],
+      itemListElement: path === "/blog"
+        ? [{ "@type": "ListItem", position: 1, name: title, item: url }]
+        : [
+            { "@type": "ListItem", position: 1, name: "Blog", item: `${SEITE.url}${pfad(sprache, "/blog")}` },
+            { "@type": "ListItem", position: 2, name: title, item: url },
+          ],
     },
   ];
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;

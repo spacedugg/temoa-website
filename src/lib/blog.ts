@@ -369,6 +369,11 @@ function editorialPriority(post: PostMeta) {
   return featured >= 0 ? featured : editorial >= 0 ? 10 + editorial : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
 }
 
+/** The overview starts with strategic decisions, then shows every other active article. */
+export function getEditorialPosts(sprache: Sprache): PostMeta[] {
+  return getAllPosts(sprache).sort((a, b) => editorialPriority(a) - editorialPriority(b));
+}
+
 export function getFeaturedPosts(sprache: Sprache, limit = 6): PostMeta[] {
   const all = getAllPosts(sprache);
   const picked = FEATURED.map((s) => all.find((p) => p.slug === s)).filter(Boolean) as PostMeta[];

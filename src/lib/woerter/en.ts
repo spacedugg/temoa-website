@@ -1459,8 +1459,7 @@ export const en: Woerterbuch = {
     lesen: "Read",
     cta: "Would you rather talk about your account directly?",
     beitragCta: "Read enough? Time for results.",
-    teilweise:
-      "We are translating the articles one batch at a time. The full library is available in German.",
+    teilweise: "",
   },
 
 };

@@ -125,6 +125,13 @@ for locale in ['de', 'en']:
     main = html.split('<main', 1)[1].split('</main>', 1)[0]
     check(main.index('/blog/search-query-performance') < main.index('/blog/grundlagen'), f'{locale}: basics precede advanced recommendations')
     check(main.index('/blog/business-reports') < main.index('/blog/grundlagen'), f'{locale}: retail analytics not featured')
+    prefix = '/en' if locale == 'en' else ''
+    for slug in active:
+        check(f'href="{prefix}/blog/{slug}"' in main, f'{locale}: missing overview card for {slug}')
+    check('aria-pressed="true"' in main and ('Alle' if locale == 'de' else 'All') in main, f'{locale}: missing default all filter')
+    check('We are translating the articles' not in main, f'{locale}: stale translation notice')
+
+check({p.stem.split('_', 1)[1] for p in (ROOT / 'content/blog/en').glob('[0-9]*_*.md')} == set(slugs), 'German and English article slugs differ')
 
 
 sitemap = ET.fromstring((BUILD / 'sitemap.xml.body').read_text())
