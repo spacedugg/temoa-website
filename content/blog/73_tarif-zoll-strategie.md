@@ -48,3 +48,31 @@ Bei Material- oder Lieferantenwechseln gehören Produktsicherheit, Kennzeichnung
 
 1. Dokumentiert Produktspezifikation, Einreihung, Ursprung und Lieferbedingungen.
 2. Lasst unklare Fälle fachlich prüfen und rechnet Beschaffungsalternativen vollständig. Ein günstigerer Zollsatz allein gleicht Qualitäts-, Fracht- oder Kapitalnachteile nicht zwingend aus.
+
+## Preis, Aktion und Werbung als getrennte Stellhebel
+
+Wenn die Landed Cost steigt, erhöht eine Marke oft reflexartig den Listenpreis. Auf Amazon kann das die Conversion, die Featured Offer und damit die Werbewirkung verändern. Prüft zuerst pro ASIN, ob die Kostensteigerung zeitlich begrenzt oder strukturell ist. Danach vergleicht **Listenpreis, Coupon-Tiefe, Werbebudget, Bundle-Mix und Nachbestellmenge**. Ein Coupon-Abbau kann den effektiven Verkaufspreis verändern, ohne den Listenpreis zu wechseln; auch das muss gegen Absatz und Beitrag getestet werden.
+
+| Stellhebel | Kurzfristige Wirkung | Was ihr beobachtet |
+| --- | --- | --- |
+| Unprofitable Suchbegriffe begrenzen | Weniger Werbeverlust | Gesamter Deckungsbeitrag, nicht nur Kampagnen-ACoS |
+| Promotion anpassen | Effektiver Preis steigt | Kaufquote, Einheiten, Wiederkaufrate |
+| Listenpreis testen | Stückbeitrag kann steigen | Conversion, Featured Offer, organische Nachfrage |
+| Lieferquelle ändern | Landed Cost kann sinken | Qualität, Mindestmenge, Lieferzeit, Compliance |
+| Bestand vorziehen | Mögliche Kostensicherung | Lagerkosten, Kapitalbindung, Ausverkaufsrisiko |
+
+![Amazon-Importkosten: Landed Cost, Preis und Werbeentscheidung](/blog/figures/importkosten-hebel.svg)
+
+<aside class="article-example">
+<p class="example-label">Modellrechnung · netto und vereinfacht</p>
+<h3>Welche Preisreaktion schützt den Beitrag?</h3>
+<p>Eine SKU verkauft für 40 €, variable Vertriebs- und Retourenkosten betragen 12 €, Landed Cost zunächst 15 € und Ads 6 € je Bestellung: 7 € Beitrag. Steigt Landed Cost auf 18 €, sinkt der Beitrag bei sonst gleichen Werten auf 4 €. Ein Preis von 43 € stellt den Stückbeitrag nur dann wieder her, wenn die Nachfrage und übrigen Stückkosten stabil bleiben. Fällt die Conversion und steigt dadurch der Werbekostensatz, kann der Gesamtbeitrag trotzdem sinken. Vergleicht daher Stückbeitrag <em>und</em> Beitrag der gesamten SKU über eine geeignete Periode.</p>
+</aside>
+
+Für Tests braucht ihr einen klaren Vergleichszeitraum ohne gleichzeitigen großen Content-Umbau. Eine generelle Regel wie „immer 3 % erhöhen“ ignoriert Preiselastizität und Marktdruck. [Dynamische Preissteuerung](/blog/dynamic-pricing) erklärt den kontrollierten Test; [negative Keywords](/blog/negative-keywords) und [TACoS](/blog/tacos-erklaert) helfen, unnötige Werbekosten von tatsächlich wertvoller Nachfrage zu trennen.
+
+## Bestandsszenario für die Top-SKUs
+
+Wählt die SKUs, bei denen eine Verzögerung wirklich Umsatz oder organische Nachfrage gefährdet. Rechnet je Produkt einen **Basisfall, Kostenanstieg und Lieferverzug** mit Wochenreichweite, Kapitalbedarf und Beitrag. Für langsam drehende Produkte kann weniger Bestand sinnvoller sein als ein teurer Sicherheitspuffer. Die FBA- und Lagerkosten aus [FBA-Gebühren](/blog/fba-gebuehren-rechner) gehören in dieselbe Rechnung.
+
+Wir verbinden im [Account-Management](/leistungen/account-management) SKU-Kalkulation, Werbegrenzen und Nachbestellplanung. Wenn sich eure Importkosten ändern, bringt eine betroffene ASIN und ihre Kostenstruktur ins [Gespräch](/gespraech-vereinbaren); daraus lässt sich die Reihenfolge der Preis-, Werbe- und Bestandsentscheidungen ableiten.

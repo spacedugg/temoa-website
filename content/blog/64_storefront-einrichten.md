@@ -56,9 +56,37 @@ Amazon bietet Store-Insights mit Besucherzahlen, Verweildauer, Verkäufen pro Se
 1. Erstellt zuerst eine Seitenmatrix mit Zielgruppe, Sortiment und nächstem Klick.
 2. Testet jede Unterseite mobil und kontrolliert Produktverfügbarkeit. Leere oder unpassende Zielseiten sollten nicht mit zusätzlichem Werbebudget versorgt werden.
 
+## Ein Store-Briefing nach Kaufabsicht statt interner Abteilung
+
+Für jeden Einstieg definiert ihr Suchsituation, Entscheidungshilfe, passende Produkte und die Zielseite der Anzeige. Beispiel Kaffeemarke: „milde Bohnen für Vollautomat“ verlangt eine andere Einstiegsseite als „Espresso für Siebträger“. Die interne Kategorie „Rösterei-Linie 2026“ hilft Käufern erst, wenn sie die Produkte bereits kennen. Eine Startseite soll deshalb die Wege sichtbar machen; eine Kategorie-Unterseite beantwortet den konkreten Kaufanlass.
+
+| Besuchsquelle | Zielseite | Entscheidungshilfe | Messfrage |
+| --- | --- | --- | --- |
+| Sponsored Brands zu „Espresso Bohnen“ | Espresso-Sortiment | Röstgrad, Format, Geschmacksprofil | Finden Besucher ein kaufbares Produkt? |
+| Markenname auf Detailseite | Store-Start | Kategorien und Ergänzungen | Wechseln Käufer zu weiteren Produkten? |
+| Newsletter mit Aktion | Angebotsseite | gültige Aktion und Bestand | Passt die Zielseite zur angekündigten Auswahl? |
+
+![Amazon-Store: Traffic-Quelle, passende Zielseite und Kaufentscheidung](/blog/figures/storefront-kaufweg.svg)
+
+Der Aufbau ähnelt einer guten [Brand-Store-Funnel-Strategie](/blog/brand-store-funnel), der operative Unterschied liegt hier im **Seitenbriefing und Test**: Welche Kachel beantwortet welche Frage? Welches Produkt ist mobil nach einem Scroll sichtbar? Führt ein Klick zum richtigen Detailangebot mit Bestand und passendem Preis? Erst wenn diese Fragen beantwortet sind, lohnt sich mehr Traffic.
+
+## Messung: Nicht jede Seite mit jeder vergleichen
+
+Die offiziellen [Stores Insights](https://advertising.amazon.com/help/GUX5NVX5UWXYDZM7) zeigen Store- und Seitenleistung sowie Quellen. Für einige Konten stehen zusätzliche **Bereichs-Insights als Beta** bereit. Vergleicht deshalb Seiten nach ihrer Aufgabe und den Besuchsquellen: Eine Markenübersicht hat eine andere Rolle als eine Aktionsseite. Eine hohe Klickrate auf den Hero hilft wenig, wenn die nachfolgende Produktseite nicht verfügbar ist.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Store-Diagnose</p>
+<h3>Die Unterseite hat Besucher, aber kaum Produktklicks</h3>
+<p>Die Espresso-Seite erhält Sponsored-Brands-Traffic. Das Hero-Bild wirkt hochwertig, die ersten kaufbaren Produkte stehen mobil erst unter einem langen Video. Das Team setzt ein Produktmodul und die relevante Formatwahl höher, belässt Anzeigen und Produktmix möglichst stabil und vergleicht die Interaktion bei ähnlicher Traffic-Quelle. Ein Anstieg der Store-Verkäufe wäre anschließend separat gegen Kampagnen- und Produktdaten zu prüfen.</p>
+</aside>
+
+Nutzt nach Möglichkeit **Source Tags** für externe Links und prüft [Amazon Attribution](/blog/amazon-attribution), wenn ihr Off-Amazon-Kanäle bewertet. Bei Store-Änderungen dokumentiert Datum, geänderte Module, Zielseite und Kampagne. Ein Seitenvergleich ohne diese Angaben verwechselt Layoutwirkung mit verändertem Traffic.
+
+Für ein Sortiment mit mehreren Kaufwegen können wir [Brand Store und Content](/leistungen/listing-seo) gemeinsam mit der [Anzeigenarchitektur](/leistungen/ppc-advertising) planen. Bringt eine Store-Unterseite und die zugehörige Traffic-Quelle ins [Gespräch](/gespraech-vereinbaren); daraus lässt sich eine konkrete Optimierungsfrage formulieren.
+
 ## Fazit
 
-Ein Amazon Storefront gibt deiner Marke ein Zuhause auf der Plattform – kostenlos für markenregistrierte Verkäufer und ohne Programmierkenntnisse aufbaubar. Der Schlüssel zu einem erfolgreichen Store ist, ihn als Funnel statt als Schaufenster zu denken, mobil-optimiert zu gestalten, gezielt mit Traffic zu versorgen und über die Insights laufend zu verbessern. Wer diese Punkte beachtet, schafft mehr als eine schöne Seite: einen echten Verkaufsraum für seine Marke.
+Ein Store funktioniert, wenn Kampagne, Einstiegsseite, Entscheidungsinhalt und Produktangebot zusammenpassen. Messt jede Seite an ihrer Aufgabe und verbessert zuerst die Wege mit relevantem Traffic und schwacher Produktinteraktion.
 
 
 ## Programm und Voraussetzungen
