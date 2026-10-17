@@ -1024,3 +1024,20 @@ footer :where(a, button):focus-visible,
 .article-body th { background: #eff6fa; color: #023047; font-weight: 700; }
 .article-body tr:last-child td { border-bottom: 0; }
 .article-body .article-table:focus-visible { outline: 3px solid #e58700; outline-offset: 3px; }
+
+/* Bespoke editorial diagrams sit in the reading flow and retain readable labels on phones. */
+.article-body p > img[src^="/blog/figures/"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 1.6rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgb(2 48 71 / .12);
+}
+@media (max-width: 640px) {
+  .article-body p:has(> img[src^="/blog/figures/"]) {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+  .article-body p > img[src^="/blog/figures/"] { min-width: 620px; }
+}

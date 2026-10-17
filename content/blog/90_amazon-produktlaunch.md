@@ -1,69 +1,47 @@
 ---
-title: "Amazon Produktlaunch: Neue ASINs mit klaren Entscheidungspunkten starten"
-meta_description: "Produktlaunch für etablierte Amazon-Marken: Nachfrage, Content, Bestand und Testbudget verbinden. Mit 60-Tage-Arbeitsplan und Abbruchkriterien."
-keywords: ["Amazon Produktlaunch", "Amazon Wachstum", "Amazon Marken"]
+title: "Amazon-Produktlaunch: Wann eine neue ASIN mehr Budget verdient"
+meta_description: "Neue Amazon-ASINs mit Produktdaten, Lagerreichweite, Suchbegriffen und Werbedaten steuern. Ein 60-Tage-Arbeitsplan mit Freigaben und Abbruchpunkten."
+keywords: ["Amazon Produktlaunch", "neue ASIN launchen", "Amazon Launch Strategie", "Amazon PPC Launch"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---
 
-# Amazon Produktlaunch: Neue ASINs mit klaren Entscheidungspunkten starten
+# Amazon-Produktlaunch: Wann eine neue ASIN mehr Budget verdient
 
-Ein Amazon Produktlaunch erweitert das Geschäft einer etablierten Marke nur dann sinnvoll, wenn Nachfrage, Wirtschaftlichkeit und operative Umsetzung zusammenpassen. Die ersten Wochen sollten deshalb mehrere klar definierte Fragen beantworten: Wird das Produkt gefunden? Entsteht passende Nachfrage? Funktioniert das Angebot? Und bleibt nach den variablen Kosten genug Beitrag?
+Bei einem Launch ist die wichtigste Frage nicht, wie viel Umsatz die neue ASIN in Woche eins macht. Sie lautet: **Welche Annahme muss stimmen, damit wir Bestand und Werbebudget für genau dieses Produkt vergrößern?** Ohne diese Entscheidung verlängert das Team eine teure Testphase, weil einzelne Kennzahlen gut aussehen.
 
-Ein 60-Tage-Plan ist dafür ein Organisationsrahmen. Er ist keine von Amazon zugesicherte Rankingphase und kein Versprechen, dass jede neue ASIN innerhalb dieser Zeit profitabel wird. Produktkategorie, Kaufzyklus, Lieferzeit und Datenmenge können einen längeren Prüfzeitraum erfordern.
+Der folgende 60-Tage-Rahmen ist ein interner Arbeitsplan, kein von Amazon garantiertes Rankingfenster. Für langsam drehende Produkte können 60 Tage zu wenig Daten liefern; bei einem Angebots- oder Complianceproblem müsst ihr früher reagieren.
 
-## Vor dem Start: Die Hypothese schriftlich machen
+## Vor dem ersten Werbeeuro: vier Freigaben
 
-Beschreibt, welches zusätzliche Bedürfnis das neue Produkt im Sortiment erfüllt. Unterscheidet echte Sortimentserweiterung von einer Variante, die überwiegend bestehende Verkäufe verschiebt. Die erwartete Nachfrage sollte auf Suchintentionen, Kundenfeedback oder anderen nachvollziehbaren Signalen beruhen.
+**Produkt:** Sind Modell, Lieferumfang, Eigenschaften und Konformitätsunterlagen final? **Seite:** Stimmen Titel, Varianten, Hauptbild, Attribute und sichtbare Maße? **Bestand:** Wie viele Einheiten sind wirklich verkaufsfähig und wann folgt Nachschub? **Wirtschaftlichkeit:** Was bleibt je Bestellung nach variablen Kosten, Retourenerwartung und relevantem Werbeaufwand?
 
-Legt außerdem eine vorläufige Stückkalkulation an. Berücksichtigt Einkauf, Transport, Verpackung, Verkaufs- und Versandgebühren, Retourenerwartung sowie Werbung. Ein Launchbudget ohne Kostenbasis kann zwar Verkäufe erzeugen, aber keinen belastbaren Entscheidungspunkt liefern.
+Nehmt als Beispiel die fiktive Nordquell Edelstahlflasche mit 750 ml. Für die SKU sind 7,5 cm Durchmesser und Schraubverschluss bestätigt. Die Frage „passt in Fahrradhalter mit 7 cm Öffnung?“ ist damit eindeutig mit Nein zu beantworten. Ein Launch darf daraus keine Kompatibilitätsbehauptung für mehr Reichweite machen.
 
-## Vier Freigaben vor dem ersten Werbe-Euro
+## Tage 1–14: technische und kaufbezogene Probleme finden
 
-**Produkt und Nachweise:** Das tatsächlich gelieferte Produkt entspricht den Angaben. Erforderliche Unterlagen, Warnhinweise und Kennzeichnungen sind geprüft. Eine fehlende Freigabe wird nicht durch einen geplanten Kampagnenstart weniger relevant.
+Prüft jeden Tag Angebotsstatus, kaufbare Variante, Lieferdatum, FBA-Eingang und die Darstellung auf der Detailseite. Haltet die ersten Werbesuchbegriffe und die Fragen von Käufern fest. Eine Anzeige für „Flasche mit Strohhalm“ ist bei dieser SKU falsch, unabhängig von Klickrate und Marktvolumen.
 
-**Content und Kaufbarkeit:** Titel, Attribute, Varianten und Bilder beantworten die wichtigsten Kauf- und Eignungsfragen. Prüft die veröffentlichte Detailseite, nicht nur die Eingabemaske. Preis, Lieferumfang und Lieferzusage müssen zusammenpassen.
+Das Ziel dieser Phase ist ein sauberes Messfenster, kein großflächiger Gebotsschub. Wenn die Ware unregelmäßig verfügbar ist, wird ein Conversiontest unlesbar. Ein [Vine-Einsatz](/blog/amazon-vine-kalkulation) kommt nur bei passender Berechtigung und belastbarer Produktqualität infrage; Zeitpunkt und Ton der Rezensionen sind nicht planbar.
 
-**Bestand und Nachschub:** Der verfügbare Bestand trägt ein realistisches Testszenario. Nachbestelltermin, Lieferzeit und Kapitalbedarf sind benannt. Eine erfolgreiche Werbewoche darf nicht sofort einen vermeidbaren Ausverkauf auslösen.
+## Tage 15–30: Suchanfragen nach Produktpassung trennen
 
-**Messung und Verantwortlichkeit:** Das Team weiß, welche Reports betrachtet werden und wer Änderungen dokumentiert. Haltet Startzustand, Testlimit und Kriterien für Fortsetzen, Anpassen oder Stoppen fest.
+Exportiert die Suchbegriffe und ordnet sie **passend, erklärungsbedürftig oder unpassend** zu. Für die schwarze 750-ml-Flasche sind „edelstahl trinkflasche 750 ml schwarz“ und „flasche mit strohhalm“ verschiedene Aufgaben. Der erste Begriff kann in eine gezielte Kampagne, der zweite verlangt eine Prüfung als Ausschluss. Ein wiederkehrender Größenhinweis wird zum Auftrag für ein lesbares Maßbild.
 
-## Ein 60-Tage-Rahmen mit unterschiedlichen Aufgaben
+<aside class="article-example"><p class="example-label">Fiktive Launchentscheidung · keine Prognose</p><h3>Ein Budgetziel wird zur Datenfrage</h3><p>Die Marke reserviert 480 € für 600 Klicks zu angenommenen 0,80 €. Nach gereifter Attribution entstehen auf passenden Queries 30 Bestellungen; bei 8 € Beitrag vor Werbung sind das 240 € vor Ads. Der Test hätte in diesem Modell 240 € negativen Werbebeitrag, bevor Content- und Programmkosten dazukommen. Die Entscheidung ist nicht „Conversion verdoppeln“, sondern: Welche konkrete Angebots- oder Inhaltsfrage erklären die Suchbegriffe, und rechtfertigt ihre Prüfung ein weiteres begrenztes Budget?</p></aside>
 
-| Phase | Leitfrage | Konkretes Ergebnis |
-|---|---|---|
-| Vor Veröffentlichung | Ist das Angebot startfähig? | Freigaben, Kostenbasis, Bestand und Messplan |
-| Tage 1 bis 14 | Erreichen wir passende Nachfrage? | Erste Suchgruppen- und Angebotsdiagnose |
-| Tage 15 bis 30 | Welche Hypothese wird gestützt? | Priorisierte Content- oder Werbeanpassung |
-| Tage 31 bis 60 | Ist kontrollierte Ausweitung sinnvoll? | Entscheidung zu Budget, Nachbestellung und Sortiment |
+![Launch-Gates: Vor Start – Content + Bestand, Tag 1–14 – Auslieferung + Queries, Tag 31–60 – Beitrag + Skalierung](/blog/figures/amazon-produktlaunch.svg)
 
-Diese Zeiträume sind bewusst kein Automatismus. Wenn kaum relevante Klicks vorliegen, gibt es an Tag 14 möglicherweise noch keine belastbare Conversion-Aussage. Wenn ein Produktfehler sichtbar wird, wartet ihr dagegen nicht auf das Ende einer Phase.
 
-## Das Testbudget an die Lernfrage binden
+Nicht passende Klicks werden nicht als „zu wenig Conversion“ der Produktseite angelastet. Preis und Angebotsstatus gehören ebenfalls in das Protokoll.
 
-<aside class="article-example"><p class="example-label">Modellrechnung · keine Launch-Prognose</p><h3>Das Budget kauft Beobachtungen, keinen Rang</h3><p>Für eine klar abgegrenzte Suchgruppe plant ihr 600 Klicks zu angenommenen 0,80 € CPC: 480 € Media. Bei 5 % Bestellungen je Klick wären 30 Bestellungen zu erwarten, bei 10 % wären es 60. Bei 8 € Beitrag vor Werbung je Bestellung ergibt das 240 € beziehungsweise 480 €. Die Szenarien zeigen, welche Kaufleistung nötig wäre, bevor zusätzliche Produktions- und Betreuungskosten gedeckt sind.</p></aside>
+## Tage 31–60: aus einer ASIN eine Portfolioentscheidung machen
 
-Plant nicht nur einen optimistischen Wert. Ein schwaches Szenario muss finanziell aushaltbar sein und einen Erkenntnisgewinn ermöglichen. Wird das Testlimit erreicht, dokumentiert das Ergebnis und die nächste Hypothese. Ein höheres Budget ohne neue Begründung verschiebt die Entscheidung lediglich.
+Vergleicht die neue SKU mit der bestehenden Produktgruppe. Hat sie neue Suchanfragen erschlossen oder nur die ältere 500-ml-Variante ersetzt? Wurde ein eigener Bedarf sichtbar, oder verschieben Rabatte bloß Bestellungen? Eine Beobachtung allein beweist keine Kannibalisierung; kontrolliert Preisaktionen, Bestand und Saisonalität.
 
-## Rezensionen und Erwartungen sauber behandeln
+Gebt zusätzliches Budget nur frei, wenn die Produktpassung belegt, die wichtigsten Kaufhürden bearbeitet, die Lieferfähigkeit gesichert und der Beitrag unter plausiblen Werbekosten tragfähig ist. Legt einen Zeitpunkt fest, an dem ihr **skalieren, eine definierte Hypothese weiter prüfen oder pausieren** werdet. [Content-Experimente](/blog/amazon-content-experimente) eignen sich für eine isolierbare Bild- oder Textfrage, sofern Amazon die ASIN zulässt.
 
-Für geeignete Produkte kann [Vine](/blog/amazon-vine-kalkulation) Teil des Plans sein. Es garantiert weder eine bestimmte Zahl an Rezensionen noch positive Bewertungen. Startet erst, wenn Produkt und Gebrauchsinformationen die Prüfung durch reale Nutzer tragen.
+Wir verbinden [Strategie](/leistungen/strategie), [Listing & SEO](/leistungen/listing-seo), [PPC](/leistungen/ppc-advertising) und [Inventory](/leistungen/fba-inventory-management) für denselben Launchplan. Wenn ihr eine neue Produktlinie plant, besprecht mit uns im [Erstgespräch](/gespraech-vereinbaren) zuerst Sortiment, Stückbeitrag und Nachschub.
 
-Bewertungsmanipulation, selektive positive Anfragen oder ein Rankingversprechen gehören nicht in den Launchplan. Nutzt zulässige Funktionen und prüft die aktuellen Programmbedingungen. Der wirtschaftliche Wert von Rückmeldungen liegt auch darin, missverständliche Angaben oder Produktprobleme früh zu erkennen.
+## Quellen und Geltungsbereich
 
-## Kannibalisierung innerhalb der Marke erkennen
-
-Wenn das neue Produkt 100 Bestellungen gewinnt und ein bestehendes sehr ähnliches Produkt 80 verliert, ist die Portfolioentwicklung wichtiger als die isolierte Launchkurve. Prüft gemeinsame Suchintentionen, Preisabstände und Gesamtbeitrag. Eine Variante kann trotzdem sinnvoll sein, etwa weil sie ein anderes Bedürfnis bedient, aber die Begründung muss zur tatsächlichen Wirkung passen.
-
-Vergleicht dafür den Produktgruppenumsatz und den Beitrag vor und nach dem Launch unter Berücksichtigung von Saison und Aktionen. Ein einfacher Vergleich beweist keine Ursache, macht aber sichtbar, welche Verschiebung genauer untersucht werden muss.
-
-## Wann ihr skaliert und wann ihr stoppt
-
-Skalierung wird plausibel, wenn relevante Nachfrage erkennbar ist, das Angebot zuverlässig funktioniert, die Kosten tragfähig sind und Nachschub gesichert ist. Erhöht dann schrittweise und kontrolliert, ob sich der zusätzliche Traffic anders verhält.
-
-Ein Stopp oder eine Überarbeitung ist sinnvoll bei sachlich falscher Nachfrageannahme, wiederkehrenden Produktproblemen, nicht lösbarer Kostenlücke oder fehlender Lieferfähigkeit. Diese Kriterien sollten bereits vor dem Start feststehen. So wird der Launch nicht zur Frage, wie lange das Team an seiner ursprünglichen Idee festhalten möchte.
-
-temoa verbindet [Strategie](/leistungen/strategie), [Content](/leistungen/listing-seo), [Werbung](/leistungen/ppc-advertising) und [Bestandsplanung](/leistungen/fba-inventory-management) in einem gemeinsamen Arbeitsplan. Im [Erstgespräch](/gespraech-vereinbaren) betrachten wir das neue Produkt im Zusammenhang mit eurem bestehenden Sortiment.
-
-## Quellen und Einordnung
-
-[Amazon Brand Analytics](https://sell.amazon.com/tools/amazon-brand-analytics), [Amazon Vine](https://sell.amazon.com/programs/vine) und [Manage Your Experiments](https://sell.amazon.com/tools/manage-your-experiments). Geprüft am 16. Oktober 2026. Der Zeitplan und die Rechnungen sind eigene Planungsmodelle, keine Amazon-Vorgaben.
+[Amazon: Brand Analytics](https://sell.amazon.com/tools/amazon-brand-analytics), [Amazon: Manage Your Experiments](https://sell.amazon.com/tools/manage-your-experiments) und [Amazon: Vine](https://sell.amazon.com/programs/vine). Geprüft am 17. Oktober 2026. Zeitabschnitte, Produkt und Geldbeträge sind eigene Planungsannahmen.

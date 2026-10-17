@@ -1,83 +1,61 @@
 ---
-title: "Amazon Business Reports: Umsatzrückgänge gezielt diagnostizieren"
-meta_description: "Amazon Business Reports richtig lesen: Sitzungen, Unit Session Percentage und Umsatz je Einheit verbinden. Mit Beispielrechnung und Maßnahmenplan für Marken."
-keywords: ["Amazon Business Reports", "Amazon Verkaufsstatistiken", "Unit Session Percentage", "Amazon Umsatz analysieren"]
-kategorie: "Strategie & Geschäftsmodelle"
+title: "Amazon Business Reports: Welches Angebot bremst den Umsatz?"
+meta_description: "Business Reports auf Child-ASIN-Ebene auswerten: Sitzungen, Einheiten je Sitzung und Featured Offer verbinden. Mit einem konkreten Variantenfall und Diagnoseweg."
+keywords: ["Amazon Business Reports", "Detail Page Sales and Traffic", "Unit Session Percentage", "Featured Offer"]
+kategorie: "Amazon Daten & Analyse"
 ---
 
-# Amazon Business Reports: Umsatzrückgänge gezielt diagnostizieren
+# Amazon Business Reports: Welches Angebot bremst den Umsatz?
 
-Amazon Business Reports helfen euch zu verstehen, warum sich Umsatz verändert. Für eine Marke mit laufendem Geschäft ist „Umsatz minus 20 Prozent“ noch keine Diagnose. Ihr müsst erkennen, ob weniger Traffic kommt, weniger Einheiten pro Sitzung bestellt werden oder der Umsatz je Einheit sinkt. Erst daraus ergibt sich eine sinnvolle Maßnahme.
+Ein Rückgang im Gesamtumsatz sagt eurem Team noch nicht, wo es handeln soll. Die Business Reports in Seller Central erlauben den Einstieg auf **Child-ASIN-Ebene**: Wie viele Sitzungen bekam eine Variante, wie viele Einheiten wurden bestellt und wie oft war euer Angebot bei Aufrufen die Featured Offer? Diese Werte helfen, einen konkreten Vorfall einzugrenzen.
 
-Die Berichte liefern Verkaufs- und Trafficdaten. Sie ersetzen weder den Anzeigenreport noch eine Deckungsbeitragsrechnung. Wer diese drei Sichtweisen verbindet, kann Entscheidungen besser begründen und vermeidet Maßnahmen am falschen Problem.
+Öffnet in Seller Central unter Berichte die Detailseitenverkäufe und Traffic **nach Child ASIN**. Exportiert einen passenden Zeitraum und eine Vergleichsperiode mit denselben Wochentagen. Schließt unvollständige aktuelle Tage aus. Notiert parallel Rabattaktionen, Preis- und Bestandswechsel, bevor ihr Unterschiede interpretiert.
 
-## Zuerst die Vergleichsbasis festlegen
+## Was die vier Kernwerte bedeuten
 
-Vergleicht gleich lange Zeiträume mit ähnlichen Wochentagen. Wählt denselben Marktplatz und dieselbe ASIN-Ebene. Eine Parent-Auswertung kann Veränderungen zwischen Varianten verdecken; für die Ursachenanalyse sind Child-ASINs oft aussagekräftiger.
-
-Notiert Aktionen, Preise, Lieferzeitänderungen, Ausverkäufe und wichtige Contentänderungen. Auch die Definition des Umsatzes gehört in den Report: bestellter Umsatz, ausgelieferter Umsatz und ausgezahltes Guthaben sind unterschiedliche Größen. Der letzte unvollständige Tag sollte keine große Budgetentscheidung auslösen.
-
-## Die drei Größen hinter bestelltem Umsatz
-
-Für einen in sich konsistenten Datensatz lässt sich bestellter Umsatz rechnerisch zerlegen:
-
-**Sitzungen × bestellte Einheiten je Sitzung × Umsatz je bestellter Einheit**
-
-Diese Zerlegung ist eine Identität der verwendeten Werte, kein kausales Modell. Sie zeigt, welcher Faktor sich verändert hat. Warum das passiert ist, müsst ihr anschließend untersuchen.
-
-| Kennzahl | Rechnung bzw. Bedeutung | Nicht damit verwechseln |
+| Wert | Aussage | Grenze |
 |---|---|---|
-| Sitzungen | Die im Bericht ausgewiesenen Sitzungen | Anzeigenklicks oder einzelne Seitenaufrufe |
-| Unit Session Percentage | Bestellte Einheiten ÷ Sitzungen × 100 | Anteil eindeutig identifizierter Käufer |
-| Umsatz je Einheit | Bestellter Produktumsatz ÷ bestellte Einheiten | Gewinn je Einheit |
-| Bestellter Produktumsatz | Verkaufsgröße des Berichts | Bankauszahlung oder Deckungsbeitrag |
+| Sitzungen | Besuche der Produktdetailseite gemäß Amazon-Definition | Bezahlte und organische Herkunft nicht getrennt |
+| Unit Session Percentage | Bestellte Einheiten geteilt durch Sitzungen | Einheitenquote, nicht Anteil eindeutiger Käufer |
+| Featured Offer Percentage | Anteil der Detailseitenaufrufe mit eigenem hervorgehobenen Angebot gemäß Report | Ursache eines Verlusts steht nicht im Prozentwert |
+| Ordered Product Sales | Im Bericht erfasster Bestellumsatz | Noch kein Nettoerlös oder Deckungsbeitrag |
 
-Eine Bestellung kann mehrere Einheiten enthalten. Deshalb ist Unit Session Percentage nicht automatisch die Wahrscheinlichkeit, dass ein Besucher kauft. Verwendet für die Rechnung die ungerundeten Daten, wenn Rundungsabweichungen relevant sind.
+Ein Käufer kann mehr als eine Einheit bestellen. Deshalb sollten 12 % Unit Session Percentage nicht als „12 % der Besucher kaufen“ umformuliert werden. Ebenso enthält Umsatz keine Warenkosten, Werbung, Retouren oder alle zeitlichen Korrekturen.
 
-## Ein Beispiel: gleicher Traffic, weniger Umsatz
+## Der Fall: Zwei Varianten desselben Produkts
 
-<aside class="article-example">
-<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
-<h3>Der Umsatz fällt um 20 %, der Traffic bleibt gleich</h3>
-<p>Periode A: 10.000 Sitzungen × 12 % Einheiten je Sitzung × 30 € Umsatz je Einheit = 36.000 €.</p>
-<p>Periode B: 10.000 Sitzungen × 10 % Einheiten je Sitzung × 28,80 € Umsatz je Einheit = 28.800 €.</p>
-<p>Der Rückgang entsteht rechnerisch aus weniger Einheiten je Sitzung und einem niedrigeren Umsatz je Einheit. Eine reine Trafficmaßnahme adressiert diese Veränderung nicht direkt.</p>
-</aside>
+Eine fiktive Marke verkauft dieselbe Edelstahlflasche als schwarze und blaue Child-ASIN. Im Vergleich zweier vierwöchiger Zeiträume bleibt der Preis der schwarzen Variante unverändert. Die Tabelle zeigt absichtlich die Werte pro Variante; die Parent-ASIN würde die Abweichung verdecken.
 
-Würdet ihr in Periode B nur die Sitzungen um 25 % steigern, kämet ihr rechnerisch wieder auf 36.000 € Umsatz. Dafür müsstet ihr jedoch zusätzlichen Traffic finanzieren, während die schwächeren Werte bestehen bleiben. Der alte Umsatz wäre zurück, die Wirtschaftlichkeit möglicherweise schlechter.
+| Variante | Sitzungen vorher → nachher | Einheiten vorher → nachher | Unit Session % | Featured Offer % |
+|---|---:|---:|---:|---:|
+| Schwarz, 750 ml | 2.200 → 2.180 | 242 → 153 | 11,0 → 7,0 | 98 → 72 |
+| Blau, 750 ml | 1.400 → 1.450 | 154 → 163 | 11,0 → 11,2 | 99 → 99 |
 
-## Die Diagnose nach dem Befund
+<aside class="article-example"><p class="example-label">Fiktiver Variantenfall · Diagnose vor Maßnahme</p><h3>Die schwarze ASIN verliert Bestellungen trotz stabiler Sitzungen</h3><p>Die schwarze Variante bekommt nahezu gleich viele Besuche, verkauft aber 89 Einheiten weniger. Gleichzeitig fällt ihr Featured-Offer-Wert von 98 auf 72 %. Die blaue Variante bleibt stabil. Der nächste Schritt ist eine Angebotschronik für Schwarz: Verkäuferwechsel, kaufbarer FBA-/FBM-Bestand, Lieferzusage und Endpreis prüfen. Ein neuer A+-Entwurf wäre zu diesem Zeitpunkt unbegründet.</p></aside>
 
-**Sitzungen sinken, Einheiten je Sitzung stabil:** Untersucht Suchnachfrage, Sichtbarkeit, Werbeauslieferung und Verfügbarkeit. Prüft mit [Search Query Performance](/blog/search-query-performance), ob relevante Suchanfragen insgesamt schrumpfen oder eure Position schwächer wird.
+![Business Reports pro Child-ASIN: Schwarz – 2.180 Sitzungen, Kaufbarkeit – Featured Offer 72 %, Ergebnis – 153 bestellte Einheiten](/blog/figures/business-reports.svg)
 
-**Sitzungen stabil, Einheiten je Sitzung sinken:** Kontrolliert Featured Offer, Lieferzusage, Preis, Variantenmix und Produktprobleme. Ein stark beworbener neuer Suchbegriff kann außerdem schlechter passenden Traffic bringen. Ein Contenttest folgt erst nach dieser Angebotsprüfung.
 
-**Umsatz je Einheit sinkt:** Prüft Rabatte, geänderten Produktmix, Mengenangebote und preisgünstigere Varianten. Ein niedrigerer Durchschnitt muss keine Preissenkung derselben SKU bedeuten. Trennt deshalb die Entwicklung innerhalb einer Variante vom Wechsel zwischen Varianten.
+Die Zahlen beweisen noch nicht, dass allein die Featured Offer für den Verlust verantwortlich war. Prüft die Zeitpunkte: Wann sank der Angebotsanteil, wann änderte sich die Lieferzeit und wann die Bestellquote? Berücksichtigt mögliche Werbe- und Suchanfragenverschiebungen. Wenn die Angebotslage wieder stabil ist und die Kaufleistung niedrig bleibt, untersucht erst dann Bild, Titel, Variantenführung und Detailseiteninhalt.
 
-**Umsatz steigt, Beitrag fällt:** Hier reicht der Business Report nicht. Ergänzt Gebühren, Wareneinsatz, Retouren und Werbung. Ein höherer Anteil niedrigmargiger Produkte kann den Umsatzreport verbessern und das Ergebnis gleichzeitig verschlechtern.
+## Vier Befundmuster für den Wochenreview
 
-## Anzeigenberichte richtig danebenlegen
+**Sitzungen runter, Einheitenquote stabil:** Prüft Nachfrage der wichtigsten Queries, Kampagnenreichweite, organische Präsenz, Varianten- und Indexierungsstatus. Eine Contentänderung ist nicht automatisch der erste Schritt. [Search Query Performance](/blog/search-query-performance) kann Nachfrage- und Marktanteilsveränderungen bei relevanten Anfragen unterscheiden.
 
-Anzeigenumsatz wird nach einem Attributionsmodell zugerechnet; der Business Report beschreibt eine andere Berichtssicht. Unterschiedliche Fenster, Datumsbezüge oder zugerechnete weitere Produkte können Abweichungen verursachen. Erwartet deshalb keine automatische Eins-zu-eins-Abstimmung.
+**Sitzungen stabil, Einheitenquote runter:** Prüft Featured Offer, Preis inklusive Versand, Lieferzusage, Bewertungsänderungen und die Genauigkeit der Produktseite. Legt die Ereignisse auf eine Zeitachse. Die zusammengefasste Quote identifiziert keine einzelne Ursache.
 
-Nutzt den Anzeigenreport, um CPC, Suchbegriffe, Platzierungen und zugerechnete Käufe zu untersuchen. Verwendet Business Reports für das Produktgeschäft. Die gemeinsame Frage lautet: Welche Änderung passt zu beiden Datenbildern und zu euren operativen Beobachtungen? Ein einzelner schöner ROAS beantwortet sie nicht.
+**Beide runter:** Kontrolliert zunächst Kaufbarkeit, Lagerbestand, Suppression und Angebotsstatus. Dann trennt ihr Sichtbarkeits- von Conversion-Fragen. Ein großes Budget auf eine nicht lieferbare Variante löst nichts.
 
-## Ein wöchentlicher Ablauf für euer Team
+**Sitzungen und Einheitenquote stabil, Umsatz runter:** Prüft den realisierten Wert je Einheit, Produktmix, Rabatt und gegebenenfalls Stornos. Bestellte Einheiten und Umsatz können sich unterschiedlich entwickeln. Für die Wirtschaftlichkeit führt anschließend kein Weg am tatsächlichen Nettoerlös und Stückbeitrag vorbei.
 
-1. **Abweichungen sortieren:** Nach absolutem Umsatz- oder Beitragseffekt, nicht nur nach Prozent. Ein kleiner Artikel mit minus 80 % kann weniger relevant sein als ein Bestseller mit minus 8 %.
-2. **Auf Child-Ebene prüfen:** Welche Varianten erklären die Veränderung? Waren sie verfügbar und kaufbar?
-3. **Treiber zerlegen:** Sitzungen, Einheiten je Sitzung und Umsatz je Einheit vergleichen.
-4. **Hypothese formulieren:** Einen konkreten Sachverhalt nennen, der geprüft werden kann.
-5. **Maßnahme und Termin festlegen:** Verantwortliche Person, erwartetes Signal und Entscheidung nach dem Test dokumentieren.
+## Was in einen brauchbaren Wochenbericht gehört
 
-Vermeidet Listen mit zwanzig gleichzeitigen Änderungen. Eine nachvollziehbare Diagnose mit einem klaren nächsten Schritt liefert mehr Steuerungswert als ein Report, der jede Woche nur dieselben Kennzahlen neu einfärbt.
+Zeigt die wichtigsten Child-ASINs mit aktuellen und verglichenen vier Werten, Lieferreichweite und einer Spalte **„Befund / Eigentümer / nächster Beleg“**. Eine zusätzliche Zeile mit „Umsatz minus 20 %“ reicht nicht. Wenn ein Problem auf eine schwarze Variante begrenzt ist, braucht nicht die gesamte Marke neue Anzeigen oder neue Bilder.
 
-## Vom Reporting zur Umsetzung
+Verknüpft den Bericht mit der passenden Datenquelle: Ads Console für Kosten und zugerechnete Verkäufe, SQP für Suchanfragen, Bestands- und Angebotsansichten für Lieferfähigkeit, Zahlungsreports für den Geldfluss. Die Nenner und Zeitpunkte dieser Reports unterscheiden sich. Addiert sie nicht zu einer scheinbar vollständigen „Conversion-Rate“.
 
-Bei temoa endet [Analytics & Reporting](/leistungen/analytics-reporting) bei einer begründeten Entscheidung und ihrer Nachverfolgung. Je nach Ursache arbeiten wir an [Content und Listing](/leistungen/listing-seo), [Werbung](/leistungen/ppc-advertising) oder [Bestand](/leistungen/fba-inventory-management). In unseren [Case Studies](/ergebnisse) findet ihr vorhandene Projektbeispiele; die Zahlen in diesem Leitfaden sind davon getrennte Rechenmodelle.
+Eine sinnvolle Eskalation endet mit einer Entscheidung: Angebot reparieren, Bestand sichern, Produktangaben klären, eine konkrete Content-Hypothese testen oder Werbereichweite anpassen. Unsere Arbeit in [Analytics & Reporting](/leistungen/analytics-reporting), [Account-Management](/leistungen/account-management) und [FBA & Inventory](/leistungen/fba-inventory-management) führt diese Befunde zusammen. Im [Gespräch](/gespraech-vereinbaren) können wir die auffälligsten Varianten eures Reports durchgehen.
 
-Für eure eigene Auswertung reichen zum Einstieg zwei vergleichbare Exporte, eine Kostenübersicht und ein Änderungsprotokoll. Damit lässt sich im [Gespräch über euren Account](/gespraech-vereinbaren) viel konkreter arbeiten als mit einer isolierten Umsatzkurve.
+## Quellen und Datenstand
 
-## Quelle und Datenstand
-
-[Amazon SP-API: Sales and Traffic Business Report innerhalb der Analytics Reports](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics). Die Dokumentation beschreibt unter anderem Sessions, Units Ordered, Ordered Product Sales und Unit Session Percentage. Geprüft am 17. Oktober 2026. Berechnungen und Vorgehensweise sind eigene erläuternde Modelle.
+[Amazon SP-API: Sales and Traffic Report](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics) und [Amazon: Brand Analytics](https://sell.amazon.com/tools/amazon-brand-analytics). Geprüft am 17. Oktober 2026. Varianten und Werte sind fiktiv; die vier Berichtsspalten stammen aus den beschriebenen Amazon-Ansichten.

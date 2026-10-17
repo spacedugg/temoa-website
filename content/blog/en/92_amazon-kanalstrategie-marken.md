@@ -1,51 +1,34 @@
 ---
-title: "Amazon channel strategy: protect total contribution across your brand"
-meta_description: "Evaluate Amazon within an established brand portfolio. Compare channel contribution, distribution, assortment and decision ownership."
-keywords: ["Amazon channel strategy", "Amazon growth", "Amazon brands"]
+title: "Amazon channel strategy for established brands: decide by ASIN and operating model"
+meta_description: "A practical Amazon channel strategy: map current resellers, 1P and 3P offers, catalogue ownership, inventory and decision rights before funding advertising."
+keywords: ["Amazon channel strategy", "Amazon 1P 3P", "Amazon established brands"]
 kategorie: "Strategie & Geschäftsmodelle"
 ---
 
-# Amazon channel strategy: protect total contribution across your brand
+# Amazon channel strategy for established brands: decide by ASIN and operating model
 
-Amazon channel strategy for an established brand starts with the role of the channel in the overall business. Revenue growth alone does not show whether the brand is creating additional contribution, moving demand between channels or adding operational complexity.
+A brand entering Amazon rarely enters an empty marketplace. Its products may already be sold there by distributors, independent retailers or Amazon itself. Before opening a new seller account or funding ads, inspect the actual offers for your products and decide what role your brand will play.
 
-Define the intended role: reaching a new audience, improving availability, serving a distinct need or strengthening an existing route to market. Different roles require different assortment, cost and performance decisions.
+## Map what already exists
 
-## Compare economics on a consistent basis
+For each priority EAN or ASIN, record the listing, current sellers, Amazon Retail presence, price and delivery promise, product content, availability and the owner of the underlying inventory. Separate genuine resale from a misleading listing and an actual rights issue. Brand Registry helps with brand tools but does not grant exclusive rights over genuine resales.
 
-A direct retail sale and a wholesale transaction do not have the same revenue base or cost structure. Compare contribution using explicit definitions and avoid placing retail revenue beside wholesale revenue as if the numbers were equivalent.
+A price comparison across channels alone does not reveal who has authority to change the offer. Your own 3P price, a retailer's price and Amazon's retail price are different decisions. Distribution and resale pricing in Europe require appropriate legal review; US MAP practices cannot simply be imported into a German plan.
 
-| Cost dimension | Question for the comparison |
-|---|---|
-| Revenue | Which net proceeds belong to the brand? |
-| Distribution | Who pays fulfilment, returns and platform costs? |
-| Demand creation | Which advertising costs are incremental? |
-| Operations | What additional work and fixed capacity are needed? |
+## Choose the model per product group
 
-## Investigate shifts across channels
+**1P via Vendor Central:** Amazon buys from the brand and sells to consumers. Review existing commercial terms, purchase orders, stock continuity and the scope of the brand's catalogue access.
 
-<aside class="article-example"><p class="example-label">Portfolio illustration · not client results</p><h3>Amazon growth can exceed total business growth</h3><p>An additional €100,000 of Amazon net revenue generates €20,000 contribution after variable channel costs. Comparable contribution from other channels falls by €15,000. The observed total increase is initially €5,000 before additional fixed costs. This does not prove Amazon caused the decline elsewhere; it identifies the question that needs investigation.</p></aside>
+**3P via Seller Central:** The brand sells to consumers through the marketplace. FBA can fulfil orders, while the brand remains responsible for inventory, seller operations and the offer. Model the actual fees, returns, ads and internal work.
 
-Check seasonality, promotions, distribution changes and availability. Report uncertainty when causal measurement is not possible. A management report should make concurrent shifts visible instead of attributing every new Amazon order to new demand.
+**Hybrid:** Some products use 1P, others 3P. Assign a clear EAN/ASIN and stock route to each group. Overlapping offers on the same listing require active management, not a slide in a strategy deck. Our [Vendor versus Seller guide](/en/blog/vendor-vs-seller-central) addresses the operating trade-offs.
 
-## Choose products by role and operating fit
+<aside class="article-example"><p class="example-label">Fictional brand scenario</p><h3>Three ASINs need different owners</h3><p>Product A has stable Amazon Retail purchase orders. Product B repeatedly loses availability when purchase orders fluctuate. Product C is a new premium accessory not yet sold by Amazon. Review A's terms, B's supply and offer control, and a bounded 3P pilot for C. A single account-level decision would hide all three problems.</p></aside>
 
-Evaluate differentiation, contribution, returns exposure, stock reliability and content effort. Start with a manageable product group where the process can be validated. Complex variation structures and incomplete product data can absorb disproportionate capacity.
+## Ads follow the offer
 
-Channel-specific bundles should solve a genuine customer need. Confirm that the new unit has suitable packaging, product information and an operationally workable setup. Avoid treating a different pack size as a substitute for a coherent commercial proposition.
+Campaigns cannot fix a product that is unavailable, on the wrong variation or attached to an offer the brand cannot fulfil. Confirm catalogue identity, buyability, stock and the responsible team first. Then select queries that fit the product and define what ads should achieve: defend an existing brand search, earn relevant generic visibility or support a launch. These tasks need different evaluation.
 
-## Understand distribution and decision rights
+A monthly channel review should cover contribution by ASIN, genuine distribution changes, inventory exposure, returns, search-query shares and the person accountable for each next action. If another channel moves at the same time, do not attribute the movement to Amazon without an appropriate comparison design.
 
-Separate legitimate resale, inaccurate product information and actual rights infringements. Brand Registry does not provide unlimited control over every genuine product resale. Distribution agreements and resale-pricing arrangements require appropriate legal review; US MAP concepts should not be transferred to Europe without assessment.
-
-Name the person who resolves conflicts between advertising, stock and other channels. An Amazon promotion may consume inventory reserved for a major retail commitment. These decisions need portfolio-level authority.
-
-## Review the business, then assign action
-
-A useful monthly review connects product-group contribution, advertising, availability, returns, working capital and catalogue problems. It ends with a short prioritised action list and accountable owners.
-
-temoa combines [strategy](/leistungen/strategie) with [full-service operations](/full-service). The [Vendor versus Seller comparison](/blog/vendor-vs-seller-central) complements the operating-model decision. [Discuss your channel structure](/gespraech-vereinbaren) alongside the existing assortment and distribution network.
-
-## Sources and scope
-
-[Amazon DE: Werkzeuge für Markeninhaber](https://sell.amazon.de/markeninhaber) und [EU-Kommission: Leitlinien für vertikale Beschränkungen, Abschnitt 6.1.1](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:52022XC0630(01)), [§ 24 MarkenG: Erschöpfung](https://www.gesetze-im-internet.de/markeng/__24.html). Reviewed 16 October 2026. Calculations and workflows are illustrative planning models, not market benchmarks or client results. Confirm applicable features and terms in the relevant account.
+We help brands connect [Amazon strategy](/en/leistungen/strategie), [account operations](/en/full-service) and [analytics](/en/leistungen/analytics-reporting). [Bring your current assortment and reseller map to a conversation](/en/gespraech-vereinbaren).

@@ -238,7 +238,6 @@ export function Fusszeile() {
             <div>
               <h3 className="font-bold text-white">{sprache === "de" ? "Themen & Entscheidungen" : "Topics & decisions"}</h3>
               <ul className="mt-3 space-y-1">
-                <li><a className="flex min-h-11 items-center text-small font-bold text-white hover:text-brand-500" href={pfad(sprache, "/blog/deep-dives")}>{sprache === "de" ? "Deep Dives für etablierte Marken" : "Deep dives for established brands"}</a></li>
                 {blogTopics.map((topic) => <li key={topic.slug}><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/kategorie/${topic.slug}`)}>{topic.label[sprache]}</a></li>)}
                 <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/vergleiche")}>{sprache === "de" ? "Vergleiche & Partnerwahl" : "Comparisons & partners"}</a></li>
                 <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/grundlagen")}>{sprache === "de" ? "Begriffe & Grundlagen" : "Terms & fundamentals"}</a></li>

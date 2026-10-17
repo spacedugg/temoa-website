@@ -1,61 +1,54 @@
 ---
-title: "Amazon DSP: Welches Budget einen aussagekräftigen Test ermöglicht"
-meta_description: "Amazon DSP kalkulieren: Zugang, Mediabudget, Betreuung und Messung trennen. Mit Testrechnung und Entscheidungskriterien für etablierte Marken."
-keywords: ["Amazon DSP", "Amazon Wachstum", "Amazon Marken"]
+title: "Amazon DSP: Zugangsmodell und Testbudget richtig einordnen"
+meta_description: "Amazon DSP ohne widersprüchliche Mindestbudgets verstehen: Managed Service, Partnerzugang, Media, Gebühren und Messung für einen konkreten Test prüfen."
+keywords: ["Amazon DSP Mindestbudget", "Amazon DSP Kosten", "Amazon DSP Test", "Amazon DSP Agentur"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon DSP: Welches Budget einen aussagekräftigen Test ermöglicht
+# Amazon DSP: Zugangsmodell und Testbudget richtig einordnen
 
-Amazon DSP wird für eure Marke dann interessant, wenn ihr eine konkrete Reichweiten- oder Zielgruppenfrage beantworten wollt, die eure bisherige Werbung offenlässt. Ein niedriger Einstiegspreis allein macht den Kanal noch nicht sinnvoll. Entscheidend ist, ob das verfügbare Budget genug Auslieferung und belastbare Beobachtungen für eine Entscheidung ermöglicht.
+Wer nach einem Mindestbudget für Amazon DSP fragt, bekommt verschiedene Zahlen. Das liegt vor allem daran, dass **Amazon Managed Service, Partnerzugang und selbst verwalteter Zugang verschiedene Angebote** sind. Amazon nennt für den eigenen Managed Service typischerweise 50.000 US-Dollar; das ist keine allgemeine deutsche Preisliste für jeden Partner. Eine Entscheidung beginnt mit dem tatsächlichen Vertrag und der Frage, was ihr testen wollt.
 
-Für eine etablierte Marke lautet die erste Frage deshalb: Welche zusätzliche Nachfrage soll entstehen, und woran erkennen wir, ob sie den Aufwand rechtfertigt? Wer diese Frage vor dem Angebot klärt, kann Zugangsmodelle, Leistungsumfang und Testdauer wesentlich besser vergleichen.
+Für eine etablierte Marke kann DSP sinnvoll sein, wenn Sponsored Ads die geplante Zielgruppen- oder Reichweitenfrage nicht beantworten. „Wir wollen auch DSP machen“ ist dagegen kein Briefing. Formuliert zuerst: Welche Produktgruppe, welche Zielgruppe, welcher erwartete zusätzliche Effekt und welche Entscheidung soll nach dem Test getroffen werden?
 
-## Zugang, Media und Gesamtaufwand auseinanderhalten
+## Drei Angebote, drei verschiedene Kalkulationen
 
-Amazon nennt für seinen Managed Service typischerweise 50.000 US-Dollar Mindestbudget, mit möglichen Länderabweichungen. Dieser Wert ist keine allgemeine deutsche Einstiegsschwelle für jeden Zugang über einen Dienstleister. Die Konditionen eines Partners können anders aufgebaut sein. Lasst euch das konkrete Modell schriftlich erklären.
-
-In eure Kalkulation gehören mindestens Media, Betreuung, Kreation, Messung und gegebenenfalls technische Zusatzkosten. Prüft außerdem, ob ein genanntes Budget netto in die Auslieferung fließt oder Gebühren bereits enthält. Zwei Angebote mit gleichem Gesamtbetrag können sehr unterschiedliche Medialeistung enthalten.
-
-| Kostenblock | Frage vor der Freigabe | Konsequenz für den Test |
+| Zugang | Was ihr im Angebot klären müsst | Typische Fehlerquelle |
 |---|---|---|
-| Media | Welcher Betrag wird tatsächlich ausgeliefert? | Bestimmt die erreichbare Datenmenge |
-| Betreuung | Fixpreis, Prozentmodell oder Kombination? | Verändert die Wirtschaftlichkeit kleiner Tests |
-| Kreation | Welche Formate und Varianten sind enthalten? | Begrenzt, welche Hypothesen geprüft werden können |
-| Messung | Welche Auswertung ist enthalten und verfügbar? | Legt fest, welche Aussage am Ende möglich ist |
+| Amazons Managed Service | Anwendbares Mindestbudget, Leistungen, Markt, Laufzeit | Den veröffentlichten Wert auf andere Zugänge übertragen |
+| Partnerbetrieb | Konto- und Datenzugang, Media, Managementhonorar, Creative, Messung | „Monatsbudget“ enthält mehr als reine Mediaauslieferung |
+| Eigenständige Verwaltung, falls verfügbar | Zugangsberechtigung, Personal, Inventar, Technik, Abrechnung | Nur Media kalkulieren, internen Betrieb vergessen |
 
-## Mit einer einzigen Entscheidung starten
+Fragt nach **Media netto, Managementhonorar, Kreation, Daten-/Technikkosten und Messung** als getrennten Positionen. Klärt, welche Formate und Zielgruppen im deutschen Zielmarkt und unter eurem Zugang wirklich verfügbar sind. Ein US-Feature in einem Pitch ist noch keine deutsche Funktion eures Accounts.
 
-Ein erster Test sollte eine klar abgegrenzte Frage haben. Beispielsweise: Erreicht eine neue Zielgruppe für unsere Kern-ASINs ausreichend passende Interessenten? Oder: Bringt eine veränderte Wiederansprache einen zusätzlichen Beitrag gegenüber unserem bisherigen Vorgehen?
+## Die Testfrage begrenzt die Zahl der Zellen
 
-Neukundengewinnung, Wiederansprache und Reichweitenaufbau in einem kleinen Budget zu vermischen erschwert die Auswertung. Auch ein einziger zusammengefasster ROAS verdeckt Unterschiede. Dokumentiert für jede Testzelle Zielgruppe, Produktgruppe, Werbemittel, Laufzeit, Ausgabenlimit und Entscheidungskriterium. Prüft vorab die konkrete Verfügbarkeit von Zielgruppen und Messfunktionen für euren Zugang.
+Angenommen, eure Marke verkauft ein Zubehörsortiment mit drei Bestseller-ASINs. Sponsored Products schöpft bekannte Produktsuchen bereits gut ab. Offen bleibt, ob eine definierte neue Zielgruppe zusätzliche Käufer erreicht. Dann ist **eine Produktgruppe und eine Zielgruppenhypothese** sinnvoller als gleichzeitig Neukunden, Wiederansprache, Konkurrenzprodukte und vier Creatives im selben kleinen Budget zu testen.
 
-## Vom Budget zur erwartbaren Datenmenge
+<aside class="article-example"><p class="example-label">Planungsmodell · keine Marktprognose</p><h3>Ein Test kann Reichweite kaufen und trotzdem keine Antwort liefern</h3><p>Bei 6.000 € Media und angenommenen 12 € CPM ergeben sich rechnerisch 500.000 Impressionen. Mit angenommenen 0,2 % Klicks und 5 % Käufen je Klick wären es 1.000 Klicks und 50 Käufe. Vier gleich große Testzellen hätten im Mittel nur 12,5 Käufe. Schon kleine Zufallsschwankungen würden die Reihenfolge ändern. Dazu kommen im Beispiel 1.500 € Betreuung und 1.000 € Creative, also 8.500 € Gesamtaufwand. Keiner dieser Werte ist ein DSP-Benchmark.</p></aside>
 
-Ein einfaches Planungsmodell beginnt mit Impressionen. Mediabudget geteilt durch angenommenen CPM, multipliziert mit 1.000, ergibt die rechnerische Auslieferung. Daraus lassen sich Szenarien für Klicks und Käufe ableiten. Das ist eine Plausibilitätsprüfung, keine Leistungsprognose.
+![DSP-Test vor dem Budget: Zugang – Managed / Partner / Self, Kosten – Media + Betreuung, Messung – Zielgruppe + Wirkung](/blog/figures/amazon-dsp-budget.svg)
 
-<aside class="article-example"><p class="example-label">Modellrechnung · keine Marktbenchmarks</p><h3>Warum vier kleine Zielgruppen den Test schwächen können</h3><p>6.000 € Media bei angenommenen 12 € CPM entsprechen 500.000 Impressionen. Bei 0,2 % Klickrate wären das 1.000 Klicks; bei 5 % Käufen je Klick rechnerisch 50 Käufe. Verteilt ihr das gleichmäßig auf vier Zielgruppen, bleiben im Mittel nur 12,5 Käufe je Zelle. Mit 1.500 € Betreuung und 1.000 € Kreation beträgt der Gesamtaufwand 8.500 €. Alle Eingaben sind frei gewählte Szenarien, keine erwarteten Amazon-Ergebnisse.</p></aside>
 
-Das Modell zeigt zwei Dinge: Ein Budget kann für Auslieferung reichen und trotzdem für einen Vergleich zu dünn sein. Außerdem ist ein Media-ROAS keine Gesamtkostenrechnung. Prüft mehrere Annahmen für CPM, Klickrate und Kaufverhalten. Wenn schon das günstige Szenario die notwendige Wirtschaftlichkeit verfehlt, braucht der Test eine andere Fragestellung oder andere Voraussetzungen.
+Diese Rechnung ist ein **Machbarkeitstest**, keine Berechnung der benötigten Stichprobengröße. Letztere hängt von der erwarteten Wirkung, Streuung und Messmethode ab. Wenn ein Anbieter trotz kleiner Datenmenge einen eindeutigen Sieger oder garantierte Inkrementalität verspricht, fragt nach Design und Unsicherheitsbereich.
 
-## Welche Kennzahl passt zum Ziel?
+## Media-ROAS ist keine vollständige Wirtschaftlichkeit
 
-Für Reichweitenaufbau sind erreichte Personen und Kontakthäufigkeit relevant. Für Wiederansprache interessieren zusätzlich Ausschlüsse, Zielgruppenüberschneidungen und die Trennung bestehender Nachfrage von zusätzlichem Geschäft. Klick- und Sichtkontaktattribution sollten getrennt nachvollziehbar bleiben.
+Zugerechnete Verkäufe nach Sichtkontakt oder Klick beantworten nicht, wie viele Käufe ohne Werbung ausgeblieben wären. Legt deshalb vorab fest, welche Messung tatsächlich verfügbar ist: Auslieferung, erreichte Zielgruppe, beobachtete Käufe oder ein belastbarer Vergleich mit Kontrollgruppe. [Inkrementalität](/blog/amazon-werbung-inkrementalitaet) ist ein eigenes Messproblem.
 
-Ein gemeldeter Kauf nach Werbekontakt beweist noch keine zusätzliche Bestellung. Auch New-to-Brand ist keine vollständige Messung von Inkrementalität. Für belastbare Wirkungsaussagen braucht ihr ein geeignetes Untersuchungsdesign. Im Beitrag zur [Werbe-Inkrementalität](/blog/amazon-werbung-inkrementalitaet) zeigen wir die Unterschiede und eine einfache Wirtschaftlichkeitsrechnung.
+Für die Budgetentscheidung braucht ihr den Deckungsbeitrag der beworbenen Produkte und **sämtliche Testkosten**. Auch bei positivem Media-ROAS kann der Einsatz nach Gebühren, Creative und nicht zusätzlichem Umsatz unrentabel sein. Unterscheidet einen Lernversuch von einem dauerhaften Kanalinvestment.
 
-## Wann ihr den Start verschieben solltet
+## Vor Freigabe: sechs Fragen an den Anbieter
 
-Schwache Lieferfähigkeit, ein ungeklärter Deckungsbeitrag oder grundlegende Listingprobleme erschweren die Interpretation. Ein ausverkauftes Kernprodukt kann einen Test entwerten, selbst wenn die Zielgruppe passend war. Plant deshalb einen Bestandspuffer und einen Verantwortlichen für Änderungen an Preis, Angebot und Content während der Laufzeit.
+1. Wem gehört der Zugang, und welche Rohdaten und Exporte erhaltet ihr nach Testende?
+2. Wie viel des Angebots fließt als auslieferbares Media in welchen Markt?
+3. Welche ASINs, Zielgruppen, Platzierungen und Creatives sind konkret geplant?
+4. Welche Änderungen an Preis, Bestand oder bestehenden Kampagnen würden das Ergebnis verfälschen?
+5. Welche Aussage kann die verfügbare Messung wirklich tragen?
+6. Wer entscheidet zu welchem Termin über Stoppen, Anpassen oder Skalieren?
 
-Definiert außerdem Abbruchgründe vorab: technische Fehlkonfiguration, nicht passende Auslieferung, gefährdete Verfügbarkeit oder ein ausgeschöpftes Testlimit. Ein fachlicher Abbruch ist eine verwertbare Entscheidung. Das Budget jeden Monat ohne klare Auswertung zu verlängern ist keine Lernstrategie.
+Ein DSP-Test ist nachrangig, wenn die Kern-ASINs häufig nicht verfügbar sind, ihre Produktseiten widersprüchliche Angaben enthalten oder der Stückbeitrag unbekannt ist. Solche Ursachen werden durch zusätzliche Reichweite nicht behoben. In der [PPC-Betreuung](/leistungen/ppc-advertising) und im [Reporting](/leistungen/analytics-reporting) prüfen wir die Voraussetzungen und das passende Testdesign. [Sprecht mit uns](/gespraech-vereinbaren) über die konkrete Wachstumsfrage, nicht nur über eine Budgetzahl.
 
-## Was in euren DSP-Brief gehört
+## Quelle und Geltungsbereich
 
-Haltet auf einer Seite fest: Geschäftsfrage, geeignete ASINs, Stückbeitrag, verfügbare Menge, Zugang und Kosten, Zielgruppe, Werbemittel, Messmethode, maximaler Aufwand und Entscheidungstermin. Bestimmt auch, was nach einem positiven Ergebnis anders finanziert wird. Ohne Anschlussentscheidung bleibt der Test ein isoliertes Experiment.
-
-Bei temoa verbinden wir [Werbeplanung](/leistungen/ppc-advertising) mit [Analytics und Reporting](/leistungen/analytics-reporting). Im [Gespräch über euren Account](/gespraech-vereinbaren) prüfen wir zuerst, ob DSP eure aktuelle Wachstumsfrage sinnvoll beantworten kann oder ob Listing, Sortiment und bestehende Kampagnen den größeren Hebel bieten.
-
-## Quelle und Einordnung
-
-[Amazon Ads: Amazon DSP und Zugangsmodelle](https://advertising.amazon.com/en-gb/solutions/products/amazon-dsp). Geprüft am 16. Oktober 2026. Zugangsvoraussetzungen und Angebote sind markt- und anbieterabhängig; die Testplanung und Rechnungen sind eigene Modelle.
+[Amazon Ads: DSP, Zugangsmodelle und Managed Service](https://advertising.amazon.com/en-gb/solutions/products/amazon-dsp). Geprüft am 17. Oktober 2026. Zahlen zur Auslieferung und zum Gesamtaufwand sind fiktive Rechenannahmen; das konkrete Angebot und die Funktionen sind markt- und zugangsabhängig.

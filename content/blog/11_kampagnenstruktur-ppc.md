@@ -1,57 +1,50 @@
 ---
-title: "Amazon-Kampagnenstruktur: Eine PPC-Architektur, die wirklich skaliert"
-meta_description: "Die meisten PPC-Konten wachsen durch Wildwuchs. So baust du eine klare Kampagnenstruktur, die du steuern, lesen und über die Millionengrenze skalieren kannst."
-keywords: ["Amazon Kampagnenstruktur", "PPC Architektur", "Amazon PPC skalieren", "Kampagnen organisieren"]
+title: "Amazon-PPC-Kampagnenstruktur: nach Suchintention und Produktökonomie bauen"
+meta_description: "Eine steuerbare Sponsored-Products-Architektur für Marken: Portfolios, Discovery, Exact, Produkt-Targeting und Migration mit echten Diagnosefragen."
+keywords: ["Amazon Kampagnenstruktur", "Sponsored Products Struktur", "Amazon PPC skalieren"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon-Kampagnenstruktur: Eine PPC-Architektur, die wirklich skaliert
+# Amazon-PPC-Kampagnenstruktur: nach Suchintention und Produktökonomie bauen
 
-Die meisten Amazon-Werbekonten wachsen nicht – sie wuchern. Neue Kampagnen werden reaktiv über alte gestapelt, Anzeigengruppen füllen sich mit zusammengewürfelten Keywords, Match-Typen vermischen sich, und nach anderthalb Jahren sieht das Konto aus wie ein Aktenschrank, in dem seit dem Launch niemand aufgeräumt hat. Die Daten sind da, aber unlesbar. Und was man nicht lesen kann, kann man nicht optimieren – geschweige denn skalieren. Genau an dieser Wand bleiben viele Verkäufer zwischen der ersten und der zweiten Umsatzmillion stehen.
+Wenn ein Konto mit 80 Kampagnen schwer zu steuern ist, fehlen meistens keine weiteren Kampagnen. Es fehlt eine verlässliche Antwort auf drei Fragen: Welche ASIN soll welchen Suchbedarf bedienen? Wie viel darf ein zusätzlicher Verkauf kosten? Welche Kampagne kann man verändern, ohne ein anderes Ziel mitzuverändern? Daraus ergibt sich die Struktur.
 
-## Warum Struktur wichtiger wird, je größer du wirst
+## Erst die SKU-Gruppen, dann die Kampagnennamen
 
-Bei drei Produkten und zwei Kampagnen funktioniert auch Chaos. Bei fünfzig ASINs und sechsstelligem Werbebudget entscheidet die Struktur darüber, ob du dein Konto noch steuern kannst. Eine klare Architektur sorgt dafür, dass jede Kampagne eine eindeutige Aufgabe hat, dass du Budget gezielt lenken kannst und dass Auswertungen aussagekräftig sind. Struktur ist kein Selbstzweck – sie ist die Voraussetzung für jede sinnvolle Optimierung.
+Nehmen wir eine Marke mit Edelstahlflaschen: 500 ml, 750 ml und 1 Liter, jeweils in mehreren Farben. Das Keyword „trinkflasche edelstahl 750ml“ passt zur mittleren Größe; eine gemeinsame Anzeigengruppe für alle Größen kann Budget in die falsche Variante lenken. Umgekehrt brauchen schwarze und blaue 750-ml-Flaschen nicht zwingend eigene Kampagnen, wenn Kaufabsicht und Deckungsbeitrag ähnlich sind.
 
-## Das Grundprinzip: Trennung nach Funktion
+Erstellt vor dem Umbau eine Tabelle je Child-ASIN: Verkaufspreis nach Rabatten, variable Amazon-Gebühren, Versand, Warenkosten, Retourenannahme, verfügbarer Bestand, beworbenes Hauptangebot und Beitragsmarge vor Werbung. Der tragbare Werbeeinsatz ergibt sich aus dem gewünschten verbleibenden Beitrag; ein kontoweiter ACoS-Wert ignoriert die Unterschiede der Varianten. [So ordnet ihr CPC und Conversion wirtschaftlich ein](/blog/amazon-cpc-conversion-analyse).
 
-Eine skalierbare Struktur trennt Kampagnen nach ihrer Funktion, nicht nach Zufall. Drei Rollen sind grundlegend:
+## Vier Aufgaben, vier getrennte Entscheidungen
 
-- **Discovery (Entdeckung):** Auto-Kampagnen und breite (Broad-)Keywords, die herausfinden, welche Suchbegriffe konvertieren. Hier suchst du nach neuen profitablen Keywords.
-- **Performance (Ernte):** Exakt ausgesteuerte Kampagnen für die Keywords, von denen du bereits weißt, dass sie verkaufen. Hier gibst du gezielt mehr Budget und höhere Gebote.
-- **Defense/Brand (Verteidigung):** Kampagnen auf deine eigenen Marken-Keywords, um Wettbewerber von deinen Käufern fernzuhalten.
+**Bestehende Nachfrage ernten:** Exakte Suchbegriffe mit belegten Bestellungen bekommen ein eigenes Budget. Trennung ist besonders hilfreich, wenn ein wichtiges Keyword sonst regelmäßig am Tagesbudget scheitert.
 
-Diese Trennung ist das Rückgrat. Sie macht Budgetzuständigkeit und Auswertung klarer. Überschneidungen bedeuten nicht automatisch, dass ihr eure eigenen Klickpreise hochtreibt.
+**Neue Suchbegriffe finden:** Auto-, Broad- und gegebenenfalls Phrase-Targets liefern Kandidaten. Hier kauft ihr Erkenntnisse ein; bewertet Suchbegriffe über ausreichend Klicks und mit Blick auf deren Kaufabsicht, nicht allein über einen Tages-ACoS.
 
-## Das Keyword-Trichter-Prinzip
+**Produktseiten gezielt besetzen:** ASIN- und Kategorie-Targeting gehören in eine eigene Auswertung. Klicks auf einer Konkurrenzdetailseite haben eine andere Ausgangslage als Suchklicks und sollten nicht mit ihnen zu einer Erfolgsquote zusammenfallen.
 
-Der Motor einer guten Struktur ist ein Kreislauf: In den Discovery-Kampagnen findest du über den Suchbegriffsbericht heraus, welche Suchen konvertieren. Diese „Gewinner" überführst du in eine exakte Performance-Kampagne – und schließt sie in der Discovery-Kampagne als negatives Keyword aus. Überführt nur dann mit Negativsetzung, wenn die Zielkampagne genügend Budget hat und tatsächlich ausliefert. Sonst kann die Umstellung profitable Reichweite kosten. Dieser Trichter ist es, der ein Konto über die Zeit sauber und steuerbar hält.
-
-## Eine Kampagne, ein Ziel
-
-Ein häufiger Fehler ist, eine einzige Kampagne mit zwanzig unterschiedlichen Keywords und allen Match-Typen zu füllen. Das Ergebnis: Du kannst Budget nicht gezielt steuern, weil ein gutes und ein schlechtes Keyword im selben Topf liegen. Besser ist eine engere Granularität – wenige eng verwandte Keywords pro Anzeigengruppe, ein klarer Match-Typ-Zweck pro Kampagne. So kannst du Gebote und Budgets dort erhöhen, wo es sich lohnt, ohne Verluste an anderer Stelle mitzufinanzieren.
-
-## Eine konsistente Namenslogik
-
-Was banal klingt, ist bei großen Konten entscheidend: ein einheitliches Benennungsschema. Wenn jede Kampagne nach demselben Muster heißt (z. B. *Produktlinie | Ad-Typ | Funktion | Match-Typ*), kannst du dein Konto filtern, sortieren und auf einen Blick verstehen. Ohne System verlierst du bei dreißig Kampagnen den Überblick – mit System bleibt auch ein Konto mit Hunderten Kampagnen lesbar.
-
-## Sauber neu aufbauen oder umbauen?
-
-Wenn dein Konto bereits unübersichtlich ist, stellt sich die Frage: aufräumen oder neu strukturieren? Ein kompletter Neuaufbau verändert Auslieferung und Vergleichbarkeit. Er löscht nicht automatisch die organische Historie einer ASIN, kann aber Budgetverteilung und Kampagnenleistung stark verschieben. Meist besser ist ein schrittweiser Umbau: Erst die Top-Performer in eine saubere Struktur überführen, dann die Discovery sauber aufsetzen, dann den Rest nachziehen. Verändere nicht alles auf einmal, sondern in kontrollierten Etappen, damit du die Wirkung jeder Änderung beurteilen kannst.
-
-## Praxis: Struktur nach wirtschaftlichen Unterschieden
+**Eigene Marke schützen:** Markenbegriffe separat betrachten. Ein hoher ROAS belegt hier nicht automatisch zusätzliche Verkäufe. Prüft, ob organische Sichtbarkeit, Wettbewerbsdruck und der [inkrementelle Beitrag](/blog/amazon-werbung-inkrementalitaet) den Einsatz rechtfertigen.
 
 <aside class="article-example">
-<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
-<h3>Struktur nach wirtschaftlichen Unterschieden</h3>
-<p>Eine Kampagne enthält drei ASINs mit Beiträgen vor Werbung von 4 €, 9 € und 15 €. Ein gemeinsamer Budgettopf verschleiert, wo Ausgaben tragfähig sind. Gruppiert zuerst nach vergleichbarer Produktökonomie und Kaufabsicht; nicht jede ASIN braucht automatisch ein eigenes Kampagnennetz.</p>
+<p class="example-label">Arbeitsfall · fiktives Produkt</p>
+<h3>Dasselbe Keyword, verschiedene Entscheidungen</h3>
+<p>„Edelstahlflasche 750 ml“ liefert in einer Auto-Kampagne Bestellungen für die schwarze 750-ml-SKU. Die 500-ml-SKU erzielt für dieselbe Suche Klicks, aber keine Verkäufe. Statt das Keyword für die gesamte Marke zu pausieren, führt ihr die passende 750-ml-SKU in einer Exact-Kampagne fort und prüft bei der 500-ml-SKU die Zielzuordnung. Die Suchbegriffe, beworbenen ASINs und Klicks müssen dafür gemeinsam ausgewertet werden.</p>
 </aside>
 
-**So setzt ihr es um:**
+![Ein steuerbares Konto: SKU-Gruppe – 750 ml / ähnliche Marge, Suchabsicht – Exact · Discovery · ASIN, Kontrolle – Spend + ASIN-Beitrag](/blog/figures/kampagnenstruktur-ppc.svg)
 
-1. Dokumentiert Zweck, ASIN-Gruppe, Zielwert und Budgetverantwortung je Kampagne.
-2. Migriert in Etappen. Prüft Auslieferung und Budget der Zielkampagne, bevor ihr erfolgreiche Suchanfragen in der alten Kampagne ausschließt.
 
-## Fazit
+## Suchbegriffe verschieben, ohne profitable Auslieferung abzuschneiden
 
-Skalierung scheitert selten am Budget und oft an der Struktur. Wer Kampagnen klar nach Funktion trennt, einen Keyword-Trichter etabliert, die Granularität hochhält und ein konsistentes Namensschema nutzt, baut ein Konto, das sich lesen und steuern lässt – die Grundvoraussetzung, um über die Millionengrenze hinaus zu wachsen. Eine aufgeräumte Architektur ist langweilig, aber sie ist der Unterschied zwischen einem Konto, das du beherrschst, und einem, das dich beherrscht.
+Ein erfolgreicher Suchbegriff kann in Exact übernommen werden. Ein Negativ-Exact in der Discovery-Kampagne folgt erst, wenn die neue Kampagne tatsächlich ausliefert und genug Budget erhält. Sonst beseitigt die „saubere“ Struktur genau den Traffic, den sie erhalten sollte. Dokumentiert Datum, alte und neue Target-Zuordnung sowie Spend und Bestellungen beider Kampagnen. Die Migration bewertet ihr auf der gesamten ASIN, nicht ausschließlich an der neuen Kampagne.
+
+Amazon entscheidet die Auktion dynamisch; zwei Targets im eigenen Konto sind nicht automatisch eine selbst verursachte CPC-Erhöhung. Das Problem ist die fehlende Steuerbarkeit, wenn Ziele und Budgets vermischt werden.
+
+## Eine sinnvolle Umbau-Reihenfolge
+
+1. Exportiert Kampagnen-, Suchbegriff- und beworbene-Produkte-Berichte für einen vergleichbaren Zeitraum. Kennzeichnet Verkäufe mit knappen Datenmengen ausdrücklich als unsicher.
+2. Erstellt SKU-Gruppen anhand von Suchabsicht, Marge und Bestand. Vermerkt für jede Kampagne Funktion und primäre Kennzahl.
+3. Separiert zuerst die umsatzrelevanten Suchbegriffe und prüft deren Auslieferung. Belasst die übrigen Kampagnen vorläufig aktiv.
+4. Bereinigt erst danach doppelte oder fehlgeleitete Targets und Negativ-Keywords. Kontrolliert täglich Budget-Limits und wöchentlich ASIN-Umsatz, Werbekosten und Bestellungen.
+
+Das Resultat ist kein vorgefertigtes Kampagnenbaum-Schema. Es ist ein Konto, in dem eure nächste Handlung aus den Daten hervorgeht. Wenn eure Architektur Werbebudget, Listing und Bestand gleichzeitig betrifft, verbindet sie mit unserem [PPC-Management](/leistungen/ppc-advertising) und der [Bestandsplanung](/leistungen/fba-inventory-management). [Sprecht mit temoa über eure Kontostruktur](/gespraech-vereinbaren).

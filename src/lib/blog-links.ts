@@ -18,6 +18,11 @@ type Text = { de: string; en: string };
 type Ziel = { href: string; anker: Text; text: Text };
 
 const ZIELE = {
+  analytics: {
+    href: "/leistungen/analytics-reporting",
+    anker: { de: "Amazon Analytics bei temoa", en: "Amazon analytics at temoa" },
+    text: { de: "Wie wir SQP, Business Reports und Werbedaten bis zum konkreten Arbeitsauftrag verbinden.", en: "How we connect SQP, Business Reports and advertising data to concrete decisions." },
+  },
   ppc: {
     href: "/leistungen/ppc-advertising",
     anker: { de: "PPC Advertising bei temoa", en: "PPC advertising at temoa" },
@@ -112,6 +117,7 @@ type Schluessel = keyof typeof ZIELE;
 
 const NACH_KATEGORIE: Record<string, Schluessel[]> = {
   "Amazon PPC & Advertising": ["ppc", "fallVitaworld"],
+  "Amazon Daten & Analyse": ["analytics", "ppc", "fallVitaworld"],
   "Listing, SEO & Conversion": ["listing", "fallBachgold"],
   "FBA, Logistik & Inventar": ["fba", "account"],
   "Marke schützen & Account-Management": ["compliance", "account", "fallHaa"],

@@ -1,63 +1,52 @@
 ---
-title: "Amazon-Werbung: Inkrementalität statt ROAS allein beurteilen"
-meta_description: "Wie viel zusätzlichen Umsatz bringt Amazon-Werbung? Kontrollgruppen, AMC und Deckungsbeitrag sauber unterscheiden, mit einer Beispielrechnung."
-keywords: ["Amazon-Werbung", "Amazon Wachstum", "Amazon Marken"]
+title: "Amazon-Werbung: Wie viel Umsatz ist wirklich zusätzlich?"
+meta_description: "Amazon-Inkrementalität von ROAS und New-to-Brand unterscheiden. Kontrollgruppen, AMC und Wirtschaftlichkeit mit einem klaren Messdesign für Marken einordnen."
+keywords: ["Amazon Werbung Inkrementalität", "Amazon Marketing Cloud", "inkrementeller ROAS", "Amazon New-to-Brand"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon-Werbung: Inkrementalität statt ROAS allein beurteilen
+# Amazon-Werbung: Wie viel Umsatz ist wirklich zusätzlich?
 
-Die Inkrementalität eurer Amazon-Werbung beschreibt den zusätzlichen Effekt gegenüber einer Situation ohne die untersuchte Maßnahme. Diese Frage wird besonders relevant, wenn eine etablierte Marke viel eigene Nachfrage hat. Ein hoher ROAS kann dann mit guter Werbung zusammenhängen, aber auch damit, dass ohnehin kaufbereite Kunden häufig Anzeigen sehen oder anklicken.
+Ein Kunde sucht eure Marke, klickt auf eine Sponsored-Products-Anzeige und kauft. Der Anzeigenreport schreibt den Verkauf der Kampagne zu. Ob der Kunde ohne Anzeige beim organischen Treffer ebenfalls gekauft hätte, steht dort nicht. Für große Marken mit bestehender Nachfrage kann diese Lücke über Millionenbudgets entscheiden.
 
-Für die Budgetentscheidung wollt ihr wissen, welcher zusätzliche Beitrag entsteht. Dazu braucht ihr eine Vergleichsbasis. Der Anzeigenreport allein liefert eine Zurechnung von Verkäufen; er zeigt nicht direkt, was dieselben Menschen ohne Werbung gekauft hätten.
+Drei Größen gehören getrennt in den Bericht: **zugerechneter Umsatz**, **neu für die Marke klassifizierte Käufer** und **zusätzliche Verkäufe gegenüber einem vergleichbaren Zustand ohne Werbung**. Die dritte Aussage benötigt einen brauchbaren Gegenvergleich.
 
-## Drei Fragen nicht vermischen
+## Was Standardreports leisten
 
-**Attribution:** Welcher Werbekontakt bekommt einen Verkauf nach den Regeln des jeweiligen Reports zugerechnet? Diese Sicht eignet sich für operative Vergleiche innerhalb konsistenter Definitionen.
-
-**Neukundenanteil:** Wie viele zugerechnete Käufer gelten im jeweiligen Messfenster als neu für die Marke? Das kann die Qualität der erreichten Nachfrage besser beschreiben. Es beantwortet trotzdem nicht automatisch, ob diese Menschen ohne Werbung nicht gekauft hätten.
-
-**Inkrementalität:** Welche zusätzliche Wirkung verursacht die untersuchte Werbung? Für diese Aussage braucht ihr ein geeignetes Kontroll- oder Vergleichsdesign und eine Bewertung der Unsicherheit.
-
-| Auswertung | Nützliche Aussage | Aussage, die daraus allein nicht folgt |
+| Kennzahl | Was sie tatsächlich beschreibt | Was sie offenlässt |
 |---|---|---|
-| ROAS | Zugerechneter Umsatz je Werbe-Euro | Zusätzlicher Umsatz je Werbe-Euro |
-| New-to-Brand | Neukunden gemäß Messdefinition | Kausal gewonnene Neukunden |
-| Kontaktpfade in AMC | Beobachtete Abfolge und Überschneidung | Wirkung jedes Kontakts ohne Kontrollgruppe |
-| Kontrollierter Test | Geschätzte Wirkung im getesteten Rahmen | Garantierte Wirkung bei beliebigem Budget |
+| ACoS/ROAS | Werbekosten und nach den Regeln zugerechnete Verkäufe | Hätte der Kunde auch ohne Anzeige gekauft? |
+| New-to-Brand | Käuferhistorie innerhalb Amazons jeweiliger Definition | Hat die Anzeige den ersten Kauf verursacht? |
+| AMC-Analyse | Verknüpfte, berechtigte Ereignisse und beobachtbare Pfade | Eine gute Segmentierung erzeugt keine Kontrollgruppe |
+| Brand Lift | Befragungsbasierten Unterschied in Markenwahrnehmung | Zusätzlichen Produktabsatz in Euro |
 
-## Was Amazon Marketing Cloud beitragen kann
+Amazon Marketing Cloud kann helfen, Berührungspunkte und Zielgruppenüberschneidungen zu untersuchen. Wer nachträglich „Exponierte“ mit „Nicht exponierten“ vergleicht, vergleicht möglicherweise unterschiedliche Personen. Die bloße AMC-Nutzung macht eine Auswertung nicht kausal.
 
-AMC stellt eine Umgebung für Analysen von Werbe- und weiteren verfügbaren Signalen bereit. Damit lassen sich zum Beispiel Reichweitenüberschneidungen und Kontaktpfade untersuchen. Zugang, Datensätze und verfügbare Funktionen müssen für euren Account geprüft werden.
+## Eine beantwortbare Testfrage formulieren
 
-Ein Pfad mit Displaykontakt und anschließendem Sponsored-Products-Kauf zeigt eine beobachtete Reihenfolge. Er beweist nicht, dass der Displaykontakt den Kauf verursacht hat. Menschen mit hoher Kaufneigung können schlicht mehr relevante Werbekontakte erhalten. Verwechselt deshalb eine detailliertere Datenansicht nicht mit einem automatisch kausalen Ergebnis.
+Nehmt etwa eine Produktgruppe mit stabiler Lieferfähigkeit und fragt: **Erzeugt eine zusätzliche, definierte Werbeschicht bei bislang nicht angesprochenen Kunden mehr Deckungsbeitrag, als Media und Durchführung kosten?** Legt vor Start Produktliste, Testperiode, Kontrollverfahren, Zielkennzahl, maximale Kosten und erlaubte Änderungen fest.
 
-Auch Brand-Lift-Studien beantworten eine eigene Frage: Sie untersuchen Veränderungen der Markenwahrnehmung. Ein gemessener Bekanntheitszuwachs ist nicht dieselbe Größe wie zusätzlicher Verkaufsumsatz.
+Ein randomisierter Vergleich ist nur aussagekräftig, wenn die Gruppen tatsächlich vergleichbar sind, die Umsetzung funktioniert und die erwartete Wirkung groß genug für die Datenmenge ist. Nicht jeder Account hat Zugang zu jeder Testfunktion. Falls kein belastbarer Kontrollversuch verfügbar ist, bezeichnet das Ergebnis als Beobachtung, nicht als erwiesene Zusatzwirkung.
 
-## Einen Test so planen, dass er eine Budgetfrage beantwortet
+<aside class="article-example"><p class="example-label">Hypothetischer Kontrollversuch · keine Signifikanzbehauptung</p><h3>Auch ein iROAS von 4 kann nach Kosten negativ sein</h3><p>Zwei gleich große, unter den Testannahmen vergleichbare Gruppen erzielen 600 beziehungsweise 500 Bestellungen. Die Differenz von 100 Bestellungen zu je 40 € Nettoerlös entspricht 4.000 € zusätzlichem Umsatz. Bei 1.000 € Media ergibt sich rechnerisch iROAS 4. Bei 30 % Beitrag vor Werbung bleiben 1.200 €, nach Media 200 €. Kommen 400 € zusätzliche Durchführungskosten hinzu, steht ein Minus von 200 €. Ob die gemessene Differenz belastbar ist, verlangt zusätzlich eine Unsicherheitsanalyse.</p></aside>
 
-Definiert zunächst die Maßnahme: etwa zusätzliche Wiederansprache für eine bestimmte Produktgruppe. Legt Zielgröße, Zeitfenster, Testpopulation, maximale Ausgaben und eine wirtschaftlich relevante Mindestwirkung fest. Prüft dann, ob für euren Zugang ein geeignetes Experiment verfügbar ist.
+![Werbewirkung messen: Attribution – zugeordnete Käufe, Neukunden – NTB / Kundenhistorie, Wirkung – Kontrollgruppe / Test](/blog/figures/amazon-werbung-inkrementalitaet.svg)
 
-Wo eine saubere zufällige Zuteilung möglich ist, sollte die Auswertung auf der ursprünglichen Gruppenzuteilung beruhen. Nur tatsächlich erreichte Personen mit nicht erreichten Personen zu vergleichen kann die Auswahlverzerrung zurückbringen. Plant die erforderliche Datenmenge und Beobachtungsdauer vor dem Start mit der zuständigen Analyseperson.
 
-## Vom zusätzlichen Umsatz zum zusätzlichen Beitrag
+Diese Zahlen sollen nicht zeigen, dass eine kleine Kampagne statistisch ausreicht. Sie zeigen, welche wirtschaftliche Brücke euer Report schlagen muss. Der Effekt gehört mit Bandbreite, Durchführungsfehlern und weiteren Kosten präsentiert.
 
-<aside class="article-example"><p class="example-label">Vereinfachtes Kontrollgruppenmodell</p><h3>Ein iROAS von 4 kann nach Kosten zu wenig sein</h3><p>Zwei gleich große, vergleichbare Gruppen haben je 10.000 zugeteilte Personen. Die Testgruppe erzielt 600 Bestellungen, die Kontrollgruppe 500. Die Punktschätzung beträgt 100 zusätzliche Bestellungen. Bei 40 € Nettoumsatz je Bestellung wären das 4.000 € zusätzlicher Umsatz. Bei 1.000 € Media ergibt sich ein iROAS von 4. Liegt der Beitrag vor Werbung bei 30 %, bleiben 1.200 €. Nach 1.000 € Media und 400 € zusätzlichen Testkosten beträgt der Ergebnisbeitrag minus 200 €.</p></aside>
+## Wo ein Test scheitert, obwohl die Kampagne läuft
 
-Das Beispiel ignoriert Unsicherheitsintervalle und dient nur der Rechenlogik. Ein realer Test muss prüfen, ob die Differenz belastbar ist, ob Gruppen vergleichbar geblieben sind und ob der durchschnittliche Warenkorb sowie Retouren den Wert verändern. Die Rechnung sollte dieselbe Umsatz- und Kostenbasis verwenden.
+**Kontamination:** Dieselben Käufer erreichen das Produkt durch andere Anzeigen, Promotion oder ein Reseller-Angebot. **Bestandsbruch:** Die Test-ASIN wird während des Versuchs knapp, die Vergleichs-ASIN nicht. **Auswahlfehler:** Eine Gruppe enthält von Beginn an kaufbereitere Menschen. **Zu wenig Daten:** Der Test hat rechnerisch keine Chance, eine für euch relevante Wirkung sauber vom Rauschen zu trennen.
 
-## Wenn ein echtes Experiment nicht möglich ist
+Protokolliert parallele Preis-, Bestands- und Contentänderungen. Legt das kleinste wirtschaftlich wichtige Ergebnis fest, bevor die erste Zahl sichtbar wird. Bei einem uneindeutigen Test investiert ihr in ein besseres Design oder eine kleinere Frage, statt eine gewünschte Interpretation aus der Kampagne zu lesen.
 
-Ein einfacher Vorher-nachher-Vergleich ist anfällig für Saison, Angebote, Wettbewerbsänderungen und Lieferprobleme. Wenn ihr darauf angewiesen seid, dokumentiert diese Einflüsse und vergleicht möglichst passende Referenzgruppen. Formuliert das Ergebnis als Hinweis mit Grenzen.
+## Die Konsequenz für den Budgetplan
 
-Ein kurzer Werbestopp über ein Wochenende ist kein universeller Inkrementalitätstest. Tagesmuster, verzögerte Käufe und Nachwirkungen vorheriger Kontakte können das Bild verzerren. Auch eine geografische Aufteilung ist nur sinnvoll, wenn Auslieferung und Messung die Trennung tatsächlich erlauben. Erfindet keine Kontrollgruppe aus Daten, die sie nicht abbilden.
+Bei Branded Search kann Verteidigung sinnvoll sein; der zugerechnete ROAS überschätzt möglicherweise den zusätzlichen Effekt. Bei generischer Nachfrage kann ein niedrigerer Standard-ROAS akzeptabel sein, wenn der nachweisbare zusätzliche Beitrag höher ist. Weder die eine noch die andere Aussage ist ohne passende Prüfung garantiert.
 
-## Was nach dem Ergebnis passiert
+Wir verbinden [PPC-Planung](/leistungen/ppc-advertising) mit [Analytics & Reporting](/leistungen/analytics-reporting) und einer klaren Entscheidung über die nächste Budgetstufe. Für DSP gelten dieselben Messfragen; die [Budget- und Zugangsmodelle](/blog/amazon-dsp-budget) kommen hinzu. [Sprecht mit uns](/gespraech-vereinbaren), wenn ihr für eine konkrete Kampagne eine Zusatzwirkungsfrage formulieren wollt.
 
-Ein positiver Test rechtfertigt zunächst eine Entscheidung für den getesteten Rahmen. Bei höherem Budget können Reichweite, Frequenz und Zielgruppenqualität anders aussehen. Erhöht deshalb kontrolliert und beobachtet die zusätzliche Wirkung der nächsten Budgetstufe.
+## Quellen und Geltungsbereich
 
-Ein uneindeutiges Ergebnis ist ebenfalls wertvoll: Vielleicht war der Test zu klein, der Effekt wirtschaftlich zu gering oder die Hypothese falsch. Haltet diese Möglichkeiten auseinander. Bei temoa verbinden [Analytics & Reporting](/leistungen/analytics-reporting) und [Werbesteuerung](/leistungen/ppc-advertising) die Messfrage mit einer konkreten Budgetentscheidung. Für den Einstieg hilft auch die [DSP-Testplanung](/blog/amazon-dsp-budget).
-
-## Primärquellen
-
-[Amazon Marketing Cloud](https://advertising.amazon.com/solutions/products/amazon-marketing-cloud) und [Amazon Brand Lift](https://advertising.amazon.com/measurement-analytics/brand-lift). Geprüft am 16. Oktober 2026. Das Kontrollgruppenbeispiel ist eine eigene methodische Illustration und beschreibt keine automatisch in jedem Amazon-Konto verfügbare Funktion.
+[Amazon Ads: Marketing Cloud](https://advertising.amazon.com/solutions/products/amazon-marketing-cloud) und [Amazon Ads: Brand Lift](https://advertising.amazon.com/measurement-analytics/brand-lift). Geprüft am 17. Oktober 2026. Das Experiment und seine Rechnung sind illustrative Modelle, keine verfügbaren Standardfunktionen oder Kundenergebnisse.

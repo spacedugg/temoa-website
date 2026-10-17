@@ -25,7 +25,6 @@ const FESTE_SEITEN = [
   "/design-beispiele",
   "/gespraech-vereinbaren",
   "/blog",
-  "/blog/deep-dives",
   "/blog/vergleiche",
   "/blog/grundlagen",
   "/impressum",

@@ -23,7 +23,19 @@ export const blogTopics: BlogTopic[] = [
     starts: [
       {"slug": "amazon-werbung-inkrementalitaet", "question": {"de": "Welche Verkäufe entstehen zusätzlich durch Werbung?", "en": "Which sales are genuinely additional?"}, "answer": {"de": "Unterscheidet Attribution, Neukundenkennzahlen und Inkrementalität anhand einer Beitragsrechnung.", "en": "Separate attribution, customer-history metrics and incrementality with a contribution calculation."}},
       {"slug": "amazon-dsp-budget", "question": {"de": "Welches Budget macht einen DSP-Test aussagekräftig?", "en": "What budget can support a useful DSP test?"}, "answer": {"de": "Kalkuliert Media, Betreuung und Messung, bevor ihr zu viele Zielgruppen gleichzeitig testet.", "en": "Calculate media, management and measurement before dividing spend across too many audiences."}},
-      { slug: "business-reports", question: { de: "Warum sinkt Umsatz trotz stabiler Werbekennzahlen?", en: "Why do sales fall despite stable ad metrics?" }, answer: { de: "Zerlegt die Veränderung in Traffic, Kaufleistung und Erlös pro Einheit.", en: "Break the change into traffic, purchasing performance and revenue per unit." } },
+      { slug: "amazon-cpc-conversion-analyse", question: { de: "Wird der CPC teurer oder ändert sich der Traffic-Mix?", en: "Is CPC rising or is the traffic mix changing?" }, answer: { de: "Vergleicht Klickkosten innerhalb gleicher Such- und Produktsegmente.", en: "Compare click costs within comparable search and product segments." } },
+    ],
+  },
+  {
+    slug: "daten-analyse",
+    label: { de: "Amazon-Daten & Suchanfragen", en: "Amazon data & search queries" },
+    title: { de: "Amazon-Daten auswerten: Suchanfragen, Berichte und Keywords", en: "Amazon analytics: search queries, reports and keywords" },
+    intro: { de: "Welche Suchanfrage verliert Käufe, welche Variante bremst und welche Datenquelle beantwortet die Frage? Drei Ratgeber verbinden Brand Analytics, Business Reports und Werbesuchbegriffe mit konkreten Arbeitsaufträgen.", en: "Find the query losing purchases, the variant holding sales back and the right report for each question. Three guides connect Brand Analytics, Business Reports and ad search terms to concrete actions." },
+    service: "/leistungen/analytics-reporting", serviceLabel: { de: "Analytics & Reporting bei temoa", en: "Analytics & reporting at temoa" },
+    starts: [
+      { slug: "search-query-performance", question: { de: "Wo verliert eure Marke Klick- oder Kaufanteil?", en: "Where is your brand losing clicks or purchases?" }, answer: { de: "Markt und eigenen Anteil entlang der vier Suchstufen sauber vergleichen.", en: "Compare market and brand share across the four search stages." } },
+      { slug: "business-reports", question: { de: "Welche Variante bremst den Umsatz?", en: "Which variation is holding sales back?" }, answer: { de: "Sitzungen, Einheiten je Sitzung und Featured Offer auf Child-ASIN-Ebene lesen.", en: "Read sessions, units per session and Featured Offer share by child ASIN." } },
+      { slug: "amazon-keyword-recherche", question: { de: "Welche Suchanfragen passen wirklich zum Produkt?", en: "Which queries truly fit the product?" }, answer: { de: "Produktfakten und Nachfrage anhand einer konkreten SKU abgleichen.", en: "Match product facts and demand for a specific SKU." } },
     ],
   },
   {
@@ -33,7 +45,6 @@ export const blogTopics: BlogTopic[] = [
     intro: { de: "Ein gutes Listing macht ein Produkt auffindbar und beantwortet die Fragen vor dem Kauf. Die Ratgeber helfen euch, Titel, Produktbilder, A+ Content und Brand Store aufeinander abzustimmen und mögliche Ursachen schwacher Conversion zu erkennen.", en: "A useful listing helps shoppers find a product and answers their questions before buying. These guides connect titles, product images, A+ content and brand stores with the reasons shoppers do or do not convert." },
     service: "/leistungen/listing-seo", serviceLabel: { de: "Produktbilder und Amazon SEO", en: "Product images and Amazon SEO" },
     starts: [
-      { slug: "search-query-performance", question: { de: "Bei welchen Suchanfragen verliert ihr Käufe?", en: "Which search queries lose purchases?" }, answer: { de: "Vergleicht Klick- und Kaufanteile, um Content-Tests gezielt zu priorisieren.", en: "Compare click and purchase shares to prioritise content experiments." } },
       { slug: "produkttitel-optimieren", question: { de: "Wie verbessert ihr einen Produkttitel?", en: "How can you improve a product title?" }, answer: { de: "Produkttyp, wichtige Eigenschaften und verständliche Suchbegriffe geben Orientierung. Der Leitfaden zeigt die Reihenfolge.", en: "Product type, relevant attributes and clear search terms help shoppers understand the offer. Start with the title guide." } },
       { slug: "a-plus-content", question: { de: "Wofür lohnt sich A+ Content?", en: "What is A+ content useful for?" }, answer: { de: "A+ Content bietet Platz für Anwendung, Unterschiede und Kaufargumente, die Bilder und Stichpunkte ergänzen.", en: "A+ content gives you room to explain uses, differences and reasons to buy alongside images and bullet points." } },
       {"slug": "amazon-content-experimente", "question": {"de": "Welche Content-Änderung lohnt sich wirtschaftlich?", "en": "Which content change is commercially worthwhile?"}, "answer": {"de": "Verbindet eine klare Kaufhürde mit Testdesign, Auswertung und einem nachvollziehbaren Business Case.", "en": "Connect a purchase barrier with test design, interpretation and transparent economics."}},

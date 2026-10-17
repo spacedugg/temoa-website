@@ -1,4 +1,3 @@
-import deepDives from "../../content/blog-deep-dives.json";
 import editorialPolicy from "../../content/blog-editorial-policy.json";
 import coverAlts from "../../content/blog-cover-alt.json";
 import fs from "node:fs";
@@ -79,6 +78,18 @@ const categories: Category[] = [
     blurb: {
       de: "ACoS, TACoS, Kampagnenstruktur und alles, was Werbung profitabel macht.",
       en: "ACoS, TACoS, campaign structure and everything that makes advertising profitable.",
+    },
+  },
+  {
+    key: "Amazon Daten & Analyse",
+    slug: "daten-analyse",
+    label: { de: "Daten & Analyse", en: "Data & analysis" },
+    short: { de: "Analytics", en: "Analytics" },
+    accent: "#087A9D",
+    icon: "chart",
+    blurb: {
+      de: "Suchanfragen, Business Reports und Keywords in konkrete Entscheidungen übersetzen.",
+      en: "Turn search queries, Business Reports and keywords into decisions.",
     },
   },
   {
@@ -336,7 +347,13 @@ const FEATURED = [
   "amazon-produktlaunch",
 ];
 
-const DEEP_DIVES = deepDives.groups.flatMap((group) => group.slugs);
+const EDITORIAL_PRIORITY = [
+  "search-query-performance", "business-reports", "amazon-werbung-inkrementalitaet",
+  "amazon-dsp-budget", "amazon-cpc-conversion-analyse", "amazon-content-experimente",
+  "amazon-keyword-recherche", "amazon-kanalstrategie-marken", "amazon-produktlaunch",
+  "amazon-featured-offer-analyse", "amazon-account-health", "amazon-vine-kalkulation",
+  "amazon-awd-us-logistik", "amazon-ki-sichtbarkeit",
+];
 
 // Foundational articles remain discoverable but follow operational decisions.
 const FOUNDATIONAL = new Set([
@@ -347,8 +364,8 @@ const FOUNDATIONAL = new Set([
 ]);
 function editorialPriority(post: PostMeta) {
   const featured = FEATURED.indexOf(post.slug);
-  const deepDive = DEEP_DIVES.indexOf(post.slug);
-  return featured >= 0 ? featured : deepDive >= 0 ? 10 + deepDive : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
+  const editorial = EDITORIAL_PRIORITY.indexOf(post.slug);
+  return featured >= 0 ? featured : editorial >= 0 ? 10 + editorial : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
 }
 
 export function getFeaturedPosts(sprache: Sprache, limit = 6): PostMeta[] {

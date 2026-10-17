@@ -2,7 +2,7 @@
 title: "Search Query Performance: diagnose Amazon search performance"
 meta_description: "Use Amazon Search Query Performance to identify visibility and conversion gaps. A worked example and practical diagnostic process for established brands."
 keywords: ["Search Query Performance", "Amazon search analytics", "Brand Analytics"]
-kategorie: "Listing, SEO & Conversion"
+kategorie: "Amazon Daten & Analyse"
 ---
 
 # Search Query Performance: diagnose Amazon search performance

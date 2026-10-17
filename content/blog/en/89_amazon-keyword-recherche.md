@@ -2,7 +2,7 @@
 title: "Amazon keyword research: prioritise purchase intent and product fit"
 meta_description: "Turn Amazon keyword research into decisions about content and advertising. Filter product fit, query evidence and commercial potential."
 keywords: ["Amazon keyword research", "Amazon growth", "Amazon brands"]
-kategorie: "Listing, SEO & Conversion"
+kategorie: "Amazon Daten & Analyse"
 ---
 
 # Amazon keyword research: prioritise purchase intent and product fit

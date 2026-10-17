@@ -2,7 +2,7 @@
 title: "Amazon Business Reports: diagnose a sales decline"
 meta_description: "Connect sessions, Unit Session Percentage and revenue per unit to diagnose Amazon sales changes, with a worked example and practical decision process."
 keywords: ["Amazon Business Reports", "Unit Session Percentage", "Amazon sales analysis"]
-kategorie: "Strategie & Geschäftsmodelle"
+kategorie: "Amazon Daten & Analyse"
 ---
 
 # Amazon Business Reports: diagnose a sales decline

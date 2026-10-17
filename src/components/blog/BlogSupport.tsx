@@ -6,6 +6,7 @@ import { pfad, type Sprache } from "@/lib/i18n";
 
 type Props = { sprache: Sprache; categoryKey?: string; categorySlug?: string; articleSlug?: string };
 const contactTitles: Record<string, Record<Sprache, string>> = {
+  "daten-analyse": { de: "Welche Datenfrage hält euer Wachstum auf?", en: "Which analytics question is holding back growth?" },
   "ppc-advertising": { de: "Wie rentabel ist eure Amazon-Werbung?", en: "How profitable is your Amazon advertising?" },
   "listing-seo": { de: "Was könnte euer Amazon-Listing besser verkaufen?", en: "What could help your Amazon listing convert?" },
   "fba-logistik": { de: "Passen FBA-Kosten und Bestand zu eurer Marge?", en: "Do FBA costs and inventory fit your margins?" },

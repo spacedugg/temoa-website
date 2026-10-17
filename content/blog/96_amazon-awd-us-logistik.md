@@ -1,59 +1,53 @@
 ---
-title: "Amazon AWD: US-Bestände vor FBA wirtschaftlich planen"
-meta_description: "Amazon AWD für die US-Expansion: Lagerstufen, Gesamtkosten, Wiederauffüllung und Bestandsrisiken. Mit Kostenvergleich und Planungsbeispiel."
-keywords: ["Amazon AWD", "Amazon Wachstum", "Amazon Marken"]
+title: "Amazon AWD für die USA: Wann hilft ein Vorlager wirklich?"
+meta_description: "AWD für US-Expansion bewerten: vorgelagerten und kaufbaren FBA-Bestand trennen, vollständige Warenwegkosten und Nachschubzeiten je ASIN prüfen."
+keywords: ["Amazon AWD USA", "Amazon Warehousing and Distribution", "AWD FBA Nachschub", "Amazon US Logistik"]
 kategorie: "FBA, Logistik & Inventar"
 ---
 
-# Amazon AWD: US-Bestände vor FBA wirtschaftlich planen
+# Amazon AWD für die USA: Wann hilft ein Vorlager wirklich?
 
-Amazon AWD ist für Marken mit US-Geschäft eine mögliche vorgelagerte Lager- und Distributionslösung. Die entscheidende Frage lautet, ob dieses zusätzliche Lager eure Versorgung wirtschaftlicher und verlässlicher macht. Eine niedrige Lagergebühr allein beantwortet sie nicht.
+Amazon Warehousing and Distribution (AWD) lagert Ware in den USA vorgelagert und kann FBA-Bestand nachversorgen. Die richtige Frage lautet nicht „Ist AWD-Lagerung günstiger als FBA?“, sondern **ob eure ASIN während Beschaffung, Anlieferung, Vorlagerung und Transfer zuverlässig kaufbar bleibt und was der gesamte Warenweg kostet**.
 
-Dieser Beitrag betrachtet das von Amazon für die USA beschriebene Angebot. Er überträgt weder US-Gebühren noch Programmbedingungen auf Deutschland. Für eine deutsche Marke mit US-Expansion gehören außerdem Einfuhr, Produktanforderungen und die Finanzierung des längeren Warenwegs in eine separate Prüfung.
+Der Beitrag bezieht sich auf das US-Angebot. Konditionen und Funktionen aus den USA gelten nicht automatisch für Deutschland. Für eine deutsche Marke mit US-Geschäft sind Import, Produktanforderungen, Einfuhrabgaben und gebundenes Kapital zusätzlich zu prüfen.
 
-## AWD und FBA erfüllen unterschiedliche Aufgaben
+## Fünf Bestandsorte, eine Summe
 
-FBA hält Ware für die Abwicklung von Kundenbestellungen bereit. AWD kann als vorgelagerter Bestand dienen und die Wiederauffüllung unterstützen. Das schafft eine zusätzliche Stufe zwischen eurem Warenzulauf und dem verkaufsfähigen FBA-Bestand.
+Erfasst je ASIN Einheiten beim Lieferanten, im Transport, angenommen bei AWD, im Transfer und verkaufsfähig bei FBA. Die Summe darf jede Einheit nur einmal enthalten. Ein Bestand von 2.000 Einheiten bei AWD ist keine Aussage darüber, wie viele Kundenbestellungen morgen erfüllbar sind.
 
-Eine zusätzliche Stufe kann große Liefermengen aufnehmen und die Nachversorgung vereinfachen. Sie schafft aber auch weitere Bewegungen, Bestandsstatus und Abstimmungsbedarf. Ware im vorgelagerten Lager ist nicht automatisch sofort als kaufbarer FBA-Bestand verfügbar. Diese Unterscheidung gehört in jeden Absatz- und Werbeplan.
+| Bestandsstatus | Für den Verkaufsplan entscheidende Frage |
+|---|---|
+| Beim Lieferanten | Ist die Produktion abgeschlossen und zur Ausfuhr freigegeben? |
+| Unterwegs | Welche bestätigte Ankunft und mögliche Verzögerung? |
+| Im Vorlager AWD | Ist die Ware angenommen, korrekt zugeordnet und transferfähig? |
+| Im Transfer zu FBA | Wann wird sie dort wirklich verkaufsfähig? |
+| Bei FBA kaufbar | Wie viele Verkaufstage deckt die aktuelle Nachfrage? |
 
-## Den gesamten Warenweg kalkulieren
+Die Statusübergänge müssen in eurem Reporting sichtbar sein. Sonst meldet der Einkauf ausreichend Ware, während PPC eine ausverkaufte ASIN bewerben möchte.
 
-Vergleicht zwei vollständige Szenarien für dieselbe Menge und denselben Zeitraum. Berücksichtigt Transport, Annahme, Lagerdauer, Bearbeitung, Weiterleitung und den Aufwand für Ausnahmen. Prüft in den aktuellen Konditionen ausdrücklich, welche Leistungen bereits enthalten sind. Sonst wird ein Vorteil durch doppelt angesetzte Gebühren oder ausgelassene Kosten künstlich vergrößert.
+## Den vollständigen Kostenweg vergleichen
 
-| Kostenfrage | Herkömmlicher US-Vorlagerweg | AWD-Szenario |
-|---|---|---|
-| Anlieferung | Transport und Annahme am bisherigen Lager | Transport und Annahme nach AWD-Vorgaben |
-| Lagerung | Tatsächliches Volumen und Verweildauer | Tatsächliches Volumen und Verweildauer |
-| Weiterleitung | Kommissionierung und Transport Richtung FBA | Anwendbare Bearbeitungs- und Transferkosten |
-| Ausnahmen | Sonderbearbeitung, Verzögerung, Rückführung | Verfügbare Optionen und jeweilige Konditionen |
+Vergleicht für dieselbe Menge und denselben Zeitraum den bisherigen US-Warenweg mit AWD: Anlieferung, Annahme, Lagerdauer und Volumen, Bearbeitung, Transfer Richtung FBA, Ausnahmen und eventuelle Rückführung. Prüft im aktuellen Vertrag, welche Positionen bereits eingeschlossen sind; eine einzeln veröffentlichte Lagergebühr ist kein vollständiger Tarif.
 
-## Kleine Preisunterschiede gegen operative Risiken prüfen
+<aside class="article-example"><p class="example-label">Fiktive US-Kalkulation · keine Amazon-Tarife</p><h3>70 Dollar Ersparnis tragen keinen Blindflug beim Nachschub</h3><p>Ein bestehendes Vorlager kostet für einen festgelegten Warenkorb 600 $ Lagerung, 200 $ Weitertransport und 100 $ Bearbeitung, insgesamt 900 $. Ein hypothetisches AWD-Angebot kostet 300 $, 350 $ und 180 $, insgesamt 830 $. Die scheinbare Differenz von 70 $ kann bereits eine Ausnahmebearbeitung oder längere Lagerzeit aufzehren. Gemeinsame Kosten sind ausgeklammert; vor der Entscheidung müssen echte Konditionen und Übergangszeiten in dieselbe Tabelle.</p></aside>
 
-<aside class="article-example"><p class="example-label">Eigene Vergleichsrechnung · keine Amazon-Tarife</p><h3>70 Dollar Vorteil sind noch keine belastbare Entscheidung</h3><p>Für einen identischen Warenkorb und Zeitraum kostet ein angenommener Vorlagerweg 600 $ Lagerung, 200 $ Weitertransport und 100 $ Bearbeitung, insgesamt 900 $. Ein hypothetisches AWD-Szenario liegt bei 300 $, 350 $ und 180 $, insgesamt 830 $. Der rechnerische Vorteil beträgt 70 $. Gemeinsame Kosten sind hier ausgeklammert. Bereits zusätzliche Ausnahmen oder eine längere Lagerdauer können die Reihenfolge verändern.</p></aside>
+![AWD-/FBA-Warenweg: Eingang – Import + AWD, Transfer – AWD → FBA, Bewertung – Kosten + Lieferzeit](/blog/figures/amazon-awd-us-logistik.svg)
 
-Rechnet mindestens eine langsame und eine schnelle Abverkaufsvariante. Bei langer Verweildauer gewinnen Lagerkosten an Gewicht; bei häufigen Bewegungen können andere Bestandteile dominieren. Achtet darauf, einmalige Einrichtungskosten und wiederkehrende Kosten getrennt zu betrachten. Ein günstiger erster Monat ist kein Beleg für ein günstiges Jahr.
 
-## Bestand nach Status statt nur nach Gesamtmenge steuern
+Rechnet langsamen und schnellen Abverkauf, unterschiedliche Lagervolumina und Q4 getrennt. Zusätzliche Transfers können bei einem Produkt mit unregelmäßigen Peaks wichtiger werden als der Monatslagersatz.
 
-Ein sinnvoller Bericht trennt Ware beim Lieferanten, unterwegs, im vorgelagerten Lager, im Transfer und verkaufsfähig bei FBA. Jede Einheit darf in der Summe nur einmal gezählt werden. Für die Lieferfähigkeit zählen die Einheiten, die rechtzeitig an der benötigten Stelle verfügbar werden.
+## Nachschub nach FBA nicht mit Einkaufsbedarf verwechseln
 
-Das Team sollte zusätzlich erwartete Übergangszeiten und deren Schwankung kennen. Ein großer vorgelagerter Bestand schützt nicht vor einem FBA-Engpass, wenn die Überführung zu spät angestoßen wird oder länger dauert als geplant. Verbindet Bestandsplanung deshalb mit der tatsächlichen Abverkaufsentwicklung auf ASIN-Ebene.
+Für die operative Kontrolle braucht ihr Absatz pro Tag, verfügbar verkaufsfähige FBA-Einheiten, geplante Transfers, **tatsächliche** Transferdauer und einen Puffer für Schwankungen. Beispiel: 30 Einheiten pro Tag, 14 Tage angenommene Nachschubzeit und sieben Tage Sicherheitsabstand ergeben 630 Einheiten für diesen vereinfachten Horizont. Das ist ein eigenes Planungsmodell, nicht Amazons AWD-Algorithmus. Vorhandene FBA-Ware und bereits laufende Transfers sind in einer echten Bestellung gegenzurechnen.
 
-<aside class="article-example"><p class="example-label">Planungsszenario · kein AWD-Algorithmus</p><h3>Eine einfache Reichweitenrechnung</h3><p>Bei angenommenen 30 Verkäufen pro Tag, 14 Tagen für den Nachschub und sieben zusätzlichen Puffertagen ergibt sich rechnerisch ein Ziel von 630 Einheiten für diesen Planungshorizont. Das ist ein eigenes vereinfachtes Modell. Schwankende Nachfrage, vorhandene Ware, laufende Transfers und die tatsächlich verfügbaren Steuerungsmöglichkeiten müssen zusätzlich berücksichtigt werden.</p></aside>
+Ein großer AWD-Bestand kann einen FBA-Ausverkauf nicht verhindern, wenn der Transfer zu spät angestoßen wird. Umgekehrt bindet ein übergroßes Vorlager Kapital. Prüft daher an einer überschaubaren Produktgruppe, ob tatsächliche Transferzeiten zum Bedarf passen.
 
-## Vor einer größeren Umstellung einen begrenzten Warenfluss prüfen
+## Pilotfreigabe mit messbaren Bedingungen
 
-Wählt geeignete Produkte anhand von Abverkaufsstabilität, Volumen, Margen und den aktuellen Programmvoraussetzungen. Klärt Verpackungs-, Karton- und Anlieferanforderungen, bevor Ware auf den Weg geht. Eine unpassende Vorbereitung lässt sich nach Versand oft nur mit zusätzlichem Aufwand korrigieren.
+Wählt ASINs mit stabilem Absatz und geklärter Verpackung. Prüft Karton- und Anlieferbedingungen im aktuellen US-Konto vor Versand. Legt maximale Pilotmenge und Verantwortliche für Annahme, Transfer und Ausnahmefälle fest. Nach dem ersten Warenfluss vergleicht ihr **geplante und tatsächliche** Gesamtkosten, Dauer je Statusübergang und Tage ohne kaufbaren FBA-Bestand.
 
-Für den ersten Durchlauf braucht ihr eine klare Mengenbegrenzung und dokumentierte Übergaben. Vergleicht geplante mit tatsächlichen Zeiten, Kosten und Bestandsstatus. Prüft auch, ob euer Reporting die zusätzliche Lagerstufe korrekt abbildet und ob das Team Ausnahmen rechtzeitig erkennt.
+Nur wenn die Route in Kosten und Verfügbarkeit zum Portfolio passt, weitet ihr sie aus. Für unsere [Internationalisierung](/leistungen/internationalisierung), [FBA- und Bestandsbetreuung](/leistungen/fba-inventory-management) und [Analytics](/leistungen/analytics-reporting) ist genau diese Verbindung wichtig. Der Beitrag zu [Inventar und Cashflow](/blog/inventar-cashflow) ergänzt die Kapitalbindung. [Sprecht mit uns](/gespraech-vereinbaren) über euren konkreten US-Warenweg.
 
-## Die Entscheidung an messbare Bedingungen knüpfen
+## Quellen und Geltungsbereich
 
-Eine sinnvolle Freigabe kann verlangen, dass der vollständige Kostenvergleich tragfähig ist, die Wiederauffüllung zum Bedarf passt und die Bestandsdaten verlässlich zusammenlaufen. Definiert auch, unter welchen Bedingungen ihr Mengen reduziert oder den Warenfluss anders organisiert. Diese Regeln sind interne Managemententscheidungen, keine Garantien des Programms.
-
-Die [Internationalisierung](/leistungen/internationalisierung) einer Marke braucht diese operative Vorbereitung ebenso wie übersetzte Produktseiten. temoa verbindet sie mit [FBA- und Bestandsmanagement](/leistungen/fba-inventory-management) und [Reporting](/leistungen/analytics-reporting). Im Beitrag zu [Inventar und Cashflow](/blog/inventar-cashflow) ergänzen wir die Kapitalperspektive. Für eure konkrete US-Struktur könnt ihr [ein Gespräch vereinbaren](/gespraech-vereinbaren).
-
-## Quellen und Einordnung
-
-[Amazon US: Warehousing and Distribution](https://sell.amazon.com/programs/warehousing?mons_sel_locale=en_US). Geprüft am 16. Oktober 2026. Verfügbarkeit, Anforderungen und Konditionen sind im konkreten US-Konto zu prüfen. Alle Dollarbeträge, Laufzeiten und Mengen in den Beispielen sind eigene Modellannahmen, keine veröffentlichten Amazon-Tarife oder Leistungszusagen.
+[Amazon US: Warehousing and Distribution](https://sell.amazon.com/programs/warehousing?mons_sel_locale=en_US). Geprüft am 17. Oktober 2026. Alle Dollarbeträge und Zeitannahmen sind eigene Modellwerte. Programmverfügbarkeit, Leistungen und Kosten sind für den konkreten US-Zugang zu prüfen.

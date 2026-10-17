@@ -1,4 +1,3 @@
-import deepDives from "../../../../content/blog-deep-dives.json";
 import { getTopic } from "@/lib/blog-topics";
 import type { Metadata } from "next";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -95,7 +94,6 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
             <Reveal>
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
                 <h2 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">{w.empfohlen}</h2>
-                <a href={pfad(locale, "/blog/deep-dives")} className="inline-flex min-h-12 shrink-0 items-center gap-2 font-bold text-navy">{locale === "de" ? "Alle Deep Dives ansehen" : "Explore all deep dives"} <span aria-hidden>↗</span></a>
               </div>
             </Reveal>
             <RevealGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
@@ -105,20 +103,6 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                 </RevealItem>
               ))}
             </RevealGroup>
-          </div>
-        </section>
-
-        <section className="ground py-14 md:py-16" aria-labelledby="deep-dive-themen">
-          <div className="container-x">
-            <h2 id="deep-dive-themen" className="text-2xl font-extrabold tracking-tight text-ink sm:text-3xl">{locale === "de" ? "Welche Entscheidung steht bei euch an?" : "Which decision comes next for your brand?"}</h2>
-            <p className="mt-4 max-w-3xl text-ink-muted">{locale === "de" ? "Vertiefende Analysen mit Rechenbeispielen, Prüffragen und konkreten Handlungsschritten für etablierte Marken." : "In-depth analysis with calculations, diagnostic questions and practical next steps for established brands."}</p>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {deepDives.groups.map((group) => <a key={group.id} href={pfad(locale, `/blog/deep-dives#${group.id}`)} className="panel panel-lift flex h-full flex-col p-6">
-                <h3 className="text-lg font-bold leading-snug text-ink">{group.short[locale]}</h3>
-                <p className="mb-6 mt-3 text-small text-ink-muted">{group.text[locale]}</p>
-                <span className="mt-auto text-small font-bold text-navy">{locale === "de" ? `${group.slugs.length} Deep Dives entdecken` : `Explore ${group.slugs.length} deep dives`} <span aria-hidden>↗</span></span>
-              </a>)}
-            </div>
           </div>
         </section>
 

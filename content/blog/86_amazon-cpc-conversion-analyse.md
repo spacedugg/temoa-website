@@ -1,60 +1,43 @@
 ---
-title: "Amazon CPC und Conversion: Wann ein teurer Klick trotzdem rentabel ist"
-meta_description: "Amazon CPC anhand von Kaufquote, Warenkorb und Deckungsbeitrag bewerten. Mit Segmentanalyse, Szenariorechnung und klaren Maßnahmen."
-keywords: ["Amazon CPC und Conversion", "Amazon Wachstum", "Amazon Marken"]
+title: "Amazon CPC gestiegen: Auktion oder schlechterer Traffic-Mix?"
+meta_description: "Amazon CPC sauber diagnostizieren: Segmentmix, Platzierung, Suchbegriff, Conversion und Stückbeitrag getrennt prüfen, bevor ihr Gebote oder Budget ändert."
+keywords: ["Amazon CPC gestiegen", "Amazon CPC Conversion", "Amazon PPC Diagnose", "Amazon Klickpreis"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon CPC und Conversion: Wann ein teurer Klick trotzdem rentabel ist
+# Amazon CPC gestiegen: Auktion oder schlechterer Traffic-Mix?
 
-Amazon CPC lässt sich erst zusammen mit Kaufwahrscheinlichkeit und wirtschaftlichem Wert einer Bestellung beurteilen. Ein Klick für 1,20 € kann für ein Produkt tragfähig und für ein anderes zu teuer sein. Für etablierte Marken ist deshalb der eigene Grenzwert oft hilfreicher als ein pauschaler Branchendurchschnitt.
+Der durchschnittliche CPC einer Marke steigt von 0,70 auf 1,00 Euro. Das klingt nach teureren Auktionen. Es kann aber auch bedeuten, dass teurere Kampagnen **einen größeren Teil der Klicks** liefern, während ihre Einzelpreise unverändert bleiben. Wer nur den Account-Durchschnitt senkt, kappt womöglich die wirtschaftlichste Reichweite.
 
-Die Aufgabe besteht aus zwei Teilen: den wirtschaftlich vertretbaren Klickpreis berechnen und anschließend die Ursache einer Abweichung finden. So verhindert ihr, dass eine Veränderung im Produktmix als Gebotsproblem behandelt wird oder eine sinkende Kaufquote unbemerkt die Werberentabilität aufzehrt.
+Der Diagnoseweg beginnt bei gleicher Marktplatz-, Zeitraum- und Produktauswahl. Nutzt abgeschlossene Berichtsfenster und beachtet die Attribution der Anzeigen. Vergleicht dann Klicks, Kosten, Käufe und Werbeumsatz **innerhalb derselben Segmente**.
 
-## Welche Conversion-Rate gehört in die Rechnung?
+## Erst Preisänderung von Mixänderung trennen
 
-Für eine CPC-Kalkulation braucht ihr eine zum Klickbestand passende Bestellrate: zugerechnete Bestellungen geteilt durch relevante Anzeigenklicks. Zeitraum, Attributionsmodell und Kampagnentyp müssen zusammenpassen. Junge Klickkohorten können noch unvollständige Käufe enthalten.
+<aside class="article-example"><p class="example-label">Fiktiver Account · gewichteter Durchschnitt</p><h3>Der CPC steigt um 43 %, obwohl kein Segment teurer wird</h3><p>Branded Search kostet in beiden Wochen 0,50 € pro Klick, generische Kategoriebegriffe kosten 1,50 €. Anfangs kommen 80 % der Klicks über Brand und 20 % über Kategorie: der gewichtete CPC beträgt 0,70 €. Später sind es je 50 %: der Account-CPC steigt auf 1,00 €. An den Auktionspreisen der beiden Gruppen hat sich in diesem Beispiel nichts geändert. Ob der neue Mix gut ist, hängt vom zusätzlichen Absatz und Stückbeitrag der generischen Klicks ab.</p></aside>
 
-Die Unit Session Percentage aus den Business Reports ist eine andere Kennzahl. Sie setzt Einheiten ins Verhältnis zu Sitzungen und kann mehrere Einheiten je Bestellung enthalten. Vermischt diese Größen nicht. Nutzt [Business Reports](/blog/business-reports) für die Produktdiagnose und den Anzeigenreport für die passende Klick- und Bestellbasis.
+![CPC-Anstieg richtig lesen: Segment A – Klickpreis stabil, Segment B – Klickpreis stabil, Mix – Gewichtung verschoben](/blog/figures/amazon-cpc-conversion-analyse.svg)
 
-## Euren maximal tragbaren CPC berechnen
 
-Ein vereinfachter Planungswert lautet: **Bestellungen je Klick × verfügbarer Werbebetrag je Bestellung**. Den verfügbaren Werbebetrag leitet ihr aus dem Deckungsbeitrag vor Werbung ab. Zieht den Beitrag ab, den ihr nach Werbung für Gemeinkosten und Ergebnis erhalten wollt.
+Exportiert deshalb Suchbegriffe oder Targets getrennt nach Marke, Kategorie, Produkt und Wettbewerb. Schaut auf Placement, ASIN und Kampagnenziel. Vergleicht **CPC pro Segment, Klickmenge und Anteil der Klicks**. Erst wenn innerhalb eines vergleichbaren Segments Kosten steigen, prüft ihr Gebote, Placement-Aufschläge und veränderte Konkurrenz. Ein pauschales „CPC um 20 % senken“ ist keine Diagnose.
 
-Bei mehreren Produkten je Bestellung müsst ihr den tatsächlichen Produktmix berücksichtigen. Eine teure beworbene ASIN kann Verkäufe günstigerer Produkte zugerechnet bekommen. Ein Durchschnittspreis allein genügt deshalb nicht. Auch Retouren und variable Kosten gehören auf eine konsistente Basis.
+## Den bezahlbaren Klick aus eurer SKU ableiten
 
-<aside class="article-example"><p class="example-label">Modellrechnung · keine Kundenergebnisse</p><h3>Die Kaufquote verschiebt eure CPC-Grenze</h3><p>Eine Bestellung bringt 12 € Deckungsbeitrag vor Werbung. Davon sollen 4 € verbleiben: 8 € stehen für Werbung zur Verfügung. Bei 10 % Bestellungen je Klick liegt der rechnerische CPC-Zielwert bei 0,80 €. Steigt die Rate bei gleichem Bestellmix auf 15 %, werden 1,20 € tragfähig. Ein höherer CPC ist dann nicht automatisch eine Verschlechterung.</p></aside>
+Für eine einzelne SKU kann eine grobe Obergrenze aus Werbespielraum je Bestellung × erwarteten Bestellungen je Klick entstehen. Beispiel: 12 € Beitrag vor Werbung, 4 € gewünschter Restbeitrag, also 8 € maximaler Werbespielraum. Bei **10 % Käufen je Klick** ergeben sich 0,80 € als vereinfachte Grenze; bei 15 % wären es 1,20 €.
 
-| Bestellungen je Klick | Verfügbarer Werbebetrag je Bestellung | Rechnerischer CPC-Zielwert |
-|---|---|---|
-| 8 % | 8 € | 0,64 € |
-| 10 % | 8 € | 0,80 € |
-| 15 % | 8 € | 1,20 € |
+Das ist kein universelles Gebot. Bezieht Retouren, Mehrfachkäufe, Rabatte, Gebühren und unterschiedliche SKU-Margen ein. Bei Produkt-Targets mit mehreren gekauften Artikeln muss der tatsächlich zugerechnete Umsatz und Beitrag betrachtet werden. Nutzt die Rechnung als Kontrollfrage: Ist der aktuelle CPC durch Conversion und Stückbeitrag dieser Zielgruppe überhaupt gedeckt?
 
-Diese Werte sind keine Gebotsempfehlung für jede Auktion. Gebot und tatsächlich bezahlter CPC sind unterschiedliche Größen. Unsicherheit, Platzierungen und mögliche Änderungen der Conversion sprechen dafür, Spielraum unter einer rechnerischen Grenze einzuplanen.
+## Wenn der CPC stabil ist, die Kaufleistung aber fällt
 
-## Den Durchschnitt in vergleichbare Segmente zerlegen
+Vergleicht das Angebot zum Zeitpunkt des Klicks: Preis, Featured Offer, Lieferdatum, verfügbare Variante und mögliche Produktseitenänderungen. Im Business Report zeigt die [Child-ASIN-Analyse](/blog/business-reports), ob die Kaufleistung auch über sämtliche Besucher fällt. Im [SQP-Bericht](/blog/search-query-performance) seht ihr, ob Marktanteile einer passenden Query kippen. Ads-, SQP- und Business-Reports haben verschiedene Nenner; ein Zahlenunterschied ist nicht automatisch ein Fehler.
 
-Trennt zunächst Markensuchen, generische Suchen und Wettbewerberbezüge. Vergleicht danach Produktgruppen, Platzierungen und Geräte nur soweit die Reports belastbare Daten liefern. Ein Konto mit mehr generischer Neukundengewinnung kann einen höheren Durchschnitts-CPC zeigen, obwohl jedes einzelne Segment unverändert arbeitet.
+Prüft ebenfalls die Suchbegriffe. Ein Wechsel von „750 ml Edelstahlflasche schwarz“ zu „Flasche mit Strohhalm“ kann Klicks liefern, obwohl die beworbene SKU keinen Trinkhalm hat. Dann ist Ausschluss oder Produktzuordnung die richtige Maßnahme, nicht ein komplizierteres Gebotsmodell.
 
-Ein einfaches Beispiel: Im ersten Monat stammen 80 % der Klicks aus einem Segment mit 0,50 € CPC und 20 % aus einem Segment mit 1,50 €. Der Durchschnitt ist 0,70 €. Verschiebt sich die Verteilung auf 50/50, steigt er auf 1,00 €, ohne dass innerhalb eines Segments ein Klick teurer wurde. Die richtige Frage lautet dann, ob der neue Mix zusätzlichen Beitrag liefert.
+## Die Entscheidung pro Segment dokumentieren
 
-## Vier Muster, vier unterschiedliche Aufgaben
+Haltet für die drei teuersten **relevanten** Segmente fest: Suchintention, ASIN, CPC-Veränderung innerhalb des Segments, Kaufquote nach gereifter Attribution, Stückbeitrag und Angebotsstatus. Schreibt dann eine Aktion mit Grenze auf: Gebot anpassen, schlechte Query ausschließen, Angebotsproblem beheben oder Budget für passende Nachfrage erweitern.
 
-**CPC steigt, Kaufquote bleibt stabil:** Prüft Veränderungen bei Suchanfragen, Platzierungen und Geboten. Erst wenn der Mix vergleichbar ist, lässt sich eine Verteuerung derselben Nachfrage beurteilen. Kürzt nicht automatisch das gesamte Produktbudget.
-
-**CPC bleibt stabil, Kaufquote sinkt:** Prüft Preis, Lieferzusage, Featured Offer, Bestand, Bewertungen und Trafficpassung. Der Fehler kann auf der Angebotsseite liegen. Ein niedrigeres Gebot begrenzt dann zwar Ausgaben, behebt aber nicht die Ursache.
-
-**Kaufquote steigt, Beitrag sinkt:** Prüft Rabatte, Warenkorb und Retouren. Mehr Bestellungen mit weniger Deckungsbeitrag können die Klickgrenze trotz besserer Conversion senken.
-
-**Ein Segment zeigt extreme Werte bei wenigen Käufen:** Behandelt es als unsichere Beobachtung. Ein einzelner großer Warenkorb kann den ROAS stark verändern. Legt vorab Ausgaben- und Datenlimits fest, anstatt jedes Tagesergebnis neu zu interpretieren.
-
-## Aus der Analyse wird eine Entscheidung
-
-Erstellt je priorisierter Produktgruppe eine Zeile mit Kostenbasis, Zielbeitrag, Bestellrate, CPC, Datenzeitraum und nächstem Schritt. Ergänzt einen Verantwortlichen sowie das Datum der nächsten Prüfung. Diese einfache Disziplin verhindert, dass ein neuer Gebotswert monatelang auf einer veralteten Marge beruht.
-
-Für Maßnahmen an der Detailseite nutzt ihr einen [Content-Test](/blog/amazon-content-experimente). Für die Kampagnenstruktur hilft der bestehende [PPC-Leitfaden](/blog/kampagnenstruktur-ppc). temoa verbindet beide Aufgaben in der [PPC-Betreuung](/leistungen/ppc-advertising), damit die Klickkosten zur tatsächlichen Wirtschaftlichkeit eurer Produkte passen.
+Verändert nicht gleichzeitig Gebot, Bild, Preis und Targeting derselben ASIN. Sonst könnt ihr den späteren Effekt nicht zuordnen. Für einen Contentbefund formuliert eine [gezielte Testhypothese](/blog/amazon-content-experimente). Unsere Teams verbinden [PPC](/leistungen/ppc-advertising), [Listing](/leistungen/listing-seo) und [Analytics](/leistungen/analytics-reporting) in einer Entscheidung. Wenn euer CPC gestiegen ist, können wir im [Gespräch](/gespraech-vereinbaren) zuerst den Mix auseinanderziehen.
 
 ## Quellen und Datenstand
 
-[Amazon Ads: ACoS und Einordnung von Werbekosten](https://advertising.amazon.com/library/guides/acos-advertising-cost-of-sales) und [Amazon: Sales-and-Traffic-Berichtsfelder](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics). Geprüft am 16. Oktober 2026. Alle Zahlen sind eigene Szenarien, keine Marktbenchmarks.
+[Amazon Ads: ACoS und Werbekennzahlen](https://advertising.amazon.com/library/guides/acos-advertising-cost-of-sales) und [Amazon SP-API: Analytics-Reports](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics). Geprüft am 17. Oktober 2026. Mix und Stückbeitrag sind fiktive Beispiele, keine behaupteten Branchenwerte.
