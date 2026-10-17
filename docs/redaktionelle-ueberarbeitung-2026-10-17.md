@@ -11,11 +11,14 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - DSP (85), CPC/CVR (86), Keyword-Recherche (89), Launch (90), Kanalstrategie (92) und Account Health (94) auf vergleichbare Tiefe erweitert. Für diese sechs Beiträge gibt es jeweils eine weitere kontextbezogene Grafik im Artikel.
 - Das Wachstumsplateau (53), negative Keywords (05), Conversion (15), Kategoriepositionierung (28) und Wettbewerbsanalyse (61) mit den Entscheidungsebenen, Produkt- und Budgetfällen sowie ergänzenden Grafiken ausgebaut.
 - Steigende PPC-Kosten (23) und fremde Angebote auf der ASIN (33) mit Diagnose, Falltypen, Beispielen und ergänzenden Grafiken vertieft.
+- Amazon Attribution (22) um Tag-Struktur, Kostenabgleich und Inkrementalitätsgrenzen ergänzt; Peak Season (43) als Bestands-, Margen- und Medienplanung pro ASIN ausgebaut.
+- Dayparting (14) um Budgeterschöpfung, Zeitbezug, Kontrollgruppe und Beitragstest erweitert.
+- Dynamische Preisstrategie (59) um SKU-Preisgrenzen, Bestandssteuerung und kontrollierte Tests mit Gesamtbeitrag erweitert.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Die vierzehn erweiterten Beiträge sind ein Qualitätsmaßstab für die nächste Bearbeitungsrunde. Insgesamt bleiben 54 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Die achtzehn erweiterten Beiträge sind ein Qualitätsmaßstab für die nächste Bearbeitungsrunde. Insgesamt bleiben 50 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
