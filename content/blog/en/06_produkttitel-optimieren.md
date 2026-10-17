@@ -1,50 +1,32 @@
 ---
-title: "Writing an Amazon product title that ranks and converts"
-meta_description: "The product title is the most important text field in your listing. How to build titles the algorithm likes and buyers click, structure included."
+title: "Amazon titles in 2026: 75 characters plus Item Highlights"
+meta_description: "Rewrite Amazon titles for the 75-character limit and 125-character Item Highlights, with a practical catalogue rollout and measurement checklist."
 keywords: ["Amazon product title", "listing optimization", "Amazon SEO", "optimizing titles"]
 kategorie: "Listing, SEO & Conversion"
 ---
 
-# Writing an Amazon product title that ranks and converts
+# Amazon titles in 2026: 75 characters plus Item Highlights
 
-Your product title does three jobs at once: it has to satisfy Amazon's search algorithm, be taken in by a human eye in under a second, and convince the buyer to click your listing rather than the one above or below it. Most titles fail at least two of those three. That is expensive, because the title is the most heavily weighted text field in Amazon search and it appears in the results, in Sponsored Products ads and even on Google.
+Amazon introduced a 75-character title limit, including spaces, for all non-media categories from 27 July 2026. Item Highlights provide a separate 125 characters. Both fields are searchable. This article follows the [official German marketplace announcement](https://sellercentral.amazon.de/seller-forums/discussions/t/d24be94b-9ca5-437f-a7c2-1f4f7462a15f); check the applicable product-type requirements when working in another store.
 
-## Why the title carries so much weight
+## Separate identification from explanation
 
-Amazon uses the title as the primary signal for what your product is relevant to. If important search terms do not appear in the title, your listing has a harder time ranking for them. At the same time the title is the first thing a buyer reads in the search results. A weak title therefore costs you twice: worse rankings and a lower click-through rate.
+Keep the product type, distinguishing variant and necessary brand or model information in the title. Use Item Highlights for verified material, use or compatibility details. This is a separate field, not permission to enter a 200-character title. It does not replace bullet points or structured attributes.
 
-## The right structure
+## A practical example
 
-A strong title follows a clear logic, from the most important to the most specific. A proven order:
+> **Illustrative product, not a client result:** “Nordquell stainless steel bottle 750 ml, black” is the title. “Double-wall insulation, screw cap, 7.5 cm diameter; suitable for hot and cold drinks” is the highlight. Both stay within their respective limits. Only use specifications your product actually meets.
 
-1. **Brand,** which creates trust and recognition.
-2. **The main product or core term,** what people actually search for.
-3. **The key properties and keywords:** material, size, quantity, compatibility.
-4. **Differentiation and benefit,** what sets you apart from the competition.
-5. **The variation:** colour, pack size, model.
+## Roll out changes without losing catalogue control
 
-An example in outline: *Brand, stainless steel water bottle 750 ml, leakproof, double-walled insulated, keeps cold 24 h, BPA free, matte black*.
+Export child ASINs, marketplace, product type, title, highlights and the source system. Prioritise products where shortening would lose model numbers or pack quantities. Have a product specialist validate claims, then test a small batch. Check processing reports and the live product page. Update the PIM and feeds as well as Seller Central so the next import does not restore the old title.
 
-## Placing keywords sensibly, without stuffing
+Amazon says over-length titles are progressively updated with AI recommendations while offers remain active. Brand owners receive a 14-day review window for announced AI changes. Assign someone to review those changes rather than relying only on your own upload process.
 
-The most important search terms belong as far forward as possible, because both the algorithm and the reader weight the first words most heavily. One point matters: every relevant keyword only has to appear **once** in the title. Repetitions bring no extra ranking and cost readability. Keyword stuffing, stringing terms together with no sense to them, actively harms you, because it lowers the click-through rate and breaks Amazon's style guidelines.
+## Measure a controlled change
 
-## Readability for people
+Save a baseline for the same queries and child variants. Record price, stock, delivery promise and advertising changes. A before-and-after click-rate improvement cannot be attributed to the title if the main image and promotion changed at the same time. Use Manage Your Experiments where the ASIN is eligible; otherwise document confounding changes and wait for enough observations.
 
-A title written only for the algorithm sells badly. Watch for genuine readability: a sensible word order, clear separation of the blocks of information (often with commas or dashes) and no cryptic abbreviations. Think of the phone screen: on mobile devices the title is often cut off after a few words. The first 60 to 70 characters therefore have to convince on their own.
+There is no publicly disclosed formula proving that one title position has a fixed ranking weight. Prioritise clear identification and relevant, substantiated information. See our [listing and SEO service](/en/leistungen/listing-seo) and [design examples](/en/design-beispiele) for the implementation side.
 
-## Following Amazon's rules
-
-Amazon has concrete requirements for titles, and breaking them can get the listing suppressed. Usual rules: no promotional phrases such as "bestseller" or "sale", no special characters or emoji, no writing in all capitals, and staying within the character length for the category (often around 200 characters, though many categories recommend shorter). Always check the current requirements for your category, because they vary.
-
-## Length: as long as necessary, as short as possible
-
-Longer titles offer room for more keywords and risk reading as stilted and cluttered, especially on mobile. Shorter titles read more cleanly and leave ranking chances on the table. The answer is not a fixed limit but priority: put the information that decides the purchase and the top keywords at the front, add secondary detail after that, and cut everything that neither ranks nor sells.
-
-## Testing and iterating
-
-A title is never final. After a change, watch your click-through rate and your conversion. A rising click-through rate means the title worked better as an advertisement, a rising conversion means it fits the expectations of the people clicking better. Change one variable at a time where you can, so you can attribute the effect.
-
-## In short
-
-A good Amazon title is a balance of three goals: ranking, click-through rate and credibility. Whoever places the most important keywords well forward, without repetition and in a readable order, follows Amazon's rules and tests regularly, gets the most out of the most important text field in their listing, and gains ground on the many titles that were written for the algorithm alone.
+*Policy checked on 17 October 2026. Source: Amazon Germany announcement linked above.*

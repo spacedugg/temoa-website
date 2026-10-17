@@ -42,3 +42,8 @@ Amazon Renewed suits merchants already active in refurbished electronics or appl
 ## Conclusion
 
 Amazon Renewed is a specialised marketplace for inspected refurbished products with a guarantee, attractive through lower competition and growing demand for cheaper, sustainable alternatives. The price is strict quality requirements, entry conditions and operational effort in sourcing and reconditioning. For merchants with the right know-how and reliable suppliers it is a worthwhile niche. For newcomers without refurbished experience it is a demanding project.
+
+
+## Programme and eligibility
+
+[Amazon Deutschland: Renewed](https://sell.amazon.de/programme/renewed) – check the conditions applicable to your marketplace and account role.

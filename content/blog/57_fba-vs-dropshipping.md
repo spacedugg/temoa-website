@@ -17,7 +17,7 @@ Beim **Dropshipping** hältst du keinen Bestand. Ein Produkt wird erst nach der 
 
 ## Kapitalbedarf
 
-Der größte Unterschied beim Start. FBA verlangt Vorfinanzierung: Du kaufst Ware ein, bevor du sie verkaufst, plus Budget für Werbung und Launch. Dropshipping braucht kaum Vorabkapital, weil du erst nach dem Verkauf einkaufst. Für kapitalschwache Einsteiger ist das der Hauptreiz des Dropshippings.
+Der größte Unterschied beim Start. FBA verlangt Vorfinanzierung: Du kaufst Ware ein, bevor du sie verkaufst, plus Budget für Werbung und Launch. Dropshipping reduziert Vorfinanzierung von Lagerware, benötigt aber Liquidität für Lieferanten, Werbung und Erstattungen vor der Amazon-Auszahlung. Für kapitalschwache Einsteiger ist das der Hauptreiz des Dropshippings.
 
 ## Marge
 
@@ -41,6 +41,19 @@ Die Risiken liegen unterschiedlich. FBA-Risiko ist vor allem finanziell: gebunde
 - **Dropshipping** passt, wenn du mit minimalem Kapital starten, Produktideen risikoarm testen willst und eine wirklich zuverlässige, regelkonforme Lieferquelle hast – im Bewusstsein dünnerer Margen und geringerer Kontrolle.
 
 Viele beginnen mit Dropshipping zum Lernen und Testen und wechseln zu FBA, sobald ein Produkt sich bewährt und Kapital vorhanden ist.
+
+## Praxis: Vorfinanzierung auch beim Dropshipping planen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Vorfinanzierung auch beim Dropshipping planen</h3>
+<p>Der Lieferant verlangt im Modell 40 € sofort, Amazon gibt den Erlös erst nach Zustellung und Reserve frei. Bei 200 offenen Bestellungen sind 8.000 € gebunden, obwohl kein eigenes Lager existiert.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Plant Einkauf, Lieferzeit, Reserve und Retouren als Geldfluss.
+2. Vergleicht FBA und Direktversand mit denselben Serviceanforderungen. Der Unterschied liegt nicht nur in Lagerkosten, sondern auch in Kontrolle und Ausfallrisiko.
 
 ## Fazit
 

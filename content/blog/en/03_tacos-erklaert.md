@@ -1,51 +1,36 @@
 ---
-title: "TACoS explained: the metric that tells you more about your Amazon business than ACoS"
-meta_description: "TACoS (total advertising cost of sales) shows how strongly your total revenue depends on advertising. Definition, calculation and how to read it."
+title: "TACoS explained: advertising in the whole business"
+meta_description: "Calculate TACoS, align the revenue basis and make advertising decisions using contribution, attribution and stock availability."
 keywords: ["TACoS", "total ACoS", "Amazon metrics", "organic revenue on Amazon"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# TACoS explained: the metric that tells you more about your Amazon business than ACoS
+# TACoS explained: advertising in the whole business
 
-Most Amazon sellers stare at their ACoS. That is understandable, because it sits right there in the campaign manager and is easy to optimize. But ACoS answers exactly one question: how efficiently do your ads turn advertising euros into ad-attributed revenue? About the state of your business *as a whole* it says nothing. TACoS fills exactly that gap. Anyone who ignores it makes strategic decisions on half the information.
+TACoS measures advertising spend against total Amazon sales. It is useful for judging how much of the business's revenue advertising consumes, provided marketplace, time period, product scope and revenue basis match. It cannot establish whether ads caused incremental growth.
 
-## What TACoS is
+## Calculate TACoS consistently
 
-TACoS stands for *total advertising cost of sales*. Unlike ACoS, which relates ad spend only to ad-attributed revenue, TACoS sets ad spend against **total** revenue, organic and advertised together.
+**TACoS = advertising spend ÷ total Amazon sales × 100.**
 
-The formula:
+A business with €8,000 ad spend and €100,000 total Amazon revenue has 8% TACoS. Include a consistent set of ad formats in the numerator and a matching product portfolio in the denominator. Never divide by zero. Document whether sales include VAT, returns and discounts.
 
-**TACoS = (ad spend ÷ total revenue) × 100**
+ACoS uses ad-attributed sales instead. Attribution can cross reporting dates and products, so subtracting attributed sales from Business Reports sales does not automatically produce a clean measure of organic revenue.
 
-An example: you spend €500 on ads. Your total revenue over the same period is €10,000 (€4,000 of it through ads, €6,000 organic). Your TACoS is 500 ÷ 10,000 × 100 = **5%**.
+## Why a falling TACoS can mislead
 
-## The decisive difference to ACoS
+A lower ratio may reflect stronger non-ad demand, seasonal traffic, a higher price or reduced spend. It may also hide weaker acquisition and declining absolute profit. Check the mechanism before presenting the decline as an achievement.
 
-ACoS leaves organic revenue out entirely. That is dangerous, because good advertising almost always does more than produce the sales directly attributed to it: it improves your ranking, brings reviews and strengthens brand awareness, which in turn pulls organic sales behind it. That effect never shows up in ACoS, but it does show in TACoS.
+<aside class="article-example"><p class="example-label">Illustrative example · not client results</p><h3>A better ratio, less contribution</h3><p>Period A produces €100,000 net sales, €30,000 contribution before ads and €10,000 ad spend: TACoS is 10%, leaving €20,000 contribution. Period B produces €80,000 net sales, €24,000 pre-ad contribution and €6,000 spend: TACoS improves to 7.5%, but contribution falls to €18,000. On these consistent model inputs, the ratio improved while the business earned less.</p></aside>
 
-Which is why the two metrics together tell a story that neither can tell on its own.
+## Review the portfolio, then the product groups
 
-## How to read movements in TACoS
+Pair TACoS with absolute contribution, total sales, ad spend, stock availability and changes in product mix. A high-margin product can support a different spend level from a low-margin line. Portfolio averages hide that difference.
 
-The real strength of TACoS shows over time. Four typical patterns:
+Use comparable periods and annotate promotions, price changes and stockouts. If TACoS rises, identify whether spend increased or sales declined. The first may be a deliberate acquisition test; the second may come from a lost offer, a weaker delivery promise or a conversion issue.
 
-- **ACoS steady, TACoS falling:** the ideal. Your advertising increasingly pulls organic revenue behind it and you become less dependent on ads.
-- **ACoS falling, TACoS falling:** very healthy. Efficiency and organic strength grow at the same time.
-- **ACoS steady, TACoS rising:** a warning sign. Your business hangs more and more on advertising and the organic share is weakening.
-- **ACoS falling, TACoS rising:** deceptive. On paper the advertising looks more efficient, but the business as a whole is tipping toward dependence on ads, often a sign that organic rankings are breaking away.
+## Make the next action explicit
 
-## What counts as a "good" TACoS
+A weekly review should end with an owner and a decision: restore availability, inspect a high-spend query group, test content or hold the budget until attribution matures. Avoid a universal TACoS target disconnected from margin and growth objectives.
 
-Again there is no universal figure, but there is orientation. Established products with a strong organic share often sit in single digits (5 to 10%). Products at launch or in aggressive scaling show much higher values for a while (15 to 25% and more), because a lot of advertising is needed to build ranking. The trend matters more than the moment: a newly launched product should show a *falling* TACoS over time, which is the proof that the organic engine is starting.
-
-## Why the metric is so valuable strategically
-
-TACoS is essentially a health indicator for how dependent your brand is on paid advertising. A permanently low, steady TACoS means your product largely sells itself and advertising is only an amplifier. That is what makes a brand valuable, and buyers look closely at exactly this dependence when a business is later sold.
-
-## Putting it into practice
-
-Track TACoS monthly per product or product line, not per campaign. Lay it over your revenue curve and ask at every anomaly: is organic revenue growing along, or is advertising carrying it alone? Also use TACoS as a control before you cut ad budgets. If organic revenue falls along with a cut, the advertising mattered more for ranking than the ACoS suggested.
-
-## In short
-
-ACoS tells you how efficient your ads are. TACoS tells you how healthy your business is. Only together do they give a complete picture. Whoever watches TACoS over time sees early whether a brand carries organically or depends dangerously on advertising, and that is one of the most important strategic insights in the Amazon business.
+Read [Business Reports](/en/blog/business-reports) for revenue decomposition and [Search Query Performance](/en/blog/search-query-performance) for query-level diagnosis. Our [PPC team](/en/leistungen/ppc-advertising) connects advertising metrics with product economics.

@@ -1,48 +1,59 @@
 ---
-title: "ACoS verständlich erklärt: Definition, Berechnung und was die Kennzahl wirklich aussagt"
-meta_description: "Was bedeutet ACoS bei Amazon-Werbung? So berechnest du die Advertising Cost of Sales, was ein guter Wert ist und welche Fehler du vermeiden solltest."
+title: "ACoS berechnen: Formel, Beispiel und die Grenze zur Profitabilität"
+meta_description: "ACoS richtig berechnen und mit dem Deckungsbeitrag vergleichen: ein Zahlenbeispiel, der Unterschied zu ROAS und die Grenzen der Werbeattribution."
 keywords: ["ACoS", "Amazon Werbung", "Advertising Cost of Sales", "Amazon PPC"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# ACoS verständlich erklärt: Definition, Berechnung und was die Kennzahl wirklich aussagt
+# ACoS berechnen: Formel, Beispiel und die Grenze zur Profitabilität
 
-Wer Anzeigen auf Amazon schaltet, stößt nach wenigen Minuten im Kampagnenmanager auf drei Buchstaben: ACoS. Sie stehen für *Advertising Cost of Sales* und sind die wahrscheinlich meistgenannte Kennzahl im Amazon-Marketing. Trotzdem führt sie immer wieder zu Missverständnissen – weil viele sie isoliert betrachten, statt sie im richtigen Zusammenhang zu lesen. Dieser Beitrag erklärt, was ACoS genau ist, wie du ihn berechnest und welche Schlüsse du daraus ziehen darfst (und welche nicht).
+ACoS steht für Advertising Cost of Sales. Die Kennzahl setzt Werbeausgaben ins Verhältnis zum Umsatz, den Amazon diesen Anzeigen zurechnet. Sie beschreibt Werbeeffizienz innerhalb eines Attributionsmodells. Ob eure Marke damit Geld verdient, entscheidet zusätzlich die Kostenrechnung.
 
-## Was ACoS bedeutet
+## Die ACoS-Formel
 
-ACoS misst, wie viel deiner durch Werbung erzielten Umsätze für genau diese Werbung draufgeht. Vereinfacht: Von jedem Euro, den eine Anzeige an Umsatz bringt, sagt der ACoS, welcher Anteil als Werbekosten zurückfließt. Ein niedriger ACoS bedeutet, dass deine Anzeigen effizient arbeiten; ein hoher Wert, dass viel Umsatz für wenig Werbeertrag verbrannt wird.
+**ACoS = Werbeausgaben ÷ werbeattribuierter Umsatz × 100**
 
-Die Formel ist simpel:
+Bei 200 € Werbekosten und 1.000 € zugerechnetem Umsatz beträgt der ACoS 20 %. Von jedem Euro zugerechnetem Umsatz entfallen rechnerisch 20 Cent auf Werbung. Das ist weder eine Gewinnmarge noch ein Beweis, dass die Werbung sämtliche ausgewiesenen Verkäufe zusätzlich verursacht hat.
 
-**ACoS = (Werbeausgaben ÷ werbeattribuierter Umsatz) × 100**
+[Amazon Ads erklärt die Kennzahl und ihre Berechnung](https://advertising.amazon.com/library/guides/acos-advertising-cost-of-sales). Verwendet für Vergleiche denselben Marktplatz, dieselbe Währung und dasselbe abgeschlossene Attributionsfenster. Bei null zugerechnetem Umsatz ist der ACoS nicht sinnvoll berechenbar.
 
-Ein Beispiel: Du gibst 200 € für eine Kampagne aus und erzielst damit 1.000 € Umsatz. Dein ACoS liegt bei 200 ÷ 1.000 × 100 = **20 %**. Das heißt, 20 Cent jedes Werbe-Euros gingen wieder in die Anzeigen.
+## ACoS und ROAS umrechnen
 
-## ACoS und ROAS sind dasselbe – nur andersherum
+ROAS teilt den zugerechneten Umsatz durch die Werbeausgaben. Bei gleicher Datenbasis entsprechen 20 % ACoS einem ROAS von 5; 25 % entsprechen einem ROAS von 4. Der ROAS zeigt Umsatz pro Werbe-Euro, nicht Gewinn pro Werbe-Euro. Bei null Werbeausgaben ist auch diese Division nicht sinnvoll.
 
-Viele verwechseln ACoS mit ROAS (Return on Advertising Spend). Tatsächlich beschreiben beide dieselbe Beziehung, nur aus entgegengesetzter Richtung. Während ACoS einen Prozentsatz der *Kosten* angibt, zeigt ROAS den *Ertrag* je eingesetztem Euro. Im obigen Beispiel entspricht ein ACoS von 20 % einem ROAS von 5 (1.000 € Umsatz ÷ 200 € Ausgaben). Welche Kennzahl du nutzt, ist Geschmackssache – wichtig ist nur, dass du konsequent bei einer bleibst.
+## Break-even mit sauberer Umsatzbasis
 
-## Der entscheidende Denkfehler: „niedrig ist immer gut"
+![ACoS mit Deckungsbeitrag und Zielpuffer auf derselben Umsatzbasis berechnen](/blog/figures/acos-beitrag-ziel.svg)
 
-Der häufigste Irrtum ist die Annahme, ein möglichst niedriger ACoS sei automatisch das Ziel. Das stimmt nur, wenn du reine Effizienz maximieren willst. In der Praxis hängt der „richtige" ACoS von deiner Marge und deinem Ziel ab.
+Der Deckungsbeitrag vor Werbung ist euer maximaler Spielraum für die Werbung dieser Einheit. Berechnet ihn aus Nettoerlös abzüglich Wareneinsatz, Verkaufs- und Fulfillmentgebühren, Verpackung, variablen Lagerkosten und erwarteten Retourenkosten. Fixkosten und angestrebter Gewinn brauchen zusätzlich einen Puffer.
 
-Verkaufst du ein Produkt mit 40 % Marge, kannst du dir einen höheren ACoS leisten als bei einem Produkt mit 15 % Marge. Und wenn du ein neues Produkt launchst und Sichtbarkeit aufbauen willst, ist ein zeitweise hoher ACoS oft eine bewusste Investition – du kaufst dir Ranking und Reviews ein, die sich später auszahlen. Ein extrem niedriger ACoS kann sogar ein Warnsignal sein: Vielleicht bietest du zu vorsichtig und lässt profitablen Umsatz liegen.
+Der entscheidende Punkt: Der Nenner muss zur Umsatzdefinition im Anzeigenbericht passen. Eine auf Nettoumsatz berechnete Marge lässt sich nicht unverändert mit einem auf Bruttoumsatz basierenden ACoS vergleichen. Prüft die Definition eures konkreten Exports, statt die Steuerbasis zu unterstellen.
 
-## Break-even-ACoS: die Grenze, die du kennen musst
+## Warum ein niedriger ACoS täuschen kann
 
-Die wichtigste abgeleitete Größe ist der Break-even-ACoS – der Punkt, an dem deine Werbung weder Gewinn noch Verlust macht. Er entspricht deiner Gewinnmarge vor Werbung.
+Eine Kampagne auf euren Markennamen kann einen niedrigen ACoS erzielen und dabei Menschen erreichen, die eure Marke schon kaufen wollten. Eine generische Kampagne erschließt möglicherweise neue Nachfrage, ist aber teurer. Bewertet beide Rollen separat. Ein niedriger Kontodurchschnitt, der hauptsächlich aus Markenumsatz entsteht, ist kein Beleg für erfolgreiche Neukundengewinnung.
 
-Rechenbeispiel: Dein Produkt kostet 30 €. Nach Wareneinsatz, Amazon-Gebühren und Versand bleiben dir 9 € Deckungsbeitrag – also 30 % Marge. Dein Break-even-ACoS liegt damit bei **30 %**. Alles darunter ist profitabel, alles darüber kostet dich pro verkaufter Einheit Geld. Diese Zahl solltest du für jedes Produkt kennen, bevor du Gebote festlegst.
+Ein bewusst verlustreicher Launch braucht eine Verlustobergrenze, einen Zeitraum und Kriterien für Fortführung oder Abbruch. Werbung kauft keine garantierten Rankings oder Bewertungen. Erwartete Folgekäufe gehören erst dann in die Rechnung, wenn ihr sie belegen könnt.
 
-## Was ACoS dir *nicht* verrät
+## So verwendet ihr ACoS im Wochenreport
 
-So nützlich die Kennzahl ist – sie hat blinde Flecken. ACoS berücksichtigt nur Umsätze, die Amazon direkt einer Anzeige zuschreibt. Den organischen Umsatz, den deine Anzeigen indirekt anstoßen (bessere Rankings, mehr Markenbekanntheit), erfasst sie nicht. Genau deshalb gibt es TACoS (Total ACoS), das Werbeausgaben ins Verhältnis zum *Gesamtumsatz* setzt. Wer nur auf ACoS schaut, optimiert manchmal die Anzeigen kaputt und wundert sich, warum der Gesamtumsatz sinkt.
+Vergleicht ACoS, absoluten Deckungsbeitrag nach Werbung, Bestellungen und Lagerreichweite pro Produktgruppe. Trennt Marken- und generische Suche. Lasst jüngste Klickkohorten ausreifen, bevor ihr sie abschließend bewertet. Ergänzt den [TACoS](/blog/tacos-erklaert) für den Blick auf das Gesamtgeschäft, ohne daraus allein organisches Wachstum abzuleiten.
 
-## Praktische Schritte für den Einstieg
+Für die Budgetsteuerung ist anschließend der [eigene Ziel-ACoS](/blog/guter-acos-benchmarks) wichtiger als ein fremder Branchendurchschnitt.
 
-Beginne damit, deinen Break-even-ACoS pro Produkt sauber auszurechnen – das ist dein Kompass. Definiere dann ein Ziel: Geht es um Profit (ACoS deutlich unter Break-even) oder um Wachstum (ACoS nahe oder über Break-even, bewusst gewählt)? Beobachte ACoS nicht täglich, sondern über Zeiträume von ein bis zwei Wochen, weil einzelne Tage stark schwanken. Und ziehe immer TACoS als zweite Kennzahl hinzu, um zu sehen, ob deine Werbung das Gesamtgeschäft trägt.
+## Praxis: ACoS auf derselben Umsatzbasis rechnen
 
-## Fazit
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>ACoS auf derselben Umsatzbasis rechnen</h3>
+<p>30 € Nettoerlös minus 21 € variable Kosten lassen 9 € vor Werbung. Verwendet auch der Anzeigenbericht 30 € je Einheit, liegt die rechnerische Grenze bei 30 %. Sollen 3 € für Fixkosten und Ergebnis bleiben, dürfen 6 € in Werbung fließen: Ziel-ACoS 20 %. Bei einem anderen Berichtserlös muss der Nenner angepasst werden.</p>
+</aside>
 
-ACoS ist eine einfache, aber mächtige Kennzahl – solange du sie im Kontext liest. Sie zeigt dir die Effizienz deiner Anzeigen, ersetzt aber kein Margen- und Zieldenken. Wer Break-even-ACoS, Marge und TACoS zusammen betrachtet, trifft deutlich bessere Entscheidungen als jemand, der nur stur die Prozentzahl im Kampagnenmanager drücken will.
+**So setzt ihr es um:**
+
+1. Erfasst Erlösbasis und Kosten je SKU ausdrücklich in der Zielwerttabelle.
+2. Vergleicht anschließend den absoluten Deckungsbeitrag nach Werbung, nicht nur die Prozentzahl.
+
+## Eine sinnvolle nächste Frage
+
+Wenn der ACoS unter eurem Ziel liegt, prüft **zusätzliches** Budget nach Query und SKU: Steigt der absolute Beitrag oder kauft ihr vor allem bestehende Markennachfrage erneut ein? Bei einem ACoS über Ziel trennt zuerst CPC, Conversion und Berichtsbasis, bevor ihr alle Gebote kürzt. Der Beitrag [CPC und Conversion analysieren](/blog/amazon-cpc-conversion-analyse) zeigt den Diagnoseweg. Für eine konkrete Produktgruppe können wir die [PPC-Arbeit](/leistungen/ppc-advertising) mit euch im [Gespräch](/gespraech-vereinbaren) an der realen Marge ausrichten.

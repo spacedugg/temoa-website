@@ -7,7 +7,7 @@ kategorie: "FBA, Logistik & Inventar"
 
 # Calculating FBA fees properly: modelling real profitability before launch
 
-Most sellers calculate their FBA profitability wrongly. Not because the maths is hard but because their fee list is incomplete. A typical mistake: you account for the fulfilment and referral fee, estimate the cost of goods and arrive at a margin that looks workable. Then the product launches, three months later you look more closely, and storage costs, placement fees and advertising have pushed the margin below the point of profitability. By then a correction is expensive. This article shows which cost blocks really belong in your model.
+An FBA calculator is useful only when its inputs match the product and marketplace. For a German brand, the decision is made at **SKU × store × period** level: combine product cost, applicable selling and fulfilment charges, inbound transport, storage time, expected returns and advertising. Then test whether the margin survives slower sell-through and a change in packaging dimensions. A quoted US fee is not a German tariff.
 
 ## Why a complete model decides the outcome
 
@@ -22,7 +22,7 @@ A complete FBA model covers far more than two fees. These items belong in it:
 - **The referral fee:** a percentage of the selling price, typically around 8 to 15% depending on the category.
 - **The FBA fulfilment fee:** depends on the size and weight of the unit. Larger and heavier products cost considerably more.
 - **Storage fees:** monthly storage cost by volume, with seasonal surcharges in the high-revenue months at the end of the year.
-- **Inbound placement fees:** the cost of Amazon distributing your goods across its warehouses, a newer item that older calculations often do not include.
+- **Inbound transport and programme costs:** include the costs actually applicable to your marketplace. US inbound placement fees are not a universal German FBA charge.
 - **Long-term storage fees:** surcharges on goods that sit too long.
 - **Returns and refunds:** the share of units returned plus any handling costs.
 - **Advertising:** in most categories effectively compulsory in order to get visibility at all, so it must be in the margin model.

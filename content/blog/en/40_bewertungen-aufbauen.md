@@ -37,3 +37,8 @@ Reviews grow slowly. Typically only a small share of buyers leaves one. Aim for 
 ## Conclusion
 
 The route to more reviews today runs through the permitted tools rather than tricks: the neutral Request a Review function, the Vine programme for the start and, above all, a good product with good service. Outdated or manipulative methods, the discontinued Early Reviewer Program included, are no longer an option and carry real risk. Build reviews compliantly, patiently and steadily and you strengthen conversion and ranking for the long run without putting the account at risk.
+
+
+## Programme and eligibility
+
+[Amazon: Vine](https://sell.amazon.com/programs/vine) – check the conditions applicable to your marketplace and account role.

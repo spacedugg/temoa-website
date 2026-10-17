@@ -35,6 +35,19 @@ Hier ist Nüchternheit wichtig, denn viele Angebote werden mit unrealistischen G
 
 Wenn du Palettenware kaufen willst, kaufe nur bei nachweislich seriösen, idealerweise offiziellen Liquidationsplattformen. Bevorzuge Paletten mit Manifest, kalkuliere konservativ (gehe davon aus, dass ein Teil unverkäuflich ist), und starte klein, um Erfahrung zu sammeln, bevor du große Mengen kaufst. Prüfe vorab, ob und wie du die enthaltenen Produkttypen überhaupt verkaufen darfst.
 
+## Praxis: Liquidation gegen weiteres Lagern vergleichen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Liquidation gegen weiteres Lagern vergleichen</h3>
+<p>300 langsam drehende Einheiten kosten im Modell monatlich 90 € Lagerung. Ein sofortiger Netto-Liquidationserlös von 600 € muss gegen erwarteten späteren Nettoerlös abzüglich weiterer Lager-, Werbe- und Abwicklungskosten gerechnet werden.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Nutzt realistische Erlöse und dokumentiert Verwertungskosten sowie Zeitbedarf.
+2. Berücksichtigt Markenwirkung und zulässige Wiederverkaufswege. Der ursprüngliche Verkaufspreis ist kein belastbarer Wert einer Retourenpalette.
+
 ## Fazit
 
 „Amazon Pallets" sind weder eine Goldgrube noch automatisch ein Reinfall – sie sind ein Geschäftsmodell mit echten Chancen und ebenso echten Risiken. Der niedrige Einkaufspreis steht dem unbekannten Zustand, dem Sortieraufwand und möglichen Verkaufsbeschränkungen gegenüber. Für Amazon-Verkäufer auf der Verkaufsseite ist Liquidation vor allem ein nützliches Werkzeug gegen totes Inventar. Wer einsteigen will, sollte seriöse Quellen wählen, konservativ rechnen und sich von überzogenen Gewinnversprechen nicht blenden lassen.

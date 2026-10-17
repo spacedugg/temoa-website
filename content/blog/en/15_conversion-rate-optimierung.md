@@ -11,7 +11,7 @@ When revenue stalls, the first reflex for many sellers is to lower the price. Th
 
 ## Why conversion rate is underrated
 
-A higher conversion rate works twice over. First, you make more revenue from the same traffic, without a cent more on advertising. Second, Amazon's algorithm rewards listings that convert well with better organic placements, because from the platform's point of view they meet customer needs better. And third, your ACoS falls automatically, because more clicks turn into purchases. A price cut, by contrast, acts only through the price, and it costs you on every sale.
+At a fixed CPC and revenue per attributed purchase, a higher ad purchase rate mathematically lowers ACoS. It does not guarantee a particular organic ranking. Distinguish ad conversion from the Unit Session Percentage in Business Reports: the latter uses units ordered per session, not unique purchasers. Compare like-for-like child ASINs and traffic sources.
 
 ## What moves conversion most
 
@@ -26,7 +26,7 @@ Not every element of a detail page works equally hard. These have the largest in
 
 ## Working on reviews, within the rules
 
-Reviews are a central conversion driver, so it is worth encouraging them actively and within the rules. Amazon allows automated review requests and programmes such as Vine for early, verified reviews. One thing matters: hands off bought or incentivized fake reviews, because that breaks the guidelines and can get you suspended. Bet instead on a good product, good service and consistent, permitted review requests.
+Reviews are a central conversion driver, so it is worth encouraging them actively and within the rules. Amazon allows automated review requests and programmes such as Vine for early reviews labelled as Vine reviews. One thing matters: hands off bought or incentivized fake reviews, because that breaks the guidelines and can get you suspended. Bet instead on a good product, good service and consistent, permitted review requests.
 
 ## Testing in a structured way instead of guessing
 
@@ -39,3 +39,8 @@ Start where the effect is largest and the effort smallest: usually the main imag
 ## In short
 
 Improving the conversion rate is almost always more profitable than lowering the price, because it acts on every visitor and lifts ranking and advertising efficiency at the same time, without touching the margin. Main image, image gallery, convincing bullet points, A+ content and reviews work hardest. Whoever improves these systematically and from tests grows out of the same traffic, and has to fight on price far less often.
+
+
+## Programme and eligibility
+
+[Amazon: Manage Your Experiments](https://sell.amazon.com/tools/manage-your-experiments) – check the conditions applicable to your marketplace and account role.

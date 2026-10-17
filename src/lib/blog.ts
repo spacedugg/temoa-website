@@ -1,3 +1,5 @@
+import editorialPolicy from "../../content/blog-editorial-policy.json";
+import coverAlts from "../../content/blog-cover-alt.json";
 import fs from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
@@ -76,6 +78,18 @@ const categories: Category[] = [
     blurb: {
       de: "ACoS, TACoS, Kampagnenstruktur und alles, was Werbung profitabel macht.",
       en: "ACoS, TACoS, campaign structure and everything that makes advertising profitable.",
+    },
+  },
+  {
+    key: "Amazon Daten & Analyse",
+    slug: "daten-analyse",
+    label: { de: "Daten & Analyse", en: "Data & analysis" },
+    short: { de: "Analytics", en: "Analytics" },
+    accent: "#087A9D",
+    icon: "chart",
+    blurb: {
+      de: "Suchanfragen, Business Reports und Keywords in konkrete Entscheidungen übersetzen.",
+      en: "Turn search queries, Business Reports and keywords into decisions.",
     },
   },
   {
@@ -179,11 +193,11 @@ function aufloesen(c: Category, sprache: Sprache): Kategorie {
 }
 
 export function kategorien(sprache: Sprache): Kategorie[] {
-  return categories.map((c) => aufloesen(c, sprache));
+  return categories.filter((c) => !editorialPolicy.retiredCategories.includes(c.slug)).map((c) => aufloesen(c, sprache));
 }
 
 export function getCategory(slug: string, sprache: Sprache): Kategorie | undefined {
-  const c = categories.find((x) => x.slug === slug);
+  const c = categories.find((x) => x.slug === slug && !editorialPolicy.retiredCategories.includes(x.slug));
   return c && aufloesen(c, sprache);
 }
 
@@ -202,6 +216,9 @@ export type PostMeta = {
   order: number;
   /** Optional generated cover image; falls back to the SVG cover when absent. */
   image?: string;
+  imageAlt: string;
+  /** Existing off-topic URLs remain accessible but are not promoted or indexed. */
+  retired: boolean;
 };
 
 export type Post = PostMeta & { html: string };
@@ -249,7 +266,9 @@ function parseFile(filename: string, sprache: Sprache): Post {
   const cat = catByKey.get(kategorie);
 
   marked.setOptions({ gfm: true, breaks: false });
-  const html = marked.parse(body) as string;
+  const html = (marked.parse(body) as string)
+    .replace(/<table>/g, `<div class="article-table" role="region" aria-label="${sprache === "de" ? "Vergleichstabelle" : "Comparison table"}" tabindex="0"><table>`)
+    .replace(/<\/table>/g, "</table></div>");
 
   return {
     slug,
@@ -264,7 +283,9 @@ function parseFile(filename: string, sprache: Sprache): Post {
     accent: cat?.accent ?? "#0E7CA0",
     readingMinutes,
     order,
+    retired: Object.hasOwn(editorialPolicy.retiredArticles, slug),
     image: findCover(slug),
+    imageAlt: (coverAlts as Record<string, Record<Sprache, string>>)[slug]?.[sprache] ?? "",
     html,
   };
 }
@@ -289,8 +310,8 @@ function allPosts(sprache: Sprache): Post[] {
 
 const stripHtml = ({ html, ...meta }: Post): PostMeta => meta;
 
-export function getAllPosts(sprache: Sprache): PostMeta[] {
-  return allPosts(sprache).map(stripHtml);
+export function getAllPosts(sprache: Sprache, includeRetired = false): PostMeta[] {
+  return allPosts(sprache).filter((post) => includeRetired || !post.retired).map(stripHtml);
 }
 
 export function getPost(slug: string, sprache: Sprache): Post | undefined {
@@ -298,7 +319,7 @@ export function getPost(slug: string, sprache: Sprache): Post | undefined {
 }
 
 export function getPostsByCategory(categorySlug: string, sprache: Sprache): PostMeta[] {
-  return getAllPosts(sprache).filter((p) => p.categorySlug === categorySlug);
+  return getAllPosts(sprache).filter((p) => p.categorySlug === categorySlug).sort((a, b) => editorialPriority(a) - editorialPriority(b));
 }
 
 export function getRelatedPosts(slug: string, sprache: Sprache, limit = 3): PostMeta[] {
@@ -306,6 +327,7 @@ export function getRelatedPosts(slug: string, sprache: Sprache, limit = 3): Post
   if (!post) return [];
   return getAllPosts(sprache)
     .filter((p) => p.categorySlug === post.categorySlug && p.slug !== slug)
+    .sort((a, b) => editorialPriority(a) - editorialPriority(b))
     .slice(0, limit);
 }
 
@@ -317,13 +339,40 @@ export function categoryCounts(sprache: Sprache): Record<string, number> {
 
 /** Curated, most useful articles for the homepage strip. */
 const FEATURED = [
-  "amazon-marketingstrategie-ueberblick",
-  "acos-erklaert",
-  "a-plus-content",
-  "kampagnenstruktur-ppc",
-  "amazon-flywheel",
-  "amazon-agentur-waehlen",
+  "search-query-performance",
+  "business-reports",
+  "amazon-werbung-inkrementalitaet",
+  "amazon-dsp-budget",
+  "amazon-content-experimente",
+  "amazon-produktlaunch",
 ];
+
+const EDITORIAL_PRIORITY = [
+  "search-query-performance", "business-reports", "amazon-werbung-inkrementalitaet",
+  "amazon-dsp-budget", "amazon-cpc-conversion-analyse", "amazon-content-experimente",
+  "amazon-keyword-recherche", "amazon-kanalstrategie-marken", "amazon-produktlaunch",
+  "amazon-featured-offer-analyse", "amazon-account-health", "amazon-vine-kalkulation",
+  "amazon-ki-sichtbarkeit",
+  "amazon-ki-kaufagenten", "amazon-gebuehren-2026", "amazon-acos-senken", "amazon-marketingagenturen-vergleich",
+];
+
+// Foundational articles remain discoverable but follow operational decisions.
+const FOUNDATIONAL = new Set([
+  "amazon-ppc-auktion", "acos-erklaert", "tacos-erklaert", "roas-berechnen", "bsr-erklaert",
+  "lohnt-sich-fba", "lohnt-sich-verkauf-amazon", "retail-arbitrage",
+  "verkaufen-ohne-lager", "fba-vs-dropshipping", "llc-firma-amazon",
+  "storefront-einrichten", "alibaba-import",
+]);
+function editorialPriority(post: PostMeta) {
+  const featured = FEATURED.indexOf(post.slug);
+  const editorial = EDITORIAL_PRIORITY.indexOf(post.slug);
+  return featured >= 0 ? featured : editorial >= 0 ? 10 + editorial : FOUNDATIONAL.has(post.slug) ? 1000 + post.order : 100 + post.order;
+}
+
+/** The overview starts with strategic decisions, then shows every other active article. */
+export function getEditorialPosts(sprache: Sprache): PostMeta[] {
+  return getAllPosts(sprache).sort((a, b) => editorialPriority(a) - editorialPriority(b));
+}
 
 export function getFeaturedPosts(sprache: Sprache, limit = 6): PostMeta[] {
   const all = getAllPosts(sprache);

@@ -15,11 +15,7 @@ Books differ from ordinary products in one decisive respect: the margin. An eboo
 
 ## The most important campaign types
 
-For books the familiar sponsored formats are essentially what is available:
-
-- **Sponsored Products:** advertise a single title in the search results and on detail pages. The workhorse for books too.
-- **Sponsored Brands:** for authors or publishers with several titles, ideal for advertising a whole series or an author profile.
-- **Lockscreen ads:** a speciality of the book world, ads that appear on Kindle e-readers and in the app and reach readers directly.
+Sponsored Products advertise individual eligible books; Sponsored Brands can support eligible authors and publishers. Availability depends on account and marketplace. In 2026 Amazon announced Kindle e-reader lockscreen access through Amazon DSP. This is not a universally available extra Sponsored format in every German author account. [Amazon's DSP announcement](https://advertising.amazon.com/en-gb/resources/whats-new/kindle-e-reader-lockscreen-ads-now-available-through-adsp).
 
 ## Keyword versus product targeting
 

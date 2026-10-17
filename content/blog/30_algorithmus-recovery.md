@@ -1,46 +1,40 @@
 ---
-title: "Ranking-Einbruch auf Amazon: Ursachen erkennen und sich nach Algorithmus-Änderungen erholen"
-meta_description: "Plötzlich weniger Sichtbarkeit und Umsatz? So findest du heraus, ob ein Ranking-Einbruch an dir, am Wettbewerb oder an einer Algorithmus-Änderung liegt – und wie du reagierst."
-keywords: ["Ranking Einbruch Amazon", "Algorithmus Änderung", "Sichtbarkeit verloren", "Amazon Ranking Recovery"]
+title: "Amazon-Rankingverlust analysieren: erst Angebot, dann Suchsichtbarkeit"
+meta_description: "Ranking-Einbruch bei einer ASIN? Ein Diagnoseweg über Kaufbarkeit, Child-ASIN, Suchanfrage und Konkurrenz, statt vorschnell den Algorithmus verantwortlich zu machen."
+keywords: ["Amazon Rankingverlust", "Amazon Sichtbarkeit verloren", "Search Query Performance"]
 kategorie: "Listing, SEO & Conversion"
 ---
 
-# Ranking-Einbruch auf Amazon: Ursachen erkennen und sich nach Algorithmus-Änderungen erholen
+# Amazon-Rankingverlust analysieren: erst Angebot, dann Suchsichtbarkeit
 
-Es ist einer der beunruhigendsten Momente im Amazon-Geschäft: Gestern lief alles, heute brechen Sichtbarkeit und Umsatz ein. Der erste Impuls ist Panik – und panische Reaktionen machen es oft schlimmer. Besser ist ein strukturiertes Vorgehen: erst die Ursache finden, dann gezielt handeln. Dieser Beitrag zeigt, wie du einen Ranking-Einbruch analysierst und dich systematisch erholst.
+„Der Algorithmus hat uns abgestraft“ ist eine Hypothese, keine Diagnose. Wenn ein Umsatz-Dashboard rot wird, trennt zuerst drei Entwicklungen: Hat die ASIN weniger kaufbare Tage? Bekommt sie weniger qualifizierte Besuche? Kaufen weniger Menschen aus vergleichbarem Traffic? Für jede Antwort braucht ihr andere Daten und einen anderen Eingriff.
 
-## Erst diagnostizieren, dann handeln
+## Stunde eins: Verkaufsfähigkeit rekonstruieren
 
-Ein Einbruch kann viele Ursachen haben, und die richtige Reaktion hängt vollständig von der Ursache ab. Wer blind das Listing umbaut oder das Werbebudget verdreifacht, ohne zu wissen warum, verschlimmert die Lage oft. Die erste Aufgabe ist immer: herausfinden, was passiert ist.
+Prüft die betroffenen Child-ASINs einzeln: aktiv, lieferbar, korrekte Variation, Featured Offer, Lieferzusage, Preis und Bestand. Notiert den Zeitpunkt, an dem ein Wert umgeschlagen ist. Eine Parent-ASIN kann stabil aussehen, während die umsatzstärkste Farbe nicht mehr rechtzeitig lieferbar ist. Ein neues Keyword im Titel behebt dieses Problem nicht.
 
-## Die häufigsten Ursachen
+Nehmen wir eine schwarze 750-ml-Flasche: Die bestellten Einheiten fallen am Dienstag. Die Sitzungen bleiben zunächst stabil. Der Featured-Offer-Anteil fällt ab Montag von etwa 98 % auf 72 % und die Lieferzusage verlängert sich. Das ist ein Angebotsproblem, bis die Daten etwas anderes zeigen. [So analysiert ihr die Featured Offer](/blog/amazon-featured-offer-analyse).
 
-Gehe der Reihe nach mögliche Erklärungen durch:
+## Tag eins: Nachfrage von eigenem Anteil trennen
 
-- **Technische/Listing-Probleme:** Ist das Angebot noch aktiv? Hast du unbeabsichtigt die Buy Box verloren, ist das Produkt „stranded", wurde der Titel oder ein Bild geändert oder unterdrückt? Solche Probleme sind häufig – und am schnellsten zu beheben.
-- **Verfügbarkeit:** Warst du (auch kurz) ausverkauft? Ein Lieferengpass bremst das Flywheel und kostet Ranking, das sich nur langsam erholt.
-- **Wettbewerb:** Hat ein Konkurrent den Preis gesenkt, aggressiv beworben oder ein besseres Listing gelauncht? Dann verlierst du relativ, ohne selbst etwas falsch gemacht zu haben.
-- **Bewertungen:** Ein Schwung negativer Bewertungen oder ein Absinken des Sternedurchschnitts senkt Conversion und damit Ranking.
-- **Algorithmus-Änderung:** Amazon passt seine Such- und Ranking-Logik laufend an. Manchmal verschieben sich Platzierungen breit, ohne dass du etwas getan hast.
+Wenn der Artikel kaufbar ist, vergleicht identische Suchanfragen vor und nach dem Bruch in [Search Query Performance](/blog/search-query-performance): gesamte Suchimpressionen, Markenimpressionen, Klicks, Warenkörbe und Käufe. Sinken Marktvolumen und euer Volumen gleichzeitig? Oder wächst der Markt, während euer Anteil fällt? Prüft die Berichtszeiträume und die Auswahl der Begriffe; aggregierte Kategorien können einen Verlust bei der wichtigsten Query verdecken.
 
-## Algorithmus-Änderung oder eigenes Problem?
+Ergänzt Ads-Daten: Haben Budgets früher ausgeschöpft, Gebote oder Targets gewechselt, sind Klicks für gleiche Begriffe weggefallen? Ads-Attribution, organisches Ranking und Brand-Analytics-Stufen sind verschiedene Messungen. Sie dürfen in der Ursachenanalyse nebeneinanderstehen, sollten aber nicht zu einer erfundenen einzigen Conversion-Zahl zusammengezogen werden.
 
-Ein nützlicher Test: Betrifft der Einbruch nur ein Produkt oder dein ganzes Sortiment? Ein einzelnes betroffenes Produkt deutet eher auf ein listing- oder produktspezifisches Problem. Ein breiter Einbruch über viele Produkte – oder Berichte anderer Verkäufer derselben Kategorie – spricht eher für eine Algorithmus- oder Marktverschiebung. Auch der zeitliche Verlauf hilft: ein plötzlicher Absturz deutet auf ein konkretes Ereignis, ein schleichender Rückgang auf nachlassende Conversion oder wachsenden Wettbewerb.
+<aside class="article-example">
+<p class="example-label">Arbeitsfall · fiktive Zeitreihe</p>
+<h3>Ein Rückgang, zwei getrennte Ursachen</h3>
+<p>Bei „edelstahl trinkflasche 750ml“ steigen Marktimpressionen von 40.000 auf 46.000. Die Markenimpressionen der Flasche fallen von 6.000 auf 4.800. Zugleich bleibt die Zahl der Produktseiten-Sitzungen aus anderen Suchanfragen stabil. Das spricht für einen Verlust bei einer konkreten Query. Wenn zusätzlich die Featured Offer schwankt, bearbeitet ihr beide Ursachen getrennt: Angebot sichern und danach Suchpräsenz überprüfen.</p>
+</aside>
 
-## Wie du dich erholst
+![Einen Umsatzrückgang zerlegen: Kaufbar? – Bestand · Lieferzeit, Sichtbar? – Impressionen · Klickanteil, Kaufbar genug? – Einheiten je Sitzung](/blog/figures/algorithmus-recovery.svg)
 
-Sobald die Ursache klar ist, handelst du gezielt:
 
-- **Bei technischen Problemen:** sofort beheben – reaktivieren, Buy Box zurückholen, unterdrückte Inhalte korrigieren. Das wirkt am schnellsten.
-- **Bei Verfügbarkeit:** Nachschub sichern und das Flywheel mit Werbung wieder anschieben, um verlorenes Momentum zurückzukaufen.
-- **Bei Wettbewerb:** Listing und Angebot schärfen – Conversion verbessern, Preis und Wertversprechen prüfen, Werbung anpassen.
-- **Bei Bewertungen:** Ursache der negativen Reviews angehen (Produkt/Service), regelkonform neue Bewertungen fördern.
-- **Bei Algorithmus-Änderungen:** Ruhe bewahren. Konzentriere dich auf die Fundamente – Relevanz, Conversion, Verfügbarkeit, Bewertungen –, denn diese zahlen auf fast jede Algorithmus-Version ein.
+## Entscheidungsmatrix statt pauschaler „Recovery“
 
-## Was du vermeiden solltest
+- **Sitzungen stabil, Verkäufe je Sitzung niedriger:** Angebot, Lieferzeit, Rezensionen, Variantenmix und Preisverlauf zuerst prüfen.
+- **Marktnachfrage stabil, eigene Klickanteile niedriger:** Suchergebnisse, Bild, Relevanz, Wettbewerber und Werbeauslieferung für dieselbe Query prüfen.
+- **Markt und Marke sinken gemeinsam:** Saisonalität, Kategorie- und Nachfrageverschiebung einbeziehen; nicht vorschnell Budget erhöhen.
+- **Nur eine Variante betroffen:** Child-ASIN, Bestandsstatus und Variationsverknüpfung prüfen, bevor ein ganzer Parent-Content umgeschrieben wird.
 
-Vermeide hektische Komplettumbauten des Listings, mehrere gleichzeitige Änderungen (du weißt sonst nie, was gewirkt hat) und überstürzte Preisschlachten. Ranking-Erholung braucht meist etwas Zeit – das Flywheel muss wieder Schwung aufnehmen. Geduld und gezielte, einzeln messbare Maßnahmen schlagen Aktionismus.
-
-## Fazit
-
-Ein Ranking-Einbruch ist beunruhigend, aber selten ein Rätsel, wenn man systematisch vorgeht. Diagnostiziere zuerst – technisches Problem, Verfügbarkeit, Wettbewerb, Bewertungen oder Algorithmus? –, und handle dann gezielt statt panisch. Wer die Fundamente (Relevanz, Conversion, Verfügbarkeit, Bewertungen) stark hält, ist gegen Algorithmus-Schwankungen am besten gewappnet und erholt sich am schnellsten. Ruhe und Methode sind hier dein größter Vorteil.
+Protokolliert jede Maßnahme mit Datum und verantwortlicher Person. Ändert ihr gleichzeitig Titel, Preis, Gebot und Bilder, könnt ihr eine Erholung nicht mehr zuordnen. Eine Rangposition aus einem einzelnen Browser ist kein belastbarer Kontrollwert. Wir verbinden bei solchen Fällen [Listing-SEO](/leistungen/listing-seo), [Analytics](/leistungen/analytics-reporting) und Account-Daten. [Zeigt uns ASIN, Datum des Einbruchs und die betroffenen Queries](/gespraech-vereinbaren).

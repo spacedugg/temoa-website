@@ -38,6 +38,55 @@ Hartnäckigkeit zahlt sich aus – aber strukturiert, nicht durch Spam. Dokument
 
 Nicht jedes Anliegen ist lösbar, und manche Entscheidungen liegen außerhalb dessen, was der Support ändern kann. Konzentriere deine Energie auf die Fälle mit echtem Geschäftsimpact (z. B. Erstattungen, fälschliche Sperren einzelner Listings, falsch berechnete Gebühren) und akzeptiere, wo eine weitere Eskalation keinen Sinn ergibt.
 
+## Praxis: Ein Support-Case, der sich prüfen lässt
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein Support-Case, der sich prüfen lässt</h3>
+<p>„Unser Listing ist kaputt“ ist schwer bearbeitbar. Besser: „ASIN X, Marktplatz DE: Der übermittelte Wert im Feld Material wird trotz erfolgreicher Verarbeitung vom Datum Y nicht angezeigt. Erwarteter Wert und Produktnachweis liegen bei.“</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ergänzt Upload-/Feed-ID, genaue Uhrzeit, aktuellen Screenshot und die gewünschte Korrektur.
+2. Beantwortet Rückfragen im bestehenden Zusammenhang. Eine Chronologie mit zwei relevanten Belegen hilft mehr als zehn neue Tickets zum selben Fehler.
+
+## Fünf Fälle, fünf unterschiedliche Beweisführungen
+
+Ein festgefahrener Case ist nicht automatisch ein Kommunikationsproblem. Häufig landet ein sachlich richtiges Anliegen in einem Prozess, der die Ursache nicht beheben kann. Legt deshalb **vor** der Eskalation fest, welche Entscheidung ihr braucht und wer sie treffen kann.
+
+| Fall | Was ihr nachweist | Was ihr konkret beantragt |
+| --- | --- | --- |
+| Falsche Produktklassifizierung | ASIN, Produkttyp, betroffene Attribute, Fotos und bisheriger Datenstand | Prüfung und Korrektur der Klassifizierung beziehungsweise der geforderten Nachweise |
+| Unterdrücktes Listing | Wortlaut der Meldung, ASIN, Marktplatz, letzte Änderungen und relevante Richtlinie | Benennung des beanstandeten Felds oder Freigabe nach belegter Korrektur |
+| FBA-Bestandsdifferenz | Sendungs- und Einheitenverlauf, Empfangsdaten, Rechnungen und Berechtigung | Untersuchung der konkreten Differenz und gegebenenfalls Erstattung nach geltendem Verfahren |
+| Vermeintliche Richtlinienverletzung | Account-Health-Eintrag, Produktbelege und dokumentierter Ablauf | Prüfung der gemeldeten Verletzung; bei eigenem Fehler die verlangte Abhilfe |
+| Fehler am Markeninhalt | Brand-Registry-Rolle, Beitrags-ID, gewünschter Wert und Markenbelege | Prüfung der Beitragsberechtigung oder Korrektur am betreffenden Attribut |
+
+![Entscheidungsweg für festgefahrene Amazon-Support-Fälle](/blog/figures/support-case-triage.svg)
+
+**Wichtig:** Erfindet keine Richtliniennummern, Rechtsgrundlagen oder angeblich vorgeschriebenen Dokumente. Der Wortlaut in Seller Central und der tatsächlich verlangte Nachweis haben Vorrang. Eine falsch zitierte Regel macht einen ansonsten guten Antrag schlechter.
+
+## Aus einer Antwortschleife einen prüfbaren Verlauf machen
+
+Erstellt ein internes Case-Protokoll mit **Fall-ID, ASIN/SKU, Marktplatz, Erstmeldung, Nachweisen, Antwort, offenem Punkt und nächster Aktion**. Wenn eine Antwort das Thema verfehlt, benennt genau die Lücke: „Die Antwort behandelt die Bilder; unser Antrag betrifft das Materialattribut. Der aktuelle und der eingereichte Wert stehen in Anlage 2.“ Das verkürzt die nächste Prüfung.
+
+Bei geschäftskritischen Fällen wählt ihr den passenden zusätzlichen Kanal, sofern er im Konto verfügbar ist. Führt die Fäden jedoch über die vorhandene Case-ID und eine Chronologie zusammen. Doppelte, widersprüchliche Tickets können die Prüfung erschweren. Es gibt keine verlässliche allgemeine Frist, nach der ein neuer Case automatisch Vorrang erhält.
+
+<aside class="article-example">
+<p class="example-label">Beispiel · reproduzierbarer Listing-Fehler</p>
+<h3>Wenn der Feed akzeptiert wird, die Detailseite aber alt bleibt</h3>
+<p>Eine Marke übermittelt für ASIN B0EXAMPLE den Materialwert „Edelstahl“. Die Verarbeitung meldet Erfolg, auf der deutschen Detailseite steht weiterhin „Aluminium“. Der Case enthält die Feed-ID, Zeitstempel, Screenshot, GTIN/ASIN-Zuordnung, Herstellerbeleg und die konkrete Frage, welche Datenquelle das Attribut derzeit überschreibt. So wird aus „Bitte Listing reparieren“ eine untersuchbare Katalogfrage.</p>
+</aside>
+
+Bei einer Sperrung prüft zusätzlich den geforderten Weg in [Kontosperrung und Aktionsplan](/blog/account-gesperrt). Für laufende Warnungen bietet [Account Health systematisch steuern](/blog/amazon-account-health) die frühere Diagnose. Eine Agentur kann die Belegsammlung und Nachverfolgung koordinieren; sie kann eine Plattformentscheidung nicht garantieren.
+
+## Was ihr als Marke monatlich kontrolliert
+
+Verfolgt nicht nur die Zahl offener Cases. Trennt **Umsatzwirkung**, **Alter seit letzter sinnvoller Antwort**, **fehlenden Nachweis** und **Zuständigkeit**. Ein offen gebliebenes Farb-Attribut mit geringer Nachfrage hat eine andere Priorität als ein unterdrückter Topseller. Diese Reihenfolge verbindet Account-Arbeit mit Sortiment, Werbung und Liquidität.
+
+Wenn eure Cases wiederholt an Katalogdaten, Markenrechten und Bestandsabgleichen hängen, besprecht mit uns das [Account-Management](/leistungen/account-management): Wir priorisieren die wirtschaftlich relevanten Fälle und bauen einen nachvollziehbaren Entscheidungs- und Nachweisprozess auf.
+
 ## Fazit
 
-Festgefahrene Support-Cases sind oft das Ergebnis unklarer Kommunikation – und genau dort kannst du ansetzen. Ein Problem pro Case, klar formuliert, mit Belegen und richtiger Kategorie, dazu gezieltes Reagieren auf unpassende Antworten und ein sauberer Eskalationsweg bringen die meisten Tickets weiter als wiederholtes Nachhaken im selben Ton. Wer Cases strukturiert führt und dokumentiert, kommt schneller aus der Warteschleife – und spart sich viel Frust.
+Ein wirksamer Case benennt die **konkrete Plattformentscheidung**, die Belege dafür und die wirtschaftliche Priorität. Wenn Antworten ausweichen, präzisiert ihr die offene Frage und den Verlauf. Das ist keine Erfolgsgarantie, gibt dem zuständigen Team aber einen tatsächlich prüfbaren Fall.

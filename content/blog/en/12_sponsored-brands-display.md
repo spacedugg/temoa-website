@@ -7,7 +7,7 @@ kategorie: "Amazon PPC & Advertising"
 
 # Sponsored Brands and Sponsored Display: the ad types most brands ignore
 
-The bulk of all Amazon advertising budget flows almost entirely into one ad type: Sponsored Products. Sponsored Brands and Sponsored Display, two formats that run in less contested placements and often at lower click prices, get a fraction of the attention and the budget. That imbalance is exactly the opportunity. Brands that spread budget across all three types build a category presence Sponsored Products alone cannot produce.
+The bulk of all Amazon advertising budget flows almost entirely into one ad type: Sponsored Products. Sponsored Brands and Sponsored Display, two formats offering additional placements and audience options, get a fraction of the attention and the budget. That imbalance is exactly the opportunity. Brands that spread budget across all three types build a category presence Sponsored Products alone cannot produce.
 
 ## Why Sponsored Products alone is not enough
 
@@ -34,11 +34,11 @@ Sponsored Display therefore works both at the very top (new audiences) and at th
 
 ## How the three types work together
 
-The effect is not in one format but in the interplay. Sponsored Display and Sponsored Brands build awareness and reach, Sponsored Products harvest the intent. A buyer might see a Sponsored Brands ad first, be reached again later through Sponsored Display, and complete the purchase through a Sponsored Products ad. Whoever pays only for the last step gives away the cheaper, earlier contact points.
+The effect is not in one format but in the interplay. Sponsored Display and Sponsored Brands build awareness and reach, Sponsored Products harvest the intent. A buyer might see a Sponsored Brands ad first, be reached again later through Sponsored Display, and complete the purchase through a Sponsored Products ad. Test whether earlier touchpoints add profitable demand; their cost and incremental impact need to be measured.
 
 ## Common mistakes
 
-The first mistake is measuring both types with the same expectation as Sponsored Products. Brand-building and retargeting campaigns have different goals and often a different ACoS, and judging them on pure efficiency leads to switching off the wrong things. The second mistake is never testing them at all, because the budget "is already needed in Sponsored Products". Precisely because competition there is the most expensive, the cheaper spaces are worth a look.
+The first mistake is measuring both types with the same expectation as Sponsored Products. Brand-building and retargeting campaigns have different goals and often a different ACoS, and judging them on pure efficiency leads to switching off the wrong things. The second mistake is never testing them at all, because the budget "is already needed in Sponsored Products". Compare formats with controlled budgets and matching objectives; no placement is universally cheaper.
 
 ## Getting started in practice
 
@@ -46,4 +46,4 @@ Start small and deliberately: one Sponsored Brands campaign on your most importa
 
 ## In short
 
-Sponsored Brands and Sponsored Display are not toys but the missing stages of a complete funnel. They work where Sponsored Products cannot reach: brand building, retargeting and catching competitor traffic, often at lower cost. Whoever bets on Sponsored Products alone leaves exactly the spaces the competition has not taken yet.
+Sponsored Brands and Sponsored Display are not toys but the missing stages of a complete funnel. They work where Sponsored Products cannot reach: brand building, retargeting and catching competitor traffic, with costs that need to be assessed for the specific objective. Whoever bets on Sponsored Products alone leaves exactly the spaces the competition has not taken yet.

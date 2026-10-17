@@ -15,7 +15,7 @@ A+ content replaces the plain text description of your listing with a designed s
 
 ## Who can use A+ content
 
-The requirement is participation in Amazon Brand Registry, which means a registered trademark. For sellers, the standard version of A+ content is usually free. Beyond that there are extended formats (often called "Premium A+" or "A+ brand story") with additional modules such as videos, interactive elements or a cross-brand banner. Which options are available depends on your brand status and on Amazon's current programme terms.
+Access depends on eligibility, account role and programme requirements. Brand Registry can accept eligible pending as well as registered trademarks. Basic A+, Brand Story and Premium A+ are distinct functions with different access conditions. Check the A+ Content Manager for the specific account. [Amazon's A+ overview](https://sell.amazon.com/tools/a-content).
 
 ## Why A+ content lifts conversion
 
@@ -40,7 +40,7 @@ Do not simply repeat your bullet points, because A+ content should add, not dupl
 
 ## A+ content and SEO
 
-A widespread misunderstanding is that A+ content ranks directly in Amazon search. The text in the A+ modules is generally **not** indexed by the search algorithm. The SEO effect is indirect, through better conversion and lower bounce rates, which in turn support your organic ranking. So your most important keywords still belong in the title, the bullet points and the backend search terms, not primarily in the A+ content.
+Use A+ to explain the product and support purchase decisions. Do not rely on a blanket claim that every A+ element is always or never considered by every Amazon search or AI function. Amazon does not publish a complete weighting formula. Maintain relevant terms and accurate information in the designated listing fields, including titles, Item Highlights and attributes. Test conversion separately; higher rankings are not guaranteed.
 
 ## In short
 

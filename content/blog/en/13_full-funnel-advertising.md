@@ -33,7 +33,7 @@ Amazon offers a matching format for every funnel stage:
 
 ## How the stages interlock
 
-A full-funnel strategy is not a set of parallel activities but a loop. Awareness campaigns fill the top of the funnel with new contacts. Consideration campaigns keep you present while the buyer compares. Retargeting catches the ones who dropped out. And the conversion campaigns harvest, now from a larger pool you built yourself. The decisive effect: more activity at the top of the funnel lowers the cost at the bottom over time, because more buyers already know you.
+Upper-funnel activity can support awareness and later demand, but lower acquisition costs are a hypothesis to test, not a guaranteed result. Keep audience, budget, evaluation window and loss cap explicit. Where possible, use a suitable control; otherwise document promotions, price and stock changes that could explain the result.
 
 ## Measurement: every stage needs its own yardstick
 

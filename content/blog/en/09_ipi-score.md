@@ -11,18 +11,11 @@ There is a number in the background that decides how much stock you are allowed 
 
 ## What the IPI score is
 
-IPI stands for *inventory performance index*. It is a value on a scale (usually 0 to 1,000) that Amazon assigns to every FBA seller. It reflects how efficiently you use your storage space relative to your sales. Put simply: Amazon wants its warehouse filled with goods that actually sell, not with shelf-warmers. The IPI is Amazon's judgement on how well you manage exactly that.
-
-Above the applicable threshold you usually have unlimited or generous storage capacity. Below it, restrictions follow.
+The Inventory Performance Index uses a 0–1,000 scale to describe inventory efficiency for eligible FBA accounts. New accounts may not immediately have a score. IPI is one factor in capacity planning, not a guarantee of unlimited storage. Check current limits, storage types, occupied space and planned inbound shipments in the Capacity Monitor. [Amazon explains monthly capacity management](https://sell.amazon.com/blog/announcements/fba-capacity).
 
 ## The four factors that drive the score
 
-The IPI is made up of several components. These four weigh heaviest:
-
-1. **Excess inventory:** too much stock relative to how fast it sells pushes the score down. Capital tied up in goods sitting still is, from Amazon's point of view, inefficiently used space.
-2. **Sell-through rate:** how many units you sell relative to average stock over a period. High turnover means a good score.
-3. **Stranded inventory:** goods sitting in the warehouse that cannot be sold because of a listing problem (a deactivated offer, for instance). Such stock pulls the score down.
-4. **In-stock rate:** how reliably your well-selling products are available. Frequent stockouts hurt both revenue and the score.
+The dashboard provides useful information on excess stock, sell-through, stranded inventory and in-stock performance. Amazon does not disclose a simple public weighting formula. In-stock rate is a useful diagnostic; each stockout does not translate into a simple direct score deduction. Prioritise non-buyable stock and excess units while protecting availability.
 
 ## Why the score falls
 

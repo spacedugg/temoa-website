@@ -8,6 +8,8 @@ import { Bewertungsband } from "../ui/Bewertungsband";
 import { pfad, spracheAusPfad, STANDARD, type Sprache } from "@/lib/i18n";
 import { rahmenWoerter } from "@/lib/woerter/rahmen";
 
+import { blogTopics } from "@/lib/blog-topics";
+
 type Rahmen = (typeof rahmenWoerter)[Sprache];
 
 /* ============================================================
@@ -183,6 +185,70 @@ export function Fusszeile() {
             </nav>
           ))}
         </div>
+
+        <nav aria-label={sprache === "de" ? "Amazon-Ratgeber nach Thema" : "Amazon guides by topic"} className="border-t border-white/10 py-10">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <span className="text-label font-bold uppercase text-chalk-faint">
+              {sprache === "de" ? "Amazon-Wissen für Marken und Händler" : "Amazon guides for brands and sellers"}
+            </span>
+            <a href={pfad(sprache, "/blog")} className="inline-flex min-h-12 items-center text-small text-chalk-muted hover:text-brand-500">
+              {sprache === "de" ? "Alle Ratgeber ansehen" : "Browse all guides"} <span aria-hidden className="ml-2">↗</span>
+            </a>
+          </div>
+          <div className="mt-5 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: sprache === "de" ? "Werbung & Profitabilität" : "Advertising & profitability", links: [
+                ["amazon-werbung-inkrementalitaet", "Zusätzliche Werbewirkung messen", "Measure incremental ad impact"],
+                ["amazon-dsp-budget", "DSP-Testbudget planen", "Plan a DSP test budget"],
+                ["amazon-cpc-conversion-analyse", "CPC & Conversion analysieren", "Analyse CPC & conversion"],
+                ["amazon-acos-senken", "ACoS gezielt senken", "Lower ACoS deliberately"],
+                ["amazon-ppc-auktion", "PPC-Gebote verstehen", "Understand PPC bids"],
+                ["ppc-kosten-senken", "PPC-Kosten senken", "Reduce PPC costs"],
+                ["kampagnenstruktur-ppc", "Kampagnen strukturieren", "Structure campaigns"],
+                ["business-reports", "Business Reports auswerten", "Analyse Business Reports"],
+                ["fba-gebuehren-rechner", "Deckungsbeitrag kalkulieren", "Calculate contribution"],
+              ] },
+              { title: sprache === "de" ? "Content & Conversion" : "Content & conversion", links: [
+                ["amazon-content-experimente", "Content-Experimente planen", "Plan content experiments"],
+                ["amazon-keyword-recherche", "Keywords priorisieren", "Prioritise keywords"],
+                ["amazon-ki-sichtbarkeit", "Produktdaten & KI-Sichtbarkeit", "Product facts & AI visibility"],
+                ["amazon-ki-kaufagenten", "KI-Kaufagenten & Produktdaten", "AI shopping agents & product facts"],
+                ["amazon-vine-kalkulation", "Vine wirtschaftlich einsetzen", "Evaluate Vine economics"],
+                ["search-query-performance", "Suchanfragen analysieren", "Analyse search queries"],
+                ["produkttitel-optimieren", "Amazon-Titel & Item Highlights", "Amazon titles & Item Highlights"],
+                ["conversion-rate-optimierung", "Conversion verbessern", "Improve conversion"],
+                ["brand-store-funnel", "Brand Store optimieren", "Optimise your Brand Store"],
+              ] },
+              { title: sprache === "de" ? "Wachstum & Betrieb" : "Growth & operations", links: [
+                ["amazon-produktlaunch", "Produktlaunch planen", "Plan a product launch"],
+                ["amazon-kanalstrategie-marken", "Vertriebskanäle abstimmen", "Align sales channels"],
+                ["amazon-featured-offer-analyse", "Featured Offer analysieren", "Analyse the Featured Offer"],
+                ["amazon-account-health", "Account-Risiken steuern", "Manage account risks"],
+                ["amazon-gebuehren-2026", "Gebühren 2026 je SKU prüfen", "Review 2026 fees by SKU"],
+                ["skalierung-ueber-1-5m", "Wachstumsplateaus lösen", "Resolve growth constraints"],
+                ["inventar-cashflow", "Bestand & Cashflow planen", "Plan stock & cash flow"],
+                ["wie-oft-zahlt-amazon", "Auszahlung & DD+7", "Payments & DD+7"],
+                ["support-cases-loesen", "Support-Fälle lösen", "Resolve support cases"],
+                ["amazon-marketingagenturen-vergleich", "Amazon-Agenturen vergleichen", "Compare Amazon agencies"],
+              ] },
+            ].map((group) => (
+              <div key={group.title}>
+                <h3 className="font-bold text-white">{group.title}</h3>
+                <ul className="mt-3 space-y-1">{group.links.map(([slug, de, en]) => <li key={slug}>
+                  <a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/${slug}`)}>{sprache === "de" ? de : en}</a>
+                </li>)}</ul>
+              </div>
+            ))}
+            <div>
+              <h3 className="font-bold text-white">{sprache === "de" ? "Themen & Entscheidungen" : "Topics & decisions"}</h3>
+              <ul className="mt-3 space-y-1">
+                {blogTopics.map((topic) => <li key={topic.slug}><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, `/blog/kategorie/${topic.slug}`)}>{topic.label[sprache]}</a></li>)}
+                <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/vergleiche")}>{sprache === "de" ? "Vergleiche & Partnerwahl" : "Comparisons & partners"}</a></li>
+                <li><a className="flex min-h-11 items-center text-small text-chalk-muted hover:text-brand-500" href={pfad(sprache, "/blog/grundlagen")}>{sprache === "de" ? "Begriffe & Grundlagen" : "Terms & fundamentals"}</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
         {/* Band drei: Baujahr und Sprache. Der Umschalter stand vorher als
             vierte Spalte neben den Verzeichnissen und sah dort aus wie eins. */}

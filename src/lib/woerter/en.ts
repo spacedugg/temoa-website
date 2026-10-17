@@ -1145,7 +1145,6 @@ export const en: Woerterbuch = {
     kennzahlen: [
       { vor: "Avg. +", nach: "%", label: "increase in profitability" },
       { vor: "€", nach: "M", label: "annual Amazon revenue under management" },
-      { vor: "", nach: "+", label: "brands we work with" },
       { vor: "", nach: "+", label: "international marketplaces" },
     ],
 
@@ -1437,21 +1436,21 @@ export const en: Woerterbuch = {
 
   blog: {
     meta: {
-      titel: "Amazon Blog: PPC, Listing, FBA and Strategy · temoa",
+      titel: "Amazon insights: profitability and growth · temoa",
       beschreibung:
-        "Straight talk about Amazon: PPC, listing and SEO, FBA, brand protection and strategy. Sorted by topic.",
+        "Practical Amazon analysis for established brands: improve profitability, diagnose conversion losses and connect advertising, inventory and growth.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Straight talk about ",
-      titelEm: "Amazon.",
-      lead: "Articles on advertising, listings, logistics and strategy. Sorted by topic, with no filler.",
+      titelVor: "Get more from your ",
+      titelEm: "Amazon business.",
+      lead: "Find where your brand loses margin, visibility or sales. Practical analysis, worked examples and clear decisions for listings, advertising and sustainable growth.",
     },
     themaTitel: "All articles on {thema}",
     einBeitrag: "1 article",
     beitraege: "{n} articles",
-    empfohlen: "Recommended articles",
+    empfohlen: "Decisions for your next growth phase",
     alleThemen: "All topics",
     inhalt: "Contents",
     weiterlesen: "Keep reading",
@@ -1460,8 +1459,7 @@ export const en: Woerterbuch = {
     lesen: "Read",
     cta: "Would you rather talk about your account directly?",
     beitragCta: "Read enough? Time for results.",
-    teilweise:
-      "We are translating the articles one batch at a time. The full library is available in German.",
+    teilweise: "",
   },
 
 };

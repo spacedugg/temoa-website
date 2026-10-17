@@ -39,6 +39,38 @@ Dem stehen Anforderungen gegenüber: Du brauchst verlässliche Bezugsquellen fü
 
 Amazon Renewed passt besonders zu Händlern, die ohnehin im Bereich generalüberholter Elektronik oder Geräte tätig sind, Zugang zu geeigneter Ware haben und Aufbereitung professionell beherrschen. Für reine Neuware-Verkäufer ohne refurbished-Erfahrung ist der Einstieg aufwendig. Wer aber die Voraussetzungen mitbringt, findet hier einen wachsenden Markt mit weniger Konkurrenz.
 
+## Praxis: Refurbished-Marge mit Prüfaufwand rechnen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Refurbished-Marge mit Prüfaufwand rechnen</h3>
+<p>Ein Gerät bringt im Modell 80 € Nettoerlös. Ankauf 30 €, Aufbereitung 15 €, Gebühren und Logistik 16 € sowie erwartete Servicekosten 7 € lassen 12 € vor weiteren Kosten. Ohne Serviceansatz sähe die Marge deutlich besser aus, wäre aber unvollständig.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erfasst Testzeit, Ersatzteile, Zustandsklasse und Seriennummer je Einheit.
+2. Prüft die aktuellen Programmstandards für Produkt und Markt. Ein höherer Abverkauf hilft wenig, wenn ungeplante Gewährleistungs- und Servicefälle den Beitrag aufzehren.
+
+## Die Einheit statt nur die ASIN kontrollieren
+
+Bei generalüberholter Ware schwanken Zustand und Reparaturbedarf. Eine SKU-Kalkulation allein reicht deshalb nicht: Verknüpft **Seriennummer, Eingangszustand, Testschritte, Ersatzteile, Arbeitszeit, Endkontrolle und Reklamation**. Aus den Einzeldaten erkennt ihr, welche Lieferquellen und Fehlertypen einen positiven Deckungsbeitrag ermöglichen und welche Bestände trotz günstigem Einkauf teuer werden.
+
+![Amazon Renewed: Einheit prüfen, Kosten zuordnen, Verkauf freigeben](/blog/figures/renewed-einheitenpruefung.svg)
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Qualitätsentscheidung</p>
+<h3>Gleiche Modellnummer, anderer Aufbereitungsaufwand</h3>
+<p>Zwei Geräte derselben Modellreihe wurden für jeweils 30 € eingekauft. Gerät A besteht die Funktionstests nach Reinigung; Gerät B braucht einen Akku, zusätzliche Prüfzeit und einen erneuten Sicherheitstest. Beide unter derselben pauschalen Stückmarge zu führen verschleiert den wirklichen Beitrag. Die Marke dokumentiert die Kosten pro Seriennummer und sortiert Gerät B gegebenenfalls aus, statt den Zustand schönzurechnen.</p>
+</aside>
+
+Prüft zudem, wie Produktzustand, Gewährleistung, Programmgarantie und eure tatsächliche Serviceroute auf dem Zielmarktplatz zusammenwirken. Die [offizielle Renewed-Seite](https://sell.amazon.de/programme/renewed) ist der Startpunkt für aktuelle Teilnahmebedingungen. Für die operative Rechnung gehören [Retourenkosten](/blog/restocking-fee), [Account Health](/blog/amazon-account-health) und FBA-/FBM-Abwicklung zusammen. Bei einer bestehenden Refurbished-Linie können wir die [Katalog- und Account-Prozesse](/leistungen/account-management) im [Gespräch](/gespraech-vereinbaren) prüfen.
+
 ## Fazit
 
-Amazon Renewed ist ein spezialisierter Marktplatz für geprüfte, generalüberholte Produkte mit Garantie – attraktiv durch geringeren Wettbewerb und wachsende Nachfrage nach günstigeren, nachhaltigen Alternativen. Der Preis dafür sind strenge Qualitätsanforderungen, Teilnahmevoraussetzungen und operativer Aufwand bei Beschaffung und Aufbereitung. Für Händler mit dem richtigen Know-how und verlässlichen Bezugsquellen ist es eine lohnende Nische; für Einsteiger ohne refurbished-Erfahrung eher ein anspruchsvolles Projekt.
+Renewed trägt nur, wenn jede Einheit belegbar geprüft, richtig klassifiziert und mit vollständigem Serviceaufwand kalkuliert wird. Der günstigere Ankaufspreis allein zeigt keine profitable Produktlinie.
+
+
+## Programm und Voraussetzungen
+
+[Amazon Deutschland: Renewed](https://sell.amazon.de/programme/renewed) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.

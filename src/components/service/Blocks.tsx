@@ -967,7 +967,7 @@ export function Ergebnis({
 }) {
   /* Der Fall zur Adresse. Das Logo aus den Falldaten zu holen ist sicherer,
      als es an jeder Aufrufstelle noch einmal mitzugeben. */
-  const fall = cases.find((c) => `/ergebnisse/${c.slug}` === href);
+  const fall = cases.find((c) => `/ergebnisse/${c.slug}` === href.replace(/^\/en(?=\/)/, ""));
   return (
     <section className="on-dark ground-deep relative isolate overflow-hidden py-20 md:py-24">
       <span aria-hidden className="absolute inset-x-0 top-0 h-[3px]" style={{ background: "#22C55E" }} />

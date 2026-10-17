@@ -34,12 +34,39 @@ Ob sich Amazon lohnt, entscheidet sich an zwei Punkten. Erstens: Trägt deine **
 
 ## Amazon als Teil eines breiteren Ansatzes
 
+![Amazon als zusätzlicher Kanal nach Beitrag, Verlagerung und Betrieb bewerten](/blog/figures/amazon-kanal-einstieg-entscheidung.svg)
+
 Eine kluge Sichtweise ist, Amazon nicht als einziges Standbein, sondern als einen Kanal zu sehen. Viele erfolgreiche Marken nutzen Amazon für Reichweite und Neukunden, bauen aber parallel eigene Kanäle (eigener Shop, Social Media, E-Mail-Liste) auf, um die Abhängigkeit zu reduzieren und Kundenbeziehungen zu besitzen. So nutzt du Amazons Stärken, ohne dich vollständig auszuliefern.
 
 ## Für wen es sich lohnt – und für wen nicht
 
 Lohnenswert ist Amazon besonders für Anbieter mit margenstarken, differenzierten Produkten, die schnelle Reichweite und ausgelagerte Logistik schätzen. Weniger geeignet ist es für extrem preissensible Massenware ohne Alleinstellung, für Geschäfte, die zwingend direkte Kundenbeziehungen brauchen, oder für Anbieter, die das Plattformrisiko (Regel- und Gebührenänderungen, Sperrgefahr) nicht tragen wollen.
 
+## Praxis: Amazon als zusätzlichen Kanal bewerten
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Amazon als zusätzlichen Kanal bewerten</h3>
+<p>Eine Marke erwartet 20.000 € zusätzlichen Monatsumsatz. Wenn gleichzeitig 8.000 € aus dem eigenen Shop verlagert werden, ist der gesamte Mehrumsatz geringer. Auch die Kosten der beiden Kanäle unterscheiden sich.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht den Beitrag über alle betroffenen Kanäle und erfasst mögliche Verlagerungen.
+2. Startet mit einem klar definierten Sortiment und einer Messperiode. Ein neuer Vertriebskanal muss zum Gesamtergebnis beitragen, nicht nur eine eigene Umsatzkurve liefern.
+
+## Der Pilot für eine etablierte Marke
+
+Wählt eine Produktgruppe, für die sich Nachfrage und Preisposition auf Amazon prüfen lassen. Legt **Launch-Budget, verfügbare Ware, Kanalpreis, variable Gebühren, Retouren und interne Betriebszeit** vor dem Start fest. Vergleicht nach dem Pilot nicht nur Amazon-Umsatz, sondern den Gesamtbeitrag über Shop, Handel und Marktplatz. Ein starker neuer Kanal kann bestehende Verkäufe verlagern; er kann aber auch Nachfrage erschließen, die ihr vorher nicht erreicht habt. Beides muss gemessen werden.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Markteintritt</p>
+<h3>Amazon wächst, der Handel reagiert</h3>
+<p>Eine Marke startet mit zwei Bundles, die im stationären Handel nicht identisch erhältlich sind. Sie beobachtet Preis und Umsatz der Stammprodukte in beiden Kanälen und kalkuliert FBA sowie Werbung separat. Die Bundles schaffen einen testbaren Amazon-Einstieg, ohne dass die Marke den gesamten Katalog oder die Handelspreislogik sofort umstellt.</p>
+</aside>
+
+Für eine fortgeschrittene Bewertung zeigt die [Kanalstrategie](/blog/amazon-kanalstrategie-marken), wie Amazon im Gesamtgeschäft eingeordnet wird. Unsere [Strategiearbeit](/leistungen/strategie) kann einen solchen Pilot mit einer SKU-Kalkulation und klaren Stop-Kriterien vorbereiten; besprecht eine Produktgruppe im [Gespräch](/gespraech-vereinbaren).
+
 ## Fazit
 
-Der Verkauf auf Amazon lohnt sich für viele – aber nicht für alle und nicht bedingungslos. Die enorme Reichweite, das Käufervertrauen und die Logistik stehen Gebühren, Wettbewerb und Plattformabhängigkeit gegenüber. Entscheidend sind eine tragfähige Marge und echte Differenzierung. Am stärksten ist Amazon, wenn du es als einen wichtigen Kanal in einer breiteren Strategie nutzt – nicht als alleinigen Verkaufsweg. Wer das beherzigt, kann die Größe der Plattform für sich arbeiten lassen, statt von ihr abhängig zu werden.
+Für eine bestehende Marke lässt sich Amazon als begrenzter Kanalpilot beurteilen. Die Entscheidung braucht Beitrag, echte zusätzliche Nachfrage, Bestand und Wirkung auf die anderen Absatzwege. Eine Umsatzkurve auf Amazon allein reicht dafür nicht.

@@ -35,10 +35,44 @@ Stelle konkrete Fragen: Wie strukturiert ihr meine Kampagnen? Wie geht ihr mit s
 
 Sei skeptisch bei garantierten ACoS- oder Umsatzwerten (im Auktionsumfeld unmöglich seriös zu versprechen), bei reinem Fokus auf einen niedrigen ACoS ohne Margen- und TACoS-Kontext, bei undurchsichtigen Methoden und bei fehlenden, konkreten Fallbeispielen. Auch wenn eine Agentur den organischen Effekt der Werbung ignoriert, fehlt ihr ein zentrales Stück Strategie.
 
+## Praxis: PPC-Angebote um den Margenbezug prüfen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>PPC-Angebote um den Margenbezug prüfen</h3>
+<p>Eine Agentur verspricht einen niedrigeren ACoS, möchte dafür aber nur die Werbekonsole sehen. Ohne Produktkosten, Retouren und Bestand kann sie Effizienz steuern, aber keine belastbare Profitabilität zusagen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Fragt, wie Zielwerte je SKU entstehen und wie Marken- von Neukundensuche getrennt wird.
+2. Lasst euch Änderungsprotokoll, Budgetfreigaben und eine Beispielentscheidung zeigen. Entscheidend ist, wie der Report die nächste Maßnahme begründet.
+
+## Vergleichsfall für drei Agenturangebote
+
+Gebt allen Kandidaten denselben anonymisierten Fall: Eine priorisierte ASIN hat steigende CPCs, stabile CTR, sinkende CVR, 12 Wochen Bestand und einen SKU-Beitrag vor Werbung von 28 %. Fragt nach **den ersten drei Prüfungen, der Entscheidung bei unverändertem Ergebnis und dem benötigten Zugriff**. Die beste Antwort ist kein erfundener Ziel-ACoS, sondern eine saubere Unterscheidung zwischen Auktionsdruck, Angebotsproblem und Datenfehler.
+
+| Antwort des Anbieters | Was ihr daran prüft |
+| --- | --- |
+| „Wir senken alle Gebote um 20 %“ | Werden Query, Placement, Brand-Anteil und Kaufbarkeit überhaupt getrennt? |
+| „Wir brauchen Ads- und Business-Reports-Daten plus SKU-Marge“ | Gibt es eine überprüfbare Diagnose und beschränkte Zugriffsrechte? |
+| „Wir garantieren 15 % mehr Umsatz“ | Welche Abhängigkeiten wie Bestand, Preis und Wettbewerb wären dafür nötig? |
+| „Wir testen Detailseite und Anzeigen getrennt“ | Wird der Effekt mit Basisperiode, Kontrollgruppe und Beitrag bewertet? |
+
+![Amazon-PPC-Agenturen mit einem identischen Kontofall vergleichen](/blog/figures/ppc-agentur-vergleichsfall.svg)
+
+Bewertet **Team, Methode, Leistungsumfang, Dateneigentum, Entscheidungstempo und Kosten** getrennt. Eine Software-Plattform mit Agenturservice ist etwas anderes als ein Team, das Creative und Listing selbst umsetzt. Fragt, wer die tägliche Arbeit macht und ob das Verkaufsteam später beteiligt bleibt. Klärt, ob Gebühren als Fixbetrag, Anteil am Werbebudget oder erfolgsabhängig berechnet werden; jedes Modell setzt andere Anreize.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Angebotsprüfung</p>
+<h3>Gleicher ACoS, anderer Unternehmensbeitrag</h3>
+<p>Anbieter A schlägt vor, Brand-Exact auszubauen: Der zugerechnete ACoS fällt. Anbieter B will generische Kaufanfragen mit einem begrenzten Test erschließen und prüft die gesamte SKU-Nachfrage. Ohne organischen Vergleich und Stückmarge lässt sich nicht sagen, welche Empfehlung mehr zusätzliches Ergebnis liefert. Fragt beide nach dem Test, der ihre Hypothese widerlegen würde.</p>
+</aside>
+
+Fordert für die ersten 30 Tage einen konkreten Output: Dateninventur, Query- und Kampagnenprioritäten, SKU-Werbegrenzen, Änderungsprotokoll und Testplan. [Kampagnenstruktur](/blog/kampagnenstruktur-ppc), [CPC/CVR-Analyse](/blog/amazon-cpc-conversion-analyse) und [Inkrementalität](/blog/amazon-werbung-inkrementalitaet) zeigen, welche Fragen ein brauchbarer Audit beantworten muss.
+
+Wenn ihr diese Messlatte auf unser Team anwenden möchtet, zeigt uns im [Gespräch](/gespraech-vereinbaren) eine konkrete ASIN und ihre Ads-Daten. Wir erläutern, welche Informationen für eine PPC-Diagnose fehlen und welche [PPC-Leistung](/leistungen/ppc-advertising) dazu passt.
+
 ## Fazit
 
-Eine PPC-Agentur auszuwählen heißt, einen Werbe-Spezialisten an einer entscheidenden Stellschraube deines Geschäfts zu beteiligen. Achte auf strategisches Denken (ACoS *und* TACoS, Margenbewusstsein, saubere Kampagnenstruktur), Transparenz und nachweisbare Ergebnisse – und kläre, ob ein Spezialist oder eine integrierte Full-Service-Lösung besser zu deinem Reifegrad passt. Wer Garantieversprechen und reine ACoS-Fixierung als Warnsignale erkennt und die richtigen Fragen stellt, findet einen Partner, der Werbung als profitablen Wachstumstreiber führt – nicht nur als Kostenstelle.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Wenn du deine Amazon-Werbung professionalisieren willst, unterstützen wir dich dabei.*
+Vergleicht PPC-Agenturen an derselben, realen Kontoaufgabe. Wer Ursache, Datenbedarf, wirtschaftliche Grenze und Test sauber benennt, gibt euch mehr Entscheidungssicherheit als eine pauschale Erfolgszahl.

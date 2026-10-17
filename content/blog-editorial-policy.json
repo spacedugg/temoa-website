@@ -1,0 +1,26 @@
+{
+  "retiredArticles": {
+    "paket-gestohlen": "Privates Lieferproblem als Suchintention, vom Kunden ausdrücklich ausgeschlossen.",
+    "falscher-artikel": "Einzelfall einer Käuferreklamation, kein Einstieg für die Agenturkundengewinnung.",
+    "gift-return": "Geschenkrücksendung mit überwiegender Käuferabsicht.",
+    "amazon-prints": "Amazon-Fotodruck für Endverbraucher, kein eigener Verkaufskanal für Marken.",
+    "unclaimed-packages": "Paketkauf und Mystery-Box-Thema ohne passenden Bezug zum Markenaufbau.",
+    "kindle-ads": "Buchwerbung ist kein relevanter Einstieg für die betreuten Konsumgütermarken.",
+    "amazon-pallets": "Retourenpaletten und Wiederverkauf sprechen nicht die Zielkunden der Agentur an.",
+    "retail-arbitrage": "Arbitrage richtet sich an Einsteiger ohne eigene Marke.",
+    "wholesale": "Wholesale-Wiederverkauf richtet sich an Händler statt Markeninhaber.",
+    "verkaufen-ohne-lager": "Generischer Gründungseinstieg ohne Markenbezug.",
+    "fba-vs-dropshipping": "Vergleich für Einsteiger statt etablierte Produktmarken.",
+    "alibaba-import": "Generische Sourcing-Anleitung statt Amazon-Markenführung.",
+    "llc-firma-amazon": "US-Rechtsform für Gründer statt deutsche Marken.",
+    "konto-schliessen": "Kontoschließung ist kein sinnvoller Akquise-Einstieg für wachsende Marken.",
+    "konto-kaufen-verkaufen": "Kauf eines Verkäuferkontos passt nicht zum Markenführungsangebot.",
+    "amazon-accelerate": "Konferenzbericht statt dauerhafte Entscheidungshilfe für Marken.",
+    "walmart-marketplace": "Ein ganzer Beitrag zum US-Marktplatz passt nicht zur deutschen und europäischen Agenturpositionierung.",
+    "amazon-awd-us-logistik": "US-spezifisches Vorlagerprogramm ohne eigenständigen Nutzen für den europäischen Schwerpunkt.",
+    "alexa-for-shopping-ki-suche": "US-spezifischer Produkt-Rollout; die übertragbaren Produktdatenfragen stehen im allgemeinen KI-Ratgeber."
+  },
+  "retiredCategories": [
+    "operativ-service"
+  ]
+}

@@ -40,6 +40,46 @@ Viele Anträge scheitern an vermeidbaren Details: Rechnungen von nicht anerkannt
 
 Bevor du ein Produkt einkaufst, prüfe, ob es gated ist und welche Nachweise nötig wären. So vermeidest du, Ware zu beschaffen, die du am Ende nicht listen darfst. Bei markenrechtlich geschützten Produkten gilt: Ohne legitime Bezugsquelle und Berechtigung solltest du gar nicht erst einkaufen.
 
+## Praxis: Freischaltung vor dem Wareneinkauf
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Freischaltung vor dem Wareneinkauf</h3>
+<p>Eine Marke plant 2.000 Einheiten, stellt aber erst nach Anlieferung fest, dass ein produktspezifischer Nachweis fehlt. Das Kapital ist gebunden, obwohl die Ware noch nicht verkauft werden kann.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Prüft den geplanten Produkttyp und den aktuellen Antragsdialog vor verbindlicher Bestellung.
+2. Haltet je Anforderung Dokument, Aussteller, Gültigkeit und betroffene Modelle fest. Eine Freischaltung für ein Produkt ist nicht automatisch eine Freigabe für das gesamte Sortiment.
+
+## Freischaltung, Produktsicherheit und Verkaufsberechtigung trennen
+
+Eine Meldung „Approval needed“ sagt noch nicht, **welche** Hürde betroffen ist. Der Antrag für eine Marke, eine Kategorie oder eine einzelne ASIN kann sich unterscheiden; auch eine Verkaufsfreigabe ersetzt keine gesetzlich oder plattformseitig verlangten Produktnachweise. Prüft jede Ziel-ASIN im gewünschten Marktplatz und die im aktuellen Seller-Central-Dialog angezeigten Anforderungen.
+
+| Prüffrage | Typischer Nachweis | Operative Folge |
+| --- | --- | --- |
+| Darf dieses Konto die Marke anbieten? | Autorisierung beziehungsweise nachprüfbare Bezugsquelle, soweit verlangt | Vor Bestandseinkauf klären, sonst droht gebundenes Kapital |
+| Ist die Kategorie oder ASIN beschränkt? | Antragsdialog mit kategorie- und produktbezogenen Unterlagen | Freigabe pro betroffenem Objekt dokumentieren |
+| Erfüllt das Produkt die geltenden Anforderungen? | Je nach Produkt technische, Kennzeichnungs- oder Sicherheitsunterlagen | Markt und Modell müssen zum Nachweis passen |
+| Sind Angaben konsistent? | Identische juristische Einheit, Adressen, Artikelbezeichnungen und Varianten | Widersprüche vor der Einreichung bereinigen |
+
+![Freischaltungsprüfung für Amazon-Produkte vor Wareneinkauf](/blog/figures/approval-needed-pruefung.svg)
+
+**Keine pauschale Liste ersetzt den Antrag.** Anforderungen ändern sich nach Kategorie, Produkt, Konto und Marktplatz. Auch eine ältere Freischaltung für ein verwandtes Produkt beweist keine Berechtigung für eine neue Variante.
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · Launch-Entscheidung</p>
+<h3>2.000 Einheiten und eine fehlende Modellzuordnung</h3>
+<p>Das Team hat für ein Elektrogerät einen Prüfbericht, der nur Modell A nennt. Eingekauft werden soll Modell B mit verändertem Netzteil. Vor Bestellung wird geklärt, ob der Bericht Modell B ausdrücklich umfasst und ob im Zielmarkt weitere Angaben verlangt werden. Der Finanzplan trennt sofort verkaufbare Ware von Bestand mit offener Freigabe. So wird der Antragsstatus zur Launch-Bedingung statt zu einer Überraschung nach Anlieferung.</p>
+</aside>
+
+## Ein Freigabe-Register für den Katalog
+
+Führt je ASIN und Land eine Zeile mit **Beschränkung, Antrag, Unterlagen, Dokumentgültigkeit, zuständiger Person, Status und geplanter Bestellung**. Markiert Varianten, die andere Materialien, elektrische Komponenten oder Werbeclaims verwenden. Wenn ein Antrag abgelehnt wird, prüft zunächst die konkrete Begründung und die betroffenen Felder; reicht dieselben unpassenden Dateien nicht unverändert erneut ein.
+
+Verbindet das Register mit [Account Health](/blog/amazon-account-health) und der [Katalogpflege](/leistungen/katalog-listing-management). Bei einer größeren Sortimentserweiterung können wir im [Gespräch](/gespraech-vereinbaren) die Reihenfolge von Produktdaten, Nachweisen und Listing-Arbeit mit euch planen. Für regulatorische Konformität eines Produkts ist die dafür zuständige Fachprüfung maßgeblich.
+
 ## Fazit
 
-„Approval needed" ist selten eine echte Sackgasse, sondern eine Frage der richtigen Nachweise. Verstehe, welche Art von Freischaltung verlangt wird, beschaffe vollständige und konsistente Dokumente – allen voran saubere Großhandelsrechnungen und ggf. eine Markenberechtigung – und reiche exakt das Geforderte ein. Wer die Anforderungen vor dem Einkauf prüft und seine Belege sorgfältig zusammenstellt, verwandelt eine geschützte Kategorie von einem Hindernis in einen Wettbewerbsvorteil.
+Prüft die Freigabe pro Produkt und Markt, bevor Ware oder Werbung verbindlich geplant werden. Ein konsistentes Register macht sichtbar, welche ASIN wirklich startklar ist, welcher Nachweis fehlt und welche Investition bis zur Entscheidung warten sollte.

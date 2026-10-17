@@ -1,40 +1,56 @@
 ---
-title: "Amazon Small and Light ist Geschichte: Was das Aus für Verkäufer kleiner, günstiger Produkte bedeutet"
-meta_description: "Das Programm Small and Light wurde eingestellt und in die regulären FBA-Tarife überführt. Was sich für günstige Leichtgewichte geändert hat und wie du reagierst."
+title: "Low-Price FBA 2026: Gebühren für günstige Produkte prüfen"
+meta_description: "Small and Light wurde ersetzt. So prüft ihr die aktuellen Low-Price-FBA-Grenzen in Deutschland und kalkuliert Preisänderungen ohne falsche Gebührenannahmen."
 keywords: ["Amazon Small and Light", "Low-Price FBA", "günstige Produkte FBA", "FBA Gebühren leicht"]
 kategorie: "FBA, Logistik & Inventar"
 ---
 
-# Amazon Small and Light ist Geschichte: Was das Aus für Verkäufer kleiner, günstiger Produkte bedeutet
+# Low-Price FBA 2026: Gebühren für günstige Produkte prüfen
 
-> **Marktbezug:** Dieser Beitrag beschreibt die Programmänderung schwerpunktmäßig **im US-Markt**. In Europa gab es ein vergleichbares Programm, dessen Vergünstigungen ebenfalls in günstigere Tarife für niedrigpreisige Produkte überführt wurden. Prüfe die aktuell gültigen FBA-Gebühren für deine europäischen Marktplätze (DE, FR, NL, ES, IT).
+Low-Price FBA bietet vergünstigte Versandgebühren für geeignete niedrigpreisige Produkte. Das frühere Small-and-Light-Programm ist dafür nicht mehr die richtige Kalkulationsgrundlage. Für Marken zählt heute, ob die konkrete ASIN die aktuellen Preis-, Größen-, Gewichts- und Kategoriebedingungen erfüllt.
 
-Wer kleine, leichte und günstige Produkte über FBA verkauft hat, kannte das Programm „Small and Light": reduzierte Versandgebühren für niedrigpreisige Leichtgewichte, im Tausch gegen etwas längere Lieferzeiten. Dieses Programm in seiner ursprünglichen Form wurde von Amazon eingestellt und in die regulären Tarifstrukturen überführt. Dieser Beitrag erklärt, was das bedeutet und wie du als Verkäufer damit umgehst.
+## Was 2026 für Deutschland relevant ist
 
-## Was Small and Light war
+Amazon nennt auf der deutschen Programmseite für die erweiterte Berechtigung in den meisten Kategorien eine Preisgrenze von 20 €. Für diesen erweiterten Bereich werden maximal 35 × 25 × 12 cm und 400 g genannt. Es bestehen Kategorieausnahmen und weitere Tarifkonstellationen. „Unter 20 €“ bedeutet daher nicht automatisch, dass jede ASIN berechtigt ist.
 
-Small and Light war ein FBA-Sonderprogramm für preisgünstige, kleine und leichte Artikel. Es bot deutlich reduzierte Fulfillment-Gebühren, weil solche Produkte bei normalen FBA-Sätzen oft kaum profitabel zu versenden waren. Der Kompromiss: etwas langsamere Lieferung als beim Standard-Prime-Versand. Für viele Verkäufer von Kleinteilen, Verbrauchsgütern und Zubehör war es ein wichtiges Mittel, um dünne Margen zu retten.
+Die günstigeren Tarife werden bei geeigneten Artikeln automatisch angewendet. Prüft den tatsächlichen Gebührenausweis und den aktuellen Rechner für euer Produkt, statt ein altes Small-and-Light-Gebührenblatt zu verwenden.
 
-## Was sich geändert hat
+## Preisgrenzen brauchen eine vollständige Rechnung
 
-Amazon hat das eigenständige Small-and-Light-Programm beendet und die Logik in die reguläre FBA-Gebührenstruktur integriert – unter anderem über günstigere Tarife für niedrigpreisige Produkte innerhalb des normalen FBA-Systems. Der Grundgedanke (reduzierte Gebühren für günstige Leichtgewichte) lebt also fort, aber nicht mehr als separates Programm mit eigenen Anmelde- und Lieferzeit-Regeln. Wichtig: Da Amazon Gebühren und Programmstrukturen laufend anpasst, solltest du die aktuellen FBA-Tarife direkt bei Amazon prüfen.
+![Low-Price FBA: Preisgrenze, Gebührenklasse und SKU-Beitrag](/blog/figures/low-price-fba-preisentscheidung.svg)
 
-## Was das praktisch bedeutet
+Eine Preissenkung kann eine günstigere Versandgebühr auslösen und gleichzeitig mehr Nettoerlös kosten, als sie spart. Ein Modell muss beide Effekte abbilden. Vergleicht deshalb Nettoerlös, Verkaufsgebühr, konkrete Versandgebühr, Werbekosten und erwartete Retouren bei jedem geplanten Preis.
 
-Für die meisten Verkäufer kleiner, günstiger Produkte ist die gute Nachricht: Die reduzierten Gebühren für solche Artikel gibt es weiterhin – jetzt automatisch im regulären FBA, ohne den früheren Verwaltungsaufwand eines separaten Programms und ohne die langsameren Lieferzeiten, die Small and Light mit sich brachte. Das kann die Lieferzeit verbessern und gleichzeitig die Kostenvorteile erhalten. Im Detail können sich die konkreten Gebührensätze aber von den alten Small-and-Light-Konditionen unterscheiden.
+Ein Rabatt kann außerdem die spätere Aktionsplanung beeinflussen. Dokumentiert Preisänderungen und prüft die jeweiligen Anforderungen an Referenzpreise und Aktionen. Eine Gebührenschwelle allein ist kein guter Grund für häufige Preissprünge.
 
-## Was du jetzt tun solltest
+## Vier Checks vor einer Sortimentsentscheidung
 
-Konkret empfiehlt sich:
+1. Tatsächliche Verpackungsmaße und Versandgewicht mit der in Amazon hinterlegten Größenklasse vergleichen.
+2. Produktkategorie und Tarifberechtigung prüfen, einschließlich Ausnahmen.
+3. Beide Preise im aktuellen Gebührenrechner durchrechnen und Zuschläge nicht doppelt ansetzen.
+4. Deckungsbeitrag und benötigten Mehrabsatz vergleichen, bevor der günstigere Preis ausgerollt wird.
 
-- **Gebühren neu durchrechnen:** Prüfe für deine günstigen Leichtgewichte die aktuellen FBA-Gebühren und vergleiche sie mit deiner bisherigen Kalkulation. Deine Marge kann sich – nach oben oder unten – verschoben haben.
-- **Preise und Sortiment überprüfen:** Falls einzelne Produkte durch geänderte Gebühren unrentabel werden, prüfe Preisanpassungen, Bündelung oder ob FBM die günstigere Alternative ist.
-- **Verpackung optimieren:** Größe und Gewicht entscheiden über die Gebührenklasse – jede Reduktion kann dich in einen günstigeren Tarif bringen.
+Wenn die Rechnung nur bei stark höherem Absatz aufgeht, behandelt die Preissenkung als Test mit Obergrenze. Bleibt der Mehrabsatz aus, ist der niedrigere Stückbeitrag kein Fortschritt.
 
-## Die größere Lektion
+## Quelle und Vertiefung
 
-Das Aus von Small and Light ist ein gutes Beispiel für eine wichtige Wahrheit im Amazon-Geschäft: Programme, Gebühren und Regeln ändern sich ständig. Wer seine Kalkulation auf einem einzelnen Sonderprogramm aufbaut, ist verwundbar, wenn es verschwindet. Robuste Geschäfte rechnen ihre Marge regelmäßig neu und bauen nicht auf einer einzigen Vergünstigung auf.
+[Amazon Deutschland: Low-Price-FBA-Tarife und Teilnahmebedingungen](https://sell.amazon.de/en/fba-gebuhren-fur-niedrigpreisige-artikel), geprüft am 17. Oktober 2026. Für die Gesamtkalkulation: [FBA-Gebühren richtig modellieren](/blog/fba-gebuehren-rechner).
 
-## Fazit
+## Praxis: Eine Tarifgrenze ist kein automatischer Gewinn
 
-Small and Light als eigenständiges Programm ist Geschichte – die Idee reduzierter Gebühren für günstige Leichtgewichte aber in das reguläre FBA übergegangen, teils mit besseren Lieferzeiten. Für Verkäufer solcher Produkte heißt das vor allem: Gebühren aktuell nachschlagen, Marge neu durchrechnen und Verpackung optimieren. Und die übergeordnete Lehre: Auf Amazon ändert sich vieles laufend – wer regelmäßig nachkalkuliert, bleibt auf der sicheren Seite.
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Eine Tarifgrenze ist kein automatischer Gewinn</h3>
+<p>Eine Preissenkung reduziert im Modell den Nettoerlös um 0,80 € und die Versandgebühr um 0,35 €. Pro Einheit fehlen zunächst 0,45 €. Eine bessere Gebührenklasse allein macht den niedrigeren Preis nicht wirtschaftlicher.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vergleicht den vollständigen Beitrag bei beiden Preisen mit aktuellen Tarifdaten.
+2. Berechnet den nötigen Mehrabsatz und testet begrenzt. Prüft auch Kategorieausnahmen und Maße; eine Preisgrenze allein belegt keine Low-Price-Berechtigung.
+
+## Den Break-even der Preissenkung berechnen
+
+Wenn der Beitrag vor der Änderung 3,00 € je Einheit beträgt und danach 2,55 €, braucht die SKU für denselben Gesamtbeitrag **rund 17,6 % mehr Einheiten** (3,00 ÷ 2,55 − 1). Das ist nur der rechnerische Schwellenwert; zusätzliche Werbekosten, Retouren oder ein anderer Mix können ihn verändern. Prüft deshalb zunächst einen begrenzten Preiszeitraum, die tatsächliche Gebührenklasse und den gesamten Produktbeitrag.
+
+Auch Verpackungsänderungen können Gewicht und Abmessungen beeinflussen, ohne den Listenpreis zu senken. Vergleicht dafür Produktqualität, [Verpackung und Schäden](/blog/frustfreie-verpackung) und den aktuellen Gebührenrechner. Wenn ihr mehrere günstige SKUs habt, kann unsere [FBA- und Bestandsarbeit](/leistungen/fba-inventory-management) die Tarifdaten mit Preis- und Bestandsentscheidung verbinden. Bringt eine betroffene ASIN ins [Gespräch](/gespraech-vereinbaren).

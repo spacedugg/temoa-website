@@ -7,11 +7,11 @@ kategorie: "Agentur & Zusammenarbeit"
 
 # Vom guten Kunden zum starken Partner: So holst du Top-Performance aus deiner Amazon-Agentur
 
-Das Ergebnis einer Agenturpartnerschaft hängt nicht nur vom Talent der Agentur ab – sondern mindestens ebenso davon, wie gut der Kunde die Zusammenarbeit ermöglicht. Man sieht es immer wieder: Zwei Marken mit gleichem Budget und derselben Agentur erzielen völlig unterschiedliche Ergebnisse. Die eine skaliert stark, die andere tritt auf der Stelle und gibt am Ende der Agentur die Schuld. Der Unterschied liegt oft nicht an der Agentur, sondern an der Art der Zusammenarbeit. Dieser Beitrag zeigt, wie du als Marke zum Partner wirst, der Spitzenleistung ermöglicht.
+Eine produktive Zusammenarbeit mit eurer Amazon-Agentur braucht messbare Verantwortung auf beiden Seiten. Die Agentur verantwortet Diagnose, Priorisierung, Umsetzung und transparentes Reporting. Die Marke liefert Produktkalkulation, Bestandsplanung und Entscheidungen. Dieser Beitrag zeigt, wie daraus ein Arbeitsrhythmus mit klaren Zuständigkeiten, Fristen und überprüfbaren Ergebnissen wird.
 
 ## Warum der Kunde mitentscheidet
 
-Eine Agentur kann nur so gut arbeiten, wie der Kunde es zulässt. Fehlende Informationen, langsame Freigaben, unklare Ziele oder ständig wechselnde Prioritäten bremsen selbst die beste Agentur aus. Umgekehrt verstärkt ein gut vorbereiteter, klar kommunizierender Kunde die Leistung seiner Agentur erheblich. „Client Enablement" – also dein Beitrag zur Zusammenarbeit – ist ein unterschätzter Erfolgsfaktor.
+Die Agentur verantwortet Diagnose, Priorisierung und Umsetzung; die Marke liefert Produktwissen, Freigaben und betriebliche Rahmenbedingungen. Beide Seiten brauchen klare Zuständigkeiten. Fehlende Informationen, langsame Freigaben, unklare Ziele oder ständig wechselnde Prioritäten bremsen selbst die beste Agentur aus. Umgekehrt verstärkt ein gut vorbereiteter, klar kommunizierender Kunde die Leistung seiner Agentur erheblich. „Client Enablement" – also dein Beitrag zur Zusammenarbeit – ist ein unterschätzter Erfolgsfaktor.
 
 ## Klare Ziele und Prioritäten geben
 
@@ -33,10 +33,54 @@ Ergebnisse brauchen Zeit – besonders, wenn ein Konto erst aufgeräumt oder ein
 
 Die besten Ergebnisse entstehen, wenn beide Seiten als Team agieren. Behandle die Agentur als verlängerten Teil deines Unternehmens: teile Erfolge und Probleme offen, gib konstruktives Feedback statt nur Kritik, und beziehe sie früh in strategische Überlegungen ein. Eine Agentur, die sich als Partner verstanden fühlt, investiert mehr Engagement als eine, die nur eine Aufgabenliste abarbeitet.
 
+## Praxis: Eine Entscheidungsliste statt endloser Statuscalls
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Eine Entscheidungsliste statt endloser Statuscalls</h3>
+<p>Das Team diskutiert wöchentlich dieselben drei offenen Punkte. Ein Report allein löst sie nicht. Jede Entscheidung braucht eine Empfehlung, wirtschaftlichen Kontext, Verantwortlichen und einen Termin.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Führt im gemeinsamen Termin zuerst Entscheidungen, dann Abweichungen und danach neue Tests durch.
+2. Dokumentiert auch Pflichten der Agentur: klare Empfehlungen, Umsetzung und Eskalation. Gute Zusammenarbeit ist gegenseitige Verantwortung, keine pauschale Schuldzuweisung an den Kunden.
+
+## Welche Daten die Agentur tatsächlich braucht
+
+Ein Ads-Konto allein erklärt keine profitable Entscheidung. Gebt der Agentur je SKU **Einstand, variable Amazon-Gebühren, erwartete Retouren, Zielbeitrag, verfügbaren Bestand und Nachschubzeit**. Trennt Markenprodukte, Bundles und Abverkauf, statt einen ACoS-Grenzwert über das ganze Sortiment zu legen. Die Agentur muss umgekehrt offenlegen, welche Entscheidungen sie aus diesen Daten ableitet und welche Annahmen noch unsicher sind.
+
+| Information der Marke | Entscheidung der Agentur | Frühwarnsignal |
+| --- | --- | --- |
+| Deckungsbeitrag je SKU | Gebots- und Budgetkorridor | Umsatz wächst, Beitrag sinkt |
+| Bestand und Wiederbeschaffungszeit | Budget auf verfügbare Alternativen verschieben | Top-ASIN ist vor dem Nachschub ausverkauft |
+| Neue Produktbelege und Rückgabegründe | Listing und Creative priorisieren | Mehr Klicks, aber schlechtere Conversion oder höhere Retouren |
+| Geplante Aktionen in anderen Kanälen | Amazon-Messung und Budgetfenster anpassen | Attribution zählt Effekte doppelt |
+
+![Daten- und Entscheidungsfluss zwischen Marke und Amazon-Agentur](/blog/figures/agentur-zusammenarbeit-entscheidungen.svg)
+
+## Ein Ziel, mehrere diagnostische Kennzahlen
+
+Wählt für ein Quartal einen primären Zielkonflikt: **Beitrag sichern**, **mit Beitragsuntergrenze wachsen** oder **neue Käufer für eine definierte Produktgruppe erschließen**. Ein einzelner TACoS-Wert ist keine vollständige Strategie. Ergänzt die Ergebnisgröße um Kennzahlen, die Änderungen erklären: Sessions, Unit Session Percentage, organischen Suchanteil, Featured Offer, Bestand und Retouren. Die [Business Reports](/blog/business-reports) und [Search Query Performance](/blog/search-query-performance) liefern dafür unterschiedliche Perspektiven.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Budgetentscheidung</p>
+<h3>30 % ACoS kann sinnvoll sein; 8 % können täuschen</h3>
+<p>Eine generische Entdeckungskampagne kostet 30 % ACoS, eine Brand-Exact-Kampagne 8 %. Die Marke möchte die teure Kampagne streichen. Zuerst prüfen beide Teams, ob die erste Kampagne neue Suchanfragen und Kunden erschließt, welche Deckungsbeiträge die betroffenen SKUs tragen und ob Brand Exact nur vorhandene Nachfrage abschöpft. Danach wird ein begrenzter Test mit unverändertem Brand-Budget und klarer Auswertung der gesamten Produktgruppe vereinbart. Aus dem Kampagnen-ACoS allein folgt keine Kürzung.</p>
+</aside>
+
+## Grenzen festlegen, Taktik freigeben
+
+Die Marke beschließt Preisrahmen, Produktprioritäten, den Werbekorridor und die Bedingungen für eine Budgeterhöhung. Innerhalb dieser Leitplanken kann die Agentur Suchbegriffe ausschließen, Gebote anpassen und kontrollierte Tests durchführen. Klärt ausdrücklich, wann Content, Claims oder Preisänderungen eine Freigabe brauchen. So kann das Team arbeiten, ohne für jede kleine Gebotsänderung auf einen Termin zu warten.
+
+Für den Monatsreview reichen vier Blöcke: **Ergebnis gegenüber Plan**, **Ursachen und Datenqualität**, **Entscheidungen für das Sortiment** und **nächste Tests mit Stop-Kriterien**. Das Protokoll endet mit Owner und Datum. Verändert sich eine wichtige Voraussetzung – etwa ein Liefertermin –, meldet die Marke dies direkt; die Agentur passt Budget und Platzierung der betroffenen Produkte an.
+
+## Leistung fair beurteilen
+
+Trennt externe Effekte (Preisänderungen, Ausverkauf, Wettbewerber, Saisonalität) von umgesetzten Agenturmaßnahmen. Für größere Eingriffe dokumentiert ihr Vorher-Nachher-Daten, Vergleichs-ASINs und gleichzeitige Änderungen. Die Anleitung zu [Amazon-Werbung und Inkrementalität](/blog/amazon-werbung-inkrementalitaet) zeigt, warum zugerechneter Anzeigenumsatz noch keinen zusätzlichen Umsatz beweist.
+
+Wenn ihr diese Arbeitsweise im eigenen Konto aufbauen wollt, besprecht [PPC](/leistungen/ppc-advertising) und [Account-Management](/leistungen/account-management) mit uns im [Gespräch](/gespraech-vereinbaren). Bringt eine Prioritäts-SKU und euren aktuellen Monatsreport mit; daraus lassen sich konkrete Entscheidungslücken identifizieren.
+
 ## Fazit
 
-Top-Performance einer Amazon-Agentur ist eine gemeinsame Leistung. Klare, stabile Ziele, offen geteilte Informationen (besonders zu Margen und Beständen), schnelle Entscheidungen, realistische Erwartungen und echtes Partnerschaftsdenken machen den Unterschied zwischen einer Zusammenarbeit, die skaliert, und einer, die auf der Stelle tritt. Die Agentur bringt das Handwerk – du lieferst Richtung, Kontext und Tempo. Wer vom bloßen Auftraggeber zum aktiven Partner wird, holt aus derselben Agentur deutlich mehr heraus. Und genau das ist oft der unsichtbare Grund, warum zwei Marken mit gleichem Budget so unterschiedlich abschneiden.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Als dein Partner für den europäischen Amazon-Markt holen wir gemeinsam mit dir das Maximum heraus.*
+Eine starke Zusammenarbeit ist an Entscheidungen erkennbar: Die Marke gibt wirtschaftliche Grenzen und Produktkontext vor, die Agentur leitet Maßnahmen ab und zeigt ihre Wirkung. Ein guter Monatsreport beantwortet deshalb nicht nur „Was ist passiert?“, sondern „Was entscheiden wir jetzt, wer setzt es um und woran prüfen wir den Effekt?“

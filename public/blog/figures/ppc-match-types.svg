@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 390" role="img" aria-labelledby="t d">
+<title id="t">Drei Match Types, drei Rollen</title><desc id="d">Exact bündelt validierte Suchanfragen, Phrase erschließt verwandte Anfragen und Broad liefert neue Entdeckungen.</desc>
+<rect width="1000" height="390" rx="24" fill="#0b1930"/><style>text{font-family:Arial,Helvetica,sans-serif}.k{font-size:14px;letter-spacing:2px;fill:#68dbce;font-weight:700}.h{font-size:32px;fill:#fff;font-weight:700}.label{font-size:25px;fill:#fd7765;font-weight:700}.body{font-size:18px;fill:#fff}.sub{font-size:17px;fill:#d5e1ed}</style>
+<text x="42" y="51" class="k">TEMOA / PPC-ARCHITEKTUR</text><text x="42" y="101" class="h">Drei Match Types, drei Aufgaben</text>
+<rect x="42" y="139" width="285" height="201" rx="17" fill="#182e4e"/><text x="62" y="181" class="label">EXACT</text><text x="62" y="229" class="body">Validierte Anfragen</text><text x="62" y="268" class="sub">Wirtschaftlichkeit steuern</text>
+<rect x="357" y="139" width="285" height="201" rx="17" fill="#182e4e"/><text x="377" y="181" class="label">PHRASE</text><text x="377" y="229" class="body">Verwandte Suchen</text><text x="377" y="268" class="sub">Neue Konverter finden</text>
+<rect x="672" y="139" width="285" height="201" rx="17" fill="#182e4e"/><text x="692" y="181" class="label">BROAD</text><text x="692" y="229" class="body">Neues Suchfeld</text><text x="692" y="268" class="sub">Entdeckung begrenzen</text>
+<path d="M42 367H957" stroke="#68dbce" stroke-width="3"/>
+</svg>

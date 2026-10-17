@@ -23,7 +23,7 @@ If Amazon handles storage and shipping, several items come on top:
 
 - **Fulfilment fee:** per unit, depending on size and weight. Large and heavy items cost considerably more.
 - **Storage fees:** monthly by occupied volume, with seasonal surcharges in the high-volume months.
-- **Inbound and placement fees:** the cost of distributing your goods across Amazon's warehouses, a newer item that often surprises older calculations.
+- **Inbound transport and programme costs:** include the costs actually applicable to your marketplace. US inbound placement fees are not a universal German FBA charge.
 - **Long-term storage fees:** surcharges on goods that sit too long.
 - **Removal and disposal fees:** for handling returns or retrieving and disposing of stock.
 

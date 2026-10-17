@@ -46,3 +46,8 @@ Amazon provides store insights with visitor numbers, dwell time, sales per page 
 ## Conclusion
 
 An Amazon storefront gives your brand a home on the platform, free for brand-registered sellers and buildable without coding. The key to a successful store is to think of it as a funnel rather than a shop window, design it for mobile, feed it deliberately with traffic and improve it continuously through the insights. Cover those points and you create more than a good-looking page: a genuine selling space for your brand.
+
+
+## Programme and eligibility
+
+[Amazon Ads: Stores](https://advertising.amazon.com/solutions/products/stores) – check the conditions applicable to your marketplace and account role.

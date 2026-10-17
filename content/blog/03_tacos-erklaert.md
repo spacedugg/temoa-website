@@ -1,51 +1,56 @@
 ---
-title: "TACoS erklärt: Die Kennzahl, die mehr über dein Amazon-Geschäft verrät als ACoS"
-meta_description: "TACoS (Total Advertising Cost of Sales) zeigt, wie stark dein Gesamtumsatz von Werbung abhängt. Definition, Berechnung und Interpretation für Marken."
+title: "TACoS richtig interpretieren: Werbekosten im Gesamtgeschäft"
+meta_description: "TACoS berechnen und sauber einordnen: Warum ein fallender Wert kein Beweis für organisches Wachstum ist und welche Kennzahlen Marken ergänzen sollten."
 keywords: ["TACoS", "Total ACoS", "Amazon Kennzahlen", "organischer Umsatz Amazon"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# TACoS erklärt: Die Kennzahl, die mehr über dein Amazon-Geschäft verrät als ACoS
+# TACoS richtig interpretieren: Werbekosten im Gesamtgeschäft
 
-Die meisten Amazon-Verkäufer starren auf ihren ACoS. Das ist nachvollziehbar – er steht direkt im Kampagnenmanager und lässt sich leicht optimieren. Aber ACoS beantwortet nur eine einzige Frage: Wie effizient verwandeln deine Anzeigen Werbe-Euros in werbeattribuierten Umsatz? Über den Zustand deines *Gesamtgeschäfts* sagt er nichts. Genau diese Lücke füllt TACoS. Und wer ihn ignoriert, trifft strategische Entscheidungen mit der halben Information.
+TACoS setzt eure Werbeausgaben ins Verhältnis zum gesamten Amazon-Umsatz eines definierten Bereichs. Die Kennzahl hilft, den Werbeaufwand einer Marke oder Produktgruppe einzuordnen. Sie misst weder den organischen Umsatz direkt noch die ursächliche Wirkung einzelner Kampagnen.
 
-## Was TACoS ist
+## Formel und Datenbasis
 
-TACoS steht für *Total Advertising Cost of Sales*. Anders als ACoS, der die Werbeausgaben nur auf den werbeattribuierten Umsatz bezieht, setzt TACoS die Werbeausgaben ins Verhältnis zum **gesamten** Umsatz – also organischer plus werblicher Umsatz zusammen.
+**TACoS = Werbeausgaben ÷ Gesamtumsatz × 100**
 
-Die Formel:
+500 € Werbung bei 10.000 € Gesamtumsatz ergeben 5 % TACoS. Legt fest, ob ihr Brutto- oder Nettoumsatz, bestellte oder ausgelieferte Ware und welche Marktplätze betrachtet. Dokumentiert auch, ob externe Werbung enthalten ist. Ohne diese Definition sind zwei Reports trotz gleicher Bezeichnung nicht vergleichbar.
 
-**TACoS = (Werbeausgaben ÷ Gesamtumsatz) × 100**
+## Warum sinkender TACoS kein Wachstumsbeweis ist
 
-Beispiel: Du gibst 500 € für Anzeigen aus. Dein Gesamtumsatz im selben Zeitraum beträgt 10.000 € (davon 4.000 € über Anzeigen, 6.000 € organisch). Dein TACoS liegt bei 500 ÷ 10.000 × 100 = **5 %**.
+![TACoS-Trend gegen Umsatz, Beitrag und Bestand prüfen](/blog/figures/tacos-diagnose-beitrag.svg)
 
-## Der entscheidende Unterschied zu ACoS
+Der Wert fällt, wenn der Umsatz schneller steigt als die Werbeausgaben oder wenn die Ausgaben stärker sinken als der Umsatz. Dafür kommen bessere organische Sichtbarkeit, Saison, Preiserhöhungen, ein veränderter Sortimentsmix oder schlicht eine Werbekürzung infrage. Der TACoS allein unterscheidet diese Ursachen nicht.
 
-ACoS blendet den organischen Umsatz komplett aus. Das ist gefährlich, weil gute Werbung fast immer mehr bewirkt als nur die direkt zugeschriebenen Verkäufe: Sie verbessert dein Ranking, bringt Reviews und stärkt die Markenbekanntheit – was wiederum organische Verkäufe nach sich zieht. Diese Wirkung taucht im ACoS nie auf, im TACoS aber sehr wohl.
+Auch „Gesamtumsatz minus Anzeigenumsatz“ ist nicht automatisch sauberer organischer Umsatz. Bestell- und Klickdatum, Attributionsfenster, zugeordnete weitere Produkte und Erstattungen können zwischen Berichten abweichen. Verwendet solche Differenzen nur mit abgeglichener Datenbasis und kennzeichnet ihre Grenzen.
 
-Deshalb erzählen die beiden Kennzahlen zusammen eine Geschichte, die jede für sich nicht erzählen kann.
+## Vier Fragen für die Diagnose
 
-## Wie du TACoS-Bewegungen liest
+1. Wächst der absolute Deckungsbeitrag nach Werbung oder nur der Umsatz?
+2. Entwickeln sich Marken- und generische Suchanfragen unterschiedlich?
+3. Waren Preis, Verfügbarkeit und Lieferzeit vergleichbar?
+4. Welcher Teil der Veränderung stammt aus anderen Produkten oder Marktplätzen?
 
-Die wahre Stärke von TACoS zeigt sich im Zeitverlauf. Vier typische Muster:
+Für die Suche liefert [Search Query Performance](/blog/search-query-performance) zusätzliche Anhaltspunkte. Für Werbung betrachtet ihr [ACoS](/blog/acos-erklaert), zugerechnete Bestellungen und die Kampagnenrolle separat.
 
-- **ACoS stabil, TACoS sinkt:** Das Ideal. Deine Werbung zieht zunehmend organischen Umsatz nach – du wirst weniger abhängig von Anzeigen.
-- **ACoS sinkt, TACoS sinkt:** Sehr gesund. Effizienz und organische Stärke wachsen gleichzeitig.
-- **ACoS stabil, TACoS steigt:** Warnsignal. Dein Geschäft hängt immer stärker an Werbung; der organische Anteil schwächelt.
-- **ACoS sinkt, TACoS steigt:** Trügerisch. Auf dem Papier wirkt die Werbung effizienter, aber das Gesamtgeschäft kippt Richtung Werbeabhängigkeit – oft ein Zeichen dafür, dass organische Rankings wegbrechen.
+## So sieht ein brauchbarer Monatsreport aus
 
-## Was ein „guter" TACoS ist
+Zeigt je Produktgruppe Gesamtumsatz, Werbeausgaben, TACoS, Deckungsbeitrag nach Werbung und Tage ohne Bestand. Ergänzt eine kurze Erklärung für Preisaktionen und Sortimentsänderungen. Führt neue Produkte separat, damit deren Testbudget nicht mit der Wirtschaftlichkeit etablierter Bestseller verwechselt wird.
 
-Auch hier gibt es keinen Universalwert, aber Orientierung: Etablierte Produkte mit starkem organischen Anteil liegen häufig im einstelligen Bereich (5–10 %). Produkte im Launch oder in aggressiver Skalierung zeigen vorübergehend deutlich höhere Werte (15–25 % und mehr), weil viel Werbung nötig ist, um Ranking aufzubauen. Der Trend ist wichtiger als der Momentwert: Ein neu gelaunchtes Produkt sollte mit der Zeit einen *sinkenden* TACoS zeigen – das beweist, dass der organische Motor anspringt.
+Ein Ziel-TACoS entsteht aus eurer gesamten Kostenstruktur. Universelle „gesunde“ Prozentbereiche würden diese Unterschiede verdecken. Entscheidend ist, ob die Marke mit ihrem Werbeanteil die geplanten Kosten und Ergebnisziele trägt.
 
-## Warum die Kennzahl strategisch so wertvoll ist
+## Praxis: Ein besserer TACoS bei weniger Ergebnis
 
-TACoS ist im Grunde ein Gesundheitsindikator für die Abhängigkeit deiner Marke von bezahlter Werbung. Ein dauerhaft niedriger, stabiler TACoS bedeutet: Dein Produkt verkauft sich größtenteils von selbst, Werbung ist nur noch Verstärker. Genau das macht eine Marke wertvoll – auch beim späteren Verkauf des Geschäfts schauen Käufer genau auf diese Abhängigkeit.
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein besserer TACoS bei weniger Ergebnis</h3>
+<p>Periode A: 100.000 € Umsatz und 10.000 € Werbung ergeben 10 % TACoS. Periode B: 80.000 € Umsatz und 6.000 € Werbung ergeben 7,5 %. Bei angenommenen 30 % Beitrag vor Werbung sinkt der Beitrag nach Werbung trotzdem von 20.000 € auf 18.000 €.</p>
+</aside>
 
-## Praktische Anwendung
+**So setzt ihr es um:**
 
-Verfolge TACoS am besten monatlich pro Produkt oder Produktlinie, nicht pro Kampagne. Lege ihn über deine Umsatzkurve und frage bei jeder Auffälligkeit: Wächst der organische Umsatz mit, oder trägt nur die Werbung? Nutze TACoS außerdem als Kontrollinstrument, bevor du Anzeigenbudgets kürzt – sinkt bei einer Kürzung auch der organische Umsatz mit, war die Werbung wichtiger fürs Ranking, als der ACoS vermuten ließ.
+1. Zeigt TACoS und absoluten Beitrag nebeneinander.
+2. Klärt vor weiteren Kürzungen, ob Nachfrage, Preis, Bestand oder Werbereduktion den Umsatz verändert haben. Die Rechnung beweist keine einzelne Ursache.
 
-## Fazit
+## Die Produktgruppe ist oft die bessere Ebene
 
-ACoS sagt dir, wie effizient deine Anzeigen sind. TACoS sagt dir, wie gesund dein Geschäft ist. Erst beide zusammen geben ein vollständiges Bild. Wer TACoS im Zeitverlauf beobachtet, erkennt früh, ob eine Marke organisch trägt oder gefährlich von Werbung abhängt – und das ist eine der wichtigsten strategischen Einsichten im Amazon-Geschäft.
+Ein fallender Konto-TACoS kann dadurch entstehen, dass ein großer Bestseller wächst, während neue Produkte teuer und erfolglos bleiben. Trennt Kernsortiment, Launches und Abverkauf. Vergleicht je Gruppe Beitrag, generische Query-Präsenz und Verfügbarkeit über denselben Zeitraum. Das schafft einen Arbeitsauftrag: [Kampagnenstruktur](/blog/kampagnenstruktur-ppc) verbessern, [Conversion](/blog/conversion-rate-optimierung) beheben oder Budget auf lieferfähige Produkte verschieben. Wenn ihr euren Monatsreport auf diese Entscheidungen ausrichten wollt, zeigen wir euch im [Gespräch](/gespraech-vereinbaren) die [Analytics-Perspektive](/leistungen/analytics-reporting).

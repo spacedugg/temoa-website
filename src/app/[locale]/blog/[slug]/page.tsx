@@ -1,3 +1,5 @@
+import { SEITE } from "@/lib/seite";
+import { ogLocale } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Kopfzeile } from "@/components/takt/Kopfzeile";
@@ -5,12 +7,12 @@ import { Fusszeile } from "@/components/takt/Fusszeile";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { PostCard } from "@/components/blog/PostCard";
 import { BlogCover } from "@/components/blog/BlogCover";
+import { ArticleSectionLink } from "@/components/blog/ArticleSectionLink";
 import { getAllPosts, getPost, getRelatedPosts } from "@/lib/blog";
-import { ServiceCTA } from "@/components/service/Blocks";
+import { BlogSupport, BlogContact } from "@/components/blog/BlogSupport";
 import { istSprache, pfad, sprachAngaben, sprachen } from "@/lib/i18n";
 import { woerter } from "@/lib/woerter";
 import { suchTitel } from "@/lib/blog-seo";
-import { beitragsLinks } from "@/lib/blog-links";
 import { ArtikelDaten } from "@/components/seo/StrukturierteDaten";
 
 /* Je Sprache nur die Beitraege, die es dort gibt. Solange ein Beitrag nicht
@@ -18,7 +20,7 @@ import { ArtikelDaten } from "@/components/seo/StrukturierteDaten";
    keiner Liste auf. */
 export function generateStaticParams() {
   return sprachen.flatMap((locale) =>
-    getAllPosts(locale).map((p) => ({ locale, slug: p.slug }))
+    getAllPosts(locale, true).map((p) => ({ locale, slug: p.slug }))
   );
 }
 
@@ -35,11 +37,27 @@ export async function generateMetadata({
     title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
     description: post.description,
     keywords: post.keywords,
+    ...(post.retired && { robots: { index: false, follow: true } }),
     /* `hreflang` nur, wenn es die andere Fassung wirklich gibt: eine Angabe
        auf eine Seite, die 404 liefert, ist schlechter als keine. */
     alternates: getPost(slug, locale === "de" ? "en" : "de")
       ? sprachAngaben(locale, `/blog/${slug}`)
-      : undefined,
+      : { canonical: pfad(locale, `/blog/${slug}`) },
+    openGraph: {
+      title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
+      description: post.description,
+      type: "article",
+      url: `${SEITE.url}${pfad(locale, `/blog/${slug}`)}`,
+      siteName: SEITE.name,
+      locale: ogLocale[locale],
+      ...(post.image && { images: [{ url: post.image, alt: post.imageAlt, width: 1400, height: 788 }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${suchTitel(slug, locale) ?? post.title} · temoa`,
+      description: post.description,
+      ...(post.image && { images: [post.image] }),
+    },
   };
 }
 
@@ -99,7 +117,10 @@ function withToc(html: string) {
   const toc: { id: string; label: string }[] = [];
   const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner) => {
     const label = entitiesAuflösen(String(inner).replace(/<[^>]+>/g, "")).trim();
-    const id = slugify(label);
+    const base = slugify(label) || "abschnitt";
+    let id = base;
+    let suffix = 2;
+    while (toc.some((item) => item.id === id)) id = `${base}-${suffix++}`;
     toc.push({ id, label });
     return `<h2 id="${id}">${inner}</h2>`;
   });
@@ -118,12 +139,11 @@ export default async function ArticlePage({
   if (!post) notFound();
   const { html, toc } = withToc(post.html);
   const related = getRelatedPosts(slug, locale, 3);
-  const verweise = beitragsLinks(slug, post.categoryKey, locale);
 
   return (
     <>
       <Kopfzeile />
-      <ArtikelDaten
+      {!post.retired && <ArtikelDaten
         sprache={locale}
         slug={slug}
         titel={post.title}
@@ -132,7 +152,7 @@ export default async function ArticlePage({
         kategorie={post.categoryLabel}
         kategorieSlug={post.categorySlug}
         blogName={w.kopf.eyebrow}
-      />
+      />}
       <main id="inhalt">
         {/* Hero */}
         <section className="relative overflow-hidden ground pt-32 md:pt-40">
@@ -142,15 +162,15 @@ export default async function ArticlePage({
           />
           <div className="container-x relative max-w-3xl">
             <Reveal>
-              <nav className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
+              <nav aria-label={locale === "de" ? "Brotkrumennavigation" : "Breadcrumb"} className="flex flex-wrap items-center gap-1.5 text-sm text-ink-muted">
                 <a href={pfad(locale, "/blog")} className="hover:text-ink">{w.kopf.eyebrow}</a>
                 <span className="text-ink-faint">/</span>
                 <a
-                  href={pfad(locale, `/blog/kategorie/${post.categorySlug}`)}
+                  href={pfad(locale, post.retired ? "/blog/grundlagen" : `/blog/kategorie/${post.categorySlug}`)}
                   className="font-semibold text-navy underline decoration-2 underline-offset-2 hover:decoration-navy"
                   style={{ textDecorationColor: post.accent }}
                 >
-                  {post.categoryLabel}
+                  {post.retired ? (locale === "de" ? "Grundlagen für Verkäufer" : "Seller basics") : post.categoryLabel}
                 </a>
               </nav>
             </Reveal>
@@ -181,8 +201,9 @@ export default async function ArticlePage({
                 seed={post.slug}
                 image={post.image}
                 label={post.categoryLabel}
-                titel={post.title}
-                className="aspect-[2/1] w-full rounded-3xl shadow-lift md:aspect-[2.6/1]"
+                alt={post.imageAlt}
+                priority
+                className="aspect-video w-full rounded-3xl shadow-lift"
               />
             </Reveal>
           </div>
@@ -193,25 +214,17 @@ export default async function ArticlePage({
           <div className="container-x">
             <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-[1fr_15rem] lg:gap-16">
               <div className="min-w-0 max-w-2xl">
+                {toc.length > 2 && (
+                  <details className="panel mb-8 p-5 lg:hidden">
+                    <summary className="cursor-pointer py-2 font-bold text-ink">{w.inhalt}</summary>
+                    <nav aria-label={w.inhalt}>
+                      <ul className="mt-3 space-y-1">
+                        {toc.map((t) => <li key={t.id}><ArticleSectionLink id={t.id} className="flex min-h-12 items-center text-small text-ink-muted underline underline-offset-4">{t.label}</ArticleSectionLink></li>)}
+                      </ul>
+                    </nav>
+                  </details>
+                )}
                 <article className="article-body" dangerouslySetInnerHTML={{ __html: html }} />
-                {/* Interne Links auf die passende Leistung und, wo es passt,
-                    einen Fall. Der Text nennt das Ziel statt „hier klicken". */}
-                <aside className="panel mt-12 p-6 md:p-8" aria-label={w.verweise}>
-                  <h2 className="text-lg font-bold tracking-tight text-ink">{w.verweise}</h2>
-                  <ul className="mt-4 space-y-4">
-                    {verweise.map((v) => (
-                      <li key={v.href}>
-                        <a
-                          href={pfad(locale, v.href)}
-                          className="font-bold text-navy underline decoration-brand-500 decoration-2 underline-offset-4 hover:decoration-navy"
-                        >
-                          {v.anker}
-                        </a>
-                        <p className="mt-1 text-small leading-relaxed text-ink-muted">{v.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </aside>
               </div>
               {toc.length > 2 && (
                 <aside className="hidden lg:block">
@@ -220,9 +233,9 @@ export default async function ArticlePage({
                     <ul className="mt-4 space-y-2.5 border-l border-black/[0.08] pl-4 text-sm">
                       {toc.map((t) => (
                         <li key={t.id}>
-                          <a href={`#${t.id}`} className="text-ink-muted transition-colors hover:text-ink">
+                          <ArticleSectionLink id={t.id} className="text-ink-muted transition-colors hover:text-ink">
                             {t.label}
-                          </a>
+                          </ArticleSectionLink>
                         </li>
                       ))}
                     </ul>
@@ -232,6 +245,8 @@ export default async function ArticlePage({
             </div>
           </div>
         </section>
+
+        {!post.retired && <BlogSupport sprache={locale} categoryKey={post.categoryKey} categorySlug={post.categorySlug} articleSlug={slug} />}
 
         {/* Related */}
         {related.length > 0 && (
@@ -249,9 +264,7 @@ export default async function ArticlePage({
           </section>
         )}
 
-        <ServiceCTA
-          title={w.beitragCta}
-        />
+        <BlogContact sprache={locale} categorySlug={post.categorySlug} articleSlug={slug} />
       </main>
       <Fusszeile />
     </>

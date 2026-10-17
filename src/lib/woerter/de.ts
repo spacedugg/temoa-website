@@ -1219,7 +1219,6 @@ export const de = {
     kennzahlen: [
       { vor: "Ø +", nach: " %", label: "Profitabilitätssteigerung" },
       { vor: "", nach: " Mio. €", label: "betreuter Amazon-Jahresumsatz" },
-      { vor: "", nach: "+", label: "betreute Marken" },
       { vor: "", nach: "+", label: "internationale Marktplätze" },
     ],
 
@@ -1550,16 +1549,16 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Amazon Blog: PPC, Listing, FBA und Strategie · temoa",
+      titel: "Amazon Insights: Profitabilität und Wachstum · temoa",
       beschreibung:
-        "Klartext zu Amazon: PPC, Listing & SEO, FBA, Markenschutz und Strategie. Über 80 Beiträge, thematisch geordnet.",
+        "Amazon-Wachstum fundiert steuern: Analysen zu PPC, Conversion, Profitabilität und Bestand. Mit Praxisbeispielen für etablierte Marken.",
       beitragTitel: "Amazon Blog · temoa",
     },
     kopf: {
       eyebrow: "Blog",
-      titelVor: "Klartext zu ",
-      titelEm: "Amazon.",
-      lead: "Über 80 Beiträge zu Werbung, Listings, Logistik und Strategie. Nach Themen geordnet, ohne Fülltext.",
+      titelVor: "Mehr aus eurem ",
+      titelEm: "Amazon-Geschäft.",
+      lead: "Wo verliert eure Marke Marge, Sichtbarkeit oder Umsatz? Analysen, Rechenbeispiele und konkrete Vorgehensweisen für bessere Listings, wirksamere Werbung und planbares Wachstum.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
     /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von
@@ -1567,7 +1566,7 @@ export const de = {
     themaTitel: "Alle Beiträge zu {thema}",
     einBeitrag: "1 Beitrag",
     beitraege: "{n} Beiträge",
-    empfohlen: "Empfohlene Beiträge",
+    empfohlen: "Hebel für die nächste Wachstumsphase",
     alleThemen: "Alle Themen",
     inhalt: "Inhalt",
     weiterlesen: "Weiterlesen",

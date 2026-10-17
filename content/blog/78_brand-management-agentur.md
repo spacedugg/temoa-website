@@ -36,10 +36,43 @@ Brand Management lohnt sich besonders, wenn deine Marke eine relevante Größe e
 
 Sei vorsichtig bei Agenturen, die „Brand Management" sagen, aber im Kern nur Werbung verwalten; bei reinem Fokus auf kurzfristige Umsatzkennzahlen ohne Markenstrategie; bei fehlendem Verständnis für Markenschutz; und bei Garantieversprechen. Auch hier gilt: Sichere dir Eigentum an Konto, Marke, Daten und Assets vertraglich.
 
+## Praxis: Markenmanagement als Aufgabenmatrix prüfen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Markenmanagement als Aufgabenmatrix prüfen</h3>
+<p>Ein Angebot nennt Brand Management, enthält aber nur PPC und einen Monatsreport. Katalogfehler, Rechteverwaltung, Contentpflege und Bestandsprobleme bleiben dadurch möglicherweise ohne Zuständigkeit.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Ordnet jede relevante Aufgabe einem Verantwortlichen und einem Bearbeitungsrhythmus zu.
+2. Fragt nach konkreten Ergebnissen: bereinigte Varianten, gelöste Fälle, freigegebener Content oder dokumentierte Entscheidungen. Der Leistungsname allein definiert keine Betreuungstiefe.
+
+## Brand Management als Portfolioarbeit nachweisen
+
+Ein Markenmandat sollte mehr liefern als schöne Store-Seiten. Lasst euch für ein Quartal zeigen, **welche ASINs investieren, gehalten, repariert oder aus dem Sortiment genommen werden**. Die Entscheidung verbindet Query-Nachfrage, Deckungsbeitrag, Retouren, Bestand, Schutzlage und Kannibalisierung. Erst danach werden Content und Werbung geplant.
+
+| Aufgabe | Monatlich sichtbares Ergebnis | Owner-Frage |
+| --- | --- | --- |
+| Markenschutz | Vorfälle, Belege, Status und wiederkehrende Ursachen | Wer darf Meldungen einreichen? |
+| Katalog | Variantenfehler, unterdrückte ASINs, offene Attribute | Wer genehmigt Produktclaims? |
+| Content | Priorisierte Seiten, Creative-Änderungen, Testresultate | Wer besitzt Quelldateien? |
+| Nachfrage | Brand-/Nonbrand-Queries und Neukäufer-Indikatoren | Wer definiert Investitionsgrenzen? |
+| Sortiment | Beitrag, Bestand und Launch-/Exit-Entscheidungen | Wer trifft Portfolioentscheidungen? |
+
+![Amazon-Brand-Management als Portfolio- und Verantwortungsarbeit](/blog/figures/brand-management-portfolio.svg)
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Markenführung</p>
+<h3>Ein Wettbewerber verkauft auf derselben ASIN</h3>
+<p>Der Monatsreport zeigt einen Rückgang der Featured Offer und zugleich steigende Werbung. Eine reine PPC-Reaktion würde die Gebote erhöhen. Brand Management prüft zunächst, ob es sich um einen autorisierten Handelspartner, eine Vertriebsfrage, einen Katalogbeitrag oder einen Rechteverstoß handelt. Erst wenn Ursache und zulässiger Handlungsweg geklärt sind, werden Schutzprozess, Preis- und Anzeigenentscheidung miteinander abgestimmt.</p>
+</aside>
+
+Fragt den Anbieter nach einem anonymisierten **Entscheidungsprotokoll**, nicht nur nach Creatives. Wie wurde ein [Brand-Registry-Fall](/blog/brand-registry) gelöst? Welche SKU erhielt trotz hohem Umsatz kein zusätzliches Budget, weil der Beitrag schwach war? Wie wurden [Store](/blog/brand-store-funnel) und [A+ Content](/blog/a-plus-content) an dieselbe Positionierung gebunden? Ein belastbares Mandat beantwortet diese Fragen mit Daten, Zuständigkeiten und Ergebnis.
+
+Wenn ihr eure Marke als Portfolio statt als Sammlung einzelner Kampagnen führen möchtet, könnt ihr mit uns [Strategie](/leistungen/strategie), [Account-Management](/leistungen/account-management) und [Content](/leistungen/listing-seo) im [Gespräch](/gespraech-vereinbaren) an einer konkreten Produktgruppe durchgehen.
+
 ## Fazit
 
-Eine Brand-Management-Agentur soll deine Marke auf Amazon über alle Bereiche entwickeln – von Positionierung über Markenschutz bis zu wertorientierter Werbung und Sortimentsstrategie. Die richtige Wahl triffst du über strategische Substanz, nachweisbaren Markenaufbau, Denken über alle Bereiche und Transparenz, nicht über kurzfristige Umsatzversprechen. Der Schritt lohnt sich für Marken, die echten, verteidigbaren Wert aufbauen wollen – und genau dann ist es entscheidend, einen Partner zu wählen, der in Markenwert denkt, nicht nur in Monatszahlen.
-
----
-
-*Dieser Beitrag stammt von **TEMOA**, deiner Amazon-Agentur für den deutschen und europäischen Markt (u. a. Amazon DE, FR, NL, ES, IT). Beim Aufbau und Schutz deiner Marke auf den europäischen Amazon-Marktplätzen begleiten wir dich.*
+Prüft Brand Management an Portfolioentscheidungen, Rechten, Katalogqualität und den Übergaben zwischen Teams. Die Bezeichnung auf einem Angebot ist weniger aussagekräftig als ein dokumentierter Fall, in dem diese Funktionen zusammen eine bessere Entscheidung ermöglicht haben.

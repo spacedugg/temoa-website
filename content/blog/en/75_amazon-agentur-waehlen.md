@@ -38,7 +38,3 @@ One decisive point that often gets overlooked: make sure in writing that your se
 ## In short
 
 You will not find the right Amazon agency through somebody else's ranking but through your own need and clear criteria: demonstrable results, a matching scope of work, transparency, good communication and a fair pricing model. Ask the uncomfortable questions in the meeting, watch for warning signs such as guaranteed results or missing references, and secure ownership of your account and your data. Do that and you will not pick the loudest agency but the right one, and that is the difference that decides whether the work together succeeds.
-
----
-
-*This article comes from **temoa**, your Amazon growth partner for the German and European marketplaces (among them Amazon DE, FR, NL, ES and IT). If you are considering handing your Amazon business to experienced hands, let us talk.*

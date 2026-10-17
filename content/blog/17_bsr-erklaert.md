@@ -19,6 +19,8 @@ Der BSR beruht im Kern auf Verkaufsvolumen – sowohl aktuellen als auch zurück
 
 ## Warum die Kategorie alles verändert
 
+![Amazon-BSR nur innerhalb desselben Kategoriepfads und Zeitraums vergleichen](/blog/figures/bsr-kategorie-vergleich.svg)
+
 Ein BSR ist nur im Kontext seiner Kategorie zu verstehen. In einer riesigen, stark frequentierten Kategorie (z. B. „Küche") bedeutet Rang 10.000 ein ordentliches Verkaufsvolumen. In einer kleinen Nische kann derselbe Rang sehr wenige Verkäufe bedeuten. Produkte haben zudem oft mehrere BSR-Werte – einen für die Hauptkategorie und bessere Ränge in spezifischeren Unterkategorien. Beim Vergleich zweier Produkte musst du immer dieselbe Kategorie zugrunde legen, sonst vergleichst du Äpfel mit Birnen.
 
 ## Was der BSR über Nachfrage verrät
@@ -37,6 +39,23 @@ Drei Missverständnisse halten sich hartnäckig:
 
 Verwende den BSR als groben Nachfrage-Indikator in der Recherche, immer im Verlauf und immer kategoriebezogen. Achte auf Stabilität: Ein dauerhaft niedriger BSR signalisiert verlässliche Nachfrage, ein stark springender eher unregelmäßige Verkäufe (etwa durch Aktionen). Kombiniere ihn mit anderen Signalen – Bewertungsmenge, Preisniveau, Wettbewerbsdichte –, statt Entscheidungen allein an dieser einen Zahl festzumachen.
 
+## Praxis: BSR nur innerhalb desselben Umfelds lesen
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>BSR nur innerhalb desselben Umfelds lesen</h3>
+<p>Ein Produkt liegt in einer kleinen Unterkategorie auf Rang 20, ein anderes in einer großen Kategorie auf Rang 2.000. Daraus lässt sich weder ein gleicher Absatz noch eine Überlegenheit des ersten Produkts ableiten. Auch ein Tageswert nach einer Aktion kann den normalen Bedarf überzeichnen.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Erfasst Kategoriepfad, Preis, Verfügbarkeit und Rangverlauf gemeinsam.
+2. Nutzt daraus abgeleitete Absatzschätzungen nur als Szenario. Bestellmengen brauchen zusätzlich eigene Verkaufsdaten oder einen begrenzten Markttest.
+
+## Warum der BSR keinen Query-Anteil erklärt
+
+Eine ASIN kann in einer Kategorie gut verkaufen, aber für eure wichtigste Suchanfrage unsichtbar bleiben. Umgekehrt kann eine kleine Nischen-SKU bei einer sehr passenden Query stark konvertieren, ohne einen spektakulären Gesamt-BSR zu erreichen. Für eigene Produkte sind [Search Query Performance](/blog/search-query-performance), [Business Reports](/blog/business-reports) und SKU-Beitrag die besseren Steuerungsdaten. Nutzt BSR für grobe Marktbeobachtung und prüft danach die tatsächliche Kaufabsicht. Eine BSR-Verbesserung allein ist kein Ziel für zusätzliche Werbung. Für eine konkrete Kategorie können wir [Positionierung](/leistungen/strategie) im [Gespräch](/gespraech-vereinbaren) anhand der realen Queries prüfen.
+
 ## Fazit
 
-Der Best Sellers Rank ist ein nützlicher, aber oft missverstandener Indikator. Er zeigt die relative Verkaufsposition in einer Kategorie, reagiert schnell auf Verkäufe und hilft bei der Einschätzung von Nachfrage – sagt aber nichts über Gewinn und ist nur im Verlauf und im Kategoriekontext aussagekräftig. Wer ihn als groben Kompass statt als absolute Wahrheit liest, zieht den größten Nutzen daraus.
+BSR zeigt eine relative Kategorieposition. Für Werbung, Bestand und Produktentwicklung braucht ihr zusätzlich Query-, Absatz- und Beitragsdaten; ein einzelner Rangwert liefert keine Absatz- oder Gewinnzahl.

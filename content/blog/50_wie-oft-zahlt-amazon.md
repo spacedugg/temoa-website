@@ -1,43 +1,61 @@
 ---
-title: "Wie oft zahlt Amazon aus? Auszahlungsrhythmus, Reserven und was Verkäufer wissen müssen"
-meta_description: "Wann und wie oft zahlt Amazon Verkäufern ihr Guthaben aus? Wie der 14-Tage-Zyklus funktioniert, warum Reserven einbehalten werden und wie du Liquidität planst."
+title: "Amazon-Auszahlung und DD+7: Liquidität realistisch planen"
+meta_description: "DD+7, verfügbares Guthaben und Banklaufzeit unterscheiden: So plant ihr Amazon-Auszahlungen und verhindert Engpässe bei Nachbestellungen."
 keywords: ["Wie oft zahlt Amazon", "Amazon Auszahlung", "Auszahlungszyklus", "Account Level Reserve"]
 kategorie: "FBA, Logistik & Inventar"
 ---
 
-# Wie oft zahlt Amazon aus? Auszahlungsrhythmus, Reserven und was Verkäufer wissen müssen
+# Amazon-Auszahlung und DD+7: Liquidität realistisch planen
 
-Für die Liquiditätsplanung ist eine Frage entscheidend: Wann kommt eigentlich mein Geld? Amazon zahlt Verkäufern ihre Verkaufserlöse nicht sofort, sondern nach einem festen Rhythmus aus – und behält unter Umständen Beträge zurück. Wer diesen Mechanismus versteht, plant seinen Cashflow realistischer. Dieser Beitrag erklärt, wie und wie oft Amazon auszahlt.
+Amazon-Auszahlungen hängen nicht nur vom Abrechnungsrhythmus ab. Für die Liquiditätsplanung müsst ihr drei Zeitpunkte auseinanderhalten: die Freigabe von Verkaufserlösen, die Auslösung einer Auszahlung und den tatsächlichen Geldeingang bei der Bank. DD+7 betrifft den ersten dieser Schritte.
 
-## Der Standard: alle 14 Tage
+## Was DD+7 bedeutet
 
-Der übliche Auszahlungsrhythmus ist ein **14-Tage-Zyklus**. Amazon rechnet die Verkäufe eines Zeitraums ab, zieht Gebühren und etwaige Erstattungen ab und überweist den verbleibenden Saldo auf dein hinterlegtes Bankkonto. Nach Abschluss eines Abrechnungszeitraums dauert es zudem einige Tage, bis das Geld tatsächlich auf deinem Konto ankommt. In der Praxis hast du also nicht sofort Zugriff auf das Geld eines Verkaufs, sondern erst nach Abschluss des Zyklus plus Bearbeitungszeit.
+DD steht für Delivery Date, also das Lieferdatum. Bei der lieferdatumbasierten Reserve bleiben Erlöse grundsätzlich bis sieben Tage nach Zustellung zurückgehalten. Die Frist beginnt nicht mit der Bestellung. Lange Lieferzeiten verlängern deshalb den Zeitraum zwischen Verkauf und verfügbarem Geld.
 
-## Warum nicht alles sofort ausgezahlt wird
+Amazon erläutert die Reserve und die Möglichkeit, verfügbares Guthaben anzufordern, in einer [offiziellen Moderatorenantwort für EU-Verkäufer](https://sellercentral.amazon.de/seller-forums/discussions/t/75c4fa84-8ff6-4917-8278-50df6066ce9a). Maßgeblich für eure Planung sind zusätzlich die im eigenen Zahlungskonto angezeigte Richtlinie, Einbehalte und Freigaben.
 
-Amazon behält einen Teil deines Guthabens häufig als **Reserve** ein (oft „Account Level Reserve" genannt). Der Grund: Käufer können nach dem Kauf noch zurückgeben oder Erstattungen verlangen, und Amazon sichert sich gegen diese möglichen Rückzahlungen ab. Gerade bei neuen Konten, hohen Wachstumsraten oder erhöhter Retourenquote kann die Reserve größer ausfallen. Das ist kein verlorenes Geld – es wird später freigegeben –, aber es bindet kurzfristig Liquidität.
+## Freigabe ist noch kein Geldeingang
 
-## Faktoren, die die Auszahlung beeinflussen
+Ein Abrechnungszyklus kann regelmäßig laufen, während ein Teil der Erlöse noch nicht verfügbar ist. Auch eine manuell angeforderte Auszahlung greift nur auf verfügbares Guthaben zu. Kontoprüfungen, Erstattungen, offene Gebühren und Bankverarbeitung können den Betrag oder den Zeitpunkt beeinflussen. Plant deshalb nicht mit „sieben Tage nach Verkauf ist das Geld auf dem Bankkonto“.
 
-Mehrere Dinge wirken auf das, was und wann du tatsächlich bekommst:
+## Eine Vorschau mit drei getrennten Spalten
 
-- **Kontoalter und -historie:** Neue Konten unterliegen oft strengeren Reserven, bis sich eine verlässliche Historie aufgebaut hat.
-- **Retouren und Erstattungen:** Sie werden von deinem Guthaben abgezogen und beeinflussen die Reserve.
-- **Offene Gebühren und Werbekosten:** Werden mit deinem Saldo verrechnet.
-- **Leistungskennzahlen und Streitfälle:** Können in Einzelfällen zu zusätzlichen Einbehalten führen.
+![DD+7 als Zeitachse von Zustellung über Freigabe bis Bankeingang](/blog/figures/amazon-dd7-liquiditaet.svg)
 
-## Schnellere Auszahlung?
+Legt pro Woche erwartete Freigaben, voraussichtliche Auszahlungen und erwartete Bankeingänge an. Daneben stehen Lieferantenzahlungen, Fracht, Steuern, Werbung und laufende Kosten. So wird sichtbar, ob ein profitabler Monat trotzdem eine Zahlungslücke enthält.
 
-Je nach Region und Programm gibt es teils Optionen für häufigere oder schnellere Auszahlungen. Ob und welche dir zur Verfügung stehen, hängt von deinem Kontotyp und Amazons aktuellem Angebot ab – das solltest du in deinen Kontoeinstellungen prüfen. Verlasse dich für die Planung aber besser auf den Standardrhythmus, statt auf Sonderoptionen zu setzen.
+Nutzt dafür die tatsächlichen Bestell- und Lieferdaten sowie den Zahlungsbericht. Wer nur den Gesamtumsatz um zwei Wochen verschiebt, übersieht unterschiedliche Lieferzeiten und Reserven. Prüft außerdem, welche Werbekosten tatsächlich über das Guthaben laufen und welche separat abgebucht werden.
 
-## Was das für deine Liquiditätsplanung bedeutet
+## Ein Rhythmus für wachsende Marken
 
-Der Auszahlungsrhythmus ist ein zentraler Baustein des Cash-Conversion-Zyklus: Du bezahlst Ware und Werbung früher, als du das Geld aus den Verkäufen erhältst. Plane deshalb mit dem realistischen Zeitversatz – Verkauf heute heißt nicht Geld heute, sondern Geld in mehreren Tagen bis gut zwei Wochen, abzüglich Reserve. Wer schnell wächst, sollte diesen Versatz besonders ernst nehmen, weil immer mehr Kapital gleichzeitig „unterwegs" ist.
+Aktualisiert eine rollierende 13-Wochen-Vorschau wöchentlich. Für die nächsten zwei Wochen sollten bestätigte Termine Vorrang vor Umsatzhoffnungen haben. Simuliert bei großen Nachbestellungen eine längere Lieferzeit und eine spätere Auszahlung. Erst wenn der engste Liquiditätspunkt tragfähig bleibt, ist zusätzliches Werbebudget sinnvoll freigegeben.
 
-## Praktische Tipps
+Die Verbindung zur Bestandsplanung erklärt [Inventar und Cashflow](/blog/inventar-cashflow). Bei temoa verbinden wir [FBA- und Bestandsmanagement](/leistungen/fba-inventory-management) mit Kampagnenentscheidungen, damit Nachfrage und Lieferfähigkeit zusammenpassen.
 
-Behalte deine erwarteten Auszahlungen im Blick und führe eine einfache Liquiditätsvorschau, die Verkäufe, Reserven, Gebühren und Auszahlungstermine berücksichtigt. So vermeidest du böse Überraschungen, etwa wenn eine geplante Lieferantenzahlung ansteht, das Amazon-Geld aber noch im Zyklus oder in der Reserve hängt. Halte zudem dein Bankkonto und deine Kontodaten aktuell, damit Auszahlungen nicht verzögert werden.
+*Regelstand geprüft am 17. Oktober 2026; kontospezifische Zahlungsanzeigen gehen einer pauschalen Planannahme vor.*
 
-## Fazit
+## Praxis: DD+7 auf einer Zeitachse abbilden
 
-Amazon zahlt in der Regel alle 14 Tage aus – plus einige Tage bis zum Geldeingang –, und behält über die Reserve oft einen Teil zur Absicherung von Retouren zurück. Für dich heißt das: Dein Umsatz wird nicht zu sofort verfügbarem Geld. Wer diesen Rhythmus und die Reserve in seine Liquiditätsplanung einbaut, vermeidet Engpässe und steuert sein Wachstum auf gesunder finanzieller Basis. Im Zweifel lohnt der Blick in die aktuellen Auszahlungseinstellungen des eigenen Kontos.
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>DD+7 auf einer Zeitachse abbilden</h3>
+<p>Eine Bestellung erfolgt am 1. Oktober, die Zustellung am 4. Oktober. Sieben Tage nach Zustellung wäre der 11. Oktober – nicht der 8. Oktober. Auch dieses rechnerische Freigabedatum ist noch kein garantierter Bankeingang.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Plant Freigabe, Auszahlungsanforderung und Bankverarbeitung als getrennte Schritte.
+2. Gleicht die Vorschau mit dem tatsächlichen Zahlungskonto ab. Zusätzliche Einbehalte, Gebühren und Erstattungen dürfen nicht als bereits verfügbare Liquidität behandelt werden.
+
+## Eine Nachbestellung gegen den engsten Kontostand testen
+
+Die entscheidende Zahl einer 13-Wochen-Vorschau ist nicht der Kassenbestand am Quartalsende, sondern der **niedrigste verfügbare Betrag dazwischen**. Legt Lieferantenanzahlungen, Fracht, Ads, Steuern und erwartete Bankeingänge wöchentlich übereinander. Verschiebt dann in einem zweiten Szenario Zustellungen und Freigaben um eine Woche; prüft, ob die Nachbestellung noch tragfähig ist.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Liquidität</p>
+<h3>Profitabel im Monat, knapp in Woche drei</h3>
+<p>Eine Marke erwartet im Monat 120.000 € Umsatz und 20.000 € Beitrag. Die nächste Charge erfordert jedoch 45.000 € Anzahlung vor dem frühesten größeren Bankeingang. Ein Monats-P&L zeigt keinen Engpass, die wöchentliche Zahlungszeitachse schon. Das Team verschiebt einen Teil der Werbeausweitung und stimmt die Bestellung mit real verfügbaren Mitteln ab.</p>
+</aside>
+
+Die [Bestands- und Cashflow-Planung](/blog/inventar-cashflow) verbindet Reichweite, Lead Time und Kapital. Für eine kritische SKU können wir im [Gespräch](/gespraech-vereinbaren) prüfen, welche Werbe- und Nachbestellentscheidung euer tatsächlicher Auszahlungskalender trägt.

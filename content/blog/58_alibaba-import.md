@@ -15,7 +15,7 @@ Alibaba ist ein B2B-Marktplatz, der Käufer mit Herstellern und Händlern verbin
 
 ## Schritt 1: Seriöse Lieferanten finden
 
-Nicht jeder Anbieter ist vertrauenswürdig. Achte auf Signale wie Verifizierungsstatus, Betriebszugehörigkeit, Transaktionshistorie und ob es sich um einen echten Hersind oder nur einen Zwischenhändler handelt. Kontaktiere mehrere Lieferanten, stelle gezielte Fragen (Kapazität, Zertifikate, Anpassungsmöglichkeiten) und vergleiche Antworten. Wie professionell und schnell ein Lieferant kommuniziert, ist selbst schon ein Qualitätssignal.
+Nicht jeder Anbieter ist vertrauenswürdig. Achte auf Signale wie Verifizierungsstatus, Betriebszugehörigkeit, Transaktionshistorie und ob es sich um einen echten Hersteller oder nur einen Zwischenhändler handelt. Kontaktiere mehrere Lieferanten, stelle gezielte Fragen (Kapazität, Zertifikate, Anpassungsmöglichkeiten) und vergleiche Antworten. Wie professionell und schnell ein Lieferant kommuniziert, ist selbst schon ein Qualitätssignal.
 
 ## Schritt 2: Muster bestellen und prüfen
 
@@ -36,6 +36,25 @@ Ein häufig unterschätzter Block sind die Gesamtkosten der Einfuhr: Fracht (See
 ## Schritt 6: Compliance und Qualität sichern
 
 Stelle sicher, dass dein Produkt alle erforderlichen Standards und Kennzeichnungen für deinen Zielmarkt erfüllt (Sicherheit, Zertifikate, Labeling). Lass dir relevante Dokumente vom Hersteller geben. Eine Qualitätskontrolle vor dem Versand – idealerweise durch einen unabhängigen Dienstleister – verhindert, dass eine fehlerhafte Charge erst im Amazon-Lager auffällt, wenn es zu spät ist.
+
+## Compliance vor der Bestellung klären
+
+Die GPSR gilt seit 13. Dezember 2024 für die erfassten Verbraucherprodukte. Artikel 19 verlangt im Onlineangebot insbesondere Produktidentifikation, Herstellerinformationen, gegebenenfalls den verantwortlichen EU-Wirtschaftsakteur und einschlägige Warn- und Sicherheitsinformationen. Prüft zusätzlich das produktspezifische Recht; ein Lieferantenzertifikat allein ersetzt eure Prüfung nicht.
+
+[Primärquelle und Details](https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0988) · geprüft am 17. Oktober 2026.
+
+## Praxis: Ein freigegebenes Muster reicht nicht für jede Charge
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
+<h3>Ein freigegebenes Muster reicht nicht für jede Charge</h3>
+<p>Das erste Muster erfüllt die Spezifikation. Die Seriencharge verwendet später ein anderes Material, das im Listing unverändert beworben wird. Ohne Änderungsfreigabe entsteht ein Qualitäts- und möglicherweise Complianceproblem.</p>
+</aside>
+
+**So setzt ihr es um:**
+
+1. Vereinbart Referenzmuster, Prüfmerkmale, zulässige Abweichungen und Freigaben schriftlich.
+2. Prüft Produktunterlagen, Kennzeichnung und erforderliche Onlineangaben vor der Bestellung. Eine erfolgreiche Qualitätsstichprobe ersetzt keine produktspezifische Konformitätsprüfung.
 
 ## Fazit
 

@@ -7,7 +7,7 @@ kategorie: "Amazon PPC & Advertising"
 
 # Amazon campaign structure: a PPC architecture that actually scales
 
-Most Amazon advertising accounts do not grow, they sprawl. New campaigns get stacked on old ones reactively, ad groups fill up with keywords thrown together, match types blur into each other, and after eighteen months the account looks like a filing cabinet nobody has tidied since launch. The data is there but unreadable. And what you cannot read, you cannot optimize, let alone scale. This is exactly the wall many sellers hit between their first and second million in revenue.
+A growing Amazon account needs each campaign to have an identifiable job. If branded and generic searches, discovery targets and proven product terms share budgets without a clear rule, a higher ACoS cannot be traced to a meaningful decision. Start by separating the queries that acquire demand from those that capture existing brand intent. Then assign budgets and reporting to each job.
 
 ## Why structure matters more the bigger you get
 
@@ -21,7 +21,7 @@ A scalable structure separates campaigns by their function, not by accident. Thr
 - **Performance (the harvest):** exactly targeted campaigns for the keywords you already know sell. This is where you deliberately put more budget and higher bids.
 - **Defense and brand:** campaigns on your own brand keywords, to keep competitors away from your buyers.
 
-This separation is the backbone. It stops the same keywords bidding against each other across several campaigns.
+This separation is the backbone. It makes budget ownership and reporting clearer. Overlap does not automatically mean that your own campaigns raise their own CPC.
 
 ## The keyword funnel principle
 
@@ -37,7 +37,7 @@ It sounds trivial and it is decisive in large accounts: one naming scheme throug
 
 ## Rebuild cleanly or restructure?
 
-If your account is already a mess, the question is: tidy up or rebuild? A complete rebuild is risky because you lose ranking history. A step-by-step restructure is usually better: first move the top performers into a clean structure, then set up discovery properly, then bring the rest across. Do not change everything at once but in controlled stages, so you can judge the effect of each change.
+Restructuring changes delivery, budgets and comparability. It does not automatically delete an ASIN's organic ranking history. Migrate in stages, preserve baseline exports and confirm that new campaigns deliver before negating successful terms in old campaigns.
 
 ## In short
 

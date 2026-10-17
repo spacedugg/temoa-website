@@ -13,7 +13,7 @@ For more than a decade the central question for every listing was: will a buyer 
 
 ## What happened
 
-On 13 May 2026 Amazon retired its previous AI shopping assistant Rufus and replaced it with **Alexa for Shopping**. Unlike Rufus, which lived in a separate chat window most buyers ignored, Alexa for Shopping is embedded directly in the search bar, the search results and the product detail pages. The assistant answers product questions, compares items, shows price histories and can plan purchases. Every signed-in Amazon customer can use it free of charge, with no Echo device and no Prime membership needed. One point matters: Alexa for Shopping knows the user's purchase history and earlier Alexa interactions, which makes the recommendations strongly personalized.
+Amazon introduced Alexa for Shopping on 13 May 2026 as an evolution of Rufus in the US. The [official announcement](https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant) describes personalised shopping assistance. It does not establish identical availability in Germany. Verify the actual marketplace and account experience before planning a specific feature. Accurate, consistent product information is a sensible preparation; no published formula guarantees an AI recommendation.
 
 ## Why that changes discovery
 

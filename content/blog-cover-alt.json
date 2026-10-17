@@ -1,0 +1,406 @@
+{
+  "acos-erklaert": {
+    "de": "Messanzeige mit orangem Zeiger neben zwei Würfeln.",
+    "en": "Dial with an orange needle beside two cubes."
+  },
+  "guter-acos-benchmarks": {
+    "de": "Balken in unterschiedlicher Höhe mit einer Vergleichslinie.",
+    "en": "Bars of different heights with a benchmark line."
+  },
+  "tacos-erklaert": {
+    "de": "Zwei ineinanderliegende Ringe neben einem Kreisdiagramm.",
+    "en": "Two nested rings beside a pie chart."
+  },
+  "roas-berechnen": {
+    "de": "Münzstapel mit einem aufwärts gerichteten Pfeil.",
+    "en": "Coin stacks connected by an upward arrow."
+  },
+  "negative-keywords": {
+    "de": "Trichter, der kleine Kugeln filtert.",
+    "en": "Funnel filtering small spheres."
+  },
+  "produkttitel-optimieren": {
+    "de": "Produktkarte mit Textbalken und einem orangefarbenen Cursor.",
+    "en": "Product card with text bars and an orange cursor."
+  },
+  "a-plus-content": {
+    "de": "Gestaffelte Inhaltskarten mit Bild- und Rastersymbolen.",
+    "en": "Layered content cards with image and grid symbols."
+  },
+  "fba-gebuehren-rechner": {
+    "de": "Paket, Taschenrechner und Münzen auf einem Podest.",
+    "en": "Parcel, calculator and coins on a platform."
+  },
+  "ipi-score": {
+    "de": "Messanzeige neben Lagerkisten und einer Palette.",
+    "en": "Gauge beside warehouse boxes and a pallet."
+  },
+  "fbm-vs-fba": {
+    "de": "Einzelpaket auf einem Transportwagen neben einem Lagerregal.",
+    "en": "Single parcel on a cart beside a warehouse shelf."
+  },
+  "kampagnenstruktur-ppc": {
+    "de": "Mehrere Ebenen verbundener Karten als Kampagnenstruktur.",
+    "en": "Connected cards arranged in campaign levels."
+  },
+  "sponsored-brands-display": {
+    "de": "Breite und quadratische Anzeigenkarten nebeneinander.",
+    "en": "Wide and square advertising cards side by side."
+  },
+  "full-funnel-advertising": {
+    "de": "Mehrstufiger Trichter mit blauen und orangefarbenen Kugeln.",
+    "en": "Multi-stage funnel with blue and orange spheres."
+  },
+  "ppc-dayparting": {
+    "de": "Uhr mit orange markiertem Zeitfenster neben einem Balkendiagramm.",
+    "en": "Clock with an orange time segment beside a bar chart."
+  },
+  "conversion-rate-optimierung": {
+    "de": "Trichter mit Produktpaket und aufwärts gerichtetem Pfeil.",
+    "en": "Funnel with a product package and an upward arrow."
+  },
+  "brand-store-funnel": {
+    "de": "Ladenfront mit einem Trichter vor dem Eingang.",
+    "en": "Storefront with a funnel leading to its entrance."
+  },
+  "bsr-erklaert": {
+    "de": "Siegertreppe mit einem Stern auf der höchsten Stufe.",
+    "en": "Podium with a star on the top step."
+  },
+  "amazon-flywheel": {
+    "de": "Ineinandergreifende Zahnräder mit einem kreisförmigen Pfeil.",
+    "en": "Interlocking gears surrounded by a circular arrow."
+  },
+  "vendor-vs-seller-central": {
+    "de": "Zwei unterschiedlich große Portale nebeneinander.",
+    "en": "Two differently sized portals side by side."
+  },
+  "private-label-erfolg": {
+    "de": "Weiße Produktverpackung mit orangem Band und Anhänger.",
+    "en": "White product box with an orange band and tag."
+  },
+  "ppc-intelligence-wettbewerb": {
+    "de": "Lupe über mehreren kleinen Balkendiagrammen.",
+    "en": "Magnifying glass above small bar charts."
+  },
+  "amazon-attribution": {
+    "de": "Kettenglieder zwischen einer Karte und einer Einkaufstasche.",
+    "en": "Chain links between a card and a shopping bag."
+  },
+  "ppc-kosten-senken": {
+    "de": "Absteigende Münzstapel neben einem Sparschwein.",
+    "en": "Descending coin stacks beside a piggy bank."
+  },
+  "kindle-ads": {
+    "de": "Lesegerät mit Büchern und einer schwebenden Anzeigenkarte.",
+    "en": "E-reader with books and a floating ad card."
+  },
+  "kundenfragen-seo": {
+    "de": "Sprechblasen mit Fragezeichen über einer Produktkarte.",
+    "en": "Question bubbles above a product card."
+  },
+  "visual-search-optimierung": {
+    "de": "Kameraobjektiv und orangefarbener Suchrahmen um ein Produkt.",
+    "en": "Camera lens and orange viewfinder around a product."
+  },
+  "amazon-positionierung": {
+    "de": "Große Standortmarkierung auf einem Zielring mit kleineren Markierungen.",
+    "en": "Large location pin on a target ring with smaller pins."
+  },
+  "kategorie-positionierung": {
+    "de": "Regal mit einem orangefarbenen Produktpaket und Aufwärtspfeil.",
+    "en": "Shelf with an orange product box and an upward arrow."
+  },
+  "amazon-badges": {
+    "de": "Produktpaket mit blauen und orangefarbenen Auszeichnungen.",
+    "en": "Product box with blue and orange badges."
+  },
+  "algorithmus-recovery": {
+    "de": "Absteigende Balken mit einem aufwärts gebogenen Pfeil und Werkzeug.",
+    "en": "Descending bars with an upward-curving arrow and a tool."
+  },
+  "brand-registry": {
+    "de": "Schutzschild mit Haken neben einem Siegel.",
+    "en": "Shield with a check mark beside a seal."
+  },
+  "transparency-programm": {
+    "de": "Produktpaket mit einem Codemuster, Scanstrahl und Schutzschild.",
+    "en": "Product box with a code pattern, scanning beam and shield."
+  },
+  "hijacker-entfernen": {
+    "de": "Produktpaket mit Schutzschild und einer entfernten Kopie.",
+    "en": "Product box with a shield and a duplicate being removed."
+  },
+  "account-gesperrt": {
+    "de": "Vorhängeschloss vor einer Kontokarte mit Warnsymbol.",
+    "en": "Padlock in front of an account card with a warning symbol."
+  },
+  "approval-needed": {
+    "de": "Paket vor einer Zugangsschranke mit Schlüssel.",
+    "en": "Parcel at an access gate with a key."
+  },
+  "support-cases-loesen": {
+    "de": "Headset neben einem Stapel Supportkarten mit Haken.",
+    "en": "Headset beside a stack of support cards with a check mark."
+  },
+  "message-center": {
+    "de": "Briefumschlag mit Benachrichtigungspunkt und Sprechblasen.",
+    "en": "Envelope with a notification dot and speech bubbles."
+  },
+  "konto-schliessen": {
+    "de": "Kontokarte vor einer Tür mit einem nach außen gerichteten Pfeil.",
+    "en": "Account card in front of a door with an outward arrow."
+  },
+  "rezension-loeschen": {
+    "de": "Reihe von Sternen mit einem Radiergummi neben einem einzelnen Stern.",
+    "en": "Row of stars with an eraser beside one star."
+  },
+  "bewertungen-aufbauen": {
+    "de": "Orange Sterne und eine Sprechblase mit Herzsymbol.",
+    "en": "Orange stars and a speech bubble with a heart."
+  },
+  "seller-gebuehren-ueberblick": {
+    "de": "Kreisdiagramm mit orangem Segment neben Münzen.",
+    "en": "Pie chart with an orange segment beside coins."
+  },
+  "inventar-cashflow": {
+    "de": "Pakete und Münzstapel, verbunden durch kreisende Pfeile.",
+    "en": "Boxes and coin stacks connected by looping arrows."
+  },
+  "peak-season": {
+    "de": "Kalender mit markiertem Termin, Paketen und Aufwärtspfeil.",
+    "en": "Calendar with a highlighted date, parcels and an upward arrow."
+  },
+  "frustfreie-verpackung": {
+    "de": "Geöffnetes Paket mit Haken und blattförmigem Anhänger.",
+    "en": "Open parcel with a check mark and leaf-shaped tag."
+  },
+  "restocking-fee": {
+    "de": "Paket mit Rücksendepfeil vor einem Regal und einer Münze.",
+    "en": "Parcel with a return arrow beside a shelf and a coin."
+  },
+  "amazon-pallets": {
+    "de": "Palette mit weißen Paketen und orangefarbenem Band.",
+    "en": "Pallet of white boxes secured with an orange band."
+  },
+  "amazon-renewed": {
+    "de": "Gerät mit kreisförmigem Erneuerungspfeil und Prüfsiegel.",
+    "en": "Device with a circular renewal arrow and check badge."
+  },
+  "amazon-prints": {
+    "de": "Bilderrahmen mit stilisierten Bergmotiven.",
+    "en": "Photo frames with stylised mountain scenes."
+  },
+  "small-and-light": {
+    "de": "Kleines und großes Paket neben einem Federsymbol.",
+    "en": "Small and large parcels beside a feather symbol."
+  },
+  "wie-oft-zahlt-amazon": {
+    "de": "Kalender und Münzstapel, verbunden durch einen Pfeil.",
+    "en": "Calendar and coin stack connected by an arrow."
+  },
+  "lohnt-sich-fba": {
+    "de": "Waage mit Paketen auf einer Seite und einer Münze auf der anderen.",
+    "en": "Balance scale weighing parcels against a coin."
+  },
+  "lohnt-sich-verkauf-amazon": {
+    "de": "Waage mit Einkaufstasche und Münzstapel.",
+    "en": "Balance scale with a shopping bag and a coin stack."
+  },
+  "skalierung-ueber-1-5m": {
+    "de": "Treppe mit einem Plateau und einem aufsteigenden Pfeil.",
+    "en": "Staircase with a plateau and a rising arrow."
+  },
+  "retail-arbitrage": {
+    "de": "Einkaufskorb, Preisschild und Pakete mit Verbindungspfeilen.",
+    "en": "Shopping basket, price tag and parcels with connecting arrows."
+  },
+  "wholesale": {
+    "de": "Palette mit gleichen Paketen neben einer Bestellliste.",
+    "en": "Pallet of identical boxes beside an order checklist."
+  },
+  "verkaufen-ohne-lager": {
+    "de": "Paket auf einer eingezeichneten Route über einem leeren Lagerpodest.",
+    "en": "Parcel following a marked route above an empty storage platform."
+  },
+  "fba-vs-dropshipping": {
+    "de": "Zwei Versandwege von einer Fabrik über ein Lager oder direkt zum Haus.",
+    "en": "Two shipping routes from a factory via a warehouse or directly to a home."
+  },
+  "alibaba-import": {
+    "de": "Frachtschiff mit Containern und einem Pfeil zu einem Lager.",
+    "en": "Cargo ship with containers and an arrow to a warehouse."
+  },
+  "dynamic-pricing": {
+    "de": "Preisschild mit Doppelpfeil neben einem Kurvendiagramm.",
+    "en": "Price tag with a double arrow beside a line chart."
+  },
+  "amazon-automation": {
+    "de": "Zahnräder und ein Schalter über einem Förderband.",
+    "en": "Gears and a switch above a conveyor belt."
+  },
+  "competitor-intelligence": {
+    "de": "Radar mit Markierungen und einer Lupe.",
+    "en": "Radar with markers and a magnifying glass."
+  },
+  "lightning-deals": {
+    "de": "Orangefarbener Blitz neben einem Preisschild und Zeitring.",
+    "en": "Orange lightning bolt beside a price tag and countdown ring."
+  },
+  "llc-firma-amazon": {
+    "de": "Bürogebäude mit einem Dokument.",
+    "en": "Office building with a document."
+  },
+  "storefront-einrichten": {
+    "de": "Ladenfront mit Markise, Paketen und orangefarbener Fahne.",
+    "en": "Storefront with an awning, parcels and an orange flag."
+  },
+  "business-valuation": {
+    "de": "Waage mit einem Laden und Münzen neben einem Dokument.",
+    "en": "Scale weighing a shop against coins beside a document."
+  },
+  "walmart-marketplace": {
+    "de": "Zwei Plattformen mit Einkaufstaschen, verbunden durch eine Brücke.",
+    "en": "Two platforms with shopping bags connected by a bridge."
+  },
+  "paket-gestohlen": {
+    "de": "Paket auf einer Fußmatte neben Fragezeichen und Schutzschild.",
+    "en": "Parcel on a doormat beside a question mark and shield."
+  },
+  "falscher-artikel": {
+    "de": "Zwei unterschiedlich markierte Pakete mit einem Austauschpfeil.",
+    "en": "Two differently marked parcels with a swap arrow."
+  },
+  "gift-return": {
+    "de": "Geschenkpaket mit Schleife und Rücksendepfeil.",
+    "en": "Gift box with a ribbon and return arrow."
+  },
+  "unclaimed-packages": {
+    "de": "Paketstapel in einer Schließfachwand mit geöffnetem Fach.",
+    "en": "Stacked parcels in a locker wall with an open compartment."
+  },
+  "konto-kaufen-verkaufen": {
+    "de": "Zwei Kontokarten mit Übergabepfeil und Vorhängeschloss.",
+    "en": "Two account cards with a transfer arrow and padlock."
+  },
+  "amazon-accelerate": {
+    "de": "Konferenzbühne mit Rednerpult, Stühlen und Scheinwerfer.",
+    "en": "Conference stage with a lectern, chairs and spotlight."
+  },
+  "tarif-zoll-strategie": {
+    "de": "Frachtcontainer mit Anhänger neben einem Taschenrechner.",
+    "en": "Cargo container with a tag beside a calculator."
+  },
+  "alexa-for-shopping-ki-suche": {
+    "de": "Smarter Lautsprecher mit orangem Leuchtring, Sprechblasen und Einkaufstasche.",
+    "en": "Smart speaker with an orange light ring, speech bubbles and shopping bag."
+  },
+  "amazon-agentur-waehlen": {
+    "de": "Mehrere Profilkarten mit einer hervorgehobenen Auswahl.",
+    "en": "Profile cards with one highlighted selection."
+  },
+  "ppc-agentur-auswahl": {
+    "de": "Profilkarten mit Diagrammen, Haken und Lupe.",
+    "en": "Profile cards with charts, a check mark and magnifier."
+  },
+  "fullservice-vs-spezialagentur": {
+    "de": "Block aus mehreren Kacheln neben einer einzelnen orangefarbenen Kachel.",
+    "en": "Multi-tile block beside a single orange tile."
+  },
+  "brand-management-agentur": {
+    "de": "Schutzschild mit Stern, Schlüssel und Bestätigungskarte.",
+    "en": "Shield with a star, key and confirmation card."
+  },
+  "ecommerce-agentur-ueber-amazon-hinaus": {
+    "de": "Zentrale Plattform mit Verbindungen zu Einkaufstasche, Laden und Globus.",
+    "en": "Central hub connected to a shopping bag, store and globe."
+  },
+  "agentur-engagieren-ablauf": {
+    "de": "Geschwungener Weg mit Meilensteinen und einer Zielfahne.",
+    "en": "Curved path with milestones and a finish flag."
+  },
+  "zusammenarbeit-agentur-performance": {
+    "de": "Ineinandergreifende Formen vor einem steigenden Balkendiagramm.",
+    "en": "Interlocking shapes in front of a rising bar chart."
+  },
+  "amazon-marketingstrategie-ueberblick": {
+    "de": "Mehrere Symbolkacheln, verbunden mit einer zentralen orangefarbenen Kachel.",
+    "en": "Symbol tiles connected to a central orange tile."
+  },
+  "search-query-performance": {
+    "de": "Lupe prüft Produktkarten; orange Markierungen führen zum Warenkorb als Symbol für Suchanfragenanalyse.",
+    "en": "Magnifying glass inspecting product cards with orange markers leading to a basket, symbolising search analysis."
+  },
+  "business-reports": {
+    "de": "Dreidimensionales Klemmbrett mit abstrakten Balken, Diagnoseinstrument und Produktpaketen.",
+    "en": "Three-dimensional clipboard with abstract bars, a diagnostic dial and product parcels."
+  },
+  "amazon-dsp-budget": {
+    "de": "Drei Torbögen, ein Bildschirm und Münzen als Motiv für DSP-Budgetentscheidungen.",
+    "en": "Three archways, a screen and coins illustrating DSP budget choices."
+  },
+  "amazon-cpc-conversion-analyse": {
+    "de": "Cursor, Produktkarte, Einkaufswagen und Messanzeige für Klickkosten und Conversion.",
+    "en": "Cursor, product card, shopping basket and gauge for click cost and conversion."
+  },
+  "amazon-werbung-inkrementalitaet": {
+    "de": "Zwei Plattformen mit Waage und Megafon als Motiv für den Vergleich von Werbewirkung.",
+    "en": "Two platforms with scales and a megaphone illustrating comparison of advertising effects."
+  },
+  "amazon-featured-offer-analyse": {
+    "de": "Drei Produktangebote mit einer orange hervorgehobenen Karte.",
+    "en": "Three product offers with one card highlighted in orange."
+  },
+  "amazon-keyword-recherche": {
+    "de": "Lupe über verbundenen Such- und Produktkarten.",
+    "en": "Magnifying glass over connected search and product cards."
+  },
+  "amazon-produktlaunch": {
+    "de": "Produkt auf einer Strecke mit drei Kontrollpunkten vor einem Geschäft.",
+    "en": "Product on a route with three checkpoints leading to a storefront."
+  },
+  "amazon-content-experimente": {
+    "de": "Zwei Produktdarstellungen neben einer Waage als Motiv für Content-Experimente.",
+    "en": "Two product presentations beside scales illustrating content experiments."
+  },
+  "amazon-kanalstrategie-marken": {
+    "de": "Produkt mit verbundenen Vertriebskanälen und Geschäften.",
+    "en": "Product connected to distribution channels and storefronts."
+  },
+  "amazon-ki-sichtbarkeit": {
+    "de": "Kopfhörer, Produktinformationen und Sprechblasen als Motiv für KI-Produktsuche.",
+    "en": "Headphones, product information and speech bubbles illustrating AI product discovery."
+  },
+  "amazon-account-health": {
+    "de": "Schild vor Dokumenten und Produktkartons als Motiv für Account Health.",
+    "en": "Shield in front of documents and product boxes illustrating Account Health."
+  },
+  "amazon-vine-kalkulation": {
+    "de": "Produkt, Bewertungsstern, Münzen und Waage als Motiv für Vine-Kosten.",
+    "en": "Product, review star, coins and scales illustrating Vine costs."
+  },
+  "amazon-awd-us-logistik": {
+    "de": "Lagergebäude mit Förderband, Kartons und Uhr.",
+    "en": "Warehouse with conveyor, boxes and a clock."
+  },
+  "amazon-ppc-auktion": {
+    "de": "Abstrakte Gebotskarten und orangefarbener Klickpunkt als Motiv der PPC-Auktion.",
+    "en": "Abstract bid cards and orange click marker illustrating the PPC auction."
+  },
+  "amazon-ki-kaufagenten": {
+    "de": "Produktkarte mit Datenfeldern und Assistenzsymbol als Motiv für KI-Kaufagenten.",
+    "en": "Product card with data fields and assistant symbol illustrating AI shopping agents."
+  },
+  "amazon-gebuehren-2026": {
+    "de": "Produktkarton, Gebührenkarten und Münzen für Amazon-Kosten 2026.",
+    "en": "Product box, fee cards and coins illustrating Amazon costs in 2026."
+  },
+  "amazon-acos-senken": {
+    "de": "Werbekarte, Zielmarke und fallende Kostenkurve als ACoS-Motiv.",
+    "en": "Ad card, target and declining cost line illustrating ACoS optimization."
+  },
+  "amazon-marketingagenturen-vergleich": {
+    "de": "Vergleichende Leistungskarten und Auswahlmarke als Agenturvergleich.",
+    "en": "Service comparison cards and choice marker illustrating agency selection."
+  }
+}
