@@ -37,12 +37,15 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - Storefront (64) mit Kaufweg-Briefing, Traffic-Quellen und Seiten-Insights ausgebaut.
 - KI-Suche (74) mit Produktbeleg-Matrix, Fragestichprobe und Marktbezug vertieft.
 - Importkosten (73) mit Preis-/Werbe-/Bestandshebeln und SKU-Beitragsbeispiel erweitert.
+- PPC-Wettbewerbsdaten (21) als Query-Matrix mit Diagnose und Testgrenzen vertieft.
+- Automatisierung (60) mit prozessbezogenen Sicherheitsgrenzen und Einführungsstufen erweitert.
+- Unternehmensbewertung (65) mit sieben Due-Diligence-Feldern und Übergabeplan vertieft.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Damit sind 52 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 38 ältere). Insgesamt bleiben 27 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Damit sind 55 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 41 ältere). Insgesamt bleiben 24 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
 

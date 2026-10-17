@@ -51,6 +51,33 @@ Mache aus Wettbewerbsbeobachtung eine regelmäßige Gewohnheit statt einer einma
 1. Erfasst Suchanfrage, Zeitpunkt, Standort, Gerät und beobachtetes Angebot.
 2. Prüft anschließend eure eigenen Suchbegriffs- und Platzierungsdaten. Testet eine Lücke mit Budgetgrenze, statt vermutete Wettbewerbergebote nachzubauen.
 
+## Eine Query-Wettbewerbsmatrix statt täglicher Screenshots
+
+Wählt die 15–30 Suchanfragen, die für eure priorisierten SKUs den größten wirtschaftlichen Hebel haben. Erfasst **eigene Anzeigen- und organische Präsenz**, die regelmäßig sichtbaren Wettbewerbsangebote, deren Preis, Lieferzusage, Bewertungsstand und den wichtigsten Produktunterschied. Trennt Marken-, Kategorie- und Problem-Queries. Ein Screenshot ist eine Momentaufnahme; wiederholte Stichproben zu ähnlichen Zeitfenstern zeigen eher, ob sich die Angebotslage wirklich verändert.
+
+| Beobachtung | Mögliche Ursache | Besserer Test als „Gebot hoch“ |
+| --- | --- | --- |
+| CPC steigt, eigene CTR stabil | Mehr Auktionsdruck oder anderer Platzierungsmix | Placement-Report und Query-Segment prüfen |
+| CTR fällt bei gleichem CPC | Konkurrenzangebot, Bild, Preis oder Claim verändert | Suchergebnis und eigenes Hauptbild vergleichen |
+| Klicks bleiben, Käufe fallen | Detailseite, Bestand, Featured Offer oder neue Alternative | SKU-Conversion und Angebotsstatus prüfen |
+| Neuer Anbieter rankt organisch | Angebot trifft Suchabsicht oder gewinnt Nachfrage | Eigene Produktdifferenzierung und Query-Fit testen |
+
+![Amazon-PPC-Wettbewerb: Query-Signal, Diagnose und Test](/blog/figures/ppc-wettbewerb-query-matrix.svg)
+
+Eine Tool-Schätzung über fremde Umsätze oder Keywords ist keine Einsicht in das fremde Ads-Konto. Nutzt sie zur Priorisierung; die Entscheidung basiert auf euren eigenen Suchbegriffen, Placements und SKU-Beiträgen. Für die Segmentierung eignen sich [Search Query Performance](/blog/search-query-performance) und [Business Reports](/blog/business-reports); die [Wettbewerbsanalyse](/blog/competitor-intelligence) verbindet die Anzeigenbeobachtung mit Produktpositionierung.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Query-Entscheidung</p>
+<h3>Ein Konkurrent gewinnt die Top-Platzierung</h3>
+<p>Auf „Edelstahl Trinkflasche 750 ml“ erscheint ein günstigeres Wettbewerbsprodukt. Das eigene Angebot erhält weiterhin Klicks, aber die Conversion sinkt. Bevor das Team die Gebote erhöht, prüft es Preisabstand, Maßangaben, verfügbare Varianten und Retouren. Ein begrenzter Test verbessert zuerst die sichtbare Größenkommunikation auf der Detailseite; die Gebotsänderung bleibt separat. So lässt sich unterscheiden, ob Auktion oder Angebot der Engpass war.</p>
+</aside>
+
+## Offensiv und defensiv sauber trennen
+
+**Offensiv:** Testet Produkt-Targeting auf vergleichbaren ASINs, wenn euer Angebot einen belegbaren Vorteil zeigt. Prüft Klickpreis und Contribution nach SKU, statt nur den fremden Listenpreis zu betrachten. **Defensiv:** Eigene Marken- und Produktdetailseiten können Werbeflächen enthalten; eine Verteidigungskampagne braucht dennoch eine Inkrementalitätsfrage. Manche Brand-Klicks wären ohnehin erfolgt. Vergleicht daher Veränderungen des Gesamtbeitrags und der organischen Nachfrage, nicht allein den niedrigen Brand-ACoS. [Inkrementalität in Amazon Ads](/blog/amazon-werbung-inkrementalitaet) vertieft den Testaufbau.
+
+Setzt für jede Wettbewerber-Hypothese eine Laufzeit, eine maximale Investition und ein Stop-Kriterium. Wenn die Entscheidung beim Produkt oder Content liegt, löst eine höhere Auktion das Problem nicht. Wir verbinden [PPC](/leistungen/ppc-advertising) und [Analytics](/leistungen/analytics-reporting), um solche Query-Fälle im [Gespräch](/gespraech-vereinbaren) mit euch zu priorisieren.
+
 ## Fazit
 
-PPC-Intelligence bedeutet, den Markt nicht nur durch die Brille der eigenen Zahlen zu sehen, sondern den Wettbewerb als Teil der Gleichung zu begreifen. Wer beobachtet, welche Keywords und Platzierungen Konkurrenten besetzen, deckt Chancen und Risiken auf, die in den eigenen Daten unsichtbar bleiben. Die Kunst liegt darin, diese Signale als Hypothesen zu nutzen und an der eigenen Performance zu validieren – dann wird aus Beobachtung ein echter Vorteil.
+Wettbewerbsbeobachtung ist nützlich, wenn daraus eine überprüfbare Entscheidung wird: Query, eigenes Angebot, vermuteter Engpass, begrenzter Test und gemessener Beitrag. Sie ersetzt keine eigenen Leistungsdaten und liefert keinen Blick in fremde Budgets.

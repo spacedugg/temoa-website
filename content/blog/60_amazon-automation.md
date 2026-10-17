@@ -48,6 +48,35 @@ Der nützlichste Gedanke: Automatisierung ist ein Werkzeug, das deine Zeit vervi
 1. Definiert Mindestdaten, Verzögerung, Änderungsgrenze und Ausschlussbedingungen.
 2. Protokolliert jede automatische Änderung und benennt eine verantwortliche Person. Führt neue Regeln zunächst in einer kleinen Produktgruppe oder als Vorschlagsmodus ein.
 
+## Vier Regeln, vier unterschiedliche Sicherheitsgrenzen
+
+Automatisierung lohnt sich, wenn der Auslöser eindeutig, das Ergebnis beobachtbar und eine falsche Aktion rückgängig zu machen ist. Beginnt mit Warnungen und Vorschlägen, bevor ihr Änderungen ohne Freigabe erlaubt.
+
+| Prozess | Automatischer Auslöser | Harte Grenze | Menschliche Prüfung |
+| --- | --- | --- | --- |
+| PPC-Gebot | Genügend Klick- und Bestelldaten im definierten Zeitfenster | Maximale Gebotsänderung und SKU-Budget | Aktion, Preis, Bestand und Attribution prüfen |
+| Repricing | Konkurrenzpreis und eigene Kaufbarkeit ändern sich | Mindestpreis aus variablem Beitrag; Sperre bei unklarer Featured Offer | Preisfehler und Kanalwirkung prüfen |
+| Nachschub-Alert | Reichweite fällt unter Wiederbeschaffungszeit plus Puffer | Keine Bestellung ohne bestätigte Nachfrage und Liquidität | Saison, Lieferant und FBA-Kapazität beurteilen |
+| Listing-Qualität | Attribut oder ASIN wird unterdrückt | Kein automatisches Umschreiben regulierter Claims | Produktbeleg und Meldung prüfen |
+
+![Amazon-Automatisierung mit Auslöser, Grenze und Rückfallregel](/blog/figures/amazon-automation-guardrails.svg)
+
+Die [dynamische Preisstrategie](/blog/dynamic-pricing) benötigt eine wirtschaftliche Untergrenze; [PPC-Regeln](/blog/kampagnenstruktur-ppc) brauchen Datenverzögerung und Ausschlüsse. Ein Dashboard darf Warnungen bündeln, aber es ersetzt keine Produktverantwortung.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · falscher Werbeimpuls</p>
+<h3>Guter ACoS, falscher Zeitpunkt</h3>
+<p>Eine Gebotsregel sieht auf einer SKU einen günstigen ACoS und will das Budget um 40 % erhöhen. Der Bestand reicht jedoch nur noch für fünf Tage, die nächste Lieferung braucht drei Wochen. Die Regel hält die Änderung wegen der Reichweiten-Sperre an und meldet den Fall an Operations. Ohne diese Verknüpfung würde die Automatisierung den Ausverkauf beschleunigen.</p>
+</aside>
+
+## Einführung in drei Stufen
+
+1. **Beobachten:** Vier Wochen lang nur Vorschläge erzeugen. Protokolliert, welche Aktion die Regel ausgelöst hätte und welche Faktoren sie nicht kennt.
+2. **Begrenzen:** Für wenige SKUs innerhalb klarer Mindestdaten, Budgets und Preisgrenzen aktivieren. Messt Fehlalarme und verpasste Chancen.
+3. **Überwachen:** Jede Änderung mit Zeit, Eingabedaten, Version der Regel und verantwortlichem Owner speichern. Nach ungewöhnlichen Abweichungen pausiert das System und eine Person entscheidet.
+
+Bei einem externen „Done-for-you“-Angebot klärt vor allem **Kontoinhaberschaft, Zugriffsrechte, Datenexport, Preis- und Bestellbefugnis, Haftung und Kündigung**. Ein Versprechen passiven Einkommens ohne Einblick in Lieferanten, Listing und Kalkulation ist kein belastbarer Betriebsplan. Wir können mit euch im [Account-Management](/leistungen/account-management) die wiederkehrenden Aufgaben und ihre Kontrollpunkte definieren; bringt dafür einen konkreten Prozess ins [Gespräch](/gespraech-vereinbaren).
+
 ## Fazit
 
-Amazon-Automatisierung ist sinnvoll und oft notwendig, um zu skalieren – aber gezielt eingesetzt. Repricing, Bewertungsanfragen, Nachschub und Reporting lassen sich gut automatisieren; strategische und kreative Entscheidungen sowie die Werbesteuerung brauchen weiterhin menschliche Aufsicht. Größte Vorsicht ist bei teuren „Done-for-you"-Versprechen geboten, die passives Einkommen suggerieren und reale Risiken verschleiern. Richtig genutzt, schenkt Automatisierung dir Zeit für das Wesentliche; falsch verstanden, kostet sie dich die Kontrolle.
+Automatisiert zunächst reproduzierbare Entscheidungen mit guten Daten und einem klaren Rückweg. Jede Regel braucht einen Owner, eine Grenze und einen Alarm, wenn die Eingaben unzuverlässig werden. Dann spart sie Arbeit, ohne Preis, Bestand oder Account-Gesundheit unkontrolliert zu riskieren.

@@ -53,6 +53,36 @@ Wenn der Verkauf näher rückt, lohnt es sich, alle Unterlagen aufzubereiten (Fi
 1. Belegt jede Ergebnisbereinigung mit Dokument, Grund und realistischer Ersatzkostenannahme.
 2. Trennt Unternehmenswert, Warenbestand, Schulden und tatsächlich zufließenden Kaufpreis. Ein Multiple ohne diese Definitionen ist keine belastbare Bewertung.
 
+## Sieben Risiken, die Käufer im Datenraum prüfen
+
+Ein Multiple ist das Ergebnis der Prüfung, nicht der Ausgangspunkt. Käufer wollen wissen, ob der Ertrag **übertragbar** ist. Bereitet für jedes Risiko einen belegbaren Datenpunkt vor:
+
+| Prüffeld | Daten für die Due Diligence | Warum es zählt |
+| --- | --- | --- |
+| SKU-Konzentration | Umsatz und Beitrag je ASIN über 24 Monate | Ein einzelner Bestseller kann das Ergebnis dominieren |
+| Kanalmix | Amazon, DTC und B2B getrennt samt Kosten | Kanalrisiko und echte Kundenzugänge werden sichtbar |
+| Markenstärke | Markenrechte, Brand Registry, Brand Queries, Wiederkäufe | Produkte sind leichter oder schwerer kopierbar |
+| Operations | Prozesse, Teamrollen, Lieferverträge, Gründerstunden | Ersatzkosten und Übergabeaufwand |
+| Wachstum | Kohorten, Launches, Saisonalität und Margenverlauf | Wachstumsqualität statt nur einer guten Periode |
+| Kundenwert | Belegbare Wiederkäufe und Produktgruppen | Künftige Nachfrage statt bloßer Erstbestellungen |
+| Account- und Compliance-Risiko | Historie von Warnungen, IP, Produktsicherheit, Retouren | Kaufpreisabschlag oder Transaktionshindernis |
+
+![Sieben Prüffelder für den Verkauf eines Amazon-Geschäfts](/blog/figures/amazon-exit-datenraum.svg)
+
+Verwechselt eine Kennzahl nicht mit ihrem Beweis: Ein niedriger TACoS kann durch starke Markennachfrage entstehen oder dadurch, dass Wachstumskampagnen abgeschaltet wurden. Ein Käufer will die [Suchanfragen und Kaufanteile](/blog/search-query-performance), den [SKU-Beitrag](/blog/fba-gebuehren-rechner) und die Kampagnenhistorie sehen. Auch [Account Health](/blog/amazon-account-health) und Markenrechte sollten vor dem Datenraum sauber dokumentiert sein.
+
+<aside class="article-example">
+<p class="example-label">Modellrechnung · keine Marktpreisprognose</p>
+<h3>Warum 400.000 € „Gewinn“ keine Bewertung ergeben</h3>
+<p>Der Verkäufer nennt 400.000 € Ergebnis und addiert 80.000 € persönliches Gehalt zurück. Der Käufer benötigt nach Übergabe aber eine operative Führung für 65.000 € und erkennt 20.000 € der angeblich einmaligen Kosten als wiederkehrend. Die gemeinsame normalisierte Ergebnisbasis muss diese Positionen einzeln belegen. Erst danach verhandeln beide Seiten einen Faktor, Working Capital, Warenbestand, Schulden und mögliche erfolgsabhängige Zahlungen.</p>
+</aside>
+
+## 18 Monate vor dem Exit: Reihenfolge statt kosmetischer KPI
+
+**12–18 Monate:** Kontoprobleme lösen, SKU- und Kanalabhängigkeit offenlegen, Liefer- und Markenrechte sichern. **6–12 Monate:** Operations dokumentieren, Aufgaben unabhängig vom Gründer betreiben, Finanz- und Amazon-Daten monatlich abstimmen. **1–6 Monate:** Datenraum vervollständigen, Abweichungen erklären, Übergabeplan und mehrere indikative Angebote einholen. Kurz vor der Transaktion zusätzliche Umsatzaktionen auf Verlustbasis zu finanzieren verbessert den nachhaltigen Ertrag nicht automatisch.
+
+Prüft getrennt, ob der Nettoerlös eines Verkaufs nach Kosten und Steuern gegenüber dem Weiterbetrieb attraktiv ist. Das ist eine Unternehmens- und Steuerentscheidung, die passende Fachberatung braucht. Für den operativen Teil können wir [Amazon-Strategie](/leistungen/strategie) und [Account-Management](/leistungen/account-management) so aufbereiten, dass SKU-Beitrag, Werbeabhängigkeit und dokumentierte Prozesse nachvollziehbar sind. Bringt eure größte Risikoposition ins [Gespräch](/gespraech-vereinbaren).
+
 ## Fazit
 
-Der Wert eines Amazon-Geschäfts ergibt sich aus dem bereinigten Gewinn multipliziert mit einem Multiple, das von Stabilität, Diversifikation, niedriger Werbeabhängigkeit, Markenstärke und sauberen Prozessen abhängt. Wer den Wert steigern will, arbeitet rechtzeitig an genau diesen Faktoren – und schaut auf Gewinn und Risiko, nicht nur auf den Umsatz. Ein Geschäft, das diversifiziert, organisch stark, markenrechtlich geschützt und auch ohne den Gründer funktionsfähig ist, erzielt nicht nur einen höheren Preis, sondern verkauft sich auch leichter.
+Für einen belastbaren Exit braucht es einen nachvollziehbar bereinigten Ertrag und Belege dafür, dass Marke, Nachfrage, Lieferfähigkeit und Prozesse nach der Übergabe funktionieren. Die Bewertung folgt aus diesen Daten und den Bedingungen eines konkreten Käufers.
