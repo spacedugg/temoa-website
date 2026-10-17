@@ -50,6 +50,44 @@ Gib der Zusammenarbeit eine realistische Anlaufzeit – Ergebnisse brauchen meis
 1. Vereinbart konkrete Arbeitsergebnisse und Freigaben für die erste Phase.
 2. Teilt Kontozugänge über Rollen, nicht über das Hauptpasswort. Klärt vorab Rechte an Kampagnen, Daten und Creative-Dateien für die gesamte Zusammenarbeit.
 
+## Die ersten 90 Tage: Welche Ergebnisse auf dem Tisch liegen sollten
+
+Ein Ablaufplan macht eine Agenturleistung vergleichbar. Die konkreten Fristen hängen von Datenzugang, Produktzahl und anstehenden Saisons ab; die **Arbeitsergebnisse** sollten dennoch vor dem Start vereinbart sein.
+
+| Zeitraum | Arbeit | Prüffähiges Ergebnis |
+| --- | --- | --- |
+| Tage 1–30 | Konto, Sortiment und Werbedaten aufnehmen; Deckungsbeiträge, Bestände, Feed-Probleme und Rechte klären | Priorisierte ASIN-Liste, Baseline je SKU, offene Datenpunkte und ein Maßnahmenplan mit Verantwortlichen |
+| Tage 31–60 | Listing- und Angebotsprobleme der Prioritäts-SKUs beheben; Kampagnen nach Suchaufgabe und Marge ordnen | Änderungsprotokoll, saubere Kampagnenstruktur, gestartete Tests und ein Vergleich zur Baseline |
+| Tage 61–90 | Ergebnisse der Änderungen auswerten, Budget und Bestand auf belastbare Gewinner ausrichten | Business Review mit Ergebnis, Kosten, Unsicherheit und Quartalsplan |
+
+![90-Tage-Ablauf einer Amazon-Agentur mit konkreten Ergebnissen](/blog/figures/agentur-onboarding-90-tage.svg)
+
+Das ist keine Zusage, dass ein neues Listing nach 30 Tagen einen bestimmten Umsatz erreicht. Es ist eine Zusage, **welche Entscheidung nach 30 Tagen möglich wird**. Die [Business Reports](/blog/business-reports) liefern Sitzungen und Conversion; [Search Query Performance](/blog/search-query-performance) hilft, Suchanfragen von bloßer Anzeigenreichweite zu trennen. Ein Agenturreport sollte erklären, welche Datenbasis jeweils verwendet wurde.
+
+## Wer darf was ändern?
+
+Gebt Zugriff über benannte Rollen und dokumentiert den Zweck. Kontoinhaber, Zahlungs- und Steuerdaten bleiben unter Kontrolle der Marke. Die Agentur erhält die Rechte, die für ihre Arbeit erforderlich sind. Legt außerdem schriftlich fest, wer Budgetgrenzen ändern, Preise setzen, Listings veröffentlichen, neue Marktplätze eröffnen und Kundenkommunikation führen darf. Besonders bei großen Katalogen sind **Freigabeschwellen** wichtiger als eine pauschale Aussage „die Agentur betreut alles“.
+
+<aside class="article-example">
+<p class="example-label">Modellbeispiel · Rechte und Entscheidung</p>
+<h3>Eine neue Variante ist bereit, aber die Marge fehlt</h3>
+<p>Die Agentur könnte Bilder und Anzeigen technisch live schalten. Ohne bestätigte Stückkosten, Retourenannahme und Anliefertermin lässt sich die Ziel-ACoS-Spanne aber nicht sauber festlegen. Im Übergabeplan steht deshalb: Finance bestätigt die Kalkulation, Operations den Bestand, die Agentur das Listing und den Testplan. Erst danach wird die Variante beworben.</p>
+</aside>
+
+## Wöchentlicher Betrieb nach dem Start
+
+Haltet eine kurze, wiederholbare Reihenfolge ein: zuerst kritische Account- und Bestandsfälle, dann Abweichungen nach SKU und Query, danach laufende Tests und offene Entscheidungen. Monatlich folgt ein Margenabgleich inklusive Gebühren und Retouren. Quartalsweise werden Katalogprioritäten, Werbeinvestition und kreative Arbeit neu gewichtet. Entscheidend ist, **welcher Owner bis wann welchen Punkt löst**.
+
+Listing und PPC brauchen einen gemeinsamen Änderungsplan. Wenn eine wichtige Detailseite gerade überarbeitet wird, markiert das Datum in der Anzeigenanalyse; sonst deutet das Team den CVR-Sprung womöglich als Wirkung eines neuen Gebots. Prüft mit einer passenden Vergleichsperiode und dokumentiert gleichzeitig geänderte Preise oder Bestände. Mehr dazu in [Content-Experimente auf Amazon](/blog/amazon-content-experimente).
+
+## Die drei Fragen vor Vertragsabschluss
+
+1. Was genau enthält euer Ergebnis nach 30 Tagen, und welche Rohdaten bekommen wir dazu?
+2. Welche Aufgaben erfolgen wöchentlich, welche werden nur auf Anfrage oder zusätzlich abgerechnet?
+3. Wie erhalten wir Kampagnenstruktur, Creative-Dateien, Keyword-Arbeit und Entscheidungsprotokolle bei einer Trennung?
+
+Wenn ihr euren aktuellen Stand entlang dieser drei Fragen prüfen wollt, besprecht mit uns [Account-Management und Onboarding](/leistungen/account-management) in einem [Kennenlerngespräch](/gespraech-vereinbaren). Wir legen zuerst die Prioritäten des Kontos offen und benennen die nötigen Daten und Freigaben.
+
 ## Fazit
 
-Eine Amazon-Agentur zu engagieren ist mehr als eine Unterschrift – es ist ein Prozess: Bedarf klären, Kandidaten strukturiert vergleichen, im Gespräch die richtigen Fragen stellen, einen fairen Vertrag mit klarem Eigentum an Konto und Daten schließen, sauber onboarden und Erwartungen festlegen. Wer diese Schritte ernst nimmt, legt das Fundament für eine produktive Zusammenarbeit. Der nächste Schritt ist dann, aus dem Dienstleisterverhältnis eine echte Partnerschaft zu machen – denn dort entstehen die besten Ergebnisse.
+Ein gutes Mandat ist nach 90 Tagen anhand von Baseline, Änderungen und wirtschaftlicher Wirkung nachvollziehbar. Vereinbart deshalb Ergebnisse, Rechte und Entscheidungswege vor Vertragsbeginn. So kann die Agentur handeln und die Marke behält die Kontrolle über Konto, Kapital und Sortiment.

@@ -46,6 +46,41 @@ Die besten Ergebnisse entstehen, wenn beide Seiten als Team agieren. Behandle di
 1. Führt im gemeinsamen Termin zuerst Entscheidungen, dann Abweichungen und danach neue Tests durch.
 2. Dokumentiert auch Pflichten der Agentur: klare Empfehlungen, Umsetzung und Eskalation. Gute Zusammenarbeit ist gegenseitige Verantwortung, keine pauschale Schuldzuweisung an den Kunden.
 
+## Welche Daten die Agentur tatsächlich braucht
+
+Ein Ads-Konto allein erklärt keine profitable Entscheidung. Gebt der Agentur je SKU **Einstand, variable Amazon-Gebühren, erwartete Retouren, Zielbeitrag, verfügbaren Bestand und Nachschubzeit**. Trennt Markenprodukte, Bundles und Abverkauf, statt einen ACoS-Grenzwert über das ganze Sortiment zu legen. Die Agentur muss umgekehrt offenlegen, welche Entscheidungen sie aus diesen Daten ableitet und welche Annahmen noch unsicher sind.
+
+| Information der Marke | Entscheidung der Agentur | Frühwarnsignal |
+| --- | --- | --- |
+| Deckungsbeitrag je SKU | Gebots- und Budgetkorridor | Umsatz wächst, Beitrag sinkt |
+| Bestand und Wiederbeschaffungszeit | Budget auf verfügbare Alternativen verschieben | Top-ASIN ist vor dem Nachschub ausverkauft |
+| Neue Produktbelege und Rückgabegründe | Listing und Creative priorisieren | Mehr Klicks, aber schlechtere Conversion oder höhere Retouren |
+| Geplante Aktionen in anderen Kanälen | Amazon-Messung und Budgetfenster anpassen | Attribution zählt Effekte doppelt |
+
+![Daten- und Entscheidungsfluss zwischen Marke und Amazon-Agentur](/blog/figures/agentur-zusammenarbeit-entscheidungen.svg)
+
+## Ein Ziel, mehrere diagnostische Kennzahlen
+
+Wählt für ein Quartal einen primären Zielkonflikt: **Beitrag sichern**, **mit Beitragsuntergrenze wachsen** oder **neue Käufer für eine definierte Produktgruppe erschließen**. Ein einzelner TACoS-Wert ist keine vollständige Strategie. Ergänzt die Ergebnisgröße um Kennzahlen, die Änderungen erklären: Sessions, Unit Session Percentage, organischen Suchanteil, Featured Offer, Bestand und Retouren. Die [Business Reports](/blog/business-reports) und [Search Query Performance](/blog/search-query-performance) liefern dafür unterschiedliche Perspektiven.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Budgetentscheidung</p>
+<h3>30 % ACoS kann sinnvoll sein; 8 % können täuschen</h3>
+<p>Eine generische Entdeckungskampagne kostet 30 % ACoS, eine Brand-Exact-Kampagne 8 %. Die Marke möchte die teure Kampagne streichen. Zuerst prüfen beide Teams, ob die erste Kampagne neue Suchanfragen und Kunden erschließt, welche Deckungsbeiträge die betroffenen SKUs tragen und ob Brand Exact nur vorhandene Nachfrage abschöpft. Danach wird ein begrenzter Test mit unverändertem Brand-Budget und klarer Auswertung der gesamten Produktgruppe vereinbart. Aus dem Kampagnen-ACoS allein folgt keine Kürzung.</p>
+</aside>
+
+## Grenzen festlegen, Taktik freigeben
+
+Die Marke beschließt Preisrahmen, Produktprioritäten, den Werbekorridor und die Bedingungen für eine Budgeterhöhung. Innerhalb dieser Leitplanken kann die Agentur Suchbegriffe ausschließen, Gebote anpassen und kontrollierte Tests durchführen. Klärt ausdrücklich, wann Content, Claims oder Preisänderungen eine Freigabe brauchen. So kann das Team arbeiten, ohne für jede kleine Gebotsänderung auf einen Termin zu warten.
+
+Für den Monatsreview reichen vier Blöcke: **Ergebnis gegenüber Plan**, **Ursachen und Datenqualität**, **Entscheidungen für das Sortiment** und **nächste Tests mit Stop-Kriterien**. Das Protokoll endet mit Owner und Datum. Verändert sich eine wichtige Voraussetzung – etwa ein Liefertermin –, meldet die Marke dies direkt; die Agentur passt Budget und Platzierung der betroffenen Produkte an.
+
+## Leistung fair beurteilen
+
+Trennt externe Effekte (Preisänderungen, Ausverkauf, Wettbewerber, Saisonalität) von umgesetzten Agenturmaßnahmen. Für größere Eingriffe dokumentiert ihr Vorher-Nachher-Daten, Vergleichs-ASINs und gleichzeitige Änderungen. Die Anleitung zu [Amazon-Werbung und Inkrementalität](/blog/amazon-werbung-inkrementalitaet) zeigt, warum zugerechneter Anzeigenumsatz noch keinen zusätzlichen Umsatz beweist.
+
+Wenn ihr diese Arbeitsweise im eigenen Konto aufbauen wollt, besprecht [PPC](/leistungen/ppc-advertising) und [Account-Management](/leistungen/account-management) mit uns im [Gespräch](/gespraech-vereinbaren). Bringt eine Prioritäts-SKU und euren aktuellen Monatsreport mit; daraus lassen sich konkrete Entscheidungslücken identifizieren.
+
 ## Fazit
 
-Top-Performance einer Amazon-Agentur ist eine gemeinsame Leistung. Klare, stabile Ziele, offen geteilte Informationen (besonders zu Margen und Beständen), schnelle Entscheidungen, realistische Erwartungen und echtes Partnerschaftsdenken machen den Unterschied zwischen einer Zusammenarbeit, die skaliert, und einer, die auf der Stelle tritt. Die Agentur bringt das Handwerk – du lieferst Richtung, Kontext und Tempo. Wer vom bloßen Auftraggeber zum aktiven Partner wird, holt aus derselben Agentur deutlich mehr heraus. Und genau das ist oft der unsichtbare Grund, warum zwei Marken mit gleichem Budget so unterschiedlich abschneiden.
+Eine starke Zusammenarbeit ist an Entscheidungen erkennbar: Die Marke gibt wirtschaftliche Grenzen und Produktkontext vor, die Agentur leitet Maßnahmen ab und zeigt ihre Wirkung. Ein guter Monatsreport beantwortet deshalb nicht nur „Was ist passiert?“, sondern „Was entscheiden wir jetzt, wer setzt es um und woran prüfen wir den Effekt?“

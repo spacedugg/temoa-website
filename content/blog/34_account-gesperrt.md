@@ -59,8 +59,37 @@ Die meisten Sperrungen lassen sich vermeiden. Halte deine Leistungskennzahlen im
 1. Ordnet jeder Forderung aus der Benachrichtigung einen konkreten Beleg zu.
 2. Trennt einen sachlich begründeten Widerspruch von einem Maßnahmenplan. Reicht keine erfundenen Ursachen oder nachträglich veränderten Rechnungen ein.
 
+## Die Meldung in eine Arbeitsliste übersetzen
+
+Eine Sperrung, ein entzogenes Verkaufsrecht für einzelne ASINs und eine ausstehende Identitätsprüfung haben unterschiedliche Wege. Erstellt zuerst eine Tabelle aus dem **genauen Wortlaut in Seller Central**, betroffenen ASINs beziehungsweise Kontofunktionen, Fristen, verlangten Unterlagen und dem dort angebotenen Antwortweg. Ein allgemeines POA-Muster ist kein Ersatz für die tatsächlich angeforderte Information.
+
+![Arbeitsfolge bei einer Amazon-Kontosperrung: Meldung, Belege, Antwortweg](/blog/figures/kontosperrung-arbeitsfolge.svg)
+
+| Meldungstyp | Erste Prüfung | Geeignete Antwort |
+| --- | --- | --- |
+| Echtheits- oder Bezugsquellenfrage | Rechnung, Lieferkette, Produkt und betroffene Einheiten stimmen überein? | Angeforderte Einkaufs- und Produktnachweise; nur belegbare Erklärungen |
+| Leistungskennzahl | Welche Bestellungen, Zeiträume und Fulfillment-Prozesse verursachen die Abweichung? | Konkrete Ursache, bereits umgesetzte Korrektur, messbare Kontrolle |
+| Verifizierung | Welche Identitäts- und Unternehmensdaten weichen von den Kontodaten ab? | Exakt die verlangten Unterlagen im vorgesehenen Prozess |
+| Richtlinien- oder IP-Meldung | Betrifft sie tatsächlich euer Produkt, eine Variante oder fremden Content? | Begründeter Widerspruch oder dokumentierte Abhilfe, je nach Sachlage |
+
+Prüft die Nachricht im eingeloggten Seller Central und dokumentiert jede Einreichung. Eine Mail mit Druck und einem externen Link ist kein verlässlicher Ausgangspunkt für sensible Dokumente.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Echtheitsbeanstandung</p>
+<h3>Die Rechnung belegt eine andere Variante</h3>
+<p>Eine Marke erhält eine Echtheitsmeldung für die blaue Variante, hat aber nur eine Rechnung für die schwarze Variante vorbereitet. Die Rechnung ist nicht automatisch ein Nachweis für die betroffene Ware. Das Team gleicht Bestellnummern, GTIN, Chargen und Liefermengen ab, fordert beim Lieferanten den fehlenden eindeutigen Beleg an und reicht erst dann das passende Paket ein. Falls der Vorwurf falsch ist, begründet es den Widerspruch anhand derselben Zuordnung.</p>
+</aside>
+
+## Ein POA, der eine Ursache wirklich abstellt
+
+Bei einer bestätigten Leistungsabweichung sollte jede Maßnahme mit einem **konkreten Fehlermechanismus** verbunden sein. Beispiel: Späte FBM-Sendungen entstehen, weil der im Angebot hinterlegte Bearbeitungszeitraum kürzer als die reale Packzeit ist. Sofortmaßnahme: betroffene Bestellungen prüfen, verfügbaren Bestand und Versandprozess korrigieren. Dauerhafte Kontrolle: täglich offene Bestellungen gegen Annahmeschluss und zugesagte Bearbeitungszeit prüfen, mit einem verantwortlichen Owner. „Wir schulen das Team“ allein sagt nicht, woran der Fehler künftig erkannt wird.
+
+Prüft parallel die wirtschaftlichen Folgen: offene Bestellungen, verfügbare FBA-Ware, externe Kanäle, Anzeigen für unterdrückte ASINs und gebundene Liquidität. Koordiniert Account-, Lager- und Werbeteam, damit auf eine nicht kaufbare ASIN keine zusätzlichen Ausgaben laufen. Bei IP- und Produktsicherheitsfragen gehört die rechtliche beziehungsweise fachliche Prüfung in den jeweiligen Spezialbereich; eine Agentur ersetzt diese Prüfung nicht.
+
+Für die Prävention dokumentiert [Account Health](/blog/amazon-account-health) die Warnsignale und [festgefahrene Support-Cases](/blog/support-cases-loesen) den Beleg- und Eskalationsprozess. Wenn ihr ein akutes Kontoproblem und seine wirtschaftliche Priorität ordnen müsst, könnt ihr mit uns [Compliance & Account Health](/leistungen/compliance-account-health) im [Gespräch](/gespraech-vereinbaren) durchgehen.
+
 ## Fazit
 
-Eine Kontosperrung ist ein Schock, aber selten endgültig. Der Weg zurück führt über Ruhe und Methode: den genauen Grund verstehen, einen sachlichen Plan of Action mit Ursache, Sofortmaßnahmen und Vorbeugung einreichen und geduldig nachfassen. Noch wichtiger ist die Prävention – gute Kennzahlen, Richtlinientreue und lückenlose Belege. Wer sein Konto wie ein wertvolles Asset behandelt, gerät seltener in diese Lage und steht im Ernstfall deutlich besser da.
+Der richtige Antwortweg ergibt sich aus der konkreten Meldung. Ordnet jeder Forderung den passenden Beleg oder eine nachweisbar umgesetzte Korrektur zu. Dokumentiert den gesamten Verlauf und verknüpft die Wiederherstellung mit einem Prozess, der den Fehler künftig sichtbar macht.
 
 *Hinweis: Dies ist eine allgemeine Orientierung und keine Rechtsberatung. Bei existenzkritischen oder rechtlich komplexen Sperrungen kann fachkundige Unterstützung sinnvoll sein.*
