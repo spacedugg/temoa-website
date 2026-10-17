@@ -37,6 +37,10 @@ Legt eine Tabelle mit Marke, ASIN, Variante, Volumen, Maßen, Lieferumfang und b
 
 **Wettbewerbsangebote** helfen beim Vergleich sichtbarer Versprechen und Produktmerkmale. Rückwärts ausgewiesene „Ranking-Keywords“ externer Tools sind Schätzungen oder Beobachtungen, keine Amazon-Quelle für Umsatz oder Suchanteile. Nutzt sie als Ausgangspunkt, den ihr gegen eigene Daten prüft.
 
+Für diese Reverse-ASIN-Perspektive werden häufig **Helium 10 Cerebro**, **Jungle Scout Keyword Scout** oder vergleichbare Tools eingesetzt. Sie können Kandidaten zeigen, für die Konkurrenzprodukte offenbar sichtbar sind oder werben. Wenn deren Volumenschätzungen stark auseinandergehen, ist das kein Anlass, den höheren Wert als Tatsache zu übernehmen. Der **Product Opportunity Explorer** ergänzt die Amazon-eigenen Daten bei der Bewertung neuer Produktnischen. Die Reihenfolge bleibt: eigene SQP- und Ads-Daten, dann Wettbewerbs- und Trendkontext.
+
+Eine vierte Rechercheebene sind **Fragen und ausführlich beschriebene Anwendungen**. Käufer schreiben nicht nur „Edelstahlflasche 750 ml“, sondern fragen etwa nach einer Flasche für den täglichen Arbeitsweg, die in eine bestimmte Tasche passt. Die Recherche muss klären, welche dieser Bedürfnisse die SKU tatsächlich erfüllt. Unsere [Auswertung von Kundenfragen](/blog/kundenfragen-seo) liefert dafür Produkt- und Supportsignale; der Beitrag zu [KI-Sichtbarkeit](/blog/amazon-ki-sichtbarkeit) ordnet den Assistentenkanal ein.
+
 ## Aus Daten eine priorisierte Arbeitsliste bauen
 
 Exportiert SQP und Werbesuchbegriffe für denselben Marktplatz und passende Zeiträume. Legt pro Zeile fest: Suchanfrage, zugeordnete ASIN, Produktpassung, Marktvolumen beziehungsweise verfügbare Berichtsdaten, aktueller Klick- und Kaufanteil, bezahlte Kosten, Stückbeitrag und verantwortliches Team. Lasst fehlende Werte leer; füllt sie nicht durch scheinpräzise Tool-Schätzungen.
@@ -52,11 +56,27 @@ Eine Anfrage bekommt genau eine klare nächste Entscheidung: **ausschließen, an
 
 ## Wo die Begriffe hingehören
 
-Der Titel muss das Produkt zuerst eindeutig identifizieren. Bei der aktuellen 75-Zeichen-Grenze sind Marke, Produkttyp und entscheidende Variante wichtiger als möglichst viele Wortkombinationen. Weitere bestätigte Eigenschaften gehören in die vorgesehenen Felder und Item Highlights; Maße und Anwendung können Bilder und A+ Content erläutern. Unser [Titelleitfaden](/blog/produkttitel-optimieren) behandelt die Feldgrenzen.
+Der Titel muss das Produkt zuerst eindeutig identifizieren. Auf dem US-Marktplatz gilt seit Juli 2026 für viele Kategorien eine Grenze von 75 Zeichen für den Titel und 125 Zeichen für Item Highlights; andere Marktplätze und Ausnahmen sind gesondert zu prüfen. Marke, Produkttyp und entscheidende Variante sind wichtiger als möglichst viele Wortkombinationen. Weitere bestätigte Eigenschaften gehören in die vorgesehenen Felder; Maße und Anwendung können Bilder und A+ Content erläutern. Unser [Titelleitfaden](/blog/produkttitel-optimieren) behandelt die Feldgrenzen.
+
+Die sichtbaren Texte sind nur ein Teil der Platzierung. Backend-Suchbegriffe können Synonyme und alternative Schreibweisen aufnehmen, die auf der Produktseite unnatürlich wären. Prüft die für euer Feld geltende Byte-Grenze in Seller Central; bei vielen Setups wird eine Größenordnung von etwa 250 Bytes genannt. Wiederholt nicht einfach Titelwörter und fügt keine fremden Marken ein. Ebenso wichtig sind **strukturierte Produktattribute, Produkttyp und Kategoriezuordnung**: Eine Suchmaschine oder ein Shopping-Assistent kann eine nicht eingetragene Größe, Materialangabe oder Kompatibilität nicht zuverlässig aus einem schönen Lifestyle-Bild lesen.
+
+![Keyword-Platzierung: Titel für Produktidentität, Felder für belegte Eigenschaften, Backend für Synonyme und PPC für weitere Tests](/blog/figures/keyword-platzierung.svg)
 
 Für PPC trennt ihr Erkundung von skalierbarer Nachfrage. Eine gut passende Suchanfrage darf in einer gezielten Struktur mit eigener Wirtschaftlichkeitsgrenze getestet werden. Eine unpassende Anfrage soll nicht durch aggressivere Gebote „gerettet“ werden. Vergleicht nach einer Änderung dieselbe Query und ASIN über ausreichend lange, nachvollziehbare Zeiträume; dokumentiert Preis, Verfügbarkeit und Werbeeinsatz.
 
+Die fertige Liste speist auch die [Kampagnenstruktur](/blog/kampagnenstruktur-ppc): validierte Suchanfragen in Exact, verwandte Formulierungen in Phrase, neue Kandidaten in Broad oder Auto. Trennt Marke, generische Kategorie und Wettbewerbsanfragen, weil sie andere Kaufquoten und damit andere wirtschaftliche Gebotsgrenzen haben. Ein monatlicher kurzer Blick auf neue Suchbegriffe und eine gründliche quartalsweise Aktualisierung halten die Zuordnung zu Produkten und Feldern aktuell.
+
 Das Ergebnis einer Recherche ist keine Wordcloud, sondern ein Briefing: **welche SKU, welche Query, welche belegte Eigenschaft, welche Änderung, welcher Nachweis danach?** Für die Umsetzung verbinden wir [Listing & SEO](/leistungen/listing-seo), [Produktbilder](/design-beispiele) und [PPC](/leistungen/ppc-advertising). Wenn eure Berichte vorliegen, können wir im [Gespräch](/gespraech-vereinbaren) daraus die ersten drei priorisierten Entscheidungen ableiten.
+
+## Häufige Fragen
+
+**Welche kostenlose Datenquelle ist am besten?** Eure eigenen Suchbegriffe aus Anzeigen und, mit Markenzugang, SQP zeigen reales Verhalten. Externe Tools ergänzen Reichweite und Konkurrenz, ersetzen diese Daten aber nicht.
+
+**Wie viele Keywords gehören auf eine Produktseite?** Eine Recherche kann 50–200 relevante Kandidaten enthalten. Der sichtbare Text muss nur die wichtigsten Produktbegriffe natürlich und sachlich korrekt abdecken. Der Rest gehört je nach Aufgabe in Backend-Felder, Attribute, andere ASINs oder PPC-Tests.
+
+**Zählen Backend-Suchbegriffe noch?** Ja, vor allem für Synonyme und alternative Formulierungen. Produktfakten, die Käufer vor dem Kauf sehen müssen, sollten allerdings in den passenden sichtbaren und strukturierten Feldern stehen.
+
+**Wie verändert KI die Recherche?** Fragen nach Anwendung, Zielgruppe und Einschränkungen gewinnen neben kurzen Produktbegriffen an Bedeutung. Tragt nur Antworten ein, die das konkrete Produkt tatsächlich belegen kann; eine erfundene Eigenschaft erhöht höchstens die falsche Sichtbarkeit.
 
 ## Quellen und Geltungsbereich
 

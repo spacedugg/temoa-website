@@ -116,7 +116,7 @@ export const comparisonGroups = [
   {
     title: { de: "Versand und Vertriebsmodell", en: "Fulfilment and selling model" },
     text: { de: "Wer verkauft an wen, wer versendet und wer trägt den operativen Aufwand? Diese Vergleiche helfen bei der Wahl eures Modells.", en: "Who sells to whom, who ships orders and who handles operations? These comparisons help you choose a model." },
-    slugs: ["fbm-vs-fba", "vendor-vs-seller-central", "fba-vs-dropshipping"],
+    slugs: ["fbm-vs-fba", "vendor-vs-seller-central", "lohnt-sich-fba"],
   },
   {
     title: { de: "Werbung und Kennzahlen", en: "Advertising and metrics" },

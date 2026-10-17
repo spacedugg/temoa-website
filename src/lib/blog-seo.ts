@@ -13,7 +13,7 @@
 import type { Sprache } from "@/lib/i18n";
 
 const DE: Record<string, string> = {
-  "amazon-dsp-budget": "Amazon DSP: Zugang und Testbudget prüfen",
+  "amazon-dsp-budget": "Amazon DSP Mindestbudget: drei Zugänge",
   "amazon-cpc-conversion-analyse": "Amazon CPC gestiegen: Mix oder Auktion?",
   "amazon-werbung-inkrementalitaet": "Amazon-Werbung: Was ist zusätzlich?",
   "amazon-featured-offer-analyse": "Featured Offer verloren: Ursachen prüfen",

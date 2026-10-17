@@ -27,6 +27,6 @@ A lower unit price can be offset by a larger minimum order, more cash tied up or
 
 Model higher freight, exchange-rate changes and slower delivery per SKU. Recalculate contribution before advertising and the resulting ad-cost allowance. An unchanged ACoS target can become loss-making when product economics change.
 
-A new supplier or material also requires a fresh review of product safety, labelling and documentation. See [import preparation](/en/blog/alibaba-import) and [cash flow](/en/blog/inventar-cashflow).
+A new supplier or material also requires a fresh review of product safety, labelling and documentation. Connect the landed-cost review with [cash flow](/en/blog/inventar-cashflow) and the [per-ASIN cost model](/en/blog/fba-gebuehren-rechner).
 
 Reviewed on 17 October 2026. Actual duties depend on goods, origin, procedure and import date; this is a planning method, not a tariff determination.

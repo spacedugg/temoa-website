@@ -32,7 +32,7 @@ Ein günstigerer Stückpreis kann durch höhere Mindestmenge, längere Zahlungsb
 
 Rechnet je SKU einen Basisfall und ein Belastungsszenario mit teurerer Fracht, Wechselkursänderung oder längerer Lieferzeit. Leitet daraus den Deckungsbeitrag vor Werbung und den zulässigen Ziel-ACoS ab. Wenn die Kostenbasis steigt, muss die Werbegrenze mitziehen; eine unveränderte Prozentvorgabe kann sonst Verluste verursachen.
 
-Bei Material- oder Lieferantenwechseln gehören Produktsicherheit, Kennzeichnung und Tests erneut auf den Prüfplan. Ein vermeintlicher Einkaufsvorteil ist wertlos, wenn das Produkt nicht verkehrsfähig ist. Siehe dazu [Import und Compliance](/blog/alibaba-import) sowie [Inventar und Cashflow](/blog/inventar-cashflow).
+Bei Material- oder Lieferantenwechseln gehören Produktsicherheit, Kennzeichnung und Tests erneut auf den Prüfplan. Ein vermeintlicher Einkaufsvorteil ist wertlos, wenn das Produkt nicht verkehrsfähig ist. Verbindet die Kostenprüfung mit [Bestand und Cashflow](/blog/inventar-cashflow) sowie der [ASIN-Kalkulation](/blog/fba-gebuehren-rechner).
 
 *Redaktionell geprüft am 17. Oktober 2026. Konkrete Abgaben hängen von Ware, Ursprung, Verfahren und Einfuhrzeitpunkt ab.*
 

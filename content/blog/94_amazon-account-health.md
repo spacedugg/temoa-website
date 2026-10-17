@@ -11,6 +11,14 @@ Ein Account-Health-Hinweis ist noch kein Arbeitsauftrag. Er kann eine bestimmte 
 
 Die Account Health Rating kann wichtige Richtlinienrisiken sichtbar machen. Ein guter Gesamtwert bedeutet aber nicht, dass jede Produktdokumentation stimmt. Prüft den konkreten Vorfall; für Werte und Schweregrade gelten die aktuellen Amazon-Definitionen eures Kontos.
 
+## Den Account Health Rating als Frühwarnsignal lesen
+
+Der **Account Health Rating (AHR)** reicht von 0 bis 1.000 Punkten und betrachtet Richtlinienverstöße sowie Verkaufsaktivität über ein rollendes Fenster von 180 Tagen. Neue Verkäufer starten mit 200 Punkten. Amazon ordnet **200–1.000 als gesund**, **100–199 als gefährdet** und **99 oder weniger als erhebliches Deaktivierungsrisiko** ein. Die Schwere eines konkreten Verstoßes zählt stärker als eine schöne Gesamtzahl; ein schwerer Fall kann unmittelbar Handeln verlangen.
+
+Im Dashboard erscheinen auch operative Leistungskennzahlen. Amazon nennt unter anderem eine **Order Defect Rate unter 1 %**, eine Stornierungsrate vor Versand unter **2,5 %**, eine Rate verspäteter Lieferungen unter **4 %** und bei selbst versendeten Bestellungen eine **Valid Tracking Rate von mindestens 95 %**. Welche Kennzahlen für euer Versandmodell und euren Marktplatz gelten, lest ihr in der aktuellen Seller-Central-Ansicht. FBA nimmt euch einen Teil der Versandausführung ab, nicht die Verantwortung für Produkt- und Richtlinienkonformität.
+
+<aside class="article-example"><p class="example-label">Frühwarnsignal · Seller-Fulfilled-Sortiment</p><h3>Ein Versandproblem wird zum Account-Thema</h3><p>Vor einer Peak-Aktion verlängert sich beim externen Fulfilment die Bearbeitung um zwei Tage. Prüft nicht erst den Umsatzrückgang: Beobachtet offene Bestellungen, bestätigte Versanddaten, gültiges Tracking und die betroffenen Account-Health-Metriken. Trennt das operative Versandproblem von einer parallelen ASIN-Dokumentationsmeldung; beide benötigen unterschiedliche Belege und Verantwortliche.</p></aside>
+
 ## Eine Fallakte in zehn Minuten anlegen
 
 Kopiert den vollständigen Hinweis und verlinkt die Originalansicht in Seller Central. Erfasst Marktplatz, ASINs/Bestellungen, Status, Amazons angezeigte Frist, verfügbaren Einspruchs- oder Antwortweg, intern Verantwortlichen und nächste Prüfung. Falls Amazon konkrete Rechnungen oder Prüfunterlagen fordert, schreibt diese **wortgetreu als Checkliste** in die Akte.
@@ -30,6 +38,14 @@ Kopiert den vollständigen Hinweis und verlinkt die Originalansicht in Seller Ce
 
 Ein Maßnahmenplan kann bei anderen Vorfällen nötig sein. Entscheidend ist, **genau die verlangte Frage** sachlich zu beantworten und Ursachen nur dort zu behaupten, wo ihr sie belegen könnt. Bei Rechts- oder Sicherheitsfragen holt das zuständige Fachteam hinzu.
 
+## Die ersten 72 Stunden nach einem Verstoß
+
+Lest zunächst **die genannte Richtlinie und den genauen Antwortweg**, nicht nur die rote Zahl im Dashboard. Amazon unterscheidet Fälle, die mit einer Bestätigung oder Korrektur gelöst werden können, von solchen, für die ein Einspruch mit Belegen nötig ist. Bei einem Echtheitsvorwurf können Lieferantenrechnung und Warenfluss relevant sein; bei einer IP-Meldung andere Rechte- und Autorisierungsunterlagen. Ein schwacher Einspruch „zur Fristwahrung“ hilft selten und kann den Fall verkomplizieren.
+
+Wenn die Meldung aus eurer Sicht unzutreffend ist, dokumentiert Gegennachweise sauber und nutzt den vorgesehenen Widerspruchsweg. Bei wiederholten IP-Beschwerden prüft außerdem, ob ein [Markenschutz- oder Vertriebsproblem](/blog/brand-registry) hinter den Fällen liegt. Bei einer tatsächlichen Kontodeaktivierung braucht es einen eigenen [Einspruchsprozess](/blog/account-gesperrt); ein normaler Support-Case ist kein Ersatz.
+
+![Account Health: Score und Leistungskennzahlen beobachten, bei einem Verstoß den konkreten Belegweg wählen](/blog/figures/account-health-fruehwarnung.svg)
+
 ## Geschäftsrelevanz und Dringlichkeit getrennt bewerten
 
 Eine kurze Plattformfrist, Sicherheitsfrage oder möglicher Kontoschaden kann wichtiger sein als der Umsatz einer einzelnen ASIN. Für die interne Kapazitätsplanung notiert ihr zusätzlich betroffene Verkäufe, geplante Aktionen, verknüpfte Varianten und laufende Ware. Eine Multiplikation von Tagesbeitrag und hypothetischer Ausfallzeit ist allenfalls eine **Exposition**, keine Verlustprognose und kein Ersatz für die Fristpriorität.
@@ -41,6 +57,22 @@ Benötigt ein Fall mehrere Teams, gibt es trotzdem **einen** Fallverantwortliche
 Nach der Falllösung prüft ihr, warum die Lücke entstand: fehlendes Dokument vor dem Launch, falsche Zuordnung einer Variante, wieder eingespielte alte Attribute oder nicht aktualisierte Lieferantenunterlagen. Eine dauerhafte Korrektur braucht einen konkreten Prozessschritt und einen Eigentümer. Sonst erscheint derselbe Hinweis bei der nächsten Charge erneut.
 
 Im Wochenreview reichen offene Fälle nach Frist und Schwere, blockierte ASINs und wiederkehrende Ursachen. Bei akuten Hinweisen wartet ihr natürlich nicht bis zum Review. Die interne Sichtungszeit ist eine Organisationsregel; die verbindliche Amazon-Frist steht im jeweiligen Hinweis.
+
+## Account Health Assurance als zusätzliche Schutzebene
+
+Für berechtigte Konten gibt es **Account Health Assurance**. Amazon nennt als Voraussetzungen unter anderem einen Professional-Tarif, einen AHR von mindestens **250 über sechs Monate** mit höchstens zehn Tagen darunter und eine gültige Notfallnummer. Qualifizierte Konten werden automatisch aufgenommen. Bei einem neuen Problem kontaktiert Amazon das Team und gibt Gelegenheit zur Zusammenarbeit, statt bei erfüllten Programmbedingungen unmittelbar zu deaktivieren. Die genaue Frist und regionale Verfügbarkeit müsst ihr im eigenen Seller Central prüfen; das Programm ist keine Zusage, dass Verstöße folgenlos bleiben.
+
+Für Marken ist das praktische Ziel deshalb nicht, knapp über 200 zu bleiben. Eine saubere Dokumentation, zügige Reaktion und verlässliche Fulfilment-Prozesse schaffen den Puffer, der bei einem einzelnen echten Vorfall Zeit für die richtige Antwort lässt.
+
+## Häufige Fragen
+
+**Ist ein grüner AHR eine Freigabe für alle ASINs?** Nein. Der Score fasst bestimmte Risiken zusammen. Produktunterlagen, lokale Vorschriften und konkrete ASIN-Meldungen müssen separat geprüft werden.
+
+**Welche Verstöße drücken den Score?** Amazon bewertet unter anderem IP- und Echtheitsbeschwerden, Einschränkungen für Produkte, Listing-Richtlinien und Bewertungsmanipulation. Die Punktwirkung richtet sich nach Schwere und Kontokontext; verlasst euch nicht auf eine alte Liste fixer Abzüge.
+
+**Wann werden alte Verstöße aus dem Rating entfernt?** Der AHR betrachtet ein rollendes 180-Tage-Fenster. Das bedeutet nicht, dass eine offene Anforderung einfach ausgesessen werden sollte. Löst die konkrete Meldung über den von Amazon vorgesehenen Weg.
+
+**Wer beantwortet Amazon?** Ein benannter Fallverantwortlicher führt die Kommunikation. Einkauf, Produkt, Logistik und gegebenenfalls Recht liefern geprüfte Belege und Maßnahmen. So gehen keine widersprüchlichen Versionen an die Plattform.
 
 Unsere Teams verbinden [Compliance & Account Health](/leistungen/compliance-account-health), [Account-Management](/leistungen/account-management) und [Katalogpflege](/leistungen/katalog-listing-management). Der Beitrag zu [festgefahrenen Support-Fällen](/blog/support-cases-loesen) hilft bei der Dokumentation. Für einen konkreten Hinweis könnt ihr im [Gespräch](/gespraech-vereinbaren) die benötigten Belege und Verantwortlichkeiten ordnen.
 

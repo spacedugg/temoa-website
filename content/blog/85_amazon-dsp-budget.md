@@ -1,54 +1,80 @@
 ---
-title: "Amazon DSP: Zugangsmodell und Testbudget richtig einordnen"
-meta_description: "Amazon DSP ohne widersprüchliche Mindestbudgets verstehen: Managed Service, Partnerzugang, Media, Gebühren und Messung für einen konkreten Test prüfen."
-keywords: ["Amazon DSP Mindestbudget", "Amazon DSP Kosten", "Amazon DSP Test", "Amazon DSP Agentur"]
+title: "Amazon DSP Mindestbudget: Warum drei Zugänge drei Zahlen liefern"
+meta_description: "Amazon DSP ab welchem Budget? Managed Service, Self-Service und Agenturzugang unterscheiden, Lernsignal und Gebühren prüfen und den ersten Test planen."
+keywords: ["Amazon DSP Mindestbudget", "Amazon DSP Kosten", "Amazon DSP Self Service", "Amazon DSP Agentur"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon DSP: Zugangsmodell und Testbudget richtig einordnen
+# Amazon DSP Mindestbudget: Warum drei Zugänge drei Zahlen liefern
 
-Wer nach einem Mindestbudget für Amazon DSP fragt, bekommt verschiedene Zahlen. Das liegt vor allem daran, dass **Amazon Managed Service, Partnerzugang und selbst verwalteter Zugang verschiedene Angebote** sind. Amazon nennt für den eigenen Managed Service typischerweise 50.000 US-Dollar; das ist keine allgemeine deutsche Preisliste für jeden Partner. Eine Entscheidung beginnt mit dem tatsächlichen Vertrag und der Frage, was ihr testen wollt.
+Sucht ihr nach dem Mindestbudget für Amazon DSP, findet ihr Beträge zwischen null und 50.000 US-Dollar pro Monat. Die Spanne entsteht, weil Anbieter über **unterschiedliche Zugangswege** sprechen. Amazon veröffentlicht eine Schwelle für seinen Managed Service, aber keine allgemeine öffentliche Preisliste für jeden Self-Service- oder Agenturzugang. Die wichtigere Frage lautet ohnehin: Reichen Budget, Conversion-Signal und Kontostruktur für einen DSP-Test, aus dem ihr etwas entscheiden könnt?
 
-Für eine etablierte Marke kann DSP sinnvoll sein, wenn Sponsored Ads die geplante Zielgruppen- oder Reichweitenfrage nicht beantworten. „Wir wollen auch DSP machen“ ist dagegen kein Briefing. Formuliert zuerst: Welche Produktgruppe, welche Zielgruppe, welcher erwartete zusätzliche Effekt und welche Entscheidung soll nach dem Test getroffen werden?
+## Drei Wege in die DSP, drei Kostenmodelle
 
-## Drei Angebote, drei verschiedene Kalkulationen
+**Amazon Managed Service:** Ein Team von Amazon Ads führt die Kampagnen. Der häufig genannte Orientierungswert liegt bei etwa 50.000 US-Dollar im Monat und kann nach Land variieren. Diese Zahl darf nicht als Mindestpreis jedes DSP-Zugangs auf eure Marke übertragen werden.
 
-| Zugang | Was ihr im Angebot klären müsst | Typische Fehlerquelle |
-|---|---|---|
-| Amazons Managed Service | Anwendbares Mindestbudget, Leistungen, Markt, Laufzeit | Den veröffentlichten Wert auf andere Zugänge übertragen |
-| Partnerbetrieb | Konto- und Datenzugang, Media, Managementhonorar, Creative, Messung | „Monatsbudget“ enthält mehr als reine Mediaauslieferung |
-| Eigenständige Verwaltung, falls verfügbar | Zugangsberechtigung, Personal, Inventar, Technik, Abrechnung | Nur Media kalkulieren, internen Betrieb vergessen |
+**Self-Service:** Ihr bedient DSP selbst. Die Anforderungen an Zugang und Abrechnung müssen im konkreten Markt und Vertrag geklärt werden. Eine gemeinsame Oberfläche mit Sponsored Ads bedeutet noch nicht, dass euer Konto automatisch DSP-Zugriff hat.
 
-Fragt nach **Media netto, Managementhonorar, Kreation, Daten-/Technikkosten und Messung** als getrennten Positionen. Klärt, welche Formate und Zielgruppen im deutschen Zielmarkt und unter eurem Zugang wirklich verfügbar sind. Ein US-Feature in einem Pitch ist noch keine deutsche Funktion eures Accounts.
+**Agenturzugang:** Ein Partner betreibt DSP in seinem Plattformverhältnis für euch. Angebote beginnen teils in der Größenordnung von 5.000 bis 10.000 US-Dollar monatlicher Media, wobei Technikgebühr, Agenturhonorar und Kreation separat anfallen können. Fragt nach den vollständigen Kosten und nach der Hoheit über Zielgruppen, Kampagnenhistorie und Rohdaten bei einem Partnerwechsel.
 
-## Die Testfrage begrenzt die Zahl der Zellen
-
-Angenommen, eure Marke verkauft ein Zubehörsortiment mit drei Bestseller-ASINs. Sponsored Products schöpft bekannte Produktsuchen bereits gut ab. Offen bleibt, ob eine definierte neue Zielgruppe zusätzliche Käufer erreicht. Dann ist **eine Produktgruppe und eine Zielgruppenhypothese** sinnvoller als gleichzeitig Neukunden, Wiederansprache, Konkurrenzprodukte und vier Creatives im selben kleinen Budget zu testen.
-
-<aside class="article-example"><p class="example-label">Planungsmodell · keine Marktprognose</p><h3>Ein Test kann Reichweite kaufen und trotzdem keine Antwort liefern</h3><p>Bei 6.000 € Media und angenommenen 12 € CPM ergeben sich rechnerisch 500.000 Impressionen. Mit angenommenen 0,2 % Klicks und 5 % Käufen je Klick wären es 1.000 Klicks und 50 Käufe. Vier gleich große Testzellen hätten im Mittel nur 12,5 Käufe. Schon kleine Zufallsschwankungen würden die Reihenfolge ändern. Dazu kommen im Beispiel 1.500 € Betreuung und 1.000 € Creative, also 8.500 € Gesamtaufwand. Keiner dieser Werte ist ein DSP-Benchmark.</p></aside>
+<aside class="article-example"><p class="example-label">Angebotsprüfung · drei Antworten</p><h3>Die Mindestzahl erklärt den Vertrag nicht</h3><p>Ein Pitch nennt 8.000 US-Dollar „DSP-Budget“. Lasst aufschlüsseln, wie viel davon tatsächlich Media ist, wie die Technologiegebühr berechnet wird und ob die Zielgruppen sowie Kampagnenhistorie nach Vertragsende weiter nutzbar bleiben. Ein günstiger Einstieg mit hohen variablen Gebühren oder ohne Datenübergabe kann teurer sein als ein höherer klarer Mediaansatz.</p></aside>
 
 ![DSP-Test vor dem Budget: Zugang – Managed / Partner / Self, Kosten – Media + Betreuung, Messung – Zielgruppe + Wirkung](/blog/figures/amazon-dsp-budget.svg)
 
+## Warum die veröffentlichten Mindestbeträge widersprüchlich sind
 
-Diese Rechnung ist ein **Machbarkeitstest**, keine Berechnung der benötigten Stichprobengröße. Letztere hängt von der erwarteten Wirkung, Streuung und Messmethode ab. Wenn ein Anbieter trotz kleiner Datenmenge einen eindeutigen Sieger oder garantierte Inkrementalität verspricht, fragt nach Design und Unsicherheitsbereich.
+Im November 2025 kündigte Amazon bei unBoxed einen vereinheitlichten Campaign Manager für DSP und Sponsored Ads an. Manche spätere Agenturberichte deuteten das als Wegfall einer Self-Service-Untergrenze. Zeitnahe Berichte von der Veranstaltung beschrieben dagegen weiter bestehende Mindestanforderungen. Auch 2026 kursierten noch verschiedene Zahlen für Self-Service.
 
-## Media-ROAS ist keine vollständige Wirtschaftlichkeit
+Aus den öffentlich zugänglichen Angaben lässt sich keine einzige belastbare Schwelle für **jeden** Zugang und Markt ableiten. Sicherer ist die konkrete Nachfrage beim Anbieter: *Welcher Zugang wird für uns genutzt? Welche Technologiegebühr fällt zusätzlich zur Media an? Was passiert bei einem Wechsel mit Zielgruppen, historischen Kampagnen und Messdaten?* Diese Antworten sind wichtiger als eine generische Zahl aus einem Blogpost.
 
-Zugerechnete Verkäufe nach Sichtkontakt oder Klick beantworten nicht, wie viele Käufe ohne Werbung ausgeblieben wären. Legt deshalb vorab fest, welche Messung tatsächlich verfügbar ist: Auslieferung, erreichte Zielgruppe, beobachtete Käufe oder ein belastbarer Vergleich mit Kontrollgruppe. [Inkrementalität](/blog/amazon-werbung-inkrementalitaet) ist ein eigenes Messproblem.
+## Das wirksame Minimum ist ein Lernsignal
 
-Für die Budgetentscheidung braucht ihr den Deckungsbeitrag der beworbenen Produkte und **sämtliche Testkosten**. Auch bei positivem Media-ROAS kann der Einsatz nach Gebühren, Creative und nicht zusätzlichem Umsatz unrentabel sein. Unterscheidet einen Lernversuch von einem dauerhaften Kanalinvestment.
+Programmatic-Kampagnen benötigen ausreichend Ereignisse, damit ihre Optimierung Entscheidungen aus den Daten ableiten kann. In der praktischen DSP-Planung wird für viele Tests eine Größenordnung von **10.000 bis 15.000 US-Dollar monatlicher Media** als sinnvolle Ausgangsschwelle genannt. Das ist **keine von Amazon allgemein durchgesetzte Regel**. Die benötigte Summe hängt von Zielgruppe, CPM, Conversion-Volumen, Format und Messziel ab.
 
-## Vor Freigabe: sechs Fragen an den Anbieter
+Ein kleines Budget verteilt sich bei CPM-Abrechnung auf Impressionen statt direkt auf Klicks. Teilt ihr es zusätzlich auf mehrere Zielgruppen, Produkte und Creatives auf, kann jede Zelle zu wenig Kontakte und Käufe erzeugen. DSP-Attributionsfenster laufen anders als bei Sponsored Products; frühe ROAS-Auswertungen sind deshalb oft unvollständig. Ein scheinbar schwacher erster Monat kann ein zu früh gestarteter oder zu breit angelegter Test sein, nicht die Antwort „DSP funktioniert in unserer Kategorie nicht“.
 
-1. Wem gehört der Zugang, und welche Rohdaten und Exporte erhaltet ihr nach Testende?
-2. Wie viel des Angebots fließt als auslieferbares Media in welchen Markt?
-3. Welche ASINs, Zielgruppen, Platzierungen und Creatives sind konkret geplant?
-4. Welche Änderungen an Preis, Bestand oder bestehenden Kampagnen würden das Ergebnis verfälschen?
-5. Welche Aussage kann die verfügbare Messung wirklich tragen?
-6. Wer entscheidet zu welchem Termin über Stoppen, Anpassen oder Skalieren?
+## Drei Fragen vor dem ersten Euro
 
-Ein DSP-Test ist nachrangig, wenn die Kern-ASINs häufig nicht verfügbar sind, ihre Produktseiten widersprüchliche Angaben enthalten oder der Stückbeitrag unbekannt ist. Solche Ursachen werden durch zusätzliche Reichweite nicht behoben. In der [PPC-Betreuung](/leistungen/ppc-advertising) und im [Reporting](/leistungen/analytics-reporting) prüfen wir die Voraussetzungen und das passende Testdesign. [Sprecht mit uns](/gespraech-vereinbaren) über die konkrete Wachstumsfrage, nicht nur über eine Budgetzahl.
+### 1. Ist das bestehende Werbebudget groß genug?
 
-## Quelle und Geltungsbereich
+Als harte **Prüffrage**, nicht als allgemeines Amazon-Kriterium: Liegt euer monatlicher Amazon-Ads-Spend ungefähr über 40.000 US-Dollar? Wenn eine DSP-Allokation von 10.000 bis 15.000 US-Dollar ein Viertel oder mehr eures gesamten Budgets aus Sponsored Ads herausnimmt, muss sie einen klaren zusätzlichen Job erfüllen. Für kleinere Konten sind [Sponsored Brands und Display](/blog/sponsored-brands-display) oft der erste Test der mittleren Funnel-Stufe ohne gesonderte DSP-Beziehung.
 
-[Amazon Ads: DSP, Zugangsmodelle und Managed Service](https://advertising.amazon.com/en-gb/solutions/products/amazon-dsp). Geprüft am 17. Oktober 2026. Zahlen zur Auslieferung und zum Gesamtaufwand sind fiktive Rechenannahmen; das konkrete Angebot und die Funktionen sind markt- und zugangsabhängig.
+### 2. Ist Sponsored Ads bereits sauber gesteuert?
+
+DSP behebt keine vermischten Kampagnen, unpassenden Suchbegriffe oder eine Produktseite mit schwacher Kaufquote. Wenn ihr nicht erklären könnt, welche bestehenden Anzeigen profitabel und welche nur teuer sind, fügt DSP eine weitere Schicht schwer deutbarer Daten hinzu. Baut zuerst eine [lesbare Kampagnenarchitektur](/blog/kampagnenstruktur-ppc) und eine [tragfähige Content-Basis](/blog/conversion-rate-optimierung) auf.
+
+### 3. Welche konkrete Aufgabe soll DSP lösen?
+
+Mögliche Antworten sind Wiederansprache von Besuchern einer Detailseite ohne Kauf, Reichweite für eine definierte neue Zielgruppe auf geeignetem Amazon-Inventar oder eine gezielte Markenverteidigung. „Full Funnel“ allein ist keine testbare Aufgabe. Legt Produktgruppe, Zielgruppe, Format, Messfenster und [ROAS- beziehungsweise Ergebnisziel](/blog/roas-berechnen) vor dem Spend fest.
+
+Wenn alle drei Antworten tragfähig sind, bietet die Wiederansprache relevanter Detailseitenbesucher oft einen engeren ersten Prüfrahmen als mehrere Prospection-Zellen zugleich. Prüft das Ergebnis über zugerechnete Käufe hinaus: [TACoS](/blog/tacos-erklaert), Neukundenanteil und, falls verfügbar, eine belastbare [Inkrementalitätsmessung](/blog/amazon-werbung-inkrementalitaet). Eine View-through-Zurechnung ist kein Beweis, dass der Kauf ohne Anzeige ausgeblieben wäre.
+
+![DSP-Bereitschaft: Werbebudget, bestehende Ads-Steuerung und konkrete Aufgabe vor dem Test prüfen](/blog/figures/dsp-bereitschaft.svg)
+
+## Was sich 2026 beim Zugang und Messen verändert hat
+
+Der vereinheitlichte Campaign Manager verringert die operative Trennung von DSP und Sponsored Ads. Amazon machte vereinheitlichte Berichte im Juni 2026 allgemein verfügbar und kündigte die Ablösung älterer Berichtseiten bis Ende Dezember 2026 an. Das vereinfacht die Oberfläche, ersetzt aber keine eigenständige DSP-Berechtigung.
+
+Im Mai 2026 weitete Amazon den Self-Service-Zugang zu Messprodukten Dritter für DSP-Werbetreibende in mehreren Ländern aus. Dazu gehören Ansätze für Inkrementalität, Brand Lift und Verkäufe außerhalb von Amazon. Für ein Team mit ausreichender Datenmenge ist die bessere Messbarkeit oft wichtiger als die Frage, ob ein öffentlicher Mindestbetrag gesunken ist.
+
+Im Juli 2026 folgten neue Funktionen für Brand+ und Performance+, darunter die Nutzung von First-Party-Zielgruppendaten für die Optimierung und Änderungen an Streaming-TV-Prospecting. Ein Teil der Funktionen wirkt automatisch. Wer einen Bruch in der Leistung untersucht, sollte deshalb Produktänderungen im DSP-Setup und das konkrete Einführungsdatum seines Marktes mitprüfen. Podcast-Inventar innerhalb von DSP bedeutet dabei nicht automatisch, dass jedes automatisierte Produkt dieses Inventar buchen kann.
+
+## Die Entscheidung für etablierte Marken
+
+Ein DSP-Test lohnt sich, wenn Sponsored Ads bereits kontrolliert laufen, ein eigenständiger Zielgruppenauftrag vorliegt und Budget sowie Messung genug Signal liefern. Wenn ihr noch unter der genannten Spend-Größenordnung liegt oder das bestehende Konto kaum lesbar ist, steckt der nächste bessere Euro häufig in Keyword-Struktur, Kaufquote oder [Full-Funnel-Planung mit vorhandenen Formaten](/blog/full-funnel-advertising).
+
+Die Entscheidung sollte nicht am Plattform-ROAS allein hängen. Ohne Kenntnis von Attributionsfenster, View-through-Anteil und zusätzlichen Gebühren kann derselbe Return-Wert sehr verschiedene wirtschaftliche Ergebnisse beschreiben. Für fortgeschrittene Setups helfen Neukundenquote, unterstützte Käufe und Pfadanalysen in Amazon Marketing Cloud; ein kontrollierter Vergleich beantwortet die Inkrementalitätsfrage besser als ein Screenshot aus DSP.
+
+## Häufige Fragen
+
+**Müssen wir auf Amazon verkaufen, um DSP zu nutzen?** Nein. DSP kann auch von Marken genutzt werden, die keine Produkte im Amazon Store verkaufen, weil es weitere Amazon-eigene und externe Werbeflächen erschließt. Sponsored Products setzt dagegen ein passendes Amazon-Angebot voraus.
+
+**Kommt die Technologiegebühr zur Media hinzu?** Bei Self-Service- und Partnerangeboten kann eine prozentuale Technikgebühr zusätzlich zum Mediaeinsatz und Agenturhonorar anfallen. Lasst alle drei Positionen schriftlich ausweisen.
+
+**Gibt uns der gemeinsame Campaign Manager automatisch DSP-Zugriff?** Nein. Eine vereinheitlichte Oberfläche ist kein Vertrag und keine Zugangsfreigabe für das Produkt.
+
+**DSP oder Sponsored Display?** Sponsored Display lässt sich in der regulären Werbeumgebung mit geringerem operativem Aufwand testen und deckt einige Retargeting-Aufgaben ab. DSP bietet breitere Inventar- und Zielgruppenoptionen sowie andere Abrechnungs- und Messmöglichkeiten. Wählt nach Aufgabe, nicht nach dem größeren Produktnamen.
+
+**Welchen Return können wir erwarten?** Eine universelle ROAS-Zahl wäre ohne Attributionsfenster, View-through-Zählung, Produktmarge und Gebühren irreführend. Definiert vorab, welche Wirkung der Test tatsächlich nachweisen soll.
+
+Wir prüfen mit euch [PPC-Struktur](/leistungen/ppc-advertising), verfügbares Lernsignal und die Messmethode, bevor ein DSP-Budget freigegeben wird. [Besprecht eure konkrete Zielgruppe und euren geplanten Spend mit temoa](/gespraech-vereinbaren).
