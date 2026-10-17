@@ -49,6 +49,36 @@ Viele Marken fahren eine Mischung: eine Full-Service-Agentur fürs Gesamtmanagem
 1. Legt für jede bereichsübergreifende Aufgabe eine entscheidungsbefugte Person fest.
 2. Vergleicht Agenturmodelle einschließlich eurer internen Koordinationszeit. Full Service ist nur dann hilfreich, wenn die gemeinsame Steuerung tatsächlich im Leistungsumfang steht.
 
+## Die Schnittstelle als eigentliche Kaufentscheidung
+
+Bei einer Marke mit mehreren Agenturen entsteht der Aufwand oft **zwischen** den Angeboten. Ein Beispiel: Die PPC-Agentur meldet sinkende Conversion für drei ASINs. Creative kennt die Kundenbeschwerden, aber nicht die aktuelle Suchanfrage. Operations weiß von einer neuen Charge, sitzt jedoch nicht im Monatsreview. Alle drei Teams sind fachlich gut; ohne gemeinsamen Owner dauert die Korrektur trotzdem Wochen.
+
+![Full-Service- und Spezialagentur nach Verantwortung für Amazon-Ergebnis vergleichen](/blog/figures/fullservice-spezial-agentur-schnittstellen.svg)
+
+Vergleicht deshalb nicht nur Stundensätze, sondern die Verantwortung für fünf wiederkehrende Entscheidungen:
+
+| Entscheidung | Wer liefert die Daten? | Wer trifft die Entscheidung? |
+| --- | --- | --- |
+| Ads auf einer SKU mit Bestand für acht Tage | Operations und Ads | Marke innerhalb definierter Grenzen oder beauftragter Account-Owner |
+| Listing-Claim wird geändert | Produktteam, Content und Compliance | Freigabeverantwortliche der Marke |
+| Conversion fällt nach Content-Update | Ads, Business Reports, Content | Gemeinsamer Diagnose-Owner |
+| Neue Variante starten | Finance, Bestand, Produkt, Ads | Portfolioverantwortliche der Marke |
+| Kampagne auf fremde ASIN skalieren | Ads, Produktpositionierung, SKU-Marge | Werbeverantwortliche innerhalb Budgetrahmen |
+
+Ein Full-Service-Anbieter ist nur dann integriert, wenn er diese Übergaben tatsächlich führt. Ein Spezialisten-Setup funktioniert, wenn eure Marke selbst einen fachlich starken Owner mit Entscheidungsmacht stellt. Die **interne Koordinationszeit** gehört dann in die Kostenrechnung. Das [90-Tage-Onboarding](/blog/agentur-engagieren-ablauf) beschreibt die prüfbaren Arbeitsergebnisse beider Modelle.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Agenturmodell</p>
+<h3>PPC läuft, aber eine Variantenfreigabe blockiert Wachstum</h3>
+<p>Die Werbeagentur findet eine profitable Query für die neue 1-Liter-Variante. Der Produkttext ist noch nicht freigegeben, die Marge fehlt und das Lager meldet unklare Verfügbarkeit. Eine integrierte Betreuung muss diese Lücken sichtbar machen und die Owner zusammenführen. Zwei Spezialisten können das ebenso leisten, wenn die Marke die Schnittstelle führt. Der Unterschied zeigt sich in der Dauer bis zur dokumentierten Entscheidung, nicht in der Bezeichnung „Full Service“.</p>
+</aside>
+
+## Ein Probeprojekt vor dem großen Mandat
+
+Wählt zwei priorisierte ASINs und ein bereichsübergreifendes Problem. Gebt Kandidaten dieselben Informationen und lasst sie **Diagnose, Verantwortungsmatrix, Testplan und 30-Tage-Ergebnis** formulieren. Bewertet, ob die vorgeschlagenen Maßnahmen vom Team ausführbar sind und ob nach Abschluss Daten und Creative-Dateien bei der Marke bleiben. Eine Produktdemo oder ein Pitchdeck allein zeigt die Zusammenarbeit im Alltag kaum.
+
+Wenn ihr noch nicht wisst, ob PPC oder die gesamte Amazon-Operation der Engpass ist, besprecht eine konkrete SKU mit uns im [Gespräch](/gespraech-vereinbaren). Wir können [PPC](/leistungen/ppc-advertising), [Content](/leistungen/listing-seo) und [Account-Management](/leistungen/account-management) als zusammenhängende Aufgaben prüfen.
+
 ## Fazit
 
-Die Wahl zwischen Full-Service und Spezialisten ist eine Abwägung zwischen Integration und Tiefe. Full-Service punktet mit abgestimmter Strategie aus einer Hand und weniger Koordinationsaufwand; Spezialisten mit maximaler Tiefe im Einzelbereich, aber zum Preis von Reibung und Koordination. Für die meisten wachsenden Marken ist eine integrierte Lösung pragmatischer, weil auf Amazon alles zusammenhängt – während ständiges Wechseln zwischen Spezialisten oft teurer wird und langsamer wachsen lässt. Entscheidend ist, ehrlich zu bewerten, wie viel Koordination du selbst leisten willst und kannst.
+Das bessere Modell ist dasjenige, in dem bereichsübergreifende Probleme einen zuständigen Owner, verfügbare Daten und eine zeitnahe Entscheidung haben. Prüft diese Fähigkeit an einer echten SKU-Aufgabe und rechnet eure interne Koordination mit ein.

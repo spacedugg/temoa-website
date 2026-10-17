@@ -48,6 +48,29 @@ Bei einer breiteren Agentur gelten dieselben Grundkriterien wie immer – nachwe
 1. Vereinbart eine gemeinsame Finanzsicht und separate Kanaldiagnosen.
 2. Klärt Datenhoheit und Verantwortlichkeit für Abweichungen. Ein integrierter Partner sollte die Verbindung erklären können, nicht nur mehrere Dashboards liefern.
 
+## Ein Kanalplan beginnt mit Profitabilität und Aufgabenverteilung
+
+Eine Marke mit Amazon, eigenem Shop und B2B-Vertrieb braucht nicht drei isolierte Umsatzpläne. Vergleicht je Kanal den **Deckungsbeitrag nach kanalbezogenen Kosten, verfügbare Kundendaten, Retouren, Lagerbindung und Preiswirkung auf die anderen Kanäle**. Ein niedrigerer Marketing-CPA im Shop ist nicht automatisch besser, wenn Versand, Zahlung, Service und Wiederkäufe anders verteilt sind.
+
+| Entscheidung | Datenfrage | Risiko ohne gemeinsame Sicht |
+| --- | --- | --- |
+| Neues Produkt zuerst auf Amazon oder im Shop? | Wo entstehen die ersten belastbaren Kauf- und Retourensignale? | Zwei Launches konkurrieren um denselben Bestand |
+| Preisaktion in einem Kanal? | Welche Preis- und Handelsvereinbarungen gelten? | Kanalpartner und Marge werden überrascht |
+| Social-Traffic auf Amazon lenken? | Welche Zielseite und welches Attributionsfenster? | Mehrfach gezählter Umsatz |
+| Wiederkauf fördern? | Welche rechtlich und technisch zulässigen Kundensignale sind verfügbar? | Wunsch nach „Kundeneigentum“ ersetzt keine Datenstrategie |
+
+![Multichannel-Entscheidung: Beitrag, Bestand und Messung je Kanal](/blog/figures/ecommerce-agentur-kanalmodell.svg)
+
+Eine allgemeine „Omnichannel“-Agentur sollte erklären können, wie sie **Amazon Ads, Store, Marktplatzverfügbarkeit und Produktdaten** mit DTC-Kampagnen koordiniert. Fragt nach einem Fall, in dem sie einen Kanal bewusst *nicht* skaliert hat, weil Gesamtbeitrag oder Bestand dagegen sprachen. Eine Liste betreuter Plattformen ist kein Beweis für gemeinsame Steuerung.
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Kanalentscheidung</p>
+<h3>Eine Kampagne, zwei Umsatzberichte</h3>
+<p>Ein Social-Video schickt Käufer zunächst auf den Shop; einige suchen später die Marke auf Amazon und kaufen dort. Der Social-Report und Amazon Attribution können denselben Kauf unterschiedlich beanspruchen. Das Team führt deshalb einen gemeinsamen Finanzabschluss je Kanal und bewertet die Kampagne zusätzlich über eine geeignete Vergleichsgruppe. Keiner der Plattformreports wird ungeprüft zum „Gesamtumsatz“ addiert.</p>
+</aside>
+
+In der [Kanalstrategie für Marken](/blog/amazon-kanalstrategie-marken) geht es um die wirtschaftliche Rolle von Amazon im gesamten Geschäft. [Amazon Attribution](/blog/amazon-attribution) zeigt die Grenze der Kanalzuordnung. Für einen ersten Check können wir eure Amazon- und Shop-Zahlen im [Gespräch](/gespraech-vereinbaren) entlang von Beitrag, Bestand und Messlücken ordnen; unsere [Strategiearbeit](/leistungen/strategie) setzt die Amazon-Seite davon in konkrete Entscheidungen um.
+
 ## Fazit
 
-Eine E-Commerce-Agentur über Amazon hinaus lohnt sich, wenn du dein Geschäft als Marke über mehrere Kanäle denkst – um Abhängigkeit zu reduzieren, eigene Kundenbeziehungen aufzubauen und breiter zu wachsen. Der Preis dieser Breite kann geringere Spezialtiefe auf Amazon sein, weshalb du deren Amazon-Kompetenz genau prüfen solltest. Für reine Amazon-Skalierung bleibt ein Spezialist oft die tiefere Wahl; für echtes Multichannel-Wachstum ist ein integrierter E-Commerce-Partner der strategisch klügere Weg. Entscheidend ist, ob deine Ambition bei Amazon endet – oder darüber hinausgeht.
+Ein breiterer Partner lohnt sich, wenn er die Wirtschaftlichkeit und die Zielkonflikte der Kanäle gemeinsam führen kann. Prüft das an einer realen Sortiments- oder Budgetentscheidung und fordert eine saubere Trennung zwischen Plattformattribution und Finanzumsatz.
