@@ -53,6 +53,29 @@ Der größte Fehler ist, den Deal isoliert zu betrachten. Begleite ihn mit Werbu
 1. Rechnet Aktionskosten, Werbung und mögliche Vorzieheffekte mit ein.
 2. Bewertet Lagerabbau oder spätere Nachfrage getrennt und nur mit nachvollziehbaren Annahmen. Ein Rankinggewinn darf nicht ungeprüft die Rechnung retten.
 
+## Vor der Buchung: Baseline und Gegenfall festlegen
+
+Ein Deal verkauft selten nur „zusätzliche“ Einheiten. Ein Teil der Käufer hätte zum Normalpreis gekauft, ein anderer zieht einen späteren Kauf vor. Rechnet deshalb **erwarteten Absatz ohne Aktion**, Beitrag während der Aktion, Deal-Gebühr, zusätzliche Werbung und den Bestand für die Wochen danach. Für den Gegenfall eignen sich vergleichbare Wochen, ähnliche ASINs und die aktuelle Nachfrageentwicklung – keine starre Umsatzprognose aus dem letzten Prime Day.
+
+![Amazon-Blitzangebot: Baseline, Aktionsbeitrag und Nachwirkung](/blog/figures/lightning-deal-entscheidungsrechnung.svg)
+
+| Frage | Vor dem Deal | Nach dem Deal |
+| --- | --- | --- |
+| Beitrag | Stückmarge nach Rabatt, Gebühren und Ads | Gesamtbeitrag gegen Baseline |
+| Bestand | Deal-Menge plus Nachlauf und Wiederbeschaffungszeit | Ausverkauf oder teurer Restbestand? |
+| Nachfrage | Marken- und generische Queries getrennt | Hält zusätzliche Nachfrage ohne Rabatt an? |
+| Werbung | Budget und Placements während der Aktion | Fallen CPC und CVR wieder auf Normalniveau? |
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Bestandsabbau</p>
+<h3>Ein negativer Aktionsbeitrag kann trotzdem rational sein</h3>
+<p>Eine Variante liegt seit Monaten im FBA-Lager; bei weiterem Halten entstehen Lager- und Kapitalbindungskosten, eine Rücksendung ist teuer. Ein Deal mit leicht negativem Stückbeitrag kann im Vergleich zum tatsächlichen Alternativpfad besser sein. Das gilt nur, wenn die Rechnung den Warenwert, Gebühren, Retouren und den entgangenen Normalverkauf berücksichtigt. Für einen gesunden Bestseller wäre dieselbe Aktion womöglich unnötig teuer.</p>
+</aside>
+
+Prüft die aktuelle **Deal-Berechtigung, Mindestpreise, Terminfenster und Gebühren direkt im jeweiligen Marktplatz-Dialog**. Diese Bedingungen sind dynamisch. Ein Ablauf nach veralteter US-Checkliste ist für Amazon.de nicht belastbar. [Peak-Season-Planung](/blog/peak-season) verbindet den Deal mit Bestand und Budget, [Inventar und Cashflow](/blog/inventar-cashflow) mit dem Alternativwert der Ware.
+
+Wenn ihr eine Aktion nicht allein nach dem Umsatzpeak beurteilen wollt, können wir in der [Strategiearbeit](/leistungen/strategie) die SKU-Rechnung und einen Gegenfall aufsetzen. Bringt Deal-Vorschlag, Baseline und Nachschubzeit ins [Gespräch](/gespraech-vereinbaren).
+
 ## Fazit
 
-Lightning Deals und Blitzangebote sind kraftvolle Werkzeuge für Sichtbarkeit, Verkaufsschübe und Ranking-Momentum – vorausgesetzt, du rechnest sie ehrlich durch und setzt sie strategisch ein. Sie lohnen sich vor allem für Produktlaunches, zum Anschieben vor wichtigen Zeitfenstern und zum Bestandsabbau bei gesunder Marge. Wer früh plant, genug Bestand sichert und den Deal mit Werbung flankiert, verwandelt einen kurzfristigen Rabatt in einen dauerhaften Vorteil – statt nur Marge zu verschenken.
+Ein Deal ist eine Investition in Abverkauf oder zusätzliche Nachfrage. Legt vorab fest, welches Ziel ihr verfolgt und welcher Gegenfall ohne Aktion eintreten würde. Erst die Nachbetrachtung des Gesamtbeitrags zeigt, ob das Angebot sinnvoll war.
