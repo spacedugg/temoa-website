@@ -26,12 +26,15 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - FBA vs. FBM (10) um tatsächliche Abwicklungskosten, hybride Bestandslogik und Lieferleistungs-Pilot vertieft.
 - Sponsored Brands & Display (12) als Formatmix nach Käuferaufgabe, Creative, Zielseite und Testbeitrag erweitert.
 - Amazon-Flywheel (18) von einer Erfolgserzählung zu einer Diagnose von Query, Conversion, Suchanteil und Bestand umgebaut.
+- Kundenfragen (25) mit Quellen-/Variantenmatrix, Produktbelegen, Content-Platzierung und Long-Tail-Gegenprobe vertieft.
+- Visuelle Suche (26) als Varianten- und Bilddatenprüfung mit getrenntem Klick-, Kauf- und Retourentest überarbeitet.
+- Produktpositionierung (27) aus Query, Vergleichsangebot, Produktbeleg und kontrolliertem Content-Test abgeleitet.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Damit sind 41 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 27 ältere). Insgesamt bleiben 38 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Damit sind 44 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 30 ältere). Insgesamt bleiben 35 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
 
