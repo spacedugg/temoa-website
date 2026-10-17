@@ -7,7 +7,7 @@ kategorie: "FBA, Logistik & Inventar"
 
 # Calculating FBA fees properly: modelling real profitability before launch
 
-Most sellers calculate their FBA profitability wrongly. Not because the maths is hard but because their fee list is incomplete. A typical mistake: you account for the fulfilment and referral fee, estimate the cost of goods and arrive at a margin that looks workable. Then the product launches, three months later you look more closely, and storage costs, placement fees and advertising have pushed the margin below the point of profitability. By then a correction is expensive. This article shows which cost blocks really belong in your model.
+An FBA calculator is useful only when its inputs match the product and marketplace. For a German brand, the decision is made at **SKU × store × period** level: combine product cost, applicable selling and fulfilment charges, inbound transport, storage time, expected returns and advertising. Then test whether the margin survives slower sell-through and a change in packaging dimensions. A quoted US fee is not a German tariff.
 
 ## Why a complete model decides the outcome
 

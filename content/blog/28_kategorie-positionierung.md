@@ -9,7 +9,7 @@ kategorie: "Listing, SEO & Conversion"
 
 Eine falsche Kategorie verändert mehr als den Best Sellers Rank. Sie kann eure ASIN gegen die falschen Produkte stellen, Filter für Käufer verbergen und unpassende Anzeigenkontakte erzeugen. Ein wiederverwendbarer Kaffeefilter gehört fachlich zu wiederverwendbaren Filtern. Wenn er als allgemeine Kaffeemaschine eingeordnet ist, helfen zusätzliche Gebote nicht gegen eine falsche Produktdefinition.
 
-Ein Launch-Beispiel zeigt die Größenordnung: Ein wiederverwendbarer Filter stand zunächst in einer breiten Kaffee- und Espresso-Kategorie mit rund 48.000 konkurrierenden Produkten. Nach etwa 3.200 US-Dollar Werbeausgaben im ersten Monat kam er dort nur bis Rang 89. Nach der Korrektur auf die passende Unterkategorie mit rund 1.200 Produkten erreichte dieselbe Produktseite bei gleichem Budget innerhalb von zwei Wochen Rang 3. Ein Rang ist kein Kausalbeweis für die gesamte Umsatzwirkung; der Fall zeigt, warum die **Zuordnung vor dem Skalieren** geprüft werden muss.
+Bei einem wiederverwendbaren Kaffeefilter macht die Zuordnung zu „Kaffeemaschinen“ statt „Filterzubehör“ einen praktischen Unterschied: Käufer können in der falschen Vergleichsgruppe landen, während passende Filter und Attribute fehlen. Bevor eine Marke mehr Budget einsetzt, sollte sie den Produkttyp, die sichtbare Kategorie und den Suchbegriffbericht für Amazon.de zusammen prüfen. Ein späterer Rangwechsel allein belegt weder zusätzlichen Umsatz noch eine kausale Wirkung der Kategorieänderung.
 
 ## Drei Ebenen, die zusammenpassen müssen
 
@@ -33,7 +33,7 @@ Wählt einen **primären passenden Node** und dokumentiert gegebenenfalls einen 
 
 ## Listing-Signale auf dieselbe Kategorie ausrichten
 
-Der Produkttitel soll den Typ früh eindeutig benennen: „Pour-over-Kaffeebereiter mit Glas-Karaffe und Edelstahlfilter“ sagt mehr als „Premium-Brühsystem für das Morgenritual“. Für den US-Marktplatz sind die aktuell kürzeren Titelfelder besonders relevant; prüft die Feldregeln eures Zielmarktes. Item Highlights, Bullets, Backend-Suchbegriffe und Bilder müssen denselben **belegten** Produkttyp erklären, nicht vier verschiedene Suchwelten gleichzeitig ansprechen.
+Der Produkttitel soll den Typ früh eindeutig benennen: „Pour-over-Kaffeebereiter mit Glas-Karaffe und Edelstahlfilter“ sagt mehr als „Premium-Brühsystem für das Morgenritual“. Für Amazon.de gelten seit Juli 2026 in den meisten Kategorien 75 Zeichen im Titel und weitere 125 Zeichen für Artikel-Highlights; prüft Ausnahmen und die geltenden Felder im Zielmarkt. Item Highlights, Bullets, Backend-Suchbegriffe und Bilder müssen denselben **belegten** Produkttyp erklären, nicht vier verschiedene Suchwelten gleichzeitig ansprechen.
 
 Füllt die für den Produkttyp relevanten Attribute: Material, Fassungsvermögen, Filterart, elektrische oder manuelle Verwendung und weitere tatsächlich vorhandene Eigenschaften. „100 % ausgefüllt“ ist kein sinnvolles Ziel, wenn Felder auf das Produkt nicht zutreffen; vollständige und richtige **relevante** Daten sind das Ziel. Ein leerer Typ-Schlüssel kann dazu führen, dass Amazon oder ein Käufer die ASIN falsch einordnet.
 
@@ -45,7 +45,7 @@ Wenn ihr KI-gestützte Listing-Hilfen in Seller Central verwendet, gebt ihnen vo
 
 In den ersten ein bis zwei Wochen einer neuen ASIN kann eine eng budgetierte Auto-Kampagne Hinweise auf Amazons Verständnis liefern. Seht im Suchbegriffsbericht nach: Erscheint der Filter bei Anfragen nach wiederverwendbaren Filtern oder überwiegend bei unpassenden Kaffeemaschinen? Prüft außerdem die Produktdetailseiten, auf denen Anzeigen erscheinen, die sichtbaren Filteroptionen und die tatsächlich ausgewiesenen Kategoriepfade.
 
-Beispielwerte wie 10–15 US-Dollar Tagesbudget und konservative Gebote von 0,50–0,75 US-Dollar sind **keine allgemeine Launchformel**. Für ein teures oder niedrigvolumiges Produkt reichen sie womöglich nicht für eine Entscheidung. Wichtiger ist, vorab zu definieren, welche Suchbegriffe eine richtige Produktzuordnung bestätigen und ab welcher Menge unpassender Kontakte ihr Daten und Produkttyp erneut prüft.
+Ein pauschales Tagesbudget ist hier keine Launchformel. Legt das Testbudget aus dem akzeptierten Werbespielraum der SKU und der erwarteten Zahl aussagekräftiger Klicks fest. Definiert vorab, welche Suchbegriffe eine richtige Produktzuordnung bestätigen und ab welchem Anteil unpassender Kontakte ihr Daten und Produkttyp erneut prüft.
 
 In einer zweiten Testphase könnt ihr gezielt fünf bis zehn wirklich vergleichbare ASINs sowie passende Kategorieverfeinerungen ansteuern. Wenn Kaufquote und Relevanz auf diesen Zielen schwach bleiben, prüft Produktpassung, Bild und Angebot, bevor ihr den Node erneut ändert. Ein hoher CPC allein beweist keine falsche Kategorie.
 

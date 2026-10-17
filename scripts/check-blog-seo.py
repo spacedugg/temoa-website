@@ -114,6 +114,9 @@ for slug in active:
     source = files[0].read_text()
     check('class="article-example"' in source, f'{slug}: missing practical example')
     check('Dieser Beitrag stammt von' not in source, f'{slug}: boilerplate attribution remains')
+    for locale in ['de', 'en']:
+        article = next((ROOT / 'content/blog' / (locale if locale == 'en' else '')).glob('*_' + slug + '.md')).read_text()
+        check(not re.search(r'amazon\s*growth\s*lab|amazongrowthlab|\bAGL\b', article, re.I), f'{locale}/{slug}: external agency branding')
     html = (BUILD / 'de/blog' / (slug + '.html')).read_text()
     check('class="article-example"' in html, f'{slug}: example was not rendered')
 for locale in ['de', 'en']:

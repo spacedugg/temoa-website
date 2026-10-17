@@ -7,11 +7,11 @@ kategorie: "Marke schützen & Account-Management"
 
 # Amazon Brand Registry: enrolment, benefits and how to protect your brand
 
-You have built a brand worth selling. The question is whether you have also built the infrastructure to protect it. Most sellers know Brand Registry exists, and far fewer understand what it unlocks and how unprotected you are without it: hijacked listings, counterfeits undercutting your price, no access to A+ content, Sponsored Brands or Brand Analytics, no tools against image and ASIN theft. This article explains what Brand Registry is, how to enrol and what it gives you.
+For a brand selling in Germany and other European Amazon stores, Brand Registry connects trademark evidence, catalogue roles and tools for reporting substantiated infringement. Enrolment is one operational step; it does not itself settle every listing conflict or grant exclusive control over legitimate resale. This guide separates eligibility, day-to-day catalogue work and actual protection cases.
 
 ## What Brand Registry is
 
-Amazon Brand Registry is a programme for brand owners that gives you more control over your product listings and provides tools to protect your brand. At its core it connects your registered trademark with your seller account, and with that gives you a set of functions ordinary sellers do not have.
+Amazon Brand Registry is a programme for brand owners that gives you more control over your product listings and provides tools to protect your brand. Eligibility depends on the trademark and role. Check the rights and available functions in the relevant brand-owner account for each marketplace.
 
 ## What you need
 

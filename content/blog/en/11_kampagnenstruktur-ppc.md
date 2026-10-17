@@ -7,7 +7,7 @@ kategorie: "Amazon PPC & Advertising"
 
 # Amazon campaign structure: a PPC architecture that actually scales
 
-Most Amazon advertising accounts do not grow, they sprawl. New campaigns get stacked on old ones reactively, ad groups fill up with keywords thrown together, match types blur into each other, and after eighteen months the account looks like a filing cabinet nobody has tidied since launch. The data is there but unreadable. And what you cannot read, you cannot optimize, let alone scale. This is exactly the wall many sellers hit between their first and second million in revenue.
+A growing Amazon account needs each campaign to have an identifiable job. If branded and generic searches, discovery targets and proven product terms share budgets without a clear rule, a higher ACoS cannot be traced to a meaningful decision. Start by separating the queries that acquire demand from those that capture existing brand intent. Then assign budgets and reporting to each job.
 
 ## Why structure matters more the bigger you get
 

@@ -35,7 +35,7 @@ Unsere fiktive 750-ml-Edelstahlflasche wird oft zusammen mit „passt in Flasche
 
 ## Bilder müssen Einwände beantworten
 
-Das Hauptbild arbeitet im Suchergebnis oft nur in Miniaturgröße. Produktklarheit und die anwendbaren Bildregeln sind die Grundlage. Danach fragt ihr: Welche echte Eigenschaft unterscheidet dieses Produkt bei 160 Pixeln von den Nachbarn? In einem dokumentierten Projekt stieg die Klickrate nach einer veränderten Produktperspektive um 34 %, weil eine vorher verdeckte Eigenschaft sichtbar wurde. Das ist eine Testidee, kein erwartbarer Standard-Lift.
+Das Hauptbild arbeitet im Suchergebnis oft nur in Miniaturgröße. Produktklarheit und die anwendbaren Bildregeln sind die Grundlage. Danach fragt ihr: Welche echte Eigenschaft unterscheidet dieses Produkt in der verkleinerten Ansicht von den Nachbarn? Testet eine Perspektive, die diese Eigenschaft klar zeigt, gegen die bisherige Fassung. Vergleicht Klickrate und nachgelagerte Kaufquote; eine höhere Klickrate allein ist kein Erfolg, wenn das Bild falsche Erwartungen erzeugt.
 
 Die weiteren Bilder haben andere Aufgaben. Ein Größenbild beantwortet Maßfragen; ein Anwendungsbild zeigt einen konkreten Einsatz; ein Vergleichsbild macht eine belegbare Differenz zum günstigeren Angebot sichtbar. Für Aufbewahrungsboxen wären „unter dem Spülbecken“, „im Kofferraum“ und „im schmalen Regal“ drei unterschiedliche Nutzungssituationen. Nehmt nur Szenen auf, die Maße und Einsatz des wirklichen Produkts korrekt zeigen. [A+ Content](/blog/a-plus-content) sollte verbleibende Einwände vertiefen, nicht die erste Galerie lediglich schöner wiederholen.
 

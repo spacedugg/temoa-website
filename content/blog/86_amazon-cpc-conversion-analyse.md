@@ -11,13 +11,11 @@ Der durchschnittliche CPC einer Marke steigt von 0,70 auf 1,00 Euro. Das klingt 
 
 Der Diagnoseweg beginnt bei gleicher Marktplatz-, Zeitraum- und Produktauswahl. Nutzt abgeschlossene Berichtsfenster und beachtet die Attribution der Anzeigen. Vergleicht dann Klicks, Kosten, Käufe und Werbeumsatz **innerhalb derselben Segmente**.
 
-## Benchmarks sind eine Frage der Kategorie
+## Euren eigenen Referenzwert bilden
 
-Für Sponsored Products werden in US-Auswertungen 2026 häufig etwa **0,75 bis 1,30 US-Dollar CPC** und für Anzeigenformate zusammen rund **1,10 bis 1,20 US-Dollar** als grobe Orientierung genannt. Sponsored Brands liegen etwa bei **1,10 bis 2,50 US-Dollar**, Sponsored Display bei **0,80 bis 1,60 US-Dollar**. Das sind keine deutschen Preislisten. Schon ein größerer Sponsored-Brands-Anteil hebt den gemischten Konto-CPC, selbst wenn jede einzelne Kampagne unverändert läuft.
+Ein US-CPC-Durchschnitt sagt für Amazon.de wenig über die Auktion einer deutschen SKU. Bildet stattdessen einen Referenzwert aus **eigenen, vergleichbaren Suchanfragen**: gleicher Marktplatz, Anzeigentyp, Produkttyp, Suchintention und ähnliche Preisphase. Trennt Marken- von generischer Suche und betrachtet CPC zusammen mit Conversion und Stückbeitrag. Wenn eine neue Kategorie mehr Klicks beisteuert, verändert sich der Kontodurchschnitt auch bei unveränderten Einzelpreisen.
 
-Die Kategorie vergrößert die Spanne. Bücher und Bürobedarf können unter 0,85 US-Dollar liegen; umkämpfte Suchbegriffe in Beauty, Supplements oder Elektronik erreichen regelmäßig 2 US-Dollar und mehr, einzelne Head Terms über 3 US-Dollar. Ein CPC von 2,50 US-Dollar kann für ein margenstarkes Nahrungsergänzungsmittel sinnvoll und für einen günstigen Büroartikel ruinös sein. Vergleicht deshalb **Kategorie, Produkttyp, Suchabsicht und eigenen Deckungsbeitrag**, nicht nur den Plattformdurchschnitt.
-
-Auch die Kaufquoten streuen: Als allgemeiner Amazon-Ads-Richtwert werden etwa **9–12 %**, bei gut optimierten Produktseiten **12–18 %** angeführt. Wiederkaufprodukte aus Food & Beverage können höher liegen, Elektronik wegen längerer Vergleichsphase niedriger. Der Wert einer Marke ist erst dann aussagekräftig, wenn Angebot und Traffic-Mix zum Vergleich passen.
+Die Kaufquote ist ebenso wenig eine feste Branchenzahl. Ein Ersatzteil mit eindeutiger Modellnummer, ein erklärungsbedürftiges Gerät und ein wiederholt gekauftes Verbrauchsprodukt haben andere Entscheidungswege. Eure belastbarste Vergleichsgröße ist die eigene SKU-Historie bei kaufbarem Bestand, vergleichbarem Preis und gereifter Attribution.
 
 ## Erst Preisänderung von Mixänderung trennen
 
@@ -40,9 +38,9 @@ Das ist kein universelles Gebot. Bezieht Retouren, Mehrfachkäufe, Rabatte, Geb�
 
 ## ACoS, TACoS und Produktphase zusammen lesen
 
-Ein ACoS von 25–35 % kann in reifen Kampagnen als grober Vergleich dienen; starke Konten können darunter liegen. Launch-Kampagnen nehmen für Reichweite und erste Signale teils 30–60 % in Kauf. Eine solche Spanne ist kein Zielwert für euer Konto. Rechnet zuerst den [Break-even-ACoS aus Marge und Gebühren](/blog/guter-acos-benchmarks), dann legt fest, ob ihr Profit, Lernen oder Marktanteil priorisiert. Ein frisch gelaunchtes Produkt nach dem ACoS einer etablierten Bestseller-ASIN zu steuern, kann den Test beenden, bevor er aussagekräftig ist.
+Eine fremde ACoS-Spanne ist kein Zielwert für euer Konto. Rechnet zuerst den [Break-even-ACoS aus Marge und Gebühren](/blog/guter-acos-benchmarks), dann legt fest, ob ihr Profit, Lernen oder Marktanteil priorisiert. Ein frisch gelaunchtes Produkt nach dem ACoS einer etablierten Bestseller-ASIN zu steuern, kann den Test beenden, bevor er aussagekräftig ist.
 
-Der [TACoS](/blog/tacos-erklaert) setzt Werbekosten zum gesamten Umsatz ins Verhältnis und zeigt die Werbeabhängigkeit der Marke. Als grobe Orientierung für manche reifen Konten werden 10–15 % genannt. Wichtiger ist die eigene Entwicklung zusammen mit Umsatz und Beitrag: Ein sinkender TACoS bei gleichzeitig fallendem Gesamtumsatz ist kein automatischer Wachstumsbeweis.
+Der [TACoS](/blog/tacos-erklaert) setzt Werbekosten zum gesamten Umsatz ins Verhältnis und zeigt die Werbeabhängigkeit der Marke. Wichtiger als eine fremde Zielspanne ist die eigene Entwicklung zusammen mit Umsatz und Beitrag: Ein sinkender TACoS bei gleichzeitig fallendem Gesamtumsatz ist kein automatischer Wachstumsbeweis.
 
 ![Amazon Ads Vergleich: CPC und Kaufquote gemeinsam lesen, danach ACoS und TACoS nach Produktphase beurteilen](/blog/figures/cpc-cvr-scorecard.svg)
 
@@ -64,7 +62,7 @@ Verändert nicht gleichzeitig Gebot, Bild, Preis und Targeting derselben ASIN. S
 
 **Warum fällt die Kaufquote ohne Änderung am Listing?** Ein Wettbewerber kann den Preis gesenkt, bessere Bewertungen gewonnen oder schneller geliefert haben. Auch Saison, Traffic-Mix, Bestand und [Featured Offer](/blog/amazon-featured-offer-analyse) können sich ändern. Prüft diese Faktoren im Zeitraum des Rückgangs, bevor ihr die Seite umbaut.
 
-**Wie lange darf ein Launch höheren ACoS haben?** Der Zeitraum hängt von Kategorie und Kaufzyklus ab; 60–90 Tage sind eine grobe Planungsgröße, kein Freibrief. Wenn ausreichend Impressionen vorliegen und schon die Klickrate schwach ist, korrigiert das Suchergebnis früh. Wenn Klicks kommen, aber Käufe fehlen, prüft Angebot und Detailseite.
+**Wie lange darf ein Launch höheren ACoS haben?** Der Zeitraum hängt von Kategorie und Kaufzyklus ab; plant ein Messfenster nach Datenvolumen, Produkt und Kaufzyklus statt einer pauschalen Tageszahl. Wenn ausreichend Impressionen vorliegen und schon die Klickrate schwach ist, korrigiert das Suchergebnis früh. Wenn Klicks kommen, aber Käufe fehlen, prüft Angebot und Detailseite.
 
 **Warum steigt der CPC bei unveränderten Geboten?** Das Gebot ist nicht der stets gezahlte Preis. Konkurrenz, Platzierungsgewichtung und Nachfrage verändern die Auktion. Trennt diese Effekte vom Wechsel eures Suchbegriffs-Mix.
 

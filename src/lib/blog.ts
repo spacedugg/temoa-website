@@ -352,7 +352,7 @@ const EDITORIAL_PRIORITY = [
   "amazon-dsp-budget", "amazon-cpc-conversion-analyse", "amazon-content-experimente",
   "amazon-keyword-recherche", "amazon-kanalstrategie-marken", "amazon-produktlaunch",
   "amazon-featured-offer-analyse", "amazon-account-health", "amazon-vine-kalkulation",
-  "amazon-awd-us-logistik", "amazon-ki-sichtbarkeit",
+  "amazon-ki-sichtbarkeit",
   "amazon-ki-kaufagenten", "amazon-gebuehren-2026", "amazon-acos-senken", "amazon-marketingagenturen-vergleich",
 ];
 
