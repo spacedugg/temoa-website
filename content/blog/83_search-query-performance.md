@@ -1,62 +1,74 @@
 ---
-title: "Search Query Performance: Welche Suchanfrage verliert eure Marke wo?"
-meta_description: "Amazon Search Query Performance auswerten: Markt- und Markenanteile über Impressionen, Klicks, Warenkörbe und Käufe vergleichen. Mit ASIN-Beispiel und Prüfablauf."
-keywords: ["Search Query Performance", "Amazon Suchanfragen auswerten", "Brand Analytics", "Amazon Klickanteil Kaufanteil"]
+title: "Search Query Performance: die vier Stufen richtig lesen"
+meta_description: "Amazon Search Query Performance im Detail: Markt und Marke, absolute Werte und Anteile, Warenkorb-Stufe, Raten-Nenner sowie die Diagnose für Listing, Preis und PPC."
+keywords: ["Amazon Search Query Performance", "Amazon SQP auswerten", "Brand Analytics Suchanfragen", "Klickanteil Kaufanteil"]
 kategorie: "Amazon Daten & Analyse"
 ---
 
-# Search Query Performance: Welche Suchanfrage verliert eure Marke wo?
+# Search Query Performance: die vier Stufen richtig lesen
 
-Search Query Performance (SQP) ist ein Bericht in Brand Analytics. Er zeigt zu Suchanfragen unter anderem Suchvolumen, Impressionen, Klicks, Warenkorbzugänge und Käufe. Zu den Stufen erscheinen Werte für den Marktplatz und eure Marke beziehungsweise eine ausgewählte ASIN. Damit könnt ihr feststellen, **bei welcher Suchanfrage eure Position zwischen Sichtbarkeit und Kauf schwächer wird**. Der Bericht erklärt die Ursache nicht von selbst.
+**Search Query Performance (SQP)** zeigt in Brand Analytics, wie sich eine Suchanfrage im gesamten Marktplatz entwickelt und welchen Teil eure Marke davon erreicht. In Seller Central findet ihr den Bericht unter **Marken → Brand Analytics → Search Query Performance**. Voraussetzung sind eine eingetragene Marke und die nötigen Zugriffsrechte. Die Markenansicht umfasst die führenden Suchanfragen und kann nach Woche, Monat oder Quartal betrachtet werden; daneben gibt es die ASIN-Perspektive für eine konkrete Produktentscheidung.
 
-Der Zugang hängt an Brand Registry und den passenden Benutzerrechten. Beginnt in Seller Central bei **Marken → Brand Analytics → Search Query Performance**. Wählt Marktplatz, Zeitraum und Marken- oder ASIN-Ansicht bewusst. Die Markenansicht bündelt Produkte; die ASIN-Ansicht eignet sich für eine Entscheidung zu einer konkreten Produktseite. Exportiert die relevanten Queries, bevor ihr Maßnahmen priorisiert.
+Für jede Query seht ihr vier Stufen: **Impressionen, Klicks, Warenkorbzugänge und Käufe**. Zu jeder Stufe stehen Marktwerte, eigene Werte und der eigene Anteil. Das entscheidende Signal ist häufig nicht eine isolierte Zahl, sondern die Stelle, an der euer Anteil gegenüber der vorherigen Stufe nachgibt. Ein Verlust vor dem Klick verlangt eine andere Maßnahme als ein Verlust nach dem Warenkorb.
 
-## SQP und Anzeigen-Suchbegriffe nicht vermischen
+## Zwei Berichte mit ähnlichem Namen und verschiedenen Aufgaben
 
-Der Suchbegriffsbericht der Ads Console zeigt Suchanfragen, die **eure Anzeigen** ausgelöst haben, samt Werbekosten und zugerechneten Verkäufen. SQP stellt Suchverhalten und eure Position innerhalb des Berichts gegenüber. Ein guter bezahlter ACoS beantwortet nicht, ob euch ein großer Teil der Käufe derselben Query entgeht. Umgekehrt lässt SQP bezahlte und organische Wirkung nicht einfach auseinanderrechnen.
+Der **Suchbegriffsbericht in der Ads Console** zeigt, welche Anfragen eure Anzeigen ausgelöst haben, was die Klicks gekostet haben und welche Käufe Amazon der Werbung zugerechnet hat. **SQP in Brand Analytics** setzt eure Marke neben das Suchverhalten im Marktplatz. Der eine Bericht beschreibt eure Kampagnen; der andere zeigt eure Position innerhalb einer Query.
 
-Business Reports betrachten Sitzungen und Verkäufe eurer Produktseiten. Deren Gesamtwerte lassen sich nicht als Summenzeile an eine Query-Auswertung hängen: Ein Bericht ordnet nach Suche, der andere nach Detailseitenbesuch und Angebot. Nutzt den [Business-Reports-Leitfaden](/blog/business-reports) für die zweite Perspektive.
+Das ändert die Entscheidung. Ein Ads-Suchbegriff kann einen guten [ACoS](/blog/acos-erklaert) liefern. Ob ihr bei derselben Anfrage nur 2 % oder 40 % der erfassten Käufe gewinnt, erschließt sich daraus noch nicht. Erst der Marktvergleich zeigt, wie groß die möglicherweise noch offene Nachfrage ist. SQP trennt allerdings bezahlte und organische Wirkung nicht sauber. Für eine Budgetentscheidung braucht ihr deshalb beide Berichte.
 
-## Eine Zeile lesen: erst die absoluten Werte, dann die Anteile
+## Anzahl und Anteil beantworten unterschiedliche Fragen
 
-Das folgende Beispiel ist vollständig fiktiv. Die Query lautet „edelstahl trinkflasche 750 ml schwarz“, die betrachtete ASIN ist eine schwarze 750-ml-Flasche. Verwendet für alle Werte **denselben Marktplatz, dieselbe Query und denselben Berichtszeitraum**.
+**Anzahl** sagt, wie viele Klicks oder Käufe ihr selbst erzielt. **Anteil** setzt diesen Wert ins Verhältnis zu allen für die Query erfassten Klicks oder Käufen. Beides kann sich in entgegengesetzte Richtungen bewegen.
 
-| Stufe | Im Bericht erfasster Marktplatz | Eigene Marke | Eigener Anteil |
-|---|---:|---:|---:|
-| Impressionen | 40.000 | 6.000 | 15 % |
-| Klicks | 8.000 | 600 | 7,5 % |
-| Warenkorbzugänge | 2.000 | 100 | 5 % |
-| Käufe | 900 | 36 | 4 % |
-
-<aside class="article-example"><p class="example-label">Fiktive Query · vier Stufen</p><h3>15 % Sichtbarkeit, aber nur 4 % Käufe</h3><p>Die Marke erhält 6.000 von 40.000 Impressionen, 600 von 8.000 Klicks und 36 von 900 Käufen. Der große Abfall von 15 % Impressionenanteil auf 7,5 % Klickanteil macht das Suchergebnis zum ersten Prüfpunkt: Hauptbild, sichtbarer Titel, Preis, Bewertung und Lieferzusage der konkret daneben stehenden Angebote. Die weiteren Verluste bei Warenkorb und Kauf sind eigene Prüfaufträge. Kein Anteil allein beweist, welches Element die Ursache ist.</p></aside>
+<aside class="article-example"><p class="example-label">Beispiel · dieselbe Suchanfrage in zwei Wochen</p><h3>Mehr Klicks und trotzdem weniger Marktanteil</h3><p>In Woche 1 hat eine Query 40.000 Suchanfragen und 7.500 erfasste Klicks. Eure Marke erhält 900 davon: 12 % Klickanteil. Vier Wochen später steigen Suchanfragen auf 70.000 und die erfassten Klicks auf 13.750; eure Klicks wachsen auf 1.100, der Anteil sinkt dennoch auf 8 %. Eure absolute Klickzahl steigt um rund 22 %, während die Query insgesamt deutlich schneller wächst. Aus dem Anteil allein lässt sich nicht ablesen, welcher einzelne Wettbewerber dafür verantwortlich ist.</p></aside>
 
 ![Search Query Performance: Markt – 40.000 Impressionen, Marke – 6.000 Impressionen, Diagnose – 15 % Anteil; danach Klicks](/blog/figures/search-query-performance.svg)
 
+Wer nur die Anzahl liest, freut sich in einer wachsenden Kategorie womöglich zu früh. Wer nur den Anteil betrachtet, übersieht, dass eine kleine Query wirtschaftlich kaum zählt. Priorisiert deshalb die Kombination aus Nachfragevolumen, eigenen Stückzahlen, Marktanteil und Deckungsbeitrag.
 
-Die vier Anteile haben **jeweils einen anderen Nenner**. 7,5 % Klickanteil bedeutet 600 eigene von 8.000 erfassten Klicks auf diese Query. 4 % Kaufanteil bedeutet 36 eigene von 900 erfassten Käufen. Die Differenz von 3,5 Prozentpunkten ist keine beobachtete „Abbruchquote derselben Käufer“.
+## Die Stufe, die eine verkürzte Funnel-Diagnose übersieht
 
-Auch eine selbst berechnete Größe wie 100 eigene Warenkorbzugänge geteilt durch 600 eigene Klicks ist kein nachverfolgter Personenpfad und nicht automatisch identisch mit einer von Amazon benannten Rate-Spalte. Prüft die aktuelle Definition jeder Spalte im Dashboard, bevor ihr Quoten vergleicht.
+Zwischen Klick und Kauf liegt der **Warenkorbzugang**. Ein Klick bedeutet zunächst nur Interesse an der Produktseite; ein Warenkorbzugang zeigt eine deutlich stärkere Kaufabsicht. Diese Trennung ist wichtig, weil „schwache Conversion“ mindestens zwei verschiedene Probleme verdecken kann.
 
-## Welcher Abfall führt zu welcher Prüfung?
+**Klickanteil hält sich, Warenkorbanteil bricht ein:** Das Suchergebnis hat Interesse geweckt, aber die Detailseite beantwortet die Kaufentscheidung nicht überzeugend genug. Prüft die späteren Bilder, Maße, Varianten, die Item Highlights und A+-Module. Bei einer 750-ml-Trinkflasche können Durchmesser für den Getränkehalter, Verschluss und Material wichtiger sein als eine weitere Lifestyle-Aufnahme. Der Bericht beweist nicht, welches Element ursächlich ist; er benennt die Stelle für eine [Content-Hypothese](/blog/amazon-content-experimente).
 
-**Impressionenanteil hoch, Klickanteil deutlich schwächer:** Öffnet die tatsächliche Suchergebnisseite für diese Query. Welches Produktbild, welcher Titel, Preis und welches Lieferdatum stehen neben euch? Ein schwaches Hauptbild lässt sich nicht durch eine schönere A+-Seite ausgleichen, denn der Klick ist bereits verloren. Wenn eure 750-ml-Flasche zu einer 500-ml-Anfrage eingeblendet wird, ist Produktpassung statt Bildqualität das Thema.
+**Warenkorbanteil hält sich, Kaufanteil bricht ein:** Der Käufer hat das Produkt erwogen. Prüft nun Preis, Lieferzusage, Bestand, Angebotsstatus und relevante Bewertungen. Ein neuer A+-Abschnitt wird einen nicht lieferbaren Artikel nicht verfügbar machen. Untersucht auch, ob einzelne Varianten betroffen sind. Aggregierte Stufen sind kein Tracking derselben Personen durch einen Checkout.
 
-**Klickanteil stabil, Warenkorbanteil schwach:** Prüft die Detailseite und die Produktfakten. Bei der Flasche wären Größe, Material, 7,5-cm-Durchmesser, Verschluss und tatsächlich belegte Eignung konkrete Prüfpunkte. Schaut zusätzlich auf Variante, Preis, Bewertungen und Lieferzusage. Ein fehlendes Maßbild ist eine testbare Hypothese; aus SQP allein folgt nicht „Bild 4 verursacht den Abfall“.
+**Impressionenanteil hält sich, Klickanteil bricht ein:** Prüft die konkrete Suchergebnisseite: Hauptbild, sichtbarer Titel, Preis und Lieferzeit neben den vergleichbaren Angeboten. Das ist ein Problem vor dem Besuch der Detailseite. Für den US-Marktplatz gilt seit Juli 2026 bei vielen Kategorien die Grenze von 75 Zeichen für den Produkttitel und 125 Zeichen für Item Highlights; prüft die für euren Marktplatz geltenden Vorgaben. Unser [Titel-Leitfaden](/blog/produkttitel-optimieren) behandelt die Auswahl.
 
-**Warenkorbanteil stark, Kaufanteil schwach:** Prüft Angebot, Featured Offer, Endpreis und Verfügbarkeit zum betreffenden Zeitraum. Änderungen zwischen Warenkorb und Bestellung lassen sich aus aggregierten SQP-Stufen nicht als individueller Checkout-Abbruch lesen. Nehmt die Muster als Anlass für eine gezielte Angebotsprüfung.
+## Die Raten im Dashboard haben denselben Nenner
 
-**Absolute Klicks steigen, Anteil sinkt:** Euer Produkt kann mehr Besucher erhalten und zugleich langsamer wachsen als die Query insgesamt. Stellt beide Zeiträume mit den tatsächlichen Nennern gegenüber. Beispiel: 500 von 5.000 erfassten Klicks sind 10 %, 700 von 10.000 nur 7 %. Der eigene Zuwachs von 200 Klicks verdeckt einen Verlust von drei Anteilspunkten. Ob ein Wettbewerber, eure Lieferfähigkeit oder ein Kampagnenwechsel dahintersteht, muss anschließend untersucht werden.
+Ein besonders häufiger Lesefehler betrifft die Rate-Spalten. Die dort ausgewiesenen Stufenraten beziehen sich auf das **Suchanfragenvolumen**, nicht automatisch auf die jeweils vorherige Stufe. Eine Warenkorbrate im SQP-Dashboard ist damit nicht dasselbe wie „Warenkorbzugänge pro Klick“; die Kaufrate ist nicht „Käufe pro Warenkorbzugang“. Prüft die Spaltendefinition in eurer Berichtsansicht, bevor ihr Raten weiterverarbeitet.
 
-## Eine Entscheidungsliste aus dem Export erstellen
+Zwei Queries können beispielsweise beide jeden fünften Klick in einen Warenkorbzugang überführen. Query A hat 2.000 Suchen und eine im Dashboard ausgewiesene Warenkorbrate nahe 4 %. Query B mit 90.000 Suchen kann dort unter 0,2 % liegen, obwohl die jeweilige Umwandlung *der erreichten Klicks* identisch ist. Die große Suchbasis drückt die Dashboard-Rate. Wer diese Zahl als „Klick-zu-Warenkorb-Conversion“ deutet, kommt zur falschen Priorität.
 
-Beginnt mit Queries, die zum Produkt passen und ein relevantes Kaufvolumen haben. Für jede notiert ihr Query, ASIN oder Marke, Zeitraum, Markt- und Eigenwerte pro Stufe, Preis-/Bestandsstatus, Werbeaktivität und die **nächste überprüfbare Hypothese**. Hohe Nachfrage nach einer Eigenschaft, die euer Produkt nicht erfüllt, ist keine Contentchance. Der Beitrag zur [Keyword-Recherche](/blog/amazon-keyword-recherche) zeigt die Filterung an einer konkreten SKU.
+Für eine selbst berechnete Stufenquote nehmt ihr die absoluten Zahlen derselben Query und desselben Zeitraums, etwa eigene Warenkorbzugänge geteilt durch eigene Klicks. Bezeichnet diese Berechnung ausdrücklich als eigene Auswertung. Auch damit beobachtet ihr aggregierte Ereignisse und keine individuelle Customer Journey.
 
-Schreibt in die Aufgabenliste beispielsweise: „Für Query X fällt der Klickanteil bei stabiler Sichtbarkeit. Produktteam prüft, ob die sichtbaren Wettbewerber einen anderen Lieferumfang zeigen. Content entwirft nur dann ein neues Hauptbild, wenn die Produktdarstellung sachlich stimmt.“ Das ist bearbeitbar; „SEO optimieren“ ist es nicht.
+![SQP-Raten: Dashboard-Rate mit Suchvolumen als Nenner gegenüber selbst berechneter Quote aus Warenkorbzugängen und Klicks](/blog/figures/sqp-raten.svg)
 
-Nach einer Änderung zieht ihr wieder dieselbe Query und ASIN-Ansicht heran. Haltet Preis, Bestand, Angebotsstatus und Werbebudget im Vergleichszeitraum fest. Das Ergebnis kann eine bessere Position zeigen; eine einzelne Vorher-nachher-Beobachtung belegt trotzdem keine eindeutige Ursache. Bei berechtigter ASIN kann ein [Content-Experiment](/blog/amazon-content-experimente) eine gezieltere Antwort geben.
+## Warum SQP und Business Reports nicht aufgehen müssen
 
-Wir verbinden mit [Analytics & Reporting](/leistungen/analytics-reporting) die Diagnose mit [Listing & SEO](/leistungen/listing-seo) und [PPC](/leistungen/ppc-advertising). Für ein konkretes Query-/ASIN-Problem könnt ihr [eure Lage mit uns besprechen](/gespraech-vereinbaren).
+SQP betrachtet die Query und ihren Markt. **Business Reports** betrachten Sessions und Verkäufe eurer Detailseiten. Ein Besucher kann über verschiedene Wege auf der Seite landen, während SQP nach Suchanfrage auswertet. Die Summen haben andere Grundgesamtheiten und müssen nicht übereinstimmen.
 
-## Quellen und Datenstand
+Nutzt SQP für die Frage: *Wie schneiden wir bei dieser Anfrage gegenüber dem Markt ab?* Nutzt [Business Reports](/blog/business-reports) für die Frage: *Wie entwickelt sich unsere eigene Detailseite, nachdem jemand angekommen ist?* Die Differenz zwischen den Berichten ist nicht automatisch ein Messfehler, den man mit einer künstlichen Formel beseitigen sollte.
 
-[Amazon: Brand Analytics](https://sell.amazon.com/tools/amazon-brand-analytics), [Amazon Seller Central: SQP-Dashboard](https://sellercentral.amazon.com/help/hub/reference/external/G8J4CB5ZBF3NX7TP?locale=en-US) und [Amazon SP-API: Analytics Reports](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics). Geprüft am 17. Oktober 2026. Die Flasche und alle Zahlen sind eigene Beispiele, keine Kundenergebnisse.
+## Aus jedem Anteilssprung eine konkrete Aufgabe machen
+
+Zieht für wirtschaftlich wichtige Queries wöchentlich denselben Marktplatz und dieselbe Marken- oder ASIN-Ansicht. Notiert Volumen, eigene Anzahl, eigenen Anteil auf allen vier Stufen sowie Preis, Bestand, Angebotsstatus und Werbeaktivität. Ein Monatsmittel kann verdecken, in welcher Woche ein Rückgang begann; für Portfoliofragen ist eine längere Sicht wiederum sinnvoll.
+
+Formuliert dann eine einzige überprüfbare Hypothese. „Klickanteil bei stabilen Impressionen gefallen; Content prüft das Suchergebnis für Query X gegen drei vergleichbare Angebote“ ist eine Aufgabe. „SEO verbessern“ ist keine. Für die Auswahl der relevanten Queries hilft die [Keyword-Recherche](/blog/amazon-keyword-recherche); für Gebotsentscheidungen braucht ihr zusätzlich die [PPC-Struktur](/blog/kampagnenstruktur-ppc) und den Ads-Suchbegriffsbericht.
+
+## Häufige Fragen
+
+**Was ist ein guter Markenanteil?** Einen universellen Grenzwert gibt es nicht. Vergleicht eure Marke bei derselben Query über die Zeit und von Stufe zu Stufe. 30 % Impressionenanteil und nur 4 % Kaufanteil sind unabhängig von einem allgemeinen Benchmark ein klarer Prüfauftrag.
+
+**Trennt SQP bezahlte und organische Verkäufe?** Nein. Ein hoher Anteil kann durch Anzeigen mitfinanziert sein. Lest den Ads-Suchbegriffsbericht daneben, bevor ihr eine organische Stärke behauptet.
+
+**Warum erscheinen Anfragen, die wir nie gebucht haben?** Amazon kann Produkte für semantisch verwandte Suchen zeigen, auch ohne dass ihr genau diese Wörter als Keyword bucht. Impressionen ohne Klicks können ein Relevanzproblem aufdecken; prüft die tatsächliche Produktpassung.
+
+**Geht SQP ohne Brand Registry?** Die Brand-Analytics-Daten setzen Zugang für die Marke voraus. Der Sponsored-Products-Suchbegriffsbericht zeigt als eingeschränkte Alternative nur eure bezahlten Anfragen, nicht den gesamten Query-Markt.
+
+**Wöchentlich, monatlich oder quartalsweise?** Wöchentlich für aktive Maßnahmen und frühe Veränderungen, längere Zeiträume für eine stabilere Priorisierung. Ein einzelner Ausreißer in einer Aktions- oder Out-of-Stock-Woche sollte keine große Content-Entscheidung auslösen.
+
+Unsere [Analytics-Arbeit](/leistungen/analytics-reporting) verbindet die vier SQP-Stufen mit Ads-, Angebots- und Content-Daten. Wenn ihr bei einer wichtigen Query Sichtbarkeit habt, aber Käufe verliert, [sehen wir uns den konkreten Bericht und die betroffene ASIN mit euch an](/gespraech-vereinbaren).

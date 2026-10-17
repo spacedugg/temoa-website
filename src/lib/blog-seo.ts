@@ -26,8 +26,8 @@ const DE: Record<string, string> = {
   "amazon-vine-kalkulation": "Amazon Vine: Die richtige ASIN auswählen",
   "amazon-awd-us-logistik": "Amazon AWD USA: Vorlager und FBA steuern",
 
-  "search-query-performance": "Search Query Performance: Suchanfragen prüfen",
-  "business-reports": "Amazon Business Reports: Varianten prüfen",
+  "search-query-performance": "Search Query Performance: vier Stufen richtig lesen",
+  "business-reports": "Amazon Business Reports: vier Kennzahlen",
 
   "acos-erklaert": "ACoS erklärt: Definition und Berechnung",
   "guter-acos-benchmarks": "Guter ACoS: Zielwerte aus der Marge ableiten",
@@ -39,7 +39,7 @@ const DE: Record<string, string> = {
   "fba-gebuehren-rechner": "FBA-Gebühren kalkulieren vor dem Launch",
   "ipi-score": "Amazon IPI-Score erklärt und verbessern",
   "fbm-vs-fba": "FBM vs. FBA: Welches Versandmodell passt?",
-  "kampagnenstruktur-ppc": "Amazon-PPC-Struktur nach Suchintention & Marge",
+  "kampagnenstruktur-ppc": "Amazon-PPC-Kampagnenstruktur: sechs Aufgaben",
   "sponsored-brands-display": "Sponsored Brands und Sponsored Display im Überblick",
   "full-funnel-advertising": "Full-Funnel-Advertising auf Amazon",
   "ppc-dayparting": "Amazon PPC Dayparting: Lohnt sich das?",

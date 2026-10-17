@@ -1,61 +1,80 @@
 ---
-title: "Amazon Business Reports: Welches Angebot bremst den Umsatz?"
-meta_description: "Business Reports auf Child-ASIN-Ebene auswerten: Sitzungen, Einheiten je Sitzung und Featured Offer verbinden. Mit einem konkreten Variantenfall und Diagnoseweg."
-keywords: ["Amazon Business Reports", "Detail Page Sales and Traffic", "Unit Session Percentage", "Featured Offer"]
+title: "Amazon Business Reports: vier Kennzahlen, die eure ASINs erklären"
+meta_description: "Business Reports in Seller Central lesen: Sessions, Unit Session Percentage, Featured Offer und Ordered Product Sales mit Ads, Bestand und Cashflow verbinden."
+keywords: ["Amazon Business Reports", "Detail Page Sales and Traffic", "Unit Session Percentage", "Featured Offer Percentage"]
 kategorie: "Amazon Daten & Analyse"
 ---
 
-# Amazon Business Reports: Welches Angebot bremst den Umsatz?
+# Amazon Business Reports: vier Kennzahlen, die eure ASINs erklären
 
-Ein Rückgang im Gesamtumsatz sagt eurem Team noch nicht, wo es handeln soll. Die Business Reports in Seller Central erlauben den Einstieg auf **Child-ASIN-Ebene**: Wie viele Sitzungen bekam eine Variante, wie viele Einheiten wurden bestellt und wie oft war euer Angebot bei Aufrufen die Featured Offer? Diese Werte helfen, einen konkreten Vorfall einzugrenzen.
+Seller Central bietet Dutzende Berichte. Für die erste Diagnose einer Produktseite reichen meist vier Größen: **Sessions, Unit Session Percentage, Featured Offer Percentage und Ordered Product Sales**. Zusammen zeigen sie, ob euch Sichtbarkeit fehlt, ob Interessenten auf der Detailseite abspringen, ob das Angebot nicht durchgehend gewinnt oder ob Umsatz trotz stabiler Grundlagen wächst. Danach erst lohnt sich der tiefere Blick in Werbe-, Such- und Bestandsdaten.
 
-Öffnet in Seller Central unter Berichte die Detailseitenverkäufe und Traffic **nach Child ASIN**. Exportiert einen passenden Zeitraum und eine Vergleichsperiode mit denselben Wochentagen. Schließt unvollständige aktuelle Tage aus. Notiert parallel Rabattaktionen, Preis- und Bestandswechsel, bevor ihr Unterschiede interpretiert.
+Dieser Leitfaden zeigt den passenden Bericht, konkrete Diagnosemuster und einen Rhythmus für die Steuerung eines Markenkatalogs. Die Zahlen sind keine Ersatzkennzahlen für Deckungsbeitrag oder Liquidität; sie helfen, die richtige nächste Untersuchung zu wählen.
 
-## Was die vier Kernwerte bedeuten
+## Wo der Bericht liegt und welche Grenzen er hat
 
-| Wert | Aussage | Grenze |
-|---|---|---|
-| Sitzungen | Besuche der Produktdetailseite gemäß Amazon-Definition | Bezahlte und organische Herkunft nicht getrennt |
-| Unit Session Percentage | Bestellte Einheiten geteilt durch Sitzungen | Einheitenquote, nicht Anteil eindeutiger Käufer |
-| Featured Offer Percentage | Anteil der Detailseitenaufrufe mit eigenem hervorgehobenen Angebot gemäß Report | Ursache eines Verlusts steht nicht im Prozentwert |
-| Ordered Product Sales | Im Bericht erfasster Bestellumsatz | Noch kein Nettoerlös oder Deckungsbeitrag |
+Öffnet in Seller Central **Berichte → Unternehmensberichte** beziehungsweise die lokal so bezeichneten *Business Reports*. Die Menüs können sich ändern. Für den ASIN-Vergleich ist **Detail Page Sales and Traffic by Child Item/Child ASIN** der nützlichste Ausgangspunkt. Die Child-ASIN-Ansicht verhindert, dass gute und schwache Varianten in einer Parent-Summe verschwinden.
 
-Ein Käufer kann mehr als eine Einheit bestellen. Deshalb sollten 12 % Unit Session Percentage nicht als „12 % der Besucher kaufen“ umformuliert werden. Ebenso enthält Umsatz keine Warenkosten, Werbung, Retouren oder alle zeitlichen Korrekturen.
+Aktuelle Tageswerte können unvollständig sein; vergleicht abgeschlossene Zeiträume und exportiert benötigte historische Daten regelmäßig. Amazon begrenzt die abrufbare Historie je Bericht. Legt deshalb einen wiederholbaren Export ab, statt sich auf einen später noch verfügbaren Screenshot zu verlassen. Marken mit Brand-Analytics-Zugriff bekommen mit [Search Query Performance](/blog/search-query-performance) eine zweite Perspektive auf Suchanfragen und Marktanteile; Ads Console und Zahlungsberichte ergänzen das Bild.
 
-## Der Fall: Zwei Varianten desselben Produkts
+## Die vier Kennzahlen pro Child-ASIN
 
-Eine fiktive Marke verkauft dieselbe Edelstahlflasche als schwarze und blaue Child-ASIN. Im Vergleich zweier vierwöchiger Zeiträume bleibt der Preis der schwarzen Variante unverändert. Die Tabelle zeigt absichtlich die Werte pro Variante; die Parent-ASIN würde die Abweichung verdecken.
+**Sessions** sind Besuche der Detailseite. Sie bündeln Zugänge aus organischer Suche, Anzeigen und anderen Quellen. Eine Session ist keine Suchanfrage und keine einzelne Anzeigenimpression. Steigen Sessions, wisst ihr zunächst, dass mehr Besuche ankommen; ihr wisst noch nicht, aus welcher Quelle und zu welchem Preis.
 
-| Variante | Sitzungen vorher → nachher | Einheiten vorher → nachher | Unit Session % | Featured Offer % |
-|---|---:|---:|---:|---:|
-| Schwarz, 750 ml | 2.200 → 2.180 | 242 → 153 | 11,0 → 7,0 | 98 → 72 |
-| Blau, 750 ml | 1.400 → 1.450 | 154 → 163 | 11,0 → 11,2 | 99 → 99 |
+**Unit Session Percentage** setzt bestellte Einheiten ins Verhältnis zu Sessions. Diese Rate ist ein starkes Signal dafür, was nach dem Besuch passiert. Weil der Zähler Einheiten und nicht Käufer enthält, sollte sie nicht gedankenlos als Anteil einzigartiger Besucher bezeichnet werden.
 
-<aside class="article-example"><p class="example-label">Fiktiver Variantenfall · Diagnose vor Maßnahme</p><h3>Die schwarze ASIN verliert Bestellungen trotz stabiler Sitzungen</h3><p>Die schwarze Variante bekommt nahezu gleich viele Besuche, verkauft aber 89 Einheiten weniger. Gleichzeitig fällt ihr Featured-Offer-Wert von 98 auf 72 %. Die blaue Variante bleibt stabil. Der nächste Schritt ist eine Angebotschronik für Schwarz: Verkäuferwechsel, kaufbarer FBA-/FBM-Bestand, Lieferzusage und Endpreis prüfen. Ein neuer A+-Entwurf wäre zu diesem Zeitpunkt unbegründet.</p></aside>
+**Featured Offer Percentage** zeigt, wie häufig euer Angebot die hervorgehobene Kaufoption bei Detailseitenaufrufen hielt. Auch eine Marke auf ihrer eigenen Produktseite kann hier Anteile verlieren. Prüft dann konkurrierende Angebote, Preis, Versandversprechen, Verfügbarkeit und Kontostatus. Ein Wert unterhalb eurer üblichen hohen Quote ist ein Anlass für eine Untersuchung, keine automatische Diagnose „Hijacker“. Mehr dazu in unserer [Featured-Offer-Analyse](/blog/amazon-featured-offer-analyse).
 
-![Business Reports pro Child-ASIN: Schwarz – 2.180 Sitzungen, Kaufbarkeit – Featured Offer 72 %, Ergebnis – 153 bestellte Einheiten](/blog/figures/business-reports.svg)
+**Ordered Product Sales** ist der Umsatz aus bestellten Produkten. Lest ihn als Verlauf über mehrere abgeschlossene Zeitfenster und neben den Stückzahlen. Ein höherer Umsatz kann aus Preis oder Produktmix stammen, obwohl Sessions oder Einheiten fallen.
 
+<aside class="article-example"><p class="example-label">ASIN-Diagnose · fiktives Beispiel</p><h3>Umsatz allein erklärt den Rückgang nicht</h3><p>Eine Variante verzeichnet im ersten 30-Tage-Fenster 12.000 Sessions, 14 % Unit Session Percentage und 98 % Featured Offer. Im zweiten Fenster sind es 11.500 Sessions, 9 % und 82 %. Eine neue Anzeige würde die schwächere Kaufquote nicht erklären. Prüft zuerst, wann die Featured Offer verloren ging, welche Angebote auf der ASIN stehen und ob Preis oder Lieferzeit gewechselt haben. Erst danach ist ein Content-Test sinnvoll.</p></aside>
 
-Die Zahlen beweisen noch nicht, dass allein die Featured Offer für den Verlust verantwortlich war. Prüft die Zeitpunkte: Wann sank der Angebotsanteil, wann änderte sich die Lieferzeit und wann die Bestellquote? Berücksichtigt mögliche Werbe- und Suchanfragenverschiebungen. Wenn die Angebotslage wieder stabil ist und die Kaufleistung niedrig bleibt, untersucht erst dann Bild, Titel, Variantenführung und Detailseiteninhalt.
+![Business Reports: vier Kennzahlen pro Child-ASIN in einem Diagnosepfad](/blog/figures/business-reports.svg)
 
-## Vier Befundmuster für den Wochenreview
+Der [Best Sellers Rank](/blog/bsr-erklaert) ist für diesen Zweck nur eine ergänzende relative Momentaufnahme. Er ersetzt weder eure tatsächlichen Sessions noch Umsatz und Angebotsstatus.
 
-**Sitzungen runter, Einheitenquote stabil:** Prüft Nachfrage der wichtigsten Queries, Kampagnenreichweite, organische Präsenz, Varianten- und Indexierungsstatus. Eine Contentänderung ist nicht automatisch der erste Schritt. [Search Query Performance](/blog/search-query-performance) kann Nachfrage- und Marktanteilsveränderungen bei relevanten Anfragen unterscheiden.
+## Sessions und Kaufquote zusammen lesen
 
-**Sitzungen stabil, Einheitenquote runter:** Prüft Featured Offer, Preis inklusive Versand, Lieferzusage, Bewertungsänderungen und die Genauigkeit der Produktseite. Legt die Ereignisse auf eine Zeitachse. Die zusammengefasste Quote identifiziert keine einzelne Ursache.
+**Wenig Sessions, solide Unit Session Percentage:** Besucher, die euch finden, bestellen; die erste Untersuchung gilt Reichweite und Relevanz. Seht euch Indexierung, passende Keywords, Nachfrageentwicklung und die Sichtbarkeit eurer Ads an. Ein gutes Conversion-Signal rechtfertigt trotzdem kein beliebiges PPC-Budget: Die zusätzlichen Klicks müssen wirtschaftlich sein.
 
-**Beide runter:** Kontrolliert zunächst Kaufbarkeit, Lagerbestand, Suppression und Angebotsstatus. Dann trennt ihr Sichtbarkeits- von Conversion-Fragen. Ein großes Budget auf eine nicht lieferbare Variante löst nichts.
+**Viele Sessions, schwache Unit Session Percentage:** Der Traffic kommt an, aber Angebot oder Produktseite erfüllen Erwartungen nicht. Prüft Traffic-Mix, Preis, Varianten, Bewertungen, Bilder, Item Highlights und Lieferzusage. Wer hier einfach mehr Ads kauft, kauft womöglich mehr unpassende Besuche. Ein [Content-Experiment](/blog/amazon-content-experimente) eignet sich erst, wenn die Hypothese auf einer konkreten Kaufhürde beruht.
 
-**Sitzungen und Einheitenquote stabil, Umsatz runter:** Prüft den realisierten Wert je Einheit, Produktmix, Rabatt und gegebenenfalls Stornos. Bestellte Einheiten und Umsatz können sich unterschiedlich entwickeln. Für die Wirtschaftlichkeit führt anschließend kein Weg am tatsächlichen Nettoerlös und Stückbeitrag vorbei.
+**Sessions und Quote sinken zugleich:** Prüft zuerst Featured Offer, Verfügbarkeit, Suppressions und größere Änderungen im Umfeld. Ein verlorenes Angebot kann beide Kennzahlen belasten. Analysiert den Zeitpunkt des Bruchs pro Child-ASIN, bevor ihr eine pauschale Ranking- oder Algorithmusursache ausruft.
 
-## Was in einen brauchbaren Wochenbericht gehört
+**Sessions stabil, Umsatz verändert:** Vergleicht Preis, bestellte Einheiten und Variantenmix. Die Rate kann gleich bleiben, während ein Wechsel zu günstigeren Varianten den Umsatz senkt. Ohne diese Trennung würden Team und Agentur womöglich die falsche Kennzahl optimieren.
 
-Zeigt die wichtigsten Child-ASINs mit aktuellen und verglichenen vier Werten, Lieferreichweite und einer Spalte **„Befund / Eigentümer / nächster Beleg“**. Eine zusätzliche Zeile mit „Umsatz minus 20 %“ reicht nicht. Wenn ein Problem auf eine schwarze Variante begrenzt ist, braucht nicht die gesamte Marke neue Anzeigen oder neue Bilder.
+![Diagnosematrix: Sessions und Unit Session Percentage führen zu unterschiedlichen Untersuchungen](/blog/figures/business-reports-matrix.svg)
 
-Verknüpft den Bericht mit der passenden Datenquelle: Ads Console für Kosten und zugerechnete Verkäufe, SQP für Suchanfragen, Bestands- und Angebotsansichten für Lieferfähigkeit, Zahlungsreports für den Geldfluss. Die Nenner und Zeitpunkte dieser Reports unterscheiden sich. Addiert sie nicht zu einer scheinbar vollständigen „Conversion-Rate“.
+## Ads-Kennzahlen ergänzen die Produktperspektive
 
-Eine sinnvolle Eskalation endet mit einer Entscheidung: Angebot reparieren, Bestand sichern, Produktangaben klären, eine konkrete Content-Hypothese testen oder Werbereichweite anpassen. Unsere Arbeit in [Analytics & Reporting](/leistungen/analytics-reporting), [Account-Management](/leistungen/account-management) und [FBA & Inventory](/leistungen/fba-inventory-management) führt diese Befunde zusammen. Im [Gespräch](/gespraech-vereinbaren) können wir die auffälligsten Varianten eures Reports durchgehen.
+**ACoS** teilt Werbekosten durch den Anzeigen zugerechneten Umsatz. **ROAS** drückt dasselbe Verhältnis umgekehrt aus. **TACoS** setzt Werbekosten ins Verhältnis zum gesamten Umsatz und zeigt, wie stark das Geschäft insgesamt von Anzeigen abhängt. Diese Kennzahlen beantworten andere Fragen als Sessions und Unit Session Percentage. Ein niedriger ACoS kann mit rückläufigen Gesamtverkäufen einhergehen; ein höherer Launch-ACoS kann bewusst finanziert sein.
 
-## Quellen und Datenstand
+Prüft [ACoS-Zielwerte](/blog/guter-acos-benchmarks) anhand von Marge und Ziel, nicht anhand eines pauschalen Branchenwerts. Verbindet dann Ads-Suchbegriffe mit der Entwicklung je ASIN. Ein sinkender TACoS bei wachsendem Umsatz kann ein gutes Muster sein, beweist aber allein noch nicht, dass Werbung organische Verkäufe verursacht hat. Der [Inkrementalitäts-Beitrag](/blog/amazon-werbung-inkrementalitaet) zeigt die Grenze der Zuschreibung.
 
-[Amazon SP-API: Sales and Traffic Report](https://developer-docs.amazon/sp-api/docs/report-type-values-analytics) und [Amazon: Brand Analytics](https://sell.amazon.com/tools/amazon-brand-analytics). Geprüft am 17. Oktober 2026. Varianten und Werte sind fiktiv; die vier Berichtsspalten stammen aus den beschriebenen Amazon-Ansichten.
+## Bestand und Auszahlungen schließen die Lücke zum Geschäft
+
+Verkäufe beschreiben Vergangenes, Bestand begrenzt die nächsten Wochen. Beobachtet Abverkauf und Reichweite pro ASIN, insbesondere vor Aktionen und Peaks. Ein Stockout lässt sich durch eine schönere Report-Folie nicht beheben und kann Such- und Werbedaten verfälschen. Der [IPI-Leitfaden](/blog/ipi-score) ordnet Amazons Bestandskennzahl ein; der Beitrag zu [Bestand und Liquidität](/blog/inventar-cashflow) verbindet Nachschub mit Cashflow.
+
+Zahlungsberichte beantworten wiederum, wann aus gebuchten Bestellungen verfügbares Guthaben wird und welche Gebühren sowie Rückbehalte den Auszahlungsbetrag verändern. Gleiche Umsatzwerte in Business Reports und tatsächlich ausgezahlte Beträge sind keine Selbstverständlichkeit. Nutzt dafür den [Leitfaden zu Auszahlungen](/blog/wie-oft-zahlt-amazon).
+
+## Ein Rhythmus, der zu Entscheidungen führt
+
+**Wöchentlich:** Exportiert den Child-ASIN-Bericht für abgeschlossene Zeiträume. Vergleicht die vier Kennzahlen mit den Vorwochen und markiert die größten Bewegungen nach wirtschaftlicher Relevanz. Prüft für auffällige ASINs Suchbegriffe, Featured Offer, Preis und Bestandsreichweite. Haltet für jede Auffälligkeit eine verantwortliche Person und einen nächsten Prüfschritt fest.
+
+**Monatlich:** Lest TACoS, Preis- und Angebotswechsel, [Brand-Analytics-Queries](/blog/search-query-performance), Retouren und Bestandsposition zusammen. Trennt Veränderungen im Produktmix von Veränderungen derselben ASIN.
+
+**Quartalsweise:** Entscheidet, welche Produkte mehr Kapital, Content und Ads erhalten, welche erst eine Angebotskorrektur brauchen und welche aus dem Sortiment oder einem Marktplatz zurückgestellt werden. Hier zählt Profitabilität pro Produktgruppe, nicht nur die schönste Traffic-Kurve.
+
+## Häufige Fragen
+
+**Welche Unit Session Percentage ist gut?** Kategorie, Preis, Produktreife und Traffic-Mix verschieben die Werte stark. Ein grober branchenübergreifender Benchmark kann eine konkrete ASIN fehlleiten. Vergleicht denselben Artikel über die Zeit und berücksichtigt Preis, Bestand und Kampagnenänderungen.
+
+**Warum liegt die Featured Offer unter 100 %, obwohl es unser Produkt ist?** Auf der ASIN können weitere Verkäufer anbieten. Auch euer eigenes Angebot kann wegen Preis, Lieferzusage, Verfügbarkeit oder Berechtigungsfragen zeitweise nicht hervorgehoben werden. Öffnet die Angebotsliste und dokumentiert den Status zum betroffenen Zeitraum.
+
+**Wie oft aktualisiert Amazon den Bericht?** Die Daten sind nicht in Echtzeit. Nutzt abgeschlossene Tage und kontrolliert die sichtbare Aktualisierung eurer Seller-Central-Ansicht, bevor ihr Trends oder Tagesvergleiche veröffentlicht.
+
+**ACoS oder TACoS?** ACoS dient der Beurteilung zugerechneter Anzeigenumsätze; TACoS zeigt den Werbekostenanteil am gesamten Umsatz. Für Geschäftsentscheidungen braucht ihr zusätzlich Marge, Bestand und Cashflow.
+
+**Brauche ich Brand Registry?** Für Standard-Business-Reports ist ein berechtigtes Verkäuferkonto maßgeblich. Brand Analytics mit SQP setzt Markenzugang voraus; die beiden Berichtsebenen sind nicht identisch.
+
+Wir bringen Business Reports, Ads, Angebot und Bestand in [ein gemeinsames Reporting](/leistungen/analytics-reporting). Wenn ihr aus euren letzten 90 Tagen nur eine Ansammlung von Exporten statt klarer Entscheidungen habt, [gehen wir die auffälligsten ASINs mit euch durch](/gespraech-vereinbaren).

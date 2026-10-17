@@ -1,50 +1,94 @@
 ---
-title: "Amazon-PPC-Kampagnenstruktur: nach Suchintention und Produktökonomie bauen"
-meta_description: "Eine steuerbare Sponsored-Products-Architektur für Marken: Portfolios, Discovery, Exact, Produkt-Targeting und Migration mit echten Diagnosefragen."
-keywords: ["Amazon Kampagnenstruktur", "Sponsored Products Struktur", "Amazon PPC skalieren"]
+title: "Amazon-PPC-Kampagnenstruktur: sechs Aufgaben, klare Daten, skalierbares Budget"
+meta_description: "Amazon Ads strukturiert aufbauen: Kampagnen, Anzeigengruppen und Targets trennen, sechs Sponsored-Products-Aufgaben organisieren und Budgets gezielt verteilen."
+keywords: ["Amazon PPC Kampagnenstruktur", "Sponsored Products Kampagnen aufbauen", "Amazon Ads Match Types", "Amazon PPC Budgetverteilung"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Amazon-PPC-Kampagnenstruktur: nach Suchintention und Produktökonomie bauen
+# Amazon-PPC-Kampagnenstruktur: sechs Aufgaben, klare Daten, skalierbares Budget
 
-Wenn ein Konto mit 80 Kampagnen schwer zu steuern ist, fehlen meistens keine weiteren Kampagnen. Es fehlt eine verlässliche Antwort auf drei Fragen: Welche ASIN soll welchen Suchbedarf bedienen? Wie viel darf ein zusätzlicher Verkauf kosten? Welche Kampagne kann man verändern, ohne ein anderes Ziel mitzuverändern? Daraus ergibt sich die Struktur.
+Viele Amazon-Ads-Konten wachsen durch Anhäufung: Zu einer älteren Kampagne kommt die nächste, Anzeigengruppen sammeln immer mehr Produkte und Keywords, und nach einiger Zeit lässt sich aus den Berichten kaum noch ablesen, welche Entscheidung tatsächlich gewirkt hat. Gerade zwischen etwa einer und fünf Millionen Jahresumsatz wird das teuer. Zusätzliche Ausgaben oder ein weiteres Tool lösen das Datenproblem nicht. Eine bewusst angelegte **Kampagnenstruktur** tut es.
 
-## Erst die SKU-Gruppen, dann die Kampagnennamen
+Dieser Leitfaden zeigt die drei Steuerungsebenen eines Kontos, sechs Aufgaben für Sponsored Products, Regeln für Match Types und Produktgruppen sowie einen Ausgangspunkt für die Budgetverteilung. Wer bereits über [DSP nachdenkt](/blog/amazon-dsp-budget), sollte zunächst prüfen, ob die vorhandenen Kampagnen überhaupt eine verlässliche Entscheidung über zusätzlichen Spend erlauben.
 
-Nehmen wir eine Marke mit Edelstahlflaschen: 500 ml, 750 ml und 1 Liter, jeweils in mehreren Farben. Das Keyword „trinkflasche edelstahl 750ml“ passt zur mittleren Größe; eine gemeinsame Anzeigengruppe für alle Größen kann Budget in die falsche Variante lenken. Umgekehrt brauchen schwarze und blaue 750-ml-Flaschen nicht zwingend eigene Kampagnen, wenn Kaufabsicht und Deckungsbeitrag ähnlich sind.
+## Warum die Struktur mehr bewirkt als ein neues Gebot
 
-Erstellt vor dem Umbau eine Tabelle je Child-ASIN: Verkaufspreis nach Rabatten, variable Amazon-Gebühren, Versand, Warenkosten, Retourenannahme, verfügbarer Bestand, beworbenes Hauptangebot und Beitragsmarge vor Werbung. Der tragbare Werbeeinsatz ergibt sich aus dem gewünschten verbleibenden Beitrag; ein kontoweiter ACoS-Wert ignoriert die Unterschiede der Varianten. [So ordnet ihr CPC und Conversion wirtschaftlich ein](/blog/amazon-cpc-conversion-analyse).
+Angenommen, eine manuelle Kampagne enthält Broad-, Phrase- und Exact-Keywords, verschiedene Produktvarianten und konkurrierende Suchintentionen. Der Gesamt-ACoS steigt. Welche Suche, welches Produkt und welche Ausspielung haben ihn verändert? Ein Bericht auf Kampagnenebene beantwortet das nicht. Eine Gebotsänderung berührt womöglich profitable und unprofitable Teile zugleich.
 
-## Vier Aufgaben, vier getrennte Entscheidungen
+Struktur bedeutet, jeder Aufgabe, jedem Keyword-Typ und jeder sinnvollen Produktgruppe einen lesbaren Platz zu geben. So verändert ein Budgetwechsel oder ein Ausschluss die beabsichtigte Teilmenge. Käufer sehen diese Architektur nicht; für das Team, das Anzeigen steuert, entscheidet sie über die Qualität jeder Diagnose.
 
-**Bestehende Nachfrage ernten:** Exakte Suchbegriffe mit belegten Bestellungen bekommen ein eigenes Budget. Trennung ist besonders hilfreich, wenn ein wichtiges Keyword sonst regelmäßig am Tagesbudget scheitert.
+## Drei Ebenen, drei Entscheidungen
 
-**Neue Suchbegriffe finden:** Auto-, Broad- und gegebenenfalls Phrase-Targets liefern Kandidaten. Hier kauft ihr Erkenntnisse ein; bewertet Suchbegriffe über ausreichend Klicks und mit Blick auf deren Kaufabsicht, nicht allein über einen Tages-ACoS.
+**Kampagne:** Hier liegen Budget und Gebotsstrategie. Trennt Aufgaben mit unterschiedlichen Zielen, damit beispielsweise Exploration das Budget der bewährten Suchanfragen nicht verdeckt.
 
-**Produktseiten gezielt besetzen:** ASIN- und Kategorie-Targeting gehören in eine eigene Auswertung. Klicks auf einer Konkurrenzdetailseite haben eine andere Ausgangslage als Suchklicks und sollten nicht mit ihnen zu einer Erfolgsquote zusammenfallen.
+**Anzeigengruppe:** Hier ordnet ihr eng verwandte Targets und die passenden beworbenen ASINs. Die Gruppe sollte ein klares Thema besitzen: Magnesiumglycinat und Magnesiumcitrat können unterschiedliche Käuferfragen bedienen; Laufschuhe für Damen und Herren ebenso.
 
-**Eigene Marke schützen:** Markenbegriffe separat betrachten. Ein hoher ROAS belegt hier nicht automatisch zusätzliche Verkäufe. Prüft, ob organische Sichtbarkeit, Wettbewerbsdruck und der [inkrementelle Beitrag](/blog/amazon-werbung-inkrementalitaet) den Einsatz rechtfertigen.
+**Keyword oder Produkt-Target:** Auf dieser Ebene steuert ihr das Gebot für eine konkrete Suche oder ein Produktziel. Die Wirtschaftlichkeit bewertet ihr anhand der zugehörigen Suchbegriffe, Käufe und Deckungsbeiträge, nicht allein anhand des Kampagnendurchschnitts.
 
-<aside class="article-example">
-<p class="example-label">Arbeitsfall · fiktives Produkt</p>
-<h3>Dasselbe Keyword, verschiedene Entscheidungen</h3>
-<p>„Edelstahlflasche 750 ml“ liefert in einer Auto-Kampagne Bestellungen für die schwarze 750-ml-SKU. Die 500-ml-SKU erzielt für dieselbe Suche Klicks, aber keine Verkäufe. Statt das Keyword für die gesamte Marke zu pausieren, führt ihr die passende 750-ml-SKU in einer Exact-Kampagne fort und prüft bei der 500-ml-SKU die Zielzuordnung. Die Suchbegriffe, beworbenen ASINs und Klicks müssen dafür gemeinsam ausgewertet werden.</p>
-</aside>
+<aside class="article-example"><p class="example-label">Konto-Audit · Produktcluster</p><h3>Eine Kampagne, zwei wirtschaftliche Realitäten</h3><p>Die Exact-Queries eines 750-ml-Flaschenclusters erzielen 18 % ACoS. Broad bringt neue Anfragen, liegt aber bei 42 %. Im gemeinsamen Kampagnendurchschnitt erscheint ein Wert von 27 %. Eine pauschale Budgetkürzung trifft auch die Exact-Queries. Nach der Trennung könnt ihr Exploration begrenzen und bewährte Anfragen weiter finanzieren. Die Zahlen sind ein Beispiel; entscheidend ist die getrennte Entscheidung.</p></aside>
 
-![Ein steuerbares Konto: SKU-Gruppe – 750 ml / ähnliche Marge, Suchabsicht – Exact · Discovery · ASIN, Kontrolle – Spend + ASIN-Beitrag](/blog/figures/kampagnenstruktur-ppc.svg)
+![Kontenarchitektur für Sponsored Products: getrennte Kampagnen für Discovery, bewährte Suchanfragen und Produktziele](/blog/figures/kampagnenstruktur-ppc.svg)
 
+## Sechs Aufgaben für Sponsored Products
 
-## Suchbegriffe verschieben, ohne profitable Auslieferung abzuschneiden
+Die folgenden Typen sind ein Ausgangsmodell **pro Produktcluster mit gemeinsamer Suchwelt**, nicht sechs Kampagnen für jede einzelne SKU. Eine Marke mit drei voneinander unabhängigen Produktgruppen kann daraus ungefähr 18 Sponsored-Products-Kampagnen ableiten, bevor Sponsored Brands oder Display hinzukommen. Der tatsächliche Zuschnitt hängt von Datenmenge und Steuerungsbedarf ab.
 
-Ein erfolgreicher Suchbegriff kann in Exact übernommen werden. Ein Negativ-Exact in der Discovery-Kampagne folgt erst, wenn die neue Kampagne tatsächlich ausliefert und genug Budget erhält. Sonst beseitigt die „saubere“ Struktur genau den Traffic, den sie erhalten sollte. Dokumentiert Datum, alte und neue Target-Zuordnung sowie Spend und Bestellungen beider Kampagnen. Die Migration bewertet ihr auf der gesamten ASIN, nicht ausschließlich an der neuen Kampagne.
+### 1. Auto: Suchbegriffe und ASINs entdecken
 
-Amazon entscheidet die Auktion dynamisch; zwei Targets im eigenen Konto sind nicht automatisch eine selbst verursachte CPC-Erhöhung. Das Problem ist die fehlende Steuerbarkeit, wenn Ziele und Budgets vermischt werden.
+Eine automatische Kampagne findet Suchanfragen und Produktdetailseiten, die ihr noch nicht manuell auf dem Zettel habt. Setzt das Budget und die Gebote so, dass die Entdeckung bezahlbar bleibt. Während eines Launches prüft ihr den Suchbegriffsbericht eng, später in einem festen Rhythmus. Diese Kampagne hat eine Forschungsaufgabe und muss nicht die gleichen Zielwerte wie ein bewährtes Exact-Set erfüllen.
 
-## Eine sinnvolle Umbau-Reihenfolge
+### 2. Manual Exact: bewährte Anfragen finanzieren
 
-1. Exportiert Kampagnen-, Suchbegriff- und beworbene-Produkte-Berichte für einen vergleichbaren Zeitraum. Kennzeichnet Verkäufe mit knappen Datenmengen ausdrücklich als unsicher.
-2. Erstellt SKU-Gruppen anhand von Suchabsicht, Marge und Bestand. Vermerkt für jede Kampagne Funktion und primäre Kennzahl.
-3. Separiert zuerst die umsatzrelevanten Suchbegriffe und prüft deren Auslieferung. Belasst die übrigen Kampagnen vorläufig aktiv.
-4. Bereinigt erst danach doppelte oder fehlgeleitete Targets und Negativ-Keywords. Kontrolliert täglich Budget-Limits und wöchentlich ASIN-Umsatz, Werbekosten und Bestellungen.
+Suchanfragen, die sich in Auto oder einem anderen Test wiederholt bewähren, erhalten eigene Exact-Targets. Trennt diese Kampagne, damit Budget und Gebote an der Produktökonomie ausgerichtet werden können. Der Bericht soll zeigen, welche konkreten Anfragen das geplante Ergebnis liefern und welche trotz früherer Erfolge neu geprüft werden müssen.
 
-Das Resultat ist kein vorgefertigtes Kampagnenbaum-Schema. Es ist ein Konto, in dem eure nächste Handlung aus den Daten hervorgeht. Wenn eure Architektur Werbebudget, Listing und Bestand gleichzeitig betrifft, verbindet sie mit unserem [PPC-Management](/leistungen/ppc-advertising) und der [Bestandsplanung](/leistungen/fba-inventory-management). [Sprecht mit temoa über eure Kontostruktur](/gespraech-vereinbaren).
+### 3. Manual Phrase: benachbarte Nachfrage erschließen
+
+Phrase erweitert eine bekannte Suchidee auf weitere Formulierungen. Ihr könnt hier neue Konverter finden und später gezielt als Exact anlegen. Eine eigene Kampagne macht Reichweite, Kosten und Suchbegriffsernte unabhängig vom Exact-Budget sichtbar.
+
+### 4. Manual Broad: Exploration mit Kostenlimit
+
+Broad erschließt zusätzliche Suchräume, schwankt aber stärker in der Relevanz. Deshalb braucht es ein eigenes, kontrolliertes Budget und konsequente Auswertung der tatsächlichen Suchbegriffe. Was profitabel ist, wandert in eine passendere Steuerung; was klar unpassend ist, wird nach Prüfung ausgeschlossen. Mehr dazu in der [Strategie für negative Keywords](/blog/negative-keywords).
+
+### 5. Produkt-Targeting: ASINs gesondert steuern
+
+Eine Anzeige auf einer konkreten Produktdetailseite bedient eine andere Situation als eine generische Suchanfrage. Prüft Vergleichbarkeit, Preisabstand und Kaufabsicht. Eigene Kampagnen verhindern, dass ASIN-Targets die Auswertung der Keyword-Kampagnen verzerren.
+
+### 6. Defensive: Marke und eigene Detailseiten schützen
+
+Markenbegriffe und eigene ASINs verdienen eine gesonderte Entscheidung. Messt, welche Reichweite ihr damit absichert und welcher Teil auch ohne Werbung zu euch gekommen wäre. Eine niedrige Brand-ACoS-Zahl beweist für sich genommen keinen zusätzlichen Umsatz. Das Thema vertieft unser Beitrag zur [Inkrementalität von Amazon-Werbung](/blog/amazon-werbung-inkrementalitaet).
+
+## Anzeigengruppen: ein Match Type und ein Thema
+
+Mischt Exact, Phrase und Broad in einer Gruppe nicht. Jede Gruppe sollte ein enges Produktthema und einen klaren Target-Typ haben. Ein einfacher Test: Lässt sich die Gruppe mit wenigen Worten präzise benennen? Wenn „alle Sportprodukte“ die einzige Antwort ist, wird die spätere Gebotsentscheidung wahrscheinlich ebenfalls zu grob.
+
+Ein tiefer Katalog braucht häufig mehr, aber klarer abgegrenzte Gruppen. Das ist kein Selbstzweck: Die zusätzliche Struktur lohnt nur, wenn genug Volumen und eine Person für die Pflege vorhanden sind. Legt Namensregeln fest, damit Produktcluster, Match Type, Ziel und Marktplatz auch sechs Monate später erkennbar bleiben.
+
+## Match Types: Rollen statt dreifacher Kopie desselben Keywords
+
+Exact bündelt bereits validierte Suchanfragen. Phrase testet benachbarte Formulierungen. Broad entdeckt neue Anfragen. Wenn eine wichtige Anfrage in mehreren Kampagnen erreichbar ist, kann ihr Suchbegriff in einem anderen Budgettopf erscheinen als geplant. Nutzt gezielte Exact-Ausschlüsse in Discovery-Kampagnen, **wenn** ihr eine validierte Anfrage in der Exact-Kampagne bündeln wollt. Prüft anschließend im Suchbegriffsbericht, wo die Anfrage tatsächlich ausgeliefert wird; ein Ausschluss ist kein Garant für eine bestimmte Auktion oder einen niedrigeren CPC.
+
+Auch bei negativen Keywords gilt: Ein Suchbegriff kann für eine Flaschenvariante falsch und für die andere richtig sein. Sperrt ihn nur auf der Ebene, auf der die Unpassung gilt. Der [Leitfaden zu Suchanfragen und Ausschlüssen](/blog/negative-keywords) zeigt den Prüfablauf.
+
+![Exact, Phrase und Broad übernehmen unterschiedliche Aufgaben: validierte Anfragen, Expansion und Discovery](/blog/figures/ppc-match-types.svg)
+
+## Sponsored Brands und Display separat planen
+
+Sponsored Brands können Markenverteidigung, Kategorienachfrage und Wettbewerbsumfeld mit jeweils anderer Botschaft bedienen. Video und andere Formate sollten in der Auswertung nicht als austauschbar gelten. Sponsored Display beziehungsweise die verfügbaren Display-Produkte decken wiederum Produkt- und Zielgruppenansprache mit anderen Kontaktpunkten ab. Haltet Ziel, Kreativmaterial, Budget und Messfenster getrennt. Welche Rolle die Formate im Gesamtsystem spielen, erklären wir bei [Sponsored Brands und Display](/blog/sponsored-brands-display) und im [Full-Funnel-Plan](/blog/full-funnel-advertising).
+
+## Ein Budgetmodell für den Start des Audits
+
+Für ein reifes Sponsored-Products-Konto nennt die zugrunde liegende Methode ungefähr **50–60 % für Manual Exact, 15–20 % für Phrase, 10 % für Broad und Auto zusammen, 10–15 % für Produkt-Targeting sowie einen kleinen eigenen Topf für Defense**. Sponsored Brands und Display kommen als gesonderte Ebene hinzu; je nach Kategorie und Reife können sie etwa 15–30 % des gesamten Anzeigenbudgets beanspruchen. Diese Richtwerte sind eine Prüfschablone, keine Zielvorgabe für jedes Konto.
+
+Wichtig ist die Frage hinter der Verteilung: Wie viel Geld geht in bewährte Nachfrage, wie viel in neue Erkenntnisse und wie viel in Reichweite außerhalb der Produktsuche? Ein Launch, ein breiter Markenkatalog und ein einzelnes Nischenprodukt brauchen unterschiedliche Antworten. Rechnet außerdem mit Deckungsbeitrag und [TACoS](/blog/tacos-erklaert), damit eine scheinbar effiziente Anzeigenstruktur nicht den falschen wirtschaftlichen Erfolg optimiert.
+
+## Häufige Fragen zur Kontostruktur
+
+**Kampagne oder Anzeigengruppe für Match Types?** Wer Budget und Gebotsstrategie je Match Type eigenständig steuern will, trennt auf Kampagnenebene. Eine Trennung nur innerhalb einer Kampagne gibt euch diese Budgetkontrolle nicht.
+
+**Wie viele Kampagnen sind richtig?** Es gibt keine feste Zahl pro ASIN. Sechs Aufgaben pro sinnvoll abgegrenztem Produktcluster sind ein Audit-Modell. Fasst nur Produkte zusammen, deren Keywords und wirtschaftliche Ziele wirklich zusammenpassen.
+
+**Warum steigt der ACoS beim Skalieren?** Prüft zuerst Suchbegriffs-Mix, Produktverfügbarkeit, Preis, CPC, Conversion und die Budgetverschiebung zwischen Discovery und Exact. Eine unlesbare Struktur kann Probleme verdecken; sie ist nicht automatisch die alleinige Ursache.
+
+**Welche Aufteilung ist optimal?** Beginnt mit der oben genannten Verteilung als Vergleich, dann verschiebt nach Marge, Reife des Clusters und zusätzlichen Verkäufen. [Search Query Performance](/blog/search-query-performance) ergänzt die Marktperspektive, die Ads-Berichte zeigen eure bezahlten Suchbegriffe.
+
+Eine saubere Kampagnenarchitektur macht die nächste Entscheidung sichtbar: welche Anfrage mehr Geld verdient, welche Entdeckung gestoppt und welche Produktgruppe anders geführt werden muss. Wenn euer Konto über Jahre gewachsen ist, [prüfen wir mit euch die Struktur und ihre größten Budgetverluste](/gespraech-vereinbaren). Unser [PPC-Team](/leistungen/ppc-advertising) setzt die Prioritäten anschließend im laufenden Konto um.
