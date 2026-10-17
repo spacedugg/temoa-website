@@ -37,6 +37,8 @@ Zwischen Klick und Kauf liegt der **Warenkorbzugang**. Ein Klick bedeutet zunäc
 
 **Impressionenanteil hält sich, Klickanteil bricht ein:** Prüft die konkrete Suchergebnisseite: Hauptbild, sichtbarer Titel, Preis und Lieferzeit neben den vergleichbaren Angeboten. Das ist ein Problem vor dem Besuch der Detailseite. Für den US-Marktplatz gilt seit Juli 2026 bei vielen Kategorien die Grenze von 75 Zeichen für den Produkttitel und 125 Zeichen für Item Highlights; prüft die für euren Marktplatz geltenden Vorgaben. Unser [Titel-Leitfaden](/blog/produkttitel-optimieren) behandelt die Auswahl.
 
+Ein Projekt mit Ray-Ban illustriert, wie stark eine Änderung **vor dem Klick** wirken kann: Dort stieg die Klickrate in der Fallbeschreibung von 0,02 % auf 20 %. Ein Eingriff an dieser Stufe hätte dagegen keinen Warenkorb- oder Angebotsfehler nach dem Besuch behoben. Solche Ergebnisse sind kein allgemeiner Erwartungswert; die Stufe der konkreten Query bestimmt den Prüfauftrag.
+
 ## Die Raten im Dashboard haben denselben Nenner
 
 Ein besonders häufiger Lesefehler betrifft die Rate-Spalten. Die dort ausgewiesenen Stufenraten beziehen sich auf das **Suchanfragenvolumen**, nicht automatisch auf die jeweils vorherige Stufe. Eine Warenkorbrate im SQP-Dashboard ist damit nicht dasselbe wie „Warenkorbzugänge pro Klick“; die Kaufrate ist nicht „Käufe pro Warenkorbzugang“. Prüft die Spaltendefinition in eurer Berichtsansicht, bevor ihr Raten weiterverarbeitet.

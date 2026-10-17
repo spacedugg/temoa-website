@@ -15,7 +15,7 @@ Dieser Leitfaden zeigt den passenden Bericht, konkrete Diagnosemuster und einen 
 
 Öffnet in Seller Central **Berichte → Unternehmensberichte** beziehungsweise die lokal so bezeichneten *Business Reports*. Die Menüs können sich ändern. Für den ASIN-Vergleich ist **Detail Page Sales and Traffic by Child Item/Child ASIN** der nützlichste Ausgangspunkt. Die Child-ASIN-Ansicht verhindert, dass gute und schwache Varianten in einer Parent-Summe verschwinden.
 
-Aktuelle Tageswerte können unvollständig sein; vergleicht abgeschlossene Zeiträume und exportiert benötigte historische Daten regelmäßig. Amazon begrenzt die abrufbare Historie je Bericht. Legt deshalb einen wiederholbaren Export ab, statt sich auf einen später noch verfügbaren Screenshot zu verlassen. Marken mit Brand-Analytics-Zugriff bekommen mit [Search Query Performance](/blog/search-query-performance) eine zweite Perspektive auf Suchanfragen und Marktanteile; Ads Console und Zahlungsberichte ergänzen das Bild.
+Aktuelle Tageswerte können unvollständig sein; vergleicht abgeschlossene Zeiträume und exportiert benötigte historische Daten regelmäßig. Amazon nennt für Business-Reports-Daten eine abrufbare Historie von bis zu zwei Jahren. Legt deshalb einen wiederholbaren Export ab, statt euch auf einen später noch verfügbaren Screenshot zu verlassen. Marken mit Brand-Analytics-Zugriff bekommen mit [Search Query Performance](/blog/search-query-performance) eine zweite Perspektive auf Suchanfragen und Marktanteile; Ads Console und Zahlungsberichte ergänzen das Bild.
 
 ## Die vier Kennzahlen pro Child-ASIN
 
@@ -67,7 +67,7 @@ Zahlungsberichte beantworten wiederum, wann aus gebuchten Bestellungen verfügba
 
 ## Häufige Fragen
 
-**Welche Unit Session Percentage ist gut?** Kategorie, Preis, Produktreife und Traffic-Mix verschieben die Werte stark. Ein grober branchenübergreifender Benchmark kann eine konkrete ASIN fehlleiten. Vergleicht denselben Artikel über die Zeit und berücksichtigt Preis, Bestand und Kampagnenänderungen.
+**Welche Unit Session Percentage ist gut?** Als grobe Orientierung für etablierte Produkte werden oft 10–15 % genannt, mit großen Abweichungen nach Kategorie und Preis. Ein branchenübergreifender Benchmark kann eine konkrete ASIN fehlleiten. Vergleicht denselben Artikel über die Zeit und berücksichtigt Preis, Bestand und Kampagnenänderungen.
 
 **Warum liegt die Featured Offer unter 100 %, obwohl es unser Produkt ist?** Auf der ASIN können weitere Verkäufer anbieten. Auch euer eigenes Angebot kann wegen Preis, Lieferzusage, Verfügbarkeit oder Berechtigungsfragen zeitweise nicht hervorgehoben werden. Öffnet die Angebotsliste und dokumentiert den Status zum betroffenen Zeitraum.
 
