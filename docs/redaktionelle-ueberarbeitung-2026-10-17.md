@@ -14,11 +14,14 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - Amazon Attribution (22) um Tag-Struktur, Kostenabgleich und Inkrementalitätsgrenzen ergänzt; Peak Season (43) als Bestands-, Margen- und Medienplanung pro ASIN ausgebaut.
 - Dayparting (14) um Budgeterschöpfung, Zeitbezug, Kontrollgruppe und Beitragstest erweitert.
 - Dynamische Preisstrategie (59) um SKU-Preisgrenzen, Bestandssteuerung und kontrollierte Tests mit Gesamtbeitrag erweitert.
+- Full Funnel (13) mit Formatrollen, Creative-Voraussetzungen und der Trennung von Last-Click, Multi-Touch und zusätzlicher Wirkung vertieft.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Die achtzehn erweiterten Beiträge sind ein Qualitätsmaßstab für die nächste Bearbeitungsrunde. Insgesamt bleiben 50 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Die neunzehn erweiterten Beiträge sind ein Qualitätsmaßstab für die nächste Bearbeitungsrunde. Insgesamt bleiben 49 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
+
+Die bisherige Quellen-Zuordnung für Beitrag 82 war falsch: Die vorhandene Seite ist ein allgemeiner Marketingstrategie-Überblick, der zugeordnete AGL-Text aber ein Vergleich von Amazon-Marketingagenturen. Beide Themen sind eigenständig; der Vergleich ist noch als eigener Beitrag zu bearbeiten. Auch doppelt zugeordnete AGL-Quellen und weitere nicht abgedeckte Fachthemen brauchen eine Einzelprüfung, bevor das Archiv als vollständig gelten kann.
