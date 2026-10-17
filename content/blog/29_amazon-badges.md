@@ -45,6 +45,27 @@ Vermeide Tricks, um Badges zu erzwingen – etwa künstliche Verkaufsspitzen dur
 1. Kalkuliert die Aktion zuerst ohne Badge- und Rankingbonus.
 2. Beobachtet einen möglichen Nachlaufeffekt getrennt und dokumentiert Preis sowie Bestand. Einen späteren Vorteil dürft ihr erst mit Daten in weitere Entscheidungen übernehmen.
 
+## Was ihr bei einem Badge-Wechsel wirklich messen könnt
+
+Ein Badge kann in Suchergebnissen anders erscheinen als auf der Detailseite und je Query, Kategorie oder Nutzerkontext variieren. Dokumentiert **welcher Badge, für welche ASIN, bei welcher Suchanfrage, auf welchem Marktplatz und zu welchem Zeitpunkt** sichtbar war. Verbindet die Beobachtung mit Impressionen, Klicks und Kaufquote derselben Produktgruppe. Ein Wechsel kann gleichzeitig mit Preis, Bewertung, Saison oder Werbung auftreten; daraus folgt noch kein isolierter Badge-Effekt.
+
+![Amazon-Badge als beobachtetes Signal statt garantierter Wachstumshebel](/blog/figures/amazon-badges-wirkung.svg)
+
+| Beobachtung | Kontrollfrage | Mögliche Aktion |
+| --- | --- | --- |
+| Bestseller-Badge erscheint | Kategorie und Produktzuordnung plausibel? | Nachfrage und Beitrag beobachten, keine künstliche Umsatzspitze finanzieren |
+| Badge verschwindet | Hat sich Absatz, Bestand oder Wettbewerb verändert? | Ursache der Nachfrageverschiebung prüfen |
+| Nachhaltigkeitskennzeichnung fehlt | Liegt eine anerkannte, gültige Produktzertifizierung vor? | Berechtigung und Datenzuordnung prüfen |
+| Badge plus höhere CTR | Waren Preis, Bild und Anzeigenmix stabil? | Als Hypothese dokumentieren, nicht als alleinigen Effekt verkaufen |
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Performance</p>
+<h3>Badge gewonnen, Beitrag gefallen</h3>
+<p>Eine starke Rabattaktion erhöht die Einheiten und ein Produkt erhält vorübergehend einen Bestseller-Hinweis. Der Werbeumsatz steigt, aber der Beitrag nach Rabatt und Ads sinkt. Ein „Badge-Gewinn“ rechtfertigt die Aktion erst, wenn der Nachlauf mit realem Beitrag den Verlust ausgleicht. Die Marke plant den nächsten Deal daher anhand des [Gegenfalls](/blog/lightning-deals), nicht anhand des Abzeichens.</p>
+</aside>
+
+Die Regeln und die Darstellung einzelner Programme ändern sich. Prüft die aktuell sichtbare Kennzeichnung und die für euer Produkt geltenden Teilnahmebedingungen, bevor ihr Claims oder Verpackung darauf ausrichtet. Für [Kategoriepositionierung](/blog/kategorie-positionierung) und [Conversion-Analyse](/blog/conversion-rate-optimierung) sind die zugrunde liegenden Kaufgründe wichtiger als ein temporäres Symbol. Wir können eine betroffene ASIN im [Gespräch](/gespraech-vereinbaren) anhand der Such- und Beitragsdaten prüfen.
+
 ## Fazit
 
-Amazon-Badges sind wirkungsvolle Vertrauenssignale, die Klickrate und Conversion erhöhen können. Doch man bekommt sie nicht durch Tricks, sondern durch das, was ohnehin zählt: gute Bewertungen, zuverlässige Verfügbarkeit, einen fairen Preis und solide Verkäufe in der richtigen Kategorie. Wer an diesen Grundlagen arbeitet, sammelt Badges als verdienten Nebeneffekt – und nutzt sie, um sich in den Suchergebnissen abzuheben.
+Ein Badge ist ein beobachtbares Signal, keine planbare Wachstumszusage. Bewertet Preis, Nachfrage, Verfügbarkeit und Beitrag zusammen und kalkuliert Aktionen auch dann tragfähig, wenn die Kennzeichnung wieder verschwindet.

@@ -17,6 +17,8 @@ Item Highlights sind ein eigenes Feld. Sie ersetzen weder die Bulletpoints noch 
 
 ## Welche Information gehört wohin?
 
+![Amazon-Titel und Item Highlights: Produktidentität und Kaufargument trennen](/blog/figures/amazon-titel-highlight-felder.svg)
+
 | Feld | Aufgabe | Prüffrage |
 |---|---|---|
 | Titel | Produkt eindeutig identifizierbar machen | Erkennt man Produkttyp, relevante Variante und Marke ohne Zusatztext? |
@@ -71,3 +73,15 @@ Die Titelumstellung ist ein guter Anlass für einen Katalogcheck: Welche Variant
 
 1. Hinterlegt je Feld Quellsystem, Freigabeverantwortlichen und Datum.
 2. Kontrolliert nach dem nächsten regulären Import dieselben Test-ASINs erneut – einschließlich Child-Varianten und Übersetzungen.
+
+## Drei Varianten, ein Qualitätscheck
+
+Ein Title-Template darf nicht die Unterschiede der Child-ASINs verschleiern. Nehmt je Produktfamilie eine häufig gekaufte, eine seltene und eine technisch abweichende Variante. Lest den Titel **ohne Bild**: Sind Menge, Größe, Modell und der kaufentscheidende Unterschied erkennbar? Danach lest ihr Titel und Item Highlight zusammen: Wiederholt das Highlight nur dieselben Wörter oder beantwortet es die nächste Frage?
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Variantenklarheit</p>
+<h3>Die Zeichen reichen, aber die Information fehlt</h3>
+<p>„Nordquell Trinkflasche, Edelstahl, Schwarz“ bleibt unter 75 Zeichen. Im Sortiment gibt es jedoch 500 ml und 750 ml; in der Suchergebnisliste wirken beide gleich. Die Füllmenge gehört in den Titel jeder Child-ASIN. Ein Item Highlight kann danach einen belegten Durchmesser oder einen konkreten Verschlusstyp ergänzen. Ein zusätzlicher allgemeiner Werbesatz würde die Variantenfrage nicht lösen.</p>
+</aside>
+
+Verbindet die Umstellung mit [Kundenfragen](/blog/kundenfragen-seo) und [Content-Experimenten](/blog/amazon-content-experimente). Ein Titeltest sollte nicht gleichzeitig mit einem neuen Hauptbild und einer großen Preisaktion laufen, wenn ihr seine Wirkung verstehen wollt. Für die Katalogarbeit könnt ihr eine Produktfamilie im [Gespräch](/gespraech-vereinbaren) mit uns durchgehen.

@@ -47,9 +47,32 @@ Bewertungen wachsen langsam – typischerweise hinterlässt nur ein kleiner Teil
 1. Prüft die aktuelle ASIN-Berechtigung und die im Konto angebotene Gebühr vor Anmeldung.
 2. Gebt nur geprüfte Ware frei und dokumentiert Beschwerden nach Charge. Nutzt reguläre Bewertungsanfragen neutral und ohne Auswahl nach erwarteter Zufriedenheit.
 
+## Review-Aufbau als Produkt- und Investitionsentscheidung
+
+Für jede Launch-ASIN prüft ihr drei getrennte Fragen: **Ist die Ware freigegeben?** Sind Detailseite und Erwartungen korrekt? Trägt der SKU-Beitrag die Kosten einer möglichen Vine-Teilnahme? Eine Review-Strategie beginnt mit Produktqualität; neutrale Anfragen und Vine verstärken lediglich die Chance auf ehrliches Feedback.
+
+![Amazon-Review-Aufbau: Produktfreigabe, neutrale Anfrage und Auswertung](/blog/figures/amazon-review-aufbau.svg)
+
+| Entscheidung | Beleg | Stop-Signal |
+| --- | --- | --- |
+| Vine-Anmeldung | Aktuelle ASIN-Berechtigung, Gebühr und Produktkosten | Ungeprüfte Charge oder unklare Claims |
+| Neutrale Anfrage | Zulässiger Weg und Zeitraum im Konto | Selektive Ansprache nur zufriedener Käufer |
+| Review-Auswertung | Themen nach ASIN und Variante | Wiederkehrender Defekt oder falsche Größenangabe |
+| Content-Korrektur | Belegtes Produktmerkmal | Versprechen, das die Ware nicht erfüllt |
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Vine-Kalkulation</p>
+<h3>Zwanzig Einheiten sind keine zwanzig positiven Bewertungen</h3>
+<p>Eine Marke stellt 20 Einheiten für eine mögliche Programmteilnahme bereit. In der Entscheidung stehen Warenkosten, die im aktuellen Konto angezeigte Gebühr, Logistik und das Risiko, dass kritische Rezensionen produktseitige Mängel sichtbar machen. Die Wirtschaftlichkeit wird als Testbudget geplant, nicht als gekaufter Sterneanstieg. Parallel wird geprüft, ob eine schwache Conversion durch fehlende Bewertungen oder durch Preis, Bilder und Produktangebot entsteht.</p>
+</aside>
+
+Bei einer größeren Produktlinie priorisiert ihr Vine nach **wirtschaftlicher Bedeutung und Produktreife**, nicht nach dem Wunsch, überall sofort dieselbe Sternzahl zu erreichen. Die [Vine-Kalkulation](/blog/amazon-vine-kalkulation) zeigt das Investitionsmodell; [Produktlaunch](/blog/amazon-produktlaunch) und [Conversion-Analyse](/blog/conversion-rate-optimierung) trennen Reviews von anderen Kaufhürden. Amazon beschreibt den [offiziellen Weg für Bewertungsanfragen](https://sellercentral.amazon.de/help/hub/reference/external/G201972160).
+
+Wir können mit euch im [Gespräch](/gespraech-vereinbaren) eine Launch-ASIN samt Produktbelegen, Review-Plan und Werbekalkulation prüfen. Die [Account-Health-Arbeit](/leistungen/compliance-account-health) hilft, wiederkehrende Qualitäts- und Richtlinienthemen getrennt zu führen.
+
 ## Fazit
 
-Der Weg zu mehr Bewertungen führt heute nicht über Tricks, sondern über die erlaubten Werkzeuge: die neutrale „Bewertung anfordern"-Funktion, das Vine-Programm für den Start und vor allem ein gutes Produkt mit gutem Service. Veraltete oder manipulative Methoden – inklusive des eingestellten Early Reviewer Program – sind keine Option mehr und riskant. Wer regelkonform, geduldig und stetig Bewertungen aufbaut, stärkt Conversion und Ranking nachhaltig, ohne sein Konto zu gefährden.
+Plant Bewertungen als ehrliches Produktsignal. Freigegebene Ware, korrekte Erwartungen und die offiziellen, neutralen Werkzeuge sind die Basis. Wiederkehrende Kritik gehört in Produkt und Content zurück, statt mit zusätzlichen Anfragen überdeckt zu werden.
 
 
 ## Programm und Voraussetzungen

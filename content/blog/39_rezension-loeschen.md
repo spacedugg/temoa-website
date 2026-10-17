@@ -56,6 +56,29 @@ Die meisten negativen Bewertungen verstoßen gegen keine Regel – und genau hie
 1. Legt eine Liste für belegbare Meldegründe und eine zweite für wiederkehrende Produktprobleme an.
 2. Meldet präzise und ohne Löschversprechen. Die Produktliste geht mit Verantwortlichem und Termin an Qualitätssicherung oder Content-Team.
 
+## Review-Triage auf ASIN-Ebene
+
+Trennt **Meldegrund**, **Servicefall** und **Produktursache**. Eine Rezension kann für die Marke unangenehm sein und trotzdem regelkonform bleiben. Prüft Wortlaut und betroffene Variante, sichert den Link und beschreibt den konkreten Verstoß, falls einer erkennbar ist. Amazon entscheidet über eine Entfernung. Wiederkehrende Kritik am Produkt geht dagegen an Qualität, Katalog und Content.
+
+![Amazon-Rezensionen: Meldegrund, Servicefall oder Produktursache](/blog/figures/amazon-review-triage.svg)
+
+| Inhalt | Erster Weg | Folgearbeit |
+| --- | --- | --- |
+| Persönliche Daten oder klarer Richtlinienverstoß | Im vorgesehenen Review-Prozess melden | Entscheidung dokumentieren, keine Löschung versprechen |
+| Reine Verkäuferleistung im Seller Feedback | Passende Feedback-Prüfung | Versand-/Serviceprozess prüfen |
+| „Größe passt nicht“ bei wiederholten Reviews | Nicht pauschal als Missbrauch melden | Maßbild, Varianten und gelieferte Ware vergleichen |
+| Defekt bei bestimmter Charge | Serviceweg für betroffene Bestellung | Charge und Produktsicherheit untersuchen |
+
+<aside class="article-example">
+<p class="example-label">Modellfall · Qualitätsursache</p>
+<h3>Die Kritik klingt unfair, trifft aber eine echte Variante</h3>
+<p>Drei Reviews nennen einen lockeren Deckel. Das Team sieht zunächst nur die ein-Stern-Bewertung, erkennt dann aber, dass alle Bestellungen aus derselben Produktionscharge stammen. Statt Löschanträge zu wiederholen, prüft es Ware, Lieferant und Bestandsfreigabe. Das Listing wird erst angepasst, wenn die neue Spezifikation belegt ist.</p>
+</aside>
+
+Für die getrennte Arbeit mit Käufernachrichten gelten die [Kommunikationsrichtlinien](https://sellercentral.amazon.de/help/hub/reference/external/G1701?ld=scxxwpdirect). Eine zulässige Serviceantwort darf nicht an das Ändern oder Entfernen der Bewertung geknüpft werden. [Message Center](/blog/message-center) beschreibt den bestellbezogenen Prozess; [Kundenfragen](/blog/kundenfragen-seo) übersetzt wiederkehrende Kritik in überprüfbaren Content.
+
+Bei einem Muster aus vielen Reviews können wir mit euch im [Gespräch](/gespraech-vereinbaren) eine ASIN-Triage aufbauen: Welche Hinweise sind meldefähig, welche erfordern Produktarbeit und welche Angaben auf der Detailseite erzeugen falsche Erwartungen?
+
 ## Fazit
 
-Negative Bewertungen lassen sich nur entfernen, wenn sie gegen Amazons Richtlinien verstoßen – nicht, weil sie unangenehm sind. Prüfe also zuerst, ob ein echter Verstoß vorliegt (falsche Kategorie, Beleidigung, Spam, Manipulation), und melde ihn dann präzise mit Bezug auf die Regel. Bei berechtigter Kritik ist der bessere Weg, sie als Feedback zu nutzen, die Ursache zu beheben und mehr echte positive Bewertungen aufzubauen. Manipulation ist keine Option – sie gefährdet das, was du schützen willst.
+Entscheidend ist die Triage: regelwidrigen Inhalt sachlich melden, berechtigte Kritik als Produktdaten behandeln und Servicefälle auf dem vorgesehenen Weg lösen. Eine pauschale Löschquote wäre weder eine gute Qualitätskennzahl noch ein belastbares Ziel.
