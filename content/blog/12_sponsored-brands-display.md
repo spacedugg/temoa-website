@@ -7,7 +7,7 @@ kategorie: "Amazon PPC & Advertising"
 
 # Sponsored Brands und Sponsored Display: Die Anzeigentypen, die die meisten Marken ignorieren
 
-Der Großteil aller Amazon-Werbebudgets fließt fast vollständig in einen einzigen Anzeigentyp: Sponsored Products. Sponsored Brands und Sponsored Display – zwei Formate mit zusätzlichen Platzierungs- und Zielgruppenoptionen – bekommen nur einen Bruchteil der Aufmerksamkeit und des Budgets. Genau dieses Ungleichgewicht ist eine Chance. Marken, die ihr Budget über alle drei Typen verteilen, bauen eine Kategoriepräsenz auf, die Sponsored Products allein nicht erzeugen kann.
+Sponsored Products können eine relevante Kaufanfrage effizient bedienen. Sponsored Brands und Display lösen andere Aufgaben: eine Produktfamilie erklären, eine Anwendung im Video zeigen oder Besucher einer Detailseite erneut erreichen. Mehr Formate sind für sich genommen kein Vorteil. Entscheidend ist, ob **jede Kampagne eine eigene Käuferfrage und eine passende Zielseite** erhält und ob der zusätzliche Beitrag ihre Kosten trägt.
 
 ## Warum Sponsored Products allein nicht reicht
 
@@ -21,14 +21,16 @@ Sponsored Brands sind Markenanzeigen, die meist prominent über oder innerhalb d
 - **Mehrere Produkte gleichzeitig:** Du kannst eine kleine Auswahl deines Sortiments zeigen und Käufer in deine Markenwelt oder deinen Store leiten.
 - **Storytelling:** Mit eigener Headline und eigenen Bildern transportierst du eine Botschaft, nicht nur ein Produkt.
 
-Besonders stark sind Sponsored Brands auf Kategorie- und Marken-Keywords, wo es um Präsenz und Wiedererkennung geht.
+Die konkreten Varianten umfassen je nach Konto und Marktplatz etwa Produktkollektion, Store Spotlight und Video. Wählt die Form anhand der Aufgabe: Eine Kollektion kann verwandte Varianten nebeneinander zeigen, Spotlight führt in eine gegliederte Store-Unterseite, Video demonstriert eine Funktion, die das Hauptbild nicht erklären kann. Ein allgemeines Markenlogo vor jedem Video verschwendet die ersten Sekunden, wenn Käufer eigentlich die Anwendung sehen wollen.
 
 ## Was Sponsored Display leistet
 
-Sponsored Display funktioniert anders: Statt auf Suchbegriffe zielt es auf Zielgruppen und Platzierungen – sowohl auf als auch außerhalb von Amazon. Zwei Einsatzfelder sind besonders wirkungsvoll:
+Display kann je nach verfügbaren Einstellungen Produktziele, Besucher- oder Käufergruppen und verschiedene Platzierungen erreichen. Die konkreten Optionen und Lookback-Zeiträume prüft ihr im eigenen Marktplatz. Zwei unterschiedliche Aufgaben sind wichtig:
 
-- **Retargeting:** Du erreichst Käufer erneut, die dein Produkt oder ähnliche Produkte angesehen, aber nicht gekauft haben. Diese „warmen" Kontakte konvertieren oft überdurchschnittlich.
-- **Wettbewerber-Targeting:** Du platzierst deine Anzeige auf den Detailseiten von Konkurrenzprodukten – und fängst Käufer ab, die ohnehin in deiner Kategorie suchen.
+- **Views Remarketing:** Sprecht frühere Detailseitenbesucher erneut an, wenn das Produkt kaufbar und die Zielgruppe groß genug ist. Eine hohe Kaufquote kann auch daran liegen, dass viele dieser Käufer ohnehin zurückgekehrt wären.
+- **Produkt-Targeting:** Zeigt eine belegte Alternative auf passenden fremden ASINs oder verteidigt die eigene Produktfamilie. Prüft Preis, Packungsgröße und Funktion der Vergleichs-ASIN, sonst zahlt ihr für den falschen Bedarf.
+
+![Sponsored Products, Brands und Display nach Käuferaufgabe und Zielseite](/blog/figures/ad-formate-aufgaben.svg)
 
 Sponsored Display wirkt damit sowohl ganz oben (neue Zielgruppen) als auch ganz unten (Rückgewinnung) im Funnel.
 
@@ -57,6 +59,30 @@ Beginne klein und gezielt: eine Sponsored-Brand-Kampagne auf deine wichtigsten K
 1. Definiert vorher Zielgruppe, Botschaft, Zielseite, Budgetgrenze und Erfolgskriterium.
 2. Vergleicht nicht nur ROAS, sondern auch qualifizierten Traffic und Beitrag. Günstigere Klicks sind kein Vorteil, wenn daraus keine wirtschaftlich relevanten Käufe entstehen.
 
-## Fazit
+## Eine Reihenfolge für den ersten Formatmix
 
-Sponsored Brands und Sponsored Display sind keine Spielereien, sondern die fehlenden Stufen eines vollständigen Funnels. Sie arbeiten dort, wo Sponsored Products nicht hinkommen – beim Markenaufbau, beim Retargeting und beim Abfangen von Wettbewerber-Traffic, mit Kosten, die ihr je Kampagnenziel selbst prüfen müsst. Wer nur auf Sponsored Products setzt, lässt genau die Flächen liegen, die der Wettbewerb noch nicht besetzt hat.
+Startet mit einer funktionierenden Sponsored-Products-Basis: relevante Suchbegriffe, kaufbares Produkt und bekannte Stückmarge. Wählt dann **eine** zusätzliche Aufgabe. Beispiel: Ein erklärungsbedürftiger Wasserfilter erhält Sponsored Brands Video auf zwei passende Kategorie-Queries; das Video zeigt in den ersten Sekunden Einbau und Passform. Eine andere Produktlinie erhält eine Display-Kampagne für Besucher einer Bestseller-ASIN. Beide Tests haben getrennte Budgets, Ziele und Zielseiten.
+
+Bei Sponsored Brands prüft ihr, ob Query, Headline, beworbene Produktfamilie und Store-Unterseite zusammenpassen. Eine Anzeige für „Filter für Modell X“ darf nicht auf eine Startseite mit 60 unsortierten Produkten führen. Der [Store-Leitfaden](/blog/brand-store-funnel) zeigt den Weg zur passenden Unterseite. Bei Display prüft ihr die ASINs und Zielgruppen inhaltlich; „alle Wettbewerber“ ist selten eine sinnvolle Auswahl.
+
+<aside class="article-example"><p class="example-label">Testfall · gleiche ASIN, zwei Aufgaben</p><h3>Video erklärt, Display erinnert</h3><p>Das Video beantwortet eine Einbaufrage vor dem Klick und führt zur passenden Produktseite. Eine Display-Kampagne erreicht frühere Besucher, die diese Seite bereits gesehen haben. Messt bei Video qualifizierte Detailaufrufe und Käufe; bei Display zusätzlich, ob der **Gesamtumsatz der ASIN** gegenüber einem geeigneten Vergleich steigt. Addiert die zugerechneten Verkäufe der Formate nicht unkritisch, wenn beide denselben Kauf beeinflusst haben können.</p></aside>
+
+## Budget und Messung ohne starre Prozentformel
+
+Ein Split wie 70 Prozent SP, 20 Prozent SB und 10 Prozent Display ist ein Teststart, kein Zielwert für jedes Sortiment. Eine Marke ohne gute Videoassets braucht keinen Videoanteil nur für eine schöne Aufteilung. Schutz der profitablen Exact-Queries, Testbudget und Verlustobergrenze sollten vor dem Start feststehen. Evaluieren könnt ihr ACoS, New-to-Brand sofern verfügbar, Detailaufrufe, Brand-Suchanfragen und den Beitrag der betroffenen Produktlinie. Keiner dieser Zwischenwerte beweist allein zusätzliche Verkäufe.
+
+Wenn eine Pfadanalyse in Amazon Marketing Cloud verfügbar und ausreichend befüllt ist, kann sie Kontakte vor späteren Käufen zeigen. Für die Frage, ob Video oder Remarketing zusätzliche Käufe auslösen, braucht es eine passende Gegenprobe. Der [Full-Funnel-Beitrag](/blog/full-funnel-advertising) erklärt diese Messung.
+
+![Format-Test: Budget, Zielseite, direkte Kennzahlen und zusätzlicher Beitrag](/blog/figures/ad-formate-test.svg)
+
+## Häufige Fragen
+
+**Müssen Sponsored Brands immer zur Store-Startseite führen?** Nein. Eine passende Unterseite oder Produktseite kann eine konkrete Anfrage besser bedienen. Prüft die für das Format verfügbaren Zieloptionen.
+
+**Ist Views Remarketing automatisch profitabel?** Nein. Die Zielgruppe hat bereits Interesse gezeigt, doch ein Teil wäre auch ohne erneute Anzeige zurückgekehrt. Testet Kosten und Zusatzwirkung.
+
+**Welche Budgetquote ist richtig?** Sie folgt den wirtschaftlichen Aufgaben und der Creative-Qualität, nicht einer universellen SP/SB/Display-Verteilung.
+
+## Nächster Schritt
+
+Unsere [PPC-Betreuung](/leistungen/ppc-advertising) verbindet Format, Creative und Zielseite. [Zeigt uns eure SP-Struktur und eine Produktfamilie für den nächsten Test](/gespraech-vereinbaren); wir definieren die Aufgabe und die Budgetgrenze gemeinsam.

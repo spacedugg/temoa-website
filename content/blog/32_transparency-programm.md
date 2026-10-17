@@ -1,17 +1,17 @@
 ---
-title: "Amazon Transparency: Wie du deine Marke vor Fälschungen schützt"
-meta_description: "Das Transparency-Programm versieht jedes Produkt mit einem einzigartigen Code, der Fälschungen stoppt. Wie es funktioniert, für wen es sich lohnt und was es kostet."
+title: "Amazon Transparency einführen: Codes, Produktion und Fälschungsschutz"
+meta_description: "Amazon Transparency für Marken: Produkte registrieren, Einzelcodes in Produktion und Fulfillment prüfen, Aufwand kalkulieren und Rollout kontrollieren."
 keywords: ["Amazon Transparency", "Fälschungsschutz", "Produktauthentifizierung", "Markenschutz Amazon"]
 kategorie: "Marke schützen & Account-Management"
 ---
 
-# Amazon Transparency: Wie du deine Marke vor Fälschungen schützt
+# Amazon Transparency einführen: Codes, Produktion und Fälschungsschutz
 
-Fälschungen sind für erfolgreiche Marken auf Amazon eine ständige Bedrohung. Sie untergraben deinen Preis, schädigen deinen Ruf durch minderwertige Qualität und kosten dich Umsatz. Die Brand Registry bietet erste Schutzwerkzeuge – aber wenn Produktpiraterie in deiner Kategorie ein ernstes Problem ist, geht das Transparency-Programm einen entscheidenden Schritt weiter. Dieser Beitrag erklärt, wie es funktioniert und für wen es sich lohnt.
+Eine Marke kann eine vermutete Fälschung melden und trotzdem beim nächsten Händlerkonto dasselbe Problem erleben. Transparency setzt am **einzelnen verkaufsfähigen Produkt** an: Jede registrierte Einheit braucht einen passenden eindeutigen Code. Das kann Fälschungen und fehlerhafte Versionen vor dem Versand abfangen. Der Nutzen steht und fällt aber mit der Umsetzung bei Hersteller, Verpackung, Händlerbestand und Retouren.
 
 ## Was Transparency ist
 
-Transparency ist ein Produktauthentifizierungs-Programm von Amazon. Jede einzelne Einheit deines Produkts erhält einen einzigartigen, individuellen Code (einen Transparency-Code), der bei der Herstellung oder Verpackung aufgebracht wird. Amazon prüft diesen Code, bevor ein Artikel an den Kunden geht – so soll sichergestellt werden, dass nur echte Einheiten ausgeliefert werden. Kunden können den Code zusätzlich selbst per App scannen und die Echtheit überprüfen.
+[Amazon Deutschland](https://sell.amazon.de/brand-registry/transparency) beschreibt zwei Umsetzungswege: von Amazon ausgestellte Codes auf Etikett oder Verpackung und unter bestimmten Voraussetzungen die Verknüpfung vorhandener Seriencodes. Prüft die Berechtigung und das genaue Verfahren für eure ASINs. Jede Einheit der registrierten Produkte muss korrekt zugeordnet und scanbar sein. Käufer können Amazon-Codes mit der Shopping- oder Transparency-App prüfen; die Funktionsdetails unterscheiden sich je nach Codeweg.
 
 ## Der Unterschied zur Brand Registry
 
@@ -34,7 +34,7 @@ Für sehr junge oder wenig gefälschte Produkte kann der Aufwand den Nutzen übe
 
 ## Aufwand und Kosten realistisch einschätzen
 
-Transparency bringt operativen Mehraufwand mit: Codes müssen verlässlich auf jede Einheit gebracht werden, was Abstimmung mit dem Hersteller und saubere Prozesse erfordert. Es können zudem Kosten pro Code anfallen. Diesen Aufwand solltest du gegen den potenziellen Schaden durch Fälschungen abwägen. Für eine Marke, die regelmäßig von Piraten angegriffen wird, ist der Schutz die Investition meist wert; für eine kleine Nische ohne Fälschungsproblem eher nicht.
+Kalkuliert Codebezug und -druck, Verpackungsänderungen, Maschinenumstellung, Ausschuss, manuelle Prüfungen, Lieferantenschulung und die Umstellung vorhandener Bestände. Vergleicht das mit dokumentierten Fälschungsfällen, Rücksendungen und dem Schutzbedarf der Produktlinie. Ein pauschaler Preis je Code oder ein allgemeiner ROI passt nicht zu allen Marken; fordert die aktuellen Konditionen für eure Teilnahme an.
 
 ## Ein Baustein im Schutzkonzept
 
@@ -53,9 +53,37 @@ Transparency ist mächtig, aber kein Alleskönner. Sinnvoll ist es als Teil eine
 1. Testet eine kleine Charge vom Codebezug bis zur fertigen versandfähigen Einheit.
 2. Dokumentiert Verantwortliche für Nachdruck, beschädigte Etiketten und Retouren. Kalkuliert Personal- und Prüfaufwand zusätzlich zu eventuellen Codekosten.
 
-## Fazit
+## Der Rollout beginnt vor dem Druck
 
-Amazon Transparency verwandelt jede Produkteinheit in ein eindeutig prüfbares Original und stoppt Fälschungen, bevor sie den Kunden erreichen. Für etablierte Marken in fälschungsanfälligen Kategorien ist es ein starker, proaktiver Schutz – verbunden mit zusätzlichem Aufwand und möglichen Kosten. Wer ein echtes Fälschungsproblem hat, sollte es als Teil eines mehrschichtigen Schutzkonzepts ernsthaft prüfen; wer (noch) keines hat, kann mit der Brand Registry beginnen und später aufrüsten.
+Definiert zuerst, **welche Produkte und Packungsversionen** teilnehmen sollen. Eine Produktfamilie kann unterschiedliche Größen, Sets und alte Verpackungslager umfassen. Klärt, welcher Codeweg zulässig ist, wo der Code aufgebracht wird und wie Produkt-ID und Einzelcode im Produktionssystem zusammengeführt werden. Ein Code darf nicht auf mehrere Einheiten dupliziert werden; auch eine korrekte Zeichenfolge auf dem falschen Produkt erzeugt Probleme.
+
+![Transparency-Prozess von registrierter ASIN über Produktion bis zur Prüfung jeder Einheit](/blog/figures/transparency-prozess.svg)
+
+Beim Hersteller braucht ihr klare Prüfstellen: Code bestellt oder bereitgestellt, eindeutig gedruckt, lesbar, auf die richtige Variante geklebt und bei beschädigter Verpackung korrekt ausgesondert. Verwendet eine kleine Pilotcharge und prüft reale Einheiten am Warenausgang. Bezieht FBA, eigene Versandlager und Drittanbieter in die Planung ein. Laut Amazon gelten Schutzprüfungen für registrierte Produkte auch bei Händlerware; eine bloße interne FBA-Anweisung deckt daher nicht alle Wege ab.
+
+<aside class="article-example"><p class="example-label">Rollout · Modellfall</p><h3>Alte Ware und neue Codes kollidieren</h3><p>Eine Marke aktiviert Transparency für eine Produktlinie, während 4.000 ältere Einheiten bereits bei mehreren Händlern liegen. Neu produzierte Ware trägt korrekte Codes, der Altbestand aber nicht. Vor der Aktivierung müssen Bestände, Abverkauf, Händlerkommunikation und die von Amazon vorgesehenen Übergangsregeln geklärt sein. Sonst blockiert die Marke möglicherweise echte eigene Produkte.</p></aside>
+
+## Nach dem Start die richtigen Signale prüfen
+
+Amazon nennt in Transparency-Berichten unter anderem verhinderte Einheiten ohne gültigen Code, fehlgeschlagene Scans und abgewiesene Angebotsversuche. Trennt solche Ereignisse nach ASIN, Händlerweg und Ursache. Ein Scanfehler kann eine Fälschung anzeigen, aber auch ein beschädigtes Etikett oder eine fehlerhafte Zuordnung in der eigenen Produktion. Bevor ihr einen Verkäufer beschuldigt, braucht ihr den konkreten Beleg.
+
+Verbindet die Report-Signale mit Retourengründen, Kundenmeldungen und den [Schutzfällen in Brand Registry](/blog/brand-registry). Verantwortliche aus Produktion, Account Management und Markenschutz sollten dieselbe Fallliste sehen. Ein aktives Schutzprogramm ohne Ursachenanalyse kann vermeidbare echte Einheiten ausbremsen.
+
+![Transparency-Kontrolle: fehlender Code, falsche Zuordnung oder belegte Fälschung](/blog/figures/transparency-diagnose.svg)
+
+## Häufige Fragen
+
+**Ist Transparency dasselbe wie Brand Registry?** Nein. Die Registrierung verbindet Markenrechte und Werkzeuge; Transparency ist ein zusätzliches Programm zur Prüfung einzelner registrierter Einheiten.
+
+**Kann ein vorhandener Seriencode verwendet werden?** Amazon beschreibt eine Verknüpfung unter bestimmten Voraussetzungen. Prüft die Eignung eures Codesystems und die Funktionen, die mit dem jeweiligen Weg verbunden sind.
+
+**Gilt der Schutz nur für FBA?** Amazon beschreibt Prüfungen auch für Ware, die ein Händler direkt versendet. Die konkrete Umsetzung müsst ihr für eure ASIN und Verkäuferwege klären.
+
+**Entfernt das Programm jeden nicht autorisierten Verkäufer?** Es schützt die Authentizität registrierter Produkte. Echte, korrekt codierte Ware und vertragsrechtliche Vertriebsfragen sind ein anderer Sachverhalt.
+
+## Nächster Schritt
+
+Wir verbinden [Account Management](/leistungen/account-management) mit Katalog- und Produktionsdaten. [Zeigt uns eure betroffenen ASINs, Packungsvarianten und dokumentierten Fälschungsfälle](/gespraech-vereinbaren); daraus lässt sich ein sicherer Pilotumfang ableiten.
 
 
 ## Programm und Voraussetzungen

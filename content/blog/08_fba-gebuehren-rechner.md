@@ -7,7 +7,7 @@ kategorie: "FBA, Logistik & Inventar"
 
 # FBA-Gebühren richtig kalkulieren: So modellierst du echte Profitabilität vor dem Launch
 
-Die meisten Verkäufer rechnen ihre FBA-Profitabilität falsch. Nicht, weil die Mathematik schwer wäre – sondern weil ihre Gebührenliste unvollständig ist. Ein typischer Fehler: Man berücksichtigt Versand- und Verkaufsgebühr, schätzt den Wareneinsatz und kommt auf eine Marge, die machbar aussieht. Dann startet das Produkt, drei Monate später schaut man genauer hin – und Lagerkosten, Einlagerungsgebühren und Werbeausgaben haben die Marge unter die Rentabilitätsgrenze gedrückt. Zu diesem Zeitpunkt ist eine Korrektur teuer. Dieser Beitrag zeigt, welche Kostenblöcke wirklich in dein Modell gehören.
+Ein Produkt hat laut Amazons Rechner einen positiven Beitrag, doch nach Launch fressen Werbekosten, Retouren und drei Monate Lagerung die Marge auf. Das Problem ist nicht die Addition, sondern eine unvollständige **Launch-Entscheidung**. Modelliert vor der Bestellung je Variante den tatsächlich erzielbaren Preis, die exakten Maße und Kosten sowie einen langsamen Abverkauf. Dann wisst ihr, ob das Produkt auch bei einer schlechteren Nachfragekurve tragfähig bleibt.
 
 ## Warum ein vollständiges Modell entscheidet
 
@@ -59,6 +59,42 @@ Seit 17. April 2026 gilt ein Treibstoff- und Logistikaufschlag von 1,5 % auf FBA
 1. Speichert je Kostenzeile Quelle, Gültigkeitsdatum und Steuerbasis.
 2. Rechnet vor dem Einkauf einen schwächeren Abverkauf mit längerer Lagerdauer durch. Ein positiver Stückbeitrag verhindert noch keinen Liquiditätsengpass.
 
-## Fazit
+## Das Modell in drei Ebenen führen
 
-Echte FBA-Profitabilität ergibt sich nicht aus zwei Gebühren, sondern aus einem vollständigen Bild aller Kosten – von Zoll über Einlagerung bis Werbung und Retouren. Wer dieses Modell **vor** dem Launch aufstellt und auch ein konservatives Szenario durchrechnet, vermeidet die teure Überraschung im dritten Monat. Die wenigen Stunden Kalkulation am Anfang sind die günstigste Versicherung gegen ein unrentables Produkt.
+**Je verkaufter Einheit:** Nettoerlös nach Rabatt, gelandete Warenkosten einschließlich Fracht und Zoll, Verkaufsprovision, FBA-Gebühr, Verpackung und erwarteter Retourenverlust. Haltet Steuern und erstattungsfähige Vorsteuer getrennt von echten Kosten; die steuerliche Behandlung muss zu eurer Gesellschaft passen.
+
+**Je Zeitraum:** Lagerkosten, ggf. Gebühren für alte Ware, Werbekosten und Tools. Verteilt sie nach einem dokumentierten Schlüssel auf die verkauften Einheiten. Bei langsamem Abverkauf steigen die Lagerkosten je Verkauf. Ein fixer Monatsbetrag darf nicht als vermeintlich konstante Stückmarge verschwinden.
+
+**Für Liquidität:** Wann werden Anzahlung, Restzahlung, Transport, Zoll und Anzeigen fällig, und wann fließen Auszahlungen? Ein Produkt kann rechnerisch Gewinn erzielen und dennoch die nächste Bestellung nicht finanzieren. [Cashflow und Bestand](/blog/inventar-cashflow) gehören zu derselben Freigabe.
+
+![FBA-Launchmodell: Stückbeitrag, Zeitkosten und Liquidität getrennt rechnen](/blog/figures/fba-modell-ebenen.svg)
+
+## Eine Sensitivität statt eines einzigen Best Case
+
+Legt drei Absatzpfade und mindestens zwei Werbeannahmen an. Bei 25 Euro Nettoerlös und 6 Euro Beitrag im Basisfall aus dem obigen Beispiel fällt der Beitrag auf 4 Euro, wenn Werbung um 1,50 Euro und Retouren um 0,50 Euro steigen. Bei 1.000 verkauften Einheiten sind das 2.000 Euro Unterschied im Gesamtbeitrag. Wenn ein langsamerer Abverkauf zusätzlich Lagerkosten erzeugt, fällt die Differenz größer aus. Für die Freigabe zählt, ob der **konservative Pfad** noch eure Mindestmarge und Liquiditätsgrenze hält.
+
+<aside class="article-example"><p class="example-label">Produktfreigabe · Modellfall</p><h3>Ein halber Zentimeter Verpackung kann die Kalkulation kippen</h3><p>Die Packung liegt nahe an einer FBA-Größenschwelle. Das erste Muster misst 20,0 cm, die Serienpackung 20,6 cm. Der Rechner nutzt noch das Mustermaß. Messt mehrere verkaufsfertige Einheiten inklusive Schutzverpackung, prüft die tatsächliche Größenklasse und rechnet den möglichen höheren Satz vor der Bestellung. Eine Produktänderung nach Freigabe benötigt eine neue Rechnung.</p></aside>
+
+## Preis und Werbekosten zusammen testen
+
+Der Markt setzt keinen einzigen fixen Preis. Rechnet beispielsweise 24,90, 26,90 und 28,90 Euro mit jeweils plausibler Kaufquote und Werbekosten. Ein höherer Preis verbessert den Beitrag je Stück, kann aber die Conversion senken und den nötigen CPC reduzieren. Für einen neuen Artikel ist die tatsächliche Preiselastizität noch unbekannt. Modelliert eine Bandbreite und legt fest, welche Ergebnisse nach den ersten Wochen zur Preisänderung oder zum Stopp führen.
+
+Ein Ziel-ACoS darf nicht pauschal aus einer Kategorie übernommen werden. Der Break-even ergibt sich aus eurer SKU-Marge vor Werbung; [ACoS und TACoS](/blog/acos-erklaert) beantworten verschiedene Fragen. FBA-Gebühren aus Amazons Rechner sind ein Input, keine Aussage über Werberentabilität.
+
+## Der Launch-Gate für die Geschäftsleitung
+
+Eine Freigabe enthält Produktmuster und verifizierte Maße, aktuelle Gebührenquelle und Gültigkeitsdatum, gelandete Warenkosten, Preisband, konservative Retouren- und Werbeannahmen, Mindestbeitrag, Absatzpfade sowie benötigtes Kapital bis zur Auszahlung. Markiert offene Punkte sichtbar. Eine ungeklärte Versandklasse ist ein Risiko, keine kleine Fußnote.
+
+![FBA-Produktfreigabe: geprüfte Maße, Kostenband, Nachfrage und Kapital](/blog/figures/fba-launch-gate.svg)
+
+## Häufige Fragen
+
+**Reicht Amazons Gebührenrechner?** Für bestimmte Amazon-Gebühren ist er ein Startpunkt. Eigene Fracht, Werbekosten, reale Lagerdauer, Retouren und Cashflow gehören in euer Modell.
+
+**Welche Werbequote soll ich für einen neuen Artikel einsetzen?** Rechnet mehrere plausible Szenarien aus Kategorie, Wettbewerb und eigenem Launchplan. Eine allgemeine Prozentzahl würde gerade die wichtigste Unsicherheit verdecken.
+
+**Sollte eine knappe Marge den Launch ausschließen?** Nicht automatisch. Entscheidend sind Mindestbeitrag, Kapitalrisiko und strategischer Wert. Ein konservativer Pfad, der nur mit perfekten Annahmen positiv ist, braucht jedoch vor Bestellung eine bessere Lösung.
+
+## Nächster Schritt
+
+Unsere [FBA- und Bestandsbetreuung](/leistungen/fba-inventory-management) verbindet Gebührenmodell und Lieferplan mit [PPC](/leistungen/ppc-advertising). [Zeigt uns die Stückrechnung und ein verkaufsfertiges Muster eures nächsten Produkts](/gespraech-vereinbaren); wir prüfen die wichtigsten Unsicherheiten vor dem Launch.

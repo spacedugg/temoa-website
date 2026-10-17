@@ -1,13 +1,13 @@
 ---
-title: "Amazon Brand Registry: Anmeldung, Vorteile und wie du deine Marke schützt"
-meta_description: "Die Brand Registry schaltet A+ Content, Sponsored Brands, Brand Analytics und Schutzwerkzeuge frei. Was du brauchst, wie die Anmeldung läuft und was sie bringt."
+title: "Amazon Brand Registry: Marke anmelden, Rollen verwalten und Schutz aktivieren"
+meta_description: "Amazon Brand Registry für Marken: Voraussetzungen und Anmeldung, Zugriffsrollen, Content- und Analysewerkzeuge sowie belegte Verletzungen richtig melden."
 keywords: ["Brand Registry", "Amazon Markenregistrierung", "Markenschutz Amazon", "Marke anmelden Amazon"]
 kategorie: "Marke schützen & Account-Management"
 ---
 
-# Amazon Brand Registry: Anmeldung, Vorteile und wie du deine Marke schützt
+# Amazon Brand Registry: Marke anmelden, Rollen verwalten und Schutz aktivieren
 
-Du hast eine Marke aufgebaut, die es wert ist, verkauft zu werden. Die Frage ist, ob du auch die Infrastruktur aufgebaut hast, um sie zu schützen. Die meisten Verkäufer wissen, dass es die Brand Registry gibt – aber viel weniger verstehen, was sie alles freischaltet und wie ungeschützt man ohne sie ist: gekaperte Listings, Fälschungen, die deinen Preis unterbieten, kein Zugang zu A+ Content, Sponsored Brands oder Brand Analytics, keine Werkzeuge gegen Bild- und ASIN-Diebstahl. Dieser Beitrag erklärt, was die Brand Registry ist, wie du dich anmeldest und was sie dir bringt.
+Brand Registry ist für eine Marke mit relevantem Amazon-Geschäft mehr als ein einmaliges Registrierungsformular. Sie verbindet Markenrechte mit Schutz-, Content- und Analysewerkzeugen. Entscheidend ist, ob Name, Produktnachweise, Kontozugänge und Meldeprozesse sauber zusammenpassen. Eine registrierte Marke allein entfernt weder jeden fremden Verkäufer noch garantiert sie die Kontrolle über alle Katalogdaten.
 
 ## Was die Brand Registry ist
 
@@ -15,12 +15,12 @@ Die Amazon Brand Registry ist ein Programm für Markeninhaber, das dir mehr Kont
 
 ## Was du brauchst
 
-Die zentrale Voraussetzung ist eine **eingetragene Marke** (oder in bestimmten Fällen eine angemeldete Marke, je nach aktuellen Programmregeln). Üblicherweise brauchst du:
+Die [aktuellen Voraussetzungen bei Amazon Deutschland](https://sell.amazon.de/brand-registry) nennen eine ausstehende oder registrierte Marke bei einer zuständigen Markenbehörde eines Landes mit entsprechendem Amazon Store sowie einen Markennamen oder ein Logo, der beziehungsweise das dauerhaft auf Produkt oder Verpackung erscheint. Bereitet üblicherweise vor:
 
-- eine aktive, registrierte Wortmarke oder Bildmarke beim zuständigen Markenamt,
-- die Markennummer,
-- Produkte oder Verpackungen, die deine Marke sichtbar tragen,
-- ein Verkäufer- oder Vendor-Konto.
+- den exakten Markennamen und die Nummer der Anmeldung oder Registrierung,
+- Produkt- oder Verpackungsbilder mit dauerhaft sichtbarer Marke,
+- die Angaben zum Rechteinhaber und zu den vertriebenen Produktgruppen,
+- den Zugang zur Markenregistrierung sowie die später benötigten Verkäufer- oder Vendor-Rollen.
 
 Da Amazon die genauen Anforderungen anpasst, prüfe vor der Anmeldung die aktuellen Vorgaben im Brand-Registry-Bereich.
 
@@ -36,7 +36,9 @@ Die Brand Registry schaltet eine Reihe wertvoller Funktionen frei:
 
 ## Der Anmeldeprozess
 
-Der Ablauf ist überschaubar: Du meldest dich im Brand-Registry-Portal an, gibst deine Markeninformationen ein, weist die Inhaberschaft nach (über die Markennummer und einen Verifizierungsschritt) und verknüpfst dein Verkäuferkonto. Amazon prüft die Angaben und schaltet bei Erfolg die Funktionen frei. Der Schritt, der am meisten Zeit kostet, ist meist die Markenregistrierung selbst – diese sollte also frühzeitig angestoßen werden, da sie je nach Land Monate dauern kann.
+Gleicht zuerst Markenregister, Schreibweise im Katalog und Verpackung ab. Reicht die Markendaten und Bilder im offiziellen Portal ein und stellt sicher, dass die für den Verifizierungsschritt zuständige Person erreichbar ist. Nach der Freigabe prüft ihr, ob die Marke mit dem richtigen Verkäuferkonto verknüpft ist und die nötigen Benutzerrollen tatsächlich Zugriff erhalten. Eine Freigabe im Brand-Registry-Portal bedeutet nicht automatisch, dass jedes Teammitglied Brand Analytics oder A+ Content im jeweiligen Konto sieht.
+
+![Amazon Brand Registry: Markennachweis, Konto und Benutzerrollen als getrennte Ebenen](/blog/figures/brand-registry-ebenen.svg)
 
 ## Schutz aktiv nutzen
 
@@ -59,9 +61,39 @@ Auch ohne Brand Registry bestehen gesetzliche Rechte und Meldewege; die Registry
 1. Pflegt eine Matrix mit Markeninhaber, Kontorollen, Agenturzugriffen und benötigten Funktionen.
 2. Prüft Zugänge beim Onboarding und beim Ausscheiden einer Person. Die Registry ersetzt weder eine saubere Rechteverwaltung noch die Prüfung tatsächlicher Schutzrechtsverletzungen.
 
-## Fazit
+## Welche Funktionen nach der Anmeldung wirklich genutzt werden sollten
 
-Die Brand Registry ist für jede ernsthafte Marke auf Amazon kein Nice-to-have, sondern Grundausstattung. Sie schaltet A+ Content, Markenwerbung, Analytics und – entscheidend – Schutzwerkzeuge gegen Fälscher und Listing-Diebe frei. Die wichtigste Voraussetzung ist eine eingetragene Marke, deren Registrierung Zeit braucht. Wer früh anmeldet und die Schutzfunktionen aktiv nutzt, legt das Fundament für eine Marke, die man verteidigen und ausbauen kann.
+**Content:** A+ Content und Brand Store ergänzen die Produktseite beziehungsweise führen durch mehrere Produktgruppen. Premium-A+ und einzelne Module können zusätzliche Voraussetzungen haben. Prüft Berechtigung und Aufwand im Konto. Unsere [A+-Anleitung](/blog/a-plus-content) und der [Store-Leitfaden](/blog/brand-store-funnel) zeigen, welche Käuferfrage eine Fläche erfüllen soll.
+
+**Daten und Experimente:** Brand Analytics bietet markenbezogene Such- und Kaufdaten, je nach Bericht und Berechtigung. Manage Your Experiments kann für geeignete ASINs Content-Varianten testen. Startet nicht mit einem beliebigen A/B-Test, sondern mit einer konkreten Hypothese: beispielsweise, ob das Maßbild den Kaufzweifel über die Produktgröße löst. [Search Query Performance](/blog/search-query-performance) ergänzt die Sicht auf Suchanfragen.
+
+**Werbung:** Markenformate wie Sponsored Brands und zugehörige Store-Ziele können die Suche nach Anwendungen und Produktfamilien besser bedienen. Die Registrierung allein macht Anzeigen nicht profitabel; SKU-Marge, Creative und Zielseite bleiben entscheidend.
+
+**Markenschutz:** Meldet konkrete Rechtsverletzungen mit den passenden Nachweisen. Eine Markenregistrierung schafft keinen pauschalen Ausschluss zulässiger Händler echter Ware. Bei Fälschungsverdacht dokumentiert eine [Testbestellung und Fallklassifizierung](/blog/hijacker-entfernen) den Sachverhalt besser als der bloße Hinweis „nicht autorisiert“.
+
+## Schutzfälle als Prozess führen
+
+Legt für wichtige ASINs fest, wer neue Angebote und Produktänderungen beobachtet, wer Originalverpackung und Seriencodes dokumentiert und wer eine Meldung fachlich freigibt. Trennt vier Situationen: fremder Verkauf echter Ware, abweichende oder gefälschte Ware, unerlaubte Verwendung geschützter Inhalte und fehlerhafte Katalogdaten. Jeder Fall braucht andere Belege und einen anderen Ansprechpartner.
+
+Wenn Fälschungen wiederholt vorkommen, prüft [Transparency](/blog/transparency-programm) oder weitere für eure Marke zugängliche Schutzprogramme. Die Einführung betrifft Kennzeichnung, Produktion und alle betroffenen Einheiten; sie sollte als operatives Projekt gerechnet werden. Bei streitigen Markenrechtsfragen braucht ihr eine fallbezogene juristische Bewertung.
+
+<aside class="article-example"><p class="example-label">Betriebsfall · Produktkopie</p><h3>Die Rechtebeschwerde folgt dem Beleg, nicht der Vermutung</h3><p>Ein fremdes Angebot hängt an einer ASIN. Ein günstiger Preis beweist nichts. Die Testbestellung zeigt ein anderes Material und eine Verpackung ohne den registrierten Markenaufdruck. Sichert Bestellung, Verkäufer, Originalreferenz und konkrete Unterschiede. Erst dann wählt ihr den passenden Meldegrund; parallel prüft ihr eigene Lager- und Variantenfehler.</p></aside>
+
+![Brand-Registry-Betrieb: Content, Analyse und Schutzfälle mit Verantwortlichen](/blog/figures/brand-registry-betrieb.svg)
+
+## Häufige Fragen
+
+**Reicht eine angemeldete Marke?** Amazon Deutschland nennt unter Voraussetzungen auch ausstehende Markenanmeldungen. Die konkrete Zulassung und unterstützten Markenbehörden prüft ihr im offiziellen Portal für euren Fall.
+
+**Entfernt Brand Registry jeden nicht autorisierten Verkäufer?** Nein. Fehlende Vertriebsfreigabe ist kein allgemeiner Nachweis einer Rechtsverletzung.
+
+**Sind alle Tools sofort für jeden Benutzer sichtbar?** Nein. Markenzuordnung, Kontoverknüpfung, ASIN-Berechtigung und Benutzerrollen sind getrennt zu prüfen.
+
+**Was kostet die Registrierung?** Amazon beschreibt Brand Registry als kostenloses Programm. Markenanmeldung, juristische Beratung, Content-Produktion und Schutzprozesse können eigene Kosten verursachen.
+
+## Nächster Schritt
+
+Wir verbinden [Account Management](/leistungen/account-management), [Content](/leistungen/listing-seo) und die verfügbaren Markendaten in einem Arbeitsplan. [Zeigt uns Markenzuordnung, eure wichtigsten ASINs und die offenen Zugangs- oder Schutzfälle](/gespraech-vereinbaren).
 
 
 ## Programm und Voraussetzungen

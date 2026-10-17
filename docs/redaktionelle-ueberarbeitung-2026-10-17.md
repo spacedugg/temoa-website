@@ -15,12 +15,23 @@ Die Artikel sollen etablierte Marken mit konkreten Entscheidungen, belastbaren B
 - Dayparting (14) um Budgeterschöpfung, Zeitbezug, Kontrollgruppe und Beitragstest erweitert.
 - Dynamische Preisstrategie (59) um SKU-Preisgrenzen, Bestandssteuerung und kontrollierte Tests mit Gesamtbeitrag erweitert.
 - Full Funnel (13) mit Formatrollen, Creative-Voraussetzungen und der Trennung von Last-Click, Multi-Touch und zusätzlicher Wirkung vertieft.
+- Brand Store (16) nach Kaufabsicht, Anzeigenzielseite, Mobilansicht und Traffic-Quelle als messbaren Sortimentsweg ausgebaut.
+- Brand Registry (31) mit aktuellen Zulassungsebenen, Rollen, Content-/Datenwerkzeugen und beleggestütztem Schutzprozess erweitert.
+- Transparency (32) mit Codeweg, Altbestand, Produktionsprüfung und Fallanalyse für registrierte Einheiten vertieft.
+- A+ Content (07) mit Käuferfragen, Modulbriefing, Sortimentfreigabe und Conversion-/Retourentest ausgebaut.
+- Verkäufergebühren (41) auf SKU-Beitrag, FBA-Abweichungen und getrennte Marktregeln für DE und US ausgerichtet.
+- Agenturwahl (75) mit einheitlichem Auswahlfall, Angebotsbestandteilen, Input-/Ergebnisbewertung und Anreizprüfung ausgebaut.
+- FBA-Gebührenmodell (08) um Stück-/Zeitkosten, Liquidität, Verpackungsschwellen und Launch-Gate erweitert.
+- IPI (09) mit Ursachenmatrix, wirtschaftlicher Bestandsentscheidung und Trennung zwischen Score und Kapazitätsmonitor ergänzt.
+- FBA vs. FBM (10) um tatsächliche Abwicklungskosten, hybride Bestandslogik und Lieferleistungs-Pilot vertieft.
+- Sponsored Brands & Display (12) als Formatmix nach Käuferaufgabe, Creative, Zielseite und Testbeitrag erweitert.
+- Amazon-Flywheel (18) von einer Erfolgserzählung zu einer Diagnose von Query, Conversion, Suchanteil und Bestand umgebaut.
 - Die eigenständige Sammlung samt sichtbarer Bezeichnung entfernt. Neue Artikel stehen in fachlichen Kategorien. Der alte Preview-Pfad leitet auf die normale Blogübersicht weiter und erscheint nicht in der Sitemap.
 - 83, 84 und 89 bilden die Kategorie Daten & Analyse.
 
 ## Offener Umfang
 
-Die neunzehn erweiterten Beiträge sind ein Qualitätsmaßstab für die nächste Bearbeitungsrunde. Insgesamt bleiben 49 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
+Damit sind 41 unterschiedliche aktive deutsche Beiträge in diesem Redaktionslauf tiefgehend bearbeitet (14 neue und 27 ältere). Insgesamt bleiben 38 ältere aktive deutsche Artikel und die meisten englischen Fassungen in dieser Arbeitsfassung **noch nicht ebenso ausführlich**. Vor einem Abschluss des gesamten Archivs sind diese Texte einzeln auszubauen, ihre Verweise zu prüfen und passende Bildstrecken zu ergänzen.
 
 Priorität: strategisch relevante Leistungs- und Diagnose-Themen (PPC, Analytics, Content, Account, Bestand), danach Markenmodelle und Vergleiche; die Grundlagen bleiben auffindbar, stehen in der Übersicht jedoch später. Niedrig passende Themen sollten vor einer Neufassung auf Suchintention und Zielgruppe geprüft werden.
 
