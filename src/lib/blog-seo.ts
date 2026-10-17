@@ -33,7 +33,7 @@ const DE: Record<string, string> = {
   "guter-acos-benchmarks": "Guter ACoS: Zielwerte aus der Marge ableiten",
   "tacos-erklaert": "TACoS erklärt: Definition, Formel, Nutzen",
   "roas-berechnen": "ROAS berechnen: Formel und richtige Nutzung",
-  "negative-keywords": "Negative Keywords bei Amazon PPC richtig setzen",
+  "negative-keywords": "Negative Keywords: Reichweite gezielt schützen",
   "produkttitel-optimieren": "Amazon-Titel: 75 Zeichen & Item Highlights",
   "a-plus-content": "Amazon A+ Content: Leitfaden für Marken",
   "fba-gebuehren-rechner": "FBA-Gebühren kalkulieren vor dem Launch",

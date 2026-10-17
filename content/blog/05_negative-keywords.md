@@ -1,69 +1,80 @@
 ---
-title: "Negative Keywords bei Amazon PPC: So stoppst du Streuverluste systematisch"
-meta_description: "Negative Keywords sparen Werbebudget, indem sie irrelevante Klicks blockieren. Anleitung, Match-Typen, typische Fehler und ein einfacher Routine-Workflow."
-keywords: ["negative Keywords", "Amazon PPC", "Streuverluste", "Werbebudget sparen Amazon"]
+title: "Negative Keywords bei Amazon PPC: Ausschlüsse ohne Reichweitenverlust"
+meta_description: "Negative Keywords aus Suchbegriffen ableiten: Relevanzfehler, Varianten- und Intent-Mismatch erkennen, Exact und Phrase richtig platzieren und wöchentlich prüfen."
+keywords: ["Amazon PPC negative Keywords", "Amazon Suchbegriffe ausschließen", "Negative Phrase Exact", "Amazon Ads Streuverluste"]
 kategorie: "Amazon PPC & Advertising"
 ---
 
-# Negative Keywords bei Amazon PPC: So stoppst du Streuverluste systematisch
+# Negative Keywords bei Amazon PPC: Ausschlüsse ohne Reichweitenverlust
 
-Wer auf Amazon Anzeigen schaltet, bezahlt für Klicks – auch für die falschen. Genau hier setzen negative Keywords an. Sie sind eines der wirkungsvollsten und zugleich am häufigsten vernachlässigten Werkzeuge im PPC. Richtig eingesetzt, schneiden sie unrentable Suchanfragen ab und lenken dein Budget dorthin, wo es verkauft. Dieser Beitrag erklärt, wie sie funktionieren und wie du daraus eine einfache Routine machst.
+Verschwendete Werbeausgaben beginnen häufig **vor** der Gebotsentscheidung: Eine Anzeige wird für eine Anfrage ausgespielt, die das beworbene Produkt gar nicht erfüllen kann. Negative Keywords schneiden solche Suchen ab. Ihr Ziel ist aber nicht eine möglichst lange Ausschlussliste. Sie soll unpassende Klicks stoppen, profitable Varianten erhalten und neue Suchanfragen weiterhin auffindbar machen.
 
-## Was negative Keywords sind
+Dieser Leitfaden zeigt drei Arten von Fehlpassung, die Auswertung des Ads-Suchbegriffsberichts, die richtige Ebene für den Ausschluss und eine wöchentliche Routine. Er betrifft vor allem Sponsored Products und Sponsored Brands, soweit dort die jeweiligen negativen Keyword-Targets verfügbar sind. Auch negative Produkt- und Marken-Targets können bei einer passenden Kampagne nötig sein.
 
-Ein negatives Keyword ist eine Suchanfrage, bei der deine Anzeige **nicht** ausgespielt werden soll. Während normale Keywords sagen „zeige meine Anzeige bei dieser Suche", sagen negative Keywords „blockiere meine Anzeige hier". Damit verhinderst du, dass dein Budget für Klicks ausgegeben wird, die ohnehin nicht zu deinem Produkt passen.
+## Drei Arten von Klicks, die unterschiedlich behandelt werden
 
-Ein klassisches Beispiel: Du verkaufst hochwertige Edelstahl-Trinkflaschen. Über eine breite Kampagne erscheint deine Anzeige auch bei „trinkflasche kinder plastik". Diese Klicks kosten Geld, konvertieren aber kaum. Setzt du „kinder" und „plastik" als negative Keywords, entfällt diese Verschwendung.
+**1. Thematisch irrelevante Anfrage.** Eine Premium-Kopfhöreranzeige erscheint für eine Suche nach kostenlosen Musikdownloads. Das Produkt kann die Aufgabe nicht lösen. Hier braucht ihr nicht erst 50 bezahlte Klicks, um Unpassung zu beweisen. Sichtet aber die tatsächliche Suchanfrage und den Ursprung der Ausspielung, bevor ihr einen ganzen Wortstamm sperrt.
 
-## Die zwei Match-Typen
+**2. Falsches Produkt innerhalb der Kategorie.** Eine 6-mm-Yogamatte erscheint bei „3 mm Reisematte“, eine Edelstahlflasche bei „Plastikflasche BPA-frei“, eine Herren-Laufjacke bei Damengröße M. Das Interesse ist produktnah, aber die **beworbene ASIN** passt nicht. Vielleicht gibt es im Sortiment eine passendere Variante. Dann braucht ihr Produktzuordnung und einen Ausschluss auf der richtigen Anzeigengruppenebene, nicht zwingend eine globale Sperre des Begriffs.
 
-Amazon bietet zwei Arten von negativen Keywords, und der Unterschied ist wichtig:
+**3. Andere Suchabsicht.** „Stehschreibtisch selber bauen“ und „Stehschreibtisch kaufen“ sind wirtschaftlich andere Anfragen. Auch „günstig“, „Geschenk“ oder „Vergleich“ können einen anderen Käufer und andere Kosten bedeuten. Diese Modifikatoren dürfen nicht pauschal als wertlos gelten. Testet die tatsächliche Conversion, den Warenkorb und die Marge, bevor ihr die ganze Phrase ausschließt.
 
-- **Negative exact (genau):** Blockiert die genaue Wortgruppe und enge Varianten. Es ist keine rein buchstabengetreue Sperre; prüft die tatsächlich ausgeschlossenen Suchanfragen im Bericht. Nützlich, wenn du ein einzelnes, klar unrentables Keyword ausschließen willst, ohne verwandte Suchen zu treffen.
-- **Negative phrase (Wortgruppe):** Blockiert alle Suchanfragen, die diese Wortgruppe enthalten. „kinder" als negative phrase blockiert „trinkflasche kinder", „kinder trinkflasche bunt" und so weiter. Mächtiger, aber auch riskanter – du kannst versehentlich relevante Suchen mit ausschließen.
+<aside class="article-example"><p class="example-label">Sortiment mit zwei Flaschenvarianten</p><h3>Eine falsche ASIN ist noch keine falsche Nachfrage</h3><p>Die 750-ml-Edelstahlflasche gewinnt Klicks auf „trinkflasche 500 ml“. Wenn die Marke eine 500-ml-ASIN verkauft, wird die Anfrage dort getestet; die 750-ml-Anzeigengruppe erhält gegebenenfalls einen gezielten Ausschluss. „500 ml“ auf Kampagnenebene zu sperren würde auch die passende Schwester-ASIN treffen. Erst wenn die ganze Kampagne keine 500-ml-Produkte enthält, kommt ein übergreifender Ausschluss infrage.</p></aside>
 
-Faustregel: Beginne mit negative exact für einzelne Übeltäter und greife zu negative phrase erst, wenn ein ganzer Themenbereich konsequent nicht passt.
+![Negative Keywords: Irrelevanz, falsche Variante und abweichende Kaufabsicht getrennt entscheiden](/blog/figures/negative-keywords.svg)
 
-## So findest du Kandidaten
+## Suchbegriffsbericht: vom Verdacht zum Prüfauftrag
 
-Die Goldgrube ist der **Suchbegriffsbericht** (Search Term Report). Er zeigt dir die tatsächlichen Kundensuchen, die deine Anzeigen ausgelöst haben – nicht nur deine gebuchten Keywords. Achte auf drei Muster:
+Ladet den **Search Term Report** aus der Ads Console für ein nachvollziehbares Zeitfenster herunter, etwa die letzten 30 abgeschlossenen Tage. Führt Suchanfrage, Kampagne, Anzeigengruppe, beworbene ASIN, Match Type, Klicks, Kosten, zugerechnete Verkäufe und Bestellungen in einer Zeile zusammen. Nutzt bei Launches kürzere Beobachtungen, aber wartet bei Kaufentscheidungen auf die für das Format relevante Attribution.
 
-1. **Viele Klicks, keine Verkäufe:** Ein Suchbegriff mit z. B. 30 Klicks und null Bestellungen ist ein klarer Kandidat.
-2. **Hoher ACoS-Ausreißer:** Suchbegriffe, die zwar verkaufen, aber zu einem völlig unrentablen ACoS.
-3. **Thematisch unpassende Begriffe:** Suchen nach Eigenschaften, die dein Produkt nicht hat (falsche Größe, falsches Material, falscher Anwendungsfall).
+Sortiert zunächst nach **Kosten**, nicht nach der Anzahl kurioser Begriffe. Ein Begriff mit 3 € Verlust ist weniger dringlich als ein Produkt-Mismatch mit 300 € spend. Beispielsweise werden 25–50 € ohne Kauf oder eine Kaufquote deutlich unter dem vergleichbaren Segment oft als erste Prüfmarken verwendet. Diese Schwellen sind keine allgemeine Amazon-Regel. Für einen Artikel mit 300 € Verkaufspreis, 10 € CPC und längerer Kaufentscheidung gelten andere Grenzen als für eine 15-€-SKU.
 
-Wichtig ist Geduld: Schließe nichts nach zwei Klicks aus. Entscheidet anhand von Relevanz, erwarteter Conversion, bereits verbrauchtem Testbudget und nachgereifter Attribution. Es gibt keine universelle Grenze von 10, 15 oder 30 Klicks.
+Eine niedrige CTR weist auf fehlende Attraktivität oder Relevanz **vor** dem Klick hin. Sie allein begründet noch keinen negativen Suchbegriff: Das Suchergebnis kann ein schwaches Bild, einen unklaren Titel oder einen unpassenden Preis zeigen. Hohe Kosten ohne Käufe sind ebenfalls ein Prüfauftrag, kein automatischer Beweis. Trennt klar **fachliche Unpassung**, bei der ihr schnell handeln könnt, von **statistischer Unsicherheit** bei grundsätzlich passender Nachfrage.
 
-## Negative Keywords zur Kampagnen-Steuerung
+Nutzt [Search Query Performance](/blog/search-query-performance) ergänzend, wenn ihr Markenzugang habt. SQP zeigt Markt- und Markenanteile einer Query, der Ads-Bericht nur eure bezahlten Ausspielungen. Vermischt die Nenner nicht. Für wiederkehrende Käuferfragen kann auch die [Produktseitenanalyse](/blog/kundenfragen-seo) zeigen, ob die Anzeige richtig zielt, aber die Detailseite eine Antwort schuldig bleibt.
 
-Negative Keywords dienen nicht nur dem Sparen, sondern auch der Struktur. Ein verbreitetes Vorgehen ist das „Keyword-Trichtern": In einer breiten Auto- oder Broad-Kampagne entdeckst du, welche Suchbegriffe konvertieren. Diese überträgst du in eine eigene, exakt ausgesteuerte Kampagne – und schließt sie in der breiten Kampagne als negativ aus. So ordnet ihr Suchanfragen und Budgets eindeutiger zu. Prüft zuerst, ob die neue Kampagne tatsächlich ausliefert; eine Negativsetzung kann sonst Reichweite abschneiden. Daraus folgt nicht, dass eigene Kampagnen automatisch ihren eigenen Klickpreis hochtreiben.
+## Kampagne oder Anzeigengruppe?
 
-## Typische Fehler
+**Kampagnenebene** ist passend, wenn der Begriff für *jede* beworbene ASIN der Kampagne unpassend ist. Das gilt etwa für „kostenloser Download“ in einer Kampagne ausschließlich für physische Kopfhörer. Ein übergreifender Ausschluss spart Pflege, vergrößert aber auch den möglichen Schaden eines Fehlers.
 
-Der häufigste Fehler ist Übereifer: zu früh und zu breit ausschließen. Wer nach wenigen Klicks ganze Wortgruppen sperrt, kappt oft profitable Suchen, bevor sie sich zeigen konnten. Der zweite Fehler ist das Gegenteil – nie aufzuräumen. Negative-Keyword-Pflege ist keine Einmalaktion. Der dritte Fehler: negative phrase leichtfertig einsetzen und damit relevante Long-Tail-Suchen mit abschneiden.
+**Anzeigengruppenebene** hält einen Begriff nur von bestimmten Produkten fern. Das ist der sichere Ort für Größen, Material, Farbe und Modell, wenn andere Gruppen dieselbe Nachfrage bedienen können. Prüft die tatsächliche Kampagnenstruktur: Eine große, gemischte Gruppe nimmt euch diese Präzision. Unser [Architekturleitfaden](/blog/kampagnenstruktur-ppc) zeigt, warum Produktcluster und Suchabsichten getrennte Budgets brauchen.
 
-## Ein einfacher Routine-Workflow
+Eine Suche nach einer fremden Marke ist nicht grundsätzlich wertlos. Wenn ihr **keine** Wettbewerbsansprache plant, könnt ihr entsprechende Markenbegriffe in Discovery-Kampagnen sperren. Wenn ihr bewusst vergleichbare Käufer gewinnen wollt, messt diesen Traffic in einer eigenen Kampagne mit passender Produktpositionierung. Die eigene Marke kann wiederum aus Broad- und Phrase-Discovery herausgehalten und in einer Defense-Kampagne gezielt gesteuert werden. Prüft vorher, ob Defense tatsächlich ausliefert; eine negative Brand-Phrase ohne Ersatz kappt eure eigene Nachfrage.
 
-Mache aus der Pflege eine feste Gewohnheit. Alle ein bis zwei Wochen öffnest du den Suchbegriffsbericht, filterst nach Klicks ohne Verkäufe und nach extremem ACoS, und ergänzt gezielt negative Keywords. Dokumentiere, was du ausschließt, damit du Muster über die Zeit erkennst. So baust du nach und nach einen sauberen, effizienten Kontozustand auf, in dem dein Budget konsequent in konvertierende Suchen fließt.
+## Negative Exact oder Negative Phrase?
 
-## Praxis: Warum 30 Klicks kein universelles Stoppsignal sind
+**Negative Exact** beschränkt einen konkreten Suchbegriff einschließlich der von Amazon berücksichtigten engen Varianten. Es eignet sich, wenn genau diese Formulierung nicht passt, benachbarte Suchen aber relevant sein können.
 
-<aside class="article-example">
-<p class="example-label">Modellbeispiel · keine Kundenergebnisse</p>
-<h3>Warum 30 Klicks kein universelles Stoppsignal sind</h3>
-<p>Bei einer angenommenen Kaufwahrscheinlichkeit von 5 % beträgt die Wahrscheinlichkeit für null Käufe nach 30 unabhängigen Klicks rund 21 %: 0,95 hoch 30. Null Verkäufe sind also noch kein sicherer Beweis für einen unbrauchbaren Suchbegriff. Fachlich irrelevante Begriffe dürfen dagegen ohne langen Test ausgeschlossen werden.</p>
-</aside>
+**Negative Phrase** erfasst Anfragen, die die betreffende Wortfolge enthalten. Das ist sinnvoll bei einem wiederkehrenden, eindeutig unpassenden Muster. Es ist riskant bei Begriffen wie „günstig“ oder „Geschenk“: Ein Premium-Bundle kann eine Geschenk-Anfrage sehr gut erfüllen. Prüft vor dem Speichern, welche wertvollen Long-Tail-Queries ebenfalls getroffen würden. Amazon nennt Längen- und Zeichengrenzen für negative Keywords; kontrolliert die aktuellen Regeln in eurer Ads Console.
 
-**So setzt ihr es um:**
+**Es gibt keine positive Ausnahme, die einen übergreifenden negativen Begriff in derselben Reichweite einfach überschreibt.** Wenn eine Phrase eine gute Query blockiert, ist die Ebene oder der Match Type falsch gewählt. Denkt deshalb vom gewünschten *erhaltenen* Traffic aus, bevor ihr ein Muster negiert.
 
-1. Trennt Relevanzentscheidungen von Entscheidungen wegen schwacher Performance.
-2. Definiert ein monetäres Testlimit und wartet auf nachgereifte Attribution. Prüft vor Negative Phrase, welche sinnvollen längeren Suchanfragen mit betroffen wären.
+![Ausschluss-Ebene und Match Type: erst Produktumfang, dann Reichweite der Sperre festlegen](/blog/figures/negative-keywords-entscheidung.svg)
 
-## Fazit
+## Muster erkennen, ohne in Blacklists zu denken
 
-Negative Keywords sind kein Nebenschauplatz, sondern eine der wirksamsten Maßnahmen für effiziente Amazon-Werbung. Sie stoppen Streuverluste, schärfen deine Kampagnenstruktur und verbessern deinen ACoS – vorausgesetzt, du arbeitest datenbasiert, geduldig und regelmäßig. Wer den Suchbegriffsbericht zur festen Routine macht, verschenkt deutlich weniger Budget als der Wettbewerb.
+Sichtet Modifikatoren für Preis („billig“, „gebraucht“), Verwendung („DIY“, „Anleitung“), Kompatibilität („für Modell X“), Material, Größe und professionelle Anwendung. Bildet aus wiederholten Suchbegriffen ein Muster, aber dokumentiert dessen Ausnahmefälle im Sortiment. Für eine hochwertige Edelstahlflasche kann „Plastik“ falsch sein; für die Kunststofflinie derselben Marke darf es nicht global gesperrt werden.
 
+Produkt-Targets gehören in dieselbe Prüfung. Eine Anzeige auf einer ASIN mit völlig anderer Packungsgröße oder anderen Produktspezifikationen kann Klicks erzeugen, die selten kaufen. Negative Produkt- oder Marken-Targets können besser passen als ein künstlich breites negatives Keyword. Die tatsächlichen Targeting-Möglichkeiten hängen vom Anzeigenformat ab.
 
-## Programm und Voraussetzungen
+## Wöchentliche Routine und monatliches Audit
 
-[Amazon Ads: Keyword match types](https://advertising.amazon.com/help/GHTRFDZRJPW6764R) – maßgeblich sind die für euren Marktplatz und eure Kontorolle geltenden Bedingungen.
+**Wöchentlich:** Bericht ziehen, nach Kosten priorisieren, jede auffällige Anfrage als irrelevantes Thema, Varianten-Mismatch, Intent-Mismatch oder weiterhin passendes Experiment markieren. Für jeden Ausschluss dokumentiert ihr Grund, Ebene, Match Type, betroffene ASINs und Datum. Kritische fachliche Fehlpassungen werden zügig behoben; bei passender, aber schwacher Performance entscheidet ihr anhand des erlaubten Testbudgets und gereifter Käufe.
+
+**Monatlich:** Betrachtet 30 Tage und überprüft bestehende Negatives. Sind neue Produkte oder Varianten hinzugekommen? Hat eine Phrase profitable Anfragen abgeschnitten? Tauchen neue Modifikatoren auf, die mehrere kleine Verluste verursachen? Prüft danach Impressionen, unterschiedliche Suchbegriffe, Kaufquote und Beitrag der verbleibenden Queries. Ein sinkender Spend ist nur gut, wenn der wertvolle Traffic erhalten bleibt.
+
+**Verantwortung:** Die PPC-Betreuung setzt dokumentierte, freigegebene Ausschlüsse um; die strategische Leitung prüft breite Muster und kritische Fälle; die Marke bestätigt Produktgrenzen, Varianten und Prioritäten der Wettbewerbsansprache. So entscheidet nicht ein Ads-Operator allein, ob ein Produkt eine bestimmte Anwendung tatsächlich erfüllt.
+
+<aside class="article-example"><p class="example-label">Eskalation nach wirtschaftlicher Wirkung</p><h3>Nicht jeder Null-Kauf-Begriff ist gleich dringend</h3><p>Ein unpassender Suchbegriff mit 100 € Kosten in sieben Tagen verdient sofortige Prüfung. Ein thematisch passender Begriff mit 10 Klicks ohne Kauf benötigt dagegen die Einordnung von CPC, erwartetem Warenkorb, Kaufzyklus und Attribution. Beispielhafte Stufen wie „sofort“, „innerhalb von 48 Stunden“ und „im Wochenreview“ ordnen Arbeit; feste 10-, 20- oder 50-Klick-Grenzen ersetzen keine Produktökonomie.</p></aside>
+
+## Häufige Fragen
+
+**Wie viele negative Keywords braucht eine Kampagne?** Es gibt kein Soll von 100 oder 300. Qualität, Geltungsbereich und dokumentierter Grund sind wichtiger als Länge. Eine neue Kampagne kann mit klaren Produktgrenzen starten und ihre Liste aus realen Suchbegriffen entwickeln.
+
+**Kann ich die eigene Marke in Discovery ausschließen?** Ja, wenn eine funktionierende eigene Brand-Kampagne diese Nachfrage übernehmen soll. Prüft die Auslieferung danach; „Kampagnen kannibalisieren sich“ ist ohne Suchbegriffs- und Budgetdaten keine Diagnose.
+
+**Wann ist Negative Phrase zu aggressiv?** Wenn eine wiederkehrende Wortfolge auch profitable Größen, Modelle oder Anwendungen trifft. Prüft die damit ausgesperrten Long-Tail-Queries und wechselt gegebenenfalls zu Negative Exact oder einer engeren Anzeigengruppe.
+
+**Wie messe ich den Erfolg?** Nicht als theoretische Summe aller früheren Kosten dieser Queries. Vergleicht tatsächlichen Spend, Käufe und Beitrag nach der Änderung; beachtet Budgetverschiebungen zu anderen Targets und verändert nicht gleichzeitig alle Kampagnenparameter.
+
+Unsere [PPC-Betreuung](/leistungen/ppc-advertising) verbindet Suchbegriffsprüfung mit Produktdaten und Marge. Wenn euer Account viel Discovery-Spend hat, [prüfen wir die teuersten Fehlpassungen und die betroffenen ASINs mit euch](/gespraech-vereinbaren).
