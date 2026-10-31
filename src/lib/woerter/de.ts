@@ -1549,16 +1549,16 @@ export const de = {
 
   blog: {
     meta: {
-      titel: "Amazon Insights: Profitabilität und Wachstum · temoa",
+      titel: "Amazon-Ratgeber für Marken und Händler · temoa",
       beschreibung:
         "Amazon-Wachstum fundiert steuern: Analysen zu PPC, Conversion, Profitabilität und Bestand. Mit Praxisbeispielen für etablierte Marken.",
-      beitragTitel: "Amazon Blog · temoa",
+      beitragTitel: "Amazon-Ratgeber · temoa",
     },
     kopf: {
-      eyebrow: "Blog",
-      titelVor: "Mehr aus eurem ",
-      titelEm: "Amazon-Geschäft.",
-      lead: "Wo verliert eure Marke Marge, Sichtbarkeit oder Umsatz? Analysen, Rechenbeispiele und konkrete Vorgehensweisen für bessere Listings, wirksamere Werbung und planbares Wachstum.",
+      eyebrow: "Ratgeber",
+      titelVor: "Amazon-Ratgeber für ",
+      titelEm: "Marken und Händler.",
+      lead: "Analysen und Praxisbeispiele zu Amazon-Werbung, Listings, Profitabilität und Wachstum – mit konkreten Schritten für euer Team.",
     },
     /* `{n}` wird durch die Zahl der Beitraege ersetzt. */
     /* Ueber der Liste auf einer Themenseite. Ohne sie sprang die Seite von
