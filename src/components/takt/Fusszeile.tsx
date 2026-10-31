@@ -59,13 +59,6 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
         { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
         { label: w.leistungen.account, href: p("/leistungen/account-management") },
         { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
-        /* Diese vier stehen bewusst nur hier und nicht im Hauptmenue. Die
-           Fusszeile ist der Ort fuer Seiten, die auffindbar sein muessen,
-           ohne die Navigation zu verlaengern. */
-        { label: w.leistungen.compliance, href: p("/leistungen/compliance-account-health") },
-        { label: w.leistungen.fba, href: p("/leistungen/fba-inventory-management") },
-        { label: w.leistungen.katalog, href: p("/leistungen/katalog-listing-management") },
-        { label: w.leistungen.reporting, href: p("/leistungen/analytics-reporting") },
       ],
     },
     {
@@ -186,6 +179,41 @@ export function Fusszeile() {
             </nav>
           ))}
         </div>
+
+        <nav
+          aria-label={sprache === "de" ? "Full Service im Detail" : "Full Service in detail"}
+          className="border-t border-white/10 py-8"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span className="block text-label font-bold uppercase text-chalk-faint">
+                {sprache === "de" ? "Full Service im Detail" : "Full Service in detail"}
+              </span>
+              <p className="mt-2 text-small text-chalk-muted">
+                {sprache === "de"
+                  ? "Diese Bereiche decken wir innerhalb unserer Betreuung ab."
+                  : "These areas are covered within our account management."}
+              </p>
+            </div>
+            <a href={pfad(sprache, "/full-service")} className="inline-flex min-h-12 items-center text-small text-chalk-muted hover:text-brand-500">
+              {sprache === "de" ? "Full Service ansehen" : "Explore Full Service"} <span aria-hidden className="ml-2">↗</span>
+            </a>
+          </div>
+          <ul className="mt-4 grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: w.leistungen.compliance, href: "/leistungen/compliance-account-health" },
+              { label: w.leistungen.fba, href: "/leistungen/fba-inventory-management" },
+              { label: w.leistungen.katalog, href: "/leistungen/katalog-listing-management" },
+              { label: w.leistungen.reporting, href: "/leistungen/analytics-reporting" },
+            ].map((link) => (
+              <li key={link.href}>
+                <a href={pfad(sprache, link.href)} className="flex min-h-11 items-center text-small text-chalk-muted transition-colors hover:text-brand-500">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <nav aria-label={sprache === "de" ? "Amazon-Ratgeber nach Thema" : "Amazon guides by topic"} className="border-t border-white/10 py-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
