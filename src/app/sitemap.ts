@@ -24,6 +24,7 @@ const FESTE_SEITEN = [
   "/ergebnisse",
   "/design-beispiele",
   "/gespraech-vereinbaren",
+  "/temoa-os",
   "/blog",
   "/blog/vergleiche",
   "/blog/grundlagen",
