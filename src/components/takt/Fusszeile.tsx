@@ -67,7 +67,7 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
         { label: w.navigation.caseStudies, href: p("/ergebnisse") },
         { label: w.navigation.designbeispiele, href: p("/design-beispiele") },
         { label: w.navigation.blog, href: p("/blog") },
-        { label: sprache === "de" ? "Temoa OS · interne Datenanalyse" : "Temoa OS · internal analytics", href: p("/temoa-os") },
+        { label: "Temoa OS", href: p("/temoa-os") },
       ],
     },
     {
