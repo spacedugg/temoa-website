@@ -134,7 +134,7 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       fullService: "Full Service",
       caseStudies: "Case Studies",
       designbeispiele: "Designbeispiele",
-      blog: "Blog",
+      blog: "Ratgeber",
     },
     leistungen: {
       strategie: "Strategie",
@@ -218,7 +218,7 @@ export const rahmenWoerter: Record<Sprache, Rahmen> = {
       fullService: "Full Service",
       caseStudies: "Case Studies",
       designbeispiele: "Our Work",
-      blog: "Blog",
+      blog: "Guides",
     },
     leistungen: {
       strategie: "Strategy",
