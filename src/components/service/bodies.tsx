@@ -570,6 +570,21 @@ function DienstBody({ sprache, art }: { sprache: Sprache; art: DienstSchluessel 
         karten={w.kern.karten}
         zeichen={DIENST_KERN_ZEICHEN[art]}
       />
+      {art === "reporting" && (
+        <section className="ground-tint py-12" aria-label={sprache === "de" ? "Interne Datenanalyse" : "Internal analytics"}>
+          <div className="container-x">
+            <div className="panel flex flex-col gap-6 p-7 md:flex-row md:items-center md:justify-between md:p-9">
+              <div>
+                <h2 className="text-xl font-bold text-ink md:text-2xl">{sprache === "de" ? "Wie wir Daten intern für eure Marke nutzen" : "How we use data internally for your brand"}</h2>
+                <p className="mt-2 max-w-2xl leading-relaxed text-ink-muted">{sprache === "de" ? "Temoa OS unterstützt unsere Agenturarbeit. Ihr braucht dafür keinen eigenen Softwarezugang." : "Temoa OS supports our agency work. Your team does not need a software login."}</p>
+              </div>
+              <a className="btn-primary inline-flex shrink-0" href={pfad(sprache, "/temoa-os")}>
+                {sprache === "de" ? "Arbeitsweise ansehen" : "Explore our approach"}<span className="disc" aria-hidden>↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
       {w.vorgehen.art === "ablauf" ? (
         <Ablauf
           dunkel
