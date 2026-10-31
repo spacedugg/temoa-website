@@ -1436,16 +1436,16 @@ export const en: Woerterbuch = {
 
   blog: {
     meta: {
-      titel: "Amazon insights: profitability and growth · temoa",
+      titel: "Amazon guides for brands and sellers · temoa",
       beschreibung:
         "Practical Amazon analysis for established brands: improve profitability, diagnose conversion losses and connect advertising, inventory and growth.",
-      beitragTitel: "Amazon Blog · temoa",
+      beitragTitel: "Amazon guides · temoa",
     },
     kopf: {
-      eyebrow: "Blog",
-      titelVor: "Get more from your ",
-      titelEm: "Amazon business.",
-      lead: "Find where your brand loses margin, visibility or sales. Practical analysis, worked examples and clear decisions for listings, advertising and sustainable growth.",
+      eyebrow: "Guides",
+      titelVor: "Amazon guides for ",
+      titelEm: "brands and sellers.",
+      lead: "Analysis and practical examples for Amazon advertising, listings, profitability and growth – with concrete steps for your team.",
     },
     themaTitel: "All articles on {thema}",
     einBeitrag: "1 article",
