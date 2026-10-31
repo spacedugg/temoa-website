@@ -116,7 +116,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: inhalt[locale].meta.title,
     description: inhalt[locale].meta.description,
+    applicationName: "Temoa OS",
     alternates: sprachAngaben(locale, "/temoa-os"),
+    openGraph: {
+      title: inhalt[locale].meta.title,
+      description: inhalt[locale].meta.description,
+      url: pfad(locale, "/temoa-os"),
+    },
+    twitter: {
+      title: inhalt[locale].meta.title,
+      description: inhalt[locale].meta.description,
+    },
   };
 }
 
