@@ -1,19 +1,15 @@
 /**
- * Datenschutzerklaerung, wortgleich vom Kunden uebernommen
- * (temoa.de/datenschutz).
+ * Datenschutzerklaerung auf temoa.de. Der Grundtext stammt vom Kunden.
  *
- * Zwei Eingriffe, beide rein technisch: die im Original zerbrochenen Links
+ * Im Grundtext wurden die im Original zerbrochenen Links
  * (der Linktext stand im Ziel und ein unsichtbares Steuerzeichen mitten
  * darin) sind als saubere Adressen geschrieben, und die Zwischentitel
  * „Demografische Merkmale", „Google Signals" und „UserIDs" stehen als
- * Ueberschrift statt im Fliesstext. Kein Satz ist umformuliert.
+ * Ueberschrift statt im Fliesstext.
  *
- * Zwei Aenderungen stammen nicht vom Kunden und brauchen die Pruefung durch
- * seinen Anwalt: der Satz unter 10.2 (vorher „genau einen" Dienst, es sind
- * mehrere) und der neue Abschnitt 10.3 zu Amazon-Daten und zur Software. Die
- * Zusagen darin (keine Weitergabe, Zugriff nach Bedarf, Loeschung nach Ende)
- * stammen aus dem Briefing fuer die Amazon-Pruefung und muessen gegen die
- * tatsaechlichen Prozesse abgeglichen sein, bevor der Text gilt.
+ * Abschnitt 10.3 beschreibt den Betrieb von Temoa OS und die Verarbeitung
+ * von Amazon-Daten. Technische Aussagen sind mit der OS-Implementierung
+ * abzugleichen, wenn sich Anbieter oder Zugriffswege aendern.
  *
  * Die Liste der auf DIESER Website eingebundenen Dienste steht nicht hier,
  * sondern kommt aus `lib/consent.ts` und wird unter Abschnitt 10.2
@@ -362,11 +358,13 @@ Diese Website bindet die folgenden einwilligungspflichtigen Dienste ein. Welche 
 
 Im Rahmen unserer Leistungen für Marken (Strategie, Produktbilder und SEO, PPC Advertising, Account Management, Internationalisierung, Katalog-, Bestands- und Reporting-Leistungen) arbeiten wir mit Daten aus den Amazon-Konten unserer Kunden (Seller Central, Vendor Central, Amazon Ads). Dazu gehören insbesondere Katalog- und Listing-Daten, Werbe- und Kampagnendaten, Verkaufs- und Traffic-Kennzahlen, Bestands- und Gebührendaten sowie Angaben zur Konto-Gesundheit. Wir erhalten diese Daten ausschließlich von unseren Kunden oder über Zugänge, die der jeweilige Kunde uns ausdrücklich erteilt hat.
 
-Für eine eigene Software, die diese Daten an einer Stelle zusammenführen soll, ist die Anbindung über die Amazon Selling Partner API (SP-API) vorgesehen. Die Software befindet sich in Entwicklung und ist derzeit nicht für Kunden freigeschaltet. Sobald sie eingesetzt wird, gilt für sie dieser Abschnitt.
+Wir nutzen Temoa OS als interne Arbeitsumgebung für die Betreuung unserer Kunden. Autorisierte Amazon-Konten sind bereits über die Amazon Selling Partner API (SP-API) angebunden. Unser Team führt die für die beauftragten Leistungen benötigten Informationen dort zusammen und wertet sie aus. Kunden benötigen dafür keinen eigenen Zugang zu Temoa OS. Welche Daten über die SP-API abrufbar sind, richtet sich nach der jeweiligen Kundenfreigabe und den von Amazon genehmigten Rollen; weitere Rollen können beantragt sein.
 
 Wir verarbeiten Amazon-Daten nur für autorisierte Kunden und ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom jeweiligen Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Der Kunde kann die Autorisierung jederzeit in seinem Amazon-Konto widerrufen. Danach rufen wir keine weiteren Daten ab.
 
-Wir verkaufen Amazon-Daten nicht und geben sie nicht an Dritte weiter, außer soweit dies zur Erbringung der beauftragten Leistung erforderlich ist oder wir gesetzlich dazu verpflichtet sind. Innerhalb unseres Unternehmens erhalten nur diejenigen Mitarbeitenden Zugriff, die ihn für die jeweilige Leistung benötigen. Daten verschiedener Kunden werden getrennt voneinander verarbeitet.
+Wir verkaufen Amazon-Daten nicht. Für den Betrieb und einzelne beauftragte Arbeitsabläufe setzen wir folgende technische Dienstleister ein: Vercel für das Hosting von Temoa OS und seinen API-Funktionen; Supabase für Datenbank, Anmeldung und Dateispeicherung; Anthropic, OpenAI und Google (Gemini) für KI-gestützte Auswertungen und die Erstellung von Text- und Bildinhalten, wenn die jeweilige Funktion verwendet wird; Apify für den Abruf öffentlich zugänglicher Produkt- und Bewertungsdaten anhand von ASINs; Helium 10 für Markt- und Keyword-Recherchen anhand von ASINs; sowie Sentry für technische Fehlerberichte. Je nach Arbeitsablauf erhalten diese Dienste nur die hierfür benötigten Daten. Die Nennung bedeutet nicht, dass jeder Anbieter unmittelbaren Zugriff auf das Amazon-Konto oder die SP-API hat. Eine weitere Offenlegung erfolgt nur, soweit sie für die beauftragte Leistung erforderlich oder gesetzlich vorgeschrieben ist.
+
+Zugriff auf Amazon-Daten innerhalb von Temoa OS erhalten nur berechtigte Mitglieder unseres Teams im Rahmen ihrer Aufgaben. Kundenbezogene Daten werden getrennt verarbeitet. Falls Kunden künftig einen eigenen Zugang erhalten, wird dieser auf die Daten des jeweiligen Kunden begrenzt. Über die SP-API erteilte Zugangstokens speichern wir verschlüsselt; die Übertragung zwischen Browser, Anwendung und den angebundenen Diensten erfolgt über verschlüsselte Verbindungen. Eine Marke kann die Autorisierung in Seller Central jederzeit widerrufen. Nach einem Widerruf rufen wir über diese Autorisierung keine weiteren Daten ab. Die Löschung bereits gespeicherter Daten kann sie bei uns anfordern; gesetzliche Aufbewahrungspflichten bleiben unberührt.
 
 Soweit die Daten personenbezogen sind, erfolgt die Verarbeitung im Auftrag und nach Weisung des jeweiligen Kunden auf Grundlage eines Vertrags zur Auftragsverarbeitung gemäß Art. 28 DSGVO. Rechtsgrundlage ist die Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO. Nach Beendigung der Zusammenarbeit löschen wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
 
