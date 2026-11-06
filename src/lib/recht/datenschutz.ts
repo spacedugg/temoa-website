@@ -366,7 +366,7 @@ Wir verkaufen Amazon-Daten nicht. Für den Betrieb und einzelne beauftragte Arbe
 
 Zugriff auf Amazon-Daten innerhalb von Temoa OS erhalten nur berechtigte Mitglieder unseres Teams im Rahmen ihrer Aufgaben. Kundenbezogene Daten werden getrennt verarbeitet. Falls Kunden künftig einen eigenen Zugang erhalten, wird dieser auf die Daten des jeweiligen Kunden begrenzt. Über die SP-API erteilte Zugangstokens speichern wir verschlüsselt; die Übertragung zwischen Browser, Anwendung und den angebundenen Diensten erfolgt über verschlüsselte Verbindungen. Eine Marke kann die Autorisierung in Seller Central jederzeit widerrufen. Nach einem Widerruf rufen wir über diese Autorisierung keine weiteren Daten ab. Die Löschung bereits gespeicherter Daten kann sie bei uns anfordern; gesetzliche Aufbewahrungspflichten bleiben unberührt.
 
-Soweit die Daten personenbezogen sind, erfolgt die Verarbeitung im Auftrag und nach Weisung des jeweiligen Kunden auf Grundlage eines Vertrags zur Auftragsverarbeitung gemäß Art. 28 DSGVO. Rechtsgrundlage ist die Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO. Nach Beendigung der Zusammenarbeit löschen wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+Soweit die Daten personenbezogen sind, erfolgt die Verarbeitung im Auftrag und nach Weisung des jeweiligen Kunden auf Grundlage eines Vertrags zur Auftragsverarbeitung gemäß Art. 28 DSGVO. Rechtsgrundlage ist die Vertragserfüllung gemäß Art. 6 Abs. 1 lit. b DSGVO. Spätestens 60 Tage nach Ende der Zusammenarbeit löschen wir die Daten, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
 
 Fragen zum Umgang mit Daten und zur Informationssicherheit richten Sie bitte an info@temoa.de.
 
