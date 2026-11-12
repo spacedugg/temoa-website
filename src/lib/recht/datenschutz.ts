@@ -362,7 +362,19 @@ Wir nutzen Temoa OS als interne Arbeitsumgebung für die Betreuung unserer Kunde
 
 Wir verarbeiten Amazon-Daten nur für autorisierte Kunden und ausschließlich, um die jeweils beauftragten Services und Funktionen bereitzustellen. Der Zugriff erfolgt auf Basis der vom jeweiligen Kunden erteilten Autorisierung und der von Amazon genehmigten Rollen und Berechtigungen. Der Kunde kann die Autorisierung jederzeit in seinem Amazon-Konto widerrufen. Danach rufen wir keine weiteren Daten ab.
 
-Wir verkaufen Amazon-Daten nicht. Für den Betrieb und einzelne beauftragte Arbeitsabläufe setzen wir folgende technische Dienstleister ein: Vercel für das Hosting von Temoa OS und seinen API-Funktionen; Supabase für Datenbank, Anmeldung und Dateispeicherung; Anthropic, OpenAI und Google (Gemini) für KI-gestützte Auswertungen und die Erstellung von Text- und Bildinhalten, wenn die jeweilige Funktion verwendet wird; Apify für den Abruf öffentlich zugänglicher Produkt- und Bewertungsdaten anhand von ASINs; Helium 10 für Markt- und Keyword-Recherchen anhand von ASINs; sowie Sentry für technische Fehlerberichte. Je nach Arbeitsablauf erhalten diese Dienste nur die hierfür benötigten Daten. Die Nennung bedeutet nicht, dass jeder Anbieter unmittelbaren Zugriff auf das Amazon-Konto oder die SP-API hat. Eine weitere Offenlegung erfolgt nur, soweit sie für die beauftragte Leistung erforderlich oder gesetzlich vorgeschrieben ist.
+Wir verkaufen Amazon-Daten nicht. Für den Betrieb und einzelne beauftragte Arbeitsabläufe setzen wir folgende technische Dienstleister mit den angegebenen Betriebs- beziehungsweise Verarbeitungsregionen ein:
+
+- **Vercel:** Hosting, Frankfurt (EU).
+- **Supabase:** Datenbank, Frankfurt (EU).
+- **Anthropic:** KI-gestützte Analysen und Texterstellung, USA.
+- **OpenAI:** Bildgenerierung, USA.
+- **Apify:** Abruf öffentlich zugänglicher Amazon-Daten, etwa Bewertungen, USA.
+- **Helium 10:** Keyword-Recherche, USA.
+- **Sentry:** technische Fehlerberichte, EU.
+- **Resend:** Versand von Benachrichtigungs-E-Mails, EU.
+- **Upstash:** Schutz vor zu vielen Anfragen (Rate Limiting), EU.
+
+Je nach Arbeitsablauf erhalten diese Dienste nur die hierfür benötigten Daten. Die Nennung bedeutet nicht, dass jeder Anbieter unmittelbaren Zugriff auf das Amazon-Konto oder die SP-API hat. Eine weitere Offenlegung erfolgt nur, soweit sie für die beauftragte Leistung erforderlich oder gesetzlich vorgeschrieben ist.
 
 Zugriff auf Amazon-Daten innerhalb von Temoa OS erhalten nur berechtigte Mitglieder unseres Teams im Rahmen ihrer Aufgaben. Kundenbezogene Daten werden getrennt verarbeitet. Falls Kunden künftig einen eigenen Zugang erhalten, wird dieser auf die Daten des jeweiligen Kunden begrenzt. Über die SP-API erteilte Zugangstokens speichern wir verschlüsselt; die Übertragung zwischen Browser, Anwendung und den angebundenen Diensten erfolgt über verschlüsselte Verbindungen. Eine Marke kann die Autorisierung in Seller Central jederzeit widerrufen. Nach einem Widerruf rufen wir über diese Autorisierung keine weiteren Daten ab. Die Löschung bereits gespeicherter Daten kann sie bei uns anfordern; gesetzliche Aufbewahrungspflichten bleiben unberührt.
 
