@@ -16,7 +16,7 @@ import { RevealGroup, RevealItem } from "../ui/Reveal";
 /* Die Werte stehen hier und werden von der Startseite mitbenutzt: das
    Kennzahlenband laeuft dort im „Nachweis" mit, damit dieselben vier Zahlen
    nicht an zwei Stellen gepflegt werden muessen. */
-export const KENNZAHL_WERTE = [30, 21, 5];
+export const KENNZAHL_WERTE = [30, 76, 5];
 const werte = KENNZAHL_WERTE;
 /* Die erste Zahl ist eine Steigerung und traegt deshalb Gruen. */
 export const WACHSTUM = 0;
