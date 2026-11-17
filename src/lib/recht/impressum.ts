@@ -11,8 +11,8 @@ export const IMPRESSUM = `
 Am Brink 2
 DE-23883 Seedorf
 
-Registergericht: Amtsgericht Kiel
-Registernummer: HRB 27400
+Registergericht: Amtsgericht Lübeck
+Registernummer: HRB 25895 HL
 
 Vertretungsberechtigte Geschäftsführer:
 Eddie Nordwich, Clemens Michaelis, Christoph Terner
