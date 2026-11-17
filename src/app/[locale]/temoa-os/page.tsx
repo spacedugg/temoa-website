@@ -30,8 +30,14 @@ const inhalt = {
       {
         tag: "Product Listing · Pricing · Inventory and Order Tracking · Amazon Fulfillment · Finance and Accounting",
         title: "Katalog, Verfügbarkeit und Wirtschaftlichkeit",
-        text: "Für die laufende Betreuung vergleichen wir Produktdaten und Listings, beobachten Angebote und Preise, planen FBA-Bestände und ordnen Verkäufe sowie Amazon-Gebühren ein. So erkennt das Team Abweichungen im Katalog, drohende Fehlbestände und Veränderungen im Deckungsbeitrag. Die dafür verfügbaren Daten stammen aus den jeweils freigegebenen Kundenkonten.",
+        text: "Für die laufende Betreuung vergleichen wir Produktdaten und Listings, beobachten Angebote und Preise, planen FBA-Bestände und ordnen Verkäufe sowie Amazon-Gebühren ein. So erkennt das Team Abweichungen im Katalog, drohende Fehlbestände und Veränderungen im Deckungsbeitrag. Die dafür verfügbaren Daten stammen aus den jeweils freigegebenen Kundenkonten. Mit Freigabe der Marke aktualisieren wir Listing-Inhalte (Titel, Bullet Points, Beschreibung, Suchbegriffe, Bilder) der eigenen Angebote der Marke. Gesendet werden nur vom Kunden freigegebene Inhalte, nach Prüfung durch unser Team; jede Änderung wird protokolliert und kann rückgängig gemacht werden.",
         stage: "current",
+      },
+      {
+        tag: "Selling Partner Insights",
+        title: "Bewertungsthemen und -trends",
+        text: "Wir werten aus, welche Produkteigenschaften Käufer in Bewertungen loben oder kritisieren (Customer Feedback API, aggregiert, keine Käuferdaten), damit Listings und Bilder diese Punkte aufgreifen.",
+        stage: "planned",
       },
       {
         tag: "Buyer Solicitation",
@@ -81,8 +87,14 @@ const inhalt = {
       {
         tag: "Product Listing · Pricing · Inventory and Order Tracking · Amazon Fulfillment · Finance and Accounting",
         title: "Catalog, availability and profitability",
-        text: "In our ongoing work, we compare product data and live listings, monitor offers and prices, plan FBA inventory and assess sales and Amazon fees. This helps our team identify catalog differences, stock risks and changes in contribution margin. We work with data available from each authorised client account.",
+        text: "In our ongoing work, we compare product data and live listings, monitor offers and prices, plan FBA inventory and assess sales and Amazon fees. This helps our team identify catalog differences, stock risks and changes in contribution margin. We work with data available from each authorised client account. With the brand's authorisation, we update listing content (titles, bullet points, descriptions, search terms and images) for the brand's own offers. Only content approved by the client is submitted, after review by our team; every change is logged and can be reversed.",
         stage: "current",
+      },
+      {
+        tag: "Selling Partner Insights",
+        title: "Review topics and trends",
+        text: "We analyse which product features buyers praise or criticise in reviews (Customer Feedback API, aggregated data, no buyer data), so listings and images address those points.",
+        stage: "planned",
       },
       {
         tag: "Buyer Solicitation",
