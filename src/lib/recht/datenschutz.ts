@@ -366,6 +366,7 @@ Wir verkaufen Amazon-Daten nicht. Für den Betrieb und einzelne beauftragte Arbe
 
 - **Vercel:** Hosting, Frankfurt (EU).
 - **Supabase:** Datenbank, Frankfurt (EU).
+- **Amazon Web Services EMEA SARL, Luxemburg:** Empfang von Änderungsbenachrichtigungen der Amazon Selling Partner API (Amazon SQS / EventBridge), Serverstandort Frankfurt (EU). Die Benachrichtigungen werden nur kurz zwischengespeichert und dann von Temoa OS abgerufen.
 - **Anthropic:** KI-gestützte Analysen und Texterstellung, USA.
 - **OpenAI:** Bildgenerierung, USA.
 - **Apify:** Abruf öffentlich zugänglicher Amazon-Daten, etwa Bewertungen, USA.
