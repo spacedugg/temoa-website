@@ -562,6 +562,7 @@ export function Leistungen({
                   height={640}
                   sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                   className="h-full w-full object-cover"
+                  style={{ objectPosition: i === 2 ? "center 25%" : "center" }}
                 />
               )}
             </div>
