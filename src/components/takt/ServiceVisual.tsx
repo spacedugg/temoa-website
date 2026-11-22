@@ -59,13 +59,13 @@ export function ServiceVisual({ index, sprache }: { index: number; sprache: Spra
           <div className="min-h-0 flex-1 overflow-hidden rounded-lg bg-white p-2" aria-live="polite" aria-label={variants[variant]}>
             {variant === 0 && <div className="grid h-full grid-cols-[1fr_1.6fr] gap-2">
               <Product src="/bilder/miganeo/l-1-klein.webp" />
-              <div className="grid min-h-0 grid-cols-3 grid-rows-2 gap-1">{[2,3,4,5,6,7].map((n,i)=><Product key={i} src={`/case_studies/bachgold/p1-${n}.webp`} className="rounded-sm" />)}</div>
+              <div className="grid min-h-0 grid-cols-3 grid-rows-2 gap-1">{[2,3,4,5,6,7].map((n,i)=><Product key={i} src={`/bilder/miganeo/l-${n}-klein.webp`} className="rounded-sm" />)}</div>
             </div>}
             {variant === 1 && <div className="grid h-full grid-cols-[1fr_1.5fr] gap-3">
               <Product src="/bilder/miganeo/l-1-klein.webp" />
-              <div className="flex min-h-0 flex-col gap-1.5 py-1"><div className="h-2 w-full rounded bg-slate-300" /><div className="h-2 w-4/5 rounded bg-slate-200" /><div className="my-1 text-[0.65rem] tracking-wider text-[#bc7600]" aria-hidden="true">★★★★★</div><div className="h-1 w-full bg-slate-100" /><div className="h-1 w-5/6 bg-slate-100" /><div className="min-h-0 flex-1"><Product src="/bilder/miganeo/a-1-klein.webp" /></div></div>
+              <div className="flex min-h-0 flex-col gap-1.5 py-1"><div className="h-2 w-full rounded bg-slate-300" /><div className="h-2 w-4/5 rounded bg-slate-200" /><div className="my-1 text-[0.6rem] font-bold text-slate-500">{de ? "Produktdetails" : "Product details"}</div><div className="h-1 w-full bg-slate-100" /><div className="h-1 w-5/6 bg-slate-100" /><div className="min-h-0 flex-1"><Product src="/bilder/miganeo/a-1-klein.webp" /></div></div>
             </div>}
-            {variant === 2 && <div className="grid h-full grid-cols-2 grid-rows-2 gap-1.5">{[1,2,4,6].map(n=><Product key={n} src={`/case_studies/bachgold/p1-aplus-${n}.webp`} className="object-cover" />)}</div>}
+            {variant === 2 && <div className="grid h-full grid-cols-2 grid-rows-2 gap-1.5">{[1,2,4,6].map(n=><Product key={n} src={`/bilder/miganeo/a-${n}-klein.webp`} className="object-cover" />)}</div>}
           </div>
         </div>
       )}
