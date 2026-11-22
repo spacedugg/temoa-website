@@ -54,11 +54,11 @@ function spalten(sprache: Sprache, w: Rahmen): Spalte[] {
     {
       title: w.fusszeile.spalteLeistungen,
       links: [
-        { label: w.leistungen.strategie, href: p("/leistungen/strategie") },
-        { label: w.leistungen.listingSeo, href: p("/leistungen/listing-seo") },
         { label: w.leistungen.ppc, href: p("/leistungen/ppc-advertising") },
+        { label: w.leistungen.listingSeo, href: p("/leistungen/listing-seo") },
         { label: w.leistungen.account, href: p("/leistungen/account-management") },
         { label: w.leistungen.international, href: p("/leistungen/internationalisierung") },
+        { label: w.leistungen.strategie, href: p("/leistungen/strategie") },
       ],
     },
     {

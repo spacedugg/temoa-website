@@ -48,19 +48,19 @@ export const de = {
 
     leistungen: {
       label: "Leistungen",
-      titelVor: "Fünf Leistungen, in der ",
-      titelMark: "richtigen Reihenfolge.",
+      titelVor: "Fünf Bereiche für euren ",
+      titelMark: "Amazon-Erfolg.",
       mehr: "Mehr dazu",
       alle: "Alle Leistungen ansehen",
       bildAlt: "Fünf Bereiche liegen im Ring um eine gemeinsame Mitte und sind mit ihr verbunden.",
       /* Die Reihenfolge ist die der Seite und entspricht den Adressen in
          `sections.tsx`. Namen wie in Kopf- und Fusszeile, elfte Runde. */
       liste: [
-        { titel: "Strategie", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan." },
-        { titel: "Produktbilder & SEO", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf." },
-        { titel: "PPC Advertising", text: "Budget rauf, Marge runter? Wir skalieren profitabel." },
-        { titel: "Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff." },
-        { titel: "Internationalisierung", text: "Lokalisieren statt übersetzen." },
+        { titel: "Amazon PPC Management", text: "Budget rauf, Marge runter? Wir skalieren profitabel.", punkte: ["Sponsored Products, Brands & Display","Keyword- und Suchbegriffsanalyse","Gebots- und Budgetsteuerung","ACoS, TACoS und Profitabilität"] },
+        { titel: "Amazon SEO, Produktbilder & A+ Content", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf.", punkte: ["Keyword-Recherche und Listing-Texte","Hauptbilder und Produktbilder","A+ Content und Brand Story","Brand Store und Content-Tests"] },
+        { titel: "Amazon Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff.", punkte: ["Katalog- und Variantenpflege","Bestandsplanung und FBA","Buy-Box, Preise und Account Health","Support-Fälle mit Amazon"] },
+        { titel: "Internationalisierung EU & USA", text: "Lokalisieren statt übersetzen.", punkte: ["Markt- und Wettbewerbsanalyse","Lokale Keywords und Listing-Texte","Produktbilder und A+ je Markt","PPC-Kampagnen für EU und USA"] },
+        { titel: "Amazon Strategieplanung", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan.", punkte: ["Account- und Potenzialanalyse","Wettbewerb und Positionierung","Margen und Sortiment bewerten","Prioritäten und Wachstums-Roadmap"] },
       ],
     },
 
@@ -243,25 +243,25 @@ export const de = {
     meta: {
       strategie: {
         titel: "Amazon Strategie und Account-Analyse · temoa",
-        name: "Strategie",
+        name: "Amazon Strategieplanung",
         beschreibung:
           "Search Query Bericht, Ads-Performance, Verkäufe und Traffic ausgewertet. Daraus entsteht die Reihenfolge der nächsten Schritte für euren Amazon-Account.",
       },
       content: {
         titel: "Amazon Listing optimieren: Bilder, SEO, A+ Content · temoa",
-        name: "Produktbilder & SEO",
+        name: "Amazon SEO, Produktbilder & A+ Content",
         beschreibung:
           "Amazon Hauptbild, Listingbilder, Titel, A+ Content und Brand Story, ausgerichtet auf die beiden Zahlen, an denen Amazon euch misst: Klickrate und Conversion.",
       },
       advertising: {
         titel: "Amazon PPC Advertising: ACoS und TACoS steuern · temoa",
-        name: "PPC Advertising",
+        name: "Amazon PPC Management",
         beschreibung:
           "Jedes Produkt darauf durchgerechnet, was nach Gebühren, FBA und Wareneinsatz übrig bleibt. Mehr Budget bekommt nur, was danach Gewinn bringt.",
       },
       account: {
         titel: "Amazon Account Management: Buy-Box, FBA, Pricing · temoa",
-        name: "Account Management",
+        name: "Amazon Account Management",
         beschreibung:
           "Buy-Box, Bestand, FBA, Compliance, Konto-Gesundheit und Pricing steuern wir wie einen eigenen Geschäftsbereich. So gewinnt ihr Zeit für Produkt und Sortiment.",
       },
@@ -291,7 +291,7 @@ export const de = {
       },
       international: {
         titel: "Amazon Internationalisierung: Neue Marktplätze · temoa",
-        name: "Internationalisierung",
+        name: "Internationalisierung EU & USA",
         beschreibung:
           "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
       },
@@ -988,9 +988,9 @@ export const de = {
 
     kopf: {
       eyebrow: "Amazon Full Service",
-      titelVor: "Ein eingespieltes Team für euren ",
-      titelMark: "kompletten Amazon-Account.",
-      lead: "Wir arbeiten mit ambitionierten Marken, die auf Amazon etwas bewegen wollen, von der Analyse bis zum Tagesgeschäft. Für jeden Bereich bekommt ihr jemanden, der ihn hauptberuflich macht.",
+      titelVor: "Amazon Full Service: ",
+      titelMark: "alle fünf Bereiche inklusive.",
+      lead: "PPC Management, SEO, Produktbilder und A+ Content, Account Management, Internationalisierung in EU und USA sowie Strategieplanung: Als Full-Service-Agentur übernehmen wir alle fünf Bereiche für euch. Ein festes Team betreut euren Amazon-Account von der Planung bis zur laufenden Umsetzung.",
       bildAlt:
         "Fünf Arbeitsplätze auf einem Podest, alle verbunden mit einer gemeinsamen Auswertung",
     },
@@ -1078,33 +1078,13 @@ export const de = {
 
     bereiche: {
       label: "Was wir übernehmen",
-      titel: "Fünf Bereiche, jeder in voller Tiefe.",
+      titel: "Alle fünf Bereiche. Im Full Service enthalten.",
       /* Jeder Bereich traegt seinen Namen. Vorher stand ueber Block 01 nur
          die Ueberschrift; wer nicht schon wusste, dass das die Strategie ist,
          hat es an dieser Stelle nicht erfahren. */
       liste: [
         {
-          bereich: "Strategie",
-          titel: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
-          zeile: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
-          punkte: [
-            "Welche Suchbegriffe euch Umsatz bringen und welche nur Geld kosten",
-            "Wo ihr im Markt steht, Monat für Monat",
-            "Was bei jeder Variante nach allen Gebühren übrig bleibt",
-          ],
-        },
-        {
-          bereich: "Produktbilder & SEO",
-          titel: "Ein Listing, das auch ohne Werbung verkauft.",
-          zeile: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
-          punkte: [
-            "Zuerst das Hauptbild: es entscheidet, ob im Suchergebnis geklickt wird",
-            "Alle Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
-            "Titel, Bullets und die Felder im Hintergrund, verständlich für Rufus und COSMO",
-          ],
-        },
-        {
-          bereich: "PPC Advertising",
+          bereich: "Amazon PPC Management",
           titel: "Saubere Kampagnen, gesteuert am TACoS.",
           zeile: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
           punkte: [
@@ -1114,7 +1094,17 @@ export const de = {
           ],
         },
         {
-          bereich: "Account Management",
+          bereich: "Amazon SEO, Produktbilder & A+ Content",
+          titel: "Ein Listing, das auch ohne Werbung verkauft.",
+          zeile: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
+          punkte: [
+            "Zuerst das Hauptbild: es entscheidet, ob im Suchergebnis geklickt wird",
+            "Alle Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
+            "Titel, Bullets und die Felder im Hintergrund, verständlich für Rufus und COSMO",
+          ],
+        },
+        {
+          bereich: "Amazon Account Management",
           titel: "Stabiler Betrieb, geschützte Rankings.",
           zeile: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
           punkte: [
@@ -1125,13 +1115,23 @@ export const de = {
           ],
         },
         {
-          bereich: "Internationalisierung",
+          bereich: "Internationalisierung EU & USA",
           titel: "Jeder neue Marktplatz von Grund auf aufgebaut.",
           zeile: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
           punkte: [
             "Eigene Keyword-Recherche je Marktplatz",
             "Content und Kampagnen für jeden Markt neu aufgesetzt",
             "Lokalisieren statt übersetzen",
+          ],
+        },
+        {
+          bereich: "Amazon Strategieplanung",
+          titel: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
+          zeile: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
+          punkte: [
+            "Welche Suchbegriffe euch Umsatz bringen und welche nur Geld kosten",
+            "Wo ihr im Markt steht, Monat für Monat",
+            "Was bei jeder Variante nach allen Gebühren übrig bleibt",
           ],
         },
       ],
