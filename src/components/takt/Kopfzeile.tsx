@@ -129,7 +129,7 @@ export function Kopfzeile() {
                       {active && <Marke />}
                     </a>
                     <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="w-max min-w-[25rem] rounded-[1rem] bg-white p-2 shadow-[0_30px_60px_-25px_rgba(2,48,71,0.45)]">
+                      <div className="w-max rounded-[1rem] bg-white p-2 shadow-[0_30px_60px_-25px_rgba(2,48,71,0.45)]">
                         {l.children.map((c) => {
                           const hier = pathname === c.href;
                           return (
@@ -142,7 +142,7 @@ export function Kopfzeile() {
                                    wie die aktive Kategorie in den
                                    Designbeispielen. Vorher unterschied sie
                                    sich nur durch eine dunklere Schrift. */
-                                "flex min-h-[2.75rem] items-center gap-3 whitespace-nowrap rounded-[0.7rem] px-4 text-small transition-colors",
+                                "flex min-h-[2.75rem] items-center gap-3 whitespace-nowrap rounded-[0.7rem] px-4 text-small font-bold transition-colors",
                                 hier
                                   ? "bg-navy font-bold text-white"
                                   : "text-ink-muted hover:bg-ink/[0.04] hover:text-ink"
