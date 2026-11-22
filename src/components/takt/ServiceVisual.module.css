@@ -1,26 +1,37 @@
 .visual,.listingWindow{position:relative;height:188px;flex-shrink:0;overflow:hidden;background:#071d30}
 .visual{isolation:isolate;padding:18px 20px;color:#e9f5ff;background:radial-gradient(ellipse at 85% 0%,#17375a 0%,transparent 60%),linear-gradient(135deg,#0c233b,#06182b)}
 .ambient{position:absolute;z-index:-1;width:190px;height:160px;right:-45px;bottom:-65px;border-radius:50%;background:#17d8c6;opacity:.14;filter:blur(32px)}
-.topline{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;font-size:9px;font-weight:800;letter-spacing:.16em;color:#a3bdcd}
-.liveDot{width:5px;height:5px;border-radius:50%;background:#58e6c6;box-shadow:0 0 12px #3ef5cb}
-.legend{position:relative;z-index:2;display:flex;gap:14px;margin-top:13px;font-size:10px;font-weight:700}
+.legend{position:relative;z-index:2;display:flex;gap:14px;font-size:10px;font-weight:700}
 .green{color:#58e6c6}.blue{color:#73caff}.orange{color:#ffb477}
-.statusGrid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px;margin-bottom:8px}
-.statusGrid>div{padding:9px 10px;border:1px solid #91d3ef25;background:linear-gradient(130deg,#ffffff0d,#ffffff03);border-radius:9px;box-shadow:0 6px 20px #00000020}
-.statusGrid span{display:block;font-size:8px;font-weight:700;color:#b1c5d4;letter-spacing:.04em}
-.statusGrid strong{display:block;font-size:11px;margin-top:4px;font-weight:600}
-.caseRow{position:relative;display:flex;justify-content:space-between;font-size:9px;padding:6px 2px;color:#c2d3df;border-bottom:1px solid #ffffff0b}
-.caseRow b{font-size:8px}
-.markets{position:relative;display:flex;align-items:center;gap:9px;margin-top:13px}
-.markets>div:first-child{flex:1;min-width:0}.markets p{font-size:10px;font-weight:700;margin-bottom:7px;color:#c8dce9}
-.flags{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-.flags>span{padding:4px 0;text-align:center;border:1px solid #ffffff12;border-radius:7px;background:linear-gradient(125deg,#ffffff12,#ffffff03)}
-.flags b{display:block;font-size:20px;line-height:1.1;filter:drop-shadow(0 2px 5px #0006)}
-.flags small{display:block;font-size:7px;font-weight:700;color:#a6c6d8;margin-top:2px}
-.connection{color:#53e8ce;text-shadow:0 0 8px #2bdcca;font-size:22px;letter-spacing:2px}
-.usMarket{width:22%;align-self:stretch;border:1px solid #68d6e548;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(150deg,#4388d721,#2ac8bc12);box-shadow:0 0 22px #26bbc413}
-.usMarket b{font-size:31px;line-height:1.15}.usMarket small{font-size:7px;margin-top:6px;color:#b1d3e3}.usMarket p{margin-bottom:4px}
-.analysisChip{position:absolute;bottom:17px;right:20px;border:1px solid #5cdac535;border-radius:20px;background:#082238d9;padding:4px 9px;font-size:8px;color:#b8e4df}
+.ticket{position:relative;height:100%;border:1px solid #80bada35;border-radius:10px;background:linear-gradient(130deg,#ffffff08,#ffffff02);padding:10px 12px;color:#c7dbe8}
+.ticketHeader{display:flex;gap:7px;align-items:center;padding-bottom:8px;border-bottom:1px solid #ffffff12}
+.ticketIcon{display:grid;place-items:center;width:23px;height:25px;border-radius:6px;background:#4acacb20;color:#70ece2;font-size:17px}
+.ticketHeader strong{display:block;font-size:10px;font-weight:700;color:#e4f0f7}
+.ticketHeader small{display:block;font-size:8px;margin-top:1px;color:#94b5c7}
+.resolved{margin-left:auto;padding:4px 6px;background:#43e8b915;border:1px solid #58e6c630;border-radius:20px;color:#67ecc9;font-size:8px;font-weight:700;white-space:nowrap}
+.message,.reply{display:flex;gap:7px;font-size:8px;margin-top:8px;line-height:1.35}
+.message b,.reply b{font-weight:700;font-size:8px;color:#d4e7f2}.message p,.reply p{margin-top:2px}
+.avatar{display:grid;place-items:center;flex-shrink:0;width:20px;height:20px;border-radius:50%;background:#e6f0f8;color:#0a3045;font-size:14px;font-weight:800}
+.message i{display:inline-block;width:25px;height:2px;background:#7094aa45;margin-right:3px}
+.reply{margin-left:27px;padding:6px 8px;border:1px solid #54debf20;background:#35dcb509;border-radius:6px}
+.reply>span{color:#68eccb;font-size:13px}
+.ticketFooter{display:flex;justify-content:space-between;margin-top:7px;font-size:7px;color:#85a7ba}
+.globe{position:absolute;inset:0;width:100%;height:100%;}
+.dealScene{position:relative;margin:0 auto;max-width:330px;perspective:700px}
+.dealListing{display:flex;height:118px;border:1px solid #b4dbec70;border-radius:10px;overflow:hidden;background:linear-gradient(120deg,#f8fbfd,#e3eef5);color:#0b2b3d;transform:rotateY(-7deg) rotateX(3deg);box-shadow:0 12px 26px #0003}
+.productStage{width:35%;display:grid;place-items:center;background:radial-gradient(ellipse at center,#fff,#c5d7e3);flex-shrink:0}
+.productStage svg{width:80px;height:108px}
+.dealCopy{flex:1;min-width:0;padding:11px 10px}
+.dealBadge{display:inline-block;background:#bc2d44;border-radius:3px;padding:3px 5px;color:white;font-size:7px;font-weight:700;white-space:nowrap}
+.dealCopy>strong{display:block;margin-top:5px;font-size:10px;font-weight:700}
+.productLines{display:flex;gap:4px;margin-top:5px}.productLines i{width:35%;height:3px;background:#9aadb94a;border-radius:2px}.productLines i+i{width:20%}
+.dealPrice{display:flex;align-items:center;gap:8px;margin-top:5px}.dealPrice>span{font-size:17px;font-weight:700}.dealPrice s{font-size:9px;color:#758b98}
+.cartBar{height:5px;width:68%;margin-top:5px;border-radius:8px;background:#f5b733}
+.dealPlan{display:flex;justify-content:space-between;gap:5px;margin-top:12px;font-size:8px;font-weight:600;color:#a4e4d8;white-space:nowrap}
+.hub{position:relative;isolation:isolate;width:100%;max-width:380px;aspect-ratio:380/260;color:#284f66}
+.hubLines{position:absolute;inset:0;width:100%;height:100%}
+.hubLabel{position:absolute;transform:translate(-50%,-50%);padding:6px 9px;border-radius:20px;border:1px solid #86b3c54a;background:#edf5fbd9;backdrop-filter:blur(6px);font-size:10px;font-weight:700;white-space:nowrap}
+.hubLogo{position:absolute;left:27%;top:38%;width:46%;padding:14px 5px;background:radial-gradient(ellipse,#eef6fc 50%,#eef6fc00 72%)}
 .listingWindow{padding:0 12px;background:radial-gradient(ellipse at center,#1a3c51,#0a2033);mask-image:linear-gradient(to bottom,transparent,#000 10%,#000 90%,transparent)}
 .columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;height:100%}
 .columnViewport{min-width:0;height:100%;overflow:hidden}
@@ -32,3 +43,4 @@
 .pause{position:absolute;right:9px;bottom:9px;z-index:2;width:25px;height:25px;border-radius:50%;background:#082338df;color:#fff;border:1px solid #ffffff40;font-size:10px;backdrop-filter:blur(8px)}
 .pause:focus-visible{outline:2px solid #ffa534;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.track{animation:none;transform:translateY(-15%);will-change:auto}}
+

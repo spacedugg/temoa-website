@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Logo } from "../Logo";
-import { ServiceVisual, FoundersCutout } from "./ServiceVisual";
+import { ServiceVisual, FullServiceHub } from "./ServiceVisual";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
@@ -566,10 +565,8 @@ export function Leistungen({
         ))}
 
         <motion.div {...auf(0.3)} className="relative flex h-full flex-col items-center justify-center px-3 py-2 text-center">
-          <FoundersCutout label={w.komplett.bildAlt} />
-          <Logo className="mt-5 !h-11 self-center md:!h-12" />
-          <h3 className="mt-5 max-w-[17ch] text-[1.5rem] font-bold leading-snug tracking-[-0.015em] text-ink md:text-[1.7rem]">{w.komplett.titel}</h3>
-          <p className="mt-2 text-small font-semibold uppercase tracking-[.14em] text-ink-muted">{w.komplett.label}</p>
+          <FullServiceHub sprache={sprache} />
+          <h3 className="mt-4 text-[1.5rem] font-bold leading-snug tracking-[-0.015em] text-ink md:text-[1.7rem]"><span className="block">{w.komplett.label}.</span><span className="mt-1 block">{w.komplett.titel}</span></h3>
           <a href={pfad(sprache, "/full-service")} className="mt-7 inline-flex items-center gap-2 text-small font-bold text-navy hover:underline">
             {w.komplett.link}
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -1189,3 +1186,4 @@ export function Mannschaft({ w }: { w: W["mannschaft"] }) {
     </Station>
   );
 }
+
