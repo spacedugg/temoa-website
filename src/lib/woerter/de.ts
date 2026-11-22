@@ -53,7 +53,7 @@ export const de = {
       mehr: "Mehr dazu",
       alle: "Alle Leistungen ansehen",
       komplett: {
-        "label": "temoa Full Service",
+        "label": "Full Service",
         "titel": "Ein fester Ansprechpartner.",
         "text": "Ein gemeinsamer Plan für PPC, Content, Account Management, internationale Marktplätze und Strategie.",
         "zusage": "Alle fünf Bereiche in einer Betreuung.",
@@ -1084,64 +1084,81 @@ export const de = {
     },
 
     bereiche: {
-      label: "Was wir übernehmen",
-      titel: "Alle fünf Bereiche. Im Full Service enthalten.",
-      /* Jeder Bereich traegt seinen Namen. Vorher stand ueber Block 01 nur
-         die Ueberschrift; wer nicht schon wusste, dass das die Strategie ist,
-         hat es an dieser Stelle nicht erfahren. */
-      liste: [
+      "label": "Unser Leistungsumfang",
+      "titel": "Alles für euren Amazon-Auftritt.",
+      "lead": "Fünf Bereiche, ein gemeinsamer Plan: Wir übernehmen die Umsetzung und laufende Betreuung eures Amazon-Geschäfts.",
+      "liste": [
         {
-          bereich: "Amazon PPC Management",
-          titel: "Saubere Kampagnen, gesteuert am TACoS.",
-          zeile: "Sobald das Listing organisch verkauft, bringt PPC planbaren Umsatz dazu.",
-          punkte: [
-            "Jede Kampagne mit einer klaren Aufgabe, keine bietet gegen die andere",
-            "Gebote und Platzierungen getrennt gesteuert, Top-of-Search gezielt",
-            "Beim Aufbau neuer Suchbegriffe bewusst teurer, danach zurück auf Profit",
-          ],
+          "bereich": "Amazon PPC Management",
+          "zeile": "Kampagnen laufend steuern und profitabel skalieren.",
+          "punkte": [
+            "Sponsored Products, Brands und Display",
+            "Keyword-, Suchbegriffs- und Target-Recherche",
+            "Kampagnenstruktur und Match Types",
+            "Negative Keywords und Target-Bereinigung",
+            "Gebote und Platzierungen optimieren",
+            "Budgets nach Produkt und Kampagne steuern",
+            "ACoS, TACoS und Deckungsbeitrag überwachen",
+            "Performance auswerten und Maßnahmen ableiten"
+          ]
         },
         {
-          bereich: "Amazon SEO, Produktbilder & A+ Content",
-          titel: "Ein Listing, das auch ohne Werbung verkauft.",
-          zeile: "Aus Sichtbarkeit werden Klicks, aus Klicks Käufe, bis das Listing Retail Ready ist.",
-          punkte: [
-            "Zuerst das Hauptbild: es entscheidet, ob im Suchergebnis geklickt wird",
-            "Alle Produktbilder, A+ bis Premium A+ Content, Brand Store und Markengeschichte",
-            "Titel, Bullets und die Felder im Hintergrund, verständlich für Rufus und COSMO",
-          ],
+          "bereich": "Amazon SEO, Produktbilder & A+ Content",
+          "zeile": "Auffindbarkeit, Klickrate und Kaufentscheidung verbessern.",
+          "punkte": [
+            "Keyword-Recherche und Suchintentionen",
+            "Titel, Bullet Points und Beschreibungen",
+            "Backend-Suchbegriffe und Indexierung",
+            "Hauptbilder und vollständige Listing-Bildstrecken",
+            "A+ und Premium A+ Content",
+            "Brand Story und Brand Store",
+            "Bildbriefings und verkaufsstarke Bildtexte",
+            "A/B Tests und laufende Content-Optimierung"
+          ]
         },
         {
-          bereich: "Amazon Account Management",
-          titel: "Stabiler Betrieb, geschützte Rankings.",
-          zeile: "Operative Themen, bei denen ein Fehler aufgebaute Sichtbarkeit kostet.",
-          punkte: [
-            "Buy-Box weg? Wir sehen es am selben Tag, samt Ursache",
-            "Nachschub geplant, damit kein Bestseller leerläuft und Rankings kippen",
-            "Konto-Gesundheit im Blick, Troubleshooting mit Amazon läuft über uns",
-            "Preise so gesteuert, dass Wachstum die Marge nicht auffrisst",
-          ],
+          "bereich": "Amazon Account Management",
+          "zeile": "Das Tagesgeschäft eures Accounts zuverlässig übernehmen.",
+          "punkte": [
+            "Katalog, Attribute und Varianten pflegen",
+            "Angebote anlegen und Listing-Fehler beheben",
+            "Buy Box und Preisentwicklung überwachen",
+            "Account Health und Compliance im Blick halten",
+            "Bestand, Reichweiten und Nachschub planen",
+            "FBA-Sendungen und Wareneingang verfolgen",
+            "Support-Fälle führen und nachhalten",
+            "Preise, Verfügbarkeit und Performance auswerten"
+          ]
         },
         {
-          bereich: "Internationalisierung Pan-EU & US",
-          titel: "Jeder neue Marktplatz von Grund auf aufgebaut.",
-          zeile: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
-          punkte: [
-            "Eigene Keyword-Recherche je Marktplatz",
-            "Content und Kampagnen für jeden Markt neu aufgesetzt",
-            "Lokalisieren statt übersetzen",
-          ],
+          "bereich": "Internationalisierung Pan-EU & US",
+          "zeile": "Weitere Marktplätze passend zum jeweiligen Land aufbauen.",
+          "punkte": [
+            "Markt- und Wettbewerbsanalyse je Land",
+            "Marktplatz-Setup und Angebote übertragen",
+            "Lokale Keyword-Recherche statt Wortübersetzung",
+            "Titel, Bullets und Suchbegriffe lokalisieren",
+            "Produktbilder und A+ je Markt anpassen",
+            "PPC-Kampagnen je Marktplatz neu aufsetzen",
+            "Sortiment, Preise und Bestand abstimmen",
+            "Länderübergreifendes Performance-Reporting"
+          ]
         },
         {
-          bereich: "Amazon Strategieplanung",
-          titel: "Wir lesen euren Markt bis auf den einzelnen Suchbegriff.",
-          zeile: "Bevor optimiert wird, steht fest, wo eure Umsätze liegen und welche Ziele realistisch sind.",
-          punkte: [
-            "Welche Suchbegriffe euch Umsatz bringen und welche nur Geld kosten",
-            "Wo ihr im Markt steht, Monat für Monat",
-            "Was bei jeder Variante nach allen Gebühren übrig bleibt",
-          ],
-        },
-      ],
+          "bereich": "Amazon Strategieplanung",
+          "zeile": "Prioritäten aus Daten ableiten und Wachstum planbar machen.",
+          "punkte": [
+            "Account-Audit und Potenzialanalyse",
+            "Search Query Reports und Suchnachfrage auswerten",
+            "Wettbewerb und Positionierung analysieren",
+            "Sortiment und Produktpotenziale bewerten",
+            "Margen und Deckungsbeiträge prüfen",
+            "Pricing- und Deal-Strategie planen",
+            "Launches und internationale Expansion einordnen",
+            "Wachstums-Roadmap und KPI-Ziele festlegen"
+          ]
+        }
+      ]
     },
 
     reporting: {

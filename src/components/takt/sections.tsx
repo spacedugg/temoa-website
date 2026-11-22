@@ -565,26 +565,16 @@ export function Leistungen({
           </motion.article>
         ))}
 
-        <motion.a
-          {...auf(0.3)}
-          href={pfad(sprache, "/full-service")}
-          className="panel group relative flex h-full flex-col overflow-hidden bg-white"
-        >
+        <motion.div {...auf(0.3)} className="relative flex h-full flex-col items-center justify-center px-3 py-2 text-center">
           <FoundersCutout label={w.komplett.bildAlt} />
-          <div className="relative flex flex-1 flex-col p-6 md:p-7">
-            <Logo className="mb-4 !h-7 self-start" />
-            <span className="text-label font-bold uppercase tracking-wider text-ink-muted">{w.komplett.label}</span>
-            <h3 className="mt-2 text-[1.4rem] font-bold leading-snug tracking-[-0.015em] text-ink md:text-[1.6rem]">{w.komplett.titel}</h3>
-            <p className="mt-4 text-small leading-relaxed text-ink-muted">{w.komplett.text}</p>
-            <p className="mt-5 text-small font-bold leading-relaxed text-ink">{w.komplett.zusage}</p>
-            <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-small font-bold text-navy">
-              {w.komplett.link}
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
-                <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </div>
-        </motion.a>
+          <Logo className="mt-5 !h-11 self-center md:!h-12" />
+          <h3 className="mt-5 max-w-[17ch] text-[1.5rem] font-bold leading-snug tracking-[-0.015em] text-ink md:text-[1.7rem]">{w.komplett.titel}</h3>
+          <p className="mt-2 text-small font-semibold uppercase tracking-[.14em] text-ink-muted">{w.komplett.label}</p>
+          <a href={pfad(sprache, "/full-service")} className="mt-7 inline-flex items-center gap-2 text-small font-bold text-navy hover:underline">
+            {w.komplett.link}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </a>
+        </motion.div>
       </div>
 
       <a href={pfad(sprache, "/full-service")} className="btn-text mt-10">

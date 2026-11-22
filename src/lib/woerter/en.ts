@@ -51,7 +51,7 @@ export const en: Woerterbuch = {
       mehr: "More on this",
       alle: "See all services",
       komplett: {
-        "label": "temoa Full Service",
+        "label": "Full Service",
         "titel": "One dedicated contact.",
         "text": "One shared plan for PPC, content, account management, international marketplaces and strategy.",
         "zusage": "All five areas in one partnership.",
@@ -1032,61 +1032,81 @@ export const en: Woerterbuch = {
     },
 
     bereiche: {
-      label: "What we take on",
-      titel: "All five areas. Included in Full Service.",
-      liste: [
+      "label": "Our service scope",
+      "titel": "Everything your Amazon business needs.",
+      "lead": "Five areas, one shared plan: we handle delivery and ongoing management of your Amazon business.",
+      "liste": [
         {
-          bereich: "Amazon PPC Management",
-          titel: "Clean campaigns, steered on TACoS.",
-          zeile: "Once the listing sells organically, PPC adds revenue you can plan with.",
-          punkte: [
-            "Every campaign with one clear job, none bidding against another",
-            "Bids and placements steered separately, top of search deliberately",
-            "More expensive on purpose while building new search terms, then back to profit",
-          ],
+          "bereich": "Amazon PPC Management",
+          "zeile": "Manage campaigns continuously and scale profitably.",
+          "punkte": [
+            "Sponsored Products, Brands and Display",
+            "Keyword, search term and target research",
+            "Campaign structure and match types",
+            "Negative keywords and target cleanup",
+            "Bid and placement optimization",
+            "Budgets by product and campaign",
+            "ACoS, TACoS and contribution margin monitoring",
+            "Performance reviews and action planning"
+          ]
         },
         {
-          bereich: "Amazon SEO, Product Images & A+ Content",
-          titel: "A listing that sells without advertising too.",
-          zeile: "Visibility turns into clicks, clicks into orders, until the listing is retail ready.",
-          punkte: [
-            "The main image first: it decides whether you are clicked in the search results",
-            "All product images, A+ through Premium A+ content, brand store and brand story",
-            "Title, bullets and the fields in the background, clear enough for Rufus and COSMO",
-          ],
+          "bereich": "Amazon SEO, Product Images & A+ Content",
+          "zeile": "Improve discovery, click-through and purchase decisions.",
+          "punkte": [
+            "Keyword research and search intent",
+            "Titles, bullet points and descriptions",
+            "Backend search terms and indexing",
+            "Main images and complete listing image sequences",
+            "A+ and Premium A+ content",
+            "Brand story and brand store",
+            "Image briefs and persuasive image copy",
+            "A/B tests and ongoing content optimization"
+          ]
         },
         {
-          bereich: "Amazon Account Management",
-          titel: "Steady operations, protected rankings.",
-          zeile: "The operational side, where one mistake costs visibility you built up.",
-          punkte: [
-            "Buy Box gone? We see it the same day, with its cause",
-            "Resupply planned so no bestseller runs out and rankings tip over",
-            "Account health watched, troubleshooting with Amazon runs through us",
-            "Prices steered so growth does not eat the margin",
-          ],
+          "bereich": "Amazon Account Management",
+          "zeile": "Take care of the day-to-day work in your account.",
+          "punkte": [
+            "Catalog, attributes and variation management",
+            "Offer creation and listing issue resolution",
+            "Buy Box and price monitoring",
+            "Account health and compliance monitoring",
+            "Inventory, coverage and replenishment planning",
+            "FBA shipment and receiving follow-up",
+            "Support case handling and follow-up",
+            "Pricing, availability and performance reviews"
+          ]
         },
         {
-          bereich: "International Expansion: Pan-EU & US",
-          titel: "Every new marketplace built from the ground up.",
-          zeile: "The complete service on further Amazon marketplaces, done again for each market.",
-          punkte: [
-            "Its own keyword research per marketplace",
-            "Content and campaigns set up again for every market",
-            "Localize instead of translate",
-          ],
+          "bereich": "International Expansion: Pan-EU & US",
+          "zeile": "Build each new marketplace around its local customers.",
+          "punkte": [
+            "Market and competitor research per country",
+            "Marketplace setup and offer transfers",
+            "Local keyword research",
+            "Localized titles, bullets and search terms",
+            "Product images and A+ adapted per market",
+            "PPC campaigns built for each marketplace",
+            "Product range, pricing and inventory coordination",
+            "Cross-market performance reporting"
+          ]
         },
         {
-          bereich: "Amazon Strategy Planning",
-          titel: "We read your market down to the single search term.",
-          zeile: "Before anything is optimized, it is clear where your revenue sits and which targets are realistic.",
-          punkte: [
-            "Which search terms bring you revenue and which only cost money",
-            "Where you stand in the market, month by month",
-            "What is left on every variation after all fees",
-          ],
-        },
-      ],
+          "bereich": "Amazon Strategy Planning",
+          "zeile": "Set priorities from data and plan the next stage of growth.",
+          "punkte": [
+            "Account audit and growth potential analysis",
+            "Search Query Report and demand analysis",
+            "Competition and positioning reviews",
+            "Product range and opportunity analysis",
+            "Margin and contribution reviews",
+            "Pricing and deal strategy",
+            "Launch and international expansion planning",
+            "Growth roadmap and KPI targets"
+          ]
+        }
+      ]
     },
 
     reporting: {
