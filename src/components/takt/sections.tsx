@@ -477,11 +477,11 @@ export function Verfahren({ w }: { w: W["verfahren"] }) {
    sie sind gesetzt, ein Wechsel bricht Verweise und Suchergebnisse. Die
    Sprache steckt im Praefix, das `pfad` davorsetzt. */
 const leistungWege: { icon: IconName; href: string }[] = [
-  { icon: "kompass", href: "/leistungen/strategie" },
-  { icon: "lupe", href: "/leistungen/listing-seo" },
   { icon: "ziel", href: "/leistungen/ppc-advertising" },
+  { icon: "lupe", href: "/leistungen/listing-seo" },
   { icon: "schild", href: "/leistungen/account-management" },
   { icon: "globus", href: "/leistungen/internationalisierung" },
+  { icon: "kompass", href: "/leistungen/strategie" },
 ];
 
 /**
@@ -565,6 +565,16 @@ export function Leistungen({
                 <div className="mt-2 text-small leading-relaxed text-chalk-muted md:mt-2.5">{l.text}</div>
               </div>
             </div>
+            <ul className="relative mt-6 space-y-3 pb-2">
+              {l.punkte.map((punkt) => (
+                <li key={punkt} className="flex items-start gap-2.5 text-small leading-relaxed text-chalk-muted">
+                  <svg className="mt-1 h-4 w-4 shrink-0 text-[#6EE7A0]" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path d="m4 10 4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span>{punkt}</span>
+                </li>
+              ))}
+            </ul>
             <span className="relative mt-4 inline-flex items-center gap-1.5 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1 md:mt-auto md:pt-6">
               {w.mehr}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>

@@ -46,8 +46,8 @@ export const en: Woerterbuch = {
 
     leistungen: {
       label: "Services",
-      titelVor: "Five services, in the ",
-      titelMark: "right order.",
+      titelVor: "Five areas for your ",
+      titelMark: "Amazon growth.",
       mehr: "More on this",
       alle: "See all services",
       bildAlt: "Five areas sit in a ring around a shared center, each connected to it.",
@@ -55,11 +55,11 @@ export const en: Woerterbuch = {
          audience is brands selling on Amazon worldwide, and amazon.com is the
          largest of those marketplaces. */
       liste: [
-        { titel: "Strategy", text: "Not sure where it breaks? Data first, then the plan." },
-        { titel: "Product Images & SEO", text: "Clicks without orders? We rebuild the listing." },
-        { titel: "PPC Advertising", text: "More budget, less margin? We scale profitably." },
-        { titel: "Account Management", text: "Inventory, Buy Box, troubleshooting under control." },
-        { titel: "International Expansion", text: "Localize instead of translate." },
+        { titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
+        { titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and content tests"] },
+        { titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
+        { titel: "International Expansion: EU & USA", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the EU and USA"] },
+        { titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
       ],
     },
 
@@ -214,25 +214,25 @@ export const en: Woerterbuch = {
     meta: {
       strategie: {
         titel: "Amazon Strategy and Account Analysis · temoa",
-        name: "Strategy",
+        name: "Amazon Strategy Planning",
         beschreibung:
           "Search Query report, advertising performance, sales and traffic, all evaluated. Out of that comes the order of the next steps for your Amazon account.",
       },
       content: {
         titel: "Amazon Listing Optimization: Images, SEO, A+ Content · temoa",
-        name: "Product Images & SEO",
+        name: "Amazon SEO, Product Images & A+ Content",
         beschreibung:
           "Amazon main image, listing images, title, A+ content and Brand Story, built around the two numbers Amazon measures you by: click-through rate and conversion.",
       },
       advertising: {
         titel: "Amazon PPC Advertising: Managing ACoS and TACoS · temoa",
-        name: "PPC Advertising",
+        name: "Amazon PPC Management",
         beschreibung:
           "Every product costed out on what is left after fees, FBA and cost of goods. More budget goes only to what turns a profit after that.",
       },
       account: {
         titel: "Amazon Account Management: Buy Box, FBA, Pricing · temoa",
-        name: "Account Management",
+        name: "Amazon Account Management",
         beschreibung:
           "Buy Box, inventory, FBA, compliance, account health and pricing, run like a department of your own. That gives you time for product and catalog.",
       },
@@ -262,7 +262,7 @@ export const en: Woerterbuch = {
       },
       international: {
         titel: "Amazon International Expansion: New Marketplaces · temoa",
-        name: "International Expansion",
+        name: "International Expansion: EU & USA",
         beschreibung:
           "Every marketplace is its own market. Its own keyword research, its own content and its own campaigns, built from scratch for each country.",
       },
@@ -939,9 +939,9 @@ export const en: Woerterbuch = {
 
     kopf: {
       eyebrow: "Amazon Full Service",
-      titelVor: "One team that works together on your ",
-      titelMark: "entire Amazon account.",
-      lead: "We work with ambitious brands that want to move something on Amazon, from the analysis to the day-to-day. For every area you get somebody who does it full time.",
+      titelVor: "Amazon Full Service: ",
+      titelMark: "all five areas included.",
+      lead: "PPC management, SEO, product images and A+ content, account management, expansion into the EU and USA, and strategy planning: all five areas are included in our Full Service. One dedicated team manages your Amazon account from planning through day-to-day execution.",
       bildAlt: "Five workstations on a platform, all connected to one shared evaluation",
     },
 
@@ -1026,30 +1026,10 @@ export const en: Woerterbuch = {
 
     bereiche: {
       label: "What we take on",
-      titel: "Five areas, each one in full depth.",
+      titel: "All five areas. Included in Full Service.",
       liste: [
         {
-          bereich: "Strategy",
-          titel: "We read your market down to the single search term.",
-          zeile: "Before anything is optimized, it is clear where your revenue sits and which targets are realistic.",
-          punkte: [
-            "Which search terms bring you revenue and which only cost money",
-            "Where you stand in the market, month by month",
-            "What is left on every variation after all fees",
-          ],
-        },
-        {
-          bereich: "Product Images & SEO",
-          titel: "A listing that sells without advertising too.",
-          zeile: "Visibility turns into clicks, clicks into orders, until the listing is retail ready.",
-          punkte: [
-            "The main image first: it decides whether you are clicked in the search results",
-            "All product images, A+ through Premium A+ content, brand store and brand story",
-            "Title, bullets and the fields in the background, clear enough for Rufus and COSMO",
-          ],
-        },
-        {
-          bereich: "PPC Advertising",
+          bereich: "Amazon PPC Management",
           titel: "Clean campaigns, steered on TACoS.",
           zeile: "Once the listing sells organically, PPC adds revenue you can plan with.",
           punkte: [
@@ -1059,7 +1039,17 @@ export const en: Woerterbuch = {
           ],
         },
         {
-          bereich: "Account Management",
+          bereich: "Amazon SEO, Product Images & A+ Content",
+          titel: "A listing that sells without advertising too.",
+          zeile: "Visibility turns into clicks, clicks into orders, until the listing is retail ready.",
+          punkte: [
+            "The main image first: it decides whether you are clicked in the search results",
+            "All product images, A+ through Premium A+ content, brand store and brand story",
+            "Title, bullets and the fields in the background, clear enough for Rufus and COSMO",
+          ],
+        },
+        {
+          bereich: "Amazon Account Management",
           titel: "Steady operations, protected rankings.",
           zeile: "The operational side, where one mistake costs visibility you built up.",
           punkte: [
@@ -1070,13 +1060,23 @@ export const en: Woerterbuch = {
           ],
         },
         {
-          bereich: "International Expansion",
+          bereich: "International Expansion: EU & USA",
           titel: "Every new marketplace built from the ground up.",
           zeile: "The complete service on further Amazon marketplaces, done again for each market.",
           punkte: [
             "Its own keyword research per marketplace",
             "Content and campaigns set up again for every market",
             "Localize instead of translate",
+          ],
+        },
+        {
+          bereich: "Amazon Strategy Planning",
+          titel: "We read your market down to the single search term.",
+          zeile: "Before anything is optimized, it is clear where your revenue sits and which targets are realistic.",
+          punkte: [
+            "Which search terms bring you revenue and which only cost money",
+            "Where you stand in the market, month by month",
+            "What is left on every variation after all fees",
           ],
         },
       ],

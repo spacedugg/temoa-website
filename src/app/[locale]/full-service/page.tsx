@@ -49,6 +49,7 @@ export default async function FullServicePage({
       <Kopfzeile />
       <main id="inhalt">
         <FullServiceKopf sprache={locale} w={w.kopf} />
+        <Bereiche w={w.bereiche} />
         {/* Erst sagen wir, mit welchen Marken wir arbeiten, dann, ob das zu
             euch passt, dann, wann wir absagen. Die Absage-Sektion beginnt mit
             „Und" und braucht die Zusage direkt davor. */}
@@ -56,7 +57,6 @@ export default async function FullServicePage({
         <FuerWen w={w.fuerWen} />
         <NichtFuerWen w={w.nichtFuerWen} />
         <Ausgangslage w={w.ausgangslage} />
-        <Bereiche w={w.bereiche} />
         <Reporting w={w.reporting} />
         <Unterschied w={w.unterschied} zusammenlauf={w.zusammenlauf} />
         {/* Der Fahrplan als letzte Sektion vor dem Abschluss-CTA, dieselbe
