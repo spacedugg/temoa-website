@@ -477,11 +477,11 @@ export function Verfahren({ w }: { w: W["verfahren"] }) {
    sie sind gesetzt, ein Wechsel bricht Verweise und Suchergebnisse. Die
    Sprache steckt im Praefix, das `pfad` davorsetzt. */
 const leistungWege: { bild: string; href: string }[] = [
-  { bild: "/bilder/services/ppc-rendering.webp", href: "/leistungen/ppc-advertising" },
-  { bild: "/bilder/services/content-rendering.webp", href: "/leistungen/listing-seo" },
-  { bild: "/bilder/services/account-rendering.webp", href: "/leistungen/account-management" },
-  { bild: "/bilder/services/international-rendering.webp", href: "/leistungen/internationalisierung" },
-  { bild: "/bilder/services/strategy-rendering.webp", href: "/leistungen/strategie" },
+  { bild: "/case_studies/vitaworld/p1-haupt.webp", href: "/leistungen/ppc-advertising" },
+  { bild: "/case_studies/bachgold/p1-haupt.webp", href: "/leistungen/listing-seo" },
+  { bild: "/bilder/services/account-team.jpg", href: "/leistungen/account-management" },
+  { bild: "/case_studies/bachgold.webp", href: "/leistungen/internationalisierung" },
+  { bild: "/bilder/services/strategy-team.jpg", href: "/leistungen/strategie" },
 ];
 
 /**
@@ -536,18 +536,34 @@ export function Leistungen({
             href={pfad(sprache, leistungWege[i].href)}
             className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1"
           >
-            <div className="relative aspect-[3/2] overflow-hidden bg-navy">
-              <Image
-                src={leistungWege[i].bild}
-                alt={l.bildAlt}
-                width={960}
-                height={640}
-                sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.04]"
-              />
-              <span aria-hidden className="num absolute right-4 top-4 rounded-full bg-navy/75 px-3 py-1.5 text-small text-white/80 backdrop-blur-sm">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+            <div className="relative aspect-[3/2] overflow-hidden bg-white">
+              {i === 0 ? (
+                <div className="grid h-full grid-cols-[0.9fr_1.1fr]">
+                  <Image src={leistungWege[i].bild} alt={l.bildAlt} width={480} height={640} sizes="(min-width: 1024px) 180px, 40vw" className="h-full w-full object-contain p-4" />
+                  <div className="flex flex-col justify-center gap-4 bg-navy p-5">
+                    <p className="text-[0.7rem] font-bold uppercase tracking-wider text-chalk-muted">Vitaworld</p>
+                    <div><span className="block text-small text-chalk-muted">ACoS</span><span className="num text-[2rem] leading-tight text-[#6EE7A0]">−30 %</span></div>
+                    <div><span className="block text-small text-chalk-muted">TACoS</span><span className="num text-[2rem] leading-tight text-[#6EE7A0]">−44 %</span></div>
+                  </div>
+                </div>
+              ) : i === 1 ? (
+                <div className="grid h-full grid-cols-2 gap-2 bg-[#eef1f3] p-3">
+                  <Image src={leistungWege[i].bild} alt={l.bildAlt} width={480} height={640} sizes="(min-width: 1024px) 180px, 40vw" className="h-full w-full rounded-lg bg-white object-contain p-2" />
+                  <div className="grid min-h-0 grid-rows-2 gap-2">
+                    <Image src="/case_studies/bachgold/p1-1.webp" alt="" width={480} height={480} sizes="(min-width: 1024px) 180px, 40vw" className="h-full min-h-0 w-full rounded-lg object-cover" />
+                    <Image src="/case_studies/bachgold/p1-aplus-1.webp" alt="" width={480} height={200} sizes="(min-width: 1024px) 180px, 40vw" className="h-full min-h-0 w-full rounded-lg object-cover" />
+                  </div>
+                </div>
+              ) : (
+                <Image
+                  src={leistungWege[i].bild}
+                  alt={l.bildAlt}
+                  width={960}
+                  height={640}
+                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="h-full w-full object-cover"
+                />
+              )}
             </div>
             <div className="relative flex flex-1 flex-col p-6 md:p-8">
               <h3 className="text-[1.2rem] font-bold leading-snug tracking-[-0.015em] text-white sm:min-h-[3.9em] md:text-[1.4rem]">

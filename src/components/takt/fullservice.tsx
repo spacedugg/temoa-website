@@ -144,9 +144,8 @@ export function Bereiche({ w }: { w: W["bereiche"] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-12% 0px" }}
             transition={{ duration: 0.7, delay: i * 0.05, ease: EASE }}
-            className="grid grid-cols-1 gap-y-5 border-t border-white/10 py-10 md:grid-cols-[3.5rem_1fr_1fr] md:gap-x-10"
+            className="grid grid-cols-1 gap-y-5 border-t border-white/10 py-10 md:grid-cols-2 md:gap-x-10"
           >
-            <span className="num text-[1.5rem] text-white/25">{String(i + 1).padStart(2, "0")}</span>
             <div className="min-w-0">
               <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.07] py-1.5 pl-2.5 pr-3.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]">
                 <span aria-hidden className="node-glow" />

@@ -62,11 +62,11 @@ export const en: Woerterbuch = {
          audience is brands selling on Amazon worldwide, and amazon.com is the
          largest of those marketplaces. */
       liste: [
-        { bildAlt: "3D rendering of PPC analytics, product ads and budget controls", titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
-        { bildAlt: "Product images, listing and A+ layouts for a reusable bottle", titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and A/B Tests"] },
-        { bildAlt: "3D rendering of a workstation for catalog, inventory and account monitoring", titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
-        { bildAlt: "Globe connecting Europe and North America for international expansion", titel: "International Expansion: EU & USA", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the EU and USA"] },
-        { bildAlt: "3D rendering of product research, growth planning and a strategic roadmap", titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
+        { bildAlt: "Vitaworld product image with documented ACoS and TACoS reductions from the case study", titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
+        { bildAlt: "Delivered main images, listing images and A+ content for BACHGOLD", titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and A/B Tests"] },
+        { bildAlt: "A temoa team member at the office", titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
+        { bildAlt: "BACHGOLD water filter, a brand managed across European marketplaces and the US", titel: "International Expansion: Pan-EU & US", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the Pan-EU & US"] },
+        { bildAlt: "The temoa team in discussion", titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
       ],
     },
 
@@ -269,7 +269,7 @@ export const en: Woerterbuch = {
       },
       international: {
         titel: "Amazon International Expansion: New Marketplaces · temoa",
-        name: "International Expansion: EU & USA",
+        name: "International Expansion: Pan-EU & US",
         beschreibung:
           "Every marketplace is its own market. Its own keyword research, its own content and its own campaigns, built from scratch for each country.",
       },
@@ -948,7 +948,7 @@ export const en: Woerterbuch = {
       eyebrow: "Amazon Full Service",
       titelVor: "Amazon Full Service: ",
       titelMark: "all five areas included.",
-      lead: "PPC management, SEO, product images and A+ content, account management, expansion into the EU and USA, and strategy planning: all five areas are included in our Full Service. One dedicated team manages your Amazon account from planning through day-to-day execution.",
+      lead: "PPC management, SEO, product images and A+ content, account management, expansion into the Pan-EU & US, and strategy planning: all five areas are included in our Full Service. One dedicated team manages your Amazon account from planning through day-to-day execution.",
       bildAlt: "Five workstations on a platform, all connected to one shared evaluation",
     },
 
@@ -1067,7 +1067,7 @@ export const en: Woerterbuch = {
           ],
         },
         {
-          bereich: "International Expansion: EU & USA",
+          bereich: "International Expansion: Pan-EU & US",
           titel: "Every new marketplace built from the ground up.",
           zeile: "The complete service on further Amazon marketplaces, done again for each market.",
           punkte: [
