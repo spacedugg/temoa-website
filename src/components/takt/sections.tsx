@@ -472,16 +472,16 @@ export function Verfahren({ w }: { w: W["verfahren"] }) {
    03 · Leistungen
    ============================================================ */
 
-/* Symbol und Adresse der fuenf Leistungen, in der Reihenfolge des
+/* Rendering und Adresse der fuenf Leistungen, in der Reihenfolge des
    Woerterbuchs. Die Adressen bleiben deutsch, auch auf der englischen Seite:
    sie sind gesetzt, ein Wechsel bricht Verweise und Suchergebnisse. Die
    Sprache steckt im Praefix, das `pfad` davorsetzt. */
-const leistungWege: { icon: IconName; href: string }[] = [
-  { icon: "ziel", href: "/leistungen/ppc-advertising" },
-  { icon: "lupe", href: "/leistungen/listing-seo" },
-  { icon: "schild", href: "/leistungen/account-management" },
-  { icon: "globus", href: "/leistungen/internationalisierung" },
-  { icon: "kompass", href: "/leistungen/strategie" },
+const leistungWege: { bild: string; href: string }[] = [
+  { bild: "/bilder/services/ppc-rendering.webp", href: "/leistungen/ppc-advertising" },
+  { bild: "/bilder/services/content-rendering.webp", href: "/leistungen/listing-seo" },
+  { bild: "/bilder/services/account-rendering.webp", href: "/leistungen/account-management" },
+  { bild: "/bilder/services/international-rendering.webp", href: "/leistungen/internationalisierung" },
+  { bild: "/bilder/services/strategy-rendering.webp", href: "/leistungen/strategie" },
 ];
 
 /**
@@ -531,72 +531,77 @@ export function Leistungen({
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {w.liste.map((l, i) => (
           <motion.a
-            key={l.titel}
+            key={leistungWege[i].href}
             {...auf(i * 0.06)}
             href={pfad(sprache, leistungWege[i].href)}
-            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden p-5 transition-transform duration-500 ease-temoa hover:-translate-y-1 md:p-8"
+            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1"
           >
-            {/* Der Lichthof zieht beim Zeigen an, damit die Karte reagiert,
-                ohne dass sich das Layout bewegt. */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -right-10 -top-16 h-44 w-44 rounded-full opacity-60 blur-[50px] transition-opacity duration-500 group-hover:opacity-100"
-              style={{ background: "radial-gradient(circle, rgba(255,153,0,0.5), transparent 70%)" }}
-            />
-            {/* Die Ziffer steht in beiden Fassungen oben rechts, deshalb
-                absolut und nicht in der Reihe neben der Kachel. */}
-            <span
-              aria-hidden
-              className="num absolute right-5 top-4 text-[1.4rem] leading-none text-white/20 md:right-8 md:top-7 md:text-[1.6rem]"
-            >
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            {/* Auf dem Telefon steht das Symbol neben dem Text. Gestapelt
-                war jede der fuenf Karten rund 265 Pixel hoch, zusammen mehr
-                als anderthalb Bildschirme fuer fuenf Zeilen Inhalt. */}
-            <div className="relative flex items-start gap-4 md:block">
-              <span className="tile-dark shrink-0">
-                <Icon name={leistungWege[i].icon} className="h-8 w-8" />
+            <div className="relative aspect-[3/2] overflow-hidden bg-navy">
+              <Image
+                src={leistungWege[i].bild}
+                alt={l.bildAlt}
+                width={960}
+                height={640}
+                sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.04]"
+              />
+              <span aria-hidden className="num absolute right-4 top-4 rounded-full bg-navy/75 px-3 py-1.5 text-small text-white/80 backdrop-blur-sm">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="min-w-0 flex-1 md:mt-6">
-                <div className="pr-9 text-[1.1rem] font-bold leading-snug tracking-[-0.015em] text-white md:pr-10 md:text-[1.4rem]">
-                  {l.titel}
-                </div>
-                <div className="mt-2 text-small leading-relaxed text-chalk-muted md:mt-2.5">{l.text}</div>
-              </div>
             </div>
-            <ul className="relative mt-6 space-y-3 pb-2">
-              {l.punkte.map((punkt) => (
-                <li key={punkt} className="flex items-start gap-2.5 text-small leading-relaxed text-chalk-muted">
-                  <svg className="mt-1 h-4 w-4 shrink-0 text-[#6EE7A0]" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                    <path d="m4 10 4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  <span>{punkt}</span>
-                </li>
-              ))}
-            </ul>
-            <span className="relative mt-4 inline-flex items-center gap-1.5 text-[0.82rem] font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1 md:mt-auto md:pt-6">
-              {w.mehr}
+            <div className="relative flex flex-1 flex-col p-6 md:p-8">
+              <h3 className="text-[1.2rem] font-bold leading-snug tracking-[-0.015em] text-white sm:min-h-[3.9em] md:text-[1.4rem]">
+                {l.titel}
+              </h3>
+              <p className="mt-3 text-small leading-relaxed text-chalk-muted sm:min-h-[3em]">{l.text}</p>
+              <ul className="mt-6 space-y-3 pb-2">
+                {l.punkte.map((punkt) => (
+                  <li key={punkt} className="flex items-start gap-2.5 text-small leading-relaxed text-chalk-muted">
+                    <svg className="mt-1 h-4 w-4 shrink-0 text-[#6EE7A0]" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                      <path d="m4 10 4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>{punkt}</span>
+                  </li>
+                ))}
+              </ul>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-small font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+                {w.mehr}
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </div>
+          </motion.a>
+        ))}
+
+        <motion.a
+          {...auf(0.3)}
+          href={pfad(sprache, "/full-service")}
+          className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden ring-1 ring-brand-500/40 transition-transform duration-500 ease-temoa hover:-translate-y-1"
+        >
+          <div className="relative aspect-[3/2] overflow-hidden bg-navy">
+            <Image
+              src="/team/Main.webp"
+              alt={w.komplett.bildAlt}
+              width={960}
+              height={640}
+              sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.04]"
+            />
+          </div>
+          <div className="relative flex flex-1 flex-col p-6 md:p-8">
+            <span className="text-label font-bold uppercase tracking-wider text-brand-400">{w.komplett.label}</span>
+            <h3 className="mt-3 text-[1.4rem] font-bold leading-snug tracking-[-0.015em] text-white md:text-[1.65rem]">{w.komplett.titel}</h3>
+            <p className="mt-4 text-small leading-relaxed text-chalk-muted">{w.komplett.text}</p>
+            <p className="mt-5 text-small font-bold leading-relaxed text-white">{w.komplett.zusage}</p>
+            <span className="mt-auto inline-flex items-center gap-1.5 pt-8 text-small font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+              {w.komplett.link}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </span>
-          </motion.a>
-        ))}
-
-        {/* Die Grafik sitzt freigestellt in der sechsten Zelle, ohne Platte. */}
-        <motion.div {...auf(0.3)} className="relative flex items-center justify-center">
-          <span aria-hidden className="halo left-1/2 top-1/2 h-[16rem] w-[16rem] -translate-x-1/2 -translate-y-1/2 opacity-60" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/bilder/n-leistungen.webp"
-            alt={w.bildAlt}
-            width={1408}
-            height={1408}
-            loading="lazy"
-            className="relative w-full max-w-[14rem] sm:max-w-[19rem]"
-          />
-        </motion.div>
+          </div>
+        </motion.a>
       </div>
 
       <a href={pfad(sprache, "/full-service")} className="btn-text mt-10">
