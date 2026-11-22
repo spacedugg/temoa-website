@@ -136,37 +136,26 @@ export function Bereiche({ w }: { w: W["bereiche"] }) {
     <Station label={w.label} tone="dark">
       <StationTitle>{w.titel}</StationTitle>
 
-      <div className="mt-14">
+      <StationLead>{w.lead}</StationLead>
+      <div className="mt-12 space-y-5">
         {w.liste.map((b, i) => (
-          <motion.div
-            key={b.bereich}
+          <motion.div key={b.bereich}
             initial={reduce ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-12% 0px" }}
-            transition={{ duration: 0.7, delay: i * 0.05, ease: EASE }}
-            className="grid grid-cols-1 gap-y-5 border-t border-white/10 py-10 md:grid-cols-2 md:gap-x-10"
-          >
+            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-12% 0px" }}
+            transition={{ duration: 0.6, delay: i * 0.03, ease: EASE }}
+            className="grid min-w-0 gap-7 rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-6 md:grid-cols-[0.8fr_1.4fr] md:gap-10 md:p-8">
             <div className="min-w-0">
-              <span className="inline-flex items-center gap-2.5 rounded-full bg-white/[0.07] py-1.5 pl-2.5 pr-3.5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.09)]">
-                <span aria-hidden className="node-glow" />
-                <span className="text-label font-bold uppercase text-brand-400">{b.bereich}</span>
-              </span>
-              <h3 className="mt-4 max-w-[26ch] text-balance text-[1.25rem] font-bold leading-snug tracking-[-0.015em] text-white md:text-[1.4rem]">
-                {b.titel}
-              </h3>
-              <p className="mt-3 max-w-[46ch] text-body text-chalk-muted">{b.zeile}</p>
+              <h3 className="text-[1.5rem] font-bold leading-tight tracking-[-0.02em] text-white md:text-[1.9rem]">{b.bereich}</h3>
+              <p className="mt-4 max-w-[36ch] text-small leading-relaxed text-chalk-muted">{b.zeile}</p>
             </div>
-            <ul className="min-w-0 space-y-3">
-              {b.punkte.map((t) => (
-                <li key={t} className="grid grid-cols-[0.6rem_1fr] gap-x-3 text-small leading-relaxed text-chalk-muted">
-                  <span aria-hidden className="mt-[0.55rem] h-[3px] w-[0.6rem] rounded-full bg-brand-500" />
-                  <span>{t}</span>
-                </li>
-              ))}
+            <ul className="grid min-w-0 gap-x-6 gap-y-4 sm:grid-cols-2">
+              {b.punkte.map(t=><li key={t} className="flex items-start gap-2.5 text-small leading-relaxed text-chalk-muted">
+                <svg viewBox="0 0 20 20" className="mt-1 h-4 w-4 shrink-0 text-[#6EE7A0]" fill="none" aria-hidden="true"><path d="m4 10 4 4 8-8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                <span>{t}</span>
+              </li>)}
             </ul>
           </motion.div>
         ))}
-        <div className="border-t border-white/10" />
       </div>
     </Station>
   );
