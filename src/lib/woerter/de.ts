@@ -63,11 +63,11 @@ export const de = {
       /* Die Reihenfolge ist die der Seite und entspricht den Adressen in
          `sections.tsx`. Namen wie in Kopf- und Fusszeile, elfte Runde. */
       liste: [
-        { bildAlt: "3D-Rendering von PPC-Auswertung, Produktanzeigen und Budgetsteuerung", titel: "Amazon PPC Management", text: "Budget rauf, Marge runter? Wir skalieren profitabel.", punkte: ["Sponsored Products, Brands & Display","Keyword- und Suchbegriffsanalyse","Gebots- und Budgetsteuerung","ACoS, TACoS und Profitabilität"] },
-        { bildAlt: "Produktbilder, Listing und A+ Layouts für eine Trinkflasche", titel: "Amazon SEO, Produktbilder & A+ Content", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf.", punkte: ["Keyword-Recherche und Listing-Texte","Hauptbilder und Produktbilder","A+ Content und Brand Story","Brand Store und A/B Tests"] },
-        { bildAlt: "3D-Rendering eines Arbeitsplatzes für Katalog, Bestand und Account-Überwachung", titel: "Amazon Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff.", punkte: ["Katalog- und Variantenpflege","Bestandsplanung und FBA","Buy-Box, Preise und Account Health","Support-Fälle mit Amazon"] },
-        { bildAlt: "Globus mit Verbindungen zwischen Europa und Nordamerika für die internationale Expansion", titel: "Internationalisierung EU & USA", text: "Lokalisieren statt übersetzen.", punkte: ["Markt- und Wettbewerbsanalyse","Lokale Keywords und Listing-Texte","Produktbilder und A+ je Markt","PPC-Kampagnen für EU und USA"] },
-        { bildAlt: "3D-Rendering von Produktrecherche, Wachstumsplanung und strategischer Roadmap", titel: "Amazon Strategieplanung", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan.", punkte: ["Account- und Potenzialanalyse","Wettbewerb und Positionierung","Margen und Sortiment bewerten","Prioritäten und Wachstums-Roadmap"] },
+        { bildAlt: "Vitaworld Produktbild mit belegter Senkung von ACoS und TACoS aus der Case Study", titel: "Amazon PPC Management", text: "Budget rauf, Marge runter? Wir skalieren profitabel.", punkte: ["Sponsored Products, Brands & Display","Keyword- und Suchbegriffsanalyse","Gebots- und Budgetsteuerung","ACoS, TACoS und Profitabilität"] },
+        { bildAlt: "Ausgelieferte Hauptbilder, Listingbilder und A+ Content für BACHGOLD", titel: "Amazon SEO, Produktbilder & A+ Content", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf.", punkte: ["Keyword-Recherche und Listing-Texte","Hauptbilder und Produktbilder","A+ Content und Brand Story","Brand Store und A/B Tests"] },
+        { bildAlt: "Teammitglied von temoa im Büro", titel: "Amazon Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff.", punkte: ["Katalog- und Variantenpflege","Bestandsplanung und FBA","Buy-Box, Preise und Account Health","Support-Fälle mit Amazon"] },
+        { bildAlt: "BACHGOLD Wasserfilter, eine betreute Marke auf europäischen Marktplätzen und in den USA", titel: "Internationalisierung Pan-EU & US", text: "Lokalisieren statt übersetzen.", punkte: ["Markt- und Wettbewerbsanalyse","Lokale Keywords und Listing-Texte","Produktbilder und A+ je Markt","PPC-Kampagnen für Pan-EU & US"] },
+        { bildAlt: "Das temoa Team im persönlichen Austausch", titel: "Amazon Strategieplanung", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan.", punkte: ["Account- und Potenzialanalyse","Wettbewerb und Positionierung","Margen und Sortiment bewerten","Prioritäten und Wachstums-Roadmap"] },
       ],
     },
 
@@ -298,7 +298,7 @@ export const de = {
       },
       international: {
         titel: "Amazon Internationalisierung: Neue Marktplätze · temoa",
-        name: "Internationalisierung EU & USA",
+        name: "Internationalisierung Pan-EU & US",
         beschreibung:
           "Jeder Marktplatz ist ein eigener Markt. Eigene Keyword-Recherche, eigener Content und eigene Kampagnen, für jedes Land neu aufgebaut.",
       },
@@ -997,7 +997,7 @@ export const de = {
       eyebrow: "Amazon Full Service",
       titelVor: "Amazon Full Service: ",
       titelMark: "alle fünf Bereiche inklusive.",
-      lead: "PPC Management, SEO, Produktbilder und A+ Content, Account Management, Internationalisierung in EU und USA sowie Strategieplanung: Als Full-Service-Agentur übernehmen wir alle fünf Bereiche für euch. Ein festes Team betreut euren Amazon-Account von der Planung bis zur laufenden Umsetzung.",
+      lead: "PPC Management, SEO, Produktbilder und A+ Content, Account Management, Internationalisierung in Pan-EU & US sowie Strategieplanung: Als Full-Service-Agentur übernehmen wir alle fünf Bereiche für euch. Ein festes Team betreut euren Amazon-Account von der Planung bis zur laufenden Umsetzung.",
       bildAlt:
         "Fünf Arbeitsplätze auf einem Podest, alle verbunden mit einer gemeinsamen Auswertung",
     },
@@ -1122,7 +1122,7 @@ export const de = {
           ],
         },
         {
-          bereich: "Internationalisierung EU & USA",
+          bereich: "Internationalisierung Pan-EU & US",
           titel: "Jeder neue Marktplatz von Grund auf aufgebaut.",
           zeile: "Der komplette Service auf weiteren Amazon-Marktplätzen, je Markt neu gemacht.",
           punkte: [

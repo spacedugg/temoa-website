@@ -68,7 +68,7 @@ export function StrukturierteDaten({ sprache }: { sprache: Sprache }) {
         ["Amazon PPC Management", "Amazon PPC Management", "/leistungen/ppc-advertising"],
         ["Amazon SEO, Produktbilder & A+ Content", "Amazon SEO, Product Images & A+ Content", "/leistungen/listing-seo"],
         ["Amazon Account Management", "Amazon Account Management", "/leistungen/account-management"],
-        ["Internationalisierung EU & USA", "International Expansion: EU & USA", "/leistungen/internationalisierung"],
+        ["Internationalisierung Pan-EU & US", "International Expansion: Pan-EU & US", "/leistungen/internationalisierung"],
         ["Amazon Strategieplanung", "Amazon Strategy Planning", "/leistungen/strategie"],
         ["Compliance & Account Health", "Compliance & account health", "/leistungen/compliance-account-health"],
         ["FBA & Inventory Management", "FBA & inventory management", "/leistungen/fba-inventory-management"],
