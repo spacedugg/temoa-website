@@ -50,16 +50,23 @@ export const en: Woerterbuch = {
       titelMark: "Amazon growth.",
       mehr: "More on this",
       alle: "See all services",
-      bildAlt: "Five areas sit in a ring around a shared center, each connected to it.",
+      komplett: {
+        "label": "All in one",
+        "titel": "One team for your Amazon growth.",
+        "text": "PPC, SEO, product images, A+ content, account management, international expansion and strategy work together.",
+        "zusage": "All five areas in Full Service. One shared plan, one dedicated contact.",
+        "link": "Explore Full Service",
+        "bildAlt": "The three temoa founders, your team for Amazon Full Service"
+      },
       /* Same names as the header and footer. US spelling throughout: the
          audience is brands selling on Amazon worldwide, and amazon.com is the
          largest of those marketplaces. */
       liste: [
-        { titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
-        { titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and content tests"] },
-        { titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
-        { titel: "International Expansion: EU & USA", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the EU and USA"] },
-        { titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
+        { bildAlt: "3D rendering of PPC analytics, product ads and budget controls", titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
+        { bildAlt: "Product images, listing and A+ layouts for a reusable bottle", titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and A/B Tests"] },
+        { bildAlt: "3D rendering of a workstation for catalog, inventory and account monitoring", titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
+        { bildAlt: "Globe connecting Europe and North America for international expansion", titel: "International Expansion: EU & USA", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the EU and USA"] },
+        { bildAlt: "3D rendering of product research, growth planning and a strategic roadmap", titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
       ],
     },
 
