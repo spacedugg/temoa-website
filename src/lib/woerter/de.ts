@@ -53,21 +53,21 @@ export const de = {
       mehr: "Mehr dazu",
       alle: "Alle Leistungen ansehen",
       komplett: {
-        "label": "Alles aus einer Hand",
-        "titel": "Ein Team für euren Amazon-Erfolg.",
-        "text": "PPC, SEO, Produktbilder, A+ Content, Account Management, Internationalisierung und Strategie greifen bei uns ineinander.",
-        "zusage": "Alle fünf Bereiche im Full Service. Ein gemeinsamer Plan, ein fester Ansprechpartner.",
+        "label": "temoa Full Service",
+        "titel": "Ein fester Ansprechpartner.",
+        "text": "Ein gemeinsamer Plan für PPC, Content, Account Management, internationale Marktplätze und Strategie.",
+        "zusage": "Alle fünf Bereiche in einer Betreuung.",
         "link": "Full Service kennenlernen",
-        "bildAlt": "Die drei Gründer von temoa, euer Team für Amazon Full Service"
+        "bildAlt": "Die drei Gründer von temoa"
       },
       /* Die Reihenfolge ist die der Seite und entspricht den Adressen in
          `sections.tsx`. Namen wie in Kopf- und Fusszeile, elfte Runde. */
       liste: [
-        { bildAlt: "Vitaworld Produktbild mit belegter Senkung von ACoS und TACoS aus der Case Study", titel: "Amazon PPC Management", text: "Budget rauf, Marge runter? Wir skalieren profitabel.", punkte: ["Sponsored Products, Brands & Display","Keyword- und Suchbegriffsanalyse","Gebots- und Budgetsteuerung","ACoS, TACoS und Profitabilität"] },
-        { bildAlt: "Ausgelieferte Hauptbilder, Listingbilder und A+ Content für BACHGOLD", titel: "Amazon SEO, Produktbilder & A+ Content", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf.", punkte: ["Keyword-Recherche und Listing-Texte","Hauptbilder und Produktbilder","A+ Content und Brand Story","Brand Store und A/B Tests"] },
-        { bildAlt: "Teammitglied von temoa im Büro", titel: "Amazon Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff.", punkte: ["Katalog- und Variantenpflege","Bestandsplanung und FBA","Buy-Box, Preise und Account Health","Support-Fälle mit Amazon"] },
-        { bildAlt: "BACHGOLD Wasserfilter, eine betreute Marke auf europäischen Marktplätzen und in den USA", titel: "Internationalisierung Pan-EU & US", text: "Lokalisieren statt übersetzen.", punkte: ["Markt- und Wettbewerbsanalyse","Lokale Keywords und Listing-Texte","Produktbilder und A+ je Markt","PPC-Kampagnen für Pan-EU & US"] },
-        { bildAlt: "Das temoa Team im persönlichen Austausch", titel: "Amazon Strategieplanung", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan.", punkte: ["Account- und Potenzialanalyse","Wettbewerb und Positionierung","Margen und Sortiment bewerten","Prioritäten und Wachstums-Roadmap"] },
+        { titel: "Amazon PPC Management", text: "Budget rauf, Marge runter? Wir skalieren profitabel.", punkte: ["Sponsored Products, Brands & Display","Keyword- und Suchbegriffsanalyse","Gebots- und Budgetsteuerung","ACoS, TACoS und Profitabilität"] },
+        { titel: "Amazon SEO, Produktbilder & A+ Content", text: "Klicks ohne Käufe? Wir stellen das Listing neu auf.", punkte: ["Keyword-Recherche und Listing-Texte","Hauptbilder und Produktbilder","A+ Content und Brand Story","Brand Store und A/B Tests"] },
+        { titel: "Amazon Account Management", text: "Bestand, Buy-Box, Troubleshooting im Griff.", punkte: ["Katalog- und Variantenpflege","Bestandsplanung und FBA","Buy-Box, Preise und Account Health","Support-Fälle mit Amazon"] },
+        { titel: "Internationalisierung Pan-EU & US", text: "Lokalisieren statt übersetzen.", punkte: ["Markt- und Wettbewerbsanalyse","Lokale Keywords und Listing-Texte","Produktbilder und A+ je Markt","PPC-Kampagnen für Pan-EU & US"] },
+        { titel: "Amazon Strategieplanung", text: "Unklar, wo es hakt? Erst die Daten, dann der Plan.", punkte: ["Account- und Potenzialanalyse","Wettbewerb und Positionierung","Margen und Sortiment bewerten","Prioritäten und Wachstums-Roadmap"] },
       ],
     },
 

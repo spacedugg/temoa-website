@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { Logo } from "../Logo";
+import { ServiceVisual, FoundersCutout } from "./ServiceVisual";
 import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { Station, StationTitle, StationLead, Karte, Eyebrow } from "./Station";
@@ -476,12 +478,12 @@ export function Verfahren({ w }: { w: W["verfahren"] }) {
    Woerterbuchs. Die Adressen bleiben deutsch, auch auf der englischen Seite:
    sie sind gesetzt, ein Wechsel bricht Verweise und Suchergebnisse. Die
    Sprache steckt im Praefix, das `pfad` davorsetzt. */
-const leistungWege: { bild: string; href: string }[] = [
-  { bild: "/case_studies/vitaworld/p1-haupt.webp", href: "/leistungen/ppc-advertising" },
-  { bild: "/case_studies/bachgold/p1-haupt.webp", href: "/leistungen/listing-seo" },
-  { bild: "/bilder/services/account-team.jpg", href: "/leistungen/account-management" },
-  { bild: "/case_studies/bachgold.webp", href: "/leistungen/internationalisierung" },
-  { bild: "/bilder/services/strategy-team.jpg", href: "/leistungen/strategie" },
+const leistungWege = [
+  "/leistungen/ppc-advertising",
+  "/leistungen/listing-seo",
+  "/leistungen/account-management",
+  "/leistungen/internationalisierung",
+  "/leistungen/strategie",
 ];
 
 /**
@@ -530,48 +532,20 @@ export function Leistungen({
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {w.liste.map((l, i) => (
-          <motion.a
-            key={leistungWege[i].href}
+          <motion.article
+            key={leistungWege[i]}
             {...auf(i * 0.06)}
-            href={pfad(sprache, leistungWege[i].href)}
-            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden transition-transform duration-500 ease-temoa hover:-translate-y-1"
+            className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden"
           >
-            <div className="relative aspect-[3/2] overflow-hidden bg-white">
-              {i === 0 ? (
-                <div className="grid h-full grid-cols-[0.9fr_1.1fr]">
-                  <Image src={leistungWege[i].bild} alt={l.bildAlt} width={480} height={640} sizes="(min-width: 1024px) 180px, 40vw" className="h-full w-full object-contain p-4" />
-                  <div className="flex flex-col justify-center gap-4 bg-navy p-5">
-                    <p className="text-[0.7rem] font-bold uppercase tracking-wider text-chalk-muted">Vitaworld</p>
-                    <div><span className="block text-small text-chalk-muted">ACoS</span><span className="num text-[2rem] leading-tight text-[#6EE7A0]">−30 %</span></div>
-                    <div><span className="block text-small text-chalk-muted">TACoS</span><span className="num text-[2rem] leading-tight text-[#6EE7A0]">−44 %</span></div>
-                  </div>
-                </div>
-              ) : i === 1 ? (
-                <div className="grid h-full grid-cols-2 gap-2 bg-[#eef1f3] p-3">
-                  <Image src={leistungWege[i].bild} alt={l.bildAlt} width={480} height={640} sizes="(min-width: 1024px) 180px, 40vw" className="h-full w-full rounded-lg bg-white object-contain p-2" />
-                  <div className="grid min-h-0 grid-rows-2 gap-2">
-                    <Image src="/case_studies/bachgold/p1-1.webp" alt="" width={480} height={480} sizes="(min-width: 1024px) 180px, 40vw" className="h-full min-h-0 w-full rounded-lg object-cover" />
-                    <Image src="/case_studies/bachgold/p1-aplus-1.webp" alt="" width={480} height={200} sizes="(min-width: 1024px) 180px, 40vw" className="h-full min-h-0 w-full rounded-lg object-cover" />
-                  </div>
-                </div>
-              ) : (
-                <Image
-                  src={leistungWege[i].bild}
-                  alt={l.bildAlt}
-                  width={960}
-                  height={640}
-                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="h-full w-full object-cover"
-                  style={{ objectPosition: i === 2 ? "center 25%" : "center" }}
-                />
-              )}
-            </div>
-            <div className="relative flex flex-1 flex-col p-6 md:p-8">
-              <h3 className="text-[1.2rem] font-bold leading-snug tracking-[-0.015em] text-white sm:min-h-[3.9em] md:text-[1.4rem]">
-                {l.titel}
+            <ServiceVisual index={i} sprache={sprache} />
+            <div className="relative flex flex-1 flex-col p-6 md:p-7">
+              <h3 className="text-[1.2rem] font-bold leading-snug tracking-[-0.015em] text-white sm:min-h-[2.6em] md:text-[1.3rem]">
+                <a href={pfad(sprache, leistungWege[i])} className="hover:underline">
+                  {i === 3 ? <>{sprache === "de" ? "Internationalisierung" : "International Expansion"}<span className="block whitespace-nowrap">Pan-EU &amp; US</span></> : l.titel}
+                </a>
               </h3>
               <p className="mt-3 text-small leading-relaxed text-chalk-muted sm:min-h-[3em]">{l.text}</p>
-              <ul className="mt-6 space-y-3 pb-2">
+              <ul className="mt-5 space-y-3 pb-2">
                 {l.punkte.map((punkt) => (
                   <li key={punkt} className="flex items-start gap-2.5 text-small leading-relaxed text-chalk-muted">
                     <svg className="mt-1 h-4 w-4 shrink-0 text-[#6EE7A0]" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -581,37 +555,29 @@ export function Leistungen({
                   </li>
                 ))}
               </ul>
-              <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-small font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+              <a href={pfad(sprache, leistungWege[i])} className="mt-auto inline-flex items-center gap-1.5 pt-5 text-small font-bold text-brand-400">
                 {w.mehr}
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
                   <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-              </span>
+              </a>
             </div>
-          </motion.a>
+          </motion.article>
         ))}
 
         <motion.a
           {...auf(0.3)}
           href={pfad(sprache, "/full-service")}
-          className="panel-navy on-dark group relative flex h-full flex-col overflow-hidden ring-1 ring-brand-500/40 transition-transform duration-500 ease-temoa hover:-translate-y-1"
+          className="panel group relative flex h-full flex-col overflow-hidden bg-white"
         >
-          <div className="relative aspect-[3/2] overflow-hidden bg-navy">
-            <Image
-              src="/team/Main.webp"
-              alt={w.komplett.bildAlt}
-              width={960}
-              height={640}
-              sizes="(min-width: 1280px) 400px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="h-full w-full object-cover transition-transform duration-700 ease-temoa group-hover:scale-[1.04]"
-            />
-          </div>
-          <div className="relative flex flex-1 flex-col p-6 md:p-8">
-            <span className="text-label font-bold uppercase tracking-wider text-brand-400">{w.komplett.label}</span>
-            <h3 className="mt-3 text-[1.4rem] font-bold leading-snug tracking-[-0.015em] text-white md:text-[1.65rem]">{w.komplett.titel}</h3>
-            <p className="mt-4 text-small leading-relaxed text-chalk-muted">{w.komplett.text}</p>
-            <p className="mt-5 text-small font-bold leading-relaxed text-white">{w.komplett.zusage}</p>
-            <span className="mt-auto inline-flex items-center gap-1.5 pt-8 text-small font-bold text-brand-400 transition-transform duration-300 group-hover:translate-x-1">
+          <FoundersCutout label={w.komplett.bildAlt} />
+          <div className="relative flex flex-1 flex-col p-6 md:p-7">
+            <Logo className="mb-4 !h-7 self-start" />
+            <span className="text-label font-bold uppercase tracking-wider text-ink-muted">{w.komplett.label}</span>
+            <h3 className="mt-2 text-[1.4rem] font-bold leading-snug tracking-[-0.015em] text-ink md:text-[1.6rem]">{w.komplett.titel}</h3>
+            <p className="mt-4 text-small leading-relaxed text-ink-muted">{w.komplett.text}</p>
+            <p className="mt-5 text-small font-bold leading-relaxed text-ink">{w.komplett.zusage}</p>
+            <span className="mt-auto inline-flex items-center gap-1.5 pt-6 text-small font-bold text-navy">
               {w.komplett.link}
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M5 12h13m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

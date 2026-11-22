@@ -51,22 +51,22 @@ export const en: Woerterbuch = {
       mehr: "More on this",
       alle: "See all services",
       komplett: {
-        "label": "All in one",
-        "titel": "One team for your Amazon growth.",
-        "text": "PPC, SEO, product images, A+ content, account management, international expansion and strategy work together.",
-        "zusage": "All five areas in Full Service. One shared plan, one dedicated contact.",
+        "label": "temoa Full Service",
+        "titel": "One dedicated contact.",
+        "text": "One shared plan for PPC, content, account management, international marketplaces and strategy.",
+        "zusage": "All five areas in one partnership.",
         "link": "Explore Full Service",
-        "bildAlt": "The three temoa founders, your team for Amazon Full Service"
+        "bildAlt": "The three temoa founders"
       },
       /* Same names as the header and footer. US spelling throughout: the
          audience is brands selling on Amazon worldwide, and amazon.com is the
          largest of those marketplaces. */
       liste: [
-        { bildAlt: "Vitaworld product image with documented ACoS and TACoS reductions from the case study", titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
-        { bildAlt: "Delivered main images, listing images and A+ content for BACHGOLD", titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and A/B Tests"] },
-        { bildAlt: "A temoa team member at the office", titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
-        { bildAlt: "BACHGOLD water filter, a brand managed across European marketplaces and the US", titel: "International Expansion: Pan-EU & US", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the Pan-EU & US"] },
-        { bildAlt: "The temoa team in discussion", titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
+        { titel: "Amazon PPC Management", text: "More budget, less margin? We scale profitably.", punkte: ["Sponsored Products, Brands & Display","Keyword and search term analysis","Bid and budget management","ACoS, TACoS and profitability"] },
+        { titel: "Amazon SEO, Product Images & A+ Content", text: "Clicks without orders? We rebuild the listing.", punkte: ["Keyword research and listing copy","Main images and product images","A+ content and brand story","Brand store and A/B Tests"] },
+        { titel: "Amazon Account Management", text: "Inventory, Buy Box, troubleshooting under control.", punkte: ["Catalog and variation management","Inventory planning and FBA","Buy Box, pricing and account health","Support cases with Amazon"] },
+        { titel: "International Expansion: Pan-EU & US", text: "Localize instead of translate.", punkte: ["Market and competitor analysis","Local keywords and listing copy","Product images and A+ per market","PPC campaigns for the Pan-EU & US"] },
+        { titel: "Amazon Strategy Planning", text: "Not sure where it breaks? Data first, then the plan.", punkte: ["Account and growth potential analysis","Competition and positioning","Margin and product range analysis","Priorities and growth roadmap"] },
       ],
     },
 
