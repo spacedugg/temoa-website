@@ -33,25 +33,39 @@
   to { opacity: 0; }
 }
 .marketMap { object-fit: cover; object-position: 28% center; }
-.calendar { object-fit: cover; object-position: 72% center; }
-.dealPlan {
+.marginModel { object-fit: cover; object-position: 40% center; }
+.marginKey {
   position: absolute;
-  inset: 0 2% 0 59%;
+  inset: 0 auto 0 6%;
+  width: 34%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #ecf6fa;
+  color: #f4f8fb;
 }
-.dealPlan > span { font-size: clamp(12px, 3.3cqw, 16px); font-weight: 600; color: #ffb477; }
-.dealPlan strong {
-  font-size: clamp(25px, 7.6cqw, 44px);
-  font-weight: 750;
-  line-height: 1.15;
-  letter-spacing: -.05em;
+.marginKey strong {
+  max-width: 10ch;
+  font-size: clamp(18px, 5.8cqw, 26px);
+  line-height: 1.06;
+  letter-spacing: -.035em;
 }
-.dealPlan ul { margin: 12px 0 0; padding: 0; list-style: none; }
-.dealPlan li { font-size: clamp(12px, 3.4cqw, 15px); line-height: 1.35; }
-.dealPlan li + li { margin-top: 3px; }
+.marginKey ul { margin: 14px 0 0; padding: 0; list-style: none; }
+.marginKey li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(12px, 3.6cqw, 15px);
+  line-height: 1.5;
+}
+.marginKey li::before {
+  content: "";
+  flex: 0 0 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #41628c;
+}
+.marginKey li:nth-child(2)::before { background: #eeeae8; }
+.marginKey li:nth-child(3)::before { background: #ff9900; }
 .listingWindow{padding:0 12px}
 .columns{mask-image:linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;height:100%}
 .columnViewport{min-width:0;height:100%;overflow:hidden}

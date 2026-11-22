@@ -81,7 +81,7 @@ export function ServiceVisual({ index, sprache }: { index: number; sprache: Spra
       "",
       de?"Schematischer Amazon-Supportfall: Listing korrigiert und Fall gelöst":"Illustrative Amazon support ticket: listing corrected and case resolved",
       de?"Vernetzte Amazon-Marktplätze in Pan-EU und den USA":"Connected Amazon marketplaces in Pan-EU and the US",
-      de?"Aktionswoche vom 15. bis 21. mit kalkuliertem Deal-Preis und geprüfter Zielmarge":"Deal week from the 15th to the 21st with deal pricing and a margin check",
+      de?"Spielraum für Deals: Produktkosten, Gebühren und Marge im Verkaufspreis":"Room for discounts: product costs, fees and margin within the selling price",
     ][index]}>
       <span className={styles.ambient} aria-hidden="true" />
       {index===0 && <>
@@ -89,15 +89,15 @@ export function ServiceVisual({ index, sprache }: { index: number; sprache: Spra
         <PerformanceGraph de={de}/>
       </>}
       {index===2 && <SupportTicket de={de}/>}
-      {index===3 && <Image src="/bilder/services/transatlantic-map.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marketMap}/>}
+      {index===3 && <Image src="/bilder/services/market-relief.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marketMap}/>}
       {index===4 && <>
-        <Image src="/bilder/services/deal-calendar.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.calendar} />
-        <div className={styles.dealPlan} aria-hidden="true">
-          <span>{de ? "Aktionswoche" : "Deal week"}</span>
-          <strong>{de ? "15.–21." : "15th–21st"}</strong>
+        <Image src="/bilder/services/deal-margin.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marginModel} />
+        <div className={styles.marginKey} aria-hidden="true">
+          <strong>{de ? "Spielraum für Deals" : "Room for discounts"}</strong>
           <ul>
-            <li>{de ? "Deal-Preis kalkulieren" : "Set the deal price"}</li>
-            <li>{de ? "Zielmarge prüfen" : "Check the margin"}</li>
+            <li>{de ? "Produktkosten" : "Product costs"}</li>
+            <li>{de ? "Gebühren" : "Fees"}</li>
+            <li>{de ? "Marge" : "Margin"}</li>
           </ul>
         </div>
       </>}
