@@ -11,9 +11,9 @@ const TACOS_PATH = "M12 42 C50 39 65 62 99 59 S157 80 180 76 S222 102 251 100 S3
 
 const serviceIllustrations = {
   2: {
-    file: "offer-history",
-    de: "Beispielhafter Angebotsverlauf von 8 bis 16 Uhr: Das Angebot bleibt kaufbar. Die Buy Box geht um 11:05 Uhr verloren und ist ab 12:40 Uhr zurück.",
-    en: "Example offer history from 08:00 to 16:00: the offer stays available. The Buy Box is lost at 11:05 and regained at 12:40.",
+    file: "buy-box-availability",
+    de: "Das Angebot bleibt im dargestellten Beispiel von 8 bis 16 Uhr kaufbar. Die Buy Box geht um 11:05 Uhr verloren und ist ab 12:40 Uhr zurück.",
+    en: "The offer stays available from 08:00 to 16:00 in this example. The Buy Box is lost at 11:05 and regained at 12:40.",
   },
   3: {
     file: "europe-markets",
