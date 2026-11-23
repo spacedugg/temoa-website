@@ -1,6 +1,5 @@
 "use client";
-import { useId, useState, useRef } from "react";
-import { useInView } from "framer-motion";
+import { useId, useState } from "react";
 import Image from "next/image";
 import type { Sprache } from "@/lib/i18n";
 import { SERVICE_LISTING_IMAGES } from "@/lib/service-listing-images";
@@ -10,39 +9,31 @@ const CTR_PATH = "M12 140 C55 141 62 115 96 120 S145 100 172 104 S217 78 238 80 
 const CONVERSION_PATH = "M12 149 C60 144 80 137 112 141 S166 118 198 121 S245 98 270 99 S315 70 345 56";
 const TACOS_PATH = "M12 42 C50 39 65 62 99 59 S157 80 180 76 S222 102 251 100 S303 131 345 138";
 
-function PerformanceGraph({ de }: { de: boolean }) {
+function PerformanceGraph() {
   const id = useId();
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { amount: 0.2 });
-  const [paused, setPaused] = useState(false);
-  return <>
-    <div ref={ref} className={styles.graph} data-draw={inView} data-paused={paused}>
-      <svg viewBox="0 0 360 160" className={styles.graphSvg} fill="none" aria-hidden="true">
+  return (
+    <div className={styles.graph}>
+      <svg viewBox="0 0 368 166" className={styles.graphSvg} fill="none" aria-hidden="true">
         <defs>
-          <clipPath id={id+"reveal"} clipPathUnits="userSpaceOnUse">
-            <rect className={styles.reveal} width="360" height="160" />
-          </clipPath>
-          <linearGradient id={id+"fill"} x1="0" y1="0" x2="0" y2="1"><stop stopColor="#40edc3" stopOpacity=".28"/><stop offset="1" stopColor="#40edc3" stopOpacity="0"/></linearGradient>
-          <radialGradient id={id+"burst"}><stop stopColor="#54ffd9" stopOpacity=".36"/><stop offset="1" stopColor="#0e324a" stopOpacity="0"/></radialGradient>
-          <filter id={id+"glow"} x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+          <radialGradient id={id}>
+            <stop stopColor="#49f4c6" stopOpacity=".26" />
+            <stop offset=".45" stopColor="#49f4c6" stopOpacity=".09" />
+            <stop offset="1" stopColor="#49f4c6" stopOpacity="0" />
+          </radialGradient>
         </defs>
-        {[38,76,114,152].map(y=><path key={y} d={`M12 ${y} H350`} stroke="white" strokeOpacity=".07"/>)}
-        {[56,112,168,224,280,336].map(x=><path key={x} d={`M${x} 20 V152`} stroke="white" strokeOpacity=".04"/>)}
-        <ellipse cx="308" cy="42" rx="85" ry="68" fill={`url(#${id}burst)`}/>
-        <g clipPath={`url(#${id}reveal)`} className={styles.curves}>
-          <path d={CTR_PATH+" V154 H12 Z"} fill={`url(#${id}fill)`} />
-          <path d={CTR_PATH} stroke="#49f4c6" strokeWidth="7" opacity=".3" filter={`url(#${id}glow)`} />
-          <g strokeLinecap="round">
-            <path d={CTR_PATH} stroke="#49f4c6" strokeWidth="2.8" />
-            <path d={CONVERSION_PATH} stroke="#4ebcff" strokeWidth="2" />
-            <path d={TACOS_PATH} stroke="#ffad68" strokeWidth="2" strokeDasharray="5 4" />
-          </g>
+        {[38, 76, 114, 152].map(y => <path key={y} d={`M12 ${y} H350`} stroke="white" strokeOpacity=".07" />)}
+        {[56, 112, 168, 224, 280, 336].map(x => <path key={x} d={`M${x} 20 V152`} stroke="white" strokeOpacity=".04" />)}
+        <ellipse cx="330" cy="27" rx="36" ry="25" fill={`url(#${id})`} />
+        <g strokeLinecap="round">
+          <path d={CTR_PATH} stroke="#49f4c6" strokeWidth="2.8" />
+          <path d={CONVERSION_PATH} stroke="#4ebcff" strokeWidth="2" />
+          <path d={TACOS_PATH} stroke="#ffad68" strokeWidth="2" strokeDasharray="5 4" />
         </g>
       </svg>
     </div>
-    <button type="button" className={`${styles.pause} ${styles.graphPause}`} aria-pressed={paused} onClick={()=>setPaused(p=>!p)} aria-label={paused?(de?"Diagrammanimation fortsetzen":"Resume chart animation"):(de?"Diagrammanimation pausieren":"Pause chart animation")}>{paused?"▶":"Ⅱ"}</button>
-  </>;
+  );
 }
+
 // Change playback rate in place so entering or leaving never jumps to another image.
 function setPreviewSpeed(preview: HTMLElement, rate: number) {
   for (const track of preview.querySelectorAll<HTMLElement>(`.${styles.track}`)) {
@@ -76,31 +67,32 @@ export function ServiceVisual({ index, sprache }: { index: number; sprache: Spra
     </div>
   );
   return (
-    <div className={styles.visual} role={index === 0 ? "group" : "img"} aria-label={[
+    <div className={styles.visual} role="img" aria-label={[
       de?"Schematische PPC-Performance: CTR und Conversion steigen, TACoS sinkt":"Illustrative PPC performance: CTR and conversion rise, TACoS falls",
       "",
       de?"Schematischer Amazon-Supportfall: Listing korrigiert und Fall gelöst":"Illustrative Amazon support ticket: listing corrected and case resolved",
       de?"Vernetzte Amazon-Marktplätze in Pan-EU und den USA":"Connected Amazon marketplaces in Pan-EU and the US",
-      de?"Spielraum für Deals: Produktkosten, Gebühren und Marge im Verkaufspreis":"Room for discounts: product costs, fees and margin within the selling price",
+      de?"Sortimentsstrategie: Kaffeefilter und Kanne als Einzelprodukte und zusammen als Starterset":"Assortment strategy: a coffee dripper and carafe sold individually and together as a starter set",
     ][index]}>
-      <span className={styles.ambient} aria-hidden="true" />
+      {index === 2 && <span className={styles.ambient} aria-hidden="true" />}
       {index===0 && <>
         <div className={styles.legend}><span className={styles.green}>↗ CTR</span><span className={styles.blue}>↗ Conversion</span><span className={styles.orange}>↘ TACoS</span></div>
-        <PerformanceGraph de={de}/>
+        <PerformanceGraph />
       </>}
       {index===2 && <SupportTicket de={de}/>}
-      {index===3 && <Image src="/bilder/services/market-relief.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marketMap}/>}
-      {index===4 && <>
-        <Image src="/bilder/services/deal-margin.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marginModel} />
-        <div className={styles.marginKey} aria-hidden="true">
-          <strong>{de ? "Spielraum für Deals" : "Room for discounts"}</strong>
-          <ul>
-            <li>{de ? "Produktkosten" : "Product costs"}</li>
-            <li>{de ? "Gebühren" : "Fees"}</li>
-            <li>{de ? "Marge" : "Margin"}</li>
-          </ul>
+      {index===3 && <Image src="/bilder/services/market-cutout.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marketMap}/>}
+      {index === 4 && (
+        <div className={styles.bundlePlan} aria-hidden="true">
+          <div className={styles.bundleArt}>
+            <Image src="/bilder/services/assortment-bundle.webp" alt="" fill sizes="(min-width: 400px) 360px, 90vw" />
+          </div>
+          <div className={styles.bundleLabels}>
+            <span>{de ? "Einzelprodukte" : "Individual products"}</span>
+            <span className={styles.bundleArrow}>→</span>
+            <strong>{de ? "Starterset" : "Starter set"}</strong>
+          </div>
         </div>
-      </>}
+      )}
     </div>
   );
 }
