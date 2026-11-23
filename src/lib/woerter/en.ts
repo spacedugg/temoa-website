@@ -52,7 +52,7 @@ export const en: Woerterbuch = {
       alle: "See all services",
       komplett: {
         "label": "Full Service",
-        "titel": "One dedicated contact.",
+        "titel": "one dedicated contact",
         "text": "One shared plan for PPC, content, account management, international marketplaces and strategy.",
         "zusage": "All five areas in one partnership.",
         "link": "Explore Full Service",
