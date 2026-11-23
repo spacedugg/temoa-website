@@ -9,6 +9,24 @@ const CTR_PATH = "M12 140 C55 141 62 115 96 120 S145 100 172 104 S217 78 238 80 
 const CONVERSION_PATH = "M12 149 C60 144 80 137 112 141 S166 118 198 121 S245 98 270 99 S315 70 345 56";
 const TACOS_PATH = "M12 42 C50 39 65 62 99 59 S157 80 180 76 S222 102 251 100 S303 131 345 138";
 
+const serviceIllustrations = {
+  2: {
+    file: "offer-history",
+    de: "Beispielhafter Angebotsverlauf von 8 bis 16 Uhr: Das Angebot bleibt kaufbar. Die Buy Box geht um 11:05 Uhr verloren und ist ab 12:40 Uhr zurück.",
+    en: "Example offer history from 08:00 to 16:00: the offer stays available. The Buy Box is lost at 11:05 and regained at 12:40.",
+  },
+  3: {
+    file: "europe-markets",
+    de: "Amazon-Marktplätze: Belgien, Deutschland, Frankreich, Irland, Italien, die Niederlande, Polen, Schweden, Spanien, die Türkei und das Vereinigte Königreich sind orange markiert. Die USA sind separat dargestellt.",
+    en: "Amazon marketplaces: Belgium, France, Germany, Ireland, Italy, the Netherlands, Poland, Spain, Sweden, Turkey and the United Kingdom are highlighted in orange. The US is shown separately.",
+  },
+  4: {
+    file: "market-pricing",
+    de: "Beispiel einer Preispositionierung: Das eigene Angebot liegt mit 39,90 Euro über dem Marktmedian von 34,90 Euro.",
+    en: "Example price positioning: the seller’s offer at €39.90 is above the market median of €34.90.",
+  },
+} as const;
+
 function PerformanceGraph() {
   const id = useId();
   return (
@@ -66,42 +84,30 @@ export function ServiceVisual({ index, sprache }: { index: number; sprache: Spra
       <button type="button" aria-pressed={paused} onClick={()=>setPaused(p=>!p)} className={styles.pause} aria-label={paused ? (de?"Bildvorschau fortsetzen":"Resume image preview") : (de?"Bildvorschau pausieren":"Pause image preview")}>{paused ? "▶" : "Ⅱ"}</button>
     </div>
   );
+  if (index === 2 || index === 3 || index === 4) {
+    const illustration = serviceIllustrations[index];
+    return (
+      <div className={styles.illustration}>
+        <Image
+          src={`/bilder/services/${illustration.file}-${sprache}.webp`}
+          alt={illustration[sprache]}
+          width={1170}
+          height={558}
+          unoptimized
+          className={styles.artwork}
+        />
+      </div>
+    );
+  }
+  if (index !== 0) return null;
   return (
-    <div className={styles.visual} role="img" aria-label={[
-      de?"Schematische PPC-Performance: CTR und Conversion steigen, TACoS sinkt":"Illustrative PPC performance: CTR and conversion rise, TACoS falls",
-      "",
-      de?"Schematischer Amazon-Supportfall: Listing korrigiert und Fall gelöst":"Illustrative Amazon support ticket: listing corrected and case resolved",
-      de?"Vernetzte Amazon-Marktplätze in Pan-EU und den USA":"Connected Amazon marketplaces in Pan-EU and the US",
-      de?"Sortimentsstrategie: Kaffeefilter und Kanne als Einzelprodukte und zusammen als Starterset":"Assortment strategy: a coffee dripper and carafe sold individually and together as a starter set",
-    ][index]}>
-      {index === 2 && <span className={styles.ambient} aria-hidden="true" />}
-      {index===0 && <>
-        <div className={styles.legend}><span className={styles.green}>↗ CTR</span><span className={styles.blue}>↗ Conversion</span><span className={styles.orange}>↘ TACoS</span></div>
-        <PerformanceGraph />
-      </>}
-      {index===2 && <SupportTicket de={de}/>}
-      {index===3 && <Image src="/bilder/services/market-cutout.webp" alt="" fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className={styles.marketMap}/>}
-      {index === 4 && (
-        <div className={styles.bundlePlan} aria-hidden="true">
-          <div className={styles.bundleArt}>
-            <Image src="/bilder/services/assortment-bundle.webp" alt="" fill sizes="(min-width: 400px) 360px, 90vw" />
-          </div>
-          <div className={styles.bundleLabels}>
-            <span>{de ? "Einzelprodukte" : "Individual products"}</span>
-            <span className={styles.bundleArrow}>→</span>
-            <strong>{de ? "Starterset" : "Starter set"}</strong>
-          </div>
-        </div>
-      )}
+    <div
+      className={styles.visual}
+      role="img"
+      aria-label={de ? "Schematische PPC-Performance: CTR und Conversion steigen, TACoS sinkt" : "Illustrative PPC performance: CTR and conversion rise, TACoS falls"}
+    >
+      <div className={styles.legend}><span className={styles.green}>↗ CTR</span><span className={styles.blue}>↗ Conversion</span><span className={styles.orange}>↘ TACoS</span></div>
+      <PerformanceGraph />
     </div>
   );
-}
-
-function SupportTicket({ de }: { de: boolean }) {
-  return <div className={styles.ticket} aria-hidden="true">
-    <div className={styles.ticketHeader}><span className={styles.ticketIcon}>↗</span><div><strong>Amazon Seller Support</strong><small>{de?"Katalog & Listing":"Catalog & listing"}</small></div><span className={styles.resolved}>✓ {de?"Gelöst":"Resolved"}</span></div>
-    <div className={styles.message}><span className={styles.avatar}>t</span><div><b>temoa</b><p>{de?"Bitte die Produktvariante korrekt zuordnen.":"Please correct the product variation."}</p></div></div>
-    <div className={styles.reply}><span>✓</span><div><b>Amazon Support</b><p>{de?"Die Zuordnung wurde korrigiert.":"The variation has been corrected."}</p></div></div>
-    <div className={styles.ticketFooter}><span className={styles.green}>● {de?"Listing aktualisiert":"Listing updated"}</span><span>temoa ↔ Amazon</span></div>
-  </div>;
 }
