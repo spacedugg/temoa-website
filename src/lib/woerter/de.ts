@@ -54,7 +54,7 @@ export const de = {
       alle: "Alle Leistungen ansehen",
       komplett: {
         "label": "Full Service",
-        "titel": "ein fester Ansprechpartner",
+        "titel": "ein Ansprechpartner",
         "text": "Ein gemeinsamer Plan für PPC, Content, Account Management, internationale Marktplätze und Strategie.",
         "zusage": "Alle fünf Bereiche in einer Betreuung.",
         "link": "Full Service kennenlernen",
