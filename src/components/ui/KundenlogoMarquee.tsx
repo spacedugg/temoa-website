@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { kundenlogoZeilen } from "@/lib/marken";
+import { kundenlogoZeilen, startseitenLogoZeilen } from "@/lib/marken";
 
 const bewegung = [
   { animationDuration: "54s", animationDelay: "-0.9s" },
@@ -12,7 +12,16 @@ const bewegung = [
 ];
 const maske = "linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent)";
 
-export function KundenlogoMarquee({ logoAlt, dunkel = false }: { logoAlt: string; dunkel?: boolean }) {
+export function KundenlogoMarquee({
+  logoAlt,
+  dunkel = false,
+  startseite = false,
+}: {
+  logoAlt: string;
+  dunkel?: boolean;
+  startseite?: boolean;
+}) {
+  const zeilen = startseite ? startseitenLogoZeilen : kundenlogoZeilen;
   const band = useRef<HTMLDivElement>(null);
   const [sichtbar, setSichtbar] = useState(false);
 
@@ -35,7 +44,7 @@ export function KundenlogoMarquee({ logoAlt, dunkel = false }: { logoAlt: string
 
   return (
     <div ref={band} className="space-y-6" data-kundenlogos>
-      {kundenlogoZeilen.map((zeile, index) => (
+      {zeilen.map((zeile, index) => (
         <div
           key={zeile[0].marke}
           className="overflow-hidden [container-type:inline-size]"
