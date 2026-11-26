@@ -5,10 +5,11 @@ import Image from "next/image";
 import clsx from "clsx";
 import { kundenlogoZeilen } from "@/lib/marken";
 
+// Distances are measured in logo slots so longer rows do not cancel out speed differences.
 const bewegung = [
-  { animationDuration: "54s", animationDelay: "-0.9s" },
-  { animationDuration: "68s", animationDelay: "-2.6s" },
-  { animationDuration: "61s", animationDelay: "-4.7s" },
+  { sekundenProLogo: 7.5, startversatz: 0.08 },
+  { sekundenProLogo: 11.5, startversatz: 0.35 },
+  { sekundenProLogo: 9, startversatz: 0.63 },
 ];
 const maske = "linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent)";
 
@@ -38,7 +39,7 @@ export function KundenlogoMarquee({ logoAlt, dunkel = false }: { logoAlt: string
   }, []);
 
   return (
-    <div ref={band} className="space-y-8" data-kundenlogos>
+    <div ref={band} className="space-y-[22px]" data-kundenlogos>
       {kundenlogoZeilen.map((zeile, index) => (
         <div
           key={zeile[0].marke}
@@ -47,7 +48,12 @@ export function KundenlogoMarquee({ logoAlt, dunkel = false }: { logoAlt: string
         >
           <div
             className="flex w-max animate-marquee items-center motion-reduce:w-full"
-            style={{ ...bewegung[index], animationDirection: "reverse", animationPlayState: sichtbar ? "running" : "paused" }}
+            style={{
+              animationDuration: `${zeile.length * bewegung[index].sekundenProLogo}s`,
+              animationDelay: `-${(bewegung[index].sekundenProLogo * bewegung[index].startversatz).toFixed(2)}s`,
+              animationDirection: "reverse",
+              animationPlayState: sichtbar ? "running" : "paused",
+            }}
           >
             {[false, true].map((kopie) => (
               <div
