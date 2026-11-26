@@ -74,7 +74,7 @@ export function Kundenband({ w, logoAlt }: { w: W["kundenband"]; logoAlt: string
           </span>
         </div>
         <div className="mt-8">
-          <KundenlogoMarquee logoAlt={logoAlt} dunkel startseite />
+          <KundenlogoMarquee logoAlt={logoAlt} dunkel />
         </div>
       </div>
     </section>

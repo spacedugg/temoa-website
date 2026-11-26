@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import { kundenlogoZeilen, startseitenLogoZeilen } from "@/lib/marken";
+import { kundenlogoZeilen } from "@/lib/marken";
 
 const bewegung = [
   { animationDuration: "54s", animationDelay: "-0.9s" },
@@ -12,16 +12,11 @@ const bewegung = [
 ];
 const maske = "linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 16px), transparent)";
 
-export function KundenlogoMarquee({
-  logoAlt,
-  dunkel = false,
-  startseite = false,
-}: {
-  logoAlt: string;
-  dunkel?: boolean;
-  startseite?: boolean;
-}) {
-  const zeilen = startseite ? startseitenLogoZeilen : kundenlogoZeilen;
+// A loop is at least one viewport and one logo wide, so two copies never overlap in view.
+const kuerzesteZeile = Math.min(...kundenlogoZeilen.map((zeile) => zeile.length));
+const logoSchritt = `max(12rem, calc((100cqw + 16rem) / ${kuerzesteZeile}))`;
+
+export function KundenlogoMarquee({ logoAlt, dunkel = false }: { logoAlt: string; dunkel?: boolean }) {
   const band = useRef<HTMLDivElement>(null);
   const [sichtbar, setSichtbar] = useState(false);
 
@@ -43,8 +38,8 @@ export function KundenlogoMarquee({
   }, []);
 
   return (
-    <div ref={band} className="space-y-6" data-kundenlogos>
-      {zeilen.map((zeile, index) => (
+    <div ref={band} className="space-y-8" data-kundenlogos>
+      {kundenlogoZeilen.map((zeile, index) => (
         <div
           key={zeile[0].marke}
           className="overflow-hidden [container-type:inline-size]"
@@ -59,40 +54,45 @@ export function KundenlogoMarquee({
                 key={String(kopie)}
                 aria-hidden={kopie || undefined}
                 className={clsx(
-                  "flex min-w-[calc(100cqw_+_16rem)] shrink-0 items-center justify-between gap-3 pl-4 pr-3 md:gap-12 md:pl-8 md:pr-4",
-                  kopie ? "motion-reduce:hidden" : "motion-reduce:w-full motion-reduce:min-w-0 motion-reduce:flex-wrap motion-reduce:justify-center motion-reduce:px-6"
+                  "flex shrink-0 items-center",
+                  kopie ? "motion-reduce:hidden" : "motion-reduce:w-full motion-reduce:flex-wrap motion-reduce:justify-center"
                 )}
               >
                 {zeile.map((logo) => (
                   <div
                     key={logo.marke}
-                    className={clsx(
-                      "group/logo relative shrink-0 rounded-sm transition duration-300 hover:opacity-100",
-                      logo.gross ? "h-[4.5rem] w-56 md:h-20 md:w-64" : "h-9 w-28 md:h-10 md:w-32",
-                      dunkel ? "opacity-70 hover:bg-white/95" : "opacity-60"
-                    )}
+                    style={{ width: logoSchritt }}
+                    className="flex h-[4.5rem] shrink-0 items-center justify-center motion-reduce:!w-[9rem] md:h-20 md:motion-reduce:!w-[13rem]"
                   >
-                    <Image
-                      src={logo.datei}
-                      alt={kopie ? "" : logoAlt.replace("{marke}", logo.marke)}
-                      fill
-                      sizes={logo.gross ? "(min-width: 768px) 256px, 224px" : "128px"}
+                    <div
                       className={clsx(
-                        "object-contain transition duration-300 group-hover/logo:opacity-100 group-hover/logo:filter-none",
-                        dunkel
-                          ? logo.weiss ? "opacity-0" : logo.graustufenAufDunkel ? "grayscale invert" : "brightness-0 invert"
-                          : "grayscale"
+                        "group/logo relative max-w-full transition duration-300 hover:opacity-100",
+                        logo.gross ? "h-[4.5rem] w-56 md:h-20 md:w-64" : "h-9 w-28 md:h-10 md:w-32",
+                        dunkel ? "opacity-70" : "opacity-60"
                       )}
-                    />
-                    {dunkel && logo.weiss && (
+                    >
                       <Image
-                        src={logo.weiss}
-                        alt=""
+                        src={logo.datei}
+                        alt={kopie ? "" : logoAlt.replace("{marke}", logo.marke)}
                         fill
                         sizes={logo.gross ? "(min-width: 768px) 256px, 224px" : "128px"}
-                        className="object-contain transition duration-300 group-hover/logo:opacity-0"
+                        className={clsx(
+                          "object-contain transition duration-300 group-hover/logo:opacity-100 group-hover/logo:filter-none",
+                          dunkel
+                            ? logo.weiss ? "opacity-0" : logo.graustufenAufDunkel ? "grayscale invert" : "brightness-0 invert"
+                            : "grayscale"
+                        )}
                       />
-                    )}
+                      {dunkel && logo.weiss && (
+                        <Image
+                          src={logo.weiss}
+                          alt=""
+                          fill
+                          sizes={logo.gross ? "(min-width: 768px) 256px, 224px" : "128px"}
+                          className="object-contain transition duration-300 group-hover/logo:opacity-0"
+                        />
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
