@@ -19,7 +19,7 @@ import { initials, type Testimonial } from "@/lib/testimonials";
 import { pfad, type Sprache } from "@/lib/i18n";
 import type { Woerterbuch } from "@/lib/woerter";
 import { klein } from "@/lib/bilder";
-import { kundenlogos } from "@/lib/marken";
+import { KundenlogoMarquee } from "../ui/KundenlogoMarquee";
 
 /* Die Copy dieser Sektionen kommt aus dem Woerterbuch und wird von der Seite
    als Prop uebergeben. Die Sektionen laufen im Browser; wuerden sie das
@@ -34,71 +34,6 @@ type W = Woerterbuch["start"];
    Kundenband. Zwei dünne Bänder von vorher zu einem verschmolzen:
    Logos und die beiden verbliebenen Kennzahlen.
    ============================================================ */
-
-/* Die Startseite und der Case-Studies-Streifen verwenden dieselbe Liste. */
-const logos = kundenlogos.map((l) => ({
-  src: l.weiss ?? l.datei,
-  filter: l.weiss ? "" : l.graustufenAufDunkel ? "grayscale invert" : "brightness-0 invert",
-  marke: l.marke,
-}));
-const rowBreak = Math.ceil(logos.length / 2);
-const logoRows = [logos.slice(0, rowBreak), logos.slice(rowBreak)];
-
-type Logo = (typeof logos)[number];
-
-function LogoRow({
-  row,
-  duration,
-  reverse,
-  altMuster,
-}: {
-  row: Logo[];
-  duration: number;
-  reverse?: boolean;
-  /** „Logo der Marke {marke}", aus dem Woerterbuch. */
-  altMuster: string;
-}) {
-  /* Die Kanten laufen ueber eine Maske aus, nicht ueber zwei Verlaufsflaechen
-     in der Farbe des Grundes. Der Grund ist ein Verlauf: eine einzelne Farbe
-     daruebergelegt trifft ihn nie genau und zeichnet eine Kante. */
-  const maske =
-    "linear-gradient(to right, transparent 0, #000 4rem, #000 calc(100% - 4rem), transparent 100%)";
-  return (
-    <div
-      className="relative overflow-hidden"
-      style={{ maskImage: maske, WebkitMaskImage: maske }}
-    >
-      <div
-        className="flex w-max animate-marquee items-center gap-14 md:gap-20"
-        style={{ animationDuration: `${duration}s`, animationDirection: reverse ? "reverse" : "normal" }}
-      >
-        {/* Das Band laeuft endlos, deshalb steht jede Reihe zweimal da. Die
-            zweite Haelfte ist dieselbe Sache noch einmal: sie traegt
-            `aria-hidden`, damit ein Vorleseprogramm die Marken nicht
-            doppelt ansagt. Der Alternativtext steht trotzdem an beiden, sonst
-            liest eine Suchmaschine die Bilder ohne Beschreibung. */}
-        {[...row, ...row].map((l, i) => (
-          <div
-            key={`${l.src}-${i}`}
-            aria-hidden={i >= row.length || undefined}
-            className={clsx(
-              "relative h-9 w-28 shrink-0 opacity-70 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
-              l.filter
-            )}
-          >
-            <Image
-              src={l.src}
-              alt={altMuster.replace("{marke}", l.marke)}
-              fill
-              sizes="128px"
-              className="object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 /**
  * Kundenband.
@@ -138,9 +73,8 @@ export function Kundenband({ w, logoAlt }: { w: W["kundenband"]; logoAlt: string
             </span>
           </span>
         </div>
-        <div className="mt-8 space-y-6">
-          <LogoRow row={logoRows[0]} duration={58} altMuster={logoAlt} />
-          <LogoRow row={logoRows[1]} duration={72} reverse altMuster={logoAlt} />
+        <div className="mt-8">
+          <KundenlogoMarquee logoAlt={logoAlt} dunkel />
         </div>
       </div>
     </section>

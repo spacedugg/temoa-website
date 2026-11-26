@@ -27,44 +27,30 @@ export type Kundenlogo = {
   graustufenAufDunkel?: boolean;
 };
 
-const NAMEN = [
-  "Kijimea",
-  "Nicotinell",
-  "Heldengrün",
-  "Bachgold",
-  "Juskys",
-  "HECHT",
-  "TRUE NATURE",
-  "BIG DEAN",
-  "uandu",
-  "Vitaworld",
-  "mypuzzle.com",
-  "Shape Republic",
-  "zooprinz",
-  "FAIRMO",
+export const kundenlogoZeilen: Kundenlogo[][] = [
+  [
+    { marke: "Kaufmann’s", datei: "/clients/kaufmanns.webp" },
+    { marke: "Juskys", datei: "/clients/5.webp" },
+    { marke: "TRUE NATURE", datei: "/clients/7.webp" },
+    { marke: "Nicotinell", datei: "/clients/2.webp", weiss: "/clients/2-weiss.webp" },
+    { marke: "mypuzzle.com", datei: "/clients/11.webp" },
+  ],
+  [
+    { marke: "Dr. Paul Koch", datei: "/clients/dr-paul-koch.webp", graustufenAufDunkel: true },
+    { marke: "Kijimea", datei: "/clients/1.webp", weiss: "/clients/1-weiss.webp" },
+    { marke: "uandu", datei: "/clients/9.webp" },
+    { marke: "Bachgold", datei: "/clients/4.webp" },
+    { marke: "Vitaworld", datei: "/clients/10.webp" },
+    { marke: "Shape Republic", datei: "/clients/12.webp" },
+  ],
+  [
+    { marke: "Deuser", datei: "/clients/deuser.webp" },
+    { marke: "HECHT", datei: "/clients/6.webp" },
+    { marke: "BIG DEAN", datei: "/clients/8.webp" },
+    { marke: "FAIRMO", datei: "/clients/14.webp" },
+    { marke: "Heldengrün", datei: "/clients/3.webp" },
+    { marke: "zooprinz", datei: "/clients/13.webp" },
+  ],
 ];
 
-/* Kijimea steht in einem gefuellten Rechteck, Nicotinell in einer Ellipse. */
-const KNOCKOUT = new Set([1, 2]);
-
-/* Ein Logo gehoert freigestellt ins Verzeichnis, nicht als schwarzer Zug auf
-   weissem Grund: der Filter macht daraus sonst eine weisse Flaeche, in der
-   die Marke verschwindet. Nummer 7 kam so und ist mit
-   `node scripts/marke-freistellen.mjs fotos-original/clients/7.png
-   public/clients/7.webp --dunkel` freigestellt worden. Wer ein Logo tauscht,
-   prueft vorher, ob die Datei einen Alphakanal hat. */
-
-const nummerierteLogos: Kundenlogo[] = NAMEN.map((marke, i) => {
-  const n = i + 1;
-  return {
-    marke,
-    datei: `/clients/${n}.webp`,
-    ...(KNOCKOUT.has(n) && { weiss: `/clients/${n}-weiss.webp` }),
-  };
-});
-
-export const kundenlogos: Kundenlogo[] = [
-  ...nummerierteLogos,
-  { marke: "Kaufmann’s", datei: "/clients/kaufmanns.webp" },
-  { marke: "Dr. Paul Koch", datei: "/clients/dr-paul-koch.webp", graustufenAufDunkel: true },
-];
+export const kundenlogos = kundenlogoZeilen.flat();
