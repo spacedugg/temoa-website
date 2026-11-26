@@ -26,12 +26,10 @@ export type Kundenlogo = {
   /** Erhaelt bei mehrfarbigen Bildmarken die Kontraste auf dunklem Grund. */
   graustufenAufDunkel?: boolean;
   gross?: boolean;
-  nurErgebnisse?: boolean;
 };
 
 export const kundenlogoZeilen: Kundenlogo[][] = [
   [
-    { marke: "Deuser", datei: "/clients/deuser.webp", nurErgebnisse: true },
     { marke: "Juskys", datei: "/clients/5.webp" },
     { marke: "Nicotinell", datei: "/clients/2.webp", weiss: "/clients/2-weiss.webp", gross: true },
     { marke: "mypuzzle.com", datei: "/clients/11.webp" },
@@ -56,7 +54,3 @@ export const kundenlogoZeilen: Kundenlogo[][] = [
 ];
 
 export const kundenlogos = kundenlogoZeilen.flat();
-
-export const startseitenLogoZeilen = kundenlogoZeilen.map((zeile) =>
-  zeile.filter((logo) => !logo.nurErgebnisse)
-);
