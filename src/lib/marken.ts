@@ -25,30 +25,31 @@ export type Kundenlogo = {
   weiss?: string;
   /** Erhaelt bei mehrfarbigen Bildmarken die Kontraste auf dunklem Grund. */
   graustufenAufDunkel?: boolean;
+  gross?: boolean;
 };
 
 export const kundenlogoZeilen: Kundenlogo[][] = [
   [
-    { marke: "Kaufmann’s", datei: "/clients/kaufmanns.webp" },
+    { marke: "Deuser", datei: "/clients/deuser.webp" },
     { marke: "Juskys", datei: "/clients/5.webp" },
-    { marke: "TRUE NATURE", datei: "/clients/7.webp" },
-    { marke: "Nicotinell", datei: "/clients/2.webp", weiss: "/clients/2-weiss.webp" },
+    { marke: "Nicotinell", datei: "/clients/2.webp", weiss: "/clients/2-weiss.webp", gross: true },
     { marke: "mypuzzle.com", datei: "/clients/11.webp" },
+    { marke: "BIG DEAN", datei: "/clients/8.webp" },
+    { marke: "Heldengrün", datei: "/clients/3.webp" },
   ],
   [
+    { marke: "TRUE NATURE", datei: "/clients/7.webp" },
+    { marke: "Kaufmann’s", datei: "/clients/kaufmanns.webp" },
     { marke: "Dr. Paul Koch", datei: "/clients/dr-paul-koch.webp", graustufenAufDunkel: true },
-    { marke: "Kijimea", datei: "/clients/1.webp", weiss: "/clients/1-weiss.webp" },
     { marke: "uandu", datei: "/clients/9.webp" },
     { marke: "Bachgold", datei: "/clients/4.webp" },
-    { marke: "Vitaworld", datei: "/clients/10.webp" },
     { marke: "Shape Republic", datei: "/clients/12.webp" },
   ],
   [
-    { marke: "Deuser", datei: "/clients/deuser.webp" },
+    { marke: "Kijimea", datei: "/clients/1.webp", weiss: "/clients/1-weiss.webp" },
     { marke: "HECHT", datei: "/clients/6.webp" },
-    { marke: "BIG DEAN", datei: "/clients/8.webp" },
     { marke: "FAIRMO", datei: "/clients/14.webp" },
-    { marke: "Heldengrün", datei: "/clients/3.webp" },
+    { marke: "Vitaworld", datei: "/clients/10.webp" },
     { marke: "zooprinz", datei: "/clients/13.webp" },
   ],
 ];
