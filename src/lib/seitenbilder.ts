@@ -1,7 +1,7 @@
 import { cases, type CaseStudy } from "./cases";
 import { getAllPosts } from "./blog";
 import { STANDARD } from "./i18n";
-import { kundenlogos } from "./marken";
+import { kundenlogos, startseitenLogoZeilen } from "./marken";
 
 /* ============================================================
    Welche Bilder auf welcher Seite stehen.
@@ -80,7 +80,7 @@ const FESTE_SEITEN: Record<string, string[]> = {
     "/bilder/n-ursache.webp",
     "/bilder/n-organic.webp",
     "/bilder/n-leistungen.webp",
-    ...kundenlogos.map((logo) => logo.weiss ?? logo.datei),
+    ...startseitenLogoZeilen.flat().map((logo) => logo.weiss ?? logo.datei),
     ...MIGANEO_LISTING,
     "/team/Main.webp",
     ...TEAM,
