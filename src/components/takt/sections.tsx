@@ -35,28 +35,14 @@ type W = Woerterbuch["start"];
    Logos und die beiden verbliebenen Kennzahlen.
    ============================================================ */
 
-/* Alle vierzehn Logos stehen als weisse Silhouetten auf dem Navy. Zwoelf sind
-   dunkle Schriftzuege auf transparentem Grund, bei denen `brightness-0 invert`
-   genau das ergibt.
-
-   Zwei sind „Knockout": der Schriftzug steht weiss in einer gefuellten
-   farbigen Flaeche (Kijimea in einem Rechteck, Nicotinell in einer Ellipse).
-   Dasselbe Rezept macht daraus einen weissen Klecks, und in ihrer eigenen
-   Farbe stehen zu lassen ist auch keine Loesung: dann sind zwei von vierzehn
-   blau. `scripts/logos-knockout.mjs` dreht sie um, die Helligkeit wird zur
-   Deckkraft, und liefert `1-weiss.webp` und `2-weiss.webp`. Die kommen fertig
-   weiss aus der Datei und brauchen keinen Filter. */
-/* Namen und Dateien stehen in `lib/marken`, dieselbe Liste traegt den
-   Streifen auf der Seite Case Studies. Auf dem dunklen Grund stehen alle
-   vierzehn als weisse Silhouetten: zwoelf sind dunkle Schriftzuege auf
-   transparentem Grund, bei denen `brightness-0 invert` genau das ergibt, zwei
-   kommen fertig weiss aus der Datei (siehe `lib/marken`). */
+/* Die Startseite und der Case-Studies-Streifen verwenden dieselbe Liste. */
 const logos = kundenlogos.map((l) => ({
   src: l.weiss ?? l.datei,
-  knockout: !!l.weiss,
+  filter: l.weiss ? "" : l.graustufenAufDunkel ? "grayscale invert" : "brightness-0 invert",
   marke: l.marke,
 }));
-const logoRows = [logos.slice(0, 7), logos.slice(7, 14)];
+const rowBreak = Math.ceil(logos.length / 2);
+const logoRows = [logos.slice(0, rowBreak), logos.slice(rowBreak)];
 
 type Logo = (typeof logos)[number];
 
@@ -88,16 +74,16 @@ function LogoRow({
       >
         {/* Das Band laeuft endlos, deshalb steht jede Reihe zweimal da. Die
             zweite Haelfte ist dieselbe Sache noch einmal: sie traegt
-            `aria-hidden`, damit ein Vorleseprogramm die vierzehn Marken nicht
+            `aria-hidden`, damit ein Vorleseprogramm die Marken nicht
             doppelt ansagt. Der Alternativtext steht trotzdem an beiden, sonst
-            liest eine Suchmaschine vierzehn Bilder ohne Beschreibung. */}
+            liest eine Suchmaschine die Bilder ohne Beschreibung. */}
         {[...row, ...row].map((l, i) => (
           <div
             key={`${l.src}-${i}`}
             aria-hidden={i >= row.length || undefined}
             className={clsx(
-              "relative h-9 w-28 shrink-0 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
-              l.knockout ? "opacity-70" : "opacity-70 brightness-0 invert"
+              "relative h-9 w-28 shrink-0 opacity-70 transition duration-300 hover:opacity-100 md:h-10 md:w-32",
+              l.filter
             )}
           >
             <Image
@@ -121,8 +107,7 @@ function LogoRow({
  * Platte auf getoentem Grund, dann derselbe helle Ton wie der Hero darueber.
  * Der letzte Fehler war der schwerste: Hero und Kundenband gingen ineinander
  * ueber, der Hero hatte damit keine Unterkante. Jetzt traegt das Band Navy.
- * Damit endet der Hero sichtbar, und die Logos stehen als weisse Silhouetten
- * darauf, alle vierzehn im selben Ton.
+ * Damit endet der Hero sichtbar, und die Logos stehen monochrom darauf.
  *
  * Rot waere der noch staerkere Kontrast, ist hier aber falsch: Rot ist auf
  * dieser Website die Farbe fuer Probleme, und das hier sind die Kunden.

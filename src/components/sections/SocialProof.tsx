@@ -6,7 +6,7 @@ import { kundenlogos } from "@/lib/marken";
 /* ============================================================
    Der Logostreifen auf der Seite Case Studies.
 
-   Er zeigt dieselben vierzehn Marken wie das Band der Startseite, nur auf
+   Er zeigt dieselben Marken wie das Band der Startseite, nur auf
    hellem Grund und in Graustufen. Die Liste kommt aus `lib/marken`, damit
    beide Stellen nicht auseinanderlaufen.
 
@@ -39,7 +39,7 @@ export function ProofStrip({ logoAlt }: { logoAlt: string }) {
           >
             {/* Zweimal dieselbe Reihe, damit das Band endlos laeuft. Die
                 zweite Haelfte traegt `aria-hidden`, sonst sagt ein
-                Vorleseprogramm die vierzehn Marken doppelt an. */}
+                Vorleseprogramm die Marken doppelt an. */}
             {[...kundenlogos, ...kundenlogos].map((l, i) => (
               <div
                 key={`${l.datei}-${i}`}

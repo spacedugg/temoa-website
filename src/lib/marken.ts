@@ -1,5 +1,5 @@
 /* ============================================================
-   Die vierzehn Kundenlogos.
+   Die Kundenlogos.
 
    Namen und Dateien stehen hier zusammen, weil sie an zwei Stellen gebraucht
    werden: im Band der Startseite (`takt/sections`) und im Streifen auf der
@@ -7,9 +7,9 @@
    naechsten Logo auseinanderlaufen.
 
    Die Namen sind aus den gelieferten Dateien abgelesen, nicht geraten. Ohne
-   sie steht auf der Startseite ein Band aus vierzehn Bildern, zu denen die
+   sie steht auf der Startseite ein Band aus Bildern, zu denen die
    Seite nichts sagt: ein Vorleseprogramm ueberspringt sie, eine Suchmaschine
-   sieht vierzehn Dateien ohne Beschreibung.
+   sieht Dateien ohne Beschreibung.
 
    Zwei Dateien sind „Knockout": der Schriftzug steht weiss in einer gefuellten
    farbigen Flaeche. Fuer den dunklen Grund liegen sie freigestellt als
@@ -23,6 +23,8 @@ export type Kundenlogo = {
   datei: string;
   /** Die freigestellte weisse Fassung, nur bei den beiden Knockout-Logos. */
   weiss?: string;
+  /** Erhaelt bei mehrfarbigen Bildmarken die Kontraste auf dunklem Grund. */
+  graustufenAufDunkel?: boolean;
 };
 
 const NAMEN = [
@@ -52,7 +54,7 @@ const KNOCKOUT = new Set([1, 2]);
    public/clients/7.webp --dunkel` freigestellt worden. Wer ein Logo tauscht,
    prueft vorher, ob die Datei einen Alphakanal hat. */
 
-export const kundenlogos: Kundenlogo[] = NAMEN.map((marke, i) => {
+const nummerierteLogos: Kundenlogo[] = NAMEN.map((marke, i) => {
   const n = i + 1;
   return {
     marke,
@@ -60,3 +62,9 @@ export const kundenlogos: Kundenlogo[] = NAMEN.map((marke, i) => {
     ...(KNOCKOUT.has(n) && { weiss: `/clients/${n}-weiss.webp` }),
   };
 });
+
+export const kundenlogos: Kundenlogo[] = [
+  ...nummerierteLogos,
+  { marke: "Kaufmann’s", datei: "/clients/kaufmanns.webp" },
+  { marke: "Dr. Paul Koch", datei: "/clients/dr-paul-koch.webp", graustufenAufDunkel: true },
+];
