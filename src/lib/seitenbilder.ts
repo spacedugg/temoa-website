@@ -1,6 +1,7 @@
 import { cases, type CaseStudy } from "./cases";
 import { getAllPosts } from "./blog";
 import { STANDARD } from "./i18n";
+import { kundenlogos } from "./marken";
 
 /* ============================================================
    Welche Bilder auf welcher Seite stehen.
@@ -35,13 +36,6 @@ const MIGANEO_LISTING = [
   ...reihe("/bilder/miganeo", "l", 7),
   ...reihe("/bilder/miganeo", "a", 6),
 ];
-
-/* Vierzehn Kundenlogos. Zwei davon liegen zusaetzlich als weisse Fassung vor
-   (`-weiss`), weil sie als Silhouette zu einem Klecks wuerden; auf der Seite
-   steht je Marke nur eine der beiden. */
-const KUNDENLOGOS = Array.from({ length: 14 }, (_, i) =>
-  i < 2 ? `/clients/${i + 1}-weiss.webp` : `/clients/${i + 1}.webp`
-);
 
 /* Die neun Portraits der Teamreihe, in der Reihenfolge der Komponente. */
 const TEAM = [
@@ -86,7 +80,7 @@ const FESTE_SEITEN: Record<string, string[]> = {
     "/bilder/n-ursache.webp",
     "/bilder/n-organic.webp",
     "/bilder/n-leistungen.webp",
-    ...KUNDENLOGOS,
+    ...kundenlogos.map((logo) => logo.weiss ?? logo.datei),
     ...MIGANEO_LISTING,
     "/team/Main.webp",
     ...TEAM,
@@ -130,7 +124,10 @@ const FESTE_SEITEN: Record<string, string[]> = {
  */
 export function bilderDerSeite(ziel: string): string[] {
   if (ziel === "/ergebnisse") {
-    return cases.flatMap((c) => [c.bgImage, c.logo].filter((b): b is string => !!b));
+    return [...new Set([
+      ...cases.flatMap((c) => [c.bgImage, c.logo].filter((b): b is string => !!b)),
+      ...kundenlogos.map((logo) => logo.datei),
+    ])];
   }
 
   const fall = ziel.startsWith("/ergebnisse/")
